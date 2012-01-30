@@ -12,7 +12,7 @@
     <many-to-one name="team" class="com.opentravelsoft.entity.Team" fetch="select">
       <column name="TEAM_ID" />
     </many-to-one>
-    <many-to-one name="line" class="com.opentravelsoft.entity.Line" fetch="select">
+    <many-to-one name="line" class="com.opentravelsoft.entity.Line" fetch="select" lazy="false">
       <column name="LINE_NO" length="8" not-null="true" />
     </many-to-one>
     <many-to-one name="crUser" class="com.opentravelsoft.entity.Employee" fetch="select">

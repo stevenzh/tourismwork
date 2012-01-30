@@ -12,7 +12,7 @@
     <many-to-one name="team" class="com.opentravelsoft.entity.Team" fetch="select">
       <column name="TEAM_ID" not-null="true" />
     </many-to-one>
-    <many-to-one name="outCity" class="com.opentravelsoft.entity.City" fetch="select">
+    <many-to-one name="outCity" class="com.opentravelsoft.entity.City" fetch="select" lazy="proxy">
       <column name="OUT_CITY" length="4" />
     </many-to-one>
     <property name="lineName" type="string">

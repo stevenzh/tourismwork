@@ -1,36 +1,35 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.entity.vacation.FlightCyclePrice" table="tbl_flightcycleprice">
-        <id name="id" type="string">
-            <column name="ID" length="36" />
-            <generator class="assigned" />
-        </id>
-        <property name="week" type="byte">
-            <column name="Week" not-null="true" />
-        </property>
-        <property name="adultCost" type="big_decimal">
-            <column name="AdultCost" precision="9" not-null="true" />
-        </property>
-        <property name="childCost" type="big_decimal">
-            <column name="ChildCost" precision="9" not-null="true" />
-        </property>
-        <property name="adultExtendPrice" type="big_decimal">
-            <column name="AdultExtendPrice" precision="7" not-null="true" />
-        </property>
-        <property name="childExtendPrice" type="big_decimal">
-            <column name="ChildExtendPrice" precision="7" not-null="true" />
-        </property>
-        <property name="currentDate" type="timestamp">
-            <column name="CurrentDate" length="19" not-null="true" />
-        </property>
-        <property name="flightGroupId" type="string">
-            <column name="FlightGroupID" length="36" not-null="true" />
-        </property>
-        <property name="isDeleted" type="boolean">
-            <column name="IsDeleted" not-null="true" />
-        </property>
-    </class>
+  <class name="com.opentravelsoft.entity.vacation.FlightCyclePrice" table="tbl_flightcycleprice">
+    <id name="id" type="string">
+      <column name="ID" length="36" />
+      <generator class="assigned" />
+    </id>
+    <property name="week" type="byte">
+      <column name="Week" not-null="true" />
+    </property>
+    <property name="adultCost" type="big_decimal">
+      <column name="AdultCost" precision="9" not-null="true" />
+    </property>
+    <property name="childCost" type="big_decimal">
+      <column name="ChildCost" precision="9" not-null="true" />
+    </property>
+    <property name="adultExtendPrice" type="big_decimal">
+      <column name="AdultExtendPrice" precision="7" not-null="true" />
+    </property>
+    <property name="childExtendPrice" type="big_decimal">
+      <column name="ChildExtendPrice" precision="7" not-null="true" />
+    </property>
+    <property name="currentDate" type="timestamp">
+      <column name="CurrentDate" length="19" not-null="true" />
+    </property>
+    <property name="flightGroupId" type="string">
+      <column name="FlightGroupID" length="36" not-null="true" />
+    </property>
+    <property name="isDeleted" type="boolean">
+      <column name="IsDeleted" not-null="true" />
+    </property>
+  </class>
 </hibernate-mapping>

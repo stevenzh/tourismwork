@@ -9,11 +9,6 @@
   <name>tourismwork-apps</name>
   <version>1.0</version>
 
-  <organization>
-    <name>Gingkgo.org Software Foundation</name>
-    <url>http://www.opentravelsoft.com</url>
-  </organization>
-
   <modules>
     <module>portal</module>
     <module>manage</module>
