@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition xmlns="urn:jbpm.org:jpdl-3.2" name="ExpressWorkFlow">
+
+  <start-state name="填写配送单">
+    <transition name="发起配送" to="安排配送"></transition>
+  </start-state>
+
+  <task-node name="安排配送">
+    <task name="assignExpress">
+      <controller
+        class="com.opentravelsoft.workflow.express.task.AssignExpressHandler"></controller>
+    </task>
+    <transition to="判断订单来源" name="执行配送">
+    </transition>
+  </task-node>
+
+
+  <decision name="判断订单来源">
+    <transition to="签单部审核" name="来自直客客服"></transition>
+    <transition to="中转一" name="来自同业订单"></transition>
+  </decision><task-node name="签单部审核">
+    <description>
+			配送完成，资料全部回到签单部审核
+		</description>
+    <task name="renderPayments">
+      <controller
+        class="com.opentravelsoft.workflow.express.task.ExpressCheckHandler"></controller>
+    </task>
+    <transition to="中转一" name="审核通过"></transition>
+  </task-node>
+
+  <node name="中转一">
+    <transition to="fork1"></transition>
+  </node><fork name="fork1">
+    <transition to="是否收取团款"></transition>
+    <transition to="是否包含签证资料"></transition>
+  </fork><decision name="是否收取团款">
+    <handler class="com.opentravelsoft.workflow.express.decision.AccountInDecisionHandler"></handler>
+    <transition to="缴纳团款或押金" name="包含团款"></transition>
+    <transition to="中转二" name="不包含团款"></transition>
+  </decision><decision name="是否包含签证资料">
+    <handler class="com.opentravelsoft.workflow.express.decision.VisaInDecisionHandler"></handler>
+    <transition to="签证材料审核" name="包含材料"></transition>
+    <transition to="中转三" name="不包含材料"></transition>
+  </decision><task-node name="签证材料审核">
+    <task name="examineData">
+
+      <controller
+        class="com.opentravelsoft.workflow.express.task.ExamineDateHandler"></controller>
+    </task>
+    <transition to="是否需要再配送" name="材料审核失败"></transition>
+    <transition to="中转三" name="材料审核通过"></transition>
+  </task-node>
+
+  <task-node name="是否需要再配送">
+    <task name="expressAgain">
+      <controller
+        class="com.opentravelsoft.workflow.express.task.ExpressAgainHandler"></controller>
+    </task>
+    <transition to="安排配送" name="再次配送"></transition>
+		<transition to="配送结束" name="to 配送结束"></transition>
+  </task-node>
+
+
+  
+
+  
+
+  
+
+  <join name="join1">
+    <transition to="配送结束"></transition>
+  </join>
+
+  <task-node name="缴纳团款或押金">
+    <task name="renderAccount">
+      <controller
+        class="com.opentravelsoft.workflow.express.task.RenderAccountHandler"></controller>
+    </task>
+    <transition to="中转二" name="to 中转二"></transition>
+  </task-node>
+
+  <node name="中转三">
+    <transition to="join1"></transition>
+  </node>
+
+  <node name="中转二">
+    <transition to="join1"></transition>
+  </node>
+
+  
+
+  
+
+
+  <end-state name="配送结束"></end-state>
+
+
+</process-definition>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.TblVisaAttached" table="TBL_VISA_ATTACHED">
+    <id name="visaAttachedId" type="int">
+      <column name="VISA_ATTACHED_ID" />
+      <generator class="native" />
+    </id>
+    <property name="recNo" type="string">
+      <column name="REC_NO" length="10" not-null="true" />
+    </property>
+    <property name="note" type="string">
+      <column name="NOTE" length="200" />
+    </property>
+    <property name="filePath" type="string">
+      <column name="FILE_PATH" length="200" />
+    </property>
+    <property name="fileSize" type="java.lang.Integer">
+      <column name="FILE_SIZE" />
+    </property>
+    <property name="created" type="date">
+      <column name="CREATED" />
+    </property>
+    <property name="createdBy" type="java.lang.Long">
+      <column name="CREATEDBY" length="20" />
+    </property>
+  </class>
+</hibernate-mapping>

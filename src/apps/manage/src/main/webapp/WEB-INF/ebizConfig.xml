@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<main>
+
+	<ebiz_yes_no>
+		<OPTION VALUE="Y">是</OPTION>
+		<OPTION VALUE="N">否</OPTION>
+	</ebiz_yes_no>
+
+	<!-- 产品 -->
+	<ebiz_route_class_content>
+		<OPTION VALUE="1">团队旅游</OPTION>
+		<OPTION VALUE="2">自由行</OPTION>
+	</ebiz_route_class_content>
+
+	<ebiz_route_portOfEntry_Departure>
+		<OPTION VALUE="上海浦东机场">上海浦东机场</OPTION>
+		<OPTION VALUE="上海虹桥机场">上海虹桥机场</OPTION>
+		<OPTION VALUE="上海港">上海港</OPTION>
+		<OPTION VALUE="其他">其他</OPTION>
+	</ebiz_route_portOfEntry_Departure>
+
+	<ebiz_outcity_sky>
+		<OPTION VALUE="All">所有出发地</OPTION>
+		<OPTION VALUE="SH">上海出发</OPTION>
+		<OPTION VALUE="NJ">南京出发</OPTION>
+		<OPTION VALUE="HZ">杭州出发</OPTION>
+	</ebiz_outcity_sky>
+
+	<ebiz_pax_key>
+		<OPTION VALUE="Y">Y</OPTION>
+		<OPTION VALUE="N">N</OPTION>
+	</ebiz_pax_key>
+
+	<ebiz_expense_status>
+		<OPTION VALUE="EI">包含</OPTION>
+		<OPTION VALUE="ET">不包含</OPTION>
+	</ebiz_expense_status>
+
+	<ebiz_visa_kind>
+		<OPTION VALUE="T">团签</OPTION>
+		<OPTION VALUE="S">个签</OPTION>
+	</ebiz_visa_kind>
+
+	<ebiz_visa_quick>
+		<OPTION VALUE="1">可办理加急</OPTION>
+		<OPTION VALUE="0">不可办理加急</OPTION>
+	</ebiz_visa_quick>
+
+	<!-- 订单 -->
+	<ebiz_can_split>
+		<OPTION VALUE="1">独立成团</OPTION>
+		<OPTION VALUE="2">不可分拆</OPTION>
+		<OPTION VALUE="3">无</OPTION>
+	</ebiz_can_split>
+
+	<ebiz_confirm_status>
+		<OPTION VALUE="1">已确认</OPTION>
+		<OPTION VALUE="2">未确认</OPTION>
+	</ebiz_confirm_status>
+
+	<ebiz_book_state>
+		<OPTION VALUE="1">已占位</OPTION>
+		<OPTION VALUE="2">未占位</OPTION>
+		<OPTION VALUE="%">所有</OPTION>
+	</ebiz_book_state>
+
+	<ebiz_cancel_state>
+		<OPTION VALUE="1">已取消</OPTION>
+		<OPTION VALUE="2">未取消</OPTION>
+		<OPTION VALUE="%">所有</OPTION>
+	</ebiz_cancel_state>
+
+	<!-- 计划 -->
+	<ebiz_visa_open_list>
+		<OPTION VALUE="1">公开</OPTION>
+		<OPTION VALUE="0">关闭</OPTION>
+	</ebiz_visa_open_list>
+
+	<ebiz_plan_deploy>
+		<OPTION VALUE="N">不发布</OPTION>
+		<OPTION VALUE="Y">发布</OPTION>
+	</ebiz_plan_deploy>
+
+	<ebiz_plan_singleflag>
+		<OPTION VALUE="0">整团</OPTION>
+		<OPTION VALUE="1">散客</OPTION>
+	</ebiz_plan_singleflag>
+
+	<!-- 是否需要安排领队 -->
+	<ebiz_tour_leader_list>
+		<OPTION VALUE="0">是</OPTION>
+		<OPTION VALUE="1">否</OPTION>
+	</ebiz_tour_leader_list>
+
+	<!-- 客户 -->
+	<ebiz_agent_opKey>
+		<OPTION VALUE="Y">已审核</OPTION>
+		<OPTION VALUE="N">未审核</OPTION>
+		<OPTION VALUE="O">所有</OPTION>
+	</ebiz_agent_opKey>
+
+	<ebiz_company_key>
+		<OPTION VALUE="1">有限公司</OPTION>
+		<OPTION VALUE="2">合伙商行</OPTION>
+		<OPTION VALUE="3">个人独资</OPTION>
+		<OPTION VALUE="4">其他</OPTION>
+	</ebiz_company_key>
+
+	<ebiz_supplier_feature>
+		<OPTION VALUE="1">商务</OPTION>
+		<OPTION VALUE="2">会奖</OPTION>
+		<OPTION VALUE="3">观光</OPTION>
+	</ebiz_supplier_feature>
+
+	<ebiz_clearing_cycle>
+		<OPTION VALUE="N">现结</OPTION>
+		<OPTION VALUE="M">月结</OPTION>
+	</ebiz_clearing_cycle>
+
+	<ebiz_crm_structure>
+		<OPTION VALUE="S">总社</OPTION>
+		<OPTION VALUE="B">营业部</OPTION>
+	</ebiz_crm_structure>
+
+	<!-- 财务 -->
+	<ebiz_pay_mode>
+		<OPTION VALUE="1">现金</OPTION>
+		<OPTION VALUE="2">冲帐</OPTION>
+		<OPTION VALUE="3">汇票</OPTION>
+		<OPTION VALUE="4">支票</OPTION>
+		<OPTION VALUE="5">存折</OPTION>
+		<OPTION VALUE="6">汇款</OPTION>
+		<OPTION VALUE="7">刷卡</OPTION>
+	</ebiz_pay_mode>
+
+	<!-- 支付方式 -->
+	<ebiz_pay_modlue>
+		<OPTION VALUE="0">现金</OPTION>
+		<OPTION VALUE="1">支票</OPTION>
+		<OPTION VALUE="2">银行付款</OPTION>
+		<OPTION VALUE="3">银行刷卡</OPTION>
+		<OPTION VALUE="-1">未填写</OPTION>
+	</ebiz_pay_modlue>
+
+	<ebiz_supplier_resource>
+		<OPTION VALUE="1">地接</OPTION>
+		<OPTION VALUE="2">航空</OPTION>
+		<OPTION VALUE="3">酒店</OPTION>
+		<OPTION VALUE="4">景点</OPTION>
+		<OPTION VALUE="5">车队</OPTION>
+		<OPTION VALUE="6">签证</OPTION>
+		<OPTION VALUE="7">油轮</OPTION>
+		<OPTION VALUE="8">导游</OPTION>
+		<OPTION VALUE="9">火车票</OPTION>
+		<OPTION VALUE="A">保险</OPTION>
+		<OPTION VALUE="B">送关费</OPTION>
+		<OPTION VALUE="C">名单费</OPTION>
+	</ebiz_supplier_resource>
+
+	<ebiz_cost_type>
+		<OPTION VALUE="1">地接费</OPTION>
+		<OPTION VALUE="2">航空费</OPTION>
+		<OPTION VALUE="3">住宿费</OPTION>
+		<OPTION VALUE="4">门票费</OPTION>
+		<OPTION VALUE="5">接送费</OPTION>
+		<OPTION VALUE="6">签证费</OPTION>
+		<OPTION VALUE="7">油轮费</OPTION>
+		<OPTION VALUE="8">导游费</OPTION>
+		<OPTION VALUE="9">火车票费</OPTION>
+		<OPTION VALUE="A">保险费</OPTION>
+		<OPTION VALUE="B">送关费</OPTION>
+		<OPTION VALUE="C">名单费</OPTION>
+	</ebiz_cost_type>
+
+	<ebiz_pay_requisition>
+		<OPTION VALUE="Y">已付款</OPTION>
+		<OPTION VALUE="N">未付款</OPTION>
+		<OPTION VALUE="%">所有</OPTION>
+	</ebiz_pay_requisition>
+
+	<!-- 导游 -->
+	<ebiz_setting_hold>
+		<OPTION VALUE="Y">有</OPTION>
+		<OPTION VALUE="N">无</OPTION>
+	</ebiz_setting_hold>
+
+	<ebiz_setting_workType1>
+		<OPTION VALUE="1">社内</OPTION>
+		<OPTION VALUE="2">社外</OPTION>
+	</ebiz_setting_workType1>
+
+	<ebiz_setting_workType2>
+		<OPTION VALUE="1">专职</OPTION>
+		<OPTION VALUE="2">兼职</OPTION>
+	</ebiz_setting_workType2>
+
+	<ebiz_setting_signKey>
+		<OPTION VALUE="Y">签约</OPTION>
+		<OPTION VALUE="N">未签约</OPTION>
+	</ebiz_setting_signKey>
+
+	<ebiz_register_state>
+		<OPTION VALUE="N">未登记</OPTION>
+		<OPTION VALUE="Y">已登记</OPTION>
+	</ebiz_register_state>
+
+
+	<!-- 配送方式 -->
+	<ebiz_express_type>
+		<OPTION VALUE="N">取</OPTION>
+		<OPTION VALUE="Y">送</OPTION>
+	</ebiz_express_type>
+
+	<!-- 收款类别 -->
+	<ebiz_pay_type>
+		<OPTION VALUE="0">定金</OPTION>
+		<OPTION VALUE="1">预付款</OPTION>
+		<OPTION VALUE="2">余款</OPTION>
+		<OPTION VALUE="3">全额团款</OPTION>		<OPTION VALUE="-1">未填写</OPTION>
+	</ebiz_pay_type>
+
+	<!-- 配送类型 -->
+	<ebiz_express_modlue>
+		<OPTION VALUE="0">材料配送</OPTION>
+		<OPTION VALUE="1">团款配送</OPTION>
+		<OPTION VALUE="2">团款和材料配送</OPTION>
+		<OPTION VALUE="-1">未填写</OPTION>
+	</ebiz_express_modlue>
+
+	<!-- 配送状态 -->
+	<ebiz_express_state>
+		<OPTION VALUE="0">未填写</OPTION>
+		<OPTION VALUE="1">已打印</OPTION>
+		<OPTION VALUE="2">配送中</OPTION>
+		<OPTION VALUE="3">已完成</OPTION>
+		<OPTION VALUE="4">作废</OPTION>
+	</ebiz_express_state>
+
+	<!-- 配送方式列表  -->
+	<ebiz_express_type_list>
+		<OPTION VALUE="0">快递</OPTION>
+		<OPTION VALUE="1">邮寄</OPTION>
+		<OPTION VALUE="2">人工</OPTION>
+		<OPTION VALUE="-1">未填写</OPTION>
+	</ebiz_express_type_list>
+
+	<ebiz_sms_url>
+		<VALUE>http://econnect.hotdotchina.com/econnect/pitf/submit.jsp
+		</VALUE>
+	</ebiz_sms_url>
+	<ebiz_sms_uid>
+		<VALUE>xkh</VALUE>
+	</ebiz_sms_uid>
+	<ebiz_sms_pswd>
+		<VALUE>cq038h</VALUE>
+	</ebiz_sms_pswd>
+	<ebiz_sms_extno>
+		<VALUE>5537</VALUE>
+	</ebiz_sms_extno>
+
+</main>

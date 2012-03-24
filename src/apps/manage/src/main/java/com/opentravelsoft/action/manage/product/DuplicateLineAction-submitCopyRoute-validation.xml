@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<!--  START SNIPPET: quizValidators -->
+
+<validators>
+  <field name="lineNo">
+    <field-validator type="requiredstring">
+      <message>原线路编号不能为空.</message>
+    </field-validator>
+  </field>
+
+  <field name="newLineName">
+    <field-validator type="requiredstring">
+      <message>新线路名不能为空.</message>
+    </field-validator>
+  </field>
+</validators>
+
+<!--  END SNIPPET: quizValidators  -->

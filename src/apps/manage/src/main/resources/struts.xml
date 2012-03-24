@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+
+  <constant name="struts.locale" value="zh_CN" />
+  <constant name="struts.i18n.encoding" value="UTF-8" />
+  <constant name="struts.objectFactory" value="spring" />
+
+  <!-- 
+    <constant name="struts.objectFactory.spring.autoWire" value="true" />
+    <constant name="struts.objectFactory.spring.useClassCache" value="false" />
+  -->
+
+  <!-- Some or all of these can be flipped to true for debugging -->
+  <constant name="struts.i18n.reload" value="false" />
+  <constant name="struts.devMode" value="true" />
+  <constant name="struts.configuration.xml.reload" value="false" />
+
+  <constant name="struts.continuations.package" value="com.opentravelsoft" />
+  <constant name="struts.custom.i18n.resources" value="globalMessages" />
+  <constant name="struts.action.extension" value="jspa" />
+  <constant name="struts.url.http.port" value="8080" />
+  <!--
+    <constant name="struts.serve.static" value="true" /> 
+    <constant name="struts.serve.static.browserCache" value="false" />
+  -->
+  <constant name="struts.date.format" value="yyyy-MM-dd"></constant>
+
+  <constant name="struts.xwork.chaining.copyErrors" value="true" />
+  <constant name="struts.xwork.chaining.copyFieldErrors" value="true" />
+  <constant name="struts.xwork.chaining.copyMessages" value="true" />
+
+  <include file="struts-default.xml" />
+  <include file="struts-json.xml" />
+  <include file="struts-manage-operate.xml" />
+  <include file="struts-manage-resource.xml" />
+  <include file="struts-manage-product.xml" />
+  <include file="struts-manage-vacation.xml" />
+  <include file="struts-manage-order.xml" />
+  <include file="struts-manage-crm.xml" />
+  <include file="struts-manage-setting.xml" />
+  <include file="struts-manage-express.xml" />
+  <include file="struts-manage-finance.xml" />
+  <include file="struts-manage-search.xml" />
+
+  <package name="shcct-manage" extends="struts-default">
+
+    <interceptors>
+      <interceptor name="security" class="userInfoInterceptor" />
+      <interceptor name="systemSetting" class="sysSettingInterceptor" />
+
+      <interceptor-stack name="defaultStackWithSecurity">
+        <interceptor-ref name="defaultStack" />
+        <interceptor-ref name="systemSetting" />
+        <interceptor-ref name="security" />
+      </interceptor-stack>
+    </interceptors>
+    
+    <default-interceptor-ref name="defaultStackWithSecurity"></default-interceptor-ref>
+
+    <global-results>
+      <result name="login">
+        <param name="location">/Login.jspa</param>
+      </result>
+      <result name="notauthorized">
+        <param name="location">/includes/NotAuthorized.jsp</param>
+      </result>
+      <result name="error">
+        <param name="location">/includes/Error.jsp</param>
+      </result>
+    </global-results>
+
+    <!--
+    <global-exception-mappings>
+      <exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+    </global-exception-mappings>
+     -->
+
+    <action name="Login" class="LoginAction" method="input">
+      <result>/includes/LoginManage.jsp</result>
+      <interceptor-ref name="defaultStack"></interceptor-ref>
+    </action>
+    <action name="LoginSubmit" class="LoginAction">
+      <result type="chain">MyPage</result>
+      <result name="input" type="redirect">Login.jspa</result>
+      <interceptor-ref name="defaultStack"></interceptor-ref>
+    </action>
+
+    <action name="MyPage" class="MyPageAction">
+      <result>/includes/MyPage.jsp</result>
+      <param name="moduleName">Desktop_view</param>
+    </action>
+    <action name="showShortcut" class="ShortcutAction">
+      <result>/includes/Shortcut.jsp</result>
+    </action>
+    <action name="HelpAction" class="HelpAction">
+      <result>/includes/Help.jsp</result>
+    </action>
+    <action name="StatAction" class="StatAction">
+      <result>/includes/StatPage.jsp</result>
+    </action>
+    <action name="myTasks" class="MyTaskAction">
+      <result>/includes/MyTasks.jsp</result>
+    </action>
+
+    <action name="editMyInfo" class="EditMyInfoAction" method="input">
+      <result name="input">/includes/EditMyInfo.jsp</result>
+      <param name="moduleName">Desktop_view</param>
+    </action>
+    <action name="submitMyInfo" class="EditMyInfoAction" method="submit">
+      <result name="input" type="chain">editMyInfo</result>
+      <result type="chain">editMyInfo</result>
+      <param name="moduleName">Desktop_view</param>
+    </action>
+
+    <action name="showWarnMessage" class="WarnAction">
+      <result>/includes/WarnResult.jsp</result>
+    </action>
+
+    <action name="RouteDetail" class="LineDetailAction">
+      <result>/includes/product/RouteDetail.jsp</result>
+    </action>
+
+  </package>
+
+</struts>

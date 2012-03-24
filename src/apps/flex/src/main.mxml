@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="queryAll();">
+	<mx:Script source="main.as"/>
+	<mx:Label x="10" y="10" text="Employee Management" fontSize="24"/>
+	<mx:TextInput x="10" y="53" width="322" id="nameText"/>
+	<mx:Button x="340" y="53" label="Query" click="queryByName()"/>
+	<mx:Button x="409" y="53" label="Create" click="preCreateEmployee()"/>
+	<mx:Button x="481" y="53" label="Delete" click="deleteEmployee()"/>
+	<mx:DataGrid x="10" y="83" width="535" height="186" dataProvider="{employees}" id="employeeDataGrid">
+		<mx:columns>
+			<mx:DataGridColumn headerText="ID" dataField="userId"/>
+			<mx:DataGridColumn headerText="Name" dataField="userName"/>
+			<mx:DataGridColumn headerText="Title" dataField="title"/>
+			<mx:DataGridColumn headerText="Gender" dataField="sex"/>
+			<mx:DataGridColumn headerText="Birth" dataField="birthday"/>
+		</mx:columns>
+	</mx:DataGrid>
+	<mx:Panel x="128" y="160" width="298" height="191" layout="absolute" title="Create New Employee" id="form_panel" visible="false" borderVisible="true">
+		<mx:TextInput x="87" y="10" id="form_name"/>
+		<mx:Label x="37" y="12" text="Name:"/>
+		<mx:Label x="44" y="38" text="Title:"/>
+		<mx:Label x="28" y="64" text="Gender:"/>
+		<mx:Label x="43" y="90" text="Birth:"/>
+		<mx:ComboBox x="87" y="36" id="form_title">
+		    <mx:dataProvider>
+		  	    <mx:Array>
+                    <mx:String>CEO</mx:String>
+                    <mx:String>Project Manager</mx:String>
+                    <mx:String>Architect</mx:String>
+                    <mx:String>Engineer</mx:String>
+                    <mx:String>Designer</mx:String>
+		  	    </mx:Array>
+		    </mx:dataProvider>
+		</mx:ComboBox>
+		<mx:RadioButton x="86" y="62" label="Male" groupName="grp_gender" id="form_gender_male" value="true"/>
+		<mx:RadioButton x="145" y="62" label="Female" groupName="grp_gender" id="form_gender_female" value="false"/>
+		<mx:DateField x="87" y="88" width="160" id="form_birth"/>
+		<mx:Button x="87" y="118" label="Create" id="form_button_create" click="createEmployee()"/>
+		<mx:Button x="159" y="118" label="Cancel" id="form_button_cancel" click="form_panel.visible=false"/>
+	</mx:Panel>
+</mx:Application>

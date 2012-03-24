@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.finance.Income" table="TBL_INCOME">
+    <id name="incomeId" type="long">
+      <column name="INCOME_ID" />
+      <generator class="native" />
+    </id>
+    <timestamp name="updated" column="UPDATED" />
+    <many-to-one name="customer" class="com.opentravelsoft.entity.Customer" lazy="false" fetch="select">
+      <column name="CUSTOMER_ID" />
+    </many-to-one>
+    <property name="payMode" type="string">
+      <column name="PAY_MODE" length="1" />
+    </property>
+    <property name="receiver" type="string">
+      <column name="RECEIVER" length="20" />
+    </property>
+    <property name="note" type="string">
+      <column name="NOTE" length="1000" />
+    </property>
+    <property name="amount" type="java.lang.Double">
+      <column name="AMOUNT" precision="10" />
+    </property>
+    <property name="incomeDate" type="date">
+      <column name="INCOME_DATE" />
+    </property>
+    <property name="offSetAmount" type="java.lang.Double">
+      <column name="OFFSET_AMOUNT" precision="10" />
+    </property>
+    <property name="created" type="date">
+      <column name="CREATED" />
+    </property>
+    <property name="createdBy" type="java.lang.Long">
+      <column name="CREATEDBY" />
+    </property>
+    <property name="updatedBy" type="java.lang.Long">
+      <column name="UPDATEDBY" />
+    </property>
+    <property name="useType" type="string">
+      <column name="USE_TYPE" length="20" />
+    </property>
+
+    <property name="bookingNo" type="string">
+      <column name="BOOKING_NO" length="20" not-null="true" />
+    </property>
+    <property name="del" type="string">
+      <column name="DEL" length="1" />
+    </property>
+  </class>
+</hibernate-mapping>

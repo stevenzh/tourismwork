@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC
+  		"-//OpenSymphony Group//XWork Validator 1.0//EN" 
+  		"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<!-- START SNIPPET: fieldValidatorsExample -->
+
+<validators>
+  <field name="plan.tourNo">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>
+        <![CDATA[ 团号必须输入. ]]>
+      </message>
+    </field-validator>
+    <field-validator type="stringlength">
+      <param name="maxLength">100</param>
+      <param name="trim">true</param>
+      <message>团号长度不能超过50个汉字或100个英数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="plan.tourNm">
+    <field-validator type="stringlength">
+      <param name="maxLength">100</param>
+      <param name="trim">true</param>
+      <message>团队名称长度不能超过50个汉字或100个英数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="plan.pax1">
+    <field-validator type="required">
+      <message>
+        <![CDATA[ 计划名额必须输入. ]]>
+      </message>
+    </field-validator>
+    <field-validator type="int">
+      <param name="min">1</param>
+      <message>
+        <![CDATA[ 计划名额至少 ${min} 人. ]]>
+      </message>
+    </field-validator>
+  </field>
+
+  <field name="plan.remark">
+    <field-validator type="stringlength">
+      <param name="maxLength">60</param>
+      <param name="trim">true</param>
+      <message>备注长度不能超过30个汉字或60个英数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="plan.message">
+    <field-validator type="stringlength">
+      <param name="maxLength">500</param>
+      <param name="trim">true</param>
+      <message>广告词长度不能超过250个汉字或500个英数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="plan.packagePrice.recNo">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>计划默认价格必须设置.</message>
+    </field-validator>
+  </field>
+  
+</validators>
+
+<!-- END SNIPPET: fieldValidatorsExample -->
+

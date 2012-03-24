@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byType">
+    
+  <!-- 线路索引  -->
+  <bean id="CbIndexAction" class="com.opentravelsoft.action.manage.search.CbIndexAction" singleton="false">
+  </bean>
+
+</beans>

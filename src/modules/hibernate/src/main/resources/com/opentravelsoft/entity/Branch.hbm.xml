@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.Branch" table="TBL_BRANCH">
+    <id name="branchId" type="long">
+      <column name="BRANCH_ID" />
+      <generator class="assigned" />
+    </id>
+    <timestamp name="opDate" column="OP_DATE" />
+    <property name="agentnm" type="string">
+      <column name="AGENTNM" length="40" not-null="true" />
+    </property>
+    <property name="agentabb" type="string">
+      <column name="AGENTABB" length="10" not-null="true" />
+    </property>
+    <property name="agentadd" type="string">
+      <column name="AGENTADD" length="40" not-null="true" />
+    </property>
+    <property name="agentzip" type="string">
+      <column name="AGENTZIP" length="6" not-null="true" />
+    </property>
+    <property name="agenttel" type="string">
+      <column name="AGENTTEL" length="30" not-null="true" />
+    </property>
+    <property name="agentfax" type="string">
+      <column name="AGENTFAX" length="30" not-null="true" />
+    </property>
+    <property name="citycd" type="string">
+      <column name="CITYCD" length="3" not-null="true" />
+    </property>
+    <property name="manager" type="string">
+      <column name="MANAGER" length="8" not-null="true" />
+    </property>
+    <property name="sales" type="string">
+      <column name="SALES" length="20" not-null="true" />
+    </property>
+    <property name="email" type="string">
+      <column name="EMAIL" length="50" />
+    </property>
+    <property name="areaId" type="string">
+      <column name="AREA_ID" length="4" />
+    </property>
+    <property name="remarks" type="string">
+      <column name="REMARKS" length="256" />
+    </property>
+    <property name="opKey" type="java.lang.Character">
+      <column name="OP_KEY" length="1" />
+    </property>
+    <property name="webKey" type="string">
+      <column name="WEB_KEY" length="10" />
+    </property>
+    <property name="arrearage" type="java.lang.Double">
+      <column name="ARREARAGE" precision="10" />
+    </property>
+    <property name="warnKey" type="java.lang.Character">
+      <column name="WARN_KEY" length="1" />
+    </property>
+    <property name="payment" type="java.lang.Double">
+      <column name="PAYMENT" precision="10" />
+    </property>
+    <property name="reckoning" type="java.lang.Character">
+      <column name="RECKONING" length="1" />
+    </property>
+    <property name="agentType" type="java.lang.Character">
+      <column name="AGENT_TYPE" length="1" />
+    </property>
+    <property name="bussTime" type="string">
+      <column name="BUSS_TIME" length="50" />
+    </property>
+    <property name="comeandgo" type="string">
+      <column name="COMEANDGO" length="500" />
+    </property>
+    <property name="gmTel" type="string">
+      <column name="GM_TEL" length="200" />
+    </property>
+    <property name="gmTalk" type="string">
+      <column name="GM_TALK" length="1000" />
+    </property>
+    <property name="phoneFile1" type="string">
+      <column name="PHONE_FILE1" length="200" />
+    </property>
+    <property name="mapFile" type="string">
+      <column name="MAP_FILE" length="200" />
+    </property>
+    <property name="phoneFile2" type="string">
+      <column name="PHONE_FILE2" length="200" />
+    </property>
+    <property name="createUser" type="java.lang.Integer">
+      <column name="CREATE_USER" />
+    </property>
+    <property name="createDate" type="date">
+      <column name="CREATE_DATE" />
+    </property>
+    <property name="opUser" type="java.lang.Long">
+      <column name="OP_USER" />
+    </property>
+    <property name="checkKey" type="java.lang.Character">
+      <column name="CHECK_KEY" length="1" />
+    </property>
+  </class>
+</hibernate-mapping>

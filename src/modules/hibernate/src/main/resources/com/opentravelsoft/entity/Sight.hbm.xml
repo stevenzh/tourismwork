@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.Sight" table="TBL_SIGHT">
+    <id name="sightNo" type="string">
+      <column name="SIGHT_NO" length="10" />
+      <generator class="assigned" />
+    </id>
+    <property name="name" type="string">
+      <column name="CN_NAME" length="30" />
+    </property>
+    <property name="enName" type="string">
+      <column name="EN_NAME" length="60" />
+    </property>
+    <property name="cnNote" type="string">
+      <column name="CN_NOTE" length="1500" />
+    </property>
+    <property name="enNote" type="string">
+      <column name="EN_NOTE" length="1500" />
+    </property>
+    <property name="headAdd" type="string">
+      <column name="MAP_ADDRESS1" length="50" />
+    </property>
+    <property name="mapAdd" type="string">
+      <column name="MAP_ADDRESS2" length="50" />
+    </property>
+    <many-to-one name="district" class="com.opentravelsoft.entity.District" fetch="select" lazy="false">
+      <column name="DISTRICT_NO"></column>
+    </many-to-one>
+    <property name="sightType" type="string">
+      <column name="SIGHT_TYPE" length="10" />
+    </property>
+    <many-to-one name="country" class="com.opentravelsoft.entity.Country" lazy="false" fetch="select">
+      <column name="COUNTRY" unique="true"></column>
+    </many-to-one>
+
+    <many-to-one name="province" class="com.opentravelsoft.entity.Province" lazy="false" fetch="join" not-found="ignore">
+      <column name="DUCHY" unique="true"></column>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

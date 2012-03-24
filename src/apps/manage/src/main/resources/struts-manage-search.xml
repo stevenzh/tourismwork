@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <package name="manage-search" namespace="/search" extends="shcct-manage">
+
+    <!-- 线路索引 -->
+    <action name="IndexInput" class="CbIndexAction" method="input">
+      <result name="input">/includes/search/IndexPage.jsp</result>
+    </action>
+
+    <action name="CbIndexAction" class="CbIndexAction">
+      <result>/includes/search/IndexPage.jsp</result>
+      <result name="input">/includes/search/IndexPage.jsp</result>
+    </action>
+
+    <action name="AllIndexAction" class="CbIndexAction" method="allIndex">
+      <result>/includes/search/IndexPage.jsp</result>
+      <result name="input">/includes/search/IndexPage.jsp</result>
+    </action>
+
+    <action name="RegionIndexAction" class="CbIndexAction" method="regionIndex">
+      <result>/includes/search/IndexPage.jsp</result>
+      <result name="input">/includes/search/IndexPage.jsp</result>
+    </action>
+
+  </package>
+
+</struts>

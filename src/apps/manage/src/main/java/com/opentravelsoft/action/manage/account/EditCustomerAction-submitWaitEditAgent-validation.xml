@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC
+  		"-//OpenSymphony Group//XWork Validator 1.0//EN" 
+  		"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<!-- START SNIPPET: fieldValidatorsExample -->
+
+<validators>
+  <field name="agent.name">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>
+        <![CDATA[ 客户名称必须输入. ]]>
+      </message>
+    </field-validator>
+    <field-validator type="stringlength">
+      <param name="maxLength">60</param>
+      <param name="trim">true</param>
+      <message>客户名称长度不能超过30个汉字或60个英数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="agent.address">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>
+        <![CDATA[ 客户地址必须输入. ]]>
+      </message>
+    </field-validator>
+    <field-validator type="stringlength">
+      <param name="maxLength">80</param>
+      <param name="trim">true</param>
+      <message>客户地址长度不能超过40个汉字或80个英数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="agent.zipCode">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>
+        <![CDATA[ 客户邮政编码必须输入. ]]>
+      </message>
+    </field-validator>
+    <field-validator type="stringlength">
+      <param name="maxLength">12</param>
+      <param name="trim">true</param>
+      <message>客户邮政编码长度不能超过12个英数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="agent.provinceCd">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>所在省份必须输入.</message>
+    </field-validator>
+  </field>
+
+  <field name="agent.city.citycd">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>所在城市必须输入.</message>
+    </field-validator>
+  </field>
+
+  <field name="agent.contactTel">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>联系人电话必须输入.</message>
+    </field-validator>
+    <field-validator type="regex">
+      <param name="expression"><![CDATA[([\w-]*)]]></param>
+      <message>联系人电话必须输入半角数字和"-".</message>
+    </field-validator>
+  </field>
+
+</validators>
+
+<!-- END SNIPPET: fieldValidatorsExample -->
+

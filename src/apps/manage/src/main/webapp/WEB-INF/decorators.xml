@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<decorators defaultdir="/decorators">
+  <!-- Any urls that are excluded will never be decorated by Sitemesh -->
+  <excludes>
+    <pattern>/stylesheet/*</pattern>
+    <pattern>/script/*</pattern>
+    <pattern>/images/*</pattern>
+    <pattern>/dojo/*</pattern>
+    <pattern>/services/*</pattern>
+    <pattern>/download/*</pattern>
+    <pattern>/html/*</pattern>
+    <pattern>/struts/*</pattern>
+    <pattern>/report/*</pattern>
+    <pattern>/popup/*</pattern>
+    <pattern>/json/*</pattern>
+    <pattern>/Login.jspa*</pattern>
+    <pattern>/showWarnMessage.jspa*</pattern>
+    <pattern>/myTasks.jspa*</pattern>
+    <pattern>/setting/detailDepartment.jspa*</pattern>
+    <pattern>/product/editCategory.jspa*</pattern>
+    <pattern>/secure/debug.jsp</pattern>
+    <pattern>/operator/PrintTourBalance.jspa*</pattern>
+    <pattern>/operator/TourBalance.jspa*</pattern>
+    <pattern>/operator/TGAPrint.jspa*</pattern>
+    <pattern>/operator/TOutPrint.jspa*</pattern>
+    <pattern>/operator/operatorTasks.jspa*</pattern>
+    <pattern>/operator/operatorRunPlan.jspa*</pattern>
+    <pattern>/sales/showOperatorAlert.jspa*</pattern>
+    <pattern>/finance/PrintSingleBalance.jspa*</pattern>
+    <pattern>/finance/printPayRequisition.jspa*</pattern>
+    <pattern>/finance/showFinanceAlert.jspa*</pattern>
+    <pattern>/express/expressTasks.jspa*</pattern>
+   </excludes>
+
+  <decorator name="default" page="default.jsp">
+    <pattern>/*</pattern>
+  </decorator>
+
+</decorators>

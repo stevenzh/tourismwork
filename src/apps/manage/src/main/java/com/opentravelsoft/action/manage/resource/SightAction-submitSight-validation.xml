@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<!--  START SNIPPET: quizValidators -->
+
+<validators>
+	<field name="sight.sightNo">
+		<field-validator type="requiredstring">
+			<message>编号不能为空.</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">10</param>
+			<param name="trim">true</param>
+			<message>编号长度不能超过10个英数字.</message>
+		</field-validator>
+	</field>
+
+	<field name="sight.sightCnName">
+		<field-validator type="requiredstring">
+			<message>景点名称不能为空.</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">30</param>
+			<param name="trim">true</param>
+			<message>编号长度不能超过15个汉字和30个英数字.</message>
+		</field-validator>
+	</field>
+	
+	<field name="sight.sightEnName">
+		<field-validator type="stringlength">
+			<param name="maxLength">60</param>
+			<param name="trim">true</param>
+			<message>电话号码长度不能超过60个字母.</message>
+		</field-validator>
+	</field>
+	
+	<field name="sight.sightCnNote">
+		<field-validator type="stringlength">
+			<param name="maxLength">1500</param>
+			<param name="trim">true</param>
+			<message>电话号码长度不能超过750个汉字和1500个英数字.</message>
+		</field-validator>
+	</field>
+	
+	<field name="sight.sightEnNote">
+		<field-validator type="stringlength">
+			<param name="maxLength">1500</param>
+			<param name="trim">true</param>
+			<message>电话号码长度不能超过1500个英数字.</message>
+		</field-validator>
+	</field>
+	
+	<field name="sight.headAdd">
+		<field-validator type="stringlength">
+			<param name="maxLength">50</param>
+			<param name="trim">true</param>
+			<message>电话号码长度不能超过50个英数字.</message>
+		</field-validator>
+	</field>
+	
+	<field name="sight.mapAdd">
+		<field-validator type="stringlength">
+			<param name="maxLength">50</param>
+			<param name="trim">true</param>
+			<message>电话号码长度不能超过50个英数字.</message>
+		</field-validator>
+	</field>
+	
+	
+</validators>
+<!--  END SNIPPET: quizValidators  -->

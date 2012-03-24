@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <package name="manage-order" namespace="/sales" extends="shcct-manage">
+
+    <action name="OrderAction" class="SaleAction">
+      <result>/includes/Order.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+
+    <!--  Order Booking -->
+    <action name="showOrder" class="BookingOrderAction" method="input">
+      <result name="input">/includes/sales/BookOrder.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+
+    <!-- Gathering booking -->
+    <action name="showBookGathering" class="BookGatheringAction" method="input">
+      <result name="input">/includes/sales/GatheringDialog.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+    <action name="submitBookGathering" class="BookGatheringAction" method="submit">
+      <result name="input" type="chain">showBookGathering</result>
+      <result type="chain">SalesBookDetail</result>
+      <param name="moduleName">Order_edit</param>
+    </action>
+
+    <action name="submitOrder" class="BookingOrderAction" method="submit">
+      <result name="input" type="chain">showOrder</result>
+      <result type="chain">SalesBookDetail</result>
+      <param name="moduleName">Order_edit</param>
+    </action>
+    <action name="changeBookPax" class="BookingOrderAction" method="changePax">
+      <result name="input" type="chain">showOrder</result>
+      <result>/includes/sales/BookOrder.jsp</result>
+      <param name="moduleName">Order_edit</param>
+    </action>
+
+    <!-- Edit Booking -->
+    <action name="EditBook" class="BookingOrderAction">
+      <result>/includes/sales/EditBooking.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+    <action name="changeEditBookPax" class="BookingOrderAction" method="changePax">
+      <result name="input" type="chain">EditBook</result>
+      <result>/includes/sales/EditBooking.jsp</result>
+      <param name="moduleName">Order_edit</param>
+    </action>
+    <action name="submitEditBook" class="BookingOrderAction" method="change">
+      <result name="input" type="chain">SalesBookDetail</result>
+      <result type="chain">SalesBookDetail</result>
+      <param name="moduleName">Order_edit</param>
+    </action>
+
+    <action name="SalesBookDetail" class="SalesBookingAction" method="input">
+      <result name="input">/includes/sales/BookingkDetail.jsp</result>
+      <result>/includes/sales/BookingkDetail.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+    <action name="cancelCustomers" class="SalesBookingAction" method="cancelCustomers">
+      <result name="input" type="chain">SalesBookDetail</result>
+      <result>/includes/sales/BookingkDetail.jsp</result>
+      <param name="moduleName">Order_edit</param>
+    </action>
+
+    <action name="cancelOrder" class="SalesBookingAction" method="cancel">
+      <result name="input" type="chain">SalesBookDetail</result>
+      <result>/includes/sales/BookingkDetail.jsp</result>
+      <param name="moduleName">Order_edit</param>
+    </action>
+
+    <!-- 拆分订单->跳转到新拆分的订单-->
+    <action name="splitBooking" class="SalesBookingAction" method="splitBooking">
+      <result name="input" type="chain">SalesBookDetail</result>
+      <result>/includes/sales/BookingkDetail.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+
+    <!-- Plan Search -->
+    <action name="showPlanSearch" class="SalesPlanSearchAction" method="input">
+      <result name="input">/includes/sales/PlanSearch.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+    <action name="submitPlanSearch" class="SalesPlanSearchAction" method="submit">
+      <result name="input">showPlanSearch</result>
+      <result>/includes/sales/PlanSearch.jsp</result>
+      <param name="moduleName">Order_edit</param>
+    </action>
+
+    <!-- Booking Search -->
+    <action name="showBookingSearch" class="BookingSearchAction" method="input">
+      <result>/includes/sales/BookingSearch.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+    <action name="submitBookingSearch" class="BookingSearchAction" method="submit">
+      <result>/includes/sales/BookingSearch.jsp</result>
+      <param name="moduleName">Order_edit</param>
+    </action>
+
+    <action name="PlanList" class="PlanListAction">
+      <result>/includes/distribution/PlanList.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+
+    <!-- 恢复游客 -->
+    <action name="resumeCustomers" class="SalesBookingAction" method="resume">
+      <result type="chain">SalesBookDetail</result>
+      <param name="moduleName">Order_edit</param>
+    </action>
+
+    <!-- 按客户地区统计 -->
+    <action name="showIn" class="DbamtForCusAction" method="init">
+      <result>/includes/stats/DbamtForCus.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+    <action name="search" class="DbamtForCusAction" method="submit">
+      <result name="success" type="chain">showIn</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+    <action name="detail" class="CusDbamtDetailAction" method="get">
+      <result name="success">/includes/stats/DbamtDetail.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+
+    <!-- 按目的地统计 -->
+    <action name="getIn" class="DistrictStatAction" method="init">
+      <result>/includes/stats/CusForDistrict.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+    <action name="findOut" class="DistrictStatAction" method="submit">
+      <result name="success" type="chain">getIn</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+    <action name="getRouteByDistrict" class="BookByDistrictDetailAction" method="get">
+      <result name="success">/includes/stats/RouteForDistrict.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+    <!--
+      <action name="getBookDetailByDistrict" class="BookByDistrictDetailAction" method="get"> <result name="success">/includes/sales/BookingkDetailByDistrict.jsp</result> </action>
+    -->
+    <action name="getByLineNo" class="BookByLineNoAction" method="getbyline">
+      <result name="success">/includes/stats/BookingDetailByLineNo.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+
+    <!-- confirm booking  -->
+    <action name="showConfirmBookSearch" class="ListConfirmBook" method="input">
+      <result name="input">/includes/sales/BookSearch.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+    <action name="ConfirmBookSearch" class="ListConfirmBook">
+      <result name="success">/includes/sales/BookSearch.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+    <action name="ConfirmBookInput" class="ConfirmBook" method="input">
+      <result name="input">/includes/sales/ConfirmBook.jsp</result>
+      <param name="moduleName">Order_edit</param>
+    </action>
+    <action name="ConfirmBook" class="ConfirmBook" method="confirm">
+      <result name="input" type="chain">ConfirmBookInput</result>
+      <result type="chain">ConfirmBookSearch</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+
+    <action name="showOperatorAlert" class="OperatorAlertAction" method="input">
+      <result name="input">/includes/sales/OperatorBookings.jsp</result>
+    </action>
+    <action name="showReadBooking" class="ReadBookingAction" method="input">
+      <result name="input">/includes/sales/BookingDetail.jsp</result>
+      <param name="moduleName">Order_view</param>
+    </action>
+    <action name="submitReadBooking" class="ReadBookingAction" method="submit">
+      <result type="chain">showOperatorAlert</result>
+      <param name="moduleName">Order_edit</param>
+    </action>
+
+  </package>
+</struts>

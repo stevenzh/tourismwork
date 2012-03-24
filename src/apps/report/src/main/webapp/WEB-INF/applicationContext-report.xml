@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="byType">
+
+  <bean id="RouteReportAction" class="com.opentravelsoft.report.action.LineReportAction" singleton="false">
+  </bean>
+
+  <bean id="FopReportAction" class="com.opentravelsoft.report.action.FopReportAction" singleton="false">
+  </bean>
+
+  <bean id="ReportRunAction" class="com.opentravelsoft.report.action.ReportRunAction" singleton="false">
+  </bean>
+
+  <bean id="JxlsReportAction" class="com.opentravelsoft.report.action.JXLSReportAction" singleton="false">
+  </bean>
+
+</beans>

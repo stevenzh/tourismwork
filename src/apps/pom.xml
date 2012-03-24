@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.opentravelsoft</groupId>
+  <artifactId>tourismwork-apps</artifactId>
+  <packaging>pom</packaging>
+  <name>tourismwork-apps</name>
+  <version>1.0</version>
+
+  <organization>
+    <name>Gingkgo.org Software Foundation</name>
+    <url>http://www.opentravelsoft.com</url>
+  </organization>
+
+  <modules>
+    <module>portal</module>
+    <module>manage</module>
+    <module>report</module>
+  </modules>
+
+</project>

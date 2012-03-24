@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<!--  START SNIPPET: quizValidators -->
+
+<validators>
+  <field name="kenStartDatePeriod">
+    <field-validator type="required">
+      <message>出团日期段-开始日期.</message>
+    </field-validator>
+  </field>
+
+  <field name="kenEndDatePeriod">
+    <field-validator type="required">
+      <message>出团日期段-截止日期.</message>
+    </field-validator>
+  </field>
+
+</validators>
+
+<!--  END SNIPPET: quizValidators  -->

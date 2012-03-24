@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.TraitType" table="TBL_TRAIT_TYPE">
+    <id name="traitId" type="int">
+      <column name="TRAIT_ID" />
+      <generator class="assigned" />
+    </id>
+    <property name="name" type="string">
+      <column name="NAME" length="50" />
+    </property>
+  </class>
+</hibernate-mapping>

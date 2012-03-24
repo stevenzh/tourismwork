@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.Guide" table="TBL_GUIDE">
+    <id name="accCd" type="string">
+      <column name="ACC_CD" length="4" />
+      <generator class="assigned" />
+    </id>
+    <property name="accNm" type="string">
+      <column name="ACC_NM" length="10" not-null="true" />
+    </property>
+    <property name="accSex" type="string">
+      <column name="ACC_SEX" length="2" not-null="true" />
+    </property>
+    <property name="pinyin" type="string">
+      <column name="PINYIN" length="50" />
+    </property>
+    <property name="teamId" type="java.lang.Long">
+      <column name="TEAM_ID" />
+    </property>
+    <property name="idCard" type="string">
+      <column name="CARD" length="20" />
+    </property>
+    <property name="leadCard" type="string">
+      <column name="LEAD_CARD" length="20" />
+    </property>
+    <property name="business" type="string">
+      <column name="BUSINESS" length="3" />
+    </property>
+    <property name="bloodType" type="string">
+      <column name="BLOOD_TYPE" length="2" />
+    </property>
+    <property name="high" type="string">
+      <column name="HIGH" length="6" />
+    </property>
+    <property name="leaderKey" type="string">
+      <column name="LEAD_KEY" length="1" />
+    </property>
+    <property name="dateStart" type="date">
+      <column name="DATE_START" />
+    </property>
+    <property name="dateEnd" type="date">
+      <column name="DATE_END" />
+    </property>
+    <property name="weight" type="string">
+      <column name="WEIGHT" length="6" />
+    </property>
+    <property name="duty" type="string">
+      <column name="DUTY" length="3" />
+    </property>
+    <property name="tourKey" type="string">
+      <column name="TOUR_KEY" length="1" />
+    </property>
+    <property name="tourCard" type="string">
+      <column name="TOUR_CARD" length="20" />
+    </property>
+    <property name="checkDate" type="date">
+      <column name="CHECK_DATE" />
+    </property>
+    <property name="icCard" type="string">
+      <column name="IC_CARD" length="20" />
+    </property>
+    <property name="remarks1" type="string">
+      <column name="REMARKS1" length="200" />
+    </property>
+    <property name="workType1" type="string">
+      <column name="WORK_TYPE1" length="1" />
+    </property>
+    <property name="workType2" type="string">
+      <column name="WORK_TYPE2" length="1" />
+    </property>
+    <property name="signKey" type="string">
+      <column name="SIGN_KEY" length="1" />
+    </property>
+    <property name="tel" type="string">
+      <column name="TEL" length="20" />
+    </property>
+    <property name="bp" type="string">
+      <column name="BP" length="20" />
+    </property>
+    <property name="mobile" type="string">
+      <column name="MOBILE" length="20" />
+    </property>
+    <property name="EMail" type="string">
+      <column name="E_MAIL" length="30" />
+    </property>
+    <property name="address" type="string">
+      <column name="ADDRESS" length="40" />
+    </property>
+    <property name="character" type="string">
+      <column name="_CHARACTER" length="20" />
+    </property>
+    <property name="taste" type="string">
+      <column name="TASTE" length="50" />
+    </property>
+    <property name="speciality" type="string">
+      <column name="SPECIALITY" length="50" />
+    </property>
+    <property name="workRemark" type="string">
+      <column name="WORK_REMARK" length="512" />
+    </property>
+    <property name="finishSchool" type="string">
+      <column name="FINISH_SCHOOL" length="40" />
+    </property>
+    <property name="finishDate" type="date">
+      <column name="FINISH_DATE" />
+    </property>
+    <property name="birthday" type="date">
+      <column name="BIRTHDAY" />
+    </property>
+    <property name="birthplace" type="string">
+      <column name="BTHPLC" length="2" />
+    </property>
+    <property name="passportType" type="string">
+      <column name="HZZL" length="2" />
+    </property>
+    <property name="passportNo" type="string">
+      <column name="HZNO" length="12" />
+    </property>
+    <property name="passportDate" type="date">
+      <column name="HZDATE1" />
+    </property>
+    <property name="passportPlace" type="string">
+      <column name="HZADD" length="3" />
+    </property>
+    <property name="passportExpiry" type="date">
+      <column name="HZRANG" />
+    </property>
+    <property name="photoFile" type="string">
+      <column name="PHOTO_FILE" length="40" />
+    </property>
+    <property name="hkPass" type="string">
+      <column name="HK_PASS" length="20" />
+    </property>
+  </class>
+</hibernate-mapping>

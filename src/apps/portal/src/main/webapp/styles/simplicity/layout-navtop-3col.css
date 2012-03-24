@@ -1,0 +1,87 @@
+/* A CSS Framework by Mike Stenhouse of Content with Style */
+
+@import url(nav-horizontal.css);
+ 
+/* NAV BAR AT THE TOP AND THREE COLUMNS OF CONTENT */
+    div#content {
+        position: relative;
+        width: 980px;
+        margin: 0 auto 20px auto;
+        padding: 0;
+        text-align: left;
+    }
+    div#main {
+        float: right;
+        width: 720px;
+        display: inline;
+    }
+    div#sub {
+        float: left;
+        width: 240px;
+        display: inline;
+    }
+        div#sub ul#local {
+            padding: 0;
+            margin: 0;
+            margin-left: 10px;
+        }
+    div#nav {
+        position: absolute;
+        top: -25px;
+        left: 0px;
+        width: 100%;
+
+        text-align: left;
+    }
+
+.left {
+  float: left;
+  width:48%;
+}
+
+.right {
+  float: right;
+  width:50%;
+}
+
+.main2 {
+  width: 290px;
+}
+
+.main3 {
+  width: 350px;
+}
+
+.main2 h2 {
+  height: 43px;
+}
+
+.main2 h2 a {
+  margin: 20px 5px 0 0;
+  font-weight: normal;
+  font-size: 12px;
+  color: #000;
+  float: right
+}
+
+.main2 h2 span {
+  float: left;
+  color: #FFFFFF;
+  margin-left: 15px;
+  margin-top: 12px;
+  font-size: 24px;
+}
+
+.main2 li br {
+  clear: both
+}
+
+.main2 li img {
+  margin: 0px 18px 12px;
+  border: 1px #d8d8d8 solid;
+}
+
+.main2 li.hover {
+  font-weight: bold;
+}
+/* END CONTENT */

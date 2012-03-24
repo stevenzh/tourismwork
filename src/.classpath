@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="modules/core/target/classes" path="modules/core/src/main/java"/>
+	<classpathentry kind="src" output="modules/core/target/classes" path="modules/core/src/main/resources"/>
+	<classpathentry kind="src" output="modules/core/target/classes" path="modules/core/src/test/java"/>
+	<classpathentry kind="src" output="modules/struts2/target/classes" path="modules/struts2/src/main/java"/>
+	<classpathentry kind="src" output="modules/hibernate/target/classes" path="modules/hibernate/src/main/java"/>
+	<classpathentry kind="src" output="modules/hibernate/target/classes" path="modules/hibernate/src/main/resources"/>
+	<classpathentry kind="src" output="modules/workflow/target/classes" path="modules/workflow/src/main/resource"/>
+	<classpathentry kind="src" output="modules/struts2/target/classes" path="modules/workflow/src/main/java"/>
+	<classpathentry kind="src" output="modules/service/target/classes" path="modules/service/src/main/java"/>
+	<classpathentry kind="src" output="modules/service/target/classes" path="modules/service/src/main/resources"/>
+	<classpathentry kind="src" output="apps/report/target/classes" path="apps/report/src/main/java"/>
+	<classpathentry kind="src" output="apps/report/target/classes" path="apps/report/src/main/resources"/>
+	<classpathentry kind="src" output="apps/manage/target/classes" path="apps/manage/src/main/java"/>
+	<classpathentry kind="src" output="apps/manage/target/classes" path="apps/manage/src/main/resources"/>
+	<classpathentry kind="src" output="apps/portal/target/classes" path="apps/portal/src/main/java"/>
+	<classpathentry kind="src" output="apps/portal/target/classes" path="apps/portal/src/main/resources"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="eclipse.fproj.jdt.libprov.osgi/jpt.jpa">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="../"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="apps/report/lib/jfreereport-0.8.7-5.jar"/>
+	<classpathentry kind="lib" path="apps/report/lib/jasperreports-3.5.1-javaflow.jar"/>
+	<classpathentry kind="lib" path="apps/report/lib/jasperreports-query-1.1.0.jar"/>
+	<classpathentry kind="output" path="modules/core/target/classes"/>
+</classpath>

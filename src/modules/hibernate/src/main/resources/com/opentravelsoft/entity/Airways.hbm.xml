@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.Airways" table="TBL_AIRWAYS">
+    <cache usage="nonstrict-read-write"/>
+    <id name="code" type="string">
+      <column name="CODE" length="3" />
+      <generator class="assigned" />
+    </id>
+    <property name="name" type="string">
+      <column name="NAME" length="20" not-null="true" />
+    </property>
+    <property name="fullname" type="string">
+      <column name="FULLNAME" length="40" />
+    </property>
+    <property name="contact" type="string">
+      <column name="CONTACT" length="20" />
+    </property>
+    <property name="phone" type="string">
+      <column name="PHONE_NUMBER" length="20" />
+    </property>
+    <property name="isActive" type="boolean">
+      <column name="IS_ACTIVE" />
+    </property>
+  </class>
+</hibernate-mapping>

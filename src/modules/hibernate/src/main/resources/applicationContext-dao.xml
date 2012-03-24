@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+       default-lazy-init="true">
+
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
+    <!-- Hibernate SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=${hibernate.dialect}
+                hibernate.query.substitutions=true 'Y', false 'N'
+                hibernate.cache.use_second_level_cache=true
+                hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
+            </value>
+            <!-- Turn batching off for better error messages under PostgreSQL -->
+            <!-- hibernate.jdbc.batch_size=0 -->
+        </property>
+    </bean>
+
+    <!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <!-- Activates scanning of @Autowired -->
+    <context:annotation-config/>
+
+    <!-- Activates scanning of @Repository -->
+    <context:component-scan base-package="com.opentravelsoft.providers" />
+
+    <!-- Compass Search Section -->
+
+    <!-- Compass Bean, automatically scanning for searchable classes within the model -->
+    <!-- Hooks into Spring transaction management and stores the index on the file system -->
+    <bean id="compass" class="org.compass.spring.LocalCompassBean">
+        <property name="mappingScan" value="com.opentravelsoft.model" />
+        <property name="transactionManager" ref="transactionManager" />
+        <property name="settings">
+            <map>
+                <entry key="compass.engine.connection" value="target/test-index" />
+            </map>
+        </property>
+    </bean>
+
+    <!-- Compass Template allowing to automatically join/start exising transactions when performing operations -->
+    <bean id="compassTemplate" class="org.compass.core.CompassTemplate">
+        <property name="compass" ref="compass" />
+    </bean>
+
+    <!-- Compass Search Helper allowing to perform search operations in a simpler manner -->
+    <bean id="compassSearchHelper" class="org.compass.core.support.search.CompassSearchHelper">
+        <constructor-arg ref="compass" />
+        <property name="pageSize" value="10" />
+    </bean>
+
+    <!-- CompassGps will automatically mirror any changes done thorugh Hibernate to searchable classes to the index -->
+    <!-- It will also provide the index operation allowing to reindex the database -->
+    <bean id="compassGps" class="org.compass.gps.impl.SingleCompassGps" init-method="start" destroy-method="stop">
+        <property name="compass" ref="compass" />
+        <property name="gpsDevices">
+            <list>
+                <bean class="org.compass.gps.device.hibernate.HibernateGpsDevice">
+                    <property name="name" value="hibernate" />
+                    <property name="sessionFactory" ref="sessionFactory" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="PlanListDao" class="com.opentravelsoft.providers.mixed.PlanListDaoImpl">
+      <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="IndexDao" class="com.opentravelsoft.providers.mixed.IndexDaoHibernate">
+      <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+</beans>

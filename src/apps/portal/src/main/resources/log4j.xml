@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--  Log4j Configuration                                                  -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+
+<!-- $Id: log4j.xml,v 1.1 2009/03/01 16:24:10 zhangst Exp $ -->
+
+<!--
+  | For more configuration infromation and examples see the Jakarta Log4j
+  | owebsite: http://jakarta.apache.org/log4j
+-->
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+  <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss} %-5p [%t] (%F/%L) -%m%n" />
+    </layout>
+  </appender>
+
+  <appender name="FILE" class="org.apache.log4j.FileAppender">
+    <param name="File" value="gingkgo-site.log" />
+    <param name="Append" value="false" />
+    <param name="Threshold" value="DEBUG" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss} %-5p [%t] (%F/%L) -%m%n" />
+    </layout>
+    <filter class="org.apache.log4j.varia.LevelRangeFilter">
+      <param name="LevelMin" value="DEBUG" />
+      <param name="LevelMax" value="FATAL" />
+      <param name="AcceptOnMatch" value="true" />
+    </filter>
+  </appender>
+
+  <logger name="org.springframework.aop.interceptor" additivity="false">
+    <level value="WARN" />
+    <appender-ref ref="CONSOLE" />
+    <appender-ref ref="FILE" />
+  </logger>
+
+  <!-- 
+  <logger name="org.hibernate.SQL" additivity="false">
+    <level value="DEBUG" />
+    <appender-ref ref="CONSOLE" />
+    <appender-ref ref="FILE" />
+  </logger>
+
+  <logger name="org.acegisecurity" additivity="false">
+    <level value="DEBUG" />
+    <appender-ref ref="CONSOLE" />
+  </logger>
+   -->
+  <!-- Suppress success logging from InteractiveAuthenticationSuccessEvent -->
+  <logger name="org.springframework.security">
+      <level value="ERROR"/>
+  </logger>
+
+  <logger name="org.apache">
+      <level value="WARN"/>
+  </logger>
+
+  <logger name="org.apache.velocity">
+      <level value="FATAL"/>
+  </logger>
+
+  <!-- Suppress invalid warning messages from JSF -->
+<!--   <logger name="org.apache.myfaces.shared_impl.renderkit.html"> -->
+<!--       <level value="ERROR"/> -->
+<!--   </logger> -->
+
+<!--   <logger name="org.dbunit"> -->
+<!--       <level value="WARN"/> -->
+<!--   </logger> -->
+
+<!--   <logger name="org.hibernate"> -->
+<!--       <level value="WARN"/> -->
+<!--   </logger> -->
+
+<!--   <logger name="org.hibernate.SQL"> -->
+<!--       <level value="DEBUG"/> -->
+<!--   </logger> -->
+
+<!--   <logger name="org.springframework"> -->
+<!--       <level value="WARN"/> -->
+<!--   </logger> -->
+ 
+  <logger name="com.opentravelsoft">
+      <level value="DEBUG"/>
+  </logger>
+ 
+  <root>
+    <level value="WARN" />
+    <appender-ref ref="CONSOLE" />
+    <appender-ref ref="FILE" />
+  </root>
+
+</log4j:configuration>

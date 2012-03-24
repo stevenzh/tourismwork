@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+   
+   <bean id="throwsLoggingAdvice" class="com.opentravelsoft.aop.ThrowsLoggingAdvice" />
+	<bean id="traceInterceptor" class="org.springframework.aop.interceptor.SimpleTraceInterceptor" />
+
+	<!-- allow for property placeholders -->
+	<bean id="environment" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" lazy-init="false">
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:tourismwork.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${hibernate.jdbc.driver}" />
+		<property name="url" value="${hibernate.jdbc.url}" />
+		<property name="username" value="${hibernate.jdbc.username}" />
+		<property name="password" value="${hibernate.jdbc.password}" />
+	</bean> -->
+	
+	<!--c3p0 DataSource Pool -->
+	<bean id="dataSource"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass">
+			<value>${hibernate.jdbc.driver}</value>
+		</property>
+		<property name="jdbcUrl">
+			<value>${hibernate.jdbc.url}</value>
+		</property>
+		<property name="user">
+			<value>${hibernate.jdbc.username}</value>
+		</property>
+		<property name="password">
+			<value>${hibernate.jdbc.password}</value>
+		</property>
+		<property name="initialPoolSize">
+			<value>5</value>
+		</property>
+		<property name="minPoolSize">
+			<value>5</value>
+		</property>
+		<property name="maxPoolSize">
+			<value>10</value>
+		</property>
+		<property name="acquireIncrement">
+			<value>5</value>
+		</property>
+		<property name="maxIdleTime">
+			<value>10</value>
+		</property>
+		<property name="maxStatements">
+			<value>0</value>
+		</property>
+		<property name="checkoutTimeout">
+			<value>2000</value>
+		</property>
+	</bean>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation">
+			<value>classpath:hibernate.cfg.xml</value>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.jdbc.batch_size">0</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 线路索引  -->
+	<bean id="CbIndexAction" class="com.opentravelsoft.action.manage.search.CbIndexAction" singleton="false">
+		<property name="cbIndexService">
+			<ref bean="CbIndexService" />
+		</property>
+	</bean>
+
+   <bean id="quartzjob" class="com.opentravelsoft.util.QuartzJob"></bean>
+   <bean name="jobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+      <property name="jobClass" value="com.opentravelsoft.util.QuartzJob" />
+      <property name="jobDataAsMap">
+        <map><entry key="size" value="10" /></map>
+      </property>
+      <property name="applicationContextJobDataKey" value="applicationContext"/>
+    </bean>
+   
+<!--  
+    <bean id="SmsSendTaskDetail"
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="quartzjob" />
+        <property name="targetMethod" value="Sys" />
+        <property name="concurrent" value="false" />
+    </bean>
+    -->
+    
+    <!--  
+    <bean id="SmsSendTaskScheduledTask"
+        class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+        <property name="startDelay">
+            <value>10000</value>
+        </property>
+        <property name="repeatInterval">
+            <value>6000000</value>
+        </property>
+        <property name="jobDetail">
+            <ref bean="jobDetail" />
+        </property>
+    </bean>
+    <bean id="SmsSendTaskFactory"
+        class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="SmsSendTaskScheduledTask" />
+            </list>
+        </property>
+    </bean>
+    -->
+    
+     <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="jobDetail" />
+        <property name="cronExpression" value="0 0,30 * * * ?" />
+	</bean>
+	
+	  
+	<bean id="SmsSendTaskFactory" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    	<property name="triggers">
+        <list>
+            <ref bean="cronTrigger" />
+        </list>
+    	</property>
+	</bean>
+</beans>

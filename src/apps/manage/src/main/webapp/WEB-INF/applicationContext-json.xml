@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="byType">
+
+  <bean id="ListEmployeeAction" class="com.opentravelsoft.json.ListEmployeeAction" singleton="false">
+  </bean>
+
+  <bean id="PinyinAction" class="com.opentravelsoft.json.PinyinAction" singleton="false">
+  </bean>
+
+  <bean id="AccountAction" class="com.opentravelsoft.json.AccountAction" singleton="false">
+  </bean>
+  <bean id="JsonContactAction" class="com.opentravelsoft.json.ContactAction" singleton="false">
+  </bean>
+
+  <bean id="MyTaskCountAction" class="com.opentravelsoft.json.MyTaskCountAction" singleton="false">
+  </bean>
+
+  <bean id="ModuleAction" class="com.opentravelsoft.json.ModuleAction" singleton="false">
+  </bean>
+  <bean id="DestinationAction" class="com.opentravelsoft.json.DestinationAction" singleton="false">
+  </bean>
+  <bean id="SalesAction" class="com.opentravelsoft.json.SalesAction" singleton="false">
+  </bean>
+  <bean id="HomePlaceAction" class="com.opentravelsoft.json.BirthPlaceAction" singleton="false">
+  </bean>
+  <bean id="CityAction" class="com.opentravelsoft.json.CityAction" singleton="false">
+  </bean>
+</beans>

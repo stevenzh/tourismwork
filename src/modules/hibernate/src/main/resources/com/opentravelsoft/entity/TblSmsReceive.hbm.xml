@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.TblSmsReceive" table="TBL_SMS_RECEIVE">
+    <id name="id" type="int">
+      <column name="ID" />
+      <generator class="native" />
+    </id>
+    <timestamp name="updDate" column="UPD_DATE" />
+    <property name="seqno" type="string">
+      <column name="SEQNO" length="20" not-null="true" />
+    </property>
+    <property name="mobile" type="string">
+      <column name="MOBILE" length="11" />
+    </property>
+    <property name="message" type="string">
+      <column name="MESSAGE" length="200" />
+    </property>
+    <property name="receiveDate" type="date">
+      <column name="RECEIVE_DATE" />
+    </property>
+    <property name="reply" type="string">
+      <column name="REPLY" length="1" />
+    </property>
+    <property name="replyDate" type="date">
+      <column name="REPLY_DATE" />
+    </property>
+    <property name="msgSrc" type="string">
+      <column name="MSG_SRC" length="500" />
+    </property>
+  </class>
+</hibernate-mapping>

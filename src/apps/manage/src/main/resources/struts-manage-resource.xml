@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <package name="manage-source" namespace="/resource" extends="shcct-manage">
+
+    <!-- Guide  -->
+    <action name="listGuide" class="ListGuideAction" method="input">
+      <result name="input">/includes/resource/guide/ListGuide.jsp</result>
+      <param name="moduleName">Company_view</param>
+    </action>
+    <action name="deleteGuide" class="ListGuideAction" method="delete">
+      <result type="chain">listGuide</result>
+      <param name="moduleName">Company_delete</param>
+    </action>
+    <action name="queryGuide" class="ListGuideAction" method="query">
+      <result>/includes/resource/guide/ListGuide.jsp</result>
+      <param name="moduleName">Company_view</param>
+    </action>
+    <action name="editGuide" class="EditGuideAction" method="input">
+      <result name="input">/includes/resource/guide/EditGuide.jsp</result>
+      <param name="moduleName">Company_edit</param>
+    </action>
+    <action name="submitGuide" class="EditGuideAction" method="submit">
+      <result name="input" type="chain">editGuide</result>
+      <result type="chain">listGuide</result>
+      <param name="moduleName">Company_edit</param>
+    </action>
+
+    <!-- Airport -->
+    <action name="showAirport" class="AirportAction" method="input">
+      <result name="input">/includes/resource/airport/ListAirport.jsp</result>
+      <param name="moduleName">Config_view</param>
+    </action>
+    <action name="searchAirport" class="AirportAction">
+      <result>/includes/resource/airport/ListAirport.jsp</result>
+      <param name="moduleName">Config_view</param>
+    </action>
+    <action name="deleteAirport" class="AirportAction" method="delete">
+      <result type="chain">searchAirport</result>
+      <param name="moduleName">Config_delete</param>
+    </action>
+    <action name="editAirport" class="EditAirportAction" method="input">
+      <result name="input">/includes/resource/airport/EditAirport.jsp</result>
+      <param name="moduleName">Config_edit</param>
+    </action>
+    <action name="submitAirport" class="EditAirportAction" method="submit">
+      <result name="input" type="chain">editAirport</result>
+      <result type="chain">searchAirport</result>
+      <param name="moduleName">Config_edit</param>
+    </action>
+    <action name="AirportDetail" class="EditAirportAction" method='input'>
+      <result name="input">/includes/resource/airport/AirportChange.jsp</result>
+      <param name="moduleName">Config_edit</param>
+    </action>
+
+    <!-- Airways -->
+    <action name="listAirways" class="AirwaysAction" method="input">
+      <result name="input">/includes/resource/airways/ListAirways.jsp</result>
+      <param name="moduleName">Config_view</param>
+    </action>
+    <action name="deleteAirways" class="AirwaysAction" method="delete">
+      <result name="input" type="chain">listAirways</result>
+      <result type="chain">listAirways</result>
+      <param name="moduleName">Config_delete</param>
+    </action>
+    <action name="editAirways" class="EditAirwaysAction" method="input">
+      <result name="input">/includes/resource/airways/EditAirways.jsp</result>
+      <param name="moduleName">Config_edit</param>
+    </action>
+    <action name="submitAirways" class="EditAirwaysAction" method="submit">
+      <result type="chain">listAirways</result>
+      <result name="input" type="chain">editAirways</result>
+      <param name="moduleName">Config_edit</param>
+    </action>
+
+    <!-- Flight -->
+    <action name="listFlight" class="FlightAction">
+      <result name="success">/includes/resource/flight/ListFlight.jsp</result>
+      <param name="moduleName">Config_view</param>
+    </action>
+    <action name="deleteFlight" class="FlightAction" method="delete">
+      <result type="chain">listFlight</result>
+      <param name="moduleName">Config_delete</param>
+    </action>
+    <action name="FlightDetail" class="EditFlightAction" method="input">
+      <result name="input">/includes/resource/flight/FlightDetail.jsp</result>
+      <param name="moduleName">Config_view</param>
+    </action>
+    <action name="editFlight" class="EditFlightAction" method='input'>
+      <result name="input">/includes/resource/flight/EditFlight.jsp</result>
+      <param name="moduleName">Config_edit</param>
+    </action>
+    <action name="submitFlight" class="EditFlightAction" method='submit'>
+      <result type="chain">listFlight</result>
+      <param name="moduleName">Config_edit</param>
+    </action>
+
+    <!-- District -->
+    <action name="showDistrict" class="DistrictAction" method="input">
+      <result name="input">/includes/resource/district/DistrictList.jsp</result>
+      <param name="moduleName">Config_view</param>
+    </action>
+    <action name="searchDistrict" class="DistrictAction" method="submit">
+      <result name="input" type="chain">showDistrict</result>
+      <result name="success">/includes/resource/district/DistrictList.jsp</result>
+      <param name="moduleName">Config_view</param>
+    </action>
+    <action name="deleteDistrict" class="DistrictAction" method="delete">
+      <result type="chain">searchDistrict</result>
+      <param name="moduleName">Config_delete</param>
+    </action>
+    <action name="editDistrict" class="EditDistrictAction" method="input">
+      <result name="input">/includes/resource/district/EditDistrict.jsp</result>
+      <param name="moduleName">Config_edit</param>
+    </action>
+    <action name="submitDistrict" class="EditDistrictAction" method="submit">
+      <result type="chain">searchDistrict</result>
+      <param name="moduleName">Config_edit</param>
+    </action>
+
+    <!-- Sight  -->
+    <action name="showSights" class="SightAction" method="input">
+      <result name="input">/includes/resource/sight/ListSight.jsp</result>
+      <param name="moduleName">Config_view</param>
+    </action>
+    <action name="deleteSight" class="SightAction" method="delete">
+      <result type="chain">listSights</result>
+      <param name="moduleName">Config_delete</param>
+    </action>
+    <action name="listSights" class="SightAction">
+      <result name="input" type="chain">showSights</result>
+      <result>/includes/resource/sight/ListSight.jsp</result>
+      <param name="moduleName">Config_view</param>
+    </action>
+    <action name="editSight" class="EditSightAction" method="input">
+      <result name="input">/includes/resource/sight/EditSight.jsp</result>
+      <param name="moduleName">Config_edit</param>
+    </action>
+    <action name="submitSight" class="EditSightAction" method="submit">
+      <result name="input" type="chain">editSight</result>
+      <result type="chain">listSights</result>
+      <param name="moduleName">Config_edit</param>
+    </action>
+
+    <!-- SightPicTrait  -->
+    <action name="SightPicTrait" class="SightAction" method="sightPicInput">
+      <result name="success">/includes/resource/sight/SightOtherPic.jsp</result>
+      <param name="moduleName">Config_view</param>
+    </action>
+    <action name="SightPicAdd" class="SightAction" method="sightPicAdd">
+      <result>/includes/resource/sight/SightOtherPic.jsp</result>
+      <param name="moduleName">Config_edit</param>
+    </action>
+    <action name="SightPicDelete" class="SightAction" method="sightPicDelete">
+      <result>/includes/resource/sight/SightOtherPic.jsp</result>
+      <param name="moduleName">Config_delete</param>
+    </action>
+    <action name="SightPicSave" class="SightAction" method="sightPicSave">
+      <result name="input" type="chain">SightPicSave</result>
+      <result type="chain">SightDetail</result>
+      <param name="moduleName">Config_edit</param>
+    </action>
+
+    <!-- ShareFlight -->
+    <action name="listShareFlight" class="ListShareFlightAction" method="input">
+      <result name="input">/includes/resource/shareflight/ListShareFlight.jsp</result>
+    </action>
+    <action name="deleteShareFlight" class="ListShareFlightAction" method="delete">
+      <result type="chain">listShareFlight</result>
+    </action>
+    <action name="editShareFlight" class="EditShareFlightAction" method="input">
+      <result name="input">/includes/resource/shareflight/EditShareFlight.jsp</result>
+    </action>
+    <action name="submitShareFlight" class="EditShareFlightAction" method="submit">
+      <result name="input" type="chain">editShareFlight</result>
+      <result type="chain">listShareFlight</result>
+    </action>
+
+  </package>
+
+</struts>

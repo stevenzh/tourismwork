@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC
+  		"-//OpenSymphony Group//XWork Validator 1.0//EN" 
+  		"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<!-- START SNIPPET: fieldValidatorsExample -->
+
+<validators>
+
+	<field name="tblUserPayOl.payerName">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message><![CDATA[付款人姓名必须输入！]]></message>
+		</field-validator>
+	</field>
+	<field name="tblUserPayOl.payerPhone">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message><![CDATA[联系电话必须输入！]]></message>
+		</field-validator>
+	</field>
+	<field name="tblUserPayOl.tourRoute">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message><![CDATA[旅游路线必须输入！]]></message>
+		</field-validator>
+	</field>
+	<field name="tblUserPayOl.payAmount">
+		<field-validator type="required">
+		<message><![CDATA[付款金额必须输入！]]></message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression">^[0-9]*$</param>
+			<message></message>
+		</field-validator>
+	</field>
+
+
+</validators>
+
+<!-- END SNIPPET: fieldValidatorsExample -->
+

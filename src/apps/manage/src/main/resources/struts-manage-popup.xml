@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <package name="manage-popup" namespace="/popup" extends="shcct-manage">
+
+    <action name="showPopupAccount" class="AccountPopupAction" method="input">
+      <result name="input">/includes/crm/AccountPopup.jsp</result>
+    </action>
+    <action name="submitPopupAccount" class="AccountPopupAction" method="submit">
+      <result name="input" type="chain">showPopupAccount</result>
+      <result>/includes/crm/AccountPopup.jsp</result>
+    </action>
+
+    <action name="TourSearch" class="TourSearch" method="input">
+      <result name="input">/includes/operator/TourSearch.jsp</result>
+    </action>
+    <action name="submitTourSearch" class="TourSearch" method="submit">
+      <result name="input">/includes/operator/TourSearch.jsp</result>
+      <result>/includes/operator/TourSearch.jsp</result>
+    </action>
+
+  </package>
+
+</struts>

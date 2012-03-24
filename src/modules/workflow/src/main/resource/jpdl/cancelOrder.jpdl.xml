@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="cancelOrder" xmlns="http://jbpm.org/4.3/jpdl">
+   <start g="58,11,48,48" name="start1">
+      <transition g="10,-18" name="to cancel" to="cancelBooking"/>
+   </start>
+   <state g="23,115,119,52" name="cancelBooking">
+      <transition g="18,-9" name="to end1" to="end1"/>
+   </state>
+   <end g="59,228,48,48" name="end1"/>
+</process>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+
+  <!-- Some or all of these can be flipped to true for debugging -->
+  <constant name="struts.locale" value="zh_CN" />
+  <constant name="struts.i18n.encoding" value="UTF-8" />
+  <constant name="struts.objectFactory" value="spring" />
+
+  <constant name="struts.i18n.reload" value="false" />
+  <constant name="struts.devMode" value="false" />
+  <constant name="struts.configuration.xml.reload" value="false" />
+
+  <constant name="struts.continuations.package" value="com.opentravelsoft" />
+  <constant name="struts.custom.i18n.resources" value="ApplicationResources,errors" />
+
+  <constant name="struts.action.extension" value="html" />
+  <constant name="struts.url.http.port" value="8080" />
+
+  <constant name="struts.date.format" value="yyyy-MM-dd"></constant>
+  <constant name="struts.multipart.maxSize" value="2097152"/>
+  <constant name="struts.ui.theme" value="css_xhtml"/>
+  <constant name="struts.codebehind.pathPrefix" value="/includes/"/>
+  <constant name="struts.enable.SlashesInActionNames" value="true"/>
+  <constant name="struts.convention.action.disableScanning" value="true"/>
+  
+  <constant name="struts.xwork.chaining.copyErrors" value="true" />
+  <constant name="struts.xwork.chaining.copyFieldErrors" value="true" />
+  <constant name="struts.xwork.chaining.copyMessages" value="true" />
+
+  <include file="struts-view.xml" />
+
+  <include file="struts-accounts.xml" />
+  <include file="struts-product.xml" />
+  <include file="struts-search.xml" />
+
+  <!-- Configuration for the default package. -->
+  <package name="default" extends="struts-default">
+    <interceptors>
+      <!-- Interceptor to handle get user information to session -->
+      <interceptor name="userinfo" class="userInfoInterceptor" />
+      <interceptor name="settingInterceptor" class="sysSettingInterceptor" />
+      
+      <!-- Copied from struts-default.xml and changed validation exclude methods -->
+      <interceptor-stack name="defaultStack">
+          <interceptor-ref name="exception"/>
+          <interceptor-ref name="alias"/>
+          <interceptor-ref name="servletConfig"/>
+          <interceptor-ref name="i18n"/>
+          <interceptor-ref name="prepare"/>
+          <interceptor-ref name="chain"/>
+          <interceptor-ref name="debugging"/>
+          <interceptor-ref name="scopedModelDriven"/>
+          <interceptor-ref name="modelDriven"/>
+          <interceptor-ref name="fileUpload"/>
+          <interceptor-ref name="checkbox"/>
+          <interceptor-ref name="multiselect"/>
+          <interceptor-ref name="staticParams"/>
+          <interceptor-ref name="actionMappingParams"/>
+          <interceptor-ref name="params">
+            <param name="excludeParams">dojo\..*,^struts\..*</param>
+          </interceptor-ref>
+          <interceptor-ref name="conversionError"/>
+          <interceptor-ref name="validation">
+              <param name="excludeMethods">cancel,execute,delete,edit,list</param>
+          </interceptor-ref>
+          <interceptor-ref name="workflow">
+              <param name="excludeMethods">input,back,cancel,browse</param>
+          </interceptor-ref>
+          <interceptor-ref name="userinfo"/>
+          <interceptor-ref name="settingInterceptor"/>
+      </interceptor-stack>
+
+      <interceptor-stack name="fileUploadStack">
+          <interceptor-ref name="fileUpload"/>
+          <interceptor-ref name="defaultStack"/>
+      </interceptor-stack>
+    </interceptors>
+
+    <default-interceptor-ref name="defaultStack"></default-interceptor-ref>
+
+    <global-results>
+        <result name="main" type="redirectAction">main</result>
+        <result name="dataAccessFailure">/includes/dataAccessFailure.jsp</result>
+    </global-results>
+
+    <global-exception-mappings>
+        <exception-mapping exception="org.springframework.dao.DataAccessException" result="dataAccessFailure"/>
+    </global-exception-mappings>
+
+    <action name="main">
+        <result name="success">/includes/main.jsp</result>
+    </action>
+
+    <action name="signup" class="signupAction">
+        <result name="cancel" type="redirect">/</result>
+        <result name="input">/includes/signup.jsp</result>
+        <result name="success" type="chain">saveSignup</result>
+    </action>
+
+    <action name="saveSignup" class="signupAction" method="save">
+        <result name="input">/includes/signup.jsp</result>
+        <result name="success" type="redirectAction">/main</result>
+    </action>
+
+    <action name="editProfile" class="userAction" method="edit">
+        <result name="success">/includes/userForm.jsp</result>
+        <result name="error">/includes/main.jsp</result>
+    </action>
+
+    <action name="saveUser" class="userAction" method="save">
+        <result name="cancel" type="redirectAction">admin/users</result>
+        <result name="input">/includes/userForm.jsp</result>
+        <result name="success" type="redirectAction">admin/users</result>
+    </action>
+
+    <action name="passwordHint" class="passwordHintAction">
+        <result name="input">/</result>
+        <result name="success">/</result>
+    </action>
+
+  </package>
+
+</struts>

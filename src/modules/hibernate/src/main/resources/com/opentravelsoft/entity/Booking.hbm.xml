@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.Booking" table="TBL_BOOKING">
+    <cache usage="read-write"/>
+    <id name="nameNo" type="string">
+      <column name="NAME_NO" length="10" />
+      <generator class="assigned" />
+    </id>
+    <timestamp name="opDate" column="OP_TIME" />
+    <many-to-one name="plan" class="com.opentravelsoft.entity.Plan" lazy="false" fetch="select">
+      <column name="PLAN_NO" />
+    </many-to-one>
+    <many-to-one name="team" class="com.opentravelsoft.entity.Team" lazy="false" fetch="select">
+      <column name="TEAM_ID" not-null="true" />
+    </many-to-one>
+    <many-to-one name="assigned" class="com.opentravelsoft.entity.Employee" lazy="false" fetch="select">
+      <column name="ASSIGNED_USER_ID" not-null="true" />
+    </many-to-one>
+    <property name="memberId" type="java.lang.Long">
+      <column name="MEMBER_ID" />
+    </property>
+    <many-to-one name="customer" class="com.opentravelsoft.entity.Customer" lazy="false" fetch="select">
+      <column name="CUSTOMER_ID" />
+    </many-to-one>
+    <property name="contact" type="string">
+      <column name="CONTACT" length="20" />
+    </property>
+    <property name="phone" type="string">
+      <column name="TEL" length="60" />
+    </property>
+    <property name="pax" type="java.lang.Integer">
+      <column name="PAX" />
+    </property>
+    <property name="confirmPax" type="java.lang.Integer">
+      <column name="CONFIRM_PAX" />
+    </property>
+    <property name="dbamt" type="java.lang.Double">
+      <column name="DBAMT" precision="9" />
+    </property>
+    <property name="cramt" type="java.lang.Double">
+      <column name="CRAMT" precision="9" scale="2" />
+    </property>
+    <property name="namekey" type="string" not-null="true">
+      <column name="NAMEKEY" length="1" />
+    </property>
+    <property name="tourK1" type="string">
+      <column name="TOUR_K1" length="1" />
+    </property>
+    <property name="delkey" type="string">
+      <column name="DELKEY" length="1" />
+    </property>
+    
+    <property name="opuser" type="java.lang.Long">
+      <column name="OPUSER" />
+    </property>
+    <property name="reserve" type="java.lang.Long">
+      <column name="RECEIVE" />
+    </property>
+    <property name="reserveDate" type="date">
+      <column name="RECEIVE_DT" />
+    </property>
+    <many-to-one name="salesman" class="com.opentravelsoft.entity.Employee" lazy="false" fetch="select">
+      <column name="SALESMAN" />
+    </many-to-one>
+    <property name="pactNo" type="string">
+      <column name="PACT_NO" length="16" />
+    </property>
+    <property name="tourKey" type="string">
+      <column name="TOUR_KEY" length="1" />
+    </property>
+    <property name="remarks" type="string">
+      <column name="REMARKS" length="512" />
+    </property>
+    <property name="confirmStatus" type="string">
+      <column name="CFM_KEY" length="1" />
+    </property>
+    <property name="invKey" type="string">
+      <column name="INV_KEY" length="1" />
+    </property>
+    <property name="invUser" type="string">
+      <column name="INV_USER" />
+    </property>
+    <property name="invDate" type="date">
+      <column name="INV_DATE" />
+    </property>
+    <property name="readKey" type="string">
+      <column name="READ_KEY" length="1" />
+    </property>
+    <property name="readUser" type="java.lang.Long">
+      <column name="READ_USER" />
+    </property>
+    <property name="readDate" type="date">
+      <column name="READ_DATE" />
+    </property>
+    <property name="planKey" type="string">
+      <column name="PLAN_KEY" length="2" />
+    </property>
+    <property name="finalAmount" type="java.lang.Double">
+      <column name="FINAL_AMOUNT" precision="11" scale="2" />
+    </property>
+    <property name="finalUser" type="java.lang.Long">
+      <column name="FINAL_USER" />
+    </property>
+    <property name="finalDate" type="date">
+      <column name="FINAL_DATE" />
+    </property>
+    <property name="finalNote" type="string">
+      <column name="FINAL_NOTE" length="200" />
+    </property>
+    <property name="warrantFlag" type="string">
+      <column name="WARRANT_FLAG" length="1" />
+    </property>
+    <property name="warrantBy" type="string">
+      <column name="WARRANT_BY" />
+    </property>
+    <property name="warrantDate" type="date">
+      <column name="WARRANT_DATE" />
+    </property>
+    <property name="warrantMoney" type="java.lang.Double">
+      <column name="WARRANT_MONEY" precision="11" scale="2" />
+    </property>
+    <property name="lastPayDate" type="date">
+      <column name="LAST_PAY_DATE" />
+    </property>
+    <property name="source" type="string">
+      <column name="SOURCE" length="2" />
+    </property>
+    <property name="workflowId" type="string">
+      <column name="WORKFLOW_ID" length="255" />
+    </property>
+    <property name="checkKey" type="string">
+      <column name="CHECK_KEY" length="1" />
+    </property>
+    <property name="expAmt" type="java.lang.Double">
+      <column name="EXP_AMT" precision="9" />
+    </property>
+    <property name="orderState" type="string">
+      <column name="ORDER_STATE" length="1" />
+    </property>
+    <property name="isAgreeon" type="java.lang.Integer">
+      <column name="IS_AGREEON" />
+    </property>
+  
+    <!--
+    <property name="checkOp" type="string">
+      <column name="CHECK_OP" length="6" />
+    </property>
+    <property name="checkDate" type="date">
+      <column name="CHECK_DATE" />
+    </property>
+    <property name="placeType" type="string">
+      <column name="PLACE_TYPE" length="3" />
+    </property>
+    <property name="paymentType" type="string">
+      <column name="PAYMENT_TYPE" length="3" />
+    </property>
+    <property name="expense" type="java.lang.Double">
+      <column name="EXPENSE" precision="9" />
+    </property>
+    <property name="payCosts" type="java.lang.Double">
+      <column name="PAY_COSTS" precision="9" />
+    </property>
+    <property name="confirmStatus" type="string">
+      <column name="CONFIRM_STATUS" length="10" />
+    </property>
+    <property name="paymentStatus" type="string">
+      <column name="PAYMENT_STATUS" length="10" />
+    </property>
+    <property name="placeStatus" type="string">
+      <column name="PLACE_STATUS" length="10" />
+    </property>
+    <property name="delDate" type="date">
+      <column name="DEL_DATE" />
+    </property>
+    <property name="remark" type="string">
+      <column name="REMARK" length="1000" />
+    </property>
+     -->
+ 
+  </class>
+</hibernate-mapping>

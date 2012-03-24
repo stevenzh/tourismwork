@@ -1,0 +1,891 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="invoice"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Landscape"
+		 pageWidth="595"
+		 pageHeight="323"
+		 columnWidth="595"
+		 columnSpacing="0"
+		 leftMargin="0"
+		 rightMargin="0"
+		 topMargin="0"
+		 bottomMargin="0"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="EMBED" isForPrompting="false" class="java.lang.String">
+		<defaultValueExpression ><![CDATA["N"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PRINT_LINE" isForPrompting="false" class="java.lang.String">
+		<defaultValueExpression ><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INV_NO" isForPrompting="false" class="java.lang.String">
+		<defaultValueExpression ><![CDATA["0501000001"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CHINESE_AMOUNT" isForPrompting="false" class="java.lang.String"/>
+	<queryString><![CDATA[SELECT
+     TFJ051."REC_NO",
+     TFJ051."INV_NO",
+     TFJ051."PRT_DATE",
+     TFJ051."CUSTOMS",
+     TFJ051."EXP1",
+     TFJ051."AMOUNT1",
+     TFJ051."EXP2",
+     TFJ051."AMOUNT2",
+     TFJ051."EXP3",
+     TFJ051."AMOUNT3",
+     TFJ051."EXP4",
+     TFJ051."AMOUNT4",
+     TFJ051."TYPE1",
+     TFJ051."PAMOUNT1",
+     TFJ051."TYPE2",
+     TFJ051."PAMOUNT2",
+     TFJ051."TYPE3",
+     TFJ051."PAMOUNT3",
+     TFJ051."TYPE4",
+     TFJ051."PAMOUNT4",
+     TFJ051."TYPE5",
+     TFJ051."PAMOUNT5",
+     TFJ051."REMARKS",
+     TFJ051."OP_USER",
+     TFJ051."INCOME_ID",
+     TFJ051."CASHER",
+     TFJ051."SIGNATURE"
+FROM
+     "TFJ051" TFJ051
+WHERE
+     "REC_NO" = $P{INV_NO}]]></queryString>
+
+	<field name="REC_NO" class="java.lang.String"/>
+	<field name="INV_NO" class="java.lang.String"/>
+	<field name="PRT_DATE" class="java.sql.Timestamp"/>
+	<field name="CUSTOMS" class="java.lang.String"/>
+	<field name="EXP1" class="java.lang.String"/>
+	<field name="AMOUNT1" class="java.math.BigDecimal"/>
+	<field name="EXP2" class="java.lang.String"/>
+	<field name="AMOUNT2" class="java.math.BigDecimal"/>
+	<field name="EXP3" class="java.lang.String"/>
+	<field name="AMOUNT3" class="java.math.BigDecimal"/>
+	<field name="EXP4" class="java.lang.String"/>
+	<field name="AMOUNT4" class="java.math.BigDecimal"/>
+	<field name="TYPE1" class="java.lang.String"/>
+	<field name="PAMOUNT1" class="java.math.BigDecimal"/>
+	<field name="TYPE2" class="java.lang.String"/>
+	<field name="PAMOUNT2" class="java.math.BigDecimal"/>
+	<field name="TYPE3" class="java.lang.String"/>
+	<field name="PAMOUNT3" class="java.math.BigDecimal"/>
+	<field name="TYPE4" class="java.lang.String"/>
+	<field name="PAMOUNT4" class="java.math.BigDecimal"/>
+	<field name="TYPE5" class="java.lang.String"/>
+	<field name="PAMOUNT5" class="java.math.BigDecimal"/>
+	<field name="REMARKS" class="java.lang.String"/>
+	<field name="OP_USER" class="java.lang.String"/>
+	<field name="INCOME_ID" class="java.lang.Integer"/>
+	<field name="CASHER" class="java.lang.String"/>
+	<field name="SIGNATURE" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="323"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="95"
+						y="18"
+						width="319"
+						height="24"
+						key="staticText-1">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="黑体" pdfFontName="STSong-Light" size="19" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[旅行社]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="88"
+						y="55"
+						width="333"
+						height="14"
+						key="staticText-2">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[发       票]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement
+						x="21"
+						y="110"
+						width="496"
+						height="174"
+						key="rectangle-1">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<line direction="TopDown">
+					<reportElement
+						x="373"
+						y="110"
+						width="0"
+						height="176"
+						key="line-1">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="22"
+						y="135"
+						width="352"
+						height="0"
+						key="line-2">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="22"
+						y="160"
+						width="352"
+						height="0"
+						key="line-3">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="22"
+						y="89"
+						width="42"
+						height="16"
+						key="staticText-3">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="10" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[客户名称]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="22"
+						y="185"
+						width="352"
+						height="0"
+						key="line-4">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="22"
+						y="210"
+						width="352"
+						height="0"
+						key="line-5">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="22"
+						y="235"
+						width="352"
+						height="0"
+						key="line-6">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="22"
+						y="262"
+						width="352"
+						height="0"
+						key="line-7">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="286"
+						y="110"
+						width="0"
+						height="176"
+						key="line-8">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="29"
+						y="111"
+						width="249"
+						height="12"
+						key="staticText-4">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[项            目]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="292"
+						y="111"
+						width="74"
+						height="12"
+						key="staticText-5">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[金    额]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="382"
+						y="111"
+						width="50"
+						height="12"
+						key="staticText-6">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[收款方式：]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="378"
+						y="135"
+						width="36"
+						height="15"
+						key="staticText-7">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[现金]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="378"
+						y="149"
+						width="36"
+						height="15"
+						key="staticText-8">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[支票]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="378"
+						y="163"
+						width="36"
+						height="15"
+						key="staticText-9">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[转帐]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="378"
+						y="177"
+						width="36"
+						height="15"
+						key="staticText-10">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[信用卡]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="378"
+						y="191"
+						width="36"
+						height="15"
+						key="staticText-11">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[其他]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="386"
+						y="89"
+						width="33"
+						height="16"
+						key="staticText-12">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="10" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[日期]]></text>
+				</staticText>
+				<image  scaleImage="RetainShape" vAlign="Top" hAlign="Left" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="400"
+						y="24"
+						width="120"
+						height="12"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="barcode-1"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<graphicElement stretchType="NoStretch" pen="None" fill="Solid" />
+					<imageExpression class="java.awt.Image"><![CDATA[it.businesslogic.ireport.barcode.BcImage.getBarcodeImage(5,$P{INV_NO},false,false,null,0,0)]]></imageExpression>
+				</image>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="29"
+						y="139"
+						width="249"
+						height="16"
+						key="textField-1"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="宋体" pdfFontName="STSong-Light" size="10" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{EXP1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="66"
+						y="89"
+						width="317"
+						height="16"
+						key="textField-2"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="宋体" pdfFontName="STSong-Light" size="10" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{CUSTOMS}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="292"
+						y="139"
+						width="74"
+						height="16"
+						key="textField-4"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="SansSerif" pdfFontName="Helvetica" size="10" pdfEncoding ="Cp1252"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{AMOUNT1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="29"
+						y="164"
+						width="249"
+						height="16"
+						key="textField-5"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="宋体" pdfFontName="STSong-Light" size="10" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{EXP2}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="292"
+						y="164"
+						width="74"
+						height="16"
+						key="textField-6">
+							<printWhenExpression><![CDATA[new Boolean($F{AMOUNT2}.compareTo( new BigDecimal(0) ) != 0)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="SansSerif" pdfFontName="Helvetica" size="10" pdfEncoding ="Cp1252"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{AMOUNT2}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="29"
+						y="190"
+						width="249"
+						height="16"
+						key="textField-8"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="宋体" pdfFontName="STSong-Light" size="10" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{EXP3}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="29"
+						y="241"
+						width="65"
+						height="16"
+						key="staticText-13">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+				<text><![CDATA[人民币金额大写]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="29"
+						y="214"
+						width="249"
+						height="16"
+						key="textField-9"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="宋体" pdfFontName="STSong-Light" size="10" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{EXP4}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="292"
+						y="190"
+						width="74"
+						height="16"
+						key="textField-10">
+							<printWhenExpression><![CDATA[new Boolean($F{AMOUNT3}.compareTo( new BigDecimal(0) ) != 0)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="SansSerif" pdfFontName="Helvetica" size="10" pdfEncoding ="Cp1252"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{AMOUNT3}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="292"
+						y="214"
+						width="74"
+						height="16"
+						key="textField-11">
+							<printWhenExpression><![CDATA[new Boolean($F{AMOUNT4}.compareTo( new BigDecimal(0) ) != 0)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="SansSerif" pdfFontName="Helvetica" size="10" pdfEncoding ="Cp1252"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{AMOUNT4}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="378"
+						y="206"
+						width="130"
+						height="52"
+						key="textField-12"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="宋体" pdfFontName="STSong-Light" size="10" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{REMARKS}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="yyyy年M月d日" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="424"
+						y="89"
+						width="87"
+						height="16"
+						key="textField-13"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="宋体" pdfFontName="STSong-Light" size="10" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[$F{PRT_DATE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="415"
+						y="135"
+						width="14"
+						height="15"
+						key="staticText-14">
+							<printWhenExpression><![CDATA[new Boolean($F{TYPE1}.equals("Y"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[√]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="415"
+						y="149"
+						width="14"
+						height="15"
+						key="staticText-15">
+							<printWhenExpression><![CDATA[new Boolean($F{TYPE2}.equals("Y"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[√]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="415"
+						y="163"
+						width="14"
+						height="15"
+						key="staticText-16">
+							<printWhenExpression><![CDATA[new Boolean($F{TYPE3}.equals("Y"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[√]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="415"
+						y="177"
+						width="14"
+						height="15"
+						key="staticText-17">
+							<printWhenExpression><![CDATA[new Boolean($F{TYPE4}.equals("Y"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[√]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="29"
+						y="123"
+						width="249"
+						height="12"
+						key="staticText-18">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[ITEMS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="292"
+						y="123"
+						width="74"
+						height="12"
+						key="staticText-19">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[AMOUNT]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="382"
+						y="259"
+						width="125"
+						height="12"
+						key="staticText-20">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[帐号：316188-00007008573]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="382"
+						y="271"
+						width="125"
+						height="12"
+						key="staticText-21">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[开户行： 上海银行浦江支行]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="292"
+						y="241"
+						width="74"
+						height="17"
+						key="textField-14"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="SansSerif" pdfFontName="Helvetica" size="10" pdfEncoding ="Cp1252"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Float"><![CDATA[new Float($F{AMOUNT1}.floatValue() + $F{AMOUNT2}.floatValue() + $F{AMOUNT3}.floatValue() + $F{AMOUNT4}.floatValue())]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="415"
+						y="191"
+						width="14"
+						height="15"
+						key="staticText-22">
+							<printWhenExpression><![CDATA[new Boolean($F{TYPE4}.equals("Y"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[√]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="430"
+						y="135"
+						width="60"
+						height="15"
+						key="textField-15">
+							<printWhenExpression><![CDATA[new Boolean($F{PAMOUNT1}.compareTo( new BigDecimal(0) ) != 0)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="SansSerif" pdfFontName="Helvetica" size="10" pdfEncoding ="Cp1252"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{PAMOUNT1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="430"
+						y="149"
+						width="60"
+						height="15"
+						key="textField-16">
+							<printWhenExpression><![CDATA[new Boolean($F{PAMOUNT2}.compareTo( new BigDecimal(0) ) != 0)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="SansSerif" pdfFontName="Helvetica" size="10" pdfEncoding ="Cp1252"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{PAMOUNT2}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="430"
+						y="163"
+						width="60"
+						height="15"
+						key="textField-17">
+							<printWhenExpression><![CDATA[new Boolean($F{PAMOUNT3}.compareTo( new BigDecimal(0) ) != 0)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="SansSerif" pdfFontName="Helvetica" size="10" pdfEncoding ="Cp1252"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{PAMOUNT3}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="430"
+						y="177"
+						width="60"
+						height="15"
+						key="textField-18">
+							<printWhenExpression><![CDATA[new Boolean($F{PAMOUNT4}.compareTo( new BigDecimal(0) ) != 0)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="SansSerif" pdfFontName="Helvetica" size="10" pdfEncoding ="Cp1252"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{PAMOUNT4}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="430"
+						y="191"
+						width="60"
+						height="15"
+						key="textField-19">
+							<printWhenExpression><![CDATA[new Boolean($F{PAMOUNT5}.compareTo( new BigDecimal(0) ) != 0)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="SansSerif" pdfFontName="Helvetica" size="10" pdfEncoding ="Cp1252"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{PAMOUNT5}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="99"
+						y="241"
+						width="187"
+						height="17"
+						key="textField-20"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="宋体" pdfFontName="STSong-Light" size="10" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{CHINESE_AMOUNT}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="421"
+						y="36"
+						width="94"
+						height="19"
+						key="textField-21"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="SansSerif" pdfFontName="Helvetica" size="10" pdfEncoding ="Cp1252"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{INV_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="316"
+						y="288"
+						width="27"
+						height="13"
+						key="staticText-23">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[出纳]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="406"
+						y="288"
+						width="31"
+						height="13"
+						key="staticText-24">
+							<printWhenExpression><![CDATA[new Boolean($P{PRINT_LINE}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="宋体" pdfFontName="STSong-Light" size="9" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[经手人]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="345"
+						y="288"
+						width="55"
+						height="15"
+						key="textField-22"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{CASHER}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="442"
+						y="287"
+						width="66"
+						height="15"
+						key="textField-23"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{SIGNATURE}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

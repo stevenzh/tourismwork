@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.Announcement" table="TBL_ANNOUNCE">
+    <cache usage="read-write"/>
+    <id name="recNo" type="string">
+      <column name="REC_NO" length="10" />
+      <generator class="assigned" />
+    </id>
+    <timestamp name="opDate" column="OP_DATE" />
+    <property name="title" type="string">
+      <column name="TITLE" length="80" />
+    </property>
+    <property name="type" type="string">
+      <column name="TYPE" length="1" />
+    </property>
+    <property name="chrnum" type="java.lang.Integer">
+      <column name="CHRNUM" />
+    </property>
+    <property name="text" type="string">
+      <column name="TEXT" length="3000" />
+    </property>
+    <property name="savingDate" type="date">
+      <column name="SAVING_DATE" length="23" />
+    </property>
+    <property name="opUser" type="java.lang.Long">
+      <column name="OP_USER" />
+    </property>
+
+  </class>
+</hibernate-mapping>

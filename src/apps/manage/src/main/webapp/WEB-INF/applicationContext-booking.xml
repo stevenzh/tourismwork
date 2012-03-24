@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="byType">
+
+  <!-- 预订单读取 -->
+  <bean id="ReadBookingAction" class="com.opentravelsoft.action.manage.order.ReadBookingAction" singleton="false">
+  </bean>
+
+  <!-- 审核预订单 -->
+  <bean id="ListConfirmBook" class="com.opentravelsoft.action.manage.operator.ListConfirmBookAction" singleton="false">
+  </bean>
+  <bean id="ConfirmBook" class="com.opentravelsoft.action.manage.order.ConfirmBookAction" singleton="false">
+  </bean>
+
+  <bean id="BookingSearchAction" class="com.opentravelsoft.action.manage.order.BookingSearchAction" singleton="false">
+  </bean>
+
+  <!-- 销售预订 -->
+  <bean id="BookingOrderAction" class="com.opentravelsoft.action.manage.order.BookingOrderAction" singleton="false">
+  </bean>
+
+  <bean id="SalesBookingAction" class="com.opentravelsoft.action.manage.order.BookingDetailAction" singleton="false">
+  </bean>
+
+  <!-- Book Gathering -->
+  <bean id="BookGatheringAction" class="com.opentravelsoft.action.manage.order.BookGatheringAction" singleton="false">
+  </bean>
+
+  <bean id="BookingSplitAction" class="com.opentravelsoft.action.manage.order.BookingSplitAction" singleton="false">
+  </bean>
+
+  <!-- Express -->
+  <bean id="ExpressTaskAction" class="com.opentravelsoft.action.manage.express.ExpressTaskAction" singleton="false">
+  </bean>
+  <bean id="ExpressAction" class="com.opentravelsoft.action.manage.express.ExpressDetailAction" singleton="false">
+  </bean>
+  <bean id="AssignExpressAction" class="com.opentravelsoft.action.manage.express.AssignExpressAction" singleton="false">
+  </bean>
+  <bean id="ExpressSearch" class="com.opentravelsoft.action.manage.express.ExpressSearchAction" singleton="false">
+  </bean>
+  <bean id="EditExpressAction" class="com.opentravelsoft.action.manage.express.EditExpressAction" singleton="false">
+  </bean>
+
+  <!--帐单制作 Reckoning Make -->
+  <bean id="ReckoningMakeAction" class="com.opentravelsoft.action.manage.order.ReckoningMakeAction" singleton="false">
+  </bean>
+
+</beans>

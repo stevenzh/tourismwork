@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.Line" table="TBL_LINE">
+    <cache usage="read-write"/>
+    <id name="lineNo" type="string">
+      <column name="LINE_NO" length="8" />
+      <generator class="assigned" />
+    </id>
+    <timestamp name="operateDate" column="OP_DATE" />
+    <property name="lineName" type="string">
+      <column name="LINE_NAME" length="60" />
+    </property>
+    <property name="lineDay" type="java.lang.Integer">
+      <column name="DAY" />
+    </property>
+    <many-to-one name="team" class="com.opentravelsoft.entity.Team" lazy="false" fetch="select">
+      <column name="TEAM_ID" not-null="true" />
+    </many-to-one>
+    <many-to-one name="assigned" class="com.opentravelsoft.entity.Employee" lazy="false" fetch="select">
+      <column name="ASSIGNED_USER_ID" not-null="true" />
+    </many-to-one>
+    <many-to-one name="opTeam" class="com.opentravelsoft.entity.Team" lazy="false" fetch="select" not-found="ignore">
+      <column name="OP_TEAM_ID" />
+    </many-to-one>
+    <property name="classKey1" type="string">
+      <column name="CLASS_KEY1" length="1" />
+    </property>
+    <property name="classKeyContent" type="string">
+      <column name="CLASS_KEY2" length="1" />
+    </property>
+    <property name="classKey3" type="string">
+      <column name="CLASS_KEY3" length="1" />
+    </property>
+    <property name="classKey4" type="string">
+      <column name="CLASS_KEY4" length="2" />
+    </property>
+    <many-to-one name="destination" class="com.opentravelsoft.entity.Destination" lazy="false" fetch="select">
+      <column name="CLASS_KEY5" />
+    </many-to-one>
+    <property name="classKeyVehicle" type="string">
+      <column name="CLASS_KEY6" length="2" />
+    </property>
+    <property name="classKey7" type="string">
+      <column name="CLASS_KEY7" length="1" />
+    </property>
+    <many-to-one name="outCity" class="com.opentravelsoft.entity.City" lazy="false" fetch="select">
+      <column name="OUT_CITY" />
+    </many-to-one>
+    <property name="firstCity" type="string">
+      <column name="FIRST_CITY" length="4" />
+    </property>
+    <property name="title" type="string">
+      <column name="TITLE" length="100" />
+    </property>
+    <property name="description" type="string">
+      <column name="DESCRIPTION" length="200" />
+    </property>
+    <property name="isActive" type="boolean">
+      <column name="IS_ACTIVE" not-null="true" />
+    </property>
+    <property name="delKey" type="string">
+      <column name="DEL_KEY" length="1" />
+    </property>
+    <property name="createUserId" type="java.lang.Long">
+      <column name="CR_USER" />
+    </property>
+    <property name="createDate" type="date">
+      <column name="CR_DATE" />
+    </property>
+    <property name="operateUserId" type="java.lang.Long">
+      <column name="OP_USER" />
+    </property>
+    <property name="fitType" type="string">
+      <column name="FIT_TYPE" length="2" />
+    </property>
+    <property name="OPax" type="java.lang.Integer">
+      <column name="O_PAX" />
+    </property>
+    <property name="ONight1" type="java.lang.Integer">
+      <column name="O_NIGHT1" />
+    </property>
+    <property name="ONight2" type="java.lang.Integer">
+      <column name="O_NIGHT2" />
+    </property>
+    <property name="comOwnExpense" type="string">
+      <column name="COM_OWN_EXPENSE" length="500" />
+    </property>
+    <property name="perOwnExpense" type="string">
+      <column name="PER_OWN_EXPENSE" length="500" />
+    </property>
+    <property name="traitType" type="java.lang.Integer">
+      <column name="TRAIT_TYPE" />
+    </property>
+    <property name="portOfEntry" type="string">
+      <column name="PORT_OF_ENTRY" length="20" />
+    </property>
+    <property name="portOfDeparture" type="string">
+      <column name="PORT_OF_DEPARTURE" length="20" />
+    </property>
+
+    <property name="percentage" type="string">
+      <column name="PERCENTAGE" />
+    </property>
+    <property name="profit" type="string">
+      <column name="PROFIT" />
+    </property>
+    <property name="flag" type="string">
+      <column name="FLAG" />
+    </property>
+    <property name="guestPercentage" type="string">
+      <column name="GUEST_PERCENTAGE" />
+    </property>
+    <property name="guestProfit" type="string">
+      <column name="GUEST_PROFIT" />
+    </property>
+    <property name="isHot" type="java.lang.Short">
+      <column name="IS_HOT" />
+    </property>
+    <property name="canDefer" type="java.lang.Short">
+      <column name="CAN_DEFER" />
+    </property>
+    <property name="minDays" type="java.lang.Integer">
+      <column name="MIN_DAYS" />
+    </property>
+    <property name="minNights" type="java.lang.Integer">
+      <column name="MIN_NIGHTS" />
+    </property>
+    <property name="airwaysId" type="string">
+      <column name="AIRWAYS_ID" />
+    </property>
+    <property name="createdBy" type="java.lang.Integer">
+      <column name="CreatedBy" />
+    </property>
+    <property name="createdDate" type="date">
+      <column name="CreatedDate" />
+    </property>
+    <property name="createdByIp" type="string">
+      <column name="CreatedByIp" />
+    </property>
+    <property name="modifiedBy" type="java.lang.Integer">
+      <column name="ModifiedBy" />
+    </property>
+    <property name="modifiedDate" type="date">
+      <column name="ModifiedDate" />
+    </property>
+    <property name="modifiedByIp" type="string">
+      <column name="ModifiedByIp" />
+    </property>
+    
+    <set name="sights" inverse="false" lazy="true" table="TBL_LINE_SIGHTS" fetch="select">
+      <cache usage="nonstrict-read-write"/>
+      <key>
+        <column name="LINE_NO" length="10" not-null="true" />
+      </key>
+      <many-to-many entity-name="com.opentravelsoft.entity.Sight">
+        <column name="SIGHT_NO" not-null="true" />
+      </many-to-many>
+    </set>
+
+    <set name="countrys" inverse="false" lazy="true" table="TBL_LINE_COUNTRY" fetch="select">
+      <key>
+        <column name="LINE_NO" length="10" not-null="true" />
+      </key>
+      <many-to-many entity-name="com.opentravelsoft.entity.Country">
+        <column name="COUNTRY_CD" not-null="true" />
+      </many-to-many>
+    </set>
+
+  </class>
+</hibernate-mapping>

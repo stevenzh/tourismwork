@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC
+      "-//OpenSymphony Group//XWork Validator 1.0//EN" 
+      "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+  <field name="singleTourBalance.tourAmount">
+    <field-validator type="required">
+      <message>纯团费必须输入!</message>
+    </field-validator>
+    <field-validator type="conversion">
+      <message>纯团费必须是数字！</message>
+    </field-validator>
+    <field-validator type="double">
+      <param name="min">0.0</param>
+      <message>纯团费必须大于零！</message>
+    </field-validator>
+  </field>
+  
+</validators>

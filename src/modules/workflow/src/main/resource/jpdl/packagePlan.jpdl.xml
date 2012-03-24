@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="AsyncActivity" xmlns="http://jbpm.org/4.3/jpdl">
+  <start g="162,9,48,48" name="startPlan">
+    <transition g="8,-8" name="to create" to="createPlan"/>
+  </start>
+
+  <java class="com.opentoiurismwork.ebiz.action.LoginIn" g="141,103,92,52" method="generatePdf" name="createPlan">
+    <transition g="9,-11" name="to reserve" to="reserve"/>
+  </java>
+
+  <end g="166,637,48,48" name="end1"/>
+  <java class="com.opentoiurismwork.ebiz.action.LoginIn" g="140,189,92,52" method="generatePdf" name="reserve">
+    <transition g="8,-7" name="to build" to="buildTour"/>
+  </java>
+  <state g="141,280,92,52" name="buildTour">
+    <transition g="6,-8" name="to end1" to="fork1"/>
+  </state>
+   <sub-process g="16,466,92,52" name="Subprocess1">
+      <transition g="66,580:16,-43" name="to join1" to="join1"/>
+   </sub-process>
+   <fork g="162,373,48,48" name="fork1">
+      <transition g="60,396:9,-18" name="to Subprocess1" to="Subprocess1"/>
+      <transition g="8,-14" name="to Subprocess2" to="Subprocess2"/>
+      <transition g="308,397:-90,-18" name="to Subprocess3" to="Subprocess3"/>
+   </fork>
+   <sub-process g="140,462,92,52" name="Subprocess2">
+      <transition g="6,-8" name="to join1" to="join1"/>
+   </sub-process>
+   <sub-process g="261,456,92,52" name="Subprocess3">
+      <transition g="313,571:4,-49" name="to join1" to="join1"/>
+   </sub-process>
+   <join g="163,554,48,48" name="join1">
+      <transition g="20,-12" name="to end1" to="end1"/>
+   </join>
+</process>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition xmlns="urn:jbpm.org:jpdl-3.2" name="TourWorkFlow">
+
+  <description>团操作</description>
+
+  <start-state name="开始">
+    <transition to="制作出团计划" name="to 制作出团计划"></transition>
+  </start-state>
+
+  <fork name="fork1">
+    <transition to="制作出团通知" name="to 出团通知"></transition>
+    <transition to="制作单团核算" name="to 单团核算"></transition>
+    <transition to="是否需要安排领队" name="to 安排领队"></transition>
+  </fork>
+
+  <task-node name="制作出团通知">
+    <task name="outTourNotify">
+      <controller
+        class="com.opentravelsoft.workflow.tour.task.OutTourNotifyHandler">
+      </controller>
+    </task>
+    <transition to="发送出团通知" name="to 合同配送"></transition>
+  </task-node>
+
+  <task-node name="制作单团核算">
+    <task name="CALCULATION_MAKE">
+      <controller
+        class="com.opentravelsoft.workflow.tour.task.CreateTourHandler">
+      </controller>
+    </task>
+    <transition name="to 计调审核单团核算" to="计调审核单团核算"></transition>
+  </task-node>
+
+  <task-node name="安排领队">
+    <task name="arrangeLeader">
+      <controller
+        class="com.opentravelsoft.workflow.tour.task.ArrangeLeaderHandler">
+      </controller>
+    </task>
+    <transition to="中转一" name="to 中转一"></transition>
+  </task-node>
+
+  <join name="join1">
+    <transition to="结束" name="to 结束"></transition>
+  </join>
+
+  <node name="制作出团计划">
+    <transition to="订单预订" name="线路预订"></transition>
+  </node>
+
+  <task-node name="计调审核单团核算">
+    <task name="CALCULATION_AUDITING">
+      <controller
+        class="com.opentravelsoft.workflow.tour.task.AuditingTourHandler">
+      </controller>
+    </task>
+    <transition to="财务审核单团核算" name="to 财务审核单团核算"></transition>
+  </task-node>
+
+  <task-node name="财务审核单团核算">
+    <task name="FINANCE_CALCULATION_AUDITING">
+      <controller
+        class="com.opentravelsoft.workflow.tour.task.FinanceAuditingTourHandler"></controller>
+    </task>
+    <transition name="单团核算审核完成" to="join1"></transition>
+  </task-node>
+
+  <task-node name="成团">
+    <task name="groupTour">
+      <controller class="com.opentravelsoft.workflow.tour.task.GroupTourHandler">
+      </controller>
+    </task>
+    <transition to="fork1" name="分支一"></transition>
+  </task-node>
+
+  <task-node name="发送出团通知">
+    <task name="sendOutTourNotify">
+      <controller
+        class="com.opentravelsoft.workflow.tour.task.SendOutTourNotifyHandler">
+      </controller>
+    </task>
+    <transition to="join1"></transition>
+  </task-node>
+
+  <decision name="是否需要安排领队">
+    <handler
+      class="com.opentravelsoft.workflow.tour.decision.ArrangeLeaderDecisionHandler"></handler>
+    <transition to="安排领队" name="需要安排领队"></transition>
+    <transition to="中转一" name="不需要安排"></transition>
+  </decision>
+
+  <node name="中转一">
+    <transition to="join1"></transition>
+  </node>
+
+  <task-node name="订单预订">
+    <task name="AUTO_BOOK">
+      <controller class="com.opentravelsoft.workflow.tour.task.AutoBookHandler"></controller>
+    </task>
+    <transition to="成团" name="to 成团"></transition>
+  </task-node>
+
+
+  <end-state name="结束"></end-state>
+
+</process-definition>

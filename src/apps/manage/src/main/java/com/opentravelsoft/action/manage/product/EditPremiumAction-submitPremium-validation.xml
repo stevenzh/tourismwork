@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+      "-//OpenSymphony Group//XWork Validator 1.0//EN" 
+      "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+  <field name="tblPremium.precode">
+    <field-validator type="requiredstring">
+      <message>险种必须填写.</message>
+    </field-validator>
+    <field-validator type="stringlength">
+      <param name="trim">true</param>
+      <param name="maxLength">8</param>
+      <message>险种长度不能超过8个英数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="tblPremium.prem">
+    <field-validator type="required">
+      <message>保费必须填写.</message>
+    </field-validator>
+    <field-validator type="double">
+      <param name="minExclusive">0.01</param>
+      <param name="maxExclusive">99999.99</param>
+      <message>保费只能为数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="tblPremium.preday">
+    <field-validator type="required">
+      <message>保险期限必须填写.</message>
+    </field-validator>
+    <field-validator type="int">
+      <message>保险期限只能为数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="tblPremium.ywpre">
+    <field-validator type="required">
+      <message>意外保额必须填写.</message>
+    </field-validator>
+    <field-validator type="double">
+      <param name="minExclusive">0.001</param>
+      <param name="maxExclusive">99999.999</param>
+      <message>意外保额只能为数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="tblPremium.ylpre">
+    <field-validator type="required">
+      <message>意外医疗保额必须填写.</message>
+    </field-validator>
+    <field-validator type="double">
+      <param name="minExclusive">0.001</param>
+      <param name="maxExclusive">99999.999</param>
+      <message>意外医疗保额只能为数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="tblPremium.bcpre">
+    <field-validator type="required">
+      <message>补充保额必须填写.</message>
+    </field-validator>
+    <field-validator type="double">
+      <param name="minExclusive">0.001</param>
+      <param name="maxExclusive">99999.999</param>
+      <message>补充保额只能为数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="tblPremium.dodate">
+    <field-validator type="required">
+      <message>操作开始日期必须填写.</message>
+    </field-validator>
+    <field-validator type="date">
+      <message>操作开始日期格式有误 YYYY/MM/DD </message>
+    </field-validator>
+  </field>
+
+  <field name="tblPremium.note">
+    <field-validator type="stringlength">
+      <param name="maxLength">200</param>
+      <param name="trim">true</param>
+      <message>说明文字不能超过100个汉字.</message>
+    </field-validator>
+  </field>
+</validators>
+

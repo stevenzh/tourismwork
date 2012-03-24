@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.TblSmsSend" table="TBL_SMS_SEND">
+    <id name="id" type="int">
+      <column name="ID" />
+      <generator class="native" />
+    </id>
+    <property name="seqno" type="string">
+      <column name="SEQNO" length="20" not-null="true" />
+    </property>
+    <property name="mobile" type="string">
+      <column name="MOBILE" length="11" not-null="true" />
+    </property>
+    <property name="message" type="string">
+      <column name="MESSAGE" length="200" />
+    </property>
+    <property name="sendDate" type="date">
+      <column name="SEND_DATE" />
+    </property>
+    <property name="opId" type="string">
+      <column name="OP_ID" length="4" />
+    </property>
+    <property name="stat" type="string">
+      <column name="STAT" length="10" />
+    </property>
+    <property name="status" type="string">
+      <column name="STATUS" length="10" />
+    </property>
+  </class>
+</hibernate-mapping>

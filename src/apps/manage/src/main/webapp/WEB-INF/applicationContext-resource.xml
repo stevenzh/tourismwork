@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byType">
+
+  <!--DistrictAction -->
+  <bean id="DistrictAction" class="com.opentravelsoft.action.manage.resource.ListDisctrictAction" singleton="false">
+  </bean>
+  <bean id="EditDistrictAction" class="com.opentravelsoft.action.manage.resource.EditDistrictAction" singleton="false">
+  </bean>
+
+  <!-- FIT Category -->
+  <bean id="LineThemeAction" class="com.opentravelsoft.action.manage.vacation.LineThemeAction" singleton="false">
+  </bean>
+
+  <!-- Category -->
+  <bean id="CategoryAction" class="com.opentravelsoft.action.manage.product.CategoryAction" singleton="false">
+  </bean>
+
+  <!-- VisaAction -->
+  <bean id="ListVisaAction" class="com.opentravelsoft.action.manage.product.ListVisaAction" singleton="false">
+  </bean>
+  <bean id="EditVisaAction" class="com.opentravelsoft.action.manage.product.EditVisaAction" singleton="false">
+  </bean>
+
+  <!-- Airways -->
+  <bean id="AirwaysAction" class="com.opentravelsoft.action.manage.resource.ListAirwaysAction" singleton="false">
+  </bean>
+  <bean id="EditAirwaysAction" class="com.opentravelsoft.action.manage.resource.EditAirwaysAction" singleton="false">
+  </bean>
+
+  <!-- Airport -->
+  <bean id="AirportAction" class="com.opentravelsoft.action.manage.resource.ListAirportAction" singleton="false">
+  </bean>
+  <bean id="EditAirportAction" class="com.opentravelsoft.action.manage.resource.EditAirportAction" singleton="false">
+  </bean>
+
+  <!--Flight -->
+  <bean id="FlightAction" class="com.opentravelsoft.action.manage.resource.ListFlightAction" singleton="false">
+  </bean>
+  <bean id="EditFlightAction" class="com.opentravelsoft.action.manage.resource.EditFlightAction" singleton="false">
+  </bean>
+
+  <!-- Sight -->
+  <bean id="SightAction" class="com.opentravelsoft.action.manage.resource.ListSightAction" singleton="false">
+  </bean>
+  <bean id="EditSightAction" class="com.opentravelsoft.action.manage.resource.EditSightAction" singleton="false">
+  </bean>
+
+  <!-- 导陪档案 -->
+  <bean id="ListGuideAction" class="com.opentravelsoft.action.manage.setting.ListGuideAction" singleton="false">
+  </bean>
+  <bean id="EditGuideAction" class="com.opentravelsoft.action.manage.setting.EditGuideAction" singleton="false">
+  </bean>
+
+  <!-- ShareFlightAction -->
+  <bean id="ListShareFlightAction" class="com.opentravelsoft.action.manage.product.ListShareFlightAction" singleton="false">
+  </bean>
+  <bean id="EditShareFlightAction" class="com.opentravelsoft.action.manage.product.EditShareFlightAction" singleton="false">
+  </bean>
+
+</beans>

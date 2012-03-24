@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.model.Module" table="TBL_MODULE">
+    <id name="moduleId" type="long">
+      <column name="MID" />
+      <generator class="native" />
+    </id>
+    <property name="moduleName" type="string">
+      <column name="NAME" length="50" not-null="true" />
+    </property>
+    <property name="moduleTitle" type="string">
+      <column name="TITLE" length="50" />
+    </property>
+    <property name="type" type="string">
+      <column name="TYPE" length="10" not-null="true" />
+    </property>
+    <property name="description" type="string">
+      <column name="DESCRIPTION" length="500" />
+    </property>
+    <property name="isActive" type="boolean">
+      <column name="IS_ACTIVE" not-null="true" />
+    </property>
+    <property name="action" type="string">
+      <column name="ACTION" length="50" />
+    </property>
+    <property name="version" type="string">
+      <column name="VERSION" length="50" />
+    </property>
+    <property name="sortOrder" type="java.lang.Integer">
+      <column name="SORT_ORDER" />
+    </property>
+    <property name="parentId" type="java.lang.Integer">
+      <column name="PARENT_ID" />
+    </property>
+  </class>
+</hibernate-mapping>

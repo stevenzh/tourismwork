@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <package name="manage-setting" namespace="/setting" extends="shcct-manage">
+
+    <action name="SettingAction" class="SettingAction">
+      <result>/includes/Setting.jsp</result>
+      <param name="moduleName">System_view</param>
+    </action>
+
+    <!-- UserAction -->
+    <action name="listUser" class="UserAction" method="input">
+      <result name="input">/includes/setting/employee/ListEmployee.jsp</result>
+      <param name="moduleName">Company_view</param>
+    </action>
+    <action name="deleteUser" class="UserAction" method="delete">
+      <result name="input" type="chain">listUser</result>
+      <result type="chain">listUser</result>
+      <param name="moduleName">Company_delete</param>
+    </action>
+    <action name="editUser" class="EditUserAction" method="input">
+      <result name="input">/includes/setting/employee/EditEmployee.jsp</result>
+      <param name="moduleName">Company_view</param>
+    </action>
+    <action name="changeUserPwd" class="EditUserAction" method="changePwd">
+      <result name="input" type="chain">editUser</result>
+      <result name="success" type="chain">listUser</result>
+      <param name="moduleName">Company_edit</param>
+    </action>
+    <action name="submitUser" class="EditUserAction" method="submit">
+      <result name="success" type="chain">listUser</result>
+      <param name="moduleName">Company_edit</param>
+    </action>
+
+    <!-- Department  -->
+    <action name="showDepartment" class="DepartmentAction">
+      <result>/includes/setting/group/DepartmentTree.jsp</result>
+      <param name="moduleName">Company_view</param>
+    </action>
+    <action name="detailDepartment" class="DepartmentAction" method="detail">
+      <result>/includes/setting/group/DepartmentDetail.jsp</result>
+      <param name="moduleName">Company_view</param>
+    </action>
+    <action name="submitDepartment" class="DepartmentAction" method="submit">
+      <result type="chain">
+        <param name="actionName">showDepartment</param>
+        <param name="namespace">/setting</param>
+        <param name="moduleName">Company_edit</param>
+      </result>
+    </action>
+
+    <!-- Team -->
+    <action name="listTeam" class="EditTeamAction" method="input">
+      <result name="input">/includes/setting/team/ListTeam.jsp</result>
+      <param name="moduleName">Company_view</param>
+    </action>
+    <action name="delTeam" class="EditTeamAction" method="delete">
+      <result type="chain">listTeam</result>
+      <param name="moduleName">Company_delete</param>
+    </action>
+    <action name="editTeam" class="EditTeamAction" method="edit">
+      <result name="input">/includes/setting/team/EditTeam.jsp</result>
+      <param name="moduleName">Company_edit</param>
+    </action>
+    <action name="updateTeam" class="EditTeamAction" method="save">
+      <result name="input" type="chain">editTeam</result>
+      <result type="chain">listTeam</result>
+      <param name="moduleName">Company_edit</param>
+    </action>
+
+    <!-- Module  -->
+    <action name="listModule" class="ListModuleAction" method="input">
+      <result name="input">/includes/setting/module/ListModule.jsp</result>
+      <param name="moduleName">System_view</param>
+    </action>
+    <action name="delModule" class="ListModuleAction" method="delete">
+      <result type="chain">listModule</result>
+      <param name="moduleName">System_delete</param>
+    </action>
+    <action name="queryModule" class="ListModuleAction" method="query">
+      <result>/includes/setting/module/ListModule.jsp</result>
+      <param name="moduleName">System_view</param>
+    </action>
+    <action name="editModule" class="EditModuleAction" method="input">
+      <result name="input">/includes/setting/module/EditModule.jsp</result>
+      <param name="moduleName">System_edit</param>
+    </action>
+    <action name="submitModule" class="EditModuleAction" method="submit">
+      <result name="input" type="chain">editModule</result>
+      <result type="chain">listModule</result>
+      <param name="moduleName">System_edit</param>
+    </action>
+
+    <!-- Role  -->
+    <action name="listRole" class="ListRoleAction" method="input">
+      <result name="input">/includes/setting/role/ListRole.jsp</result>
+      <param name="moduleName">System_view</param>
+    </action>
+    <action name="delRole" class="ListRoleAction" method="delete">
+      <result type="chain">listRole</result>
+      <param name="moduleName">System_delete</param>
+    </action>
+    <action name="queryRole" class="ListRoleAction" method="query">
+      <result>/includes/setting/role/ListRole.jsp</result>
+      <param name="moduleName">System_view</param>
+    </action>
+    <action name="editRole" class="EditRoleAction" method="input">
+      <result name="input">/includes/setting/role/EditRole.jsp</result>
+      <param name="moduleName">System_edit</param>
+    </action>
+    <action name="submitRole" class="EditRoleAction" method="submit">
+      <result name="input" type="chain">editRole</result>
+      <result type="chain">listRole</result>
+      <param name="moduleName">System_edit</param>
+    </action>
+
+    <!-- Config  -->
+    <action name="listConfig" class="ListConfigAction" method="input">
+      <result name="input">/includes/setting/config/ListConfig.jsp</result>
+      <param name="moduleName">System_view</param>
+    </action>
+    <action name="searchConfig" class="ListConfigAction" method="execute">
+      <result>/includes/setting/config/ListConfig.jsp</result>
+      <param name="moduleName">System_view</param>
+    </action>
+    <action name="delConfig" class="ListConfigAction" method="delete">
+      <result type="chain">listConfig</result>
+      <param name="moduleName">System_delete</param>
+    </action>
+    <action name="editConfig" class="EditConfigAction" method="input">
+      <result name="input">/includes/setting/config/EditConfig.jsp</result>
+      <param name="moduleName">System_edit</param>
+    </action>
+    <action name="updateConfig" class="EditConfigAction" method="submit">
+      <result name="input" type="chain">editConfig</result>
+      <result type="chain">listConfig</result>
+      <param name="moduleName">System_edit</param>
+    </action>
+
+    <!-- List -->
+    <action name="showList" class="ListAction" method="input">
+      <result name="input">/includes/setting/list/List.jsp</result>
+      <param name="moduleName">System_view</param>
+    </action>
+    <action name="searchList" class="ListAction" method="execute">
+      <result>/includes/setting/list/List.jsp</result>
+      <param name="moduleName">System_view</param>
+    </action>
+    <action name="delList" class="ListAction" method="delete">
+      <result type="chain">searchList</result>
+      <param name="moduleName">System_delete</param>
+    </action>
+    <action name="editList" class="EditListAction" method="input">
+      <result name="input">/includes/setting/list/EditList.jsp</result>
+      <param name="moduleName">System_edit</param>
+    </action>
+    <action name="updateList" class="EditListAction" method="submit">
+      <result name="input" type="chain">editList</result>
+      <result type="chain">searchList</result>
+      <param name="moduleName">System_edit</param>
+    </action>
+
+    <!-- Shortcut -->
+    <action name="searchShortcut" class="ListShortcutAction">
+      <result>/includes/setting/shortcut/List.jsp</result>
+      <param name="moduleName">System_view</param>
+    </action>
+    <action name="deleteShortcut" class="ListShortcutAction" method="del">
+      <result name="input" type="chain">searchShortcut</result>
+      <result type="chain">searchShortcut</result>
+      <param name="moduleName">System_edit</param>
+    </action>
+    <action name="editShortcut" class="EditShortcutAction" method="input">
+      <result name="input">/includes/setting/shortcut/Edit.jsp</result>
+      <param name="moduleName">System_view</param>
+    </action>
+    <action name="updateShortcut" class="EditShortcutAction">
+      <result name="input" type="chain">editShortcut</result>
+      <result type="chain">searchShortcut</result>
+      <param name="moduleName">System_edit</param>
+    </action>
+
+  </package>
+
+</struts>

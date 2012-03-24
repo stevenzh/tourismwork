@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+       default-lazy-init="true">
+
+    <bean id="userInfoInterceptor" class="com.opentravelsoft.webapp.interceptor.UserInfoInterceptor">
+        <property name="userManager" ref="userManager"/>
+    </bean>
+    <bean id="sysSettingInterceptor" class="com.opentravelsoft.webapp.interceptor.SysSettingInterceptor">
+        <property name="configService" ref="SysConfigService"/>
+        <property name="productService" ref="ProductService" />
+    </bean>
+
+    <bean id="signupAction" class="com.opentravelsoft.webapp.action.SignupAction" scope="prototype">
+        <property name="userManager" ref="userManager"/>
+        <property name="roleManager" ref="roleManager"/>
+        <property name="mailEngine" ref="mailEngine"/>
+        <property name="mailMessage" ref="mailMessage"/>
+        <property name="templateName" value="accountCreated.vm"/>
+    </bean>
+    
+    <bean id="userAction" class="com.opentravelsoft.webapp.action.UserAction" scope="prototype">
+        <property name="userManager" ref="userManager"/>
+        <property name="roleManager" ref="roleManager"/>
+        <property name="mailEngine" ref="mailEngine"/>
+        <property name="mailMessage" ref="mailMessage"/>
+        <property name="templateName" value="accountCreated.vm"/>
+    </bean>
+    
+    <bean id="passwordHintAction" class="com.opentravelsoft.webapp.action.PasswordHintAction" scope="prototype">
+        <property name="userManager" ref="userManager"/>
+        <property name="mailEngine" ref="mailEngine"/>
+        <property name="mailMessage" ref="mailMessage"/>
+    </bean>
+
+</beans>

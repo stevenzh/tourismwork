@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.TourOutBound" table="TBL_TOUR_OUTBOUND">
+    <id name="id" type="int">
+      <column name="INCOME_ID" />
+      <generator class="native" />
+    </id>
+    <timestamp name="opdate" column="OPDATE" />
+    <property name="type" type="string">
+      <column name="TYPE" length="50" />
+    </property>
+    <property name="planNo" type="string">
+      <column name="PLAN_NO" not-null="true" />
+    </property>
+    <property name="text1" type="string">
+      <column name="TEXT1" length="100" />
+    </property>
+    <property name="text2" type="string">
+      <column name="TEXT2" length="500" />
+    </property>
+    <property name="text3" type="string">
+      <column name="TEXT3" length="2000" />
+    </property>
+    <property name="text4" type="string">
+      <column name="TEXT4" length="400" />
+    </property>
+    <property name="text5" type="string">
+      <column name="TEXT5" length="400" />
+    </property>
+    <property name="opuser" type="java.lang.Long">
+      <column name="OPUSER" />
+    </property>
+
+  </class>
+</hibernate-mapping>

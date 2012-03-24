@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byType">
+
+  <!-- EmployeeAction -->
+  <bean id="UserAction" class="com.opentravelsoft.action.manage.setting.ListEmployeeAction" singleton="false">
+  </bean>
+  <bean id="EditUserAction" class="com.opentravelsoft.action.manage.setting.EditEmployeeAction" singleton="false">
+  </bean>
+
+  <!-- Group -->
+  <bean id="DepartmentAction" class="com.opentravelsoft.action.manage.setting.DepartmentAction" singleton="false">
+  </bean>
+
+  <!-- Module -->
+  <bean id="ListModuleAction" class="com.opentravelsoft.action.manage.setting.ListModuleAction" singleton="false">
+  </bean>
+  <bean id="EditModuleAction" class="com.opentravelsoft.action.manage.setting.EditModuleAction" singleton="false">
+  </bean>
+
+  <!-- Role -->
+  <bean id="ListRoleAction" class="com.opentravelsoft.action.manage.setting.ListRoleAction" singleton="false">
+  </bean>
+  <bean id="EditRoleAction" class="com.opentravelsoft.action.manage.setting.EditRoleAction" singleton="false">
+  </bean>
+
+  <!-- System Config -->
+  <bean id="ListConfigAction" class="com.opentravelsoft.action.manage.setting.ListConfigAction" singleton="false">
+  </bean>
+  <bean id="EditConfigAction" class="com.opentravelsoft.action.manage.setting.EditConfigAction" singleton="false">
+  </bean>
+
+  <!-- Lists -->
+  <bean id="ListAction" class="com.opentravelsoft.action.manage.setting.ListAction" singleton="false">
+  </bean>
+  <bean id="EditListAction" class="com.opentravelsoft.action.manage.setting.EditListAction" singleton="false">
+  </bean>
+
+  <bean id="EditTeamAction" class="com.opentravelsoft.action.manage.setting.EditTeamAction" singleton="false">
+  </bean>
+
+  <!-- Shortcut -->
+  <bean id="ListShortcutAction" class="com.opentravelsoft.action.manage.setting.ListShortcutAction" singleton="false">
+  </bean>
+  <bean id="EditShortcutAction" class="com.opentravelsoft.action.manage.setting.EditShortcutAction" singleton="false">
+  </bean>
+
+</beans>

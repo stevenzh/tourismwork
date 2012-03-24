@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byType">
+
+  <!-- 客户审核提醒 -->
+  <bean id="CustomerAlertAction" class="com.opentravelsoft.action.manage.account.CustomerAlertAction" singleton="false">
+  </bean>
+
+  <!-- AgentAction -->
+  <bean id="AgentAction" class="com.opentravelsoft.action.manage.account.ListCustomerAction" singleton="false">
+  </bean>
+
+  <bean id="EditAgentAction" class="com.opentravelsoft.action.manage.account.EditCustomerAction" singleton="false">
+  </bean>
+
+  <!--联系人 -->
+  <bean id="ContactAction" class="com.opentravelsoft.action.manage.account.ListContactAction" singleton="false">
+  </bean>
+  <bean id="ContactActionEdit" class="com.opentravelsoft.action.manage.account.EditContactAction" singleton="false">
+  </bean>
+
+  <!-- 计调对应供应商 -->
+  <bean id="ListGroupSupplier" class="com.opentravelsoft.action.manage.account.ListTeamSupplierAction" singleton="false">
+  </bean>
+  <bean id="EditGroupSupplier" class="com.opentravelsoft.action.manage.account.EditTeamSupplierAction" singleton="false">
+  </bean>
+
+  <bean id="AccountPopupAction" class="com.opentravelsoft.action.manage.account.AccountPopupAction" singleton="false">
+  </bean>
+
+  <bean id="ListMemberAction" class="com.opentravelsoft.action.manage.account.ListMemberAction" singleton="false">
+  </bean>
+
+</beans>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+      "-//OpenSymphony Group//XWork Validator 1.0//EN" 
+      "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+   <field name="visaHelp.subject">
+    <field-validator type="requiredstring">
+      <message>
+      <![CDATA[中文项目必须填写！]]>
+      </message>
+    </field-validator>
+  </field>
+  
+  <field name="visaHelp.costPrice">
+    <field-validator type="required">
+      <message>
+      <![CDATA[成本价必须填写！]]>
+      </message>
+    </field-validator>
+    <field-validator type="int">
+      <message>成本价只能为数字.</message>
+    </field-validator>
+  </field>
+  <field name="visaHelp.quotedPrice">
+    <field-validator type="required">
+      <message>
+      <![CDATA[报价必须填写！]]>
+      </message>
+    </field-validator>
+     <field-validator type="int">
+      <message>报价只能为数字.</message>
+    </field-validator>
+  </field>
+  
+  <field name="visaHelp.startDate">
+    <field-validator type="required">
+      <message>
+      <![CDATA[有效期开始时间必须填写！]]>
+      </message>
+    </field-validator>
+    <field-validator type="date">
+      <message>
+        <![CDATA[出发日期格式有误 YYYY/MM/DD ]]>
+      </message>
+    </field-validator>
+  </field>
+  
+  <field name="visaHelp.endDate">
+    <field-validator type="required">
+      <message>
+      <![CDATA[有效期结束时间必须填写！]]></message>
+    </field-validator>
+    <field-validator type="date">
+      <message>
+         <![CDATA[出发日期格式有误 YYYY/MM/DD ]]>
+      </message>
+    </field-validator>
+  </field>
+  
+  <field name="visaHelp.transactDays">
+    <field-validator type="requiredstring">
+      <message>
+      <![CDATA[办理时间必须填写！]]></message>
+    </field-validator>
+  </field>
+  
+  
+  </validators>
+

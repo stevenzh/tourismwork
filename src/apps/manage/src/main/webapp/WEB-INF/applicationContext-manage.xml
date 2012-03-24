@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byType">
+
+  <bean id="EworkAction" class="com.opentravelsoft.action.ManageAction" singleton="false">
+  </bean>
+
+  <!-- Login -->
+  <bean id="LoginAction" class="com.opentravelsoft.action.manage.LoginAction" singleton="false">
+  </bean>
+
+  <!-- Big Menu Class -->
+  <bean id="MyPageAction" class="com.opentravelsoft.action.manage.MyPageAction" singleton="false">
+  </bean>
+  <bean id="ShortcutAction" class="com.opentravelsoft.action.manage.ShortcutAction" singleton="false">
+  </bean>
+
+  <bean id="OperatorAction" class="com.opentravelsoft.action.manage.OperatorAction" singleton="false">
+  </bean>
+
+  <bean id="SaleAction" class="com.opentravelsoft.action.manage.BookingAction" singleton="false">
+  </bean>
+
+  <bean id="ExpressAction" class="com.opentravelsoft.action.manage.ExpressAction" singleton="false">
+  </bean>
+
+  <bean id="FinanceAction" class="com.opentravelsoft.action.manage.FinanceAction" singleton="false">
+  </bean>
+
+  <bean id="ResourceAction" class="com.opentravelsoft.action.manage.ResourceAction" singleton="false">
+  </bean>
+
+  <bean id="SettingAction" class="com.opentravelsoft.action.manage.SettingAction" singleton="false">
+  </bean>
+
+  <bean id="TicketAction" class="com.opentravelsoft.action.manage.TicketAction" singleton="false">
+  </bean>
+
+  <bean id="HelpAction" class="com.opentravelsoft.action.manage.HelpAction" singleton="false">
+  </bean>
+
+  <bean id="CrmAction" class="com.opentravelsoft.action.manage.CrmAction" singleton="false">
+  </bean>
+
+  <bean id="StatAction" class="com.opentravelsoft.action.manage.StatAction" singleton="false">
+  </bean>
+
+  <!-- Login -->
+  <bean id="EditMyInfoAction" class="com.opentravelsoft.action.manage.EditMyInfoAction" singleton="false">
+  </bean>
+
+  <!-- 预警弹出窗口 -->
+  <bean id="WarnAction" class="com.opentravelsoft.action.manage.WarnAction" singleton="false">
+  </bean>
+  <bean id="MyTaskAction" class="com.opentravelsoft.action.manage.MyTaskAction" singleton="false">
+  </bean>
+  
+  <bean id="DeployAction" class="com.opentravelsoft.action.manage.DeployAction">
+    <property name="processEngine" ref="processEngine" />
+  </bean>
+</beans>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC
+  		"-//OpenSymphony Group//XWork Validator 1.0//EN" 
+  		"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<!-- START SNIPPET: fieldValidatorsExample -->
+
+<validators>
+  <field name="customer.uid">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>
+        <![CDATA[ 用户名必须输入 ]]>
+      </message>
+    </field-validator>
+  </field>
+
+  <!-- 
+    <field name="customer.passwd">
+    <field-validator type="requiredstring">
+    <message>
+    <![CDATA[ 密码必须输入 ]]>
+    </message>
+    </field-validator>
+    </field>
+    
+    <field name="customer.confirmPassword">
+    <field-validator type="requiredstring">
+    <message>
+    <![CDATA[ 确认密码必须输入 ]]>
+    </message>
+    </field-validator>
+    </field>
+  -->
+
+  <field name="customer.userName">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>
+        <![CDATA[ 用户姓名必须输入 ]]>
+      </message>
+    </field-validator>
+  </field>
+
+  <field name="customer.birthday">
+    <field-validator type="date">
+      <message>
+        <![CDATA[ 你输入的生日格式有误 YYYY/MM/DD ]]>
+      </message>
+    </field-validator>
+  </field>
+
+  <field name="customer.email">
+    <field-validator type="email">
+      <message>
+        <![CDATA[ 邮箱地址无效 ]]>
+      </message>
+    </field-validator>
+  </field>
+
+  <field name="customer.mobile">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>
+        <![CDATA[ 手机号码必须输入 ]]>
+      </message>
+    </field-validator>
+    <field-validator type="regex">
+      <param name="expression">[0-9]{11}</param>
+      <message>
+        <![CDATA[ 手机号码无效 ]]>
+      </message>
+    </field-validator>
+  </field>
+
+  <field name="customer.idCard">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>
+        <![CDATA[ 身份证号必须输入 ]]>
+      </message>
+    </field-validator>
+    <field-validator type="regex">
+      <param name="expression">[0-9]{18}</param>
+      <message>
+        <![CDATA[ 身份证号无效 ]]>
+      </message>
+    </field-validator>
+  </field>
+  
+  <validator type="expression">
+    <param name="expression">
+      customer.passwd.equals(customer.confirmPassword)
+    </param>
+    <message>
+      <![CDATA[ 密码不匹配 ]]>
+    </message>
+  </validator>
+</validators>
+
+<!-- END SNIPPET: fieldValidatorsExample -->
+

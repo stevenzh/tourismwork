@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.LineDescription" table="TBL_LINE_DESC">
+    <id name="id" type="long">
+      <column name="ID" />
+      <generator class="native" />
+    </id>
+    <property name="lineNo" type="string">
+      <column name="LINE_NO" length="10" not-null="true" />
+    </property>
+    <property name="type" type="string">
+      <column name="TYPE" length="20" not-null="true" />
+    </property>
+    <property name="item" type="string">
+      <column name="ITEM" length="100" not-null="true" />
+    </property>
+    <property name="description" type="string">
+      <column name="DESCRIPTION" length="1500" />
+    </property>
+    <property name="sortOrder" type="java.lang.Integer">
+      <column name="SORT_ORDER" />
+    </property>
+  </class>
+</hibernate-mapping>

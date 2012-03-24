@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="reserveOrder" xmlns="http://jbpm.org/4.3/jpdl">
+   <description>Reserve Order</description>
+   <start g="159,12,48,48" name="start">
+      <transition g="8,-14" name="to check" to="check src"/>
+   </start>
+   <decision g="161,104,48,48" name="check src">
+      <transition g="-21,-15" name="to cc" to="cc check">
+        <condition expr="#{order.namekey!=&quot;D&quot;}"/>
+      </transition>
+      <transition g="1,-16" name="to op" to="op check">
+        <condition expr="#{order.namekey==&quot;D&quot;}"/>
+      </transition>
+   </decision>
+   <task g="39,187,92,52" name="cc check" candidate-groups="cc_group1">
+      <description>check order.</description>
+      <transition g="-96,-16" name="cc to gathering" to="check paymode"/>
+   </task>
+   <task g="244,182,92,52" name="op check" assignee="#{order.assigned.uid}" candidate-groups="#{order.team.id}">
+      <description>check order.</description>
+      <transition g="21,-12" name="op to gathering" to="check paymode"/>
+   </task>
+   <decision name="check paymode" g="168,275,48,48">
+      <transition name="to end" to="end" g="-36,-18">
+        <condition expr="#{order.customer.payment==&quot;M&quot;}" />
+      </transition>
+      <transition name="to gathering" to="gathering" g="1,-18">
+        <condition expr="#{order.customer.payment==&quot;N&quot;}" />
+      </transition>
+   </decision>
+   <task g="253,339,92,52" name="gathering" assignee="lee">
+      <transition g="3,5" name="to end" to="end"/>
+   </task>
+   <end g="170,436,48,48" name="end"/>
+</process>

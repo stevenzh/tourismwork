@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <package name="manage-json" namespace="/json" extends="json-default">
+
+    <action name="JSONExample" class="com.opentravelsoft.json.JSONExample">
+      <result type="json" />
+    </action>
+    <action name="SMDAction" class="com.opentravelsoft.json.SMDAction" method="smd">
+      <interceptor-ref name="json">
+        <param name="enableSMD">true</param>
+      </interceptor-ref>
+      <result type="json">
+        <param name="enableSMD">true</param>
+      </result>
+    </action>
+
+    <action name="listEmployee" class="ListEmployeeAction">
+      <result type="json" />
+    </action>
+    <action name="getPinyin" class="PinyinAction">
+      <result type="json" />
+    </action>
+    <action name="getAccountsByRegion" class="AccountAction">
+      <result type="json" />
+    </action>
+    <action name="getSuppliersByType" class="AccountAction" method="supplierByType">
+      <result type="json" />
+    </action>
+    <action name="getContacts" class="JsonContactAction">
+      <result type="json" />
+    </action>
+    <action name="myTaskCount" class="MyTaskCountAction">
+      <result type="json" />
+    </action>
+    <action name="setRoleModelPerm" class="ModuleAction">
+      <result type="json" />
+    </action>
+    <action name="getCategorys" class="DestinationAction" method="categorys">
+      <result type="json"></result>
+    </action>
+    <action name="districtByRegion" class="DestinationAction" method="districtByRegion">
+      <result type="json"></result>
+    </action>
+    <action name="salesByTeam" class="SalesAction">
+      <result type="json"></result>
+    </action>
+    <action name="HomePlace" class="HomePlaceAction">
+      <result type="json"></result>
+    </action>
+    <action name="citysByNation" class="CityAction" method="citysByNation">
+      <result type="json"></result>
+    </action>
+    <action name="citysByProvince" class="CityAction" method="citysByProvince">
+      <result type="json"></result>
+    </action>
+  </package>
+
+</struts>

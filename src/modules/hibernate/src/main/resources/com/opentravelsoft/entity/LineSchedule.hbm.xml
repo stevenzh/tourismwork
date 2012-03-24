@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.LineSchedule" table="TBL_LINE_SCHEDULE">
+    <composite-id name="id" class="com.opentravelsoft.entity.LineScheduleId">
+      <key-property name="lineNo" type="string">
+        <column name="LINE_NO" length="8" />
+      </key-property>
+      <key-property name="day" type="int">
+        <column name="DAY" />
+      </key-property>
+    </composite-id>
+    <property name="traffic" type="string">
+      <column name="TRAFFIC" length="200" />
+    </property>
+    <property name="traffic1" type="string">
+      <column name="TRAFFIC1" length="100"></column>
+    </property>
+    <property name="breakfast" type="string">
+      <column name="BREAKFAST" length="50"></column>
+    </property>
+    <property name="lunch" type="string">
+      <column name="LUNCH" length="50"></column>
+    </property>
+    <property name="supper" type="string">
+      <column name="SUPPER" length="50"></column>
+    </property>
+    <property name="program" type="string">
+      <column name="PROGRAM" length="3000" />
+    </property>
+    <property name="quarter" type="string">
+      <column name="QUARTER" length="100" />
+    </property>
+  </class>
+</hibernate-mapping>

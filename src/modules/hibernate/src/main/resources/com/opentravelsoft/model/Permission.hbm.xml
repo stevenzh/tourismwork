@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.model.Permission" table="TBL_PERMISSION">
+    <id name="permissionId" type="int">
+      <column name="PermissionID" />
+      <generator class="native" />
+    </id>
+    <property name="permissionCode" type="string">
+      <column name="PermissionCode" length="50" not-null="true" />
+    </property>
+    <property name="permissionKey" type="string">
+      <column name="PermissionKey" length="50" not-null="true" />
+    </property>
+    <property name="permissionName" type="string">
+      <column name="PermissionName" length="50" not-null="true" />
+    </property>
+  </class>
+</hibernate-mapping>

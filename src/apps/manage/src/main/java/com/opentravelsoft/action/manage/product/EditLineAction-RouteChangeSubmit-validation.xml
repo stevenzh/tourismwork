@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<!--  START SNIPPET: quizValidators -->
+
+<validators>
+  <field name="route.lineName">
+    <field-validator type="requiredstring">
+      <message>线路名不能为空.</message>
+    </field-validator>
+    <field-validator type="stringlength">
+      <param name="maxLength">60</param>
+      <param name="trim">true</param>
+      <message>线路名长度不能超过30个汉字或60个英数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="route.lineDay">
+    <field-validator type="required">
+      <message>天数不能为空.</message>
+    </field-validator>
+    <field-validator type="conversion">
+      <message>天数必须是数字．</message>
+    </field-validator>
+    <field-validator type="int">
+      <param name="min">1</param>
+      <message>天数不能小于${min}.</message>
+    </field-validator>
+  </field>
+
+  <field name="route.departmentNo">
+    <field-validator type="requiredstring">
+      <message>所属部门不能为空.</message>
+    </field-validator>
+  </field>
+
+  <field name="route.outCity.citycd">
+    <field-validator type="requiredstring">
+      <message>出发城市不能为空.</message>
+    </field-validator>
+  </field>
+
+  <field name="route.title">
+    <field-validator type="stringlength">
+      <param name="maxLength">100</param>
+      <param name="trim">true</param>
+      <message>副标题长度不能超过50个汉字或100个英数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="route.description">
+    <field-validator type="stringlength">
+      <param name="maxLength">200</param>
+      <param name="trim">true</param>
+      <message>广告词长度不能超过100个汉字或200个英数字.</message>
+    </field-validator>
+  </field>
+</validators>
+
+<!--  END SNIPPET: quizValidators  -->

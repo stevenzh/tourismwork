@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <package name="manage-product" namespace="/product" extends="shcct-manage">
+
+    <action name="ResourceAction" class="ResourceAction">
+      <result>/includes/Resource.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+
+    <!-- Line Theme -->
+    <action name="FITType" class="LineThemeAction" method="execute">
+      <result>/includes/product/linetheme/ListTheme.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="FITTypeDetail" class="LineThemeAction" method="detail">
+      <result name="success">/includes/product/linetheme/DetailTheme.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="FITTypeDelete" class="LineThemeAction" method="delete">
+      <result type="chain">FITType</result>
+      <param name="moduleName">Products_delete</param>
+    </action>
+    <action name="FITTypeAdd" class="LineThemeAction" method="input">
+      <result name="input">/includes/product/linetheme/AddTheme.jsp</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    <action name="FITTypeAddSubmit" class="LineThemeAction" method="add">
+      <result type="chain">FITType</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    <action name="FITTypeChange" class="LineThemeAction" method="detail">
+      <result name="success">/includes/product/linetheme/EditTheme.jsp</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    <action name="FITTypeChangeSubmit" class="LineThemeAction" method="change">
+      <result type="chain">FITType</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+
+    <!-- Category  -->
+    <action name="showCategoryTree" class="CategoryAction" method="input">
+      <result name="input">/includes/product/category/CategoryTree.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="addCategory" class="CategoryAction" method="add">
+      <result>/includes/product/category/EditCategory.jsp</result>
+      <result name="input" type="chain">showCategoryTree</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    <action name="editCategory" class="CategoryAction" method="detail">
+      <result>/includes/product/category/EditCategory.jsp</result>
+      <result name="input" type="chain">showCategoryTree</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    <action name="saveCategory" class="CategoryAction" method="submit">
+      <result type="chain">showCategoryTree</result>
+      <result name="input" type="chain">showCategoryTree</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    <action name="deleteCategory" class="CategoryAction" method="del">
+      <result type="chain">showCategoryTree</result>
+      <result name="input" type="chain">showCategoryTree</result>
+      <param name="moduleName">Products_delete</param>
+    </action>
+
+    <!-- Line List -->
+    <action name="showRouteSearch" class="LineSearchAction" method="input">
+      <result name="input">/includes/product/ListLine.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="searchRoute" class="LineSearchAction" method="submit">
+      <result name="input" type="chain">showRouteSearch</result>
+      <result>/includes/product/ListLine.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+
+    <!-- 线路基本信息 -->
+    <action name="RouteAdd" class="LineAction" method="input">
+      <result>/includes/product/AddLine.jsp</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    <action name="RouteAddSubmit" class="LineAction" method="add">
+      <result type="chain">showRouteSearch</result>
+      <result name="input" type="chain">RouteAdd</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    <action name="RouteDelete" class="LineAction" method="delete">
+      <result type="chain">searchRoute</result>
+      <param name="moduleName">Products_delete</param>
+    </action>
+
+    <action name="RouteChange" class="EditLineAction" method="input">
+      <result name="input">/includes/product/EditLine.jsp</result>
+      <param name="moduleName">Line_view</param>
+    </action>
+    <action name="saveRouteChange" class="EditLineAction" method="submit">
+      <result name="input" type="chain">RouteChange</result>
+      <result type="chain">RouteChange</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+
+    <!-- Line Copy -->
+    <action name="showCopyRoute" class="DuplicateLineAction" method="input">
+      <result name="input">/includes/product/CopyLine.jsp</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    <action name="submitCopyRoute" class="DuplicateLineAction" method="submit">
+      <result name="input" type="chain">showCopyRoute</result>
+      <result>/includes/product/CopyLineSuccess.jsp</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+
+    <!-- Package Districts -->
+    <action name="RouteDistrict" class="RouteDistrict" method="input">
+      <result name="input">/includes/product/LineDistrict.jsp</result>
+      <param name="moduleName">Line_view</param>
+    </action>
+    <action name="searchRouteDistrict" class="RouteDistrict" method="search">
+      <result name="input">/includes/product/LineDistrict.jsp</result>
+      <result>/includes/product/LineDistrict.jsp</result>
+      <param name="moduleName">Line_view</param>
+    </action>
+    <action name="RouteDistrictSave" class="RouteDistrict" method="submit">
+      <result name="input" type="chain">RouteDistrict</result>
+      <result type="chain">searchRouteDistrict</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="inputRouteDistrict" class="EditLineDistrict" method="input">
+      <result name="input">/includes/product/EditDistrict.jsp</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="submitRouteDistrict" class="EditLineDistrict" method="submit">
+      <result name="input" type="chain">inputRouteDistrict</result>
+      <result type="chain">searchRouteDistrict</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+
+    <!-- Package Sights -->
+    <action name="showRouteSights" class="RouteSight" method="input">
+      <result name="input">/includes/product/LineSight.jsp</result>
+      <param name="moduleName">Line_view</param>
+    </action>
+    <action name="submitRouteSights" class="RouteSight" method="submit">
+      <result name="input" type="chain">showRouteSights</result>
+      <result type="chain">showRouteSights</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="inputRouteSight" class="RouteEditSight" method="input">
+      <result name="input">/includes/product/EditSight.jsp</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="submitRouteSight" class="RouteEditSight" method="submit">
+      <result name="input" type="chain">inputRouteSight</result>
+      <result type="chain">showRouteSights</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+
+    <!-- Line Schedule -->
+    <action name="RouteSchedule" class="RouteSchedule">
+      <result>/includes/product/LineSchedule.jsp</result>
+      <param name="moduleName">Line_view</param>
+    </action>
+    <action name="RouteScheduleAdd" class="RouteSchedule" method="add">
+      <result>/includes/product/LineSchedule.jsp</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="RouteScheduleDelete" class="RouteSchedule" method="delete">
+      <result>/includes/product/LineSchedule.jsp</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="RouteScheduleSave" class="RouteSchedule" method="save">
+      <result name="input">/includes/product/LineSchedule.jsp</result>
+      <result type="chain">RouteSchedule</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="RouteScheduleAddCity" class="RouteSchedule" method="addCity">
+    	<result>/includes/product/LineSchedule.jsp</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+
+    <action name="RouteScheduleAddFlight" class="RouteSchedule" method="addFlight">
+      <result name="input">/includes/product/LineSchedule.jsp</result>
+      <result>/includes/product/LineSchedule.jsp</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="RouteScheduleDeleteFlight" class="RouteSchedule" method="deleteFlight">
+      <result>/includes/product/LineSchedule.jsp</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    
+    <!-- Package Simple Information -->
+    <action name="ShowRouteJourney" class="ShowRouteJourney">
+      <result name="input">/includes/product/ShowRouteJourney.jsp</result>
+      <result>/includes/product/ShowRouteJourney.jsp</result>
+      <param name="moduleName">Line_view</param>
+    </action>
+    
+    <!-- Package Description -->
+    <action name="showRouteRules" class="RouteRule" method="input">
+      <result name="input">/includes/product/LineRules.jsp</result>
+      <param name="moduleName">Line_view</param>
+    </action>
+    <action name="addRouteRule" class="RouteRule" method="add">
+      <result>/includes/product/LineRules.jsp</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="deleteRouteRule" class="RouteRule" method="delete">
+      <result>/includes/product/LineRules.jsp</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="saveRouteRules" class="RouteRule" method="save">
+      <result name="input" type="chain">showRouteRules</result>
+      <result type="chain">showRouteRules</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+
+    <!-- RouteExpenseAction -->
+    <action name="RouteExpense" class="RouteExpense" method="input">
+      <result name="input">/includes/product/LineExpense.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="RouteExpenseAdd" class="RouteExpense" method="add">
+      <result>/includes/product/LineExpense.jsp</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    <action name="RouteExpenseDelete" class="RouteExpense" method="delete">
+      <result>/includes/product/LineExpense.jsp</result>
+      <param name="moduleName">Products_delete</param>
+    </action>
+    <action name="RouteExpenseSave" class="RouteExpense" method="save">
+      <result name="input" type="chain">RouteExpense</result>
+      <result type="chain">RouteExpense</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+
+    <!-- Package Price -->
+    <action name="RoutePriceAdd" class="RoutePrice" method="input">
+      <result name="input">/includes/product/RoutePriceAdd.jsp</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="RoutePrice" class="RoutePrice" method="input">
+      <result name="input">/includes/product/ListPrice.jsp</result>
+      <param name="moduleName">Line_view</param>
+    </action>
+    <action name="editRoutePrice" class="EditRoutePrice" method="input">
+      <result name="input">/includes/product/EditPrice.jsp</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="submitRoutePrice" class="EditRoutePrice" method="submit">
+      <result name="input" type="chain">editRoutePrice</result>
+      <result type="chain">RoutePrice</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="deleteRoutePrice" class="RoutePrice" method="delete">
+      <result type="chain">RoutePrice</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+
+    <!-- Package Visa  -->
+    <action name="showRouteVisa" class="RouteVisaAction" method="input">
+      <result name="input">/includes/product/LineVisa.jsp</result>
+      <param name="moduleName">Line_view</param>
+    </action>
+    <action name="changeRouteVisa" class="RouteVisaAction" method="changeCountry">
+      <result>/includes/product/LineVisa.jsp</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="saveRouteVisa" class="RouteVisaAction" method="save">
+      <result type="chain">showRouteVisa</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+
+    <!-- Report -->
+    <action name="RouteReport" class="RouteReportAction">
+      <param name="moduleName">Products_view</param>
+    </action>
+
+    <!-- Package Plan -->
+    <action name="showRoutePlan" class="RoutePlanAction" method="input">
+      <result name="input">/includes/product/LinePlans.jsp</result>
+      <param name="moduleName">Line_view</param>
+    </action>
+    <action name="deletePlan" class="TourPlan" method="delete">
+      <result name="input" type="chain">showRoutePlan</result>
+      <result type="chain">showRoutePlan</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+
+    <action name="showPlanAdd" class="AddPlan" method="input">
+      <result name="input">/includes/product/PlanAdd.jsp</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+    <action name="submitPlanAdd" class="AddPlan" method="submit">
+      <result name="input" type="chain">showPlanAdd</result>
+      <result type="chain">showRoutePlan</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+
+    <action name="editPlan" class="EditTourPlan" method="input">
+      <result name="input">/includes/product/PlanChange.jsp</result>
+      <param name="moduleName">Line_view</param>
+    </action>
+    <action name="submitEditPlan" class="EditTourPlan" method="submit">
+      <result name="input" type="chain">editPlan</result>
+      <result type="chain">showRoutePlan</result>
+      <param name="moduleName">Line_edit</param>
+    </action>
+
+    <!-- Product Items -->
+    <action name="listProductItem" class="ItemSettingAction" method="input">
+      <result name="input">/includes/product/ProductItem.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="editProductItem" class="EditItemAction" method="input">
+      <result name="input">/includes/product/EditProductItem.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="submitProductItem" class="EditItemAction" method="submit">
+      <result name="input">/includes/product/EditProductItem.jsp</result>
+      <result type="chain">listProductItem</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+
+    <!-- Template of the Product's Description -->
+    <action name="showProductTmpl" class="ListProductTmpl" method="input">
+      <result name="input">/includes/product/ListProductTmpl.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="deleteProductTmpl" class="ListProductTmpl" method="delete">
+      <result type="chain">showProductTmpl</result>
+      <param name="moduleName">Products_delete</param>
+    </action>
+    <action name="queryProductTmpl" class="ListProductTmpl" method="query">
+      <result>/includes/product/ListProductTmpl.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="editProductTmpl" class="EditProductTmpl" method="input">
+      <result name="input">/includes/product/EditProductTmpl.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="updateProductTmpl" class="EditProductTmpl" method="submit">
+      <result name="input" type="chain">editProductTmpl</result>
+      <result type="chain">showProductTmpl</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+
+    <!-- Visa -->
+    <action name="listVisa" class="ListVisaAction" method="find">
+      <result name="input">/includes/resource/visa/VisaList.jsp</result>
+      <result>/includes/product/visa/VisaList.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="deleteVisa" class="ListVisaAction" method="delete">
+      <result name="input" type="chain">listVisa</result>
+      <result type="chain">listVisa</result>
+      <param name="moduleName">Products_delete</param>
+    </action>
+    <action name="editVisa" class="EditVisaAction" method="input">
+      <result name="input">/includes/product/visa/EditVisa.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="submitVisa" class="EditVisaAction" method="submit">
+      <result name="input" type="chain">editVisa</result>
+      <result type="chain">listVisa</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    <action name="editVisaAdditem" class="EditVisaAction" method="addItem">
+      <result name="input">/includes/product/visa/EditVisa.jsp</result>
+      <result>/includes/product/visa/EditVisa.jsp</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    <action name="editVisaDelItem" class="EditVisaAction" method="delItem">
+      <result name="input">/includes/product/visa/EditVisa.jsp</result>
+      <result>/includes/product/visa/EditVisa.jsp</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    <action name="delVisaAttached" class="EditVisaAction" method="delAttached">
+      <result name="input">/includes/product/visa/EditVisa.jsp</result>
+      <result type="chain">editVisa</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="detailVisa" class="EditVisaAction" method="detail">
+      <result name="input" type="chain">listVisa</result>
+      <result>/includes/product/visa/ShowVisa.jsp</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    
+    <!-- Insurance -->
+    <action name="listPremium" class="ListPremiumAction" method="input">
+      <result name="input">/includes/product/insurance/ListPrem.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="deletePremium" class="ListPremiumAction" method="delete">
+      <result type="chain">listPremium</result>
+      <param name="moduleName">Products_delete</param>
+    </action>
+    <action name="editPremium" class="EditPremiumAction" method="input">
+      <result name="input">/includes/product/insurance/EditPrem.jsp</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    <action name="submitPremium" class="EditPremiumAction" method="submit">
+      <result name="input" type="chain">editPremium</result>
+      <result type="chain">listPremium</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+
+  </package>
+
+</struts>

@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byType">
+
+  <bean id="LineSearchAction" class="com.opentravelsoft.action.manage.product.ListLineAction" singleton="false">
+  </bean>
+  <bean id="LineAction" class="com.opentravelsoft.action.manage.product.AddLineAction" singleton="false">
+  </bean>
+  <bean id="EditLineAction" class="com.opentravelsoft.action.manage.product.EditLineAction" singleton="false">
+  </bean>
+  <bean id="LineDetailAction" class="com.opentravelsoft.action.manage.product.LineDetailAction" singleton="false">
+  </bean>
+  <bean id="DuplicateLineAction" class="com.opentravelsoft.action.manage.product.DuplicateLineAction" singleton="false">
+  </bean>
+
+  <!-- RouteSightAction -->
+  <bean id="RouteSight" class="com.opentravelsoft.action.manage.product.LineSightAction" singleton="false">
+  </bean>
+  <bean id="RouteEditSight" class="com.opentravelsoft.action.manage.product.EditSightAction" singleton="false">
+  </bean>
+
+  <!-- RouteScheduleAction -->
+  <bean id="RouteSchedule" class="com.opentravelsoft.action.manage.product.LineScheduleAction" singleton="false">
+  </bean>
+
+  <!-- ShowRouteJourneyAction -->
+  <bean id="ShowRouteJourney" class="com.opentravelsoft.action.manage.product.ShowRouteJourneyAction" singleton="false">
+  </bean>
+
+  <!-- RouteNotice -->
+  <bean id="RouteRule" class="com.opentravelsoft.action.manage.product.LineRuleAction" singleton="false">
+  </bean>
+
+  <!-- RouteExpence -->
+  <bean id="RouteExpense" class="com.opentravelsoft.action.manage.product.LineExpenseAction" singleton="false">
+  </bean>
+
+  <!-- RouteDistrictAction -->
+  <bean id="RouteDistrict" class="com.opentravelsoft.action.manage.product.LineDistrictAction" singleton="false">
+  </bean>
+  <bean id="EditLineDistrict" class="com.opentravelsoft.action.manage.product.EditDistrictAction" singleton="false">
+  </bean>
+
+  <bean id="RouteVisaAction" class="com.opentravelsoft.action.manage.product.LineVisaAction" singleton="false">
+  </bean>
+
+  <!--RoutePriceAction-->
+  <bean id="RoutePrice" class="com.opentravelsoft.action.manage.product.ListPriceAction" singleton="false">
+  </bean>
+  <bean id="EditRoutePrice" class="com.opentravelsoft.action.manage.product.EditPriceAction" singleton="false">
+  </bean>
+
+  <!-- Plan -->
+  <bean id="RoutePlanAction" class="com.opentravelsoft.action.manage.product.ListPlanAction" singleton="false">
+  </bean>
+  <bean id="AddPlan" class="com.opentravelsoft.action.manage.product.AddPlanAction" singleton="false">
+  </bean>
+
+  <!-- Product Item -->
+  <bean id="ItemSettingAction" class="com.opentravelsoft.action.manage.product.ItemSettingAction" singleton="false">
+  </bean>
+  <bean id="EditItemAction" class="com.opentravelsoft.action.manage.product.EditItemAction" singleton="false">
+  </bean>
+
+  <bean id="ListProductTmpl" class="com.opentravelsoft.action.manage.product.ListProductTmplAction" singleton="false">
+  </bean>
+  <bean id="EditProductTmpl" class="com.opentravelsoft.action.manage.product.EditProductTmplAction" singleton="false">
+  </bean>
+
+  <bean id="ListPremiumAction" class="com.opentravelsoft.action.manage.product.ListPremiumAction" singleton="false">
+  </bean>
+  <bean id="EditPremiumAction" class="com.opentravelsoft.action.manage.product.EditPremiumAction" singleton="false">
+  </bean>
+
+  <bean id="ListHotelAction" class="com.opentravelsoft.action.manage.vacation.HotelAction" singleton="false">
+  </bean>
+</beans>

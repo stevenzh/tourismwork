@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <package name="manage-crm" namespace="/crm" extends="shcct-manage">
+
+    <action name="CrmAction" class="CrmAction">
+      <result>/includes/CrmPage.jsp</result>
+      <param name="moduleName">CRM_view</param>
+    </action>
+
+    <!-- AgentAction -->
+    <action name="showAgentListInput" class="AgentAction" method="input">
+      <result name="input">/includes/crm/ListAgent.jsp</result>
+      <param name="moduleName">CRM_view</param>
+    </action>
+    <action name="showAgentList" class="AgentAction" method="submit">
+      <result name="input" type="chain">showAgentListInput</result>
+      <result name="success">/includes/crm/ListAgent.jsp</result>
+      <param name="moduleName">CRM_view</param>
+    </action>
+    <action name="deleteAgent" class="AgentAction" method="delete">
+      <result name="input" type="chain">showAgentList</result>
+      <result type="chain">showAgentList</result>
+      <param name="moduleName">CRM_delete</param>
+    </action>
+    <action name="checkedAgent" class="EditAgentAction" method="checked">
+      <result name="input" type="chain">showAgentList</result>
+      <result type="chain">showAgentList</result>
+      <param name="moduleName">CRM_edit</param>
+    </action>
+    <action name="editAgent" class="EditAgentAction" method="input">
+      <result name="input">/includes/crm/EditAgent.jsp</result>
+      <param name="moduleName">CRM_edit</param>
+    </action>
+    <action name="addAgentContact" class="EditAgentAction" method="addContact">
+      <result>/includes/crm/EditAgent.jsp</result>
+      <param name="moduleName">CRM_edit</param>
+    </action>
+    <action name="deleteAgentContact" class="EditAgentAction" method="deleteContact">
+      <result>/includes/crm/EditAgent.jsp</result>
+      <param name="moduleName">CRM_delete</param>
+    </action>
+    <action name="submitEditAgent" class="EditAgentAction" method="submit">
+      <result name="input" type="chain">editAgent</result>
+      <result type="chain">showAgentListInput</result>
+      <param name="moduleName">CRM_edit</param>
+    </action>
+
+    <!-- ContactAction -->
+    <action name="contactActionInput" class="ContactAction" method="input">
+      <result name="input">/includes/crm/ListContact.jsp</result>
+      <param name="moduleName">CRM_view</param>
+    </action>
+    <action name="contactActionSearch" class="ContactAction" method="execute">
+      <result name="input" type="chain">contactActionInput</result>
+      <result name="success">/includes/crm/ListContact.jsp</result>
+      <param name="moduleName">CRM_view</param>
+    </action>
+    <!-- ContactEditAction -->
+    <action name="contactActionAddInput" class="ContactActionEdit" method="add">
+      <result name="input">/includes/crm/EditContact.jsp</result>
+      <param name="moduleName">CRM_view</param>
+    </action>
+
+    <!-- 计调对应供应商 -->
+    <action name="showGroupSupplier" class="ListGroupSupplier" method="input">
+      <result name="input">/includes/crm/PresideSupplier.jsp</result>
+      <param name="moduleName">CRM_view</param>
+    </action>
+    <action name="searchGroupSupplier" class="ListGroupSupplier" method="search">
+      <result>/includes/crm/PresideSupplier.jsp</result>
+      <param name="moduleName">CRM_view</param>
+    </action>
+    <action name="submitGroupSupplier" class="ListGroupSupplier" method="submit">
+      <result type="chain">searchGroupSupplier</result>
+      <param name="moduleName">CRM_edit</param>
+    </action>
+    <action name="deleteGroupSupplier" class="ListGroupSupplier" method="delete">
+      <result name="input" type="chain">showGroupSupplier</result>
+      <result type="chain">searchGroupSupplier</result>
+      <param name="moduleName">CRM_delete</param>
+    </action>
+    <action name="editGroupSupplier" class="EditGroupSupplier" method="input">
+      <result name="input">/includes/crm/EditAgent.jsp</result>
+      <param name="moduleName">CRM_edit</param>
+    </action>
+    <action name="submitSupplieByOperator" class="EditGroupSupplier" method="submit">
+      <result name="input" type="chain">editGroupSupplier</result>
+      <result type="chain">showGroupSupplier</result>
+      <param name="moduleName">CRM_edit</param>
+    </action>
+    <action name="deleteGroupSupplierContact" class="EditGroupSupplier" method="deleteContact">
+      <result>/includes/crm/EditAgent.jsp</result>
+      <param name="moduleName">CRM_delete</param>
+    </action>
+    <action name="addGroupSupplierContact" class="EditGroupSupplier" method="addContact">
+      <result>/includes/crm/EditAgent.jsp</result>
+      <param name="moduleName">CRM_edit</param>
+    </action>
+
+  </package>
+
+</struts>

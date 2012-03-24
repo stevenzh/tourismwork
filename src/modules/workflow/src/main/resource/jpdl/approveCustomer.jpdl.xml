@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="approveCustomer" xmlns="http://jbpm.org/4.3/jpdl">
+   <start name="start" g="48,16,48,48" >
+      <transition g="12,-13" name="to check" to="check customer"/>
+   </start>
+   <task name="check customer" assignee="#{customer.createBy.upload}" g="16,111,113,52" >
+      <transition g="19,-7" name="to end1" to="end1"/>
+   </task>
+   <end g="51,208,48,48" name="end1"/>
+</process>

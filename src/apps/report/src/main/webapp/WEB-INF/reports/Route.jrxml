@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="Route"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="RouteId" isForPrompting="false" class="java.lang.String">
+		<defaultValueExpression ><![CDATA[new String("06080418")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" isForPrompting="true" class="java.lang.String">
+		<defaultValueExpression ><![CDATA["D:\\Eclipse\\workspace\\TourismWork\\webapp\\WEB-INF\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString><![CDATA[SELECT * FROM TFA601 WHERE LINE_NO=$P{RouteId}]]></queryString>
+
+	<field name="LINE_NO" class="java.lang.String"/>
+	<field name="JOURNEY_NO" class="java.lang.String"/>
+	<field name="LINE_NAME" class="java.lang.String"/>
+	<field name="DAY" class="java.lang.Integer"/>
+	<field name="DPT_NO" class="java.lang.String"/>
+	<field name="CLASS_KEY1" class="java.lang.String"/>
+	<field name="CLASS_KEY2" class="java.lang.String"/>
+	<field name="CLASS_KEY3" class="java.lang.String"/>
+	<field name="CLASS_KEY4" class="java.lang.String"/>
+	<field name="CLASS_KEY5" class="java.lang.String"/>
+	<field name="CLASS_KEY6" class="java.lang.String"/>
+	<field name="CLASS_KEY7" class="java.lang.String"/>
+	<field name="OUT_CITY" class="java.lang.String"/>
+	<field name="FIRST_CITY" class="java.lang.String"/>
+	<field name="TITLE1" class="java.lang.String"/>
+	<field name="TITLE2" class="java.lang.String"/>
+	<field name="CLOSE_KEY" class="java.lang.String"/>
+	<field name="DEL_KEY" class="java.lang.String"/>
+	<field name="NEW_KEY" class="java.lang.String"/>
+	<field name="CR_USER" class="java.lang.String"/>
+	<field name="CR_DATE" class="java.sql.Timestamp"/>
+	<field name="OP_USER" class="java.lang.String"/>
+	<field name="OP_DATE" class="java.sql.Timestamp"/>
+	<field name="WEB_KEY" class="java.lang.String"/>
+	<field name="WEB_KEY1" class="java.lang.String"/>
+	<field name="FIT_TYPE" class="java.lang.String"/>
+	<field name="O_PAX" class="java.lang.Integer"/>
+	<field name="O_NIGHT1" class="java.lang.Integer"/>
+	<field name="O_NIGHT2" class="java.lang.Integer"/>
+	<field name="PDF_FILE" class="java.lang.String"/>
+	<field name="CLASS_KEY8" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="50"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="198"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="0"
+						y="0"
+						width="75"
+						height="20"
+						key="staticText-1"/>
+					<box topBorder="Thin" topBorderColor="#000000" leftBorder="Thin" leftBorderColor="#000000" rightBorder="Thin" rightBorderColor="#000000" bottomBorder="Thin" bottomBorderColor="#000000"/>
+					<textElement>
+						<font/>
+					</textElement>
+				<text><![CDATA[天数：]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="74"
+						y="33"
+						width="232"
+						height="20"
+						key="textField-1"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font pdfFontName="STSong-Light" pdfEncoding ="UniGB-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{LINE_NAME}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="75"
+						y="0"
+						width="59"
+						height="20"
+						key="textField-2"/>
+					<box topBorder="Thin" topBorderColor="#000000" leftBorder="Thin" leftBorderColor="#000000" rightBorder="Thin" rightBorderColor="#000000" bottomBorder="Thin" bottomBorderColor="#000000"/>
+					<textElement>
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{DAY}]]></textFieldExpression>
+				</textField>
+				<subreport  isUsingCache="true">
+					<reportElement
+						x="0"
+						y="68"
+						width="535"
+						height="36"
+						key="subreport-1"/>
+					<subreportParameter  name="RouteId">
+						<subreportParameterExpression><![CDATA[$F{LINE_NO}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression  class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "Route_Routing.jasper"]]></subreportExpression>
+				</subreport>
+				<subreport  isUsingCache="true">
+					<reportElement
+						x="0"
+						y="139"
+						width="535"
+						height="36"
+						key="subreport-2"/>
+					<subreportParameter  name="RouteId">
+						<subreportParameterExpression><![CDATA[$F{LINE_NO}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression  class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "Route_Feature.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="50"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

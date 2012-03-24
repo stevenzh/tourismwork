@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.Customer" table="TBL_CUSTOMER">
+    <id name="customerId" type="long">
+      <column name="CUSTOMER_ID" />
+      <generator class="native" />
+    </id>
+    <timestamp name="updated" column="UPDATED" />
+    <property name="code" type="string">
+      <column name="CODE" length="20" not-null="true" unique="true" />
+    </property>
+    <property name="name" type="string">
+      <column name="NAME" length="60" not-null="true" />
+    </property>
+    <property name="shortName" type="string">
+      <column name="SHORT_NAME" length="20" />
+    </property>
+    <many-to-one name="team" class="com.opentravelsoft.entity.Team" lazy="false" fetch="select">
+      <column name="TEAM_ID" not-null="true" />
+    </many-to-one>
+    <property name="countryCd" type="string">
+      <column name="COUNTRY_CD" length="6" />
+    </property>
+    <property name="provinceCd" type="string">
+      <column name="PROVINCE_CD" length="6" />
+    </property>
+    <many-to-one name="city" class="com.opentravelsoft.entity.City" lazy="false" fetch="join">
+      <column name="CITY_CD" />
+    </many-to-one>
+    <property name="district" type="string">
+      <column name="DISTRICT" length="40" />
+    </property>
+    <property name="registeredAdd" type="string">
+      <column name="REGISTERED_ADD" length="80" />
+    </property>
+    <property name="address" type="string">
+      <column name="ADDRESS" length="80" />
+    </property>
+    <property name="zip" type="string">
+      <column name="ZIP" length="12" />
+    </property>
+    <property name="contactTel" type="string">
+      <column name="PHONE" length="40" />
+    </property>
+    <property name="contactFax" type="string">
+      <column name="FAX" length="40" />
+    </property>
+    <property name="contact" type="string">
+      <column name="CONTACT" length="20" />
+    </property>
+    <property name="contactEmail" type="string">
+      <column name="EMAIL" length="120" />
+    </property>
+    <property name="type" type="string">
+      <column name="TYPE" length="1" />
+    </property>
+    <property name="passwd" type="string">
+      <column name="PASSWD" length="20" />
+    </property>
+    <property name="feature" type="string">
+      <column name="FEATURE" length="1" />
+    </property>
+    <property name="route" type="string">
+      <column name="ROUTE" length="60" />
+    </property>
+    <property name="resource" type="string">
+      <column name="RESOURCE" length="1" />
+    </property>
+    <property name="structure" type="string">
+      <column name="STRUCTURE" length="1" />
+    </property>
+    <property name="payment" type="string">
+      <column name="PAYMENT" length="1" />
+    </property>
+    <property name="bussId" type="string">
+      <column name="BUSS_ID" length="30" />
+    </property>
+    <property name="bussDate" type="date">
+      <column name="BUSS_DATE" />
+    </property>
+    <property name="creditAmt1" type="java.lang.Double">
+      <column name="CREDIT_AMT1" precision="53" scale="0" />
+    </property>
+    <property name="creditAmt2" type="java.lang.Double">
+      <column name="CREDIT_AMT2" precision="53" scale="0" />
+    </property>
+    <property name="creditTime" type="java.lang.Integer">
+      <column name="CREDIT_TIME" />
+    </property>
+    <property name="receiveMail" type="string">
+      <column name="RECEIVE_MAIL" length="1"></column>
+    </property>
+    <property name="bankname1" type="string">
+      <column name="BANKNAME" length="300" />
+    </property>
+    <property name="bankid1" type="string">
+      <column name="BANKID" length="200" />
+    </property>
+    <property name="bcltname1" type="string">
+      <column name="BCLTNAME" length="60" />
+    </property>
+    <property name="status" type="string">
+      <column name="STATUS" length="1" />
+    </property>
+    <property name="stay" type="double">
+      <column name="STAY" precision="4" scale="3" />
+    </property>
+    <property name="isActive" type="string">
+      <column name="IS_ACTIVE" length="1" />
+    </property>
+    <property name="isSupplier" type="boolean">
+      <column name="IS_SUPPLIER" />
+    </property>
+    <property name="isAgent" type="boolean">
+      <column name="IS_AGENT" />
+    </property>
+    <property name="del" type="string">
+      <column name="DEL" length="1" />
+    </property>
+    <many-to-one name="sales" class="com.opentravelsoft.entity.Employee" lazy="false" fetch="join">
+      <column name="SALES_ID" />
+    </many-to-one>
+    <property name="created" type="date">
+      <column name="CREATED" />
+    </property>
+    <property name="createdBy" type="java.lang.Long">
+      <column name="CREATEDBY" />
+    </property>
+    <property name="checkDate" type="date">
+      <column name="CHECKED" />
+    </property>
+    <property name="checkedBy" type="java.lang.Long">
+      <column name="CHECKEDBY" />
+    </property>
+    <property name="updatedBy" type="java.lang.Long">
+      <column name="UPDATEDBY" />
+    </property>
+  </class>
+</hibernate-mapping>

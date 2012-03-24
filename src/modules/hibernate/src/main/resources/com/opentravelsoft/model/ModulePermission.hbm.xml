@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.model.ModulePermission" table="TBL_MODULE_PERMISSION">
+    <id name="modulePermissionId" type="int">
+      <column name="ModulePermissionID" />
+      <generator class="native" />
+    </id>
+    <property name="moduleId" type="int">
+      <column name="ModuleID" not-null="true" />
+    </property>
+    <property name="permissionId" type="int">
+      <column name="PermissionID" not-null="true" />
+    </property>
+    <property name="allowAccess" type="boolean">
+      <column name="AllowAccess" not-null="true" />
+    </property>
+    <property name="roleId" type="java.lang.Long">
+      <column name="RoleID" />
+    </property>
+    <property name="userId" type="java.lang.Long">
+      <column name="UserID" />
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.PortalCategory" table="TBL_PORTAL_CATEGORY">
+    <id name="code" type="string">
+      <column name="CODE" length="10" />
+      <generator class="assigned" />
+    </id>
+    <property name="cnName" type="string">
+      <column name="CN_NAME" length="30" />
+    </property>
+    <property name="level" type="string">
+      <column name="LEVEL" length="1" />
+    </property>
+    <property name="upCode" type="string">
+      <column name="UP_CODE" length="8" />
+    </property>
+    <property name="nextKey" type="string">
+      <column name="NEXT_KEY" length="1" />
+    </property>
+    <property name="fullName" type="string">
+      <column name="FULL_NAME" length="120" />
+    </property>
+    <property name="mapFile1" type="string">
+      <column name="MAP_FILE1" length="50" />
+    </property>
+  </class>
+</hibernate-mapping>

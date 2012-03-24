@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<!--  START SNIPPET: quizValidators -->
+
+<validators>
+  <field name="guide.accCd">
+    <field-validator type="requiredstring">
+      <message>陪同代码不能为空</message>
+    </field-validator>
+    <field-validator type="stringlength">
+      <param name="maxLength">4</param>
+      <param name="trim">true</param>
+      <message>陪同代码长度不能超过4个英数字或2个汉字</message>
+    </field-validator>
+  </field>
+
+  <field name="guide.accNm">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>姓名必须输入</message>
+    </field-validator>
+    <field-validator type="stringlength">
+      <param name="minLength">4</param>
+      <param name="maxLength">20</param>
+      <message>姓名长度必须是4至20个英数字</message>
+    </field-validator>
+  </field>
+  
+  <field name="guide.idCard">
+    <field-validator type="regex">
+      <param name="expression">\d{18}|\d{15}</param>
+      <message>身份证必须是15或18位数字</message>
+    </field-validator>
+  </field>
+  
+  <field name="guide.birthday">
+    <field-validator type="date">
+      <param name="min">1900-1-1</param>
+      <param name="max">2000-1-1</param>
+      <message>Birthday must be within 1900-1-1 and 2000-1-1</message>
+    </field-validator>
+  </field>
+  
+  <field name="guide.tel">
+    <field-validator type="regex">
+      <param name="expression">^[0-9-]*$</param>
+      <param name="trim">true</param>
+      <message>电话号码必须是数字、中划线或数字中划线组合</message>
+    </field-validator>
+  </field>
+
+  <field name="guide.mobile">
+    <field-validator type="regex">
+      <param name="expression">1\d{10}</param>
+      <param name="trim">true</param>
+      <message>必须提供一个有效的手机号码</message>
+    </field-validator>
+  </field>
+
+  <field name="guide.tourCard">
+    <field-validator type="regex">
+      <param name="trim">true</param>
+      <param name="expression">^[0-9a-zA-Z]*$</param>
+      <message>导游证号必须是数字、字母或字母数字的组合</message>
+    </field-validator>
+  </field>
+
+  <field name="guide.leadCard">
+    <field-validator type="stringlength">
+      <param name="maxLength">20</param>
+      <param name="trim">true</param>
+      <message>领队证号长度不能超过20个英字符或10个汉字</message>
+    </field-validator>
+  </field>
+
+  <field name="guide.icCard">
+    <field-validator type="regex">
+      <param name="trim">true</param>
+      <param name="expression">^[0-9a-zA-Z]*$</param>
+      <message>IC卡登记号必须是数字、字母或字母数字的组合</message>
+    </field-validator>
+  </field>
+  
+  <!--
+  <field name="guide.high">
+    <field-validator type="regex">
+      <param name="expression">^[0-9]*$</param>
+      <param name="trim">true</param>
+      <message>身高必须是整数</message>
+    </field-validator>
+  </field>
+
+  <field name="guide.weight">
+    <field-validator type="regex">
+      <param name="expression">^[0-9]*$</param>
+      <param name="trim">true</param>
+      <message>体重必须是整数</message>
+    </field-validator>
+  </field>
+  -->
+  
+  <field name="guide.hzno">
+    <field-validator type="regex">
+      <param name="trim">true</param>
+      <param name="expression">^[0-9a-zA-Z]*$</param>
+      <message>护照号必须是数字、字母或字母数字的组合</message>
+    </field-validator>
+  </field>
+
+  <field name="guide.EMail">
+    <field-validator type="email">
+      <message>必须提供一个有效的电子邮件地址</message>
+    </field-validator>
+  </field>
+</validators>
+
+<!--  END SNIPPET: quizValidators  -->

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="byName">  
+
+  <!-- allow for property placeholders -->
+  <!-- 
+  <bean id="environment" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" lazy-init="false">
+    <property name="ignoreResourceNotFound" value="true" />
+    <property name="locations">
+      <list>
+        <value>classpath:openreports.properties</value>        
+      </list>
+    </property>
+  </bean>  
+  
+  <bean id="hibernateDataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+    <property name="driverClassName" value="${hibernate.jdbc.driver}" />
+    <property name="url" value="${hibernate.jdbc.url}" />
+    <property name="username" value="${hibernate.jdbc.username}" />
+    <property name="password" value="${hibernate.jdbc.password}" />
+    <property name="maxIdle" value="${hibernate.jdbc.maxIdle}" />
+    <property name="maxActive" value="${hibernate.jdbc.maxActive}" />    
+  </bean>
+   -->
+
+  <bean id="reportSessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">   
+    <property name="dataSource" ref="dataSource" /> 
+    <property name="configLocation" value="classpath:/report.hibernate.cfg.xml"/>
+    <property name="hibernateProperties">
+      <props>
+        <prop key="hibernate.dialect">${hibernate.dialect}</prop>      
+        <prop key="hibernate.jdbc.batch_size">0</prop>
+      </props>
+    </property>
+  </bean>
+  
+  <bean id="hibernateProvider" class="org.efs.openreports.providers.HibernateProvider" singleton="true">
+     <property name="sessionFactory" ref="reportSessionFactory"/>
+  </bean>
+
+  <bean id="quartzDataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+    <property name="driverClassName" value="${quartz.jdbc.driver}" />
+    <property name="url" value="${quartz.jdbc.url}" />
+    <property name="username" value="${quartz.jdbc.username}" />
+    <property name="password" value="${quartz.jdbc.password}" />
+    <property name="maxIdle" value="${quartz.jdbc.maxIdle}" />
+    <property name="maxActive" value="${quartz.jdbc.maxActive}" />   
+  </bean>
+    
+  <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+  	<property name="dataSource" ref="quartzDataSource" />
+   	<property name="applicationContextSchedulerContextKey" value="applicationContext"/>
+   	<property name="quartzProperties">
+      <props>
+        <prop key="org.quartz.scheduler.instanceName">ReportScheduler</prop>
+        <prop key="org.quartz.scheduler.instanceId">AUTO</prop>
+        <prop key="org.quartz.threadPool.class">org.quartz.simpl.SimpleThreadPool</prop>
+        <prop key="org.quartz.threadPool.threadCount">${org.quartz.threadPool.threadCount}</prop>      
+        <prop key="org.quartz.jobStore.class">org.quartz.impl.jdbcjobstore.JobStoreTX</prop>
+        <prop key="org.quartz.jobStore.isClustered">false</prop>
+        <prop key="org.quartz.jobStore.useProperties">false</prop>
+        <prop key="org.quartz.jobStore.tablePrefix">QRTZ_</prop>
+        <prop key="org.quartz.jobStore.driverDelegateClass">${quartz.jobStore.driverDelegateClass}</prop>       
+        <prop key="org.quartz.jobStore.selectWithLockSQL">${quartz.jobStore.selectWithLockSQL}</prop>
+      </props>
+    </property>
+  </bean> 
+
+  <bean id="propertiesProvider" class="org.efs.openreports.providers.impl.PropertiesProviderImpl" singleton="true">
+    <constructor-arg>
+      <ref bean="hibernateProvider" />
+    </constructor-arg>
+  </bean>
+
+  <bean id="directoryProvider" class="org.efs.openreports.providers.DirectoryProvider" singleton="true">
+    <constructor-arg>
+      <ref bean="propertiesProvider" />
+    </constructor-arg>
+  </bean>
+
+  <bean id="dateProvider" class="org.efs.openreports.providers.DateProvider" singleton="true">
+    <constructor-arg>
+      <ref bean="propertiesProvider" />
+    </constructor-arg>
+  </bean>
+
+  <bean id="dataSourceProvider" class="org.efs.openreports.providers.impl.DataSourceProviderImpl" singleton="true">
+    <constructor-arg>
+      <ref bean="hibernateProvider" />
+    </constructor-arg>
+  </bean>
+
+  <bean id="groupProvider" class="org.efs.openreports.providers.impl.GroupProviderImpl" singleton="true">
+    <constructor-arg>
+      <ref bean="hibernateProvider" />
+    </constructor-arg>
+  </bean>
+
+  <bean id="parameterProvider" class="org.efs.openreports.providers.impl.ParameterProviderImpl" singleton="true">
+    <constructor-arg>
+      <ref bean="dataSourceProvider" />
+    </constructor-arg>
+    <constructor-arg>
+      <ref bean="dateProvider" />
+    </constructor-arg>
+    <constructor-arg>
+      <ref bean="hibernateProvider" />
+    </constructor-arg>
+  </bean>
+
+  <bean id="reportLogProvider" class="org.efs.openreports.providers.impl.ReportLogProviderImpl" singleton="true">
+    <constructor-arg>
+      <ref bean="hibernateProvider" />
+    </constructor-arg>
+  </bean>
+
+  <bean id="reportProvider" class="org.efs.openreports.providers.impl.ReportProviderImpl" singleton="true">
+    <constructor-arg>
+      <ref bean="directoryProvider" />
+    </constructor-arg>
+    <constructor-arg>
+      <ref bean="hibernateProvider" />
+    </constructor-arg>
+  </bean>
+  
+  <bean id="userProvider" class="org.efs.openreports.providers.impl.UserProviderImpl" singleton="true">
+    <constructor-arg>
+      <ref bean="hibernateProvider" />
+    </constructor-arg>
+  </bean>
+
+  <bean id="mailProvider" class="org.efs.openreports.providers.MailProvider" singleton="true">
+    <constructor-arg>
+      <ref bean="propertiesProvider" />
+    </constructor-arg>
+  </bean>
+
+  <bean id="chartProvider" class="org.efs.openreports.providers.impl.ChartProviderImpl" singleton="true">  
+    <constructor-arg>
+      <ref bean="hibernateProvider" />
+    </constructor-arg> 
+  </bean>
+  
+  <bean id="tagProvider" class="org.efs.openreports.providers.impl.TagProviderImpl" singleton="true">
+    <constructor-arg>
+      <ref bean="hibernateProvider" />
+    </constructor-arg>
+  </bean>  
+  
+  <bean id="servletContext" class="org.springframework.web.context.support.ServletContextFactoryBean"/>
+  
+  <bean id="birtProvider" class="org.efs.openreports.providers.BirtProvider" singleton="true">
+	  <constructor-arg>
+      <ref bean="servletContext" />
+    </constructor-arg>
+  </bean>
+
+  <bean id="schedulerProvider" class="org.efs.openreports.providers.impl.SchedulerProviderImpl" singleton="true" > 
+    <property name="scheduler" ref="scheduler" />
+  </bean>       
+    
+  <bean id="alertProvider" class="org.efs.openreports.providers.impl.AlertProviderImpl" singleton="true">
+    <constructor-arg>
+      <ref bean="dataSourceProvider" />
+    </constructor-arg>
+    <constructor-arg>
+      <ref bean="reportLogProvider" />
+    </constructor-arg>
+    <constructor-arg>
+      <ref bean="hibernateProvider" />
+    </constructor-arg>
+  </bean>   
+  
+  <bean id="searchResultsTableDecorator" class="org.efs.openreports.util.SearchResultsTableDecorator">
+  	<property name="tagProvider" ref="tagProvider" />  	
+  </bean>
+  
+  <bean id="dateColumnDecorator" class="org.efs.openreports.util.DateColumnDecorator">
+  	<property name="dateProvider" ref="dateProvider" />  	
+  </bean>
+  
+  <bean id="dateTimeColumnDecorator" class="org.efs.openreports.util.DateTimeColumnDecorator">
+  	<property name="dateProvider" ref="dateProvider" />  	
+  </bean>        
+  
+  <bean id="fileSystemDeliveryMethod" class="org.efs.openreports.delivery.FileSystemDeliveryMethod">
+  	<property name="directoryProvider" ref="directoryProvider" />
+  	<property name="mailProvider" ref="mailProvider" /> 	
+  </bean>  
+  
+  <bean id="emailDeliveryMethod" class="org.efs.openreports.delivery.EMailDeliveryMethod">  	
+  	<property name="mailProvider" ref="mailProvider" /> 	
+  </bean>  
+
+</beans>

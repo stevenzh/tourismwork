@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC
+  		"-//OpenSymphony Group//XWork Validator 1.0//EN" 
+  		"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<!-- START SNIPPET: fieldValidatorsExample -->
+
+<validators>
+  <field name="kenClassType">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>
+        <![CDATA[ 用户名必须输入 ]]>
+      </message>
+    </field-validator>
+    <field-validator type="regex">
+      <param name="expression">^[0-9a-zA-Z]*$</param>
+      <message><![CDATA[ 用户名必须是数字或英文字符 ]]></message>
+    </field-validator>
+  </field>
+
+
+  <field name="kenDestination">
+    <field-validator type="requiredstring">
+      <message>
+        <![CDATA[ 密码必须输入 ]]>
+      </message>
+    </field-validator>
+    <field-validator type="regex">
+      <param name="expression">^[0-9a-zA-Z]*$</param>
+      <message><![CDATA[ 密码必须是数字或英文字符 ]]></message>
+    </field-validator>
+  </field>
+
+
+</validators>
+
+<!-- END SNIPPET: fieldValidatorsExample -->
+

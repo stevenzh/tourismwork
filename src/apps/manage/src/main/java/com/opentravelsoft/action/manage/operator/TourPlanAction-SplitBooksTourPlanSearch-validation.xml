@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC
+  		"-//OpenSymphony Group//XWork Validator 1.0//EN" 
+  		"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<!-- START SNIPPET: fieldValidatorsExample -->
+
+<validators>
+  <!-- 
+  <field name="kenDepartment">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>
+        <![CDATA[ 所属部门必须输入 ]]>
+      </message>
+    </field-validator>
+  </field>
+   -->
+
+  <!-- 
+  <field name="kenPrincipal">
+    <field-validator type="requiredstring">
+      <param name="trim">true</param>
+      <message>
+        <![CDATA[ 所属专管员必须输入 ]]>
+      </message>
+    </field-validator>
+  </field>
+   -->
+
+  <field name="kenStartDate">
+    <field-validator type="required">
+      <message>
+        <![CDATA[ 出发起始日期必须输入 ]]>
+      </message>
+    </field-validator>
+    <field-validator type="date">
+      <message>
+        <![CDATA[ 出发日期格式有误 YYYY/MM/DD ]]>
+      </message>
+    </field-validator>
+  </field>
+
+
+  <field name="kenEndDate">
+    <field-validator type="required">
+      <message>
+        <![CDATA[ 出发结束日期必须输入 ]]>
+      </message>
+    </field-validator>
+    <field-validator type="date">
+      <message>
+        <![CDATA[ 出发日期格式有误 YYYY/MM/DD ]]>
+      </message>
+    </field-validator>
+  </field>
+
+</validators>
+
+<!-- END SNIPPET: fieldValidatorsExample -->
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byType">
+
+  <!-- 高级搜索 -->
+  <bean id="CbAdvancedSearchAction" class="com.opentravelsoft.action.search.CbAdvancedSearchAction" singleton="false">
+    <property name="cbSearchService">
+      <ref bean="CbIndexService" />
+    </property>
+  </bean>
+
+  <bean id="CbSearchService" class="com.opentravelsoft.service.search.CbSearchServiceImpl">
+	<property name="cbIndexDao">
+		<ref bean="IndexDao" />
+	</property>
+  </bean>
+
+</beans>

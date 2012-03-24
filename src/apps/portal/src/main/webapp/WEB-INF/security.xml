@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+  <global-method-security>
+      <protect-pointcut expression="execution(* *..service.UserManager.getUsers(..))" access="ROLE_ADMIN"/>
+      <protect-pointcut expression="execution(* *..service.UserManager.removeUser(..))" access="ROLE_ADMIN"/>
+  </global-method-security>
+
+	<http auto-config="true" lowercase-comparisons="false">
+    <intercept-url pattern="/images/*" filters="none"/>
+    <intercept-url pattern="/styles/*" filters="none"/>
+    <intercept-url pattern="/scripts/*" filters="none"/>
+    
+    <intercept-url pattern="/admin/*" access="ROLE_ADMIN"/>
+    <intercept-url pattern="/editUser.html*" access="ROLE_ADMIN,ROLE_USER"/>
+    <intercept-url pattern="/editProfile.html*" access="ROLE_ADMIN,ROLE_USER"/>
+    <intercept-url pattern="/accounts/*" access="ROLE_ADMIN,ROLE_USER"/>
+    <intercept-url pattern="/**/*.html*" access="ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_USER"/>
+
+    <!--
+        Uncomment to enable X509 client authentication support
+            <x509 />
+    -->
+    <form-login login-page="/login.jsp" authentication-failure-url="/login.jsp?error=true" login-processing-url="/j_security_check"/>
+    <!-- 
+    <logout />
+    <remember-me/>
+     -->
+    <!-- Uncomment to limit the number of sessions a user can have
+    <session-management>
+        <concurrency-control max-sessions="2" error-if-maximum-exceeded="true" />
+    </session-management>
+    -->
+	</http>
+	
+	<authentication-manager>
+		<authentication-provider>
+	    <password-encoder hash="sha" />
+	    <jdbc-user-service data-source-ref="dataSource"
+	         authorities-by-username-query="SELECT c.username as username,b.name as authority FROM tbl_member_role a, tbl_portal_role b, tbl_member c WHERE a.user_id=c.id and a.role_id=b.id and c.username=?"
+	         users-by-username-query="SELECT username,password,account_enabled as enabled FROM tbl_member WHERE username=?"/>
+		</authentication-provider>
+	 </authentication-manager>	
+
+</beans:beans>

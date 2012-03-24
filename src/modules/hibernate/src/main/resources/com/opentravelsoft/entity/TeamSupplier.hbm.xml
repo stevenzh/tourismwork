@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.TeamSupplier" table="TBL_TEAM_CUSTOMER">
+    <composite-id name="id" class="com.opentravelsoft.entity.TeamSupplierId">
+      <key-property name="supplierId" type="long">
+        <column name="CUSTOMER_ID" />
+      </key-property>
+      <key-property name="teamId" type="long">
+        <column name="TEAM_ID" />
+      </key-property>
+    </composite-id>
+  </class>
+</hibernate-mapping>

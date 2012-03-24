@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.finance.Outcome" table="TBL_OUTCOME">
+    <id name="outcomeId" type="long">
+      <column name="OUTCOME_ID" />
+      <generator class="native" />
+    </id>
+    <timestamp name="updated" column="UPDATED" />
+    <many-to-one name="customer" class="com.opentravelsoft.entity.Customer" lazy="false" fetch="select">
+      <column name="CUSTOMER_ID" not-null="true" />
+    </many-to-one>
+    <many-to-one name="tour" class="com.opentravelsoft.entity.Plan" lazy="false" fetch="select">
+      <column name="PLAN_NO" />
+    </many-to-one>
+    <property name="acctId" type="long">
+      <column name="ACCT_ID" not-null="true" />
+    </property>
+    <property name="note" type="string">
+      <column name="NOTE" length="1000" />
+    </property>
+    <property name="created" type="date">
+      <column name="CREATED" />
+    </property>
+    <property name="createdBy" type="java.lang.Long">
+      <column name="CREATEDBY" />
+    </property>
+    <property name="updatedBy" type="java.lang.Long">
+      <column name="UPDATEDBY" />
+    </property>
+    <property name="opApproved" type="date">
+      <column name="OP_APPROVED" />
+    </property>
+    <property name="opApprovedby" type="java.lang.Long">
+      <column name="OP_APPROVEDBY" />
+    </property>
+    <property name="opApprovedFlag" type="java.lang.Character">
+      <column name="OP_APPROVED_FLAG" length="1" />
+    </property>
+    <property name="frRead" type="date">
+      <column name="FR_READ" />
+    </property>
+    <property name="frReadby" type="java.lang.Long">
+      <column name="FR_READBY" />
+    </property>
+    <property name="frReadFlag" type="java.lang.Character">
+      <column name="FR_READ_FLAG" length="1" />
+    </property>
+    <property name="frApproved" type="date">
+      <column name="FR_APPROVED" />
+    </property>
+    <property name="frApprovedby" type="java.lang.Long">
+      <column name="FR_APPROVEDBY" />
+    </property>
+    <property name="frApprovedFlag" type="java.lang.Character">
+      <column name="FR_APPROVED_FLAG" length="1" />
+    </property>
+    <property name="payDate" type="date">
+      <column name="PAY_DATE" />
+    </property>
+    <property name="payMode" type="java.lang.Character">
+      <column name="PAY_MODE" length="1" />
+    </property>
+    <property name="billNo" type="string">
+      <column name="BILL_NO" length="30" />
+    </property>
+    <property name="payRegisterDate" type="date">
+      <column name="PAY_REGISTER_DATE" />
+    </property>
+    <property name="payRegisterby" type="string">
+      <column name="PAY_REGISTERBY" length="20" />
+    </property>
+    <property name="amount" type="java.lang.Double">
+      <column name="AMOUNT" precision="10" />
+    </property>
+    <property name="opRoe" type="java.lang.Double">
+      <column name="OP_ROE" precision="9" scale="4" />
+    </property>
+    <property name="currency" type="string">
+      <column name="CURRENCY" length="4" />
+    </property>
+    <property name="fcAmount" type="java.lang.Double">
+      <column name="FC_AMOUNT" precision="9" />
+    </property>
+    <property name="roe" type="java.lang.Double">
+      <column name="ROE" precision="9" scale="4" />
+    </property>
+    <property name="del" type="string">
+      <column name="DEL" length="1" />
+    </property>
+
+    <property name="carryTicket" type="java.lang.Short">
+      <column name="CARRY_TICKET" />
+    </property>
+    <property name="carryStatus" type="java.lang.Short">
+      <column name="CARRY_STATUS" />
+    </property>
+    <property name="carryStart" type="date">
+      <column name="CARRY_START" />
+    </property>
+    <property name="carryUserid" type="string">
+      <column name="CARRY_USERID" length="10" />
+    </property>
+    <property name="carryWorker" type="string">
+      <column name="CARRY_WORKER" length="20" />
+    </property>
+    <property name="carryWorkday" type="date">
+      <column name="CARRY_WORKDAY" />
+    </property>
+    <property name="carryComplete" type="date">
+      <column name="CARRY_COMPLETE" />
+    </property>
+    <property name="carryLastdate" type="date">
+      <column name="CARRY_LASTDATE" />
+    </property>
+    <property name="carryNote" type="string">
+      <column name="CARRY_NOTE" length="1000" />
+    </property>
+    <property name="flightNo" type="string">
+      <column name="FLIGHT_NO" />
+    </property>
+
+    <property name="workflowId" type="string">
+      <column name="WORKFLOW_ID" length="255" />
+    </property>
+
+  </class>
+</hibernate-mapping>

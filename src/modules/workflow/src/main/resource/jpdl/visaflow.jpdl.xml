@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="visaFlow" xmlns="http://jbpm.org/4.3/jpdl">
+   <start g="38,16,48,48" name="start1">
+      <transition g="-44,-18" name="to chek\" to="check"/>
+   </start>
+   <task g="16,96,92,52" name="check">
+      <transition g="-36,-18" name="to dod" to="dod"/>
+   </task>
+   <task g="14,187,92,52" name="dod">
+      <transition g="-42,-18" name="to end1" to="do finish"/>
+   </task>
+   <end g="38,264,48,48" name="do finish"/>
+</process>

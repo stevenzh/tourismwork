@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byType">
+
+  <bean id="BaseAction" class="com.opentravelsoft.BaseAction" singleton="false">
+    <property name="smsService">
+      <ref bean="SmsService" />
+    </property>
+    <property name="listService">
+      <ref bean="ListService" />
+    </property>
+  </bean>
+
+  <bean id="LineListAction" class="com.opentravelsoft.action.product.LineListAction" singleton="false">
+    <property name="planListService">
+      <ref bean="PlanListService" />
+    </property>
+  </bean>
+
+  <bean id="LineSearchAction" class="com.opentravelsoft.action.product.LineSearchAction" singleton="false">
+    <property name="planListService">
+      <ref bean="PlanListService" />
+    </property>
+  </bean>
+
+  <bean id="BranchAction" class="com.opentravelsoft.action.branch.BranchAction" singleton="false">
+    <property name="branchService">
+      <ref bean="BranchService" />
+    </property>
+  </bean>
+
+  <bean id="VisaLineAction" class="com.opentravelsoft.action.product.VisaListAction" singleton="false">
+    <property name="visaHelpService">
+      <ref bean="VisaHelpService" />
+    </property>
+  </bean>
+  <bean id="VisaListAction" class="com.opentravelsoft.action.product.VisaListAction" singleton="false">
+    <property name="visaHelpService">
+      <ref bean="VisaHelpService" />
+    </property>
+  </bean>
+  <bean id="VisaDetailAction" class="com.opentravelsoft.action.product.VisaHelpAction" singleton="false">
+    <property name="visaHelpService">
+      <ref bean="VisaHelpService" />
+    </property>
+  </bean>
+
+  <bean id="LineDetailAction" class="com.opentravelsoft.action.product.LineDetailAction" singleton="false">
+    <property name="lineDetailService">
+      <ref bean="RouteService" />
+    </property>
+  </bean>
+
+  <bean id="PayerOLAction" class="com.opentravelsoft.action.pay.PayerOLAction" singleton="false">
+    <property name="payerService">
+      <ref bean="payerService" />
+    </property>
+  </bean>
+
+  <bean id="ReceiveSmsAction" class="com.opentravelsoft.action.sms.ReceiveAction" singleton="false">
+    <property name="smsService">
+      <ref bean="SmsService" />
+    </property>
+  </bean>
+
+</beans>

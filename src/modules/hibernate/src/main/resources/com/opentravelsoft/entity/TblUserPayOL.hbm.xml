@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.TblUserPayOL" table="TBL_USERPAYOL">
+    <id name="payId" column="PAYID">
+      <generator class="native"></generator>
+    </id>
+    <property name="payerName" column="PAYERNAME" type="string" length="50">
+    </property>
+    <property name="payerPhone" column="PAYERPHONE" type="string" length="50">
+    </property>
+    <property name="tourRoute" column="TOURROUTE" type="string" length="100">
+    </property>
+    <property name="payAmount" column="PAYAMOUNT" type="double">
+    </property>
+    <property name="remark" column="REMARK" type="string" length="1000">
+    </property>
+    <property name="payTime" column="PAYTIME" type="string" length="50">
+    </property>
+  </class>
+
+</hibernate-mapping>

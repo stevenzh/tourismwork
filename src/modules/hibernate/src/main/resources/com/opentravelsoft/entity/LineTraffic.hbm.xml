@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.LineTraffic" table="TBL_LINE_TRAFFIC">
+    <id name="id" type="long">
+      <column name="ID" />
+      <generator class="native" />
+    </id>
+    <property name="lineNo" type="string">
+      <column name="LINE_NO" length="50" />
+    </property>
+    <property name="day" type="int">
+      <column name="DAY" />
+    </property>
+    <property name="fromCity" type="string">
+      <column name="FROM_CITY" length="50" />
+    </property>
+    <property name="toCity" type="string">
+      <column name="TO_CITY" length="50" />
+    </property>
+    <property name="travelTime" type="string">
+      <column name="TRAVEL_TIME" length="50" />
+    </property>
+    <property name="traffic" type="string">
+      <column name="Traffic" length="50" />
+    </property>
+    <property name="step" type="java.lang.Integer">
+      <column name="STEP" />
+    </property>
+  </class>
+</hibernate-mapping>

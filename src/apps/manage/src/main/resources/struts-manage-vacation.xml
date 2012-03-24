@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <package name="manage-vacation" namespace="/vacation" extends="shcct-manage">
+
+    <!-- Hotel -->
+    <action name="listHotel" class="ListHotelAction" method="input">
+      <result name="input">/includes/vacation/ListHotel.jsp</result>
+      <param name="moduleName">Products_view</param>
+    </action>
+    <action name="editHotel" class="ListHotelAction" method="edit">
+      <result name="input">/includes/vacation/EditHotel.jsp</result>
+      <param name="moduleName">Products_edit</param>
+    </action>
+    
+  </package>
+
+</struts>

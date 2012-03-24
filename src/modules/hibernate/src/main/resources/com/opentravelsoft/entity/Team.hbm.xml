@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.Team" table="TBL_TEAMS">
+    <id name="teamId" type="long">
+      <column name="ID" />
+      <generator class="native" />
+    </id>
+    <property name="id" type="string">
+      <column name="CODE" length="50" not-null="true" />
+    </property>
+    <property name="name" type="string">
+      <column name="NAME" length="20" not-null="true" />
+    </property>
+    <property name="description" type="string">
+      <column name="DESCRIPTION" length="50" />
+    </property>
+    <property name="type" type="int">
+      <column name="TYPE" not-null="true" />
+    </property>
+    <property name="active" type="boolean">
+      <column name="ACTIVE" not-null="true" />
+    </property>
+    <property name="private_" type="java.lang.Boolean">
+      <column name="PRIVATE" />
+    </property>
+    <many-to-one name="parent" column="PARENT_" class="com.opentravelsoft.entity.Team" />
+  </class>
+</hibernate-mapping>

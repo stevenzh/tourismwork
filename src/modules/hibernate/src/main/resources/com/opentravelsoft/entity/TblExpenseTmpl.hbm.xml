@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.TblExpenseTmpl" table="TBL_EXPENSE_TMPL">
+    <id name="id" type="int">
+      <column name="ID" />
+      <generator class="native" />
+    </id>
+    <property name="number" type="int">
+      <column name="NUMBER" not-null="true" />
+    </property>
+    <property name="item" type="string">
+      <column name="ITEM" length="30" not-null="true" />
+    </property>
+    <property name="content" type="string">
+      <column name="CONTENT" length="500" />
+    </property>
+    <property name="include" type="string">
+      <column name="INCLUDE" length="1" />
+    </property>
+  </class>
+</hibernate-mapping>

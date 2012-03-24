@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+  <!-- 
+  <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+    <property name="mappings">
+      <props>
+        <prop key="/captcha-image.html">captchaImageController</prop>
+      </props>
+    </property>
+  </bean>
+   -->
+
+  <!-- 
+  <bean id="jstlViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+    <property name="prefix" value="/WEB-INF/jsp/" />
+    <property name="suffix" value=".jsp" />
+  </bean>
+   -->
+  <!-- 
+  <bean id="captchaImageController" class="com.octo.captcha.module.acegi.JCaptchaImageController">
+    <property name="imageCaptchaService" ref="jcaptchaService" />
+  </bean>
+   -->
+
+</beans>

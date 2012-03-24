@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<decorators defaultdir="/decorators">
+  <!-- Any urls that are excluded will never be decorated by Sitemesh -->
+  <excludes>
+    <pattern>/styles/*</pattern>
+    <pattern>/scripts/*</pattern>
+    <pattern>/images/*</pattern>
+    <pattern>/dojo/*</pattern>
+    <pattern>/services/*</pattern>
+    <pattern>/download/*</pattern>
+    <pattern>/struts/*</pattern>
+    <pattern>/json/*</pattern>
+    <pattern>/view/*</pattern>
+    <pattern>/html/*</pattern>
+  	<pattern>/40*.jsp</pattern>
+  	<pattern>/*ajax=true*</pattern>
+  	<pattern>/resources/*</pattern>
+   </excludes>
+
+  <!-- 
+  <decorator name="default-3col" page="default-3col.jsp">
+    <pattern>/product/*</pattern>
+    <pattern>/main.html</pattern>
+  </decorator>
+   -->
+
+  <decorator name="default" page="default.jsp">
+    <pattern>/*</pattern>    
+  </decorator>
+  <decorator name="member" page="member.jsp">
+    <pattern>/accounts/*</pattern>
+    <pattern>/admin/*</pattern>
+    <pattern>/search/*</pattern>
+    <pattern>/editProfile.html*</pattern>
+  </decorator>
+</decorators>

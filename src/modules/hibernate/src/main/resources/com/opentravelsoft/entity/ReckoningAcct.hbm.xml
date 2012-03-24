@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.finance.ReckoningAcct" table="TBL_RECKONING_ACCT">
+    <composite-id name="id" class="com.opentravelsoft.entity.finance.ReckoningAcctId">
+      <key-property name="reckoningId" type="int">
+        <column name="RECKONING_ID" />
+      </key-property>
+      <key-property name="itemId" type="int">
+        <column name="ITEM_ID" />
+      </key-property>
+    </composite-id>
+    <property name="description" type="string">
+      <column name="DESCRIPTION" length="1000" />
+    </property>
+    <property name="unitPrice" type="double">
+      <column name="UNIT_PRICE" precision="9" scale="2" />
+    </property>
+    <property name="count" type="java.lang.Integer">
+      <column name="COUNT" />
+    </property>
+    <property name="amount" type="double">
+      <column name="AMOUNT" precision="9" scale="2" />
+    </property>
+    <property name="unit" type="string">
+      <column name="UNIT" length="10" />
+    </property>
+  </class>
+</hibernate-mapping>

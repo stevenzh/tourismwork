@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.Contact" table="TBL_CONTACT">
+    <id name="contactId" type="long">
+      <column name="CONTACT_ID" />
+      <generator class="native" />
+    </id>
+    <timestamp name="updated" column="UPDATED" />
+    <property name="customerId" type="long">
+      <column name="CUSTOMER_ID" not-null="true" />
+    </property>
+    <property name="name" type="string">
+      <column name="NAME" length="30" />
+    </property>
+    <property name="rank" type="string">
+      <column name="RANK" length="40" />
+    </property>
+    <property name="phone" type="string">
+      <column name="PHONE" length="40" />
+    </property>
+    <property name="fax" type="string">
+      <column name="FAX" length="40" />
+    </property>
+    <property name="mobile" type="string">
+      <column name="MOBILE" length="20" />
+    </property>
+    <property name="email" type="string">
+      <column name="EMAIL" length="60" />
+    </property>
+    <property name="msn" type="string">
+      <column name="MSN" length="60" />
+    </property>
+    <property name="skype" type="string">
+      <column name="SKYPE" length="60" />
+    </property>
+    <property name="del" type="string">
+      <column name="DEL" length="1" />
+    </property>
+    <property name="qq" type="string">
+      <column name="QQ" length="30" />
+    </property>
+    <property name="salesId" type="java.lang.Long">
+      <column name="SALES_ID" />
+    </property>
+    <property name="created" type="date">
+      <column name="CREATED" />
+    </property>
+    <property name="createdBy" type="java.lang.Long">
+      <column name="CREATEDBY" />
+    </property>
+    <property name="updatedBy" type="java.lang.Long">
+      <column name="UPDATEDBY" />
+    </property>
+  </class>
+</hibernate-mapping>

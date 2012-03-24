@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<!--  START SNIPPET: quizValidators -->
+
+<validators>
+
+  <field name="oldPwd">
+    <field-validator type="requiredstring">
+      <message>旧密码必须输入.</message>
+    </field-validator>
+    <field-validator type="regex">
+      <param name="expression"><![CDATA[([\w]*)]]></param>
+      <message>旧密码必须输入半角英数字.</message>
+    </field-validator>
+    <field-validator type="stringlength">
+      <param name="maxLength">20</param>
+      <param name="trim">true</param>
+      <message>旧密码长度不能超过${maxLength}个英数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="newPwd">
+    <field-validator type="regex">
+      <param name="expression"><![CDATA[([\w]*)]]></param>
+      <message>新密码必须输入半角英数字.</message>
+    </field-validator>
+    <field-validator type="stringlength">
+      <param name="minLength">6</param>
+      <param name="maxLength">20</param>
+      <param name="trim">true</param>
+      <message>新密码长度必须为${maxLength}个英数字.</message>
+    </field-validator>
+  </field>
+
+  <field name="confirmPwd">
+    <field-validator type="regex">
+      <param name="expression"><![CDATA[([\w]*)]]></param>
+      <message>确认密码必须输入半角英数字.</message>
+    </field-validator>
+    <field-validator type="stringlength">
+      <param name="minLength">6</param>
+      <param name="maxLength">20</param>
+      <param name="trim">true</param>
+      <message>确认密码长度必须为${maxLength}个英数字.</message>
+    </field-validator>
+  </field>
+</validators>
+<!--  END SNIPPET: quizValidators  -->

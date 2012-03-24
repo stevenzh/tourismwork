@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<!--  START SNIPPET: quizValidators -->
+
+<validators>
+  <field name="kenDepartmentNo">
+    <field-validator type="required">
+      <message>部门不能为空.</message>
+    </field-validator>
+  </field>
+
+</validators>
+
+<!--  END SNIPPET: quizValidators  -->

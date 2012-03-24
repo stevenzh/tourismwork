@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+    <global-method-security secured-annotations="enabled">
+        <!-- AspectJ pointcut expression that locates our "post" method and applies security that way
+        <protect-pointcut expression="execution(* bigbank.*Service.post*(..))" access="ROLE_TELLER"/>
+        -->
+    </global-method-security>
+
+    <http auto-config="true">
+        <!-- Disable web URI authorization, as we're using <global-method-security> and have @Secured the services layer instead
+        <intercept-url pattern="/listAccounts.html" access="IS_AUTHENTICATED_REMEMBERED" />
+        <intercept-url pattern="/post.html" access="ROLE_TELLER" />
+        -->
+        <intercept-url pattern="/index.jsp*" filters="none" />
+        <intercept-url pattern="/Login.jspa" filters="none" />
+        <intercept-url pattern="/images/**" filters="none" />
+        <intercept-url pattern="/script/**" filters="none" />
+        <intercept-url pattern="/stylesheet/**" filters="none" />
+        <intercept-url pattern="/services/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/struts/**" filters="none" />
+        <intercept-url pattern="/**" access="ROLE_USER" />
+
+        <!--
+         Uncomment to enable X509 client authentication support
+        <x509 /> 
+        -->
+        
+        <!-- All of this is unnecessary if auto-config="true" -->
+        <form-login login-page="/Login.jspa" default-target-url="/MyPage.jspa" always-use-default-target="true" />
+        <!-- 
+        <anonymous />
+        <http-basic />
+        <logout />
+        <remember-me />
+         -->
+        <!-- Uncomment to limit the number of sessions a user can have   
+        <concurrent-session-control max-sessions="1" exception-if-maximum-exceeded="true"/>
+        -->
+    </http>
+
+    <authentication-manager alias="am">
+      <authentication-provider user-service-ref="UserService">
+        <password-encoder hash="md5" />
+<!--         <jdbc-user-service data-source-ref="dataSource"
+             authorities-by-username-query="SELECT c.user_cd as username,b.role_code as authority FROM tbl_membership a, tbl_role b, tbl_employee c WHERE a.user_id=c.user_id and a.role_id=b.role_id and c.user_cd=?"
+             users-by-username-query="SELECT user_cd as username,RTRIM(passwd) as password,'true' as enabled FROM tbl_employee WHERE is_active=1 and user_cd=?"/>
+ -->      </authentication-provider>
+    </authentication-manager>
+    
+</beans:beans>

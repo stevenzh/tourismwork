@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.TourCost" table="TBL_TOUR_COST">
+    <id name="acctId" type="long">
+      <column name="ACCT_ID" />
+      <generator class="native" />
+    </id>
+    <many-to-one name="tour" class="com.opentravelsoft.entity.Plan" lazy="false" fetch="select">
+      <column name="PLAN_NO" />
+    </many-to-one>
+    <many-to-one name="customer" class="com.opentravelsoft.entity.Customer" lazy="false" fetch="select">
+      <column name="CUSTOMER_ID" not-null="true" />
+    </many-to-one>
+    <property name="costType" type="string">
+      <column name="COST_TYPE" length="20" />
+    </property>
+    <property name="description" type="string">
+      <column name="DESCRIPTION" length="1000" />
+    </property>
+    <property name="unitPrice" type="double">
+      <column name="UNIT_PRICE" precision="9" />
+    </property>
+    <property name="count" type="java.lang.Integer">
+      <column name="COUNT" />
+    </property>
+    <property name="unit" type="string">
+      <column name="UNIT" length="10" />
+    </property>
+    <property name="currency" type="string">
+      <column name="CURRENCY" length="4" />
+    </property>
+    <property name="roe" type="double">
+      <column name="ROE" precision="9" scale="4" />
+    </property>
+    <property name="fcAmount" type="double">
+      <column name="FC_AMOUNT" precision="9" />
+    </property>
+    <property name="amount" type="double">
+      <column name="AMOUNT" precision="9" />
+    </property>
+    <property name="payAmount" type="double">
+      <column name="PAY_AMOUNT" precision="9" />
+    </property>
+    <property name="isMakeOutcome" type="string">
+      <column name="IS_MAKE_PAPER" length="1" />
+    </property>
+    <property name="frChecked" type="string">
+      <column name="FR_CHECKED" length="1" />
+    </property>
+    <property name="created" type="date">
+      <column name="CREATED" />
+    </property>
+    <property name="createdBy" type="java.lang.Long">
+      <column name="CREATEDBY" />
+    </property>
+
+  </class>
+</hibernate-mapping>

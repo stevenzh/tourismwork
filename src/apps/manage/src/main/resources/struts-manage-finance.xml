@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <package name="manage-finance" namespace="/finance" extends="shcct-manage">
+
+    <action name="FinanceAction" class="FinanceAction">
+      <result>/includes/Finance.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="showFinanceAlert" class="FinanceAlertAction" method="input">
+      <result name="input">/includes/finance/FinanceAlert.jsp</result>
+    </action>
+
+    <action name="TourDetail" class="TourUnite" method="tourDetail">
+      <result>/includes/operator/TourDetailView.jsp</result>
+      <interceptor-ref name="defaultStackWithSecurity"></interceptor-ref>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="SimplePrint" class="SimpleReport" method="input">
+      <result name="input">/includes/operator/report/SimplePrint.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="CustomerDetail" class="TouristInfo" method="input">
+      <result>/includes/operator/Customer.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+
+    <!-- 修改订单应收款 -->
+    <action name="MustPayModifyInput" class="MustPayModifyAction" method="input">
+      <result name="input">/includes/finance/MustPayModify.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="MustPayModify" class="MustPayModifyAction" method="mustPayModify">
+      <result>/includes/finance/MustPayModify.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+
+    <!-- 客户对帐单(应收/应付) -->
+    <action name="collateIncomeAction" class="CollateIncomeAction" method="input">
+      <result name="input">/includes/finance/CollateIncome.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+
+    <!-- 单团核算  -->
+    <action name="SingleTourBalanceInput" class="SingleTourBalanceAction">
+      <result>/includes/finance/TourBalanceSearch.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="SingleTourBalanceSearch" class="SingleTourBalanceAction" method="search">
+      <result>/includes/finance/TourBalanceSearch.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+
+    <action name="SingleTourBalanceModifyInput" class="SingleTourBalanceAction" method="modifyInput">
+      <result>/includes/finance/TourBalanceModify.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="SingleTourBalanceModify" class="SingleTourBalanceAction" method="modify">
+      <result>/includes/finance/TourBalanceModify.jsp</result>
+      <result name="input">/includes/finance/TourBalanceModify.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="SingleTourBalanceModifyAdd" class="SingleTourBalanceAction" method="add">
+      <result>/includes/finance/TourBalanceModify.jsp</result>
+      <param name="moduleName">Finance_edit</param>
+    </action>
+    <action name="SingleTourBalanceModifyDelete" class="SingleTourBalanceAction" method="delete">
+      <result>/includes/finance/TourBalanceModify.jsp</result>
+      <param name="moduleName">Finance_delete</param>
+    </action>
+
+    <action name="SingleBalanceAuditingInput" class="SingleTourBalanceAction" method="auditingInput">
+      <result>/includes/finance/TourBalanceAuditing.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="SingleBalanceAuditing" class="SingleTourBalanceAction" method="auditing">
+      <result>/includes/finance/TourBalanceAuditing.jsp</result>
+      <param name="moduleName">Finance_delete</param>
+    </action>
+    <action name="SingleBalanceDetail" class="SingleTourBalanceAction" method="balanceDetail">
+      <result>/includes/finance/SinggleTourBalanceDetail.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="PrintSingleBalance" class="SingleTourBalanceAction" method="balanceDetail">
+      <result>/includes/operator/PrintTourBalance.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+
+    <!-- 应收账款查询 -->
+    <action name="searchIncomeInput" class="SearchIncome" method="input">
+      <result name="input">/includes/finance/income/SearchIncome.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="searchIncome" class="SearchIncome" method="search">
+      <result type="chain" name="input">searchIncomeInput</result>
+      <result name="success">/includes/finance/income/SearchIncome.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+
+    <!-- 收款销帐 -->
+    <action name="showBooksInput" class="IncomeAction" method="input">
+      <result name="input">/includes/finance/income/ShowIncome.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="showBooks" class="IncomeAction" method="search">
+      <result name="input" type="chain">showBooksInput</result>
+      <result>/includes/finance/income/ShowIncome.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="submitIncome" class="IncomeAction" method="submit">
+      <result name="input" type="chain">showBooksInput</result>
+      <result name="success" type="chain">showIncomeDetail</result>
+      <param name="moduleName">Finance_edit</param>
+    </action>
+
+    <!-- 担保 -->
+    <action name="warrantInput" class="WarrantAction" method="show">
+      <result name="input">/includes/finance/income/Warrant.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="warrantsubmit" class="WarrantAction" method="submit">
+      <result name="input" type="chain">warrantInput</result>
+      <result name="success">/includes/finance/income/Warrant.jsp</result>
+      <param name="moduleName">Finance_edit</param>
+    </action>
+
+    <!-- 单团销帐 -->
+    <action name="SingleTourIncome" class="SingleTourIncome" method="get">
+      <result name="input">/includes/finance/income/SingleTourIncome.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="SingleTourIncomeSubmit" class="SingleTourIncome" method="submit">
+      <result name="input">/includes/finance/income/SingleTourIncome.jsp</result>
+      <result type="chain" name="success">showPayRequisition</result>
+      <param name="moduleName">Finance_edit</param>
+    </action>
+
+    <!-- 查询付款销帐 -->
+    <action name="showIncomesInput" class="ListIncomeAction" method="input">
+      <result name="input">/includes/finance/income/EditIncome.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="showIncomes" class="ListIncomeAction" method="search">
+      <result name="input" type="chain">showIncomesInput</result>
+      <result>/includes/finance/income/EditIncome.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="deleteDetail" class="ListIncomeAction" method="getdel">
+      <result>/includes/finance/income/IncomeDetail.jsp</result>
+      <param name="moduleName">Finance_delete</param>
+    </action>
+    <action name="deleteIncome" class="ListIncomeAction" method="delete">
+      <result>/includes/finance/income/EditIncome.jsp</result>
+      <param name="moduleName">Finance_delete</param>
+    </action>
+
+    <!-- 修改付款销帐 -->
+    <action name="showIncomeDetail" class="EditIncomeAction" method="input">
+      <result name="input">/includes/finance/income/IncomeDetail.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="editIncomes" class="EditIncomeAction" method="submit">
+      <result name="input" type="chain">showIncomeDetail</result>
+      <result type="chain">showIncomes</result>
+      <param name="moduleName">Finance_edit</param>
+    </action>
+
+    <!-- 查询发票 -->
+    <action name="listInvoice" class="ListInvoiceAction" method="input">
+      <result name="input">/includes/finance/invoice/ListInvoice.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="deleteInvoice" class="ListInvoiceAction" method="delete">
+      <result name="input" type="chain">listInvoice</result>
+      <result name="success" type="chain">listInvoice</result>
+      <param name="moduleName">Finance_delete</param>
+    </action>
+    <action name="addInvoice" class="InvoiceAction" method="input">
+      <result name="input">/includes/finance/invoice/SaveInvoice.jsp</result>
+      <param name="moduleName">Finance_edit</param>
+    </action>
+    <action name="saveInvoice" class="InvoiceAction" method="submit">
+      <result name="input" type="chain">addInvoice</result>
+      <result type="chain">listInvoice</result>
+      <param name="moduleName">Finance_edit</param>
+    </action>
+
+    <!-- 填写发票 -->
+    <action name="showInvoice" class="InvoiceAction" method="input">
+      <result name="input">/includes/finance/invoice/EditInvoice.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="submitInvoice" class="InvoiceAction" method="submit">
+      <result name="input" type="chain">showInvoice</result>
+      <result type="chain">showIncomeDetail</result>
+      <param name="moduleName">Finance_edit</param>
+    </action>
+    
+    <!-- 应付款查询 -->
+    <action name="OutcomeSearchActionInit" class="OutcomeSearchAction" method="init">
+      <result name="input">/includes/finance/expend/SearchOutcome.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="OutcomeSearchActionSearch" class="OutcomeSearchAction" method="search">
+      <result>/includes/finance/expend/SearchOutcome.jsp</result>
+      <result name="input" type="chain">OutcomeSearchActionInit</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+
+    <!-- 查找付款申请书 -->
+    <action name="showPayRequisition" class="FrListPayRequisitionAction" method="input">
+      <result name="input">/includes/finance/expend/ListBill.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="listPayRequisition" class="FrListPayRequisitionAction" method="search">
+      <result name="input">/includes/finance/expend/ListBill.jsp</result>
+      <result>/includes/finance/expend/ListBill.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+
+    <!-- 修改付款申请书 -->
+    <action name="editPayRequisition" class="FrEditPayRequisitionAction" method="input">
+      <result name="input">/includes/finance/expend/EditBill.jsp</result>
+      <param name="moduleName">Finance_edit</param>
+    </action>
+    <action name="savePayRequisition" class="FrEditPayRequisitionAction" method="submit">
+      <result name="input" type="chain">listPayRequisition</result>
+      <result type="chain">listPayRequisition</result>
+      <param name="moduleName">Finance_edit</param>
+    </action>
+
+    <action name="OpModifyPayAction" class="FrListPayRequisitionAction" method="opModifyPay">
+      <result name="input" type="chain">editPayRequisition</result>
+      <result type="chain">listPayRequisition</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+
+    <!-- 审核付款申请书 -->
+    <action name="detailPayRequisition" class="FrAuditPayRequisitionAction" method="input">
+      <result name="input">/includes/finance/expend/BillDetail.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="readPayRequisition" class="FrAuditPayRequisitionAction" method="read">
+      <result name="input">/includes/finance/expend/BillDetail.jsp</result>
+      <result type="chain">listPayRequisition</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="auditPayRequisition" class="FrAuditPayRequisitionAction" method="submit">
+      <result name="input" type="chain">detailPayRequisition</result>
+      <result type="chain">listPayRequisition</result>
+      <param name="moduleName">Finance_edit</param>
+    </action>
+    <action name="printPayRequisition" class="FrAuditPayRequisitionAction" method="input">
+      <result name="input">/includes/finance/expend/PrintBill.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+
+    <!-- 实付登记 -->
+    <action name="FactualRegisterInput" class="FactualRegisterAction" method="logoin">
+      <result name="input">/includes/finance/expend/FactualRegister.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="FactualRegisterSearch" class="FactualRegisterAction" method="input">
+      <result name="input">/includes/finance/expend/FactualRegister.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+    <action name="FactualRegister" class="FactualRegisterAction" method="submit">
+      <result name="input" type="chain">FactualRegisterSearch</result>
+      <result type="chain">FactualRegisterSearch</result>
+      <param name="moduleName">Finance_edit</param>
+    </action>
+    <action name="PayNoticeDetail" class="FactualRegisterAction" method="PayNoticeDetail">
+      <result>/includes/finance/expend/BillDetail.jsp</result>
+      <param name="moduleName">Finance_view</param>
+    </action>
+
+  </package>
+
+</struts>

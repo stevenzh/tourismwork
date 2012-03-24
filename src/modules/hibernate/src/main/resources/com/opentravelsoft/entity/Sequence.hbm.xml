@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.Sequence" table="TBL_SEQUENCE">
+    <composite-id name="id" class="com.opentravelsoft.entity.SequenceId">
+      <key-property name="rectype" type="char">
+        <column name="RECTYPE" length="1" />
+      </key-property>
+      <key-property name="year" type="string">
+        <column name="YEAR" length="4" />
+      </key-property>
+      <key-property name="month" type="string">
+        <column name="MONTH" length="2" />
+      </key-property>
+    </composite-id>
+    <property name="regPlcd" type="string">
+      <column name="REG_PLCD" length="1" />
+    </property>
+    <property name="cptno" type="java.lang.Long">
+      <column name="CPTNO" />
+    </property>
+  </class>
+</hibernate-mapping>

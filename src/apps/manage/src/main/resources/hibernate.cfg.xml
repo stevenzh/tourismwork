@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+  <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+  <!-- Enable the query cache  -->
+  <property name="hibernate.cache.use_query_cache">true</property>
+  <!-- Echo all executed SQL to stdout 
+ 
+    <property name="show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+     
+ base mapping files -->
+  <mapping resource="com/opentravelsoft/entity/SysConfig.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Announcement.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Lists.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Airport.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Airways.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Flight.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/District.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Sight.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/SightPhoto.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/SightComment.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/VisaHelp.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Destination.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/PortalCategory.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Sequence.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Pinyin.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/TraitType.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Premium.hbm.xml"/>
+  <!-- category mapping files -->
+  <mapping resource="com/opentravelsoft/entity/Category.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/ProductTmpl.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/ProductItem.hbm.xml"/>
+  <!-- product mapping files -->
+  <mapping resource="com/opentravelsoft/entity/Line.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/LineDesc.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/LineTraffic.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/LineDistrict.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/LineVisa.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/LinePrice.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/LineSchedule.hbm.xml"/>
+  <!-- CRM -->
+  <mapping resource="com/opentravelsoft/entity/Customer.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Contact.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/TeamSupplier.hbm.xml"/>
+  <!-- Finance -->
+  <mapping resource="com/opentravelsoft/entity/Reckoning.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/ReckoningAcct.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Income.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/TourCost.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Outcome.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Invoice.hbm.xml"/>
+  <!-- 产品实例 -->
+  <mapping resource="com/opentravelsoft/entity/Plan.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Booking.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Tourist.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/TourOutBound.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/TourNoticeFile.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/PlanPrice.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/ShareFlight.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Express.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/ExpressList.hbm.xml"/>
+  <!-- 公司架构 -->
+  <mapping resource="com/opentravelsoft/entity/Group.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Employee.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Guide.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Team.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/model/Role.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/model/Permission.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/model/Module.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/model/ModulePermission.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/TblExpenseTmpl.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/TblVisaItem.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/TblVisaAttached.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/TblVisaData.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/TblVisaListitem.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/TblPriceFile.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/TblSmsReceive.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/TblSmsSend.hbm.xml"/>
+  
+  <mapping class="com.opentravelsoft.entity.Country"/>
+  <mapping class="com.opentravelsoft.entity.City"/>
+  <mapping class="com.opentravelsoft.entity.Province"/>
+  <mapping class="com.opentravelsoft.model.Shortcut"/>
+  
+  <mapping class="com.opentravelsoft.entity.vacation.LineTheme"/>
+  <mapping class="com.opentravelsoft.entity.vacation.LineCyclePrice"/>
+  <mapping class="com.opentravelsoft.entity.vacation.LineExtendService"/>
+  <mapping class="com.opentravelsoft.entity.vacation.LineHotel"/>
+  <mapping class="com.opentravelsoft.entity.vacation.RouteChain"/>
+  <mapping class="com.opentravelsoft.entity.vacation.TrafficChain"/>
+  <mapping class="com.opentravelsoft.entity.vacation.ExtendServices"/>
+  <mapping class="com.opentravelsoft.entity.vacation.FitPlan"/>
+  
+  <mapping class="com.opentravelsoft.entity.vacation.Hotel"/>
+  <mapping class="com.opentravelsoft.entity.vacation.HotelFacility"/>
+  <mapping class="com.opentravelsoft.entity.vacation.HotelFile"/>
+  <mapping class="com.opentravelsoft.entity.vacation.HotelPrice"/>
+  <mapping class="com.opentravelsoft.entity.vacation.HotelRoomType"/>
+  
+  <mapping class="com.opentravelsoft.entity.vacation.BookExtService"/>
+  <mapping class="com.opentravelsoft.entity.vacation.BookHotel"/>
+  <mapping class="com.opentravelsoft.entity.vacation.BookFlight"/>
+
+  <mapping class="com.opentravelsoft.entity.vacation.FlightPlan"/>
+  <mapping class="com.opentravelsoft.entity.vacation.FlightCyclePrice"/>
+  <mapping class="com.opentravelsoft.entity.vacation.FlightGroup"/>
+  
+ </session-factory>
+</hibernate-configuration>

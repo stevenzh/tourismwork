@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <package name="manage-express" namespace="/express" extends="shcct-manage">
+
+    <action name="ExpressAction" class="ExpressAction">
+      <result>/includes/Express.jsp</result>
+      <param name="moduleName">Express_view</param>
+    </action>
+
+    <action name="expressTasks" class="ExpressTaskAction">
+      <result>/includes/express/Tasks.jsp</result>
+    </action>
+
+    <action name="showAssignExpress" class="AssignExpressAction" method="input">
+      <result name="input">/includes/express/AssignExpress.jsp</result>
+      <param name="moduleName">Express_view</param>
+    </action>
+    <action name="assignExpress" class="AssignExpressAction" method="submit">
+      <result name="input" type="chain">showAssignExpress</result>
+      <result type="chain">
+        <param name="actionName">MyPage</param>
+        <param name="namespace"></param>
+      </result>
+      <param name="moduleName">Express_view</param>
+    </action>
+    <action name="cancelExpressPage" class="ExpressAction" method="cancel">
+      <result name="input" type="chain">showAssignExpress</result>
+      <result type="chain">
+        <param name="actionName">MyPage</param>
+        <param name="namespace"></param>
+      </result>
+      <param name="moduleName">Express_view</param>
+    </action>
+
+    <action name="showExpressSearch" class="ExpressSearch" method="input">
+      <result name="input">/includes/express/ExpressSearch.jsp</result>
+      <param name="moduleName">Express_view</param>
+    </action>
+    <action name="submitExpressSearch" class="ExpressSearch" method="submit">
+      <result name="input" type="chain">showExpressSearch</result>
+      <result>/includes/express/ExpressSearch.jsp</result>
+      <param name="moduleName">Express_view</param>
+    </action>
+
+    <action name="showExpressDetail" class="ExpressAction" method="input">
+      <result name="input">/includes/express/ExpressInfo.jsp</result>
+      <param name="moduleName">Express_view</param>
+    </action>
+    <action name="cancelExpress" class="ExpressAction" method="cancel">
+      <result name="input" type="chain">showExpressDetail</result>
+      <result type="chain">submitExpressSearch</result>
+      <param name="moduleName">Express_edit</param>
+    </action>
+    <action name="auditingExpress" class="ExpressAction" method="auditing">
+      <result name="input" type="chain">showExpressDetail</result>
+      <result type="chain">showExpressDetail</result>
+      <param name="moduleName">Express_edit</param>
+    </action>
+    <action name="accountExpress" class="ExpressAction" method="account">
+      <result name="input" type="chain">showExpressDetail</result>
+      <result type="chain">showExpressDetail</result>
+      <param name="moduleName">Express_view</param>
+    </action>
+    <action name="examineExpress" class="ExpressAction" method="examine">
+      <result name="input" type="chain">showExpressDetail</result>
+      <result type="chain">showExpressDetail</result>
+      <param name="moduleName">Express_edit</param>
+    </action>
+
+    <action name="editExpress" class="EditExpressAction" method="input">
+      <result name="input">/includes/express/EditExpress.jsp</result>
+      <param name="moduleName">Express_edit</param>
+    </action>
+    <action name="saveExpress" class="EditExpressAction" method="submit">
+      <result name="input" type="chain">editExpress</result>
+      <result type="chain">showExpressDetail</result>
+      <param name="moduleName">Express_edit</param>
+    </action>
+
+  </package>
+
+</struts>

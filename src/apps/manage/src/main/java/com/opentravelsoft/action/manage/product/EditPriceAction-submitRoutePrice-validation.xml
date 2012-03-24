@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<!--  START SNIPPET: quizValidators -->
+
+<validators>
+  <field name="routePrice.priceOther">
+    <field-validator type="required">
+      <message>同行价必须输入.</message>
+    </field-validator>
+
+    <!-- 
+    <field-validator type="double">
+      <param name="minExclusive">0.1</param>
+      <param name="maxExclusive">99999.9</param>
+      <message>同行价必须 ${minExclusive} - ${maxExclusive} 范围内.</message>
+    </field-validator>
+    -->
+  </field>
+
+  <field name="routePrice.price">
+    <field-validator type="required">
+      <message>直客价不能为空.</message>
+    </field-validator>
+  </field>
+
+  <field name="routePrice.priceCost">
+    <field-validator type="required">
+      <message>总成本不能为空.</message>
+    </field-validator>
+  </field>
+
+  <field name="routePrice.priceContrast">
+    <field-validator type="required">
+      <message>单人房差不能为空.</message>
+    </field-validator>
+  </field>
+
+  <field name="routePrice.startDate">
+    <field-validator type="required">
+      <message>起始日期不能为空.</message>
+    </field-validator>
+  </field>
+
+  <field name="routePrice.endDate">
+    <field-validator type="required">
+      <message>结束日期不能为空.</message>
+    </field-validator>
+  </field>
+
+  <field name="routePrice.cost1">
+    <field-validator type="required">
+      <message>机票费成本不能为空.</message>
+    </field-validator>
+  </field>
+
+  <!-- 
+    <field name="routePrice.cost2">
+    <field-validator type="required">
+    <message>国内段成本不能为空.</message>
+    </field-validator>
+    </field>
+  -->
+
+  <field name="routePrice.cost3">
+    <field-validator type="required">
+      <message>税费成本不能为空.</message>
+    </field-validator>
+  </field>
+
+  <!-- 
+    <field name="routePrice.cost4">
+    <field-validator type="required">
+    <message>地接费成本不能为空.</message>
+    </field-validator>
+    </field>
+  -->
+
+  <field name="routePrice.cost5">
+    <field-validator type="required">
+      <message>签证费成本不能为空.</message>
+    </field-validator>
+  </field>
+
+  <!-- 
+    <field name="routePrice.cost6">
+    <field-validator type="required">
+    <message>名单费成本不能为空.</message>
+    </field-validator>
+    </field>
+    
+    <field name="routePrice.cost7">
+    <field-validator type="required">
+    <message>领队费成本不能为空.</message>
+    </field-validator>
+    </field>
+    
+    <field name="routePrice.cost8">
+    <field-validator type="required">
+    <message>其他费成本(天/人)不能为空.</message>
+    </field-validator>
+    </field>
+  -->
+
+  <field name="routePrice.cost9">
+    <field-validator type="required">
+      <message>用餐费成本(天/人)不能为空.</message>
+    </field-validator>
+  </field>
+
+  <field name="routePrice.cost10">
+    <field-validator type="required">
+      <message>住宿费(天/人)成本不能为空.</message>
+    </field-validator>
+  </field>
+
+  <field name="routePrice.cost11">
+    <field-validator type="required">
+      <message>小交通费成本不能为空.</message>
+    </field-validator>
+  </field>
+
+  <field name="routePrice.cost12">
+    <field-validator type="required">
+      <message>景点门票费不能为空.</message>
+    </field-validator>
+  </field>
+
+</validators>
+
+<!--  END SNIPPET: quizValidators  -->

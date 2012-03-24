@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.ExpressList" table="TBL_CRM_EXPRESSLIST">
+    <id name="itemId" type="int">
+      <column name="ITEM_ID" />
+      <generator class="native" />
+    </id>
+    <property name="expressId" type="string" not-null="true">
+      <column name="EXPRESS_ID" length="10" />
+    </property>
+    <property name="itemName" type="string">
+      <column name="ITEM_NAME" />
+    </property>
+    <property name="note" type="string">
+      <column name="NOTE" />
+    </property>
+    <property name="itemNum" type="java.lang.Integer">
+      <column name="ITEM_NUM" />
+    </property>
+    <property name="expressType" type="string">
+      <column name="EXPRESS_TYPE" length="10" />
+    </property>
+    <property name="unit" type="string">
+      <column name="UNIT" length="10" />
+    </property>
+  </class>
+</hibernate-mapping>

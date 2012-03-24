@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.Tourist" table="TBL_TOURIST">
+    <id name="nmno" type="string">
+      <column name="NMNO" length="10" />
+      <generator class="assigned" />
+    </id>
+    <timestamp name="opdate" column="OPDATE" />
+    <many-to-one name="booking" class="com.opentravelsoft.entity.Booking" fetch="select" lazy="false">
+      <column name="NAME_NO" length="10"></column>
+    </many-to-one>
+    <property name="recType" type="char">
+      <column name="REC_TYPE" length="1" not-null="true" />
+    </property>
+    <property name="userName" type="string">
+      <column name="NAME" length="10" not-null="true" />
+    </property>
+    <property name="pinYin" type="string">
+      <column name="NAME2" length="40" />
+    </property>
+    <property name="cardty" type="string">
+      <column name="CARDTY" length="1" />
+    </property>
+    <property name="idCard" type="string">
+      <column name="CARD" length="18" />
+    </property>
+    <property name="sex" type="string">
+      <column name="SEX" length="1" />
+    </property>
+    <property name="birthday" type="date">
+      <column name="BIRTHDAY" length="10" />
+    </property>
+    <property name="birthplace" type="string">
+      <column name="BTHPLC" length="2" />
+    </property>
+    <property name="mobile" type="string">
+      <column name="MOBILE" length="30" />
+    </property>
+    <property name="hzKey" type="string">
+      <column name="HZ_KEY" length="1" />
+    </property>
+    <property name="passportType" type="string">
+      <column name="HZZL" length="2" />
+    </property>
+    <property name="passportNo" type="string">
+      <column name="HZNO" length="12" />
+    </property>
+    <property name="passportDate" type="date">
+      <column name="HZDATE1" />
+    </property>
+    <property name="passportPlace" type="string">
+      <column name="HZADD" length="3" />
+    </property>
+    <property name="passportExpiry" type="date">
+      <column name="HZRANG" />
+    </property>
+    <property name="amt01" type="java.lang.Double">
+      <column name="AMT01" precision="8" />
+    </property>
+    <property name="amt02" type="java.lang.Double">
+      <column name="AMT02" precision="8" />
+    </property>
+    <property name="amt03" type="java.lang.Double">
+      <column name="AMT03" precision="8" />
+    </property>
+    <property name="amt04" type="java.lang.Double">
+      <column name="AMT04" precision="8" />
+    </property>
+    <property name="vipkey" type="java.lang.Character">
+      <column name="VIPKEY" length="1" />
+    </property>
+    <property name="remark" type="string">
+      <column name="REMARK" length="40" />
+    </property>
+    <property name="roomNo" type="java.lang.Integer">
+      <column name="ROOM_NO" />
+    </property>
+    <property name="paxnum" type="java.lang.Integer">
+      <column name="PAXNUM" />
+    </property>
+    <property name="roomKey" type="string">
+      <column name="ROOM_KEY" length="2" />
+    </property>
+    <property name="roomKey1" type="java.lang.Character">
+      <column name="ROOM_KEY1" length="1" />
+    </property>
+    <property name="del" type="string">
+      <column name="DEL" length="1" not-null="true" />
+    </property>
+    <property name="opuser" type="java.lang.Long">
+      <column name="OPUSER" />
+    </property>
+    <property name="tourKey" type="string">
+      <column name="TOUR_KEY" length="1" />
+    </property>
+    <property name="leaderKey" type="string">
+      <column name="LEAD_KEY" length="1" />
+    </property>
+    <property name="visaKey" type="string">
+      <column name="VISA_KEY" length="10" not-null="true" />
+    </property>
+    <property name="rmNum" type="java.lang.Integer">
+      <column name="RM_NUM" />
+    </property>
+    <property name="price" type="java.lang.Double">
+      <column name="PRICE" precision="8" />
+    </property>
+    <property name="num1" type="java.lang.Integer">
+      <column name="NUM1" />
+    </property>
+    <property name="familyName" type="string">
+      <column name="FAMILY_NAME" length="20" />
+    </property>
+    <property name="givenName" type="string">
+      <column name="GIVEN_NAME" length="20" />
+    </property>
+    <property name="nation" type="string">
+      <column name="NATION" length="3" />
+    </property>
+    <property name="areaAmt" type="java.lang.Double">
+      <column name="AREA_AMT" precision="8" />
+    </property>
+    <property name="pvia" type="string">
+      <column name="PVIA" length="60" />
+    </property>
+    <property name="expAmt" type="java.lang.Double">
+      <column name="EXP_AMT" precision="11" />
+    </property>
+    <property name="expNote" type="string">
+      <column name="EXP_NOTE" length="100" />
+    </property>
+    <property name="premCode" type="string">
+      <column name="PREM_CODE" length="10" />
+    </property>
+    <property name="premExpend" type="java.lang.Double">
+      <column name="PREM_EXPEND" precision="5" />
+    </property>
+    <property name="premPrinted" type="java.lang.Character">
+      <column name="PREM_PRINTED" length="1" />
+    </property>
+    <property name="passportAnnotation" type="string">
+      <column name="PASS_RMK" length="60" />
+    </property>
+    <property name="contractNo" type="string">
+      <column name="PACT_NO" length="50" />
+    </property>
+    <property name="invoiceNo" type="string">
+      <column name="INVOICE_NO" length="50" />
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.District" table="TBL_DISTRICT">
+    <id name="districtNo" type="string">
+      <column name="DISTRICT_NO" length="10" />
+      <generator class="assigned" />
+    </id>
+    <property name="cnName" type="string">
+      <column name="CN_NAME" length="30" />
+    </property>
+    <property name="cnNote" type="string">
+      <column name="CN_NOTE" length="1500" />
+    </property>
+    <property name="mapAddress1" type="string">
+      <column name="MAP_ADDRESS1" length="50" />
+    </property>
+    <property name="mapAddress2" type="string">
+      <column name="MAP_ADDRESS2" length="50" />
+    </property>
+    <many-to-one name="country" class="com.opentravelsoft.entity.Country" lazy="false" fetch="select">
+      <column name="COUNTRY" unique="true"></column>
+    </many-to-one>
+
+    <many-to-one name="province" class="com.opentravelsoft.entity.Province" lazy="false" fetch="join" not-found="ignore">
+      <column name="DUCHY" unique="true"></column>
+    </many-to-one>
+
+  </class>
+</hibernate-mapping>

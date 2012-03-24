@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.VisaHelp" table="TBL_VISA">
+    <id name="recNo" type="string">
+      <column name="REC_NO" length="10" />
+      <generator class="assigned" />
+    </id>
+    <timestamp name="opDate" column="OP_DATE" />
+    <property name="country" type="string">
+      <column name="COUNTRY" length="2" />
+    </property>
+    <property name="subject" type="string">
+      <column name="SUBJECT" length="200" />
+    </property>
+    <property name="price1" type="java.lang.Double">
+      <column name="PRICE1" precision="9" />
+    </property>
+    <property name="price2" type="java.lang.Double">
+      <column name="PRICE2" precision="9" />
+    </property>
+    <property name="cost" type="java.lang.Double">
+      <column name="COST" precision="9" />
+    </property>
+    <property name="unit" type="string">
+      <column name="UNIT" length="16" />
+    </property>
+    <property name="SDate" type="date">
+      <column name="S_DATE" />
+    </property>
+    <property name="EDate" type="date">
+      <column name="E_DATE" />
+    </property>
+    <property name="note" type="string">
+      <column name="NOTE" length="3000" />
+    </property>
+    <property name="visaKind" type="string">
+      <column name="VISA_KIND" length="1" />
+    </property>
+    <property name="canQuick" type="java.lang.Integer">
+      <column name="CAN_QUICK" />
+    </property>
+    <property name="stayDays" type="string">
+      <column name="STAY_DAYS" length="20" />
+    </property>
+    <property name="transactDays" type="string">
+      <column name="TRANSACT_DAYS" length="20" />
+    </property>
+    <property name="isOpen" type="java.lang.Integer">
+      <column name="IS_OPEN" />
+    </property>
+    <property name="opKey" type="string">
+      <column name="OP_KEY" length="1" />
+    </property>
+    <property name="opUser" type="java.lang.Long">
+      <column name="OP_USER" />
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.LinePrice" table="TBL_LINE_PRICE">
+    <cache usage="read-write"/>
+    <id name="recNo" type="string">
+      <column name="REC_NO" length="8" />
+      <generator class="assigned" />
+    </id>
+    <timestamp name="opDate" column="OP_DATE" />
+    <property name="lineNo" type="string">
+      <column name="LINE_NO" length="8" />
+    </property>
+    <property name="type" type="string">
+      <column name="SUBJECT" length="80" />
+    </property>
+    <property name="price" type="java.lang.Double">
+      <column name="PRICE1" precision="9" />
+    </property>
+    <property name="priceOther" type="java.lang.Double">
+      <column name="PRICE2" precision="9" />
+    </property>
+    <property name="priceCost" type="java.lang.Double">
+      <column name="PRICE3" precision="9" />
+    </property>
+    <property name="priceContrast" type="java.lang.Double">
+      <column name="PRICE4" precision="9" />
+    </property>
+    <property name="startDate" type="date">
+      <column name="S_DATE" />
+    </property>
+    <property name="endDate" type="date">
+      <column name="E_DATE" />
+    </property>
+    <property name="weekBit" type="string">
+      <column name="WEEK_BIT" length="7" />
+    </property>
+    <property name="crUser" type="java.lang.Long">
+      <column name="CR_USER" />
+    </property>
+    <property name="crDate" type="date">
+      <column name="CR_DATE" />
+    </property>
+    <property name="opUser" type="java.lang.Long">
+      <column name="OP_USER" />
+    </property>
+    <property name="subScription" type="java.lang.Double">
+      <column name="SUBSCRIPTION" precision="9" />
+    </property>
+    <property name="difference" type="java.lang.Double">
+      <column name="DIFFERENCE" precision="9" />
+    </property>
+    <property name="cost1" type="java.lang.Double">
+      <column name="COST1" precision="7" />
+    </property>
+    <property name="cost2" type="java.lang.Double">
+      <column name="COST2" precision="7" />
+    </property>
+    <property name="cost3" type="java.lang.Double">
+      <column name="COST3" precision="7" />
+    </property>
+    <property name="cost4" type="java.lang.Double">
+      <column name="COST4" precision="7" />
+    </property>
+    <property name="cost5" type="java.lang.Double">
+      <column name="COST5" precision="7" />
+    </property>
+    <property name="cost6" type="java.lang.Double">
+      <column name="COST6" precision="7" />
+    </property>
+    <property name="cost7" type="java.lang.Double">
+      <column name="COST7" precision="7" />
+    </property>
+    <property name="cost8" type="java.lang.Double">
+      <column name="COST8" precision="7" />
+    </property>
+    <property name="cost9" type="java.lang.Double">
+      <column name="COST9" precision="7" />
+    </property>
+    <property name="cost10" type="java.lang.Double">
+      <column name="COST10" precision="7" />
+    </property>
+    <property name="cost11" type="java.lang.Double">
+      <column name="COST11" precision="7" />
+    </property>
+    <property name="cost12" type="java.lang.Double">
+      <column name="COST12" precision="7" />
+    </property>
+    <property name="reamrks" type="string">
+      <column name="REAMRKS" length="1000" />
+    </property>
+    <property name="currency" type="string">
+      <column name="CURRENCY" length="20" />
+    </property>
+    <property name="roe" type="java.lang.Double">
+      <column name="ROE" precision="7" />
+    </property>
+    <property name="unitPrice" type="java.lang.Double">
+      <column name="UNIT_PRICE" precision="7" />
+    </property>
+    <property name="backMoney" type="java.lang.Double">
+      <column name="BACK_MONEY" precision="7" />
+    </property>
+    <property name="afieldDuty" type="java.lang.Double">
+      <column name="AFIELD_DUTY" precision="7" />
+    </property>
+  </class>
+</hibernate-mapping>

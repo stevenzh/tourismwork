@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.entity.Employee" table="TBL_EMPLOYEE">
+    <cache usage="read-write"/>
+    <id name="userId" type="long">
+      <column name="USER_ID" />
+      <generator class="native" />
+    </id>
+    <property name="userCd" type="string">
+      <column name="USER_CD" length="20" not-null="true" unique="true" />
+    </property>
+    <property name="passwd" type="string">
+      <column name="PASSWD" length="32" />
+    </property>
+    <many-to-one name="group" class="com.opentravelsoft.entity.Group" lazy="false" fetch="select">
+      <column name="GROUP_ID"></column>
+    </many-to-one>
+    <property name="ctiNo" type="string">
+      <column name="CTI_NO" length="5" />
+    </property>
+    <property name="userName" type="string">
+      <column name="USER_NM" length="20" />
+    </property>
+    <property name="givenName" type="string">
+      <column name="GIVEN_NAME" length="20" />
+    </property>
+    <property name="familyName" type="string">
+      <column name="FAMILY_NAME" length="20" />
+    </property>
+    <property name="isAdmin" type="boolean">
+      <column name="IS_ADMIN" />
+    </property>
+    <property name="phone" type="string">
+      <column name="TEL" length="30" />
+    </property>
+    <property name="fax" type="string">
+      <column name="FAX" length="30" />
+    </property>
+    <property name="mobile" type="string">
+      <column name="MOBILE" length="20" />
+    </property>
+    <property name="sex" type="string">
+      <column name="SEX" length="1" />
+    </property>
+    <property name="cardId" type="string">
+      <column name="CARD_ID" length="20" />
+    </property>
+    <property name="age" type="java.lang.Integer">
+      <column name="AGE" />
+    </property>
+    <property name="discont" type="java.lang.Integer">
+      <column name="DISCONT" />
+    </property>
+    <property name="webKey" type="string">
+      <column name="WEB_KEY" length="10" />
+    </property>
+    <property name="workKey" type="string">
+      <column name="WORK_KEY" length="1" />
+    </property>
+    <property name="workFlg" type="string">
+      <column name="WORK_FLG" length="2" />
+    </property>
+    <property name="isActive" type="boolean">
+      <column name="IS_ACTIVE" />
+    </property>
+    <property name="msn" type="string">
+      <column name="MSN" length="50" />
+    </property>
+    <property name="skype" type="string">
+      <column name="SKYPE" length="50" />
+    </property>
+    <property name="opIp" type="string">
+      <column name="OP_IP" length="8" />
+    </property>
+    <set name="memberships" table="TBL_MEMBERSHIP" inverse="false" lazy="false">
+      <key>
+        <column name="USER_ID" not-null="true" />
+      </key>
+      <many-to-many class="com.opentravelsoft.model.Role">
+        <column name="ROLE_ID" not-null="true"></column>
+      </many-to-many>
+    </set>
+    <set name="teamMemberships" table="TBL_TEAM_MEMBERSHIPS" inverse="false" lazy="false">
+      <key>
+        <column name="USER_ID" not-null="true" />
+      </key>
+      <many-to-many class="com.opentravelsoft.entity.Team">
+        <column name="TEAM_ID" not-null="true"></column>
+      </many-to-many>
+    </set>
+  </class>
+</hibernate-mapping>

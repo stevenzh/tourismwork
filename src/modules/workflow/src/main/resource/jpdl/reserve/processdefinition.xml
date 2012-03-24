@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition xmlns="urn:jbpm.org:jpdl-3.2" name="ReserveWorkFlow">
+
+  <description>预订单操作</description>
+
+  <start-state name="填写订单">
+    <transition to="审核订单" name="提交订单"></transition>
+  </start-state>
+
+  <task-node name="审核订单">
+    <task name="ORDER_CONFIRM">
+      <description>订单审核.</description>
+      <controller
+        class="com.opentravelsoft.workflow.booking.task.CreateOrderHandler"></controller>
+    </task>
+    <transition to="结束" name="审核失败">
+      <action name="ORDER_REJECT"
+        class="com.opentravelsoft.workflow.booking.action.RejectOrderHandler">
+      </action>
+    </transition>
+    <transition to="判断客户来源" name="审核通过"></transition>
+  </task-node>
+
+  <task-node name="制作账单">
+    <task name="ACCOUNT_MAKE">
+      <controller
+        class="com.opentravelsoft.workflow.booking.task.CreatAccountListHandler">
+      </controller>
+    </task>
+    <transition to="确认帐单" name="发送账单"></transition>
+    <transition to="判断订单来源" name="帐单制作完成"></transition>
+  </task-node>
+
+  <decision name="判断客户来源">
+    <handler
+      class="com.opentravelsoft.workflow.booking.decision.TeamKeyDecisionHandler">
+    </handler>
+    <transition to="成团" name="散拼"></transition>
+    <transition to="制作账单" name="整团"></transition>
+  </decision>
+
+
+  <node name="确认帐单">
+    <transition to="制作账单" name="账单回执"></transition>
+  </node>
+
+  <state name="成团">
+    <transition to="结束"></transition>
+  </state>
+  
+  <end-state name="结束"></end-state>
+
+</process-definition>

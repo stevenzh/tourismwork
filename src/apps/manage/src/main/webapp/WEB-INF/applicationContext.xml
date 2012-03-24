@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+       default-lazy-init="true">
+       
+    <!-- Activates scanning of @Autowired -->
+    <context:annotation-config/>
+    
+    <!-- Activates scanning of @Service -->
+    <context:component-scan base-package="com.opentravelsoft.action"/>
+    
+  <!-- 
+  <bean id="traceInterceptor" class="org.springframework.aop.interceptor.SimpleTraceInterceptor" />
+   -->
+
+  <!-- 
+  <bean id="hibernateDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="${hibernate.jdbc.driver}" />
+    <property name="url" value="${hibernate.jdbc.url}" />
+    <property name="username" value="${hibernate.jdbc.username}" />
+    <property name="password" value="${hibernate.jdbc.password}" />
+  </bean>
+  <bean id="hibernateDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+    <property name="driverClass" value="${hibernate.jdbc.driver}"/>
+    <property name="jdbcUrl" value="${hibernate.jdbc.url}"/>
+    <property name="user" value="${hibernate.jdbc.username}"/>
+    <property name="password" value="${hibernate.jdbc.password}"/>
+    <property name="minPoolSize">
+      <value>5</value>
+    </property>
+    <property name="maxPoolSize">
+      <value>30</value>
+    </property>
+    <property name="initialPoolSize">
+      <value>10</value>
+    </property>
+    <property name="maxIdleTime">
+      <value>60</value>
+    </property>
+    <property name="acquireIncrement">
+      <value>5</value>
+    </property>
+    <property name="maxStatements">
+      <value>0</value>
+    </property>
+    <property name="idleConnectionTestPeriod">
+      <value>60</value>
+    </property>
+    <property name="acquireRetryAttempts">
+      <value>30</value>
+    </property>
+    <property name="breakAfterAcquireFailure">
+      <value>true</value>
+    </property>
+    <property name="testConnectionOnCheckout">
+      <value>false</value>
+    </property>
+  </bean>
+   -->
+
+  <!-- 
+  <bean id="quartzDataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+    <property name="driverClassName" value="${quartz.jdbc.driver}" />
+    <property name="url" value="${quartz.jdbc.url}" />
+    <property name="username" value="${quartz.jdbc.username}" />
+    <property name="password" value="${quartz.jdbc.password}" />
+    <property name="maxIdle" value="${quartz.jdbc.maxIdle}" />
+    <property name="maxActive" value="${quartz.jdbc.maxActive}" />   
+  </bean>
+
+  <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+  <property name="dataSource" ref="quartzDataSource" />
+  <property name="nonTransactionalDataSource" ref="quartzDataSource"></property>
+  <property name="applicationContextSchedulerContextKey" value="applicationContext"/>
+  <property name="quartzProperties">
+      <props>
+        <prop key="org.quartz.scheduler.instanceName">ReportScheduler</prop>
+        <prop key="org.quartz.scheduler.instanceId">AUTO</prop>
+        <prop key="org.quartz.threadPool.class">org.quartz.simpl.SimpleThreadPool</prop>
+        <prop key="org.quartz.threadPool.threadCount">${org.quartz.threadPool.threadCount}</prop>      
+        <prop key="org.quartz.jobStore.class">org.quartz.impl.jdbcjobstore.JobStoreTX</prop>
+        <prop key="org.quartz.jobStore.isClustered">false</prop>
+        <prop key="org.quartz.jobStore.useProperties">false</prop>
+        <prop key="org.quartz.jobStore.tablePrefix">QRTZ_</prop>
+        <prop key="org.quartz.jobStore.driverDelegateClass">${quartz.jobStore.driverDelegateClass}</prop>       
+        <prop key="org.quartz.jobStore.selectWithLockSQL">${quartz.jobStore.selectWithLockSQL}</prop>
+      </props>
+    </property>
+  </bean> 
+
+  <bean id="JobDao" class="com.opentravelsoft.providers.JobDaoImpl">
+    <property name="processEngine" ref="processEngine" />
+    <property name="sessionFactory" ref="sessionFactory"></property>
+  </bean> 
+  <bean id="SupplyJobService" class="com.opentravelsoft.service.jobs.SupplyJobServiceImpl">
+    <property name="jobDao"><ref bean="JobDao"/></property>
+  </bean>
+  <bean id="scheduledReportJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject"><ref bean="SupplyJobService"/></property>
+    <property name="targetMethod"><value>supplyJobs</value></property>
+    <property name="concurrent" value="false" />
+  </bean>
+  <bean id="cronReportTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">  
+    <property  name="jobDetail" ref="scheduledReportJobDetail"/>
+    <property name="cronExpression"><value>0 0/2 * * * ?</value>    
+    </property>
+  </bean>
+  <bean id="SmsSendTaskFactory" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
+     <property name="triggers">  
+         <list>  
+             <ref bean="cronReportTrigger"/>  
+         </list>  
+     </property>  
+  </bean>
+  -->
+
+</beans>

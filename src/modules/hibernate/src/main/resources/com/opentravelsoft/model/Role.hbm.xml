@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.opentravelsoft.model.Role" table="TBL_ROLE">
+    <id name="roleId" type="long">
+      <column name="ROLE_ID" />
+      <generator class="native" />
+    </id>
+    <property name="roleCode" type="string">
+      <column name="ROLE_CODE" length="50" not-null="true" />
+    </property>
+    <property name="roleName" type="string">
+      <column name="ROLE_NAME" length="50" not-null="true" />
+    </property>
+    <property name="roleDesc" type="string">
+      <column name="ROLE_DESC" length="50" />
+    </property>
+    <property name="isActive" type="byte">
+      <column name="IS_ACTIVE" />
+    </property>
+  </class>
+</hibernate-mapping>

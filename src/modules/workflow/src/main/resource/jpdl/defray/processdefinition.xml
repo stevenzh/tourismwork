@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition xmlns="urn:jbpm.org:jpdl-3.2" name="DefrayWorkFlow">
+
+  <description>付款申请审核操作</description>
+
+  <start-state name="制作付款申请">
+    <transition to="是否需要计调审核"></transition>
+  </start-state>
+
+  <task-node name="计调审核付款申请">
+    <task name="CALCULATION_REQUISITION_TASK_AUDITING">
+      <controller
+        class="com.opentravelsoft.workflow.defray.task.OP_AuditingPayHandler"></controller>
+    </task>
+    <transition name="to 财务审核付款申请" to="财务审核付款申请"></transition>
+  </task-node>
+
+  <task-node name="财务审核付款申请">
+    <task name="FINANCE_REQUISITION_TASK_AUDITING">
+      <controller
+        class="com.opentravelsoft.workflow.defray.task.Finance_AuditingPayHandler"></controller>
+    </task>
+    <transition name="审核结束" to="是否需要机票配送"></transition>
+    <transition to="计调修改付款申请" name="审核不通过"></transition>
+  </task-node>
+
+  <task-node name="机票配送">
+    <task name="AIR_TICKET_TASK_DISTRIBUTION">
+      <controller
+        class="com.opentravelsoft.workflow.defray.task.Air_TicketDistributionHandler"></controller>
+    </task>
+    <transition name="机票配送完成" to="结束"></transition>
+  </task-node>
+
+  <decision name="是否需要计调审核">
+    <handler
+      class="com.opentravelsoft.workflow.defray.decision.OP_AuditingDecisionHandler"></handler>
+    <transition name="需要计调审核" to="计调审核付款申请"></transition>
+    <transition name="直接财务审核" to="财务审核付款申请"></transition>
+  </decision>
+
+  <task-node name="计调修改付款申请">
+    <task name="OP_TASK_MODIFY">
+      <controller
+        class="com.opentravelsoft.workflow.defray.task.OP_ModifyHandler"></controller>
+    </task>
+    <transition to="计调审核付款申请" name="判断审核"></transition>
+  </task-node>
+
+  <decision name="是否需要机票配送">
+    <handler
+      class="com.opentravelsoft.workflow.defray.decision.Air_Ticket_DistributionDecisionHandler"></handler>
+    <transition to="结束" name="不配送"></transition>
+    <transition to="机票配送" name="to 机票配送"></transition>
+  </decision>
+
+  <end-state name="结束"></end-state>
+
+</process-definition>

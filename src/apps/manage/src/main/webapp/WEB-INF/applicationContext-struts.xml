@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+      default-lazy-init="true">
+
+	<bean id="sysSettingInterceptor" class="com.opentravelsoft.interceptor.SysSettingInterceptor">
+	</bean>
+	<bean id="userInfoInterceptor" class="com.opentravelsoft.interceptor.SecurityInterceptor">
+	</bean>
+
+  <!-- 按地区查询出团计划 -->
+  <bean id="PlanListAction" class="com.opentravelsoft.action.manage.stat.PlanListAction">
+  </bean>
+  
+  <bean id="DbamtForCusAction" class="com.opentravelsoft.action.manage.stat.DbamtForCusAction">
+  </bean>
+
+  <bean id="CusDbamtDetailAction" class="com.opentravelsoft.action.manage.stat.CusDbamtDetailAction">
+  </bean>
+
+  <!-- 各地旅客统计 -->
+  <bean id="DistrictStatAction" class="com.opentravelsoft.action.manage.stat.DistrictStatAction">
+  </bean>
+
+  <bean id="BookByDistrictDetailAction" class="com.opentravelsoft.action.manage.stat.BookByDistrictDetailAction" >
+  </bean>
+
+  <bean id="BookByLineNoAction" class="com.opentravelsoft.action.manage.stat.BookByLineAction">
+  </bean>
+</beans>
