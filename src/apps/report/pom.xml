@@ -100,7 +100,7 @@
     <jdom.version>1.0</jdom.version>
     <itext.version>2.1.0</itext.version>
     <spring-ldap.version>1.3.0.RELEASE</spring-ldap.version>
-    <xerces.version>2.9.1</xerces.version>
+    <xerces.version>2.4.0</xerces.version>
     <avalon-framework.version>4.1.5</avalon-framework.version>
     <groovy.version>1.0</groovy.version>
     <axis.version>1.4</axis.version>
