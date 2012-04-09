@@ -1,10 +1,12 @@
 
-/src/apps/manage/target
-/src/apps/portal/target
-/src/apps/report/target
+/docs
 /src/modules/core/target
 /src/modules/hibernate/target
 /src/modules/struts2/target
 /src/modules/service/target
 /src/modules/workflow/target
-/docs
+/src/apps/manage/target
+/src/apps/portal/target
+/src/apps/report/target
+/src/apps/report/src/main/webapp/WEB-INF/platform
+/src/apps/flexserver/target
