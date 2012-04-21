@@ -14,7 +14,7 @@
   <div class="middle_box_top">
     <h2>附件列表</h2>
   </div>
-  <table width="100%" border="0">
+  <table style="width: 100%" border="0">
     <s:iterator value="visaItem.fileItems" status="rowCounter">
     <tr>
       <td>

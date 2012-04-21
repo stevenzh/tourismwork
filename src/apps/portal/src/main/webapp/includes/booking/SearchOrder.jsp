@@ -7,12 +7,12 @@
 </head>
 
 <body>
-<table width="760" border="0" align="center" cellpadding="0" cellspacing="1">
+<table width="760" border="0" align="center" cellspacing="1">
   <tr>
     <td valign="top" width="172" height="25">
 
     <!-- 左侧栏目 -->
-    <table width="167" border="0" align="center" cellpadding="0" cellspacing="0">
+    <table width="167" border="0" align="center">
 
       <!-- 活动专区 -->
       <tr>
@@ -23,7 +23,7 @@
       </tr>
       <tr>
         <td>
-        <table cellspacing="1" cellpadding="0" width="167" align="center" border="0">
+        <table width="167" align="center" border="0">
         <s:if test="activityAds.isEmpty()">
           <tr>
             <td height="20" valign="baseline" bgcolor="#FFFFFF" align="center">最近未举行活动</td>
@@ -69,7 +69,7 @@
     </td>
     <td valign="top" width="584">
       <s:form namespace="/" action="searchOrderResult" method="post" theme="simple">
-      <table width="100%" border="0" align="center" cellpadding="3" cellspacing="0">
+      <table style="width: 100%" border="0" align="center" cellpadding="3">
         <tr>
           <td width="30%"><STRONG>订单搜索</STRONG></td>
           <td width="70%" align="right">&nbsp;</td>

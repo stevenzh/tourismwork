@@ -88,7 +88,7 @@ function preCheck()
       
 //-->
 </script>
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="60%">
+<table align="center" border="0" width="60%">
   <tr>
     <td align="center" height="30">
     <strong>会员注册</strong>
@@ -96,10 +96,10 @@ function preCheck()
   </tr>
 </table>
 
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="60%">
+<table align="center" border="0" width="60%">
   <tr>
     <td height="45">
-    <table align="center" bgcolor="#f8c18b" border="0" cellpadding="0" cellspacing="1" width="100%">
+    <table align="center" bgcolor="#f8c18b" border="0" style="width: 100%">
       <tr>
         <td bgcolor="#fdf7ee" height="25">
         <img src="<s:url value='/images/warning.gif'/>" height="14" hspace="6" width="14">带<font color="red">*</font>的栏目必须填写，否则不能够注册。</td>
@@ -110,7 +110,7 @@ function preCheck()
 </table>
 
 <s:form action="submitRegister" namespace="/accounts" method="POST" theme="simple">
-<table align="center" border="0" cellpadding="1" cellspacing="1" width="60%">
+<table align="center" border="0" cellpadding="1" width="60%">
   <tr>
     <td align="right" width="120">用户名：</td>
     <td>

@@ -51,18 +51,18 @@ function actionSubmit()
 
 </script>
 
-<table width="100%"  border="0" bgcolor="#b9c0ff">
+<table style="width: 100%"  border="0" bgcolor="#b9c0ff">
   <tr>
     <td align="left" height="25"><font size="-1" style="font-weight: bold">搜索成果</td>
     <td align="right" ><font size="-1">共搜索到符合条件的订单&nbsp;<b><s:property value="bookList.size"/></b>&nbsp;个</font></td>
   </tr>
 </table>
 
-<table cellpadding="0" cellspacing="0" width="800">
+<table width="800">
   <tr>
     <td>
     <s:form action="BookSearchSubmit" namespace="/accounts" method="post" theme="simple">
-    <table border="0" cellpadding="1" cellspacing="2" width="100%">
+    <table border="0" cellpadding="1" style="width: 100%">
       <tr>
         <td width="71"><font size="-1">分类：</font></td>
         <td><font size="-1">
@@ -154,7 +154,7 @@ function actionSubmit()
   </tr>
   <tr>
     <td>
-    <table width="100%" bordercolor="#000000" border="1" bordercolor="#b9c0ff" cellpadding="2" cellspacing="0">
+    <table style="width: 100%" bordercolor="#000000" border="1" bordercolor="#b9c0ff" cellpadding="2">
       <tr bgcolor="#b9c0ff">
         <th align="center"><font size="-1">No.</font></th>
         <th align="center"><font size="-1">订单号</font></th>

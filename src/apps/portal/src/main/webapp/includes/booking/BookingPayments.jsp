@@ -10,7 +10,7 @@
 <body>
 
 <s:form action="submitOrderBooking" namespace="/accounts" method="post">
-  <table width="760" align="center" border="0" cellpadding="0" cellspacing="1">
+  <table width="760" align="center" border="0" cellspacing="1">
     <tr>
       <td colspan="4" align="center">预订表单</td>
     </tr>
@@ -56,7 +56,7 @@
     </tr>
   </table>
   <br />
-  <table width="760" align="center" border="0" cellpadding="0" cellspacing="1">
+  <table width="760" align="center" border="0" cellspacing="1">
     <tr>
       <td class="lstidx">No.</td>
       <td class="lstidx">姓名</td>
@@ -88,7 +88,7 @@
   </table>
   <br>
 
-  <table width="760" align="center" border="0" cellpadding="0" cellspacing="1">
+  <table width="760" align="center" border="0" cellspacing="1">
     <tr>
       <td class="lstidx">支付时间</td>
       <td class="lstidx">支付金额（元）</td>

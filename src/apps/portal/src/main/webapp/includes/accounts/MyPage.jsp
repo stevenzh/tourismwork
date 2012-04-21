@@ -9,11 +9,11 @@
 
 <body>
 
-<table align="center" border="0" cellpadding="0" cellspacing="2" width="99%">
+<table align="center" border="0" width="99%">
 
    <tr>
   <td bgcolor="#99ccff">
-   <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+   <table align="center" border="0" style="width: 100%">
           <tr>
             <td align="center" width="100">
             <a href="<s:url action='showMyPage' namespace='/accounts' includeParams='none' />">我的信息</a>&nbsp;&nbsp;
@@ -32,10 +32,10 @@
     <td>
 
     <!-- 功能类表 -->
-    <table border="0" cellpadding="0" cellspacing="2" width="100%" >
+    <table border="0" style="width: 100%" >
       <tr>
         <td height="60" valign="middle">
-        <table border="0" cellpadding="0" cellspacing="0" width="197" height="80" bgcolor="#92BEE4">
+        <table border="0" width="197" height="80" bgcolor="#92BEE4">
           <tr>
             <td rowspan="2" width="35%" align="center" valign="middle"><img src="<s:url value='/images/member/mem_info.gif'/>"></td>
             <td width="65%"><a href="#"><b>我的信息</b></a></td>
@@ -49,7 +49,7 @@
         </td>
         
         <td>
-        <table border="0" cellpadding="0" cellspacing="0" width="198" height="80" bgcolor="#92BEE4">
+        <table border="0" width="198" height="80" bgcolor="#92BEE4">
           <tr>
             <td rowspan="2" width="35%" align="center" valign="middle"><img src="<s:url value='/images/member/mem_booking.gif'/>"></td>
             <td width="65%"><a href="<s:url action='showMyBooking' namespace='/accounts' includeParams='none' />"><b>我的订单</b></a></td>
@@ -64,7 +64,7 @@
         </td>
 
        <td>
-        <table border="0" cellpadding="0" cellspacing="0" width="197" height="80" bgcolor="#92BEE4">
+        <table border="0" width="197" height="80" bgcolor="#92BEE4">
           <tr>
             <td rowspan="2" width="35%" align="center" valign="middle"><img src="<s:url value='/images/member/mem_booking.gif'/>"></td>
             <td width="65%"><a href="<s:url action='CommunityHomeAction' namespace='/accounts' includeParams='none' />"><b>我的社区</b></a></td>
@@ -81,7 +81,7 @@
       <tr>
       
        <td>
-        <table border="0" cellpadding="0" cellspacing="0" width="197" height="80" bgcolor="#92BEE4">
+        <table border="0" width="197" height="80" bgcolor="#92BEE4">
           <tr>
             <td rowspan="2" width="35%" align="center" valign="middle"><img src="<s:url value='/images/member/mem_booking.gif'/>"></td>
             <td width="65%"><a href="<s:url action='showMyBooking' namespace='/accounts' includeParams='none' />"><b>我的积分</b></a></td>
@@ -95,7 +95,7 @@
         </td>
         
          <td>
-        <table border="0" cellpadding="0" cellspacing="0" width="198" height="80" bgcolor="#92BEE4">
+        <table border="0" width="198" height="80" bgcolor="#92BEE4">
           <tr>
             <td rowspan="2" width="35%" align="center" valign="middle"><img src="<s:url value='/images/member/mem_netpayment.gif'/>"></td>
             <td width="65%"><a href="<s:url action='searchOrder' namespace='/' includeParams='none' />"><b>网上支付</b></a></td>
@@ -108,7 +108,7 @@
         </td>
         
          <td>
-        <table border="0" cellpadding="0" cellspacing="0" width="197" height="80" bgcolor="#92BEE4">
+        <table border="0" width="197" height="80" bgcolor="#92BEE4">
           <tr>
             <td rowspan="2" width="35%" align="center" valign="middle"><img src="<s:url value='/images/member/mem_service.gif'/>"></td>
             <td width="65%"><a href="<s:url action='CustomerServiceAction' namespace='/accounts' includeParams='none' />"><b>客户服务</b></a></td>

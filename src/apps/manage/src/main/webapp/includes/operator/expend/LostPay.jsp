@@ -115,7 +115,7 @@ function totalchange()
 
 <s:form action="submitPayRequisition" namespace="/operator" method="POST" theme="simple">
 
-  <table border="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
     	<td class="idx" width="200">工作组</td>
     	<td>
@@ -172,7 +172,7 @@ function totalchange()
 
    <br>
    
-   <table border="0" width="100%">
+   <table border="0" style="width: 100%">
     <tr>
     	<td><font color="red">以下为该团单团核算明细表</font></td>
     </tr>
@@ -238,7 +238,7 @@ function totalchange()
 		</s:iterator>
     </table>
 
-    <table border="0" width="100%">
+    <table border="0" style="width: 100%">
     <tr>
       <td class="lstidx" width="20%">此次付款合计</td>
         <td>

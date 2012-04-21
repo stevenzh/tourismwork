@@ -66,7 +66,7 @@
 
 <s:form id="submitPopupAccount" action="submitPopupAccount" namespace="/crm" method="POST" theme="simple">
 
-<table cellspacing="0" cellpadding="0" border="0" style="width: 100%; border-collapse: collapse;">
+<table border="0" style="width: 100%; border-collapse: collapse;">
   <tr>
     <td valign="top" width="15%">省份:</td>
     <td valign="top" width="35%">
@@ -116,7 +116,7 @@
 </table>
 
 
-<table cellspacing="0" cellpadding="0" border="0" style="width: 100%; border-collapse: collapse; padding-top: 8px;">
+<table border="0" style="width: 100%; border-collapse: collapse; padding-top: 8px;">
   <tr>
     <td>
       <input type="submit" value="搜索" id="ctl00_cntBody_ctlSearchView_btnSearch" accesskey="Q" title="Search [Alt]" class="button" />&nbsp;
@@ -169,7 +169,7 @@ function _getlist(type)
 }
 </script>
 
-<table cellspacing="0" cellpadding="0" border="0" style="width: 100%; border-collapse: collapse; padding-bottom: 2px;">
+<table border="0" style="width: 100%; border-collapse: collapse; padding-bottom: 2px;">
   <tr>
     <td style="width: 10%;">
       <input type="submit" name="ctl00$cntBody$ctlDynamicButtons$btnCLEAR" value="  清除选择  " onclick="Clear(); return false;" id="ctl00_cntBody_ctlDynamicButtons_btnCLEAR" accesskey="C" title="Clear [Alt+C]" class="button" style="margin-right: 3px;" />
@@ -178,7 +178,7 @@ function _getlist(type)
   </tr>
 </table>
 
-<table cellspacing="0" cellpadding="3" rules="all" border="0" border="1" style="width: 100%; border-collapse: collapse;">
+<table cellpadding="3" rules="all" border="0" border="1" style="width: 100%; border-collapse: collapse;">
   <tr>
     <td class="lstidx">所在省份</td>
     <td class="lstidx">所在城市</td>

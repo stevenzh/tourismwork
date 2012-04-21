@@ -101,7 +101,7 @@ function generateXLS(param)
 <s:form action="searchRoute" namespace="/product" method="POST" theme="simple" cssClass="yform">
   <s:hidden name="routeNo" />
 
-  <table cellpadding="2" cellspacing="2" width="80%">
+  <table style="width: 80%">
     <tr>
       <td class="idx">工作组：</td>
       <td>

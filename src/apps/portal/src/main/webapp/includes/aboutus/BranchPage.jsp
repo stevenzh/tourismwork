@@ -12,7 +12,7 @@
     <div class="left_box_top">
       <h2>营业门店</h2>
     </div>
-		<table align="center" border="0" cellpadding="0" cellspacing="1" width="100%">
+		<table align="center" border="0" style="width: 100%">
 		  <s:iterator value="branchs">
 		  <tr>
 		    <td width="12%"><img src="<s:url value='/images/icon6.gif' includeParams="none"/>" height="10"></td>
@@ -74,13 +74,13 @@
        <!-- 第一行：店面图、名称、地址、电话、传真、营业时间。-->
        <tr>
          <td>
-         <table align="center" border="0" cellpadding="0" cellspacing="3" width="100%">
+         <table align="center" border="0" cellspacing="3" style="width: 100%">
            <tr>
              <td align="center" height="200" valign="middle" width="258">
                <input name="imageField" src="<s:url value='/images/' includeParams="none"/><s:property value='branch.shopkeeperPhoneFile'/>" border="0" height="160" type="image" width="200">
              </td>
              <td valign="top" width="314">
-             <table align="center" border="0" cellpadding="0" cellspacing="3" width="100%">
+             <table align="center" border="0" cellspacing="3" style="width: 100%">
                <tr>
                  <td colspan="2" height="40"><s:property value="branch.name"/></td>
                </tr>
@@ -110,10 +110,10 @@
        <!-- 第二行：交通、店长、地图。-->
        <tr>
          <td>
-         <table align="center" border="0" cellpadding="0" cellspacing="3" width="100%">
+         <table align="center" border="0" cellspacing="3" style="width: 100%">
            <tr>
              <td valign="top" width="314">
-             <table align="center" border="0" cellpadding="0" cellspacing="3" width="100%">
+             <table align="center" border="0" cellspacing="3" style="width: 100%">
                <tr>
                  <td colspan="2" valign="top"><strong>交通：</strong></td>
                </tr>
@@ -125,7 +125,7 @@
                  <input name="imageField2" src="<s:url value='/images/' includeParams="none"/><s:property value='branch.branchPhoneFile'/>" border="0" height="123" type="image" width="129">
                  </td>
                  <td valign="top" width="53%">
-                 <table width="100%">
+                 <table style="width: 100%">
                    <tr>
                      <td width="48%">店长：</td>
                      <td width="52%"><s:property value="branch.shopkeeper"/></td>

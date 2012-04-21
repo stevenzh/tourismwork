@@ -293,7 +293,7 @@ function isRecount(param)
    </tr>
   </table>
 
-  <table border="0" cellpadding="2" cellspacing="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td align="center">
         <s:submit value="提 交"></s:submit>

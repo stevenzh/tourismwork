@@ -17,13 +17,13 @@ function region(reg)
 
 
 <!-- 目的地导航 - 开始 -->
-<table height="14" cellspacing="1" cellpadding="0" width="100%" bgcolor="#6493d9" border="0">
+<table height="14" style="width: 100%" bgcolor="#6493d9" border="0">
   <tr bgcolor="#6493d9">
     <td colspan="4">目的地导航</td>
   </tr>
   <tr>
     <td bgcolor="#6493d9">
-    <table cellspacing="1" cellpadding="1" width="100%" bgcolor="#ffffff" border="0">
+    <table cellpadding="1" style="width: 100%" bgcolor="#ffffff" border="0">
       <%
       List regionList = (List)request.getAttribute("regions");
       

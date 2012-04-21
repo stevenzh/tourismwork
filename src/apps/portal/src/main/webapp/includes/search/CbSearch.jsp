@@ -37,7 +37,7 @@
     <td>
     <s:form action="CbSearch" namespace="/search" method="post" theme="simple">
       <s:hidden name="searchType"></s:hidden>
-      <table width="100%" border="0">
+      <table style="width: 100%" border="0">
         <tr>
           <td>
           <s:textfield id="queryString" size="54" maxlength="100" name="queryString"></s:textfield>
@@ -65,7 +65,7 @@
          else
            endRecord = current*10;
 		%>
-    <table width="100%" border="0" bgcolor="#b9c0ff">
+    <table style="width: 100%" border="0" bgcolor="#b9c0ff">
       <tr>
         <td align="left" height="25"><b>搜索成果</b></td>
         <td align="right">
@@ -84,7 +84,7 @@
     <s:form action="pkgVacation" namespace="/product" method="post" theme="simple">
       <s:hidden id="routeNo" name="lineNo"></s:hidden>
 
-      <table border="0" width="100%" align="center">
+      <table border="0" style="width: 100%" align="center">
         <%
   	        List<Line> RouteIndexList = (List<Line>)request.getAttribute("RouteIndexList");
   	        Line routeIndex;

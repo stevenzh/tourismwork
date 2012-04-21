@@ -8,7 +8,7 @@
 
 <div align="center">
 
-  <table border="0" cellspacing="0" cellpadding="4" width="55%">
+  <table border="0" cellpadding="4" width="55%">
     <tr>
       <td>
       <div id="footer" align="center">

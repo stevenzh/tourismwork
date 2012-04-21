@@ -492,7 +492,7 @@ function change()
    </tr>
   </table>
 
-  <table border="0" cellpadding="2" cellspacing="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td align="center">
       <s:submit action="submitEditPlan"
@@ -502,14 +502,14 @@ function change()
       <input type="button" value="返 回" onclick="javascript:cancel()"></td>
     </tr>
   </table>
-  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <table border="0" style="width: 100%">
 	  <tr>
 	    <td colspan="4"><STRONG>操作历史</STRONG>&nbsp;</td>
 	  </tr>
 	  <s:if test="planLogList.size != 0">
     <tr>
     	<td colspan="4">
-    		<table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    		<table border="0" style="width: 100%" align="center">
     			<tr>
               <td id="td_all" style="background-color: bbbbbb" width="1%" nowrap align="center">
                   &nbsp;<b><a id="a_all" href="####" style="color:#FFFFFF ; text-decoration: none" onclick="javascript:planLogAll()">所有</a></b>&nbsp;
@@ -528,12 +528,12 @@ function change()
 		  
 	  <tr>
 	  	<td colspan="4">
-  		<table border="1" width="100%" bordercolor="bbbbbb">
+  		<table border="1" style="width: 100%" bordercolor="bbbbbb">
   			<tr>
   				<td>
 		  		<div id="div_planInfo"  style="display: none;">
 		  			<s:iterator value="planLogList" status="rowccount">
-			  			<table cellpadding="2" cellspacing="1" border="0" width="100%">
+			  			<table border="0" style="width: 100%">
 		            <tr>
 	                <td bgcolor="f0f0f0" colspan="3" style="padding-top: 3px;">
 	                  <s:property value="modifiedUserName"/>&nbsp; 进行了改变 &nbsp;<font size="-2">[<font color="336699"><s:date name="modifiedDate" format="yyyy年MM月dd日 HH:mm"/></font>]</font>
@@ -568,7 +568,7 @@ function change()
 		  		</div>
 		  		<div id="div_planNote"  style="display: none;">
 		  			<s:iterator value="planLogList" status="rowccount">
-			  		<table cellpadding="2" cellspacing="1" border="0" width="100%">
+			  		<table border="0" style="width: 100%">
 	            <tr>
                 <td bgcolor="f0f0f0" style="padding-top: 3px;">
                   <s:property value="modifiedUserName"/>&nbsp; - &nbsp; <font size="-2">[<font color="336699"><s:date name="modifiedDate" format="yyyy年MM月dd日 HH:mm"/></font>]</font>
@@ -583,7 +583,7 @@ function change()
 		  		
 		  		<div id="div_AllPlanInfo">
 	  			<s:iterator value="planLogList" status="rowccount">
-		  			<table cellpadding="2" cellspacing="1" border="0" width="100%">
+		  			<table border="0" style="width: 100%">
 	            <tr>
                 <td bgcolor="f0f0f0" colspan="3" style="padding-top: 3px;">
                   <s:property value="modifiedUserName"/>&nbsp; 进行了改变 &nbsp;<font size="-2">[<font color="336699"><s:date name="modifiedDate" format="yyyy年MM月dd日 HH:mm"/></font>]</font>

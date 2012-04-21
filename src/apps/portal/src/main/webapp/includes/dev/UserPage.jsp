@@ -42,12 +42,12 @@ function RegionPlan(region)
 }
 //-->
 </script>
-<table cellspacing="0" cellpadding="1" width="760" align="center">
+<table cellpadding="1" width="760" align="center">
   <tr>
     <!-- 左侧开始 -->
     <td valign="top" width="186" bgcolor="#f7f7f7">
     <!-- 注册区开始  -->
-    <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#f7f7f7">
+    <table style="width: 100%" bgcolor="#f7f7f7">
       <tr>
         <td width="50">用户名：</td>
         <td>
@@ -62,7 +62,7 @@ function RegionPlan(region)
     <!-- 注册区结束  -->
 
     <!-- 最新出团通知开始 -->
-    <table width="100%">
+    <table style="width: 100%">
       <tr>
         <td bgcolor="#efeef3" colspan="2"><strong>最新出团通知</strong></td>
       </tr>
@@ -86,7 +86,7 @@ function RegionPlan(region)
     <!-- 最新出团通知结束 -->
 
     <!-- 订单查询区开始  -->
-    <table cellspacing="0" cellpadding="0" width="100%">
+    <table style="width: 100%">
       <tr bgcolor="#efeef3">
         <td colspan="2"><strong>已审核订单</strong></td>
       </tr>
@@ -130,14 +130,14 @@ function RegionPlan(region)
 
     <!-- 最新线路区开始 -->
     <!-- 
-    <table width="100%" border="0">
+    <table style="width: 100%" border="0">
       <tr>
         <td>最新线路</td>
       </tr>
       <tr>
 
         <td>
-        <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <table style="width: 100%" border="0">
           <tr>
             <td colspan="2" height="5"></td>
           </tr>
@@ -174,13 +174,13 @@ function RegionPlan(region)
     <!-- 中间栏开始  -->
     <td valign="top">
     <!-- 目的地导航 -->
-    <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#6493d9" border="0">
+    <table style="width: 100%" bgcolor="#6493d9" border="0">
       <tr>
         <td colspan="4"><font color="#ffffff"><strong>出境旅游 - 目的地导航</strong></font></td>
       </tr>
       <tr>
         <td>
-        <table cellspacing="1" cellpadding="1" width="100%" bgcolor="#ffffff">
+        <table cellpadding="1" style="width: 100%" bgcolor="#ffffff">
           <%
     List regionList = (List) request.getAttribute("abroadList");
 
@@ -223,13 +223,13 @@ function RegionPlan(region)
     <!-- 目的地导航-出境旅游 结束 -->
 
     <!-- 目的地导航 - 国内旅游 -->
-    <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#6493d9" border="0">
+    <table style="width: 100%" bgcolor="#6493d9" border="0">
       <tr>
         <td colspan="4"><font color="#ffffff"><strong>国内旅游 - 目的地导航</strong></font></td>
       </tr>
       <tr>
         <td>
-        <table cellspacing="1" cellpadding="1" width="100%" bgcolor="#ffffff" border="0">
+        <table cellpadding="1" style="width: 100%" bgcolor="#ffffff" border="0">
           <%
     List insideList = (List) request.getAttribute("insideList");
     for (int i = 0; i < insideList.size(); i++) {
@@ -271,13 +271,13 @@ function RegionPlan(region)
 
     <!-- 按工作组快速查找区开始 -->
     <!--
-    <table width="100%" height="14" border="0" cellpadding="0" cellspacing="1">
+    <table style="width: 100%" height="14" border="0" cellspacing="1">
 		<tr bgcolor="6493d9">
           <td height="20" colspan="4">按工作组快速查找</td>
 		</tr>
         <tr>
           <td height="20">
-		  <table width="100%" border="0" cellpadding="0" cellspacing="1">
+		  <table style="width: 100%" border="0" cellspacing="1">
 				<tr>
 				<td width="25%" height="20"><img src="../images/icon.gif" width="9" height="7">&nbsp;-&nbsp;<a href="#" target="_blank">出境中心</a>
                 </td>
@@ -313,14 +313,14 @@ function RegionPlan(region)
     <!-- 按工作组快速查找区结束 -->
 
     <!-- 查询区开始 -->
-    <table cellspacing="2" cellpadding="0" width="100%" bgcolor="#6699cc" border="0">
+    <table style="width: 100%" bgcolor="#6699cc" border="0">
       <tr bgcolor="#6493d9">
         <td height="20"><font color="#ffffff"><strong>输入条件进行查找</strong></font></td>
       </tr>
       <tr>
         <td height="121">
         <s:form action="PlanSearchSubmit" namespace="/distribution" method="post" theme="simple">
-        <table height="145" cellspacing="2" cellpadding="0" width="100%" bgcolor="#ffffff" border="0">
+        <table height="145" style="width: 100%" bgcolor="#ffffff" border="0">
           <tr>
             <td>分类：</td>
             <td>
@@ -361,7 +361,7 @@ function RegionPlan(region)
     <!-- 查询区结束 -->
 
     <!-- 各中心最近开班计划区开始 -->
-    <table cellspacing="2" cellpadding="0" width="100%" border="0">
+    <table style="width: 100%" border="0">
       <tr>
         <td colspan="2" class="lstidx">线路</td>
         <td width="32" class="lstidx">出发<br>日期</td>
@@ -482,14 +482,14 @@ function RegionPlan(region)
     <td valign="top" width="140">
     
     <!-- 推广信息开始 -->
-    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+    <table style="width: 100%" border="0">
       <tr>
         <td bgcolor="#6493d9" align="center">推广信息</td>
       </tr>
       <tr>
         <td valign="center">
         <marquee onMouseOver="this.stop()" onMouseOut="this.start()" scrollamount="1" scrolldelay="60" direction="up" height="170">
-        <table cellspacing="2" cellpadding="0" width="100%" border="0">
+        <table style="width: 100%" border="0">
           <tr>
             <td valign="top" colspan="2" align="center">
             <br>
@@ -504,14 +504,14 @@ function RegionPlan(region)
     <!-- 推广信息结束 -->
 
     <!-- 公告开始 -->
-    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+    <table style="width: 100%" border="0">
       <tr>
         <td bgcolor="#6493d9" align="center">公 告</td>
       </tr>
       <tr>
         <td valign="center">
         <marquee onMouseOver="this.stop()" onMouseOut="this.start()" scrollamount="1" scrolldelay="60" direction="up" height="240">
-        <table cellspacing="2" cellpadding="0" width="100%" border="0">
+        <table style="width: 100%" border="0">
           <s:if test="notices.isEmpty()">
           <tr>
             <td valign="top" colspan="2" align="center">
@@ -536,7 +536,7 @@ function RegionPlan(region)
     <!-- 公告结束 -->
 
     <!-- 签证办理办法开始 -->
-    <table cellspacing="2" cellpadding="0" width="100%" border="0">
+    <table style="width: 100%" border="0">
       <tr>
         <td bgcolor="#6493d9" height="20" align="center">签证办理办法</td>
       </tr>

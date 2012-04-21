@@ -43,7 +43,7 @@ function pinyin()
 
 //-->
 </script>
-<table border="0" cellpadding="2" cellspacing="0" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="header"><s:if test='guide.accCd eq ""'>添加导陪员</s:if> <s:else>修改导陪员</s:else></td>
   </tr>
@@ -210,7 +210,7 @@ function pinyin()
       <td colspan="6">&nbsp;<font color="red">*</font>&nbsp;为必填项目！</td>
     </tr>
   </table>
-  <table border="0" cellpadding="2" cellspacing="0" width="0%">
+  <table border="0" width="0%">
     <tr>
       <td align="center"><s:if test='guide.accCd eq ""'>
         <s:submit value="添加" />

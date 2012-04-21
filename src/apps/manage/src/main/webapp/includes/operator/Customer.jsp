@@ -11,7 +11,7 @@
 
 <body>
 <s:form action="" namespace="/operator" method="post" theme="simple">
-<table border="0" cellpadding="0" width="100%" bgcolor="#EEECE6">
+<table border="0" style="width: 100%" bgcolor="#EEECE6">
 	<tr align="center" valign="middle" onmouseover="this.bgColor='#F9F8F4';" onmouseout="this.bgColor='#EEECE6';">
 		<td align="left">姓:</td>
 		<td align="left"><s:textfield name="tcustomer.familyName" disabled="true"/></td>

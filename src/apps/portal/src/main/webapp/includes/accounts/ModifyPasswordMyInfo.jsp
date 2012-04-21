@@ -31,11 +31,11 @@ function checkOut()
 //-->
 </script>
 
-<table width="100%">
+<table style="width: 100%">
   <tr>
     <td bgcolor="#99ccff">
     <table align="center" border="0" cellpadding="0"
-      cellspacing="1" width="100%">
+      style="width: 100%">
       <tr>
          <td align="center" width="100">
             <a href="<s:url action='showMyBasicInfo' namespace='/accounts' includeParams='none' />">基本信息查询</a>&nbsp;&nbsp;|
@@ -57,7 +57,7 @@ function checkOut()
     <s:form action="ModifyPasswordSubmitMyInfo" namespace="/accounts"
       method="POST" theme="simple">
       <s:hidden></s:hidden>
-      <table align="center" bgcolor="#ffffff" border="0" cellpadding="5" cellspacing="1" width="100%">
+      <table align="center" bgcolor="#ffffff" border="0" cellpadding="5" style="width: 100%">
         <tr>
           <td colspan="2" align="center" bgcolor="#bbbbff"><strong>修改密码 </strong></td>
         </tr>

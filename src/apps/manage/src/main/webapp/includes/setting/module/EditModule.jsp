@@ -23,7 +23,7 @@
    <s:hidden name="module.type"></s:hidden>
    <s:hidden name="module.isActive"></s:hidden>
 
-  <table border="0" cellpadding="2" cellspacing="0" width="100%">
+  <table border="0" style="width: 100%">
    <tr>
       <td class="idx" width="80">序号：</td>
       <td class="data"><s:property value="module.moduleId"/></td>

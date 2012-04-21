@@ -48,10 +48,10 @@ function SubmitForm(param, target)
 
 <s:form method="post" action="listVisa" namespace="/product" theme="simple">
 <s:hidden name="recordNo"></s:hidden>
-  <table align="left" border="0" cellpadding="0" width="100%">
+  <table align="left" border="0" style="width: 100%">
     <tr>
       <td>
-      <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+      <table align="center" border="0" style="width: 100%">
         <tr>
           <td class="idx" height="25" nowrap="nowrap" width="82">国家/地区：</td>
           <td class="idx">
@@ -77,7 +77,7 @@ function SubmitForm(param, target)
     </tr>
     <tr>
       <td>
-      <table border="0" cellpadding="0" width="100%">
+      <table border="0" style="width: 100%">
         <tr bgcolor="#f3f3f3">
           <td class="lstidx" width="30">No.</td>
           <td class="lstidx">国家/地区</td>

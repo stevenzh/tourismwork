@@ -73,7 +73,7 @@ function linked(param,target)
 //-->
 </script>
 <s:form action="showIncomes" namespace="/finance" method="POST" theme="simple">
-  <table border="0" cellpadding="2" cellspacing="2" width="80%">
+  <table border="0" style="width: 80%">
     <!-- 
     <tr>
       <td class="idx">工作组</td>
@@ -129,7 +129,7 @@ function linked(param,target)
   </table>
   <br>
 
-  <table border="1" cellpadding="2" cellspacing="0" width="100%">
+  <table border="1" style="width: 100%">
     <tr>
       <td class="idx">NO.</td>
       <td class="idx">团号</td>

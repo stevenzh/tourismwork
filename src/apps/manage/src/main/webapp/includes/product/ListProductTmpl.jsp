@@ -54,7 +54,7 @@ function _getlist(type)
 <s:form action="showProductTmpl" namespace="/product" method="post" theme="simple">
 <s:hidden name="tmplId"></s:hidden>
 
-<table border="0" cellpadding="2" cellspacing="0" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="idx">工作组：</td>
     <td>
@@ -94,7 +94,7 @@ function _getlist(type)
   </tr>
 </table>
 <br></br>
-<table border="0" cellpadding="0" cellspacing="2" width="100%">
+<table border="0" style="width: 100%">
 
   <tr>
     <td class="lstidx">NO.</td>

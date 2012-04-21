@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="org.springframework.security.context.SecurityContextHolder" %>
-<%@ page import="org.springframework.security.Authentication" %>
-<%@ page import="org.springframework.security.ui.AccessDeniedHandlerImpl" %>
+<%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
+<%@ page import="org.springframework.security.core.Authentication" %>
+<%@ page import="org.springframework.security.web.access.AccessDeniedHandlerImpl" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <html>
@@ -13,10 +13,10 @@
 </head>
 <body>
 
-<table border="0" width="100%">
+<table border="0" style="width: 100%">
   <tr valign="top">
     <td>
-    <table border="0" width="100%">
+    <table border="0" style="width: 100%">
       <tr>
         <th align="center">页面错误</th>
       </tr>

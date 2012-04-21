@@ -72,7 +72,7 @@ document.getElementById('all').value=Math.round((eval(price1)+eval(price2)+eval(
 //-->
 </script>
 
-<table width="100%">
+<table style="width: 100%">
   <tr>
     <td class="header">
       <s:if test="routePrice.recNo == null">修改<s:property value="line.lineName" />报价</s:if>

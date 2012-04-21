@@ -12,7 +12,7 @@
 <body>
 <s:form action="showOperatorAlert" namespace="/sales" method="post" theme="simple">
 <s:if test="outcoemInband.size() > 0">
-<table border="0" cellpadding="2" cellspacing="2" width="80%">
+<table border="0" style="width: 80%">
   <tr>
     <td colspan="5"><STRONG>国内应付 (未读付款申请, 团出发前n天未付款申请)</STRONG></td>
   </tr>
@@ -37,7 +37,7 @@
 </s:if>
 
 <s:if test="billheadInBand.size() > 0">
-<table border="0" cellpadding="2" cellspacing="2" width="80%">
+<table border="0" style="width: 80%">
   <tr>
     <td colspan="6"><STRONG>国内未读付款申请书</STRONG></td>
   </tr>
@@ -64,7 +64,7 @@
 </s:if>
 
 <s:if test="incomeInband.size() > 0">
-<table border="0" cellpadding="2" cellspacing="2" width="80%"> 
+<table border="0" style="width: 80%"> 
   <tr>
     <td colspan="6"><STRONG>国内应收 团出发前n天 未收款客户提醒</STRONG></td>
   </tr>
@@ -90,13 +90,13 @@
 <br>
 </s:if>
 
-<table border="0" cellpadding="0" width="80%">
+<table border="0" style="width: 80%">
   <tr>
     <td colspan="4" class="header">出境应付</td>
   </tr>
 </table>
 <s:if test="outcomeAirOutBand.size() > 0">
-<table border="0" cellpadding="2" cellspacing="2" width="80%">
+<table border="0" style="width: 80%">
   <tr>
     <td colspan="5"><STRONG>应付出境机票 (未读付款申请, 团出发前n天未付款申请)</STRONG></td>
   </tr>
@@ -121,7 +121,7 @@
 
 <s:if test="billheadAirOutBand.size() > 0">
 <br>
-<table border="0" cellpadding="2" cellspacing="2" width="80%">
+<table border="0" style="width: 80%">
   <tr>
     <td colspan="6"><STRONG>未阅读付款申请书</STRONG></td>
   </tr>
@@ -148,7 +148,7 @@
 
 <s:if test="outcomeTravOutBand.size() > 0">
 <br>
-<table border="0" cellpadding="2" cellspacing="2" width="80%">
+<table border="0" style="width: 80%">
   <tr>
     <td colspan="5"><STRONG>应付出境地接 (未读付款申请, 团出发前n天未付款申请)</STRONG></td>
   </tr>
@@ -174,7 +174,7 @@
 
 
 <s:if test="billheadTravOutBand.size() > 0">
-<table border="0" cellpadding="2" cellspacing="2" width="80%">
+<table border="0" style="width: 80%">
   <tr>
     <td colspan="6"><STRONG>未阅读付款申请书</STRONG></td>
   </tr>
@@ -201,7 +201,7 @@
 </s:if>
 
 <s:if test="incomeCashOutBand.size() > 0">
-<table border="0" cellpadding="2" cellspacing="2" width="80%">
+<table border="0" style="width: 80%">
   <tr>
     <td colspan="6"><STRONG>出境应收现结 (团出发前n天,未收款客户提醒)</STRONG></td>
   </tr>

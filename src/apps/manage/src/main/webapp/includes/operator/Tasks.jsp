@@ -111,7 +111,7 @@ function showRouteJourney(obj)
   <sj:tab target="ttwo" label="待安排领队的团"></sj:tab>
   <sj:tab target="tthree" label="待成团的计划"></sj:tab>
 
-	<table id="tone" border="0" cellpadding="2" cellspacing="2" width="100%">
+	<table id="tone" border="0" style="width: 100%">
 	  <tr bgcolor="#b9c0ff">
 	    <td class="lstidx">NO.</td>
 	    <td class="lstidx">订单号</td>
@@ -143,7 +143,7 @@ function showRouteJourney(obj)
 	  </s:if>
 	</table>
 
-   <table id="ttwo" border="0" cellpadding="2" cellspacing="2" width="100%">
+   <table id="ttwo" border="0" style="width: 100%">
      <tr bgcolor="#b9c0ff">
        <td class="lstidx">NO.</td>
        <td class="lstidx">团号</td>
@@ -163,7 +163,7 @@ function showRouteJourney(obj)
      </s:if>
    </table>
 
-  <table id="tthree" border="0" cellpadding="2" cellspacing="2" width="100%">
+  <table id="tthree" border="0" style="width: 100%">
     <tr bgcolor="#b9c0ff">
       <td class="lstidx">NO.</td>
       <td class="lstidx">团号</td>

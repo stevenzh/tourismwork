@@ -11,10 +11,10 @@
 <body>
 <br>
 <br>
-<table border="0" cellpadding="0" cellspacing="0" width="800" align="center">
+<table border="0" width="800" align="center">
 <tr>
   <td>
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<table border="0" style="width: 100%">
    <tr>
      <td align="center" height="40"><h1>付款申请书</h1></td>
    </tr>
@@ -29,7 +29,7 @@
  </tr>
 <tr>
   <td>
-<table width="100%" border="1" cellpadding="1" cellspacing="0">
+<table style="width: 100%" border="1" cellpadding="1">
    <tr align="center" height="30">
           <th width="30">No.</th>
           <th width="240">团号</th>
@@ -56,7 +56,7 @@
  
  <tr>
    <td>
-     <table border="0" cellpadding="0" cellspacing="0" width="100%">
+     <table border="0" style="width: 100%">
    <tr height="40">
      <td>付款合计：<s:property value="billhead.amount"/>元</td>
       <td>付款方式：<s:property value="billhead.payModeName"/></td>
@@ -65,7 +65,7 @@
  </tr>
  <tr>
    <td>
-     <table border="0" cellpadding="0" cellspacing="0" width="100%">
+     <table border="0" style="width: 100%">
      <tr height="30">
      <td>经理：</td>
      <td>&nbsp;</td>

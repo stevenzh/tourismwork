@@ -57,7 +57,7 @@ function printGACustomerList(param)
 </script>
 
 <s:form action="fopReport" namespace="/" method="POST" theme="simple">
-	<table border="0" cellpadding="0" width="100%">
+	<table border="0" style="width: 100%">
 		<tr>
 			<td>团号：</td>
 			<td><s:textfield id="tnum1"/></td>
@@ -140,7 +140,7 @@ function printGACustomerList(param)
 	</table>
 	<br>
 
-	<table border="0" cellpadding="2" cellspacing="2" width="100%">
+	<table border="0" style="width: 100%">
 	<tr>
 	<td>
 		<input type="button" value="打印港澳游名单"

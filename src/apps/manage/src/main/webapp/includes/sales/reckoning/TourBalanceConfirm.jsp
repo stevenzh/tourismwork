@@ -9,7 +9,7 @@
 
 <body>
 
-<table border="0" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="header">[订单管理]-团款结算确认单</td>
   </tr>
@@ -30,7 +30,7 @@
     </tr>
     <tr>
       <td colspan="3">
-        <table border="1" cellpadding="2" cellspacing="0" width="100%">
+        <table border="1" style="width: 100%">
           <tr>
             <td>出团日期</td>
             <td>&nbsp;<s:property value=""/></td>

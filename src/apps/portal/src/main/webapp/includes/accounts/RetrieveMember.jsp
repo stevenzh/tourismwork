@@ -11,11 +11,11 @@
 <body>
 
 <s:form action="submitRetrieveMember" namespace="/" method="POST" theme="simple">
-  <table align="center" border="0" cellpadding="0" cellspacing="0" width="280">
+  <table align="center" border="0" width="280">
     <tr>
       <td>
       <table align="center" border="0" cellpadding="4" cellspacing="2"
-        width="100%">
+        style="width: 100%">
         <tr>
           <td colspan="2"><b style="font-size: 10pt">手机索取密码</b></td>
         </tr>

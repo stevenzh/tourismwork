@@ -125,7 +125,7 @@ function _getlist(type)
     </tr>
   </table>
 
-  <table border="0" cellpadding="0" cellspacing="2" width="100%">
+  <table border="0" style="width: 100%">
   	<tr>
       <td class="lstidx">NO.</td>
       <td class="lstidx">景点编号</td>

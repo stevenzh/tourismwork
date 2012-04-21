@@ -9,7 +9,7 @@
 
 <body>
 
-<table align="center" width="760" cellpadding="0" cellspacing="2">
+<table align="center" width="760" cellspacing="2">
   <tr>
     <td>填写收/退款</td>
   </tr>
@@ -57,7 +57,7 @@
   </table>
 
   <!--以下为订单之客人明细部分 -->
-  <table border="1" cellpadding="0" cellspacing="0" align="center" width="760">
+  <table border="1" align="center" width="760">
     <tr>
       <td class="lstidx">No.</td>
       <td class="lstidx">状态</td>
@@ -102,7 +102,7 @@
 
   <br>
 
-  <table border="1" cellpadding="0" cellspacing="0"  align="center" width="760">
+  <table border="1"  align="center" width="760">
     <tr>
       <td bgcolor="#f2f2f2">付 款 方 式</td>
       <td bgcolor="#f2f2f2">金 额</td>

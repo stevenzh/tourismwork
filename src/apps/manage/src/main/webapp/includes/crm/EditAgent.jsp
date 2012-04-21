@@ -98,7 +98,7 @@ function checkOut()
 
 //-->
 </script>
-<table width="100%">
+<table style="width: 100%">
   <tr>
     <td class="header">
     <s:if test="customerId == 0">添加客户信息</s:if>
@@ -121,7 +121,7 @@ function checkOut()
 
   <s:hidden name="agent.customerId"></s:hidden>
 
-  <table width="100%">
+  <table style="width: 100%">
     <tr>
       <td class="idx" width="200">名称<span class="required">*</span>:</td>
       <td class="data" colspan="3">
@@ -278,7 +278,7 @@ function checkOut()
       <td colspan="4">
       <br>
       <s:hidden name="idx" />
-      <table width="80%">
+      <table style="width: 80%">
         <tr>
           <td colspan="10" class="header">其他联系人</td>
         </tr>

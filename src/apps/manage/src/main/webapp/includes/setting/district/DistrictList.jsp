@@ -78,7 +78,7 @@ function _getlist(type)
     </tr>
   </table>
 
-  <table width="100%" border="1" cellpadding="2" cellspacing="0">
+  <table style="width: 100%" border="1" cellpadding="2">
     <tr>
       <td class="lstidx">NO.</td>
       <td class="lstidx">国家</td>

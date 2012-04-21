@@ -119,7 +119,7 @@ function regionSearch(param1, param2)
     <s:hidden id="queryStr" name="queryString"></s:hidden>
     <s:hidden id="queryStrId" name="queryStringId"></s:hidden>
 	
-	<table width="100%" border="0"  cellpadding="0" cellspacing="0">
+	<table style="width: 100%" border="0" >
 	   <tr bgcolor="#b9c0ff">
 	       <td width="30"></td>
 	       <td colspan="2"><b>目的地导航</b></td>
@@ -145,7 +145,7 @@ function regionSearch(param1, param2)
 	    </tr>
 	</table>
 	
-	<table width="100%" border="0"  cellpadding="0" cellspacing="0">
+	<table style="width: 100%" border="0" >
 	   <s:iterator  value="classifyRegionList" status="rowccount">
 		  <tr>
 		     <td width="30"></td>
@@ -158,7 +158,7 @@ function regionSearch(param1, param2)
 		        </font>
 		     </td>
 		     <td valign="top" width="650" align="left">
-		       <table width="100%" border="0"  cellpadding="0" cellspacing="0">
+		       <table style="width: 100%" border="0" >
 		          <tr>
 			        <% 
 			           int a = 0; 
@@ -213,7 +213,7 @@ function regionSearch(param1, param2)
        endRecord = current*10;
 %>
 
-<table width="100%" border="0" bgcolor="#b9c0ff">
+<table style="width: 100%" border="0" bgcolor="#b9c0ff">
   <tr>
     <td width="10"></td>
     <td align="left" height="25"><font size="-1"><b>搜索成果</b></font></td>
@@ -229,13 +229,13 @@ function regionSearch(param1, param2)
   </tr>
 </table>
 
-<table border="0" width="100%" cellpadding="2" cellspacing="0">
+<table border="0" style="width: 100%" cellpadding="2">
 <tr>
 <td valign="top" width="10"></td>
 <td valign="top">
 <s:form action="pkgVacation" namespace="/product" method="post" theme="simple">
   <s:hidden id="routeNo" name="lineNo"></s:hidden>
-  <table border="0" width="600" cellpadding="2" cellspacing="0">
+  <table border="0" width="600" cellpadding="2">
   <%
     List<Line> RouteIndexList = (List<Line>)request.getAttribute("RouteIndexList");
     Line routeIndex;

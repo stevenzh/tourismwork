@@ -26,7 +26,7 @@ function goBack()
   <s:form action="SingleBalanceAuditing" namespace="/finance" method="post" theme="simple">
     <s:hidden name="tourNo"></s:hidden>
 
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <table border="0" style="width: 100%">
       <tr>
         <td colspan="6" align="center"><h2><s:property value="singleTourBalance.tourNo" />旅游团队结算帐单</h2></td>
       </tr>
@@ -35,7 +35,7 @@ function goBack()
       </tr>
     </table>
 
-    <table border="1" cellpadding="0" cellspacing="0" width="100%">
+    <table border="1" style="width: 100%">
       <tr>
         <td class="idx">线路</td>
         <td colspan="5" class="data">&nbsp;<s:property value="singleTourBalance.line.lineName" />&nbsp;</td>
@@ -90,7 +90,7 @@ function goBack()
     
     <h4>一、结算明细表</h4>
     
-     <table border="1" cellpadding="0" cellspacing="0" width="100%">
+     <table border="1" style="width: 100%">
      <tr>
        <td class="idx" width="80">减免人数</td>
        <td class="data">&nbsp;<s:property value="singleTourBalance.exemptPax" />&nbsp;</td>
@@ -128,7 +128,7 @@ function goBack()
   
    <h4>二、营业收入</h4>
    
-   <table border="1" cellpadding="0" cellspacing="0" width="100%">
+   <table border="1" style="width: 100%">
      <tr>
        <td class="lstidx" width="30">NO.</td>
        <td class="lstidx">客户</td>
@@ -166,7 +166,7 @@ function goBack()
    
    <h4>三、营业成本</h4>
    
-   <table border="1" cellpadding="0" cellspacing="0" width="100%">
+   <table border="1" style="width: 100%">
      <tr>
        <td class="lstidx" width="30">NO.</td>
        <td class="lstidx">费用类型</td>
@@ -201,7 +201,7 @@ function goBack()
    
    <h4>&nbsp;</h4>
    
-   <table border="1" cellpadding="0" cellspacing="0" width="100%">
+   <table border="1" style="width: 100%">
     <tr>
       <td class="lstidx">操作人</td>
       <td class="data"><s:property value="singleTourBalance.oprateUser"/>&nbsp;</td>
@@ -224,7 +224,7 @@ function goBack()
     </tr>
    </table>
 
-  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <table border="0" style="width: 100%">
       <tr>
         <td colspan="6">&nbsp;</td>
       </tr>

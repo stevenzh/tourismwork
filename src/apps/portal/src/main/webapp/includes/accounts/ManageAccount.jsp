@@ -7,7 +7,7 @@
 
 <body dir="ltr">
 
-<table border="0" cellpadding="2" cellspacing="0" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td colspan="2"><img alt="" height="2" width="1"></td>
   </tr>
@@ -18,7 +18,7 @@
       </a>
     </td>
     <td valign="top">
-      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <table border="0" style="width: 100%">
         <tr>
           <td colspan="2"><img alt="" height="15" width="1"></td>
         </tr>
@@ -37,10 +37,10 @@
 </table>
 
 <div class="body">
-  <table cellspacing="10" width="100%">
+  <table cellspacing="10" style="width: 100%">
     <tr>
       <td valign="top" width="49%">
-      <table cellpadding="0" cellspacing="0" width="100%">
+      <table style="width: 100%">
           <tr>
             <td nowrap="nowrap" width="1%"><b>帐户信息</b>
             <!--  - <a href="/accounts/EditUserInfo"><font size="-1">修改</font></a> -->
@@ -90,7 +90,7 @@
       </td>
       <td width="15">&nbsp;</td>
       <td valign="top" width="49%">
-        <table cellpadding="0" cellspacing="0" width="100%">
+        <table style="width: 100%">
           <tr>
             <td nowrap="nowrap" width="1%"><b>我的工具箱</b>
             <!--  - <a href="/accounts/EditServices" id="MyServices_Edit"><font size="-1">修改</font></a> -->
@@ -114,7 +114,7 @@
       <table class="svcs">
         <tr>
           <td colspan="10">
-          <table cellpadding="0" cellspacing="0" width="100%">
+          <table style="width: 100%">
             <tr>
               <td nowrap="nowrap" width="1%"><b>联系人列表</b>
               <!--  - <a href="/accounts/EditServices" id="MyServices_Edit"><font size="-1">修改</font></a> -->

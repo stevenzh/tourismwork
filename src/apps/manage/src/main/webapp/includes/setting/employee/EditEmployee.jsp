@@ -25,7 +25,7 @@
   }
   
 </script>
-  <table border="0" cellpadding="2" cellspacing="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td class="header"></td>
     </tr>
@@ -48,7 +48,7 @@
     <sj:tab id="tab3"  target="tthree" label="权限设置"/>
 
     <div id="tone">
-      <table cellpadding="2" cellspacing="0" width="100%" border="0">
+      <table style="width: 100%" border="0">
         <tr>
           <td class="idx" style="width: 200px">用户代码：</td>
           <td class="data">
@@ -120,7 +120,7 @@
     </div>
 
     <div id="ttwo">
-      <table cellpadding="2" cellspacing="0" width="100%" border="0">
+      <table style="width: 100%" border="0">
         <tr>
           <td class="idx" style="width: 200px" valign="top">选择团队：</td>
           <td class="data">
@@ -147,7 +147,7 @@
     </div>
 
     <div id="tthree">
-        <table cellpadding="2" cellspacing="0" width="100%" border="0">
+        <table style="width: 100%" border="0">
         <tr>
           <td class="idx" style="width: 200px" valign="top">权限设置：</td>
           <td class="data">

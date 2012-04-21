@@ -21,7 +21,7 @@
 
 <s:form action="submitOrderBooking" namespace="/accounts" method="post">
   <s:hidden name="book.plan.planNo"></s:hidden>
-  <table width="100%" align="center" border="0" cellpadding="0" cellspacing="1">
+  <table style="width: 100%" align="center" border="0" cellspacing="1">
     <tr>
       <td colspan="2" align="center">预订表单</td>
     </tr>
@@ -78,7 +78,7 @@ MH389 (1535/2050) MH388 (0850/1410)
   </table>
   
   <br/>
-  <table width="100%" align="center" border="0" cellpadding="0" cellspacing="1">
+  <table style="width: 100%" align="center" border="0" cellspacing="1">
     <tr>
       <td class="lstidx">No.</td>
       <td class="lstidx">姓名<span class="required">*</span></td>

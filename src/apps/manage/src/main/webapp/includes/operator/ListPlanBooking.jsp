@@ -32,7 +32,7 @@ function cancel(){
 	<s:hidden name="kenStartDate"></s:hidden>
 	<s:hidden name="kenEndDate"></s:hidden>
 
-	<table align="center" border="0" cellpadding="0" cellspacing="2" width="100%">
+	<table align="center" border="0" style="width: 100%">
 		<tr>
 			<td class="idx" width="200">线路名称：</td>
 			<td><s:property value="plan.line.lineName" /></td>
@@ -64,10 +64,10 @@ function cancel(){
 	</table>
 
 	<br>
-	<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+	<table align="center" border="0" style="width: 100%">
 		<tr>
 			<td valign="top">
-			<table border="1" bordercolor="#b9c0ff" cellpadding="0"	cellspacing="0" width="100%">
+			<table border="1" bordercolor="#b9c0ff" cellpadding="0"	cellspacing="0" style="width: 100%">
 				<tr bgcolor="#b9c0ff">
 					<td class="lstidx" width="24">No.</td>
 					<td class="lstidx" width="70">订单号</td>

@@ -28,7 +28,7 @@
 
 <table width="800" border="0" align="center">
   <tr>
-  <td align="center"><table width="100%"  border="0" bgcolor="#b9c0ff">
+  <td align="center"><table style="width: 100%"  border="0" bgcolor="#b9c0ff">
   <tr>
     <td align="left" height="25"><b>付款书</b></td>
     <td align="right" ></td>
@@ -39,12 +39,12 @@
   <tr>
   <td align="center">
 
-<table width="760" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#000000" >
+<table width="760" border="0" align="center" bordercolor="#000000" >
   <tr> 
     <td > 
 
    	<!-- 第一个Table开始 -->
-	    <table width="100%" border="0">
+	    <table style="width: 100%" border="0">
           <tr> 
             <td height="30" bgcolor="#b9c0ff" class="title" align="center"><strong>付 款 书</strong></td>
       </tr>
@@ -54,7 +54,7 @@
    	    <!-- 第一个Table结束 -->
         <!-- 第二个Table开始 -->
 		<tr><td>
-		<table align="center" width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+		<table align="center" style="width: 100%" border="1" bordercolor="#000000">
           <tr> 
             <td height="25" nowrap align="center"><strong>客&nbsp;&nbsp;&nbsp;&nbsp;户</strong></td>
             <td colspan="3">&nbsp;<s:property value="gathering.customer.name"/></td>
@@ -87,7 +87,7 @@
 <!-- 第二个Table结束 -->
 
 		<tr><td>
-		<table align="center" width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+		<table align="center" style="width: 100%" border="1" bordercolor="#000000">
 		  <tr bgcolor="#b9c0ff"> 
             <td width="30" height="25" align="center"><strong>No.</strong></td>
             <td align="center"><strong>团号</strong></td>

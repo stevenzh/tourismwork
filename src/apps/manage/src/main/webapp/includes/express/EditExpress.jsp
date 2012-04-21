@@ -16,7 +16,7 @@
   <s:hidden name="expressId" value="%{expressId}"></s:hidden>
   <s:hidden name="note"></s:hidden>
 
-  <table align="left" border="0" cellpadding="0" cellspacing="2" width="100%">
+  <table style="width: 100%">
     <tr>
       <td class="idx">配送单号：</td>
       <td colspan="3"><s:property value="express.expressId" /></td>
@@ -91,7 +91,7 @@
     <tr>
       <td style="vertical-align: top;" class="idx">配送明细：</td>
       <td colspan="3">
-      <table align="left" border="0" cellpadding="0" cellspacing="1" width="100%">
+      <table style="width: 100%">
         <tr>
           <td class="lstidx">No.</td>
           <td class="lstidx">配送项目</td>

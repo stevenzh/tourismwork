@@ -43,7 +43,7 @@ function addCity(obj)
 <s:form action="RouteScheduleAdd" namespace="/product" method="post" theme="simple">
   <s:hidden name="day" />
   <s:hidden name="lineNo" />
-  <table width="100%">
+  <table style="width: 100%">
     <tr>
       <td class="lstidx">天数</td>
       <td class="lstidx" colspan="6">日程描述</td>

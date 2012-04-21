@@ -86,7 +86,7 @@ function goAction()
 
 <s:form action="ModifyCustomerInfo" namespace="/operator" method="post" theme="simple">
  <s:hidden name="note"></s:hidden>
- <table align="center" border="0" bordercolor="#000000" cellpadding="2" cellspacing="2" width="100%">
+ <table align="center" border="0" bordercolor="#000000" style="width: 100%">
   <tr>
     <td class="idx" width="15%">团号:</td>
     <td colspan="3"><s:property value="tour.tourNo"/></td>
@@ -146,7 +146,7 @@ function goAction()
   <tr>
    <td colspan="4">
 
-   <table width="100%" border="0" cellpadding="0" cellspacing="1">
+   <table style="width: 100%" border="0" cellspacing="1">
     <tr>
       <td class="lstidx">No.</td>
       <td class="lstidx">姓名<span class="required">*</span></td>

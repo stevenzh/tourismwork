@@ -35,7 +35,7 @@ function simplePrint(tourNo)
 <s:hidden name="nmno"></s:hidden>
 <s:hidden name="tourNo"></s:hidden>
 
-<table align="center" border="0" bordercolor="#000000" cellpadding="2" cellspacing="2" width="100%">
+<table align="center" border="0" bordercolor="#000000" style="width: 100%">
   <tr>
     <td class="idx" width="15%">团号:</td>
     <td colspan="3"><s:property value="tour.tourNo"/></td>
@@ -124,7 +124,7 @@ function simplePrint(tourNo)
 
   <tr>
     <td colspan="4">
-    <table bordercolor="#000000" border="0" cellpadding="0" cellspacing="1" width="100%">
+    <table bordercolor="#000000" border="0" style="width: 100%">
         <tr>
           <td class="lstidx">No.</td>
           <td class="lstidx">姓名</td>

@@ -273,7 +273,7 @@ function checkOutPer()
   <s:hidden name="reckoning.pDate"/>
 
   <s:if test='isShort=="N"'>
-    <table cellpadding="0" cellspacing="0" width="100%">
+    <table style="width: 100%">
       <tr>
         <td align="center" colspan="4">
         <h2>团费结算单</h2>
@@ -292,7 +292,7 @@ function checkOutPer()
       <s:if test='nameKey=="A"'>
          <tr>
         <td colspan="4">
-        <table border="0" cellpadding="0" cellspacing="2" width="100%">
+        <table border="0" style="width: 100%">
           <tr>
             <td class="idx">客户</td>
             <td class="data" align="left" colspan="3">
@@ -336,7 +336,7 @@ function checkOutPer()
         
         <tr>
           <td colspan="4">
-          <table border="0" cellpadding="0" cellspacing="2" width="100%">
+          <table border="0" style="width: 100%">
             <tr>
               <td class="lstidx">NO.</td>
               <td class="lstidx">姓名</td>
@@ -382,7 +382,7 @@ function checkOutPer()
       <s:else>
          <tr>
         <td colspan="4">
-        <table border="0" cellpadding="0" cellspacing="2" width="100%">
+        <table border="0" style="width: 100%">
           <tr>
             <td class="idx">客户</td>
             <td class="data" align="left" colspan="3">
@@ -428,7 +428,7 @@ function checkOutPer()
       
         <tr>
           <td colspan="4">
-          <table border="0" cellpadding="0" cellspacing="2" width="100%">
+          <table border="0" style="width: 100%">
             <tr>
               <td class="lstidx">No.</td>
               <td class="lstidx">摘要</td>
@@ -555,7 +555,7 @@ function checkOutPer()
   
    <!-- 国内短线帐单 -->
   <s:elseif test='isShort=="Y"'>
-    <table cellpadding="2" cellspacing="2" width="100%">
+    <table style="width: 100%">
         <tr class="data">
           <td colspan="4" align="center"><h3>确认后请盖章回传</h3></td>
         </tr>

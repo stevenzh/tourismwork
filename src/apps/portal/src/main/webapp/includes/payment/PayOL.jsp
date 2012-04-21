@@ -26,7 +26,7 @@
 		<!-- 左侧结束 --></td>
 		<td valign="top" width="584">
 		<s:form namespace="/" action="affirmPay" method="post" theme="simple" onsubmit="return check()" id="pay">
-			<table width="100%" border="0" align="center" cellpadding="3" cellspacing="0">
+			<table style="width: 100%" border="0" align="center" cellpadding="3">
 
 				<tr>
 					<td width="30%"><STRONG>订单搜索</STRONG></td>

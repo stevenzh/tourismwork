@@ -19,7 +19,7 @@ function _getlist(type)
 
 //-->
 </script>
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<table style="width: 100%" border="0" align="center">
   <tr>
     <td>
     <s:form action="processLineSearch" namespace="/product" method="POST" theme="simple">
@@ -28,13 +28,13 @@ function _getlist(type)
     <s:hidden name="kenStartDatePeriod"></s:hidden>
     <s:hidden name="kenEndDatePeriod"></s:hidden>
 
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <table align="center" border="0" style="width: 100%">
       <tr>
         <td bgcolor="#ffffff" valign="top">
-        <table bgcolor="#d1e9d7" border="0" cellpadding="0" cellspacing="0" width="100%">
+        <table bgcolor="#d1e9d7" border="0" style="width: 100%">
           <tr>
             <td height="45">
-            <table border="0" cellpadding="0" cellspacing="1" width="100%">
+            <table border="0" style="width: 100%">
               <tr bgcolor="#d1e9d7">
                 <th align="center">NO.</th>
                 <th align="center">线路名</th>

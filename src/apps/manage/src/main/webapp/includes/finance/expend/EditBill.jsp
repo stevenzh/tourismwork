@@ -68,7 +68,7 @@ function totalchange()
   <s:hidden name="kenPay"></s:hidden>
   <s:hidden name="outcomeId"></s:hidden>
     
-  <table border="0" cellpadding="" width="100%">
+  <table border="0" cellpadding="" style="width: 100%">
     <tr>
       <td class="idx" width="20%">类型</td>
       <td class="data">&nbsp;<s:property value="resource"/></td>
@@ -80,7 +80,7 @@ function totalchange()
    </table>
    <br>
    
-   <table border="0" width="100%">
+   <table border="0" style="width: 100%">
     <tr>
       <td colspan="7">付款申请明细</td>
     </tr>
@@ -143,7 +143,7 @@ function totalchange()
     </s:iterator>
     
     </table>
-    <table border="0" width="100%">
+    <table border="0" style="width: 100%">
     <tr>
       <td class="lstidx" width="20%">申请付款合计</td>
         <td>

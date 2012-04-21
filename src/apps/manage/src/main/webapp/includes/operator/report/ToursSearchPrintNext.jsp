@@ -23,7 +23,7 @@
 <s:hidden name="tourNum"></s:hidden>
 
 <s:iterator value="tours">
-<table align="center" border="0" bordercolor="#000000" cellpadding="2" cellspacing="2" width="100%">
+<table align="center" border="0" bordercolor="#000000" style="width: 100%">
   <tr>
     <td class="idx" width="15%">团号:</td>
     <td><s:property value="tourNo"/></td>
@@ -67,7 +67,7 @@
   
   <tr>
     <td colspan="4">
-    <table bordercolor="#000000" border="0" cellpadding="0" cellspacing="1" width="100%">
+    <table bordercolor="#000000" border="0" style="width: 100%">
         <tr>
           <td class="lstidx">No.</td>
           <td class="lstidx">选择</td>

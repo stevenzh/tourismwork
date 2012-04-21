@@ -86,7 +86,7 @@ function printCustomerList()
 }
 </script>
 <s:form namespace="/operator" method="post" theme="simple">
-	<table border="0" cellpadding="0" width="100%">
+	<table border="0" style="width: 100%">
 		<tr>
 			<td class="idx">组团社序号：</td>
 			<td bgcolor="white" colspan="2"><s:textfield id="tourSerialNumber1" name="tour.tourSerialNumber" value="L-SH-GJ00070"/>&nbsp;<font color="red">*</font></td>
@@ -151,7 +151,7 @@ function printCustomerList()
 	</table>
 	<br>
 
-	<table border="0" cellpadding="2" cellspacing="2" width="100%">
+	<table border="0" style="width: 100%">
 	<tr><td>
 		<input type="button" value="打印出境名单"
 			onclick="javascript:printCustomerList()" />

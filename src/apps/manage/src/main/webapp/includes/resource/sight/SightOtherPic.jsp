@@ -43,7 +43,7 @@ function checkArea(vid, len)
 
 <s:form action="showSights" namespace="/resource" method="POST" theme="simple">
 <s:hidden name="refNo" />
-<table width="100%">
+<table style="width: 100%">
     <tr>
       <td class="lstidx" width="20%">显示序列</td>
       <td class="lstidx" width="60%">内容</td>

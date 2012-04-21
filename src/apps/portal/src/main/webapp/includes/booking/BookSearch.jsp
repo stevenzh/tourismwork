@@ -23,10 +23,10 @@
 	}
 </script>
 
-<table align="center" cellpadding="0" cellspacing="0" width="760">
+<table align="center" width="760">
 	<tr>
 		<td colspan="2">
-		<table border="0" cellpadding="2" cellspacing="0" width="100%">
+		<table border="0" style="width: 100%">
 			<tr>
 				<td>订单管理</td>
 			</tr>
@@ -36,7 +36,7 @@
 	<tr>
 		<td><s:form action="BookSearchSubmit" namespace="/distribution"
 			method="post" theme="simple">
-			<table border="0" cellpadding="1" cellspacing="2" width="100%">
+			<table border="0" cellpadding="1" style="width: 100%">
 				<tr>
 					<td class="idx" width="71">分类：</td>
 					<td class="data"><s:radio list="classTypeList" listKey="value"
@@ -104,7 +104,7 @@
 	<tr>
 		<td>
 		<table border="1" bordercolor="#b9c0ff"
-			cellpadding="0" cellspacing="0" width="760">
+			cellspacing="0" width="760">
 			<tr bgcolor="#b9c0ff">
 				<td class="lstidx" width="24">No.</td>
 				<td class="lstidx">订单号</td>

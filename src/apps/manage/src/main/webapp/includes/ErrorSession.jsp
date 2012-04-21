@@ -15,10 +15,10 @@ function abc()
 </script>
 </head>
 <body>
-<table border="1" width="100%">
+<table border="1" style="width: 100%">
   <tr valign="top">
     <td>
-    <table border="0" width="100%">
+    <table border="0" style="width: 100%">
       <tr>
         <th valign="middle" align="center">错误信息</th>
       </tr>

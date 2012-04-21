@@ -101,7 +101,7 @@ function showLeftCol(bShow, bSetCookie)
 	<div id="content" class="clearfix">
 	  <jsp:include page="/includes/decorators/menu.jsp"/>
     <div id="main">
-		<table cellpadding="0" cellspacing="0" border="0" style="width: 100%">
+		<table border="0" style="width: 100%">
 		  <tr>
 		    <td valign="top" id="tdShortcuts" width="8%">
         <s:action name="showShortcut" namespace="/" executeResult="true"  />

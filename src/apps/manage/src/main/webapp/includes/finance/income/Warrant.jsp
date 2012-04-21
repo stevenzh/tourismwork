@@ -14,7 +14,7 @@
 
 <s:form action="warrantsubmit" namespace="/finance" method="POST" theme="simple">
 <s:hidden name="kenDepartmentId"></s:hidden>
-<table border="1" cellpadding="0" cellspacing="0" width="100%">
+<table border="1" style="width: 100%">
   <tr>
   	<td class="idx">团号</td>
   	<td><s:property value="tourNo"/><s:hidden name="tourNo"/></td>

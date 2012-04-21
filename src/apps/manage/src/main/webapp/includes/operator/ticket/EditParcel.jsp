@@ -58,7 +58,7 @@ function goBack()
   <s:hidden name="outcomeId"></s:hidden>
 
  <h3>应付客户：<s:property value="supplier.supplierName"/></h3>
- <table border="1" cellpadding="0" cellspacing="0" width="100%">
+ <table border="1" style="width: 100%">
    <tr>
      <td class="lstidx">取票地址</td>
      <td class="data" colspan="3"><s:property value="supplier.address"/>&nbsp;</td>
@@ -76,7 +76,7 @@ function goBack()
    </table>
    <br>
    
- <table border="1" cellpadding="0" cellspacing="0" width="100%">
+ <table border="1" style="width: 100%">
    <tr>
      <td class="lstidx">申请人</td>
      <td class="data"><s:property value="billhead.createdByName"/>&nbsp;</td>
@@ -86,7 +86,7 @@ function goBack()
      <td class="data" colspan="3"><s:property value="billhead.carryNote"/>&nbsp;</td>
    </tr>
    </table>
- <table border="1" cellpadding="0" cellspacing="0" width="100%">
+ <table border="1" style="width: 100%">
    <tr>
       <td class="lstidx">No.</td>
       <td class="lstidx">团号</td>
@@ -106,7 +106,7 @@ function goBack()
   </s:if>
   </table>
   
-  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td class="data">配送时间：</td>
       <td>

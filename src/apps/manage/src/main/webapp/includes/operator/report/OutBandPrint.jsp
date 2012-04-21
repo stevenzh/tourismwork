@@ -44,7 +44,7 @@ function printRoute(param)
 
 <s:form action ="OutBandChange" namespace="/operator" method="post" theme="simple">
 
-  <table border="0" cellpadding="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td>对象：</td>
       <td>
@@ -75,7 +75,7 @@ function printRoute(param)
   </table>
   <br>
 
-  <table border="0" cellpadding="2" cellspacing="2" width="100%">
+  <table border="0" style="width: 100%">
   <tr><td>
     <input type="button" value="打印"
       onclick="javascript:printRoute('<s:property value='tourNo' />')" />

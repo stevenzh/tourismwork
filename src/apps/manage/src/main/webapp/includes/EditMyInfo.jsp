@@ -11,7 +11,7 @@
 <body>
 <s:form action="submitMyInfo" namespace="/manage" method="POST" theme="simple">
   <s:hidden name="employee.userId"></s:hidden>
-  <table border="0" cellpadding="2" cellspacing="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td class="idx" width="100">用户代码：</td>
       <td class="data"><s:property value="employee.uid"/></td>

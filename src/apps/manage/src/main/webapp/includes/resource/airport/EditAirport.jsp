@@ -57,7 +57,7 @@ function CountryChanged()
 <s:hidden name="kenCityId"></s:hidden>
 <s:hidden name="kenDelkey"></s:hidden>
 
-	<table cellpadding="0" cellspacing="2">
+	<table cellspacing="2">
     <tr>
       <td class="idx">所属国家/地区：</td>
       <td>

@@ -3,7 +3,7 @@
 <%@ taglib uri="sitemesh-decorator" prefix="decorator" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<table width="100%" height="50" border="0" cellpadding="0" cellspacing="0">
+<table style="width: 100%; height:50px;border: 0px;">
   <tr>
     <td width="400"><img src="<s:url value="/images/tourwork-4.gif" />"></td>
     <td>&nbsp;</td>

@@ -91,10 +91,10 @@ function selectAll(param)
   <s:hidden name="expressId"></s:hidden>
   <s:hidden name="reserveNo"></s:hidden>
 
-  <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <table align="center" border="0" style="width: 100%">
     <tr>
       <td><!-- 查询区开始 -->
-      <table align="left" border="0" cellpadding="0" cellspacing="1" width="100%">
+      <table align="left" border="0" style="width: 100%">
           <tr>
             <td class="idx">配送单号：</td>
             <td><s:textfield name="kenExpressId" size="20" maxlength="10" /></td>
@@ -139,7 +139,7 @@ function selectAll(param)
     </tr>
   </table>
 
-  <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <table align="center" border="0" style="width: 100%">
     <tr>
       <td>
 　　　　<input type="button" onclick="javascript:selectAll('Y');" value="全选">
@@ -148,7 +148,7 @@ function selectAll(param)
     </tr>
     <tr>
       <td valign="top">
-      <table border="1" bordercolor="#b9c0ff" cellpadding="1" cellspacing="0" width="100%">
+      <table border="1" bordercolor="#b9c0ff" cellpadding="1" style="width: 100%">
         <tr bgcolor="#b9c0ff">
           <td class="lstidx">&nbsp;</td>
           <td class="lstidx">No.</td>

@@ -8,12 +8,12 @@
 <s:head />
 </head>
 <body>
-<table width="760" border="0" align="center" cellpadding="0" cellspacing="1">
+<table width="760" border="0" align="center" cellspacing="1">
   <tr>
     <td valign="top" width="172" height="25">
 
     <!-- 左侧栏目 -->
-    <table width="167" border="0" align="center" cellpadding="0" cellspacing="0">
+    <table width="167" border="0" align="center">
 
       <!-- 活动专区 -->
       <tr>
@@ -24,7 +24,7 @@
       </tr>
       <tr>
         <td>
-        <table cellspacing="1" cellpadding="0" width="167" align="center" border="0">
+        <table width="167" align="center" border="0">
         <s:if test="activityAds.isEmpty()">
           <tr>
             <td height="20" valign="baseline" bgcolor="#FFFFFF" align="center">最近未举行活动</td>
@@ -74,7 +74,7 @@
       </tr>
       <tr>
         <td>
-        <table cellspacing="1" cellpadding="0" width="100%" align="center" border="0">
+        <table style="width: 100%" align="center" border="0">
           <!-- 签证办理办法 -->
           <tr>
             <td valign="baseline" bgcolor="#ffffff" height="20">&nbsp;&nbsp;<a href="<s:url action='showVisaHelp' namespace='/'/>" target="_blank">签证办理办法</a></td>
@@ -100,7 +100,7 @@
       </tr>
       <tr>
         <td>
-        <table cellspacing="1" cellpadding="0" width="100%" align="center" border="0">
+        <table style="width: 100%" align="center" border="0">
           <tr>
             <td height="8"></td>
           </tr>
@@ -121,7 +121,7 @@
     </td>
     <td valign="top" width="584">
     <!-- 订单信息 -->
-    <table width="100%" align="center" border="0" cellpadding="0" cellspacing="1">
+    <table style="width: 100%" align="center" border="0" cellspacing="1">
       <tr>
         <td colspan="4" align="center">预订表</td>
       </tr>
@@ -159,7 +159,7 @@
     <br />
     
     <!-- 游客信息 -->
-    <table width="100%" align="center" border="0" cellpadding="0" cellspacing="1">
+    <table style="width: 100%" align="center" border="0" cellspacing="1">
       <tr>
         <td class="lstidx">No.</td>
         <td class="lstidx">姓名</td>
@@ -193,7 +193,7 @@
     <br>
 
     <!-- 付款记录 -->
-    <table width="100%" align="center" border="0" cellpadding="0" cellspacing="1">
+    <table style="width: 100%" align="center" border="0" cellspacing="1">
       <tr>
         <td class="lstidx">支付时间</td>
         <td class="lstidx">支付金额（元）</td>

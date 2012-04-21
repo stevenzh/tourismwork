@@ -102,11 +102,11 @@ function setCheckInDate(d)
 
 //-->
 </script>
-<table cellspacing="0" cellpadding="1" width="760"align="center" border="0">
+<table cellpadding="1" width="760"align="center" border="0">
   <tr>
     <!-- 左侧栏目 -->
     <td valign="top" width="172" bgcolor="#f7f7f7">
-      <table width="100%" border="0">
+      <table style="width: 100%" border="0">
         <tr>
           <td align="middle" bgcolor="#d9dbff" height="20">
             <font color="#000000">最新线路</font>
@@ -114,7 +114,7 @@ function setCheckInDate(d)
         </tr>
         <tr>
           <td>
-            <table width="100%" border="0">
+            <table style="width: 100%" border="0">
               <s:iterator value="newLines">
                 <tr>
                   <td align="left" width="10%" height="20">
@@ -139,11 +139,11 @@ function setCheckInDate(d)
 
     <!-- 中央区-开始 -->
     <td valign="top" width="416">
-      <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#6699cc" border="0">
+      <table style="width: 100%" bgcolor="#6699cc" border="0">
         <tr>
           <td height="104">
             <s:form id="line_form" action="AbroadSearch" namespace="/" method="post" theme="simple">
-            <table cellspacing=3 cellpadding=0 width="100%" bgcolor=#ffffff border=0>
+            <table cellspacing=3 cellpadding=0 style="width: 100%" bgcolor=#ffffff border=0>
               <tr>
                 <td colspan="2" height="25">
                   <s:radio name="classType"
@@ -189,12 +189,12 @@ function setCheckInDate(d)
           </td>
         </tr>
       </table>
-      <table height=14 cellspacing=0 cellpadding=0 width="100%" border=0>
+      <table height=14 cellspacing=0 cellpadding=0 style="width: 100%" border=0>
         <tr>
           <td height=10></td>
         </tr>
       </table>
-      <table cellspacing="0" cellpadding="0" width="100%" border="0">
+      <table style="width: 100%" border="0">
         <s:iterator value="plans">
           <tr>
             <td class="fond" bgcolor="#f7f7f7" colspan="7" height="22">
@@ -225,12 +225,12 @@ function setCheckInDate(d)
             <td colspan="7" height="5">&nbsp;</td>
         </s:iterator>
       </table>
-      <hr width="100%" size="1">
+      <hr style="width: 100%" size="1">
     </td>
 
     <!-- 右侧开始 -->
     <td valign="top" width="172">
-      <table cellspacing="0" cellpadding="0" width="100%" border="0">
+      <table style="width: 100%" border="0">
         <tr>
           <td bgcolor="#6493d9" height="20">
             <div class="fond" align="center">
@@ -241,7 +241,7 @@ function setCheckInDate(d)
         <tr>
           <td valign="center">
             <marquee onMouseOver="this.stop()" onMouseOut="this.start()" scrollamount=1 scrolldelay=60 direction=up height=200>
-              <table cellspacing="2" cellpadding="0" width="100%" border="0">
+              <table style="width: 100%" border="0">
                 <tr>
                   <td align="center" valign="top" colspan="2">
                       <br>
@@ -255,17 +255,17 @@ function setCheckInDate(d)
         </tr>
       </table>
 
-      <table cellspacing=2 cellpadding=0 width="100%" border="0">
+      <table cellspacing=2 cellpadding=0 style="width: 100%" border="0">
         <!-- 旅游工具箱 -->
         <tr>
           <td height="3"></td>
         </tr>
         <tr>
-          <td align="center" width="100%" height="30">旅游工具箱</td>
+          <td align="center" style="width: 100%" height="30">旅游工具箱</td>
         </tr>
         <tr>
           <td>
-          <table cellspacing="1" cellpadding="0" width="100%" align="center" border="0">
+          <table style="width: 100%" align="center" border="0">
             <!-- 签证办理办法 -->
             <tr>
               <td valign="baseline" bgcolor="#ffffff" height="20">&nbsp;&nbsp;<a href="/visa_temp.htm" target="_blank">签证办理办法(下载)</a></td>

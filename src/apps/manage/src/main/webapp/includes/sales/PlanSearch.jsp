@@ -90,7 +90,7 @@ function showRoute(param)
     <tr>
       <td>
       <!-- 查询区开始 -->
-      <table align="left" border="0" cellpadding="0" cellspacing="1" width="100%">
+      <table align="left" border="0" style="width: 100%">
         <tr>
           <td class="idx">工作组(操作)：</td>
           <td>

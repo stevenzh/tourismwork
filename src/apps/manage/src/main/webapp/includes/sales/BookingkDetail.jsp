@@ -212,7 +212,7 @@ function bookInfo()
 
 </SCRIPT>
 
-<table width="100%">
+<table style="width: 100%">
   <tr>
     <td colspan="4" class="header">[订单管理]-查看订单</td>
   </tr>
@@ -229,7 +229,7 @@ function bookInfo()
 <s:hidden name="expressId"></s:hidden>
 <s:hidden name="note"></s:hidden>
 
-<table align="center" border="0" cellpadding="0" cellspacing="2" width="100%">
+<table align="center" border="0" style="width: 100%">
   <tr>
     <td class="idx">线路：</td>
     <td colspan="2"><s:property value="book.plan.line.lineName"/>&nbsp;</td>
@@ -383,7 +383,7 @@ function bookInfo()
     <td colspan="4">
     <s:if test="expressList.size == 0">没有配送记录</s:if>
     <s:else>
-    <table border="1" bordercolor="#b9c0ff" cellpadding="0" cellspacing="0" width="100%">
+    <table border="1" bordercolor="#b9c0ff" style="width: 100%">
       <tr bgcolor="#b9c0ff">
         <td class="lstidx">配送单号</td>
         <td class="lstidx">团号</td>
@@ -414,7 +414,7 @@ function bookInfo()
     <td colspan="4">
     <s:if test="payments.size == 0">没有收款记录</s:if>
     <s:else>
-    <table border="1" cellpadding="0" cellspacing="0" width="100%">
+    <table border="1" style="width: 100%">
       <tr>
         <td class="lstidx">说明</td>
         <td class="lstidx">付款方式</td>
@@ -460,7 +460,7 @@ function bookInfo()
   <s:if test="bookLogList.size != 0">
   <tr>
   	<td colspan="4">
-		<table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+		<table border="0" style="width: 100%" align="center">
 			<tr>
         <td id="td_all" style="background-color: bbbbbb" width="1%" nowrap align="center">
             &nbsp;<b><a id="a_all" href="####" style="color:#FFFFFF ; text-decoration: none" onclick="javascript:bookLogAll()">所有</a></b>&nbsp;
@@ -479,13 +479,13 @@ function bookInfo()
 	  
   <tr>
   	<td colspan="4">
-		<table border="1" width="100%" bordercolor="bbbbbb">
+		<table border="1" style="width: 100%" bordercolor="bbbbbb">
 			<tr>
 				<td>
 		  		<div id="div_bookInfo"  style="display: none;">
 		  			<s:iterator value="bookLogList" status="rowccount">
 		  				<s:if test="info.size != 0">
-				  			<table cellpadding="2" cellspacing="1" border="0" width="100%">
+				  			<table border="0" style="width: 100%">
 			            <tr>
 		                <td bgcolor="f0f0f0" colspan="3" style="padding-top: 3px;">
                        <s:property value="modifiedUserName"/>&nbsp; 进行了改变 &nbsp;<font size="-2">[<font color="336699"><s:date name="modifiedDate" format="yyyy年MM月dd日 HH:mm"/></font>]</font>
@@ -509,7 +509,7 @@ function bookInfo()
 		  		</div>
 		  		<div id="div_bookNote"  style="display: none;">
 		  			<s:iterator value="bookLogList" status="rowccount">
-				  		<table cellpadding="2" cellspacing="1" border="0" width="100%">
+				  		<table border="0" style="width: 100%">
 		            <tr>
                   <td bgcolor="f0f0f0" style="padding-top: 3px;">
                     <s:property value="modifiedUserName"/>&nbsp; - &nbsp; <font size="-2">[<font color="336699"><s:date name="modifiedDate" format="yyyy年MM月dd日 HH:mm"/></font>]</font>
@@ -525,7 +525,7 @@ function bookInfo()
 		  		<div id="div_AllBookInfo">
 		  			<s:iterator value="bookLogList" status="rowccount">
 		  				<s:if test="info.size != 0">
-				  			<table cellpadding="2" cellspacing="1" border="0" width="100%">
+				  			<table border="0" style="width: 100%">
 			            <tr>
 			                <td bgcolor="f0f0f0" colspan="3" style="padding-top: 3px;">
 			                       <s:property value="modifiedUserName"/>&nbsp; 进行了改变 &nbsp;<font size="-2">[<font color="336699"><s:date name="modifiedDate" format="yyyy年MM月dd日 HH:mm"/></font>]</font>
@@ -583,7 +583,7 @@ function bookInfo()
 </s:form>
 
 <br>  
-<table width="100%">
+<table style="width: 100%">
   <tr>
     <td class="lstidx">操作</td>
     <td align="center" class="data">

@@ -38,7 +38,7 @@ function changeCountry()
   </table>
   <br/>
   
-  <table width="100%">
+  <table style="width: 100%">
     <tr>
       <td class="lstidx">选定</td>
       <td class="lstidx">国家</td>

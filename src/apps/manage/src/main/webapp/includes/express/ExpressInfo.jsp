@@ -9,7 +9,7 @@
 <meta name="heading" content="配送详细信息">
 </head>
 
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
 <!--//
 function auditing(param)
 {
@@ -118,7 +118,7 @@ function expressInfo()
   <s:hidden name="expressId"></s:hidden>
   <s:hidden name="isPass"></s:hidden>
   <s:hidden name="note"></s:hidden>
-  <table border="1" cellpadding="2" cellspacing="0" width="80%" >
+  <table border="1" style="width: 80%" >
     <tr>
       <td class="idx">配送单号：</td>
       <td class="data" colspan="3"><s:property value="express.expressId" />&nbsp;</td>
@@ -175,7 +175,7 @@ function expressInfo()
     </tr>
   </table>
   <h4>配送明细列表</h4>
-  <table border="1" cellpadding="0" cellspacing="0" width="100%">
+  <table border="1" style="width: 100%">
     <tr>
       <td class="lstidx">No.</td>
       <td class="lstidx">配送项目</td>
@@ -204,7 +204,7 @@ function expressInfo()
   <div>操作历史</div>
   <br>
 
-<table width="100%">
+<table style="width: 100%">
   <tr>
     <td class="lstidx">操作</td>
     <td align="center" class="data">
@@ -243,14 +243,14 @@ function expressInfo()
   </tr>
 </table>
 
-<table align="center" border="0" cellpadding="0" cellspacing="2" width="100%">
+<table style="width: 100%">
   <tr>
     <td colspan="4"><STRONG>操作历史</STRONG>&nbsp;</td>
   </tr>	
   <s:if test="expressLogList.size != 0">
 	  <tr>
 	  	<td colspan="4">
-	  		<table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+	  		<table style="width: 100%">
 	  			<tr>
 	                <td id="td_all" style="background-color: bbbbbb" width="1%" nowrap align="center">
 	                    &nbsp;<b><a id="a_all" href="####" style="color:#FFFFFF ; text-decoration: none" onclick="javascript:expressLogAll()">所有</a></b>&nbsp;
@@ -271,12 +271,12 @@ function expressInfo()
 	  
 	  <tr>
 	  	<td colspan="4">
-	  		<table border="1" width="100%" bordercolor="bbbbbb">
+	  		<table style="width: 100%; border:1px; border-color: #bbbbbb">
 	  			<tr>
 	  				<td>
 				  		<div id="div_expressInfo"  style="display: none;">
 				  			<s:iterator value="expressLogList" status="rowccount">
-					  			<table cellpadding="2" cellspacing="1" border="0" width="100%">
+					  			<table style="width: 100%; border: 1px">
 						            <tr>
 						                <td bgcolor="f0f0f0" colspan="3" style="padding-top: 3px;">
 						                       <s:property value="modifiedUserName"/>&nbsp; 进行了改变 &nbsp;<font size="-2">[<font color="336699"><s:date name="modifiedDate" format="yyyy年MM月dd日 HH:mm"/></font>]</font>
@@ -311,7 +311,7 @@ function expressInfo()
 				  		</div>
 				  		<div id="div_expressNote"  style="display: none;">
 				  			<s:iterator value="expressLogList" status="rowccount">
-						  		<table cellpadding="2" cellspacing="1" border="0" width="100%">
+						  		<table border="0" style="width: 100%">
 						            <tr>
 						                <td bgcolor="f0f0f0" style="padding-top: 3px;">
 						                       <s:property value="modifiedUserName"/>&nbsp; - &nbsp; <font size="-2">[<font color="336699"><s:date name="modifiedDate" format="yyyy年MM月dd日 HH:mm"/></font>]</font>
@@ -326,7 +326,7 @@ function expressInfo()
 				  		
 				  		<div id="div_AllExpressInfo">
 				  			<s:iterator value="expressLogList" status="rowccount">
-					  			<table cellpadding="2" cellspacing="1" border="0" width="100%">
+					  			<table border="0" style="width: 100%">
 						            <tr>
 						                <td bgcolor="f0f0f0" colspan="3" style="padding-top: 3px;">
 						                       <s:property value="modifiedUserName"/>&nbsp; 进行了改变 &nbsp;<font size="-2">[<font color="336699"><s:date name="modifiedDate" format="yyyy年MM月dd日 HH:mm"/></font>]</font>

@@ -82,7 +82,7 @@ function print (outcomeId)
   <s:hidden name="outcomeId" ></s:hidden>
   <s:hidden name="act"></s:hidden>
 
-  <table border="0" cellpadding="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td class="idx">工作组:</td>
       <td colspan="2">
@@ -138,7 +138,7 @@ function print (outcomeId)
 <s:form action="listParcel11" namespace="/operator" method="post"
   theme="simple">
 
-  <table border="0" cellpadding="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td class="lstidx">付款申请号</td>
       <td class="lstidx">客户名称</td>

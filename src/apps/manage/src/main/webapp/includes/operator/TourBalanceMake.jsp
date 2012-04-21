@@ -292,7 +292,7 @@ function checkOut(para,para1)
     <s:hidden name="singleTourBalance.planNo"></s:hidden>
     <s:hidden name="singleTourBalance.team.teamId"></s:hidden>
 
-    <table border="0" cellpadding="0" width="100%">
+    <table border="0" style="width: 100%">
       <tr>
         <td class="idx">线路</td>
         <td colspan="5" class="data">
@@ -443,11 +443,11 @@ function checkOut(para,para1)
       
     </table>
     
-    <table border="0" cellpadding="0" width="100%">
+    <table border="0" style="width: 100%">
       <tr>
         <td colspan="6">
 
-        <table border="0" cellpadding="0" width="100%">
+        <table border="0" style="width: 100%">
           <tr>
             <td class="lstidx">NO.</td>
             <td class="lstidx">费用类型</td>

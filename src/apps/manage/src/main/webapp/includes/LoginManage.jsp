@@ -12,7 +12,7 @@
 
 <BODY>
 
-<TABLE width="100%" border="0">
+<TABLE style="width: 100%" border="0">
   <TR>
     <TD align="center">
       <img src="<s:url value='/images/tourismwork_logo.png' encode='false' includeParams='none'/>"></TD>

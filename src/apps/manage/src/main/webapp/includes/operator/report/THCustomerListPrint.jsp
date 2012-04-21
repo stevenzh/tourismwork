@@ -19,7 +19,7 @@
 <s:form namespace="/operator" method="post" theme="simple">
 	<s:hidden name="recordNo"></s:hidden>
 
-	<table border="0" cellpadding="0" width="100%">
+	<table border="0" style="width: 100%">
 		<tr>
 			<td>团号：</td>
 			<td><s:property value="tour.tourNo" /></td>
@@ -35,7 +35,7 @@
 	</table>
 	<br>
 
-	<table border="0" cellpadding="2" cellspacing="2" width="100%">
+	<table border="0" style="width: 100%">
 	<tr><td>
 	<input type="button" value="打印" onclick="javascript:printTHList('<s:property value='tour.tourNo' />')" />
 	</td></tr>

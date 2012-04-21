@@ -8,10 +8,10 @@
 </head>
 
 <body>
-<table width="100%">
+<table style="width: 100%">
  <tr>
   <td bgcolor="#99ccff">
-     <table align="center" border="0" cellpadding="0" cellspacing="1" width="100%">
+     <table align="center" border="0" style="width: 100%">
           <tr>
             <td align="center" width="80">
             <a href="<s:url action='showMyBooking' namespace='/accounts' includeParams='none' />">旅游订单</a>&nbsp;&nbsp;|
@@ -30,7 +30,7 @@
 
  <tr>
   <td valign="top" bgcolor="#aaaaee">
-  <table width="100%" align="center" border="0" cellpadding="0" cellspacing="1">
+  <table style="width: 100%" align="center" border="0" cellspacing="1">
   
    <tr align="center">
     <td>订单号</td>

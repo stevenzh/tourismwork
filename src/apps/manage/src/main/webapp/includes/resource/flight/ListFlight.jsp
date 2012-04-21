@@ -85,7 +85,7 @@ function _getlist(type)
     </tr>
   </table>
   <br>
-  <table border="0" cellpadding="0" cellspacing="2" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td class="lstidx">No.</td>
       <td class="lstidx">航班号</td>

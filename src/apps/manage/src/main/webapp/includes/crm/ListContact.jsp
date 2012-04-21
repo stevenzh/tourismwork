@@ -56,7 +56,7 @@
 		</tr>
 	</table>
 
-	<table width="100%">
+	<table style="width: 100%">
 		<tr>
 			<td class="lstidx">NO.</td>
 			<td class="lstidx">联系人</td>

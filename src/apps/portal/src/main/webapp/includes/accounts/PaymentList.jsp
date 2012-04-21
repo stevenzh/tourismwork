@@ -27,7 +27,7 @@
 //-->
 </script>
 <br>
-<table width="100%"  border="0" bgcolor="#b9c0ff">
+<table style="width: 100%"  border="0" bgcolor="#b9c0ff">
   <tr>
     <td align="left" height="25"><b>搜索成果</b></td>
     <td align="right" >共搜索到符合条件的查询&nbsp;<b><s:property value="gatheringList.size"/></b>&nbsp;个</td>
@@ -64,7 +64,7 @@
 
 </s:form>
 
-<table align="left" width="700" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+<table align="left" width="700" border="1" bordercolor="#000000">
   <tr bgcolor="#b9c0ff"> 
     <th height="25" align="center"><font size="-1">No.</font></th>
     <th align="center" width="70"><font size="-1">收款日期</font></th>

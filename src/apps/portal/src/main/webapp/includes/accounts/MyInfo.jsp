@@ -60,10 +60,10 @@ function change()
 //-->
 </script>
 
-<table width="100%">
+<table style="width: 100%">
   <tr>
     <td bgcolor="#99ccff">
-      <table align="center" border="0" cellpadding="0" cellspacing="1" width="100%">
+      <table align="center" border="0" style="width: 100%">
           <tr>
           <td align="center" width="100">
             <a href="<s:url action='showMyBasicInfo' namespace='/accounts' includeParams='none' />">基本信息查询</a>&nbsp;&nbsp;|
@@ -84,7 +84,7 @@ function change()
     <td bgcolor="#99ccff">
     <s:form action="submitMyInfo" namespace="/accounts" method="POST"
       theme="simple">
-      <table align="center" bgcolor="#ffffff" border="0" cellpadding="2" cellspacing="5" width="100%">
+      <table align="center" bgcolor="#ffffff" border="0" cellspacing="5" style="width: 100%">
         <tr bgcolor="#bbbbff">
           <td align="center" colspan="2"><strong>基本信息修改</strong></td>
         </tr>

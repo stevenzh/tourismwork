@@ -85,7 +85,7 @@ function _getlist(type)
 <br>
 
 <s:form namespace="/accounts" action="PriceList" method="POST">
-<table width="100%"  border="0" bgcolor="#b9c0ff">
+<table style="width: 100%"  border="0" bgcolor="#b9c0ff">
   <tr>
     <td align="left" height="25"><b>搜索成果</b></td>
     <td align="right" >共搜索到当期报价<b><s:property value="fileList.size()"/></b>份，以下是第1-<s:property value="fileList.size()"/>项</td>

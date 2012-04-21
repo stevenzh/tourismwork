@@ -18,7 +18,7 @@ function cancel(){
 
 </script>
 
-<table border="0" cellpadding="2" cellspacing="0" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="header">
     <s:if test='opKey eq "A"'>添加航空公司</s:if>
@@ -29,7 +29,7 @@ function cancel(){
 
 <s:form action="submitAirways" method="POST" namespace="/resource" theme="simple">
   <s:hidden name="airways.airwaysId"></s:hidden>
-  <table cellpadding="0" cellspacing="2">
+  <table cellspacing="2">
     <tr>
       <td class="idx">代码:</td>
       <td class="data">

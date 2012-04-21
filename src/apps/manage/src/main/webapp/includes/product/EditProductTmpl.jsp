@@ -19,7 +19,7 @@ function cancel(){
 //-->
 </script>
 
-<table border="0" cellpadding="2" cellspacing="0" width="100%">
+<table border="0" style="width: 100%">
   <tr>
   	<td class="header"><s:if test='tmpl.id == 0'>添加产品描述模板</s:if>
   	<s:else>修改产品描述模板</s:else></td>
@@ -92,7 +92,7 @@ function cancel(){
   	</tr>
   </table>
 
-  <table border="0" cellpadding="2" cellspacing="0" width="0%">
+  <table border="0" width="0%">
   	<tr>
   		<td align="center"><s:if test='tmpl.id == 0'><s:submit value="添加" />
             </s:if><s:else><s:submit value="修改"></s:submit></s:else>

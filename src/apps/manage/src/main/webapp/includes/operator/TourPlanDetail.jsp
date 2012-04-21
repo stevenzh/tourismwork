@@ -27,7 +27,7 @@ function del(){
 }
 //-->
 </script>
-<table border="0" cellpadding="2" cellspacing="0" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="header">修改开班计划 </td>
   </tr>
@@ -131,7 +131,7 @@ function del(){
     </tr>
   </table>
 
-  <table border="0" cellpadding="2" cellspacing="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td align="center">
       <input type="button" value="删除" onclick="javascript:del()" >

@@ -44,7 +44,7 @@ function del()
   <s:hidden name="kenPay"></s:hidden>
   <s:hidden name="outcomeId"></s:hidden>
 
-  <table border="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td class="lstidx" width="15%">应付客户:</td>
       <td colspan="6">
@@ -53,7 +53,7 @@ function del()
     </tr>
   </table>
 
-  <table border="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td align="center" class="lstidx">No.</td>
       <td align="center" class="lstidx">团号</td>
@@ -77,7 +77,7 @@ function del()
     </s:iterator>
   </table>
     
-  <table border="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td class="lstidx" width="20%">此次付款合计：</td>
       <td>

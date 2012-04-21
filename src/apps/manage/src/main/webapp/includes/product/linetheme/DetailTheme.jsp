@@ -33,7 +33,7 @@ function del()
 
 <s:form action="FITTypeDetail" namespace="/product" method="POST">
  <s:hidden name="code"></s:hidden>
-  <table cellpadding="0" cellspacing="0">
+  <table>
     <tr>
       <td>
       <table>

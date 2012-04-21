@@ -121,7 +121,7 @@ function printBalance(tourNo)
 //-->
 </script>
 
-<table border="0" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="header">[单团核算]--查找团</td>
   </tr>
@@ -130,7 +130,7 @@ function printBalance(tourNo)
 <s:form action="SingleTourBalanceSearch" namespace="/finance" method="post" theme="simple">
 <s:hidden name="tourNo"></s:hidden>
 
-<table border="0" cellpadding="0" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="idx">工作组:</td>
     <td colspan="2">
@@ -180,7 +180,7 @@ function printBalance(tourNo)
 
 <br>
 
-<table border="0" cellpadding="2" cellspacing="2" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="lstidx">NO.</td>
     <td class="lstidx" nowrap="nowrap">团号</td>

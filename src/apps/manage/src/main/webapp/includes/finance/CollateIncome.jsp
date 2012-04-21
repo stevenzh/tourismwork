@@ -50,7 +50,7 @@ function ProvinceChanged()
 </script>
 
 <s:form action="collateIncomeAction" namespace="/finance" method="POST" theme="simple">
-<table border="1" cellpadding="0" cellspacing="0" width="100%">
+<table border="1" style="width: 100%">
 	<tr>
   	<td class="idx">省份</td>
     <td colspan="3">
@@ -93,7 +93,7 @@ function ProvinceChanged()
 
 <br>
 
-<table border="1" cellpadding="0" cellspacing="0" width="100%">
+<table border="1" style="width: 100%">
   <tr>
     <td class="lstidx">NO.</td>
     <td class="lstidx">客户</td>

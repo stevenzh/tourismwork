@@ -28,7 +28,7 @@ function cancel()
   <s:hidden name="kenRouteName"></s:hidden>
   <s:hidden name="kenClosekey"></s:hidden>
   <s:hidden name="line.lineNo" />
-  <table width="100%">
+  <table style="width: 100%">
     <tr>
       <td class="tdLabel">线路名:</td>
       <td colspan="3"><s:property value="line.lineName"/></td>

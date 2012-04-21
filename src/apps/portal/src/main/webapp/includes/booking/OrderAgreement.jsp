@@ -8,12 +8,12 @@
 </head>
 <body>
 
-<table align="center" border="0" cellpadding="0" cellspacing="1" width="660">
+<table align="center" border="0" width="660">
   <tr>
     <td>预订前,请您仔细阅读以下服务条款:</td>
   </tr>
   <tr>
-    <td><iframe src="<s:url value='/html/CUS_MEMBER_ORDER_AGREE_PLATFORM.htm' />" frameborder="0" height="340" width="100%"></iframe></td>
+    <td><iframe src="<s:url value='/html/CUS_MEMBER_ORDER_AGREE_PLATFORM.htm' />" frameborder="0" height="340" style="width: 100%"></iframe></td>
   </tr>
   <tr>
     <td align="right">

@@ -136,7 +136,7 @@ function split()
 
 </SCRIPT>
 
-<table width="100%">
+<table style="width: 100%">
   <tr>
     <td colspan="4" class="header">[订单管理]-查看订单</td>
   </tr>
@@ -151,7 +151,7 @@ function split()
 <!-- 出团计划REC_NO -->
 <s:hidden name="book.plan.planNo"></s:hidden>
 
-<table align="center" border="0" cellpadding="0" cellspacing="2" width="100%">
+<table align="center" border="0" style="width: 100%">
   <tr>
     <td class="idx">线路：</td>
     <td colspan="2"><s:property value="book.plan.line.lineName"/>&nbsp;</td>
@@ -222,7 +222,7 @@ function split()
   </tr>
   <tr>
     <td colspan="4">
-    <table border="1" cellpadding="0" cellspacing="0" width="100%">
+    <table border="1" style="width: 100%">
       <tr>
         <td class="lstidx">&nbsp;</td>
         <td class="lstidx">No.</td>
@@ -306,7 +306,7 @@ function split()
 
 <div>操作历史</div>
 <br>  
-<table width="100%">
+<table style="width: 100%">
   <tr>
     <td width="100" class="lstidx">操作</td>
     <td align="center" class="data">

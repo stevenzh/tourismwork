@@ -412,7 +412,7 @@ function changeEmp()
 
   <s:hidden name="idx" />
 
-  <table width="100%" align="center">
+  <table style="width: 100%" align="center">
     <tr>
       <td height="25" colspan="2"><font color="#0000FF"><strong>注意事项：
 </strong></font></td>

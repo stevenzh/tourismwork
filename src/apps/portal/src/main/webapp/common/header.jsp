@@ -19,10 +19,10 @@
     <div class="header_menu left">
       <div class="language green right">
         <span>
-          <c:if test="${pageContext.request.locale.language ne 'en'}">
+          <c:if test="${pageContext.request.locale.language != 'en'}">
           <a href="<s:url value='/?locale=en'/>">English</a>
           </c:if>
-          <c:if test="${pageContext.request.locale.language ne 'zh_CN'}">
+          <c:if test="${pageContext.request.locale.language != 'zh_CN'}">
           <a href="<s:url value='/?locale=zh_CN'/>">中文</a>
           </c:if>
         </span>

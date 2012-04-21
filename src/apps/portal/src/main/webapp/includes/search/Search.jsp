@@ -78,7 +78,7 @@ function checkOutQuery()
    else
        endRecord = current*10;
 %>
-<table width="100%" border="0" bgcolor="#b9c0ff">
+<table style="width: 100%" border="0" bgcolor="#b9c0ff">
   <tr>
     <td width="10"></td>
     <td align="left" height="25"><font size="-1"><b>搜索成果</b></font></td>
@@ -94,13 +94,13 @@ function checkOutQuery()
   </tr>
 </table>
 
-<table border="0" width="100%" cellpadding="2" cellspacing="0">
+<table border="0" style="width: 100%" cellpadding="2">
 <tr>
 <td valign="top" width="10"></td>
 <td valign="top">
 <s:form action="pkgVacation" namespace="/product" method="post" theme="simple">
   <s:hidden id="routeNo" name="lineNo"></s:hidden>
-  <table border="0" width="600" cellpadding="2" cellspacing="0">
+  <table border="0" width="600" cellpadding="2">
   <%
     List<Line> RouteIndexList = (List<Line>)request.getAttribute("RouteIndexList");
     Line routeIndex;
@@ -190,7 +190,7 @@ function checkOutQuery()
 </td>
 
 <td valign="top" align="right">
-   <table border="0" width="250" cellpadding="2" cellspacing="0">
+   <table border="0" width="250" cellpadding="2">
     <%
     List<Line> preferRouteIndexList = (List<Line>)request.getAttribute("preferRouteIndexList");
     Line preferRouteIndex;

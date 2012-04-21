@@ -31,7 +31,7 @@ function del()
 
 <s:form action="AirportDetail" namespace="/resource" method="POST">
   <s:hidden name="airport.code" value="%{aireport.code}" />
-  <table cellpadding="0" cellspacing="0">
+  <table>
     <tr>
       <td>
       <table>

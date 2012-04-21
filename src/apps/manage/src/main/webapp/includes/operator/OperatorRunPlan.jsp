@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="authz"	uri="http://www.springframework.org/security/tags"%>
 
-<table border="0" cellpadding="2" cellspacing="2" width="100%">
+<table border="0" style="width: 100%">
 	<tr>
 		<td class="lstidx">NO.</td>
 		<td class="lstidx">&nbsp;</td>

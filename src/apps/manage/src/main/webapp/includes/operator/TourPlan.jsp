@@ -152,7 +152,7 @@ function detail(no)
 <s:hidden name="lineNo"></s:hidden>
 <s:hidden name="tourNo"></s:hidden>
 
-<table border="0" cellpadding="0" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="idx">线路名称:</td>
     <td colspan="2">
@@ -226,7 +226,7 @@ function detail(no)
 
 <br>
 
-<table border="0" cellpadding="2" cellspacing="2" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="lstidx">NO.</td>
     <td class="lstidx">&nbsp;</td>

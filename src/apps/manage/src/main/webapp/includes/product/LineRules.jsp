@@ -42,7 +42,7 @@ function selectAll()
 
 <div>
 <br>
-<table width="100%">
+<table style="width: 100%">
   <tr>
     <td class="header">[线路管理] <s:property value="line.lineName" />-<s:property value="item.itemName"></s:property></td>
   </tr>

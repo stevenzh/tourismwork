@@ -12,10 +12,10 @@
 <body>
 <center>
 <s:form action="saveInvoice" namespace="/finance" method="POST" theme="simple">
-<table width="760" border="0" cellpadding="0" cellspacing="0" bordercolor="#000000">
+<table width="760" border="0" bordercolor="#000000">
   <tr>
     <td colspan="5">
-    <table width="100%" border="0" cellpadding="0">
+    <table style="width: 100%" border="0" cellpadding="0">
       <tr>
         <td align="center" class="title" height="25">发&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;票</td>
       </tr>
@@ -35,10 +35,10 @@
   </tr>
   <tr>
     <td colspan="4">
-    <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+    <table style="width: 100%" border="1" bordercolor="#000000">
       <tr valign="top">
         <td width="70%">
-        <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+        <table style="width: 100%" border="1" bordercolor="#000000">
           <tr bgcolor="#f2f2f2">
             <td align="center" width="75%" height="30">项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目</td>
             <td align="center" width="25%">金&nbsp;&nbsp;&nbsp;&nbsp;额</td>
@@ -73,7 +73,7 @@
         </table>
         </td>
         <td width="30%">
-        <table width="100%" border="0" cellpadding="0" cellspacing="0" bordercolor="#000000">
+        <table style="width: 100%" border="0" bordercolor="#000000">
           <tr valign="middle">
             <td height="31" colspan="2" align="left">收款方式：</td>
           </tr>
@@ -153,7 +153,7 @@
       </tr>
           <TR>
       <TD colspan="2">
-     <table width="100%" border="0">
+     <table style="width: 100%" border="0">
       <tr>
         <td width="53%">&nbsp;</td>
         <td width="23%">出纳

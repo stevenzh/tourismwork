@@ -73,7 +73,7 @@ function _getlist(type)
       </td>
     </tr>
   </table>
-  <table width="100%">
+  <table style="width: 100%">
     <tr>
       <td class="lstidx">No.</td>
       <td class="lstidx">用户代码</td>

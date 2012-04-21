@@ -110,7 +110,7 @@ function _getlist(type)
 <s:form action="listPayRequisition" namespace="/operator" method="post" theme="simple">
   <s:hidden name="outcomeId" ></s:hidden>
 
-<table border="0" cellpadding="0" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="idx">工作组:</td>
     <td colspan="2">
@@ -190,7 +190,7 @@ function _getlist(type)
 
 <br>
 
-<table border="0" cellpadding="2" cellspacing="2" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="lstidx">NO.</td>
     <td class="lstidx">申请书ID</td>

@@ -57,7 +57,7 @@ function goBack()
   <s:hidden name="outcomeId"></s:hidden>
 
  <h3>应付客户：<s:property value="billhead.supplierName"/></h3>
- <table border="1" cellpadding="0" cellspacing="0" width="100%">
+ <table border="1" style="width: 100%">
    <tr>
      <td class="data" colspan="9"><s:property value="billhead.note"/>&nbsp;</td>
    </tr>
@@ -95,7 +95,7 @@ function goBack()
   </s:if>
   </table>
   
-  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <table border="0" style="width: 100%">
   <tr>
     <td class="data">付款方式：<s:property value="billhead.payModeName"/></td>
     <td class="data">付款日期：<s:date name="billhead.payDate" format="yyyy-MM-dd"/></td>

@@ -310,7 +310,7 @@ function reCount(param)
     <s:hidden name="id"></s:hidden>
     <s:hidden name="status"></s:hidden>
 
-    <table border="0" cellpadding="0" width="100%">
+    <table border="0" style="width: 100%">
       <tr>
         <td class="idx">线路</td>
         <td colspan="5" class="data">
@@ -459,10 +459,10 @@ function reCount(param)
       </tr>
     </table>
     
-    <table border="0" cellpadding="0" width="100%">
+    <table border="0" style="width: 100%">
       <tr>
         <td colspan="6">
-        <table border="0" cellpadding="0" width="100%">
+        <table border="0" style="width: 100%">
           <tr>
             <td class="lstidx">NO.</td>
             <td class="lstidx">费用类型</td>

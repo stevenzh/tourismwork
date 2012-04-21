@@ -14,7 +14,7 @@
 <s:form action="submitBookGathering" namespace="/sales" method="post" theme="simple">
   <s:hidden name="payment.bookingNo" value="%{bookingNo}" />
 
-  <table border="1" cellpadding="0" cellspacing="0"  align="center" width="80%">
+  <table border="1"  align="center" style="width: 80%">
     <tr bgcolor="#f2f2f2">
       <td>付款方式</td>
       <td>

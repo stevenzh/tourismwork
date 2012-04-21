@@ -51,7 +51,7 @@ function submitInvoice(param)
 <s:form action="BookDetail" namespace="/distribution" method="POST" theme="simple">
 <s:hidden name="reserveNo" value="%{book.bookingNo}"></s:hidden>
 
-<table align="center" border="0" cellpadding="0" cellspacing="2" width="760">
+<table align="center" border="0" width="760">
   <tr>
     <td colspan="4"><strong>查看订单</strong></td>
   </tr>
@@ -98,7 +98,7 @@ function submitInvoice(param)
 
   <tr>
     <td colspan="4">
-    <table border="1" cellpadding="0" cellspacing="0" width="100%">
+    <table border="1" style="width: 100%">
       <tr>
         <td class="lstidx">&nbsp;</td>
         <td class="lstidx">No.</td>
@@ -169,7 +169,7 @@ function submitInvoice(param)
   </tr>
   <tr>
     <td colspan="4">
-    <table border="1" cellpadding="0" cellspacing="0" width="100%">
+    <table border="1" style="width: 100%">
       <tr>
         <td class="lstidx">票据号</td>
         <td class="lstidx">说明</td>

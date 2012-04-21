@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<table width="760" border="0" align="center" cellpadding="0" cellspacing="1">
+<table width="760" border="0" align="center" cellspacing="1">
 	<tr>
 		<td valign="top" width="584">
 	<form action="https://pay3.chinabank.com.cn/PayGate" method="POST" name="E_FORM">
@@ -39,7 +39,7 @@
     <s:hidden name="v_ordermobile" value="%{entiy.ordermobile}"></s:hidden>
 			
 			
-		<table width="100%" border="0" align="center" cellpadding="3"
+		<table style="width: 100%" border="0" align="center" cellpadding="3"
 			cellspacing="0">
 			<tr>
 				<td width="30%"><STRONG>订单搜索</STRONG></td>

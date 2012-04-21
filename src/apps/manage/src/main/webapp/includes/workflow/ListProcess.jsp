@@ -18,7 +18,7 @@
       </td>
     </tr>
   </table>
-  <table width="760" border="0" cellpadding="2" cellspacing="1">
+  <table width="760" border="0" cellspacing="1">
     <tr bgcolor="#FFFFFF">
       <th align="center">Name</th>
       <th align="center">Key</th>

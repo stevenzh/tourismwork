@@ -40,7 +40,7 @@ function SubmitForm(param, target)
 <s:hidden name="supplierId"></s:hidden>
 
 <authz:authorize ifAnyGranted="ROLE_SUPPLIER_MANAGER">
-<table border="0" cellpadding="0" cellspacing="2" width="100%">
+<table style="width: 100%; border: 0px;">
 	<tr>
 		<td class="idx" width="100">计调组</td>
 		<td width="250">
@@ -90,10 +90,10 @@ function SubmitForm(param, target)
   
 <input type="button" value="添加供应商" onclick="SubmitForm('add','')" />
 
-<table width="100%">
+<table style="width: 100%">
   <tr>
 	<td colspan="10">
-  	<table border="1" cellpadding="0" cellspacing="0" width="100%">
+  	<table border="1" style="width: 100%">
   	<tr>
       <td class="lstidx">No.</td>
       <authz:authorize ifAnyGranted="ROLE_SUPPLIER_MANAGER">

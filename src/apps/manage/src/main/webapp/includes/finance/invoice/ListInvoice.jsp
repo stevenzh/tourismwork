@@ -54,7 +54,7 @@ function _getlist(type)
 <s:form action="listInvoice" namespace="/finance" method="POST" theme="simple">
 <s:hidden name="inviceId"></s:hidden>
 
-<table border="1" cellpadding="0" cellspacing="0" width="80%">
+<table border="1" style="width: 80%">
     <tr>
       <td class="idx">登记日期开始</td>
       <td>
@@ -81,7 +81,7 @@ function _getlist(type)
 </table>
 <br>
 <br>
-<table border="1" cellpadding="0" cellspacing="0" width="100%">
+<table border="1" style="width: 100%">
   <tr>
     <td class="lstidx">发票号码.</td>
     <td class="lstidx">客户</td>

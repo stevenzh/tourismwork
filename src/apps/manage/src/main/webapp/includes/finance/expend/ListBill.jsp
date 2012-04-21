@@ -129,7 +129,7 @@ function opmodify(outcomeId)
 <s:hidden name="outcomeId" ></s:hidden>
 <s:hidden name="supplierId" ></s:hidden>
 
-<table border="0" cellpadding="0" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="idx">工作组:</td>
     <td  colspan="2">
@@ -215,7 +215,7 @@ function opmodify(outcomeId)
 
 <br>
 
-<table border="0" cellpadding="2" cellspacing="2" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="lstidx">NO.</td>
     <td class="lstidx">付款申请号</td>

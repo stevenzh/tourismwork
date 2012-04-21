@@ -61,7 +61,7 @@ function _getlist(type)
 </script>
 <s:form action="submitChooseLeader" namespace="/operator" method="post" theme="simple">
 
-    <table border="0" cellpadding="0" cellspacing="1" width="100%">
+    <table border="0" style="width: 100%">
         <tr>
           <td class="lstidx">NO.</td>
           <td class="lstidx">选择</td>

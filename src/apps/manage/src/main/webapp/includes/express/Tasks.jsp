@@ -32,7 +32,7 @@ function toAuditing(obj)
   <sj:tabbedpanel id="tabExpress">
   <authz:authorize ifAnyGranted="ROLE_TRANSPORT">
     <sj:tab target="wex" label="等待配送的订单"></sj:tab>
-    <table id="wex" border="0" cellpadding="2" cellspacing="2" width="100%">
+    <table id="wex" border="0" style="width: 100%">
       <tr bgcolor="#b9c0ff">
         <td class="lstidx">NO.</td>
         <td class="lstidx">配送单号</td>
@@ -72,7 +72,7 @@ function toAuditing(obj)
 		<sj:tab target="wje" label="等待缴款的配送单"></sj:tab>
 		<sj:tab target="wge" label="是否需要再次配送"></sj:tab>
 		
-    <table id="wse" border="0" cellpadding="2" cellspacing="2" width="100%">
+    <table id="wse" border="0" style="width: 100%">
       <tr bgcolor="#b9c0ff">
         <td class="lstidx">NO.</td>
         <td class="lstidx">配送单号</td>
@@ -106,7 +106,7 @@ function toAuditing(obj)
       </s:if>
     </table>
 
-    <table id="wje" border="0" cellpadding="2" cellspacing="2" width="100%">
+    <table id="wje" border="0" style="width: 100%">
       <tr bgcolor="#b9c0ff">
         <td class="lstidx">NO.</td>
         <td class="lstidx">配送单号</td>
@@ -140,7 +140,7 @@ function toAuditing(obj)
       </s:if>
     </table>
 
-    <table id="wge" border="0" cellpadding="2" cellspacing="2" width="100%">
+    <table id="wge" border="0" style="width: 100%">
       <tr bgcolor="#b9c0ff">
         <td class="lstidx">NO.</td>
         <td class="lstidx">配送单号</td>
@@ -176,7 +176,7 @@ function toAuditing(obj)
 
 	  <authz:authorize ifAnyGranted="ROLE_VISA_EXAMINE">
     <sj:tab target="vg" label="等待签证材料审核的配送单"></sj:tab>
-      <table id="vg" border="0" cellpadding="2" cellspacing="2" width="100%">
+      <table id="vg" border="0" style="width: 100%">
         <tr bgcolor="#b9c0ff">
           <td class="lstidx">NO.</td>
           <td class="lstidx">配送单号</td>

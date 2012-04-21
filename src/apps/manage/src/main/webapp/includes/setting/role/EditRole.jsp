@@ -56,7 +56,7 @@
   <s:hidden name="role.roleCode"></s:hidden>
 
   <s:hidden name="role.roleId"></s:hidden>
-  <table border="0" cellpadding="2" cellspacing="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td class="idx" width="100">角色ID：</td>
       <td class="data"><s:label name="role.roleId"/></td>
@@ -83,7 +83,7 @@
 
     <tr>
       <td colspan="2">
-    <table border="1" bordercolor="#b9c0ff" cellpadding="1" cellspacing="0" width="100%">
+    <table border="1" bordercolor="#b9c0ff" cellpadding="1" style="width: 100%">
        <tr bgcolor="#b9c0ff">
           <td class="lstidx">模块</td>
           <s:iterator value="permission">

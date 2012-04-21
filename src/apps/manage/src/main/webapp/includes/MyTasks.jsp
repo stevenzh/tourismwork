@@ -4,7 +4,7 @@
 <s:form action="showReadBooking" namespace="/sales" theme="simple" method="POST">
 </s:form>
 
-<table width="100%">
+<table style="width: 100%">
   <tr>
     <td class="lstidx">No.</td>
     <td class="lstidx">名称</td>

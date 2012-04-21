@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <div class="indexHeader">需要确认的单团核算</div>
-<table border="0" cellpadding="2" cellspacing="2" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="lstidx">NO.</td>
     <td class="lstidx" nowrap="nowrap">团号</td>

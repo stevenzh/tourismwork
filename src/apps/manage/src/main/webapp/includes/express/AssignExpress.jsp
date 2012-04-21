@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
 <!--//
 
 function toDelete()
@@ -34,7 +34,7 @@ function toPrint()
   <s:hidden name="express.expressId" value="%{expressId}"></s:hidden>
   <s:hidden name="expressId" />
 
-  <table align="left" border="0" cellpadding="0" cellspacing="2" width="100%">
+  <table style="width: 100%; border: 0px; text-align: left;">
     <tr>
       <td class="idx">配送单号：</td>
       <td colspan="3"><s:property value="express.expressId" /></td>
@@ -109,7 +109,7 @@ function toPrint()
     <tr>
       <td style="vertical-align: top;" class="idx">配送明细：</td>
       <td colspan="3">
-      <table align="left" border="0" cellpadding="0" cellspacing="1" width="100%">
+      <table style="width: 100%; border: 0px; text-align: left">
         <tr>
           <td class="lstidx">No.</td>
           <td class="lstidx">配送项目</td>

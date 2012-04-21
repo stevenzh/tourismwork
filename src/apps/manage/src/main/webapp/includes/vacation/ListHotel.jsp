@@ -87,7 +87,7 @@ function _getlist(type)
 <s:form action="listHotel" namespace="/vacation" method="POST" theme="simple" cssClass="yform">
   <s:hidden name="hotelNo" />
 
-  <table cellpadding="2" cellspacing="2" width="80%">
+  <table style="width: 80%">
     <tr>
       <td class="idx">酒店名称：</td>
       <td>

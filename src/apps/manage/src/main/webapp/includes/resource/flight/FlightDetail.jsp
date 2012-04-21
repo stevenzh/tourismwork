@@ -29,7 +29,7 @@ function del()
 </script>
 
 <s:form action="FlightDetail" namespace="/resource" method="POST">
-  <table cellpadding="0" cellspacing="0">
+  <table>
     <tr>
       <td>
       <table>

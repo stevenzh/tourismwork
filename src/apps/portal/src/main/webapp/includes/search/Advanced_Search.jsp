@@ -212,7 +212,7 @@ function goSearch(param)
 </head>
 <body>
 
-<table width="100%" border="0" cellpadding="2" cellspacing="0">
+<table style="width: 100%" border="0" cellpadding="2">
   <tr>
     <td width="75%" height="25" bgcolor="#DFE1FF"><font size="-1" style="font-weight: bold">高级搜索</font></td>
     <td width="8%" bgcolor="#DFE1FF"><font size="-1"><a href="/html/help.htm" target="_blank">搜索指南</a></font>
@@ -220,12 +220,12 @@ function goSearch(param)
   </tr>
 </table>
 
-<table width="100%" border="0">
+<table style="width: 100%" border="0">
 	<tr>
 	  <td width="80"></td>
 	  <td align="center">
 	  <s:form id="form" action="AdvancedSearch" namespace="/search" method="post" theme="simple">
-		<table width="100%" border="0">
+		<table style="width: 100%" border="0">
 			<tr>
 				<td height="25" valign="bottom"><font size="-1">出发地：</font></td>
 				<td><font size="-1">
@@ -239,7 +239,7 @@ function goSearch(param)
 		<s:form id="form1" action="AdvancedSearch" namespace="/search" method="post" theme="simple">
 		<s:hidden name="searchType"></s:hidden>
 		<s:hidden name="outCity"></s:hidden>
-		<table width="100%" border="0" id="tab_1">
+		<table style="width: 100%" border="0" id="tab_1">
 			<tr bgcolor="#FFFFFF">
 				<td width="120" height="25"><font size="-1">目的地：</font></td>
 				<td valign="bottom"><font size="-1">
@@ -288,7 +288,7 @@ function goSearch(param)
 	  <s:form id="form2" action="AdvancedSearch" namespace="/search" method="post" theme="simple">
 	  <s:hidden name="searchType"></s:hidden>
 		<s:hidden name="outCity"></s:hidden>
-		<table width="100%" border="0" id="tab_2" style="display: none">
+		<table style="width: 100%" border="0" id="tab_2" style="display: none">
 		  <tr bgcolor="#FFFFFF">
 			  <td width="120" height="25"><font size="-1">目的地：</font></td>
 				<td valign="bottom"><font size="-1">
@@ -347,7 +347,7 @@ function goSearch(param)
 	  <s:form id="form3" action="AdvancedSearch" namespace="/search" method="post" theme="simple">
 	  <s:hidden name="searchType"></s:hidden>
 		<s:hidden name="outCity"></s:hidden>
-		<table width="100%" border="0" id="tab_3" style="display: none">
+		<table style="width: 100%" border="0" id="tab_3" style="display: none">
 			<tr bgcolor="#FFFFFF">
 				<td width="120" height="25"><font size="-1">目的地：</font></td>
 				<td valign="bottom"><font size="-1">
@@ -399,7 +399,7 @@ function goSearch(param)
 	<s:form id="form4" action="AdvancedSearch" namespace="/search" method="post" theme="simple">
 	  <s:hidden name="searchType"></s:hidden>
 		<s:hidden name="outCity"></s:hidden>
-		<table width="100%" border="0" id="tab_4" style="display: none">
+		<table style="width: 100%" border="0" id="tab_4" style="display: none">
 			<tr bgcolor="#FFFFFF">
 				<td width="120" height="25"><font size="-1">目的地：</font></td>
 				<td valign="bottom"><font size="-1">

@@ -24,7 +24,7 @@ function order(param)
 	<div class="middle_box_top">
 	  <h2>推荐特色</h2>
 	</div>
-  <table width="100%" border="0">
+  <table style="width: 100%" border="0">
     <s:iterator value="features" status="rowcounter">
       <tr>
         <td width="6%" valign="top">
@@ -42,12 +42,12 @@ function order(param)
   <div class="middle_box_top">
     <h2>出团计划</h2>
   </div>
-  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <table style="width: 100%" border="0">
     <tr>
       <td>
       <s:form action="OrderAgreement" namespace="/accounts" method="GET">
       <s:hidden name="planNo"></s:hidden>
-      <table width="100%" border="0" cellpadding="0" cellspacing="1">
+      <table style="width: 100%" border="0" cellspacing="1">
         <tr>
           <td width="14%" align="center">开班日期</td>
           <td width="39%" align="center">团 号</td>
@@ -81,7 +81,7 @@ function order(param)
   <div class="middle_box_top">
     <h2>行程</h2>
   </div>
-	<table width="100%" border="0" cellspacing="3">
+	<table style="width: 100%" border="0" cellspacing="3">
 	  <s:iterator value="schedule">
 	    <tr>
 	      <td style="width: 40px">
@@ -106,7 +106,7 @@ function order(param)
   <div class="middle_box_top">
     <h2>所需办理签证</h2>
   </div>
-  <table width="100%" border="0" cellspacing="3">
+  <table style="width: 100%" border="0" cellspacing="3">
     <s:iterator value="visaList">
       <tr>
         <td width="6%"><s:property value="countryName"/></td>
@@ -121,7 +121,7 @@ function order(param)
   <div class="middle_box_top">
     <h2>费用包含</h2>
   </div>
-  <table width="100%" border="0">
+  <table style="width: 100%" border="0">
     <s:iterator value="expenseCovered" status="rowcounter">
       <tr>
         <td width="6%" align="center"><s:property value ="#rowcounter.count" />、</td>
@@ -142,7 +142,7 @@ function order(param)
   <div class="middle_box_top">
     <h2>费用不包含</h2>
   </div>
-  <table width="100%" border="0">
+  <table style="width: 100%" border="0">
     <s:iterator value="expenseExcept" status="rowcounter">
       <tr>
         <td width="6%" align="center"><s:property value ="#rowcounter.count" />、</td>
@@ -157,7 +157,7 @@ function order(param)
   <div class="middle_box_top">
     <h2>出行警示</h2>
   </div>
-  <table width="100%" border="0">
+  <table style="width: 100%" border="0">
     <s:iterator value="alerts" status="rowcounter">
     <tr>
       <td width="6%" valign="top">
@@ -174,7 +174,7 @@ function order(param)
   <div class="middle_box_top">
     <h2>重要条款</h2>
   </div>
-  <table width="100%" border="0">
+  <table style="width: 100%" border="0">
     <s:iterator value="rules" status="rowcounter">
     <tr>
       <td width="6%" valign="top">
@@ -190,7 +190,7 @@ function order(param)
   <div class="middle_box_top">
     <h2>小贴士</h2>
   </div>
-  <table width="100%" border="0">
+  <table style="width: 100%" border="0">
     <s:iterator value="routeTipsList" status="rowcounter">
       <tr>
         <td width="6%" align="center" valign="top"><s:property value ="#rowcounter.count" />、</td>
@@ -207,7 +207,7 @@ function order(param)
   <div class="middle_box_top">
     <h2>报价说明</h2>
   </div>
-  <table width="100%" border="0" cellpadding="0" cellspacing="1">
+  <table style="width: 100%" border="0" cellspacing="1">
     <tr>
       <td width="5%" align="center">No.</td>
       <td align="center">摘 要</td>

@@ -101,7 +101,7 @@ function printInv(param, cnamount)
 
 <s:hidden name="gathering.incomeId"></s:hidden>
 
-<table border="1" cellpadding="0" cellspacing="0" width="100%">
+<table border="1" style="width: 100%">
   <!-- 
   <tr>
     <td class="idx">工作组</td>
@@ -172,7 +172,7 @@ function printInv(param, cnamount)
 </table>
 
 
-<table border="1" cellpadding="0" cellspacing="0" width="100%">
+<table border="1" style="width: 100%">
   <tr>
   	<td colspan="10"><s:property value="customerName" />未付清款项</td>
   </tr>
@@ -241,7 +241,7 @@ function printInv(param, cnamount)
   </tr>
 </table>
 
-<table border="1" cellpadding="0" cellspacing="0" width="100%">
+<table border="1" style="width: 100%">
   <tr>
   	<td colspan="10">已填写发票记录</td>
   </tr>

@@ -235,7 +235,7 @@ function areaChange()
       </td>
   </table>
   <br>
-  <table width="100%">
+  <table style="width: 100%">
     <tr>
       <td class="lstidx">NO.</td>
       <td class="lstidx">所在国家</td>

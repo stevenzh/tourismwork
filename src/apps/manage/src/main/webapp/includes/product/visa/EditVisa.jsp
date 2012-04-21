@@ -50,7 +50,7 @@ function SubmitDeleteAttached(param, target)
   <s:hidden name="attachedId"></s:hidden>
   <s:hidden name="country"></s:hidden>
   <s:hidden name="idx"></s:hidden>
-  <table width="100%" border="0" align="center">
+  <table style="width: 100%" border="0" align="center">
     <tr>
       <td class="idx">国家/地区：</td>
       <td class="data" colspan="5">
@@ -154,7 +154,7 @@ function SubmitDeleteAttached(param, target)
     </tr>
     <tr>
       <td colspan="8">
-      <table width="100%">
+      <table style="width: 100%">
         <tr>
           <td colspan="5" class="header">签证所须材料</td>
         </tr>
@@ -200,7 +200,7 @@ function SubmitDeleteAttached(param, target)
     </tr>
     <tr>
       <td colspan="8">
-      <table width="100%">
+      <table style="width: 100%">
         <tr>
           <td class="header" colspan="2">附件</td>
         </tr>

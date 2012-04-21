@@ -12,7 +12,7 @@
 
 <body>
 <s:form action="submitShareFlight" namespace="/resource" method="post" theme="simple">
-  <table width="100%" border="0" align="center">
+  <table style="width: 100%" border="0" align="center">
     <s:if test='tblShareFlight.shareFlightId > 0 '>
      <tr>
     	<td class="idx">共享机位序号：</td>

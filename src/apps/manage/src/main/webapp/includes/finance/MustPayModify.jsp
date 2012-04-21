@@ -47,7 +47,7 @@ function checkOut(para)
 <s:form action="MustPayModify" namespace="/finance"  method="post" theme="simple">
   <s:hidden name="tourNo"></s:hidden>
   
-  <table border="0" cellpadding="0" width="100%">
+  <table border="0" style="width: 100%">
     <tr>
       <td colspan="8"></td>
     </tr>

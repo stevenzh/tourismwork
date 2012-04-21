@@ -32,13 +32,13 @@ function SubmitForm(param,target)
 }
 
 </script>
-<table align="left" border="0" cellpadding="0" width="100%">
+<table align="left" border="0" style="width: 100%">
   <s:form method="post" action="listShareFlight" namespace="/resource" theme="simple">
  <s:hidden name="shFlightId"></s:hidden>
 
     <tr>
       <td>
-      <table border="0" cellpadding="0" width="100%">
+      <table border="0" style="width: 100%">
         <tr bgcolor="#f3f3f3">
           <td class="lstidx">共享机位序号</td>
           <td class="lstidx" align="center">航空公司</td>

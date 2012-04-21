@@ -61,7 +61,7 @@ function selectAll()
 </script>
 
 <s:form action="RouteDistrict" namespace="/product" method="post" theme="simple">
-  <table width="100%">
+  <table style="width: 100%">
     <tr>
       <td width="300">
         <table>

@@ -13,7 +13,7 @@
 <body>
 <s:form action="submitPremium" namespace="/product" method="post" theme="simple">
   <s:hidden name="preminuCode"></s:hidden>
-  <table width="100%" border="0" align="center">
+  <table border="" style="width: 100%">
     <tr>
       <td class="idx">险种：</td>
       <td class="data">

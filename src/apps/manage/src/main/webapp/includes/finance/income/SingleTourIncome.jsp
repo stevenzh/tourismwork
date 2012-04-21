@@ -99,7 +99,7 @@ function printInv(param, cnamount)
 //-->
 </script>
 <s:form action="SingleTourIncomeSubmit" namespace="/finance" method="POST" theme="simple">
-<table border="1" cellpadding="0" cellspacing="0" width="100%">
+<table border="1" style="width: 100%">
   <tr>
   	<td class="idx">团号</td>
   	<td colspan="3"><s:property value="tourNo"/></td>
@@ -124,7 +124,7 @@ function printInv(param, cnamount)
 
 <br>
 
-<table width="100%">
+<table style="width: 100%">
   <tr>
 	  <td class="lstidx" width="30">NO.</td>
       <td class="lstidx">客户</td>

@@ -16,7 +16,7 @@ function cancel(){
   fm.submit();
 }
 </script>
-<table cellpadding="2" cellspacing="2">
+<table cellspacing="2">
   <s:form action="FITTypeAddSubmit" method="POST" namespace="/product" theme="simple">
     <tr>
       <td class="idx">代码：</td>

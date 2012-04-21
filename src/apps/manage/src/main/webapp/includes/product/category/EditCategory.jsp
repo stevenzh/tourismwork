@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <s:form action="saveCategory" namespace="/product" method="POST" theme="simple">
-  <table width="400">
+  <table style="width: 400px">
     <tr>
       <td>分类ID:</td>
       <td>

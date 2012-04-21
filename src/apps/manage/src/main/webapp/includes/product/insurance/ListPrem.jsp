@@ -40,13 +40,13 @@ function SubmitForm(param,target)
 
 </script>
 
-<table align="left" border="0" cellpadding="0" width="100%">
+<table align="left" border="0" style="width: 100%">
   <s:form method="post" action="listPremium" namespace="/product" theme="simple">
  <s:hidden name="preminuCode"></s:hidden>
 
     <tr>
       <td>
-      <table border="0" cellpadding="0" width="100%">
+      <table border="0" style="width: 100%">
         <tr bgcolor="#f3f3f3">
           <td class="lstidx">险种</td>
           <td class="lstidx" align="center">保费</td>

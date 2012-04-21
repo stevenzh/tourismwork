@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<table border="0" cellpadding="2" cellspacing="3" width="100%">
+<table border="0" cellspacing="3" style="width: 100%">
   <tr>
     <th align="center">签证国家</th>
     <th align="center">签证种类</th>

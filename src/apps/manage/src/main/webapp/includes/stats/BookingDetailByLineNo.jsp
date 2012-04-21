@@ -8,14 +8,14 @@
 </head>
 <body>
 
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+<table align="center" border="0" style="width: 100%">
   <tr>
     <td class="header">目的地订单情况一览</td>
   </tr>
 </table>
 
 <s:form action="search" namespace="/sales" method="post" theme="simple">
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+<table align="center" border="0" style="width: 100%">
   <tr>
  		<td>
  			<FONT color="red"><s:date name="startDate" format="yyyy-MM-dd" /> 至 <s:date name="endDate" format="yyyy-MM-dd" /> 统计情况</FONT>

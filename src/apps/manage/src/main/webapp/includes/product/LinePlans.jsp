@@ -55,7 +55,7 @@ function showAdd(){
 <s:hidden name="recordNo"></s:hidden>
 <s:hidden name="note"></s:hidden>
 
-<table border="0" cellpadding="2" cellspacing="2" width="100%">
+<table border="0" style="width: 100%">
   <tr>
     <td class="lstidx">NO.</td>
     <td class="lstidx">&nbsp;</td>

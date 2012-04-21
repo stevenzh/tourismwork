@@ -90,7 +90,7 @@ function showCustomer(target)
 <s:form action="submitArrangeLeader" namespace="/operator" method="POST" theme="simple">
 <s:hidden name="tourNo" value="%{tour.tourNo}"></s:hidden>
 
-<table align="center" border="0" bordercolor="#000000" cellpadding="2" cellspacing="2" width="100%">
+<table align="center" border="0" bordercolor="#000000" style="width: 100%">
   <tr>
     <td class="idx" width="15%">团号:</td>
     <td colspan="3"><s:property value="tour.tourNo"/></td>
@@ -156,7 +156,7 @@ function showCustomer(target)
 
   <tr>
     <td colspan="4">
-    <table bordercolor="#000000" border="0" cellpadding="0" cellspacing="1" width="100%">
+    <table bordercolor="#000000" border="0" style="width: 100%">
         <tr>
           <td class="lstidx">NO.</td>
           <td class="lstidx">选择</td>

@@ -130,7 +130,7 @@ function detail(no,val)
 -->
 </script>
 
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+<table align="center" border="0" style="width: 100%">
   <tr>
     <td class="header">[订单管理]-查询订单</td>
   </tr>
@@ -145,7 +145,7 @@ function detail(no,val)
 
   <s:hidden name="bookingNo"></s:hidden>
 
-  <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <table align="center" border="0" style="width: 100%">
     <tr>
       <td class="idx">线路所属工作组：</td>
       <td>
@@ -212,7 +212,7 @@ function detail(no,val)
     </tr>
   </table>
 
-  <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <table align="center" border="0" style="width: 100%">
     <tr>
       <td><input type="button" onclick="javascript:selectAll('Y');" value="全选">
        <input type="button" onclick="javascript:selectAll('N');" value="全不选">
@@ -220,7 +220,7 @@ function detail(no,val)
     </tr>
     <tr>
       <td valign="top">
-      <table border="1" bordercolor="#b9c0ff" cellpadding="0" cellspacing="0" width="100%">
+      <table border="1" bordercolor="#b9c0ff" style="width: 100%">
         <tr bgcolor="#b9c0ff">
           <td class="lstidx">&nbsp;</td>
           <td class="lstidx">No.</td>

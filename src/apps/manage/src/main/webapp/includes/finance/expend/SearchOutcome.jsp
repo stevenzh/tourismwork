@@ -110,7 +110,7 @@ function CountryChanged()
     </tr>
    </table>
    
-   <table border="0" cellpadding="" width="100%">
+   <table border="0" cellpadding="" style="width: 100%">
    <tr>
       <td class="lstidx">No.</td>
       <td class="lstidx">供应商名称</td>

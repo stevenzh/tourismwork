@@ -15,7 +15,7 @@
   <table style="width: 100%">
     <tr>
       <td>
-  	  <table align="center" border="0" cellpadding="0" cellspacing="2" width="100%">
+  	  <table align="center" border="0" style="width: 100%">
   	  	<tr>
   	  		<td>
   	  			<FONT color="red"><s:date name="startDate" format="yyyy-MM-dd" /> 至 <s:date name="endDate" format="yyyy-MM-dd" /> 统计情况</FONT>

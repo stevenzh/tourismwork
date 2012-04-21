@@ -57,7 +57,7 @@ function pinyin(param)
   <s:hidden name="book.plan.tourNo"></s:hidden>
   <s:hidden name="recordNo"></s:hidden>
 
-  <table width="760" align="center" border="0" cellpadding="0" cellspacing="1">
+  <table width="760" align="center" border="0" cellspacing="1">
     <tr>
       <td class="tdLabel"><label class="label">线路:</label></td>
       <td><s:property value="book.plan.line.lineName"/></td>
@@ -128,7 +128,7 @@ function pinyin(param)
   </table>
   <br/>
   
-  <table width="100%" border="0" cellpadding="0" cellspacing="1">
+  <table style="width: 100%" border="0" cellspacing="1">
     <tr>
       <td class="lstidx">No.</td>
       <td class="lstidx">姓名<span class="required">*</span></td>

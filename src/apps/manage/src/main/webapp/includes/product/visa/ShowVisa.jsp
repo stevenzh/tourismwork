@@ -13,7 +13,7 @@
 <s:form action="listVisa" namespace="/product" method="post" theme="simple">
 <s:hidden name="country"></s:hidden>
 
-<table cellspacing="2" cellpadding="0" width="100%" border="0">
+<table style="width: 100%" border="0">
   <tr>
     <td class="idx">国家/地区：</td>
     <td class="data" colspan="5"><s:property value="visaHelp.cnName" /></td>
