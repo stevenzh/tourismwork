@@ -13,10 +13,10 @@
 </head>
 <body>
 
-<table border="0" style="width: 100%">
+<table style="width: 100%">
   <tr valign="top">
     <td>
-    <table border="0" style="width: 100%">
+    <table style="width: 100%">
       <tr>
         <th align="center">页面错误</th>
       </tr>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
-	<pluginVersion><![CDATA[2.6.0.201103160035-RELEASE]]></pluginVersion>
+	<pluginVersion><![CDATA[2.9.1.201203220057-RELEASE]]></pluginVersion>
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
@@ -15,7 +15,6 @@
 		<config>apps/manage/src/main/webapp/WEB-INF/applicationContext-operate.xml</config>
 		<config>apps/manage/src/main/webapp/WEB-INF/applicationContext-product.xml</config>
 		<config>apps/manage/src/main/webapp/WEB-INF/applicationContext-resource.xml</config>
-		<config>apps/manage/src/main/webapp/WEB-INF/applicationContext-search.xml</config>
 		<config>apps/manage/src/main/webapp/WEB-INF/applicationContext-security.xml</config>
 		<config>apps/manage/src/main/webapp/WEB-INF/applicationContext-setting.xml</config>
 		<config>apps/manage/src/main/webapp/WEB-INF/applicationContext-struts.xml</config>

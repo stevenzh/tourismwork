@@ -9,21 +9,21 @@
   <package name="manage-search" namespace="/search" extends="shcct-manage">
 
     <!-- 线路索引 -->
-    <action name="IndexInput" class="CbIndexAction" method="input">
+    <action name="IndexInput" class="com.opentravelsoft.action.manage.search.CbIndexAction" method="input">
       <result name="input">/includes/search/IndexPage.jsp</result>
     </action>
 
-    <action name="CbIndexAction" class="CbIndexAction">
+    <action name="CbIndexAction" class="com.opentravelsoft.action.manage.search.CbIndexAction">
       <result>/includes/search/IndexPage.jsp</result>
       <result name="input">/includes/search/IndexPage.jsp</result>
     </action>
 
-    <action name="AllIndexAction" class="CbIndexAction" method="allIndex">
+    <action name="AllIndexAction" class="com.opentravelsoft.action.manage.search.CbIndexAction" method="allIndex">
       <result>/includes/search/IndexPage.jsp</result>
       <result name="input">/includes/search/IndexPage.jsp</result>
     </action>
 
-    <action name="RegionIndexAction" class="CbIndexAction" method="regionIndex">
+    <action name="RegionIndexAction" class="com.opentravelsoft.action.manage.search.CbIndexAction" method="regionIndex">
       <result>/includes/search/IndexPage.jsp</result>
       <result name="input">/includes/search/IndexPage.jsp</result>
     </action>

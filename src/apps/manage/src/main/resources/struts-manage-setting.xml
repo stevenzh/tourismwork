@@ -165,20 +165,20 @@
     </action>
 
     <!-- Shortcut -->
-    <action name="searchShortcut" class="ListShortcutAction">
+    <action name="searchShortcut" class="com.opentravelsoft.action.manage.setting.ListShortcutAction">
       <result>/includes/setting/shortcut/List.jsp</result>
       <param name="moduleName">System_view</param>
     </action>
-    <action name="deleteShortcut" class="ListShortcutAction" method="del">
+    <action name="deleteShortcut" class="com.opentravelsoft.action.manage.setting.ListShortcutAction" method="del">
       <result name="input" type="chain">searchShortcut</result>
       <result type="chain">searchShortcut</result>
       <param name="moduleName">System_edit</param>
     </action>
-    <action name="editShortcut" class="EditShortcutAction" method="input">
+    <action name="editShortcut" class="com.opentravelsoft.action.manage.setting.EditShortcutAction" method="input">
       <result name="input">/includes/setting/shortcut/Edit.jsp</result>
       <param name="moduleName">System_view</param>
     </action>
-    <action name="updateShortcut" class="EditShortcutAction">
+    <action name="updateShortcut" class="com.opentravelsoft.action.manage.setting.EditShortcutAction">
       <result name="input" type="chain">editShortcut</result>
       <result type="chain">searchShortcut</result>
       <param name="moduleName">System_edit</param>

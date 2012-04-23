@@ -18,12 +18,8 @@ public class SimpleReportAction extends ManageAction {
 
   private static final long serialVersionUID = 4221358089777062127L;
 
-  private TourService tourService;
-
   @Autowired
-  public TourService getTourService() {
-    return tourService;
-  }
+  private TourService tourService;
 
   private Plan tour = new Plan();
 

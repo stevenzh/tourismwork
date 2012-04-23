@@ -39,10 +39,4 @@
   <bean id="EditTeamAction" class="com.opentravelsoft.action.manage.setting.EditTeamAction" singleton="false">
   </bean>
 
-  <!-- Shortcut -->
-  <bean id="ListShortcutAction" class="com.opentravelsoft.action.manage.setting.ListShortcutAction" singleton="false">
-  </bean>
-  <bean id="EditShortcutAction" class="com.opentravelsoft.action.manage.setting.EditShortcutAction" singleton="false">
-  </bean>
-
 </beans>

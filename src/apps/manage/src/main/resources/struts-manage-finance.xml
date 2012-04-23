@@ -21,7 +21,7 @@
       <interceptor-ref name="defaultStackWithSecurity"></interceptor-ref>
       <param name="moduleName">Finance_view</param>
     </action>
-    <action name="SimplePrint" class="SimpleReport" method="input">
+    <action name="SimplePrint" class="com.opentravelsoft.action.manage.operator.SimpleReportAction" method="input">
       <result name="input">/includes/operator/report/SimplePrint.jsp</result>
       <param name="moduleName">Finance_view</param>
     </action>

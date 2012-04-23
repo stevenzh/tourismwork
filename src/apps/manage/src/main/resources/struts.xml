@@ -82,21 +82,21 @@
     </global-exception-mappings>
      -->
 
-    <action name="Login" class="LoginAction" method="input">
+    <action name="Login" class="com.opentravelsoft.action.manage.LoginAction" method="input">
       <result>/includes/LoginManage.jsp</result>
       <interceptor-ref name="defaultStack"></interceptor-ref>
     </action>
-    <action name="LoginSubmit" class="LoginAction">
+    <action name="LoginSubmit" class="com.opentravelsoft.action.manage.LoginAction">
       <result type="chain">MyPage</result>
       <result name="input" type="redirect">Login.jspa</result>
       <interceptor-ref name="defaultStack"></interceptor-ref>
     </action>
 
-    <action name="MyPage" class="MyPageAction">
+    <action name="MyPage" class="com.opentravelsoft.action.manage.MyPageAction">
       <result>/includes/MyPage.jsp</result>
       <param name="moduleName">Desktop_view</param>
     </action>
-    <action name="showShortcut" class="ShortcutAction">
+    <action name="showShortcut" class="com.opentravelsoft.action.manage.ShortcutAction">
       <result>/includes/Shortcut.jsp</result>
     </action>
     <action name="HelpAction" class="HelpAction">

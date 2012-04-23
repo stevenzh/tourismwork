@@ -22,6 +22,7 @@ public class LoginAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(LoginAction.class);
 
+  @Autowired
   private LoginService loginService;
 
   private String uid;
@@ -29,11 +30,6 @@ public class LoginAction extends ManageAction {
   private String passwd;
 
   private String tel;
-
-  @Autowired
-  public void setLoginService(LoginService loginService) {
-    this.loginService = loginService;
-  }
 
   public String getPasswd() {
     return passwd;
@@ -64,7 +60,6 @@ public class LoginAction extends ManageAction {
   }
 
   public String execute() throws Exception {
-    Employee user = getUser();
     Employee employee = loginService.roGetEmployee(uid);
     if (null != employee) {
       ActionContext.getContext().getSession()

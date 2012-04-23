@@ -5,16 +5,6 @@
   <bean id="EworkAction" class="com.opentravelsoft.action.ManageAction" singleton="false">
   </bean>
 
-  <!-- Login -->
-  <bean id="LoginAction" class="com.opentravelsoft.action.manage.LoginAction" singleton="false">
-  </bean>
-
-  <!-- Big Menu Class -->
-  <bean id="MyPageAction" class="com.opentravelsoft.action.manage.MyPageAction" singleton="false">
-  </bean>
-  <bean id="ShortcutAction" class="com.opentravelsoft.action.manage.ShortcutAction" singleton="false">
-  </bean>
-
   <bean id="OperatorAction" class="com.opentravelsoft.action.manage.OperatorAction" singleton="false">
   </bean>
 

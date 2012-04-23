@@ -359,23 +359,23 @@
     </action>
 
     <!-- Print -->
-    <action name="SimplePrint" class="SimpleReport" method="input">
+    <action name="SimplePrint" class="com.opentravelsoft.action.manage.operator.SimpleReportAction" method="input">
       <result name="input">/includes/operator/report/SimplePrint.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
-    <action name="CustomerListPrint" class="CustomerListPrint" method="input">
+    <action name="CustomerListPrint" class="com.opentravelsoft.action.manage.operator.CustomerListReportAction" method="input">
       <result name="input">/includes/operator/report/CustomerListPrint.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
-    <action name="THCustomerListPrint" class="THCustomerListPrint" method="input">
+    <action name="THCustomerListPrint" class="com.opentravelsoft.action.manage.operator.THReportAction" method="input">
       <result name="input">/includes/operator/report/THCustomerListPrint.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
-    <action name="OutBandPrint" class="OutBandReport" method="input">
+    <action name="OutBandPrint" class="com.opentravelsoft.action.manage.operator.OutBandReportAction" method="input">
       <result name="input">/includes/operator/report/OutBandPrint.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
-    <action name="OutBandChange" class="OutBandReport" method="getObject">
+    <action name="OutBandChange" class="com.opentravelsoft.action.manage.operator.OutBandReportAction" method="getObject">
       <result>/includes/operator/report/OutBandPrint.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
