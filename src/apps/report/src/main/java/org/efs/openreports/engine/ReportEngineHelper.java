@@ -51,17 +51,9 @@ public class ReportEngineHelper
 		{
 			reportEngine = new JXLSReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);						
 		}
-		else if (report.isJFreeReport())
-		{
-			reportEngine = new JFreeReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);					
-		}
 		else if (report.isBirtReport())
 		{
 			reportEngine = new BirtReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);						
-		}
-		else if (report.isJasperReport())
-		{
-			reportEngine = new JasperReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);						
 		}
 		else if (report.isQueryReport())
 		{

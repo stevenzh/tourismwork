@@ -32,10 +32,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import net.sf.jasperreports.engine.design.JRDesignParameter;
-import net.sf.jasperreports.engine.design.JRDesignQuery;
-import net.sf.jasperreports.engine.util.JRQueryExecuter;
-
 public class ParameterProviderImpl implements ParameterProvider
 {
 	protected static Logger log =
@@ -172,24 +168,7 @@ public class ParameterProviderImpl implements ParameterProvider
 				pStmt = conn.prepareStatement(param.getData());				
 			}
 			else
-			{
-				// Use JasperReports Query logic to parse parameters in chart
-				// queries
-
-				JRDesignQuery query = new JRDesignQuery();
-				query.setText(param.getData());
-
-				// convert parameters to JRDesignParameters so they can be
-				// parsed
-				Map<String,JRDesignParameter> jrParameters = ORUtil.buildJRDesignParameters(parameters);
-
-				pStmt =
-					JRQueryExecuter.getStatement(
-						query,
-						jrParameters,
-						parameters,
-						conn);
-			}
+			{}
 			
 			rs = pStmt.executeQuery();
 

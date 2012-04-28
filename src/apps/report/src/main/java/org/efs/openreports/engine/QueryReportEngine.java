@@ -26,10 +26,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.sf.jasperreports.engine.design.JRDesignParameter;
-import net.sf.jasperreports.engine.design.JRDesignQuery;
-import net.sf.jasperreports.engine.util.JRQueryExecuter;
-
 import org.apache.commons.beanutils.DynaProperty;
 import org.apache.commons.beanutils.RowSetDynaClass;
 import org.apache.log4j.Logger;
@@ -88,20 +84,7 @@ public class QueryReportEngine extends ReportEngine
 				pStmt = conn.prepareStatement(report.getQuery());
 			}
 			else
-			{
-				// Use JasperReports Query logic to parse parameters in chart
-				// queries
-
-				JRDesignQuery query = new JRDesignQuery();
-				query.setText(report.getQuery());
-
-				// convert parameters to JRDesignParameters so they can be
-				// parsed
-				Map<String,JRDesignParameter> jrParameters = ORUtil.buildJRDesignParameters(parameters);
-
-				pStmt = JRQueryExecuter.getStatement(query, jrParameters, parameters,
-						conn);
-			}
+			{}
 
 			ORProperty maxRows = propertiesProvider
 					.getProperty(ORProperty.QUERYREPORT_MAXROWS);

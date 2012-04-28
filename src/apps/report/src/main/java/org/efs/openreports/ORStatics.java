@@ -41,7 +41,6 @@ public interface ORStatics
     public static final String QUERY_REPORT_TEMPLATE_ACTION = "queryReportTemplate";
 	public static final String CHART_REPORT_ACTION = "chartReport";
 	public static final String JXLSREPORT_ACTION = "jxlsReport";
-	public static final String JFREEREPORT_RESULT = "jfreeReport";	
     public static final String JPIVOT_ACTION = "jpivot";
 	public static final String SCHEDULE_REPORT_ACTION = "reportSchedule";
 	public static final String NOT_AUTHORIZED = "notauthorized";	

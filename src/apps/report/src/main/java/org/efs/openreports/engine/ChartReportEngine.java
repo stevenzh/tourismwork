@@ -32,9 +32,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import net.sf.jasperreports.engine.design.JRDesignQuery;
-import net.sf.jasperreports.engine.util.JRQueryExecuter;
-
 import org.apache.log4j.Logger;
 import org.efs.openreports.engine.input.ReportEngineInput;
 import org.efs.openreports.engine.output.ChartEngineOutput;
@@ -152,19 +149,6 @@ public class ChartReportEngine extends ReportEngine
 		{
 			ReportDataSource dataSource = reportChart.getDataSource();
 			conn = dataSourceProvider.getConnection(dataSource.getId());
-
-			// Use JasperReports Query logic to parse parameters in chart
-			// queries
-
-			JRDesignQuery query = new JRDesignQuery();
-			query.setText(reportChart.getQuery());
-
-			// convert parameters to JRDesignParameters so they can be parsed
-			Map jrParameters = ORUtil.buildJRDesignParameters(parameters);
-
-			pStmt = JRQueryExecuter.getStatement(query, jrParameters, parameters, conn);
-
-			rs = pStmt.executeQuery();
 
 			ArrayList<ChartValue> list = new ArrayList<ChartValue>();
 

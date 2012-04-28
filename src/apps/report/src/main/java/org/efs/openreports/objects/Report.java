@@ -56,8 +56,6 @@ public class Report implements Comparable<Report>, Serializable
 
 	private boolean excelExportEnabled;
 	
-	private boolean imageExportEnabled;
-	
 	private boolean virtualizationEnabled;
 	
 	private boolean hidden;
@@ -77,13 +75,6 @@ public class Report implements Comparable<Report>, Serializable
 		return false;
 	}
 
-	public boolean isJasperReport()
-	{
-		if (file != null && file.endsWith("jasper")) return true;
-		
-		return false;
-	}
-	
 	public boolean isQueryReport()
 	{
 		if (query != null && query.length() > 0 && !file.endsWith("xls") && !file.endsWith("xml") && !file.endsWith("vm"))
@@ -98,16 +89,6 @@ public class Report implements Comparable<Report>, Serializable
 	{
 		if ((query == null || query.trim().length() < 1)
 				&& (file == null || file.equals("-1")) && reportChart != null)
-		{
-			return true;
-		}
-
-		return false;
-	}
-	
-	public boolean isJFreeReport()
-	{
-		if (query != null && query.length() > 0 && file != null && file.endsWith("xml") && !isJPivotReport())
 		{
 			return true;
 		}
@@ -360,17 +341,6 @@ public class Report implements Comparable<Report>, Serializable
 		this.textExportEnabled = textExportEnabled.booleanValue();
 	}
 	
-	public boolean isImageExportEnabled()
-	{
-		return imageExportEnabled;
-	}
-
-	public void setImageExportEnabled(Boolean imageExportEnabled)
-	{
-		if (imageExportEnabled == null) imageExportEnabled = new Boolean(false);
-		this.imageExportEnabled = imageExportEnabled.booleanValue();
-	}
-
 	public ReportExportOption getReportExportOption()
 	{
 		if (reportExportOption == null) reportExportOption = new ReportExportOption();

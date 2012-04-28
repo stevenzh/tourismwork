@@ -15,7 +15,7 @@ import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
-import com.opentravelsoft.BaseAction;
+import com.opensymphony.xwork2.ActionSupport;
 import com.opentravelsoft.entity.Line;
 import com.opentravelsoft.entity.LineSchedule;
 import com.opentravelsoft.service.product.LineService;
@@ -26,7 +26,7 @@ import com.opentravelsoft.service.product.LineService;
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
  * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:54 $
  */
-public class LineReportAction extends BaseAction {
+public class LineReportAction extends ActionSupport {
 
   private static final long serialVersionUID = -7783734455602162689L;
 

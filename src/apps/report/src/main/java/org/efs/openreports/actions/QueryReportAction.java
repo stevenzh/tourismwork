@@ -27,7 +27,6 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.SessionAware;
 import org.efs.openreports.ORStatics;
-import org.efs.openreports.engine.JFreeReportEngine;
 import org.efs.openreports.engine.QueryReportEngine;
 import org.efs.openreports.engine.input.ReportEngineInput;
 import org.efs.openreports.engine.output.QueryEngineOutput;
@@ -40,154 +39,127 @@ import org.efs.openreports.providers.DirectoryProvider;
 import org.efs.openreports.providers.PropertiesProvider;
 import org.efs.openreports.providers.ReportLogProvider;
 
-public class QueryReportAction extends ActionSupport implements SessionAware
-{	
-	private static final long serialVersionUID = 5233748674680486245L;
+public class QueryReportAction extends ActionSupport implements SessionAware {
+  private static final long serialVersionUID = 5233748674680486245L;
 
-	protected static Logger log = Logger.getLogger(QueryReportAction.class);
-	
-	protected Map<Object,Object> session;
+  protected static Logger log = Logger.getLogger(QueryReportAction.class);
 
-	protected DataSourceProvider dataSourceProvider;
-	protected ReportLogProvider reportLogProvider;
-	protected PropertiesProvider propertiesProvider;
-	protected DirectoryProvider directoryProvider;	
-	
-	protected Report report;
-	
-	private String html;	
+  protected Map<Object, Object> session;
 
-	public String execute()
-	{
-		//remove results of any previous query report from session
-		ActionContext.getContext().getSession().remove(ORStatics.QUERY_REPORT_RESULTS);
-		ActionContext.getContext().getSession().remove(ORStatics.QUERY_REPORT_PROPERTIES);	
-		
-		ReportUser user = (ReportUser) ActionContext.getContext().getSession().get(
-				ORStatics.REPORT_USER);
+  protected DataSourceProvider dataSourceProvider;
+  protected ReportLogProvider reportLogProvider;
+  protected PropertiesProvider propertiesProvider;
+  protected DirectoryProvider directoryProvider;
 
-		report = (Report) ActionContext.getContext().getSession().get(ORStatics.REPORT);
+  protected Report report;
 
-		Map<String,Object> reportParameters = getReportParameterMap(user);
+  private String html;
 
-		ReportLog reportLog = new ReportLog(user, report, new Date());
+  public String execute() {
+    // remove results of any previous query report from session
+    ActionContext.getContext().getSession()
+        .remove(ORStatics.QUERY_REPORT_RESULTS);
+    ActionContext.getContext().getSession()
+        .remove(ORStatics.QUERY_REPORT_PROPERTIES);
 
-		try
-		{
-			log.debug("Starting Query Report: " + report.getName());
-			log.debug("Query: " + report.getQuery());
+    ReportUser user = (ReportUser) ActionContext.getContext().getSession()
+        .get(ORStatics.REPORT_USER);
 
-			reportLogProvider.insertReportLog(reportLog);		
-			
-			ReportEngineInput input = new ReportEngineInput(report, reportParameters);
-			
-			if (report.isJFreeReport())
-			{
-				JFreeReportEngine jfreeReportEngine = new JFreeReportEngine(
-						dataSourceProvider, directoryProvider, propertiesProvider);
-				
-				ReportEngineOutput output = jfreeReportEngine.generateReport(input);				
-				
-				html = new String(output.getContent());
-			}
-			else
-			{
-				QueryReportEngine queryReportEngine = new QueryReportEngine(
-						dataSourceProvider, directoryProvider, propertiesProvider);
-				
-				QueryEngineOutput output = (QueryEngineOutput) queryReportEngine.generateReport(input);				
-				
-				session.put(ORStatics.QUERY_REPORT_RESULTS, output.getResults());
-				
-				session.put(ORStatics.QUERY_REPORT_PROPERTIES, output.getProperties());
-			}			
+    report = (Report) ActionContext.getContext().getSession()
+        .get(ORStatics.REPORT);
 
-			reportLog.setEndTime(new Date());
-			reportLog.setStatus(ReportLog.STATUS_SUCCESS);
-			reportLogProvider.updateReportLog(reportLog);
+    Map<String, Object> reportParameters = getReportParameterMap(user);
 
-			log.debug("Finished Query Report: " + report.getName());
-		}
-		catch (Exception e)
-		{
+    ReportLog reportLog = new ReportLog(user, report, new Date());
 
-			addActionError(e.getMessage());
+    try {
+      log.debug("Starting Query Report: " + report.getName());
+      log.debug("Query: " + report.getQuery());
 
-			log.error(e.getMessage());
+      reportLogProvider.insertReportLog(reportLog);
 
-			reportLog.setMessage(e.getMessage());
-			reportLog.setStatus(ReportLog.STATUS_FAILURE);
+      ReportEngineInput input = new ReportEngineInput(report, reportParameters);
 
-			reportLog.setEndTime(new Date());
+      QueryReportEngine queryReportEngine = new QueryReportEngine(
+          dataSourceProvider, directoryProvider, propertiesProvider);
 
-			try
-			{
-				reportLogProvider.updateReportLog(reportLog);
-			}
-			catch (Exception ex)
-			{
-				log.error("Unable to create ReportLog: " + ex.getMessage());
-			}
+      QueryEngineOutput output = (QueryEngineOutput) queryReportEngine
+          .generateReport(input);
 
-			return ERROR;
-		}		
-		
-		if (report.isJFreeReport()) return ORStatics.JFREEREPORT_RESULT;		
-		
-		return SUCCESS;		
-	}	
+      session.put(ORStatics.QUERY_REPORT_RESULTS, output.getResults());
 
-	@SuppressWarnings("unchecked")
-	protected Map<String,Object> getReportParameterMap(ReportUser user)
-	{
-		Map<String,Object> reportParameters = new HashMap<String,Object>();
+      session.put(ORStatics.QUERY_REPORT_PROPERTIES, output.getProperties());
 
-		if (session.get(ORStatics.REPORT_PARAMETERS) != null)
-		{
-			reportParameters = (Map) session.get(ORStatics.REPORT_PARAMETERS);
-		}
+      reportLog.setEndTime(new Date());
+      reportLog.setStatus(ReportLog.STATUS_SUCCESS);
+      reportLogProvider.updateReportLog(reportLog);
 
-		// add standard report parameters
-		reportParameters.put(ORStatics.USER_ID, user.getId());
-		reportParameters.put(ORStatics.EXTERNAL_ID, user.getExternalId());
-		reportParameters.put(ORStatics.USER_NAME, user.getName());
+      log.debug("Finished Query Report: " + report.getName());
+    } catch (Exception e) {
 
-		return reportParameters;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public void setSession(Map session) 
-	{
-		this.session = session;
-	}
+      addActionError(e.getMessage());
 
-	public void setReportLogProvider(ReportLogProvider reportLogProvider)
-	{
-		this.reportLogProvider = reportLogProvider;
-	}
+      log.error(e.getMessage());
 
-	public void setDataSourceProvider(DataSourceProvider dataSourceProvider)
-	{
-		this.dataSourceProvider = dataSourceProvider;
-	}
+      reportLog.setMessage(e.getMessage());
+      reportLog.setStatus(ReportLog.STATUS_FAILURE);
 
-	public void setPropertiesProvider(PropertiesProvider propertiesProvider)
-	{
-		this.propertiesProvider = propertiesProvider;		
-	}	
-	
-	public void setDirectoryProvider(DirectoryProvider directoryProvider)
-	{
-		this.directoryProvider = directoryProvider;
-	}
+      reportLog.setEndTime(new Date());
 
-	public String getHtml()
-	{
-		return html;
-	}
-	
-	public Report getReport()
-	{
-		return report;
-	}
+      try {
+        reportLogProvider.updateReportLog(reportLog);
+      } catch (Exception ex) {
+        log.error("Unable to create ReportLog: " + ex.getMessage());
+      }
+
+      return ERROR;
+    }
+    
+    return SUCCESS;
+  }
+
+  @SuppressWarnings("unchecked")
+  protected Map<String, Object> getReportParameterMap(ReportUser user) {
+    Map<String, Object> reportParameters = new HashMap<String, Object>();
+
+    if (session.get(ORStatics.REPORT_PARAMETERS) != null) {
+      reportParameters = (Map) session.get(ORStatics.REPORT_PARAMETERS);
+    }
+
+    // add standard report parameters
+    reportParameters.put(ORStatics.USER_ID, user.getId());
+    reportParameters.put(ORStatics.EXTERNAL_ID, user.getExternalId());
+    reportParameters.put(ORStatics.USER_NAME, user.getName());
+
+    return reportParameters;
+  }
+
+  @SuppressWarnings("unchecked")
+  public void setSession(Map session) {
+    this.session = session;
+  }
+
+  public void setReportLogProvider(ReportLogProvider reportLogProvider) {
+    this.reportLogProvider = reportLogProvider;
+  }
+
+  public void setDataSourceProvider(DataSourceProvider dataSourceProvider) {
+    this.dataSourceProvider = dataSourceProvider;
+  }
+
+  public void setPropertiesProvider(PropertiesProvider propertiesProvider) {
+    this.propertiesProvider = propertiesProvider;
+  }
+
+  public void setDirectoryProvider(DirectoryProvider directoryProvider) {
+    this.directoryProvider = directoryProvider;
+  }
+
+  public String getHtml() {
+    return html;
+  }
+
+  public Report getReport() {
+    return report;
+  }
 }

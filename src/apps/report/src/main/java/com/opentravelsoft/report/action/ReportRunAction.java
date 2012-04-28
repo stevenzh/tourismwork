@@ -13,10 +13,7 @@ import java.util.Map;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import net.sf.jasperreports.engine.JRParameter;
-import net.sf.jasperreports.engine.JRVirtualizer;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.fill.JRFileVirtualizer;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
@@ -25,7 +22,6 @@ import org.apache.struts2.interceptor.SessionAware;
 import org.efs.openreports.ORStatics;
 import org.efs.openreports.ReportConstants.ExportType;
 import org.efs.openreports.engine.ChartReportEngine;
-import org.efs.openreports.engine.JasperReportEngine;
 import org.efs.openreports.engine.ReportEngine;
 import org.efs.openreports.engine.ReportEngineHelper;
 import org.efs.openreports.engine.input.ReportEngineInput;
@@ -110,8 +106,6 @@ public class ReportRunAction extends ActionSupport implements SessionAware {
     ReportLog reportLog = new ReportLog(user, report, new Date());
     reportLog.setExportType(exportType.getCode());
 
-    JRVirtualizer virtualizer = null;
-
     try {
       if (exportType == ExportType.PDF) {
         // Handle "contype" request from Internet Explorer
@@ -129,13 +123,6 @@ public class ReportRunAction extends ActionSupport implements SessionAware {
       log.debug("Filling report: " + report.getName());
 
       reportLogProvider.insertReportLog(reportLog);
-
-      if (report.isVirtualizationEnabled() && exportType != ExportType.IMAGE) {
-        log.debug("Virtualization Enabled");
-        virtualizer = new JRFileVirtualizer(2,
-            directoryProvider.getTempDirectory());
-        reportParameters.put(JRParameter.REPORT_VIRTUALIZER, virtualizer);
-      }
 
       ReportEngineInput reportInput = new ReportEngineInput(report,
           reportParameters);
@@ -156,30 +143,14 @@ public class ReportRunAction extends ActionSupport implements SessionAware {
       }
 
       ReportEngineOutput reportOutput = null;
-      JasperPrint jasperPrint = null;
 
-      if (report.isJasperReport()) {
-        JasperReportEngine jasperEngine = new JasperReportEngine(
-            dataSourceProvider, directoryProvider, propertiesProvider);
-
-        jasperPrint = jasperEngine.fillReport(reportInput);
-
-        log.debug("Report filled - " + report.getName() + " : size = "
-            + jasperPrint.getPages().size());
-
-        log.debug("Exporting report: " + report.getName());
-
-        reportOutput = jasperEngine.exportReport(jasperPrint, exportType,
-            report.getReportExportOption(), imagesMap, false);
-      } else {
-        ReportEngine reportEngine = ReportEngineHelper.getReportEngine(report,
-            dataSourceProvider, directoryProvider, propertiesProvider);
-        reportOutput = reportEngine.generateReport(reportInput);
-      }
+      ReportEngine reportEngine = ReportEngineHelper.getReportEngine(report,
+          dataSourceProvider, directoryProvider, propertiesProvider);
+      reportOutput = reportEngine.generateReport(reportInput);
 
       response.setContentType(reportOutput.getContentType());
 
-      if (exportType != ExportType.HTML && exportType != ExportType.IMAGE) {
+      if (exportType != ExportType.HTML) {
         response.setHeader(
             "Content-disposition",
             "inline; filename="
@@ -187,20 +158,14 @@ public class ReportRunAction extends ActionSupport implements SessionAware {
                 + reportOutput.getContentExtension());
       }
 
-      if (exportType == ExportType.IMAGE) {
-        if (jasperPrint != null) {
-          session.put(ORStatics.JASPERPRINT, jasperPrint);
-        }
-      } else {
-        byte[] content = reportOutput.getContent();
+      byte[] content = reportOutput.getContent();
 
-        response.setContentLength(content.length);
+      response.setContentLength(content.length);
 
-        ServletOutputStream out = response.getOutputStream();
-        out.write(content, 0, content.length);
-        out.flush();
-        out.close();
-      }
+      ServletOutputStream out = response.getOutputStream();
+      out.write(content, 0, content.length);
+      out.flush();
+      out.close();
 
       reportLog.setEndTime(new Date());
       reportLog.setStatus(ReportLog.STATUS_SUCCESS);
@@ -229,15 +194,7 @@ public class ReportRunAction extends ActionSupport implements SessionAware {
       }
 
       return ERROR;
-    } finally {
-      if (virtualizer != null) {
-        reportParameters.remove(JRParameter.REPORT_VIRTUALIZER);
-        virtualizer.cleanup();
-      }
-    }
-
-    if (exportType == ExportType.IMAGE)
-      return SUCCESS;
+    } finally {}
 
     return NONE;
   }

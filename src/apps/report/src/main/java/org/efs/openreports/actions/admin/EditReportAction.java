@@ -59,7 +59,6 @@ public class EditReportAction extends ActionSupport
 	private boolean rtfExportEnabled;
 	private boolean textExportEnabled;
 	private boolean excelExportEnabled;
-	private boolean imageExportEnabled;
 	private boolean virtual;
 	private boolean hidden;
 	
@@ -102,7 +101,6 @@ public class EditReportAction extends ActionSupport
 				rtfExportEnabled = report.isRtfExportEnabled();
 				textExportEnabled = report.isTextExportEnabled();
 				excelExportEnabled = report.isExcelExportEnabled();
-				imageExportEnabled = report.isImageExportEnabled();
 				virtual = report.isVirtualizationEnabled();
 				hidden = report.isHidden();
 				if (report.getDataSource() != null)
@@ -147,7 +145,6 @@ public class EditReportAction extends ActionSupport
 			report.setRtfExportEnabled(new Boolean(rtfExportEnabled));
 			report.setTextExportEnabled(new Boolean(textExportEnabled));
 			report.setExcelExportEnabled(new Boolean(excelExportEnabled));
-			report.setImageExportEnabled(new Boolean(imageExportEnabled));
 			report.setVirtualizationEnabled(new Boolean(virtual));
 			report.setHidden(new Boolean(hidden));
 			
@@ -502,16 +499,6 @@ public class EditReportAction extends ActionSupport
 	public void setRtfExportEnabled(boolean rtfExportEnabled)
 	{
 		this.rtfExportEnabled = rtfExportEnabled;
-	}
-
-	public boolean isImageExportEnabled()
-	{
-		return imageExportEnabled;
-	}
-
-	public void setImageExportEnabled(boolean imageExportEnabled)
-	{
-		this.imageExportEnabled = imageExportEnabled;
 	}
 	
 	public boolean isTextExportEnabled()

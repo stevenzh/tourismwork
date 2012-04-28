@@ -34,9 +34,6 @@ import org.efs.openreports.ORStatics;
 import org.efs.openreports.objects.Report;
 import org.jfree.chart.encoders.SunPNGEncoderAdapter;
 
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperPrintManager;
-
 public class ReportViewerAction extends ActionSupport
 {	
 	private static final long serialVersionUID = 6910790405397971123L;
@@ -52,52 +49,9 @@ public class ReportViewerAction extends ActionSupport
 	
 	public String execute()
 	{		
-		JasperPrint jasperPrint = (JasperPrint) ActionContext.getContext().getSession().get(
-				ORStatics.JASPERPRINT);
-		
 		report = (Report) ActionContext.getContext().getSession().get(ORStatics.REPORT);
 		
-		if (jasperPrint != null && jasperPrint.getPages() != null)
-		{
-			pageCount = jasperPrint.getPages().size();
-		}
-
 		if (!"image".equals(submitType)) return SUCCESS;
-		
-		byte[] imageData = null; 
-		
-		if (jasperPrint != null)
-		{
-			try
-			{
-				BufferedImage image = (BufferedImage) JasperPrintManager.printPageToImage(jasperPrint, pageIndex -1, zoom);
-				imageData = new SunPNGEncoderAdapter().encode(image);
-			}
-			catch(Exception e)
-			{
-				addActionError(e.getMessage());
-				log.error(e.toString());
-			}
-		}			
-		
-		if (imageData != null)
-		{
-
-			HttpServletResponse response = ServletActionContext.getResponse();
-
-			try
-			{
-				response.setContentLength(imageData.length);
-				ServletOutputStream ouputStream = response.getOutputStream();
-				ouputStream.write(imageData, 0, imageData.length);
-				ouputStream.flush();
-				ouputStream.close();
-			}
-			catch (IOException ioe)
-			{
-				log.warn(ioe.toString());
-			}
-		}
 
 		return NONE;
 	}
