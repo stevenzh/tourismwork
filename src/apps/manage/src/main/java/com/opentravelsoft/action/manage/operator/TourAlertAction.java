@@ -19,15 +19,11 @@ import com.opentravelsoft.service.MyPageService;
 public class TourAlertAction extends ManageAction {
   private static final long serialVersionUID = -1454513816209811339L;
 
+  @Autowired
   private MyPageService myPageService;
 
   /** 最近的出团计划 */
   private List<Plan> planList = new ArrayList<Plan>();
-
-  @Autowired
-  public void setMyPageService(MyPageService myPageService) {
-    this.myPageService = myPageService;
-  }
 
   @Override
   public String execute() throws Exception {

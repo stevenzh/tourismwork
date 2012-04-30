@@ -24,6 +24,7 @@ import com.opentravelsoft.service.order.BookingService;
 public class ConfirmBookAction extends ManageAction {
   private static final long serialVersionUID = 1873002169910914015L;
 
+  @Autowired
   private BookingService bookintService;
 
   /** 订单号 */
@@ -71,11 +72,6 @@ public class ConfirmBookAction extends ManageAction {
     }
 
     return INPUT;
-  }
-
-  @Autowired
-  public void setBookintService(BookingService bookintService) {
-    this.bookintService = bookintService;
   }
 
   public String confirm() {

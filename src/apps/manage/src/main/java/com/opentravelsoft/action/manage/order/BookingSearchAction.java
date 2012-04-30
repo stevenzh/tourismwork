@@ -22,8 +22,12 @@ import com.opentravelsoft.util.LabelValueBean;
 public class BookingSearchAction extends ManageAction {
   private static final long serialVersionUID = -7625855842902512964L;
 
+  @Autowired
   private BookingService bookingService;
+
+  @Autowired
   private EmployeeService employeeService;
+
   private List<Employee> employeeList;
 
   private List<Team> teamList;
@@ -103,16 +107,6 @@ public class BookingSearchAction extends ManageAction {
   private String[] nameNo;
 
   private List<Booking> bookings = new ArrayList<Booking>();
-
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
-
-  @Autowired
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
-  }
 
   public String input() throws Exception {
     Employee user = getUser();

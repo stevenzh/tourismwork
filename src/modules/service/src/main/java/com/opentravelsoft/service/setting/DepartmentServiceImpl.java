@@ -10,12 +10,9 @@ import com.opentravelsoft.providers.GroupDao;
 
 @Service("DepartmentService")
 public class DepartmentServiceImpl implements DepartmentService {
-  private GroupDao groupDao;
-
+  
   @Autowired
-  public void setGroupDao(GroupDao groupDao) {
-    this.groupDao = groupDao;
-  }
+  private GroupDao groupDao;
 
   public List<Group> getAllDepartments() {
     return groupDao.getAllGroups();

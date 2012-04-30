@@ -13,19 +13,11 @@ import com.opentravelsoft.providers.product.ShareFlightDao;
 @Service("ShareFlightService")
 public class ShareFlightServiceImpl implements ShareFlightService {
 
+  @Autowired
   private ShareFlightDao shareFlightDao;
 
+  @Autowired
   private AirwaysDao airwaysDao;
-
-  @Autowired
-  public void setAirwaysDao(AirwaysDao airwaysDao) {
-    this.airwaysDao = airwaysDao;
-  }
-
-  @Autowired
-  public void setShareFlightDao(ShareFlightDao shareFlightDao) {
-    this.shareFlightDao = shareFlightDao;
-  }
 
   public List<ShareFlight> roFind() {
     return shareFlightDao.findAll();

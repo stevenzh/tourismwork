@@ -27,10 +27,15 @@ import com.opentravelsoft.service.resource.ProvinceService;
 public class EditCustomerAction extends ManageAction {
   private static final long serialVersionUID = 7671898914387730451L;
 
+  @Autowired
   private CustomerService agentService;
+  @Autowired
   private ProvinceService provinceService;
+  @Autowired
   private CountryService countryService;
+  @Autowired
   private CityService cityService;
+  
   private Customer agent = new Customer();
 
   /** 代理商编码 */
@@ -92,21 +97,6 @@ public class EditCustomerAction extends ManageAction {
   private List<LabelValueBean> featureList;
 
   private List<LabelValueBean> resourceList;
-
-  @Autowired
-  public void setCountryService(CountryService countryService) {
-    this.countryService = countryService;
-  }
-
-  @Autowired
-  public void setProvinceService(ProvinceService provinceService) {
-    this.provinceService = provinceService;
-  }
-
-  @Autowired
-  public void setCityService(CityService cityService) {
-    this.cityService = cityService;
-  }
 
   public String input() {
     if (agentId > 0) {
@@ -200,11 +190,6 @@ public class EditCustomerAction extends ManageAction {
     agentService.txCheckedAgent(agent);
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setAgentService(CustomerService agentService) {
-    this.agentService = agentService;
   }
 
   public int getAgentId() {

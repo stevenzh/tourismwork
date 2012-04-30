@@ -22,6 +22,7 @@ public class CategoryAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(CategoryAction.class);
 
+  @Autowired
   private DestinationService categoryService;
 
   private Destination root = new Destination();
@@ -31,11 +32,6 @@ public class CategoryAction extends ManageAction {
   private Destination category = new Destination();
 
   private List<Destination> catList = new ArrayList<Destination>();
-
-  @Autowired
-  public void setCategoryService(DestinationService departmentService) {
-    this.categoryService = departmentService;
-  }
 
   @Override
   public String input() {

@@ -11,19 +11,12 @@ import com.opentravelsoft.providers.OutcomeDao;
 
 @Service("FinanceAlertService")
 public class FinanceAlertServiceImpl implements FinanceAlertService {
+  
+  @Autowired
   private OutcomeDao outcomeDao;
 
+  @Autowired
   private IncomeDao incomeDao;
-
-  @Autowired
-  public void setOutcomeDao(OutcomeDao outcomeDao) {
-    this.outcomeDao = outcomeDao;
-  }
-
-  @Autowired
-  public void setIncomeDao(IncomeDao incomeDao) {
-    this.incomeDao = incomeDao;
-  }
 
   public List<Remind> roGetOutcomeInBand(int daynum) {
     return outcomeDao.getOutcomeInBand(daynum);

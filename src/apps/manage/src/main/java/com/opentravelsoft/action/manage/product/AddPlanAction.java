@@ -36,8 +36,10 @@ public class AddPlanAction extends ManageAction {
 
   protected SimpleDateFormat SDF2 = new SimpleDateFormat("yyyyMMdd");
 
+  @Autowired
   private TourPlanService tourPlanService;
 
+  @Autowired
   private EmployeeService employeeService;
 
   private Line line;
@@ -92,16 +94,6 @@ public class AddPlanAction extends ManageAction {
   private List<Team> teamList;
 
   private List<Airways> airways = new ArrayList<Airways>();
-
-  @Autowired
-  public void setTourPlanService(TourPlanService tourPlanService) {
-    this.tourPlanService = tourPlanService;
-  }
-
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
 
   public String input() {
     Employee user = getUser();

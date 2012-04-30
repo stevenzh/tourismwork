@@ -19,33 +19,17 @@ import com.opentravelsoft.providers.product.ProductItemDao;
 @Service("LineTmplService")
 public class ProductTmplServiceImpl implements ProductTmplService {
 
+  @Autowired
   private ProductTmplDao lineTmplDao;
 
+  @Autowired
   private DestinationDao categoryDao;
 
+  @Autowired
   private ProductItemDao productItemDao;
 
+  @Autowired
   private TeamDao teamDao;
-
-  @Autowired
-  public void setPersonalTmplDao(ProductTmplDao personalTmplDao) {
-    this.lineTmplDao = personalTmplDao;
-  }
-
-  @Autowired
-  public void setCategoryDao(DestinationDao categoryDao) {
-    this.categoryDao = categoryDao;
-  }
-
-  @Autowired
-  public void setProductItemDao(ProductItemDao productItemDao) {
-    this.productItemDao = productItemDao;
-  }
-
-  @Autowired
-  public void setTeamDao(TeamDao teamDao) {
-    this.teamDao = teamDao;
-  }
 
   public int insertProductTmpl(ProductTmpl alertTbl) {
     return lineTmplDao.insertProductTmpl(alertTbl);

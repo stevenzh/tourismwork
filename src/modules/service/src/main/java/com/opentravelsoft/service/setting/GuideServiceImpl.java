@@ -15,26 +15,15 @@ import com.opentravelsoft.providers.TeamDao;
 
 @Service("GuideService")
 public class GuideServiceImpl implements GuideService {
+  
+  @Autowired
   private GuideDao guideDao;
 
+  @Autowired
   private ListDao listDao;
 
+  @Autowired
   private TeamDao teamDao;
-
-  @Autowired
-  public void setTeamDao(TeamDao teamDao) {
-    this.teamDao = teamDao;
-  }
-
-  @Autowired
-  public void setGuideDao(GuideDao guideDao) {
-    this.guideDao = guideDao;
-  }
-
-  @Autowired
-  public void setListDao(ListDao listDao) {
-    this.listDao = listDao;
-  }
 
   public int txDelete(String accCd) {
     return guideDao.deleteGuide(accCd);

@@ -23,6 +23,7 @@ import com.opentravelsoft.service.operator.TourPlanService;
 public class ListPlanAction extends ManageAction {
   private static final long serialVersionUID = 8435596328786314873L;
 
+  @Autowired
   private TourPlanService tourPlanService;
 
   private Line line;
@@ -41,11 +42,6 @@ public class ListPlanAction extends ManageAction {
   private List<Airways> airways;
 
   private List<LabelValueBean> paxkey;
-
-  @Autowired
-  public void setTourPlanService(TourPlanService tourPlanService) {
-    this.tourPlanService = tourPlanService;
-  }
 
   @Override
   public String input() {

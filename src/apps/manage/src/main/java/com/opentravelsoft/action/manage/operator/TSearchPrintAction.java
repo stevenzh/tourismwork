@@ -35,10 +35,13 @@ public class TSearchPrintAction extends ManageAction {
 
   protected SimpleDateFormat SDF = new SimpleDateFormat("yyyy　　MM　　dd");
 
+  @Autowired
   private TourService tourService;
 
+  @Autowired
   private BookingService bookingService;
 
+  @Autowired
   private EmployeeService employeeSevice;
 
   private String[] tourNos;
@@ -71,11 +74,6 @@ public class TSearchPrintAction extends ManageAction {
   private List<LabelValueBean> leaders = new ArrayList<LabelValueBean>();
 
   private Plan tour = new Plan();
-
-  @Autowired
-  public void setEmployeeSevice(EmployeeService employeeSevice) {
-    this.employeeSevice = employeeSevice;
-  }
 
   public String search() {
     Employee user = getUser();
@@ -232,16 +230,6 @@ public class TSearchPrintAction extends ManageAction {
 
   public String confirm() {
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setTourService(TourService tourUniteService) {
-    this.tourService = tourUniteService;
-  }
-
-  @Autowired
-  public void setBookingService(BookingService bookService) {
-    this.bookingService = bookService;
   }
 
   public long getKenDepartmentId() {

@@ -27,13 +27,14 @@ import com.opentravelsoft.util.ConvertUtils;
 public class ListIncomeAction extends ManageAction {
   private static final long serialVersionUID = -4166608849868194948L;
 
+  @Autowired
   private IncomeService incomeService;
 
+  @Autowired
   private EmployeeService salesmanService;
 
+  @Autowired
   private BookingService bookingService;
-
-  // -------------------------------------------------------------------------
 
   private List<Team> teamList;
 
@@ -157,21 +158,6 @@ public class ListIncomeAction extends ManageAction {
 
   public List<Team> getTeamList() {
     return teamList;
-  }
-
-  @Autowired
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
-  }
-
-  @Autowired
-  public void setSalesmanService(EmployeeService salesmanService) {
-    this.salesmanService = salesmanService;
-  }
-
-  @Autowired
-  public void setIncomeService(IncomeService incomeService) {
-    this.incomeService = incomeService;
   }
 
   public List<Income> getGathList() {

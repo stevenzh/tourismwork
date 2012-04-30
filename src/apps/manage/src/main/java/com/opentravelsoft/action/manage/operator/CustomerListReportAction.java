@@ -15,15 +15,11 @@ import com.opentravelsoft.service.operator.TourService;
  * @version $Revision: 1.1 $ $Date: 2009/03/01 16:24:00 $
  */
 public class CustomerListReportAction extends ManageAction {
-  
+
   private static final long serialVersionUID = 4221358089777062127L;
 
-  private TourService tourService;
-
   @Autowired
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
-  }
+  private TourService tourService;
 
   private Plan tour = new Plan();
 

@@ -20,136 +20,112 @@ import com.opentravelsoft.util.PaginationSupport;
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
  * @version $Revision: 1.1 $ $Date: 2009/03/01 16:24:03 $
  */
-public class ListAirportAction extends ManageAction
-{
-    private static final long serialVersionUID = 4025088482007685362L;
+public class ListAirportAction extends ManageAction {
+  private static final long serialVersionUID = 4025088482007685362L;
 
-    protected static final Log logger = LogFactory
-            .getLog(ListAirportAction.class);
+  protected static final Log logger = LogFactory
+      .getLog(ListAirportAction.class);
 
-    private AirportService airportService;
+  @Autowired
+  private AirportService airportService;
 
-    private List<Airport> airportList;
+  private List<Airport> airportList;
 
-    private List<Country> countrys;
+  private List<Country> countrys;
 
-    private List<City> citys;
+  private List<City> citys;
 
-    private List<LabelValueBean> delStates;
+  private List<LabelValueBean> delStates;
 
-    private String airportId;
+  private String airportId;
 
-    // 查询条件
+  // 查询条件
 
-    /** 国家CODE */
-    private String kenCountryId = "";
+  /** 国家CODE */
+  private String kenCountryId = "";
 
-    private String kenCityId;
+  private String kenCityId;
 
-    private String kenDelkey = "2";
+  private String kenDelkey = "2";
 
-    public String input()
-    {
-        countrys = airportService.roGetCountry();
-        citys = airportService.roGetCity(kenCountryId);
-        delStates = getCodeList("ebiz_cancel_state");
-        return INPUT;
+  public String input() {
+    countrys = airportService.roGetCountry();
+    citys = airportService.roGetCity(kenCountryId);
+    delStates = getCodeList("ebiz_cancel_state");
+    return INPUT;
+  }
+
+  public String execute() {
+    dreamPage();
+    PaginationSupport support = airportService.roGetAirportList(kenCountryId,
+        kenCityId, kenDelkey, getFromRecord(), getMoveCount());
+    airportList = support.getItems();
+    countrys = airportService.roGetCountry();
+    citys = airportService.roGetCity(kenCountryId);
+    delStates = getCodeList("ebiz_cancel_state");
+    currentPage(support.getTotalCount());
+
+    return SUCCESS;
+  }
+
+  public String delete() {
+    Airport fm = airportService.get(airportId);
+    if (null == fm) {
+      // 要删除的记录不存在
+      addActionError("ERR_A10001");
+    } else {
+      airportService.txDelete(fm);
     }
 
-    public String execute()
-    {
-        dreamPage();
-        PaginationSupport support = airportService.roGetAirportList(
-                kenCountryId, kenCityId, kenDelkey, getFromRecord(),
-                getMoveCount());
-        airportList = support.getItems();
-        countrys = airportService.roGetCountry();
-        citys = airportService.roGetCity(kenCountryId);
-        delStates = getCodeList("ebiz_cancel_state");
-        currentPage(support.getTotalCount());
+    return SUCCESS;
+  }
 
-        return SUCCESS;
-    }
+  public List<Country> getCountrys() {
+    return countrys;
+  }
 
-    public String delete()
-    {
-        Airport fm = airportService.get(airportId);
-        if (null == fm)
-        {
-            // 要删除的记录不存在
-            addActionError("ERR_A10001");
-        } else
-        {
-            airportService.txDelete(fm);
-        }
+  public List<City> getCitys() {
+    return citys;
+  }
 
-        return SUCCESS;
-    }
+  public List<Airport> getAirportList() {
+    return airportList;
+  }
 
-    @Autowired
-    public void setAirportService(AirportService airportService)
-    {
-        this.airportService = airportService;
-    }
+  public String getKenCityId() {
+    return kenCityId;
+  }
 
-    public List<Country> getCountrys()
-    {
-        return countrys;
-    }
+  public void setKenCityId(String kenCityId) {
+    this.kenCityId = kenCityId;
+  }
 
-    public List<City> getCitys()
-    {
-        return citys;
-    }
+  public String getKenCountryId() {
+    return kenCountryId;
+  }
 
-    public List<Airport> getAirportList()
-    {
-        return airportList;
-    }
+  public void setKenCountryId(String kenCountryId) {
+    this.kenCountryId = kenCountryId;
+  }
 
-    public String getKenCityId()
-    {
-        return kenCityId;
-    }
+  public String getKenDelkey() {
+    return kenDelkey;
+  }
 
-    public void setKenCityId(String kenCityId)
-    {
-        this.kenCityId = kenCityId;
-    }
+  public void setKenDelkey(String kenDelkey) {
+    this.kenDelkey = kenDelkey;
+  }
 
-    public String getKenCountryId()
-    {
-        return kenCountryId;
-    }
+  public List<LabelValueBean> getDelStates() {
+    return delStates;
+  }
 
-    public void setKenCountryId(String kenCountryId)
-    {
-        this.kenCountryId = kenCountryId;
-    }
+  public String getAirportId() {
+    return airportId;
+  }
 
-    public String getKenDelkey()
-    {
-        return kenDelkey;
-    }
-
-    public void setKenDelkey(String kenDelkey)
-    {
-        this.kenDelkey = kenDelkey;
-    }
-
-    public List<LabelValueBean> getDelStates()
-    {
-        return delStates;
-    }
-
-    public String getAirportId()
-    {
-        return airportId;
-    }
-
-    public void setAirportId(String airportId)
-    {
-        this.airportId = airportId;
-    }
+  public void setAirportId(String airportId) {
+    this.airportId = airportId;
+  }
 
 }

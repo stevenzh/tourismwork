@@ -22,128 +22,107 @@ import com.opentravelsoft.service.operator.PriceUploadService;
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
  * @version $Revision: 1.1 $ $Date: 2009/03/01 16:24:00 $
  */
-public class PriceUploadAction extends ManageAction
-{
-    private static final long serialVersionUID = -8419187802314706988L;
+public class PriceUploadAction extends ManageAction {
+  private static final long serialVersionUID = -8419187802314706988L;
 
-    private PriceUploadService priceUploadService;
+  @Autowired
+  private PriceUploadService priceUploadService;
 
-    private List<FileItem> items = new ArrayList<FileItem>();
+  private List<FileItem> items = new ArrayList<FileItem>();
 
-    private FileItem fileItem = new FileItem();
+  private FileItem fileItem = new FileItem();
 
-    private String contentType;
+  private String contentType;
 
-    private File upload;
+  private File upload;
 
-    private String fileName;
+  private String fileName;
 
-    private String caption;
+  private String caption;
 
-    private int fileId;
+  private int fileId;
 
-    private int teamId;
+  private int teamId;
 
-    @Autowired
-    public void setPriceUploadService(PriceUploadService priceUploadService)
-    {
-        this.priceUploadService = priceUploadService;
+  @Override
+  public String input() throws Exception {
+    Employee user = getUser();
+    items = priceUploadService.roGetFileList(user.getGroup().getGroupId());
+    return INPUT;
+  }
+
+  public String upload() throws Exception {
+    Employee user = getUser();
+    SimpleDateFormat SDF = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+
+    String targetDirectory = getSysConfig(EbizCommon.VISA_UPLOAD_DIRECTORY);
+    String downloadDirectory = getConfig(EbizCommon.VISA_DOWNLOAD_DIRECTORY);
+    File target = new File(targetDirectory, SDF.format(new Date())
+        + fileName.substring(fileName.lastIndexOf('.')));
+    try {
+      FileUtils.copyFile(upload, target);
+    } catch (IOException e) {
+      logger.warn("File copy failure.");
     }
 
-    @Override
-    public String input() throws Exception
-    {
-        Employee user = getUser();
-        items = priceUploadService.roGetFileList(user.getGroup().getGroupId());
-        return INPUT;
-    }
+    fileItem.setNote(fileName);
+    fileItem.setGroupId(user.getGroup().getGroupId());
+    fileItem.setOperator(user.getUserId());
+    fileItem.setFileName(fileName);
+    fileItem.setFilePath(downloadDirectory + target.getName());
 
-    public String upload() throws Exception
-    {
-        Employee user = getUser();
-        SimpleDateFormat SDF = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+    int result = priceUploadService.txSaveFile(fileItem);
+    return SUCCESS;
+  }
 
-        String targetDirectory = getSysConfig(EbizCommon.VISA_UPLOAD_DIRECTORY);
-        String downloadDirectory = getConfig(EbizCommon.VISA_DOWNLOAD_DIRECTORY);
-        File target = new File(targetDirectory, SDF.format(new Date())
-                + fileName.substring(fileName.lastIndexOf('.')));
-        try
-        {
-            FileUtils.copyFile(upload, target);
-        } catch (IOException e)
-        {
-            logger.warn("File copy failure.");
-        }
+  public String del() {
+    int result = priceUploadService.txDelFile(fileId);
+    return SUCCESS;
+  }
 
-        fileItem.setNote(fileName);
-        fileItem.setGroupId(user.getGroup().getGroupId());
-        fileItem.setOperator(user.getUserId());
-        fileItem.setFileName(fileName);
-        fileItem.setFilePath(downloadDirectory + target.getName());
+  public List<FileItem> getItems() {
+    return items;
+  }
 
-        int result = priceUploadService.txSaveFile(fileItem);
-        return SUCCESS;
-    }
+  // since we are using <s:file name="upload" .../> the file name will be
+  // obtained through getter/setter of <file-tag-name>FileName
+  public String getUploadFileName() {
+    return fileName;
+  }
 
-    public String del()
-    {
-        int result = priceUploadService.txDelFile(fileId);
-        return SUCCESS;
-    }
+  public void setUploadFileName(String fileName) {
+    this.fileName = fileName;
+  }
 
-    public List<FileItem> getItems()
-    {
-        return items;
-    }
+  // since we are using <s:file name="upload" ... /> the content type will be
+  // obtained through getter/setter of <file-tag-name>ContentType
+  public String getUploadContentType() {
+    return contentType;
+  }
 
-    // since we are using <s:file name="upload" .../> the file name will be
-    // obtained through getter/setter of <file-tag-name>FileName
-    public String getUploadFileName()
-    {
-        return fileName;
-    }
+  public void setUploadContentType(String contentType) {
+    this.contentType = contentType;
+  }
 
-    public void setUploadFileName(String fileName)
-    {
-        this.fileName = fileName;
-    }
+  // since we are using <s:file name="upload" ... /> the File itself will be
+  // obtained through getter/setter of <file-tag-name>
+  public File getUpload() {
+    return upload;
+  }
 
-    // since we are using <s:file name="upload" ... /> the content type will be
-    // obtained through getter/setter of <file-tag-name>ContentType
-    public String getUploadContentType()
-    {
-        return contentType;
-    }
+  public void setUpload(File upload) {
+    this.upload = upload;
+  }
 
-    public void setUploadContentType(String contentType)
-    {
-        this.contentType = contentType;
-    }
+  public String getCaption() {
+    return caption;
+  }
 
-    // since we are using <s:file name="upload" ... /> the File itself will be
-    // obtained through getter/setter of <file-tag-name>
-    public File getUpload()
-    {
-        return upload;
-    }
+  public void setCaption(String caption) {
+    this.caption = caption;
+  }
 
-    public void setUpload(File upload)
-    {
-        this.upload = upload;
-    }
-
-    public String getCaption()
-    {
-        return caption;
-    }
-
-    public void setCaption(String caption)
-    {
-        this.caption = caption;
-    }
-
-    public void setFileId(int fileId)
-    {
-        this.fileId = fileId;
-    }
+  public void setFileId(int fileId) {
+    this.fileId = fileId;
+  }
 }

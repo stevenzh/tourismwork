@@ -23,8 +23,10 @@ public class ListShortcutAction extends ManageAction {
   protected static final Log logger = LogFactory
       .getLog(ListShortcutAction.class);
 
+  @Autowired
   private ShortcutManager shortcutManager;
 
+  @Autowired
   private ModuleService moduleService;
 
   private List<Shortcut> shortcutList;
@@ -34,15 +36,6 @@ public class ListShortcutAction extends ManageAction {
   private String shortcutId;
 
   private String kenModuleName;
-
-  @Autowired
-  public void setShortcutManager(ShortcutManager shortcutManager) {
-    this.shortcutManager = shortcutManager;
-  }
-
-  public void setModuleService(ModuleService moduleService) {
-    this.moduleService = moduleService;
-  }
 
   public String execute() {
     if (StringUtil.hasLength(kenModuleName))

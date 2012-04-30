@@ -8,12 +8,9 @@ import com.opentravelsoft.providers.TourNoticeUploadDao;
 
 @Service("TourNoticeUploadService")
 public class TourNoticeUploadServiceImpl implements TourNoticeUploadService {
-  private TourNoticeUploadDao tourNoticeUploadDao;
 
   @Autowired
-  public void setTourNoticeUploadDao(TourNoticeUploadDao tourNoticeUploadDao) {
-    this.tourNoticeUploadDao = tourNoticeUploadDao;
-  }
+  private TourNoticeUploadDao tourNoticeUploadDao;
 
   public int txSaveFileInfo(TourNoticeFile tourNoticeFile) {
     return tourNoticeUploadDao.saveFileInfo(tourNoticeFile);

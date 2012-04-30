@@ -24,6 +24,7 @@ public class ListGuideAction extends ManageAction {
 
   private String accNm;
 
+  @Autowired
   private GuideService guideService;
 
   private List<Guide> guideList;
@@ -71,11 +72,6 @@ public class ListGuideAction extends ManageAction {
 
   public void setAccCd(String accCd) {
     this.accCd = accCd;
-  }
-
-  @Autowired
-  public void setGuideService(GuideService guideService) {
-    this.guideService = guideService;
   }
 
   public List<Guide> getGuideList() {

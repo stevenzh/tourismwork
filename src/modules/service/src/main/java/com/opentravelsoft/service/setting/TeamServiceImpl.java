@@ -15,12 +15,8 @@ import com.opentravelsoft.util.PaginationSupport;
 @Service("TeamService")
 public class TeamServiceImpl implements TeamService {
 
-  private TeamDao teamDao;
-
   @Autowired
-  public void setTeamDao(TeamDao teamDao) {
-    this.teamDao = teamDao;
-  }
+  private TeamDao teamDao;
 
   public void deleteTeam(Team team) {
     teamDao.remove(team.getTeamId());

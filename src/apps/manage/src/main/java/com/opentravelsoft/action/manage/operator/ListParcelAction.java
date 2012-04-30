@@ -27,19 +27,14 @@ public class ListParcelAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(ListParcelAction.class);
 
+  @Autowired
   private TicketService ticketService;
+
+  @Autowired
   private EmployeeService employeeService;
+
+  @Autowired
   private TourService tourService;
-
-  @Autowired
-  public void setTicketService(TicketService ticketService) {
-    this.ticketService = ticketService;
-  }
-
-  @Autowired
-  public void setTourService(TourService tourSearchService) {
-    this.tourService = tourSearchService;
-  }
 
   private List<Outcome> parcels = null;
 
@@ -62,11 +57,6 @@ public class ListParcelAction extends ManageAction {
   private List<Team> teamList = new ArrayList<Team>();
 
   private List<Customer> supplierList = new ArrayList<Customer>();
-
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
 
   public String input() {
     teamList = tourService.getOperatorTeamList();

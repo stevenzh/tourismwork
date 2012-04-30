@@ -16,19 +16,11 @@ import com.opentravelsoft.providers.TeamDao;
 @Service("OperatorAlertService")
 public class OperatorAlertServiceImpl implements OperatorAlertService {
 
+  @Autowired
   private BookingDao bookingDao;
 
+  @Autowired
   private TeamDao teamDao;
-
-  @Autowired
-  public void setBookingDao(BookingDao bookingDao) {
-    this.bookingDao = bookingDao;
-  }
-
-  @Autowired
-  public void setTeamDao(TeamDao teamDao) {
-    this.teamDao = teamDao;
-  }
 
   public List<Remind> roGetOperator(long uid) {
     List<Remind> reminds = new ArrayList<Remind>();

@@ -22,6 +22,7 @@ import com.opentravelsoft.service.product.LineSightService;
 public class LineSightAction extends ManageAction {
   private static final long serialVersionUID = 7671898914387730451L;
 
+  @Autowired
   private LineSightService lineSightService;
 
   private Line line;
@@ -70,11 +71,6 @@ public class LineSightAction extends ManageAction {
 
     addActionMessage("线路景点保存成功.");
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setRouteSightService(LineSightService routeSightService) {
-    this.lineSightService = routeSightService;
   }
 
   public Line getLine() {

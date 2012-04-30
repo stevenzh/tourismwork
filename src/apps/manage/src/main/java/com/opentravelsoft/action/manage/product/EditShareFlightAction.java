@@ -13,6 +13,7 @@ import com.opentravelsoft.service.product.ShareFlightService;
 public class EditShareFlightAction extends ManageAction {
   private static final long serialVersionUID = -7956804047797701224L;
 
+  @Autowired
   private ShareFlightService shareFlightService;
 
   private Integer shFlightId;
@@ -20,11 +21,6 @@ public class EditShareFlightAction extends ManageAction {
   private ShareFlight tblShareFlight;
 
   private List<Airways> airways = new ArrayList<Airways>();
-
-  @Autowired
-  public void setShareFlightService(ShareFlightService shareFlightService) {
-    this.shareFlightService = shareFlightService;
-  }
 
   public String input() {
     if (shFlightId != null) {

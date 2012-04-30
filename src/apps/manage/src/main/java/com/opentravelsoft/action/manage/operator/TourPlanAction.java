@@ -29,8 +29,10 @@ public class TourPlanAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(TourPlanAction.class);
 
+  @Autowired
   private TourPlanService tourPlanService;
 
+  @Autowired
   private EmployeeService employeeSevice;
 
   private Line lineNo;
@@ -78,16 +80,6 @@ public class TourPlanAction extends ManageAction {
 
   /** 备注 */
   private String note;
-
-  @Autowired
-  public void setTourPlanService(TourPlanService tourPlanService) {
-    this.tourPlanService = tourPlanService;
-  }
-
-  @Autowired
-  public void setEmployeeSevice(EmployeeService employeeSevice) {
-    this.employeeSevice = employeeSevice;
-  }
 
   public String input() {
     // 查询初始化

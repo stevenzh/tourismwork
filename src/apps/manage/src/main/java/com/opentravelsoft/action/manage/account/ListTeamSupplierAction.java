@@ -26,15 +26,19 @@ import com.opentravelsoft.service.setting.TeamService;
 public class ListTeamSupplierAction extends ManageAction {
   private static final long serialVersionUID = -2148479645399144534L;
 
-  private List<Team> teamList = new ArrayList<Team>();
-
+  @Autowired
   private CustomerService supplierService;
 
+  @Autowired
   private CountryService countryService;
 
+  @Autowired
   private CityService cityService;
 
+  @Autowired
   private TeamService teamService;
+
+  private List<Team> teamList = new ArrayList<Team>();
 
   private int supplierId;
 
@@ -59,21 +63,6 @@ public class ListTeamSupplierAction extends ManageAction {
   private List<Country> countryList;
 
   private List<LabelValueBean> resourceList;
-
-  @Autowired
-  public void setCountryService(CountryService countryService) {
-    this.countryService = countryService;
-  }
-
-  @Autowired
-  public void setCityService(CityService cityService) {
-    this.cityService = cityService;
-  }
-
-  @Autowired
-  public void setTeamService(TeamService teamService) {
-    this.teamService = teamService;
-  }
 
   public String input() {
     teamList = teamService.getOperatorTeam();
@@ -136,11 +125,6 @@ public class ListTeamSupplierAction extends ManageAction {
 
     int result = supplierService.txSaveGroupSupplier(teamId, select);
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setSupplierService(CustomerService supplierService) {
-    this.supplierService = supplierService;
   }
 
   public List<Team> getTeamList() {

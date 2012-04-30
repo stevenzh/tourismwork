@@ -35,75 +35,35 @@ import com.opentravelsoft.util.PaginationSupport;
 @Service("RouteService")
 public class LineServiceImpl implements LineService {
 
+  @Autowired
   private LineDao lineDao;
 
+  @Autowired
   private CityDao cityDao;
 
+  @Autowired
   private ListDao listDao;
 
+  @Autowired
   private SequenceDao sequenceDao;
 
+  @Autowired
   private DestinationDao destinationDao;
 
+  @Autowired
   private LineTraitDao lineTraitDao;
 
+  @Autowired
   private LineScheduleDao lineScheduleDao;
 
+  @Autowired
   private LineVisaDao lineVisaDao;
 
+  @Autowired
   private LinePriceDao linePriceDao;
 
+  @Autowired
   private TeamDao teamDao;
-
-  @Autowired()
-  public void setLinePriceDao(LinePriceDao linePriceDao) {
-    this.linePriceDao = linePriceDao;
-  }
-
-  @Autowired()
-  public void setTeamDao(TeamDao teamDao) {
-    this.teamDao = teamDao;
-  }
-
-  @Autowired()
-  public void setListDao(ListDao listDao) {
-    this.listDao = listDao;
-  }
-
-  @Autowired()
-  public void setLineTraitDao(LineTraitDao lineTraitDao) {
-    this.lineTraitDao = lineTraitDao;
-  }
-
-  @Autowired()
-  public void setLineScheduleDao(LineScheduleDao lineScheduleDao) {
-    this.lineScheduleDao = lineScheduleDao;
-  }
-
-  @Autowired()
-  public void setLineVisaDao(LineVisaDao lineVisaDao) {
-    this.lineVisaDao = lineVisaDao;
-  }
-
-  @Autowired()
-  public void setDestinationDao(DestinationDao categoryDao) {
-    this.destinationDao = categoryDao;
-  }
-
-  @Autowired()
-  public void setLineDao(LineDao routeDao) {
-    this.lineDao = routeDao;
-  }
-
-  @Autowired()
-  public void setSequenceDao(SequenceDao sequenceDao) {
-    this.sequenceDao = sequenceDao;
-  }
-
-  @Autowired()
-  public void setCityDao(CityDao cityDao) {
-    this.cityDao = cityDao;
-  }
 
   public PaginationSupport findLineList(long teamId, String lineName,
       String isActive, long userId, String kenDestination, int fromRecord,

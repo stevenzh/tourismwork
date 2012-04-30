@@ -13,12 +13,8 @@ import com.opentravelsoft.providers.ListDao;
 @Service("ListService")
 public class ListServiceImpl implements ListService {
 
-  private ListDao listDao;
-
   @Autowired
-  public void setListDao(ListDao listDao) {
-    this.listDao = listDao;
-  }
+  private ListDao listDao;
 
   public void deleteList(long listId) {
     listDao.remove(listId);

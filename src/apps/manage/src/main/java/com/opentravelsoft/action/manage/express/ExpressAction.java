@@ -3,6 +3,8 @@ package com.opentravelsoft.action.manage.express;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opentravelsoft.util.LabelValueBean;
 
 import com.opentravelsoft.action.ManageAction;
@@ -15,6 +17,7 @@ public class ExpressAction extends ManageAction {
 
   private static final long serialVersionUID = 7113453645461822081L;
 
+  @Autowired
   private ExpressService expressService;
 
   /** 配送单号 */
@@ -87,10 +90,6 @@ public class ExpressAction extends ManageAction {
     // 提交审核结果
     expressService.txAuditingIsPass(expressId, isPass, user.getUid());
     return SUCCESS;
-  }
-
-  public void setExpressService(ExpressService expressService) {
-    this.expressService = expressService;
   }
 
   public List<LabelValueBean> getExpressTypeList() {

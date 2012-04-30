@@ -20,6 +20,7 @@ public class TouristInfoAction extends ManageAction {
 
   protected SimpleDateFormat SDF = new SimpleDateFormat("yyyyMMdd");
 
+  @Autowired
   private TouristService touristService;
 
   private Tourist tcustomer = new Tourist();
@@ -38,11 +39,6 @@ public class TouristInfoAction extends ManageAction {
       }
     }
     return INPUT;
-  }
-
-  @Autowired
-  public void setTouristService(TouristService touristService) {
-    this.touristService = touristService;
   }
 
 }

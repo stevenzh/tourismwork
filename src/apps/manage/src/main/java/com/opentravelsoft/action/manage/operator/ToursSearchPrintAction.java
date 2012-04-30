@@ -34,10 +34,13 @@ public class ToursSearchPrintAction extends ManageAction {
 
   protected SimpleDateFormat SDF = new SimpleDateFormat("yyyy　　MM　　dd");
 
+  @Autowired
   private TourService tourService;
 
+  @Autowired
   private BookingService bookingService;
 
+  @Autowired
   private EmployeeService employeeSevice;
 
   private String[] tourNos;
@@ -73,21 +76,6 @@ public class ToursSearchPrintAction extends ManageAction {
   private List<LabelValueBean> leaders = new ArrayList<LabelValueBean>();
 
   private Plan tour = new Plan();
-
-  @Autowired
-  public void setEmployeeSevice(EmployeeService employeeSevice) {
-    this.employeeSevice = employeeSevice;
-  }
-
-  @Autowired
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
-  }
-
-  @Autowired
-  public void setBookingService(BookingService bookService) {
-    this.bookingService = bookService;
-  }
 
   public String execute() {
     Employee user = getUser();

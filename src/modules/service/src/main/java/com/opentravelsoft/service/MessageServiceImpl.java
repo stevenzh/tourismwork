@@ -18,33 +18,18 @@ import com.opentravelsoft.providers.OutcomeDao;
 @WebService
 @Service("MessageService")
 public class MessageServiceImpl implements MessageService {
+  
+  @Autowired
   private BookingDao bookingDao;
 
+  @Autowired
   private EmployeeDao employeeDao;
 
+  @Autowired
   private IncomeDao incomeDao;
 
+  @Autowired
   private OutcomeDao outcomeDao;
-
-  @Autowired
-  public void setOutcomeDao(OutcomeDao outcomeDao) {
-    this.outcomeDao = outcomeDao;
-  }
-
-  @Autowired
-  public void setEmployeeDao(EmployeeDao employeeDao) {
-    this.employeeDao = employeeDao;
-  }
-
-  @Autowired
-  public void setBookingDao(BookingDao bookingDao) {
-    this.bookingDao = bookingDao;
-  }
-
-  @Autowired
-  public void setIncomeDao(IncomeDao incomeDao) {
-    this.incomeDao = incomeDao;
-  }
 
   public int getMessages(long uid) {
     int count = 0;

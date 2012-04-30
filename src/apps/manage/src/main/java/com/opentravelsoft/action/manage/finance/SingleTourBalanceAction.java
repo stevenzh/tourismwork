@@ -28,16 +28,14 @@ import com.opentravelsoft.util.Arith;
 public class SingleTourBalanceAction extends ManageAction {
   private static final long serialVersionUID = 4639080263620319176L;
 
+  @Autowired
   private TourService tourService;
 
+  @Autowired
   private CustomerService customerService;
 
-  private EmployeeService employeeSevice;
-
   @Autowired
-  public void setEmployeeSevice(EmployeeService employeeSevice) {
-    this.employeeSevice = employeeSevice;
-  }
+  private EmployeeService employeeSevice;
 
   private int id;
 
@@ -512,16 +510,6 @@ public class SingleTourBalanceAction extends ManageAction {
     }
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
-  }
-
-  @Autowired
-  public void setCustomerService(CustomerService contactService) {
-    this.customerService = contactService;
   }
 
   public long getKenDepartmentId() {

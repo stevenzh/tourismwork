@@ -8,12 +8,8 @@ import com.opentravelsoft.service.MyPageService;
 public class ExpressAction extends ManageAction {
   private static final long serialVersionUID = -3888246489030997025L;
 
-  private MyPageService myPageService;
-
   @Autowired
-  public void setMyPageService(MyPageService myPageService) {
-    this.myPageService = myPageService;
-  }
+  private MyPageService myPageService;
 
   public String execute() throws Exception {
     return SUCCESS;

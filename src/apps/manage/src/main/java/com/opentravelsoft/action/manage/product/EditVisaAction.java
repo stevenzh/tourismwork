@@ -33,6 +33,7 @@ public class EditVisaAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(EditVisaAction.class);
 
+  @Autowired
   private VisaHelpService visaService;
 
   private int attachedId;
@@ -214,11 +215,6 @@ public class EditVisaAction extends ManageAction {
     }
 
     return list;
-  }
-
-  @Autowired
-  public void setVisaService(VisaHelpService visaService) {
-    this.visaService = visaService;
   }
 
   public List<Country> getCountrys() {

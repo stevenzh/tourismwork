@@ -14,19 +14,11 @@ import com.opentravelsoft.providers.RoleDao;
 @Service("RoleService")
 public class RoleServiceImpl implements RoleService {
 
+  @Autowired
   private RoleDao roleDao;
 
+  @Autowired
   private PermissionDao permissionDao;
-
-  @Autowired
-  public void setRoleDao(RoleDao roleDao) {
-    this.roleDao = roleDao;
-  }
-
-  @Autowired
-  public void setPermissionDao(PermissionDao permissionDao) {
-    this.permissionDao = permissionDao;
-  }
 
   public List<Role> roGetQueryRole(String keyword) {
     return roleDao.queryRole(keyword);

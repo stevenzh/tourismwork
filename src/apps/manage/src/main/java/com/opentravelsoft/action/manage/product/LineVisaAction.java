@@ -23,6 +23,7 @@ import com.opentravelsoft.service.product.LineVisaService;
 public class LineVisaAction extends ManageAction {
   private static final long serialVersionUID = 7671898914387730451L;
 
+  @Autowired
   private LineVisaService routeVisaService;
 
   private List<LineVisa> visaList = new ArrayList<LineVisa>();
@@ -90,11 +91,6 @@ public class LineVisaAction extends ManageAction {
 
     addActionMessage("线路所需签证保存成功.");
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setRouteVisaService(LineVisaService routeVisaService) {
-    this.routeVisaService = routeVisaService;
   }
 
   public int getRefNo() {

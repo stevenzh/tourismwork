@@ -10,6 +10,7 @@ import com.opentravelsoft.service.product.ShareFlightService;
 
 public class ListShareFlightAction extends ManageAction {
 
+  @Autowired
   private ShareFlightService shareFlightService;
 
   private static final long serialVersionUID = 1L;
@@ -17,11 +18,6 @@ public class ListShareFlightAction extends ManageAction {
   private List<ShareFlight> shareFlight;
 
   private Integer shFlightId;
-
-  @Autowired
-  public void setShareFlightService(ShareFlightService shareFlightService) {
-    this.shareFlightService = shareFlightService;
-  }
 
   public String input() {
     shareFlight = shareFlightService.roFind();

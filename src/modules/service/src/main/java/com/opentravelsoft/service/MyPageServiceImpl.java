@@ -16,33 +16,17 @@ import com.opentravelsoft.workflow.TaskDao;
 @Service("MyPageService")
 public class MyPageServiceImpl implements MyPageService {
 
+  @Autowired
   private ExpressDao expressDao;
 
+  @Autowired
   private PlanListDao planListDao;
 
+  @Autowired
   private PlanDao tourDao;
 
+  @Autowired
   private TaskDao taskService;
-
-  @Autowired
-  public void setPlanDao(PlanDao tourDao) {
-    this.tourDao = tourDao;
-  }
-
-  @Autowired
-  public void setPlanListDao(PlanListDao planListDao) {
-    this.planListDao = planListDao;
-  }
-
-  @Autowired
-  public void setTaskService(TaskDao taskService) {
-    this.taskService = taskService;
-  }
-
-  @Autowired
-  public void setExpressDao(ExpressDao expressDao) {
-    this.expressDao = expressDao;
-  }
 
   public List<Express> roGetExpressTask(String taskName) {
     return expressDao.getExpressTaskList(taskName);

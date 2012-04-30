@@ -21,6 +21,7 @@ import com.opentravelsoft.util.StringUtil;
 public class DuplicateLineAction extends ManageAction {
   private static final long serialVersionUID = -862029740373263941L;
 
+  @Autowired
   private LineService routeService;
 
   /** 线路特色 */
@@ -96,11 +97,6 @@ public class DuplicateLineAction extends ManageAction {
     }
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setRouteService(LineService routeService) {
-    this.routeService = routeService;
   }
 
   public Line getRoute() {

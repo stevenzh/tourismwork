@@ -23,13 +23,10 @@ import com.opentravelsoft.service.setting.EmployeeService;
 public class ListPayRequisitionAction extends ManageAction {
   private static final long serialVersionUID = -7852853734687360320L;
 
-  private OutcomeService outcomeService;
-  private EmployeeService employeeSevice;
-
   @Autowired
-  public void setEmployeeSevice(EmployeeService employeeSevice) {
-    this.employeeSevice = employeeSevice;
-  }
+  private OutcomeService outcomeService;
+  @Autowired
+  private EmployeeService employeeSevice;
 
   private List<Outcome> outcomeList;
 
@@ -163,11 +160,6 @@ public class ListPayRequisitionAction extends ManageAction {
 
   public void setKenDepartment(long teamId) {
     this.kenTeamId = teamId;
-  }
-
-  @Autowired
-  public void setOutcomeService(OutcomeService outcomeService) {
-    this.outcomeService = outcomeService;
   }
 
   public String getKenTourNo() {

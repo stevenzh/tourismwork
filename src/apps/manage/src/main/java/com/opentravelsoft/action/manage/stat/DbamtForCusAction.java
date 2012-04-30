@@ -26,9 +26,16 @@ import com.opentravelsoft.service.setting.EmployeeService;
 public class DbamtForCusAction extends ManageAction {
   private static final long serialVersionUID = 1L;
 
+  @Autowired
   private BookingService bookingService;
+
+  @Autowired
   private ProvinceService provinceService;
+
+  @Autowired
   private CityService cityService;
+
+  @Autowired
   private EmployeeService employeeService;
 
   private Booking book = new Booking();
@@ -73,26 +80,6 @@ public class DbamtForCusAction extends ManageAction {
   private double totalCramt;
 
   private double totalUnpay;
-
-  @Autowired
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
-  }
-
-  @Autowired
-  public void setProvinceService(ProvinceService provinceService) {
-    this.provinceService = provinceService;
-  }
-
-  @Autowired
-  public void setCityService(CityService cityService) {
-    this.cityService = cityService;
-  }
-
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
 
   public String init() {
     provinceList = provinceService.getAllProvince();

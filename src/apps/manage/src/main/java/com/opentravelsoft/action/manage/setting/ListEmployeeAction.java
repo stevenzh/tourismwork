@@ -26,6 +26,7 @@ public class ListEmployeeAction extends ManageAction {
 
   private List<LabelValueBean> userCloseKeyList;
 
+  @Autowired
   private EmployeeService employeeService;
 
   private List<Team> maketorgList = new ArrayList<Team>();
@@ -65,11 +66,6 @@ public class ListEmployeeAction extends ManageAction {
   public String delete() {
     employeeService.txDeleteEmployee(userId);
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
   }
 
   public List<Group> getDepartmentList() {

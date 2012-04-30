@@ -19,14 +19,10 @@ import com.opentravelsoft.workflow.TaskDao;
 public class MyTaskAction extends ManageAction {
   private static final long serialVersionUID = 2886687498402018762L;
 
+  @Autowired
   private TaskDao taskService;
 
   private List<Task> tasks;
-
-  @Autowired
-  public void setTaskService(TaskDao taskService) {
-    this.taskService = taskService;
-  }
 
   public String execute() throws Exception {
     Employee user = getUser();

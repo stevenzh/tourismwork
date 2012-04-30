@@ -33,10 +33,13 @@ public class EditPlanAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(EditPlanAction.class);
 
+  @Autowired
   private TourPlanService tourPlanService;
 
+  @Autowired
   private LinePriceService linePriceService;
 
+  @Autowired
   private EmployeeService employeeSevice;
 
   /** 计划编号 */
@@ -101,21 +104,6 @@ public class EditPlanAction extends ManageAction {
   public EditPlanAction() {
     kenDepartment = "";
     kenPrincipal = "";
-  }
-
-  @Autowired
-  public void setEmployeeSevice(EmployeeService employeeSevice) {
-    this.employeeSevice = employeeSevice;
-  }
-
-  @Autowired
-  public void setTourPlanService(TourPlanService tourPlanService) {
-    this.tourPlanService = tourPlanService;
-  }
-
-  @Autowired
-  public void setRoutePriceService(LinePriceService routePriceService) {
-    this.linePriceService = routePriceService;
   }
 
   /**

@@ -21,17 +21,13 @@ import com.opentravelsoft.util.StringUtil;
 public class ShortcutAction extends ManageAction {
   private static final long serialVersionUID = 2886687498402018762L;
 
+  @Autowired
   private ShortcutManager shortcutManager;
 
   private List<Shortcut> shortcutList;
 
-  @Autowired
-  public void setShortcutManager(ShortcutManager shortcutManager) {
-    this.shortcutManager = shortcutManager;
-  }
-  
   private String role;
-  
+
   public String getRole() {
     return role;
   }

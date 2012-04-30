@@ -26,6 +26,7 @@ public class EditDistrictAction extends ManageAction {
   protected static final Log logger = LogFactory
       .getLog(EditDistrictAction.class);
 
+  @Autowired
   private DistrictService districtService;
 
   private String districtNo;
@@ -48,11 +49,6 @@ public class EditDistrictAction extends ManageAction {
   private List<Country> countryList;
 
   private List<Province> provinceList;
-
-  @Autowired
-  public void setDistrictService(DistrictService districtService) {
-    this.districtService = districtService;
-  }
 
   public String input() throws Exception {
     if (StringUtil.hasLength(districtNo))

@@ -31,8 +31,10 @@ public class EditPriceAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(EditPriceAction.class);
 
+  @Autowired
   private LinePriceService routePriceService;
 
+  @Autowired
   private TourService tourService;
 
   private LinePrice lineePrice = new LinePrice();
@@ -171,16 +173,6 @@ public class EditPriceAction extends ManageAction {
 
     addActionMessage("更新价格成功.");
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
-  }
-
-  @Autowired
-  public void setRoutePriceService(LinePriceService routePriceService) {
-    this.routePriceService = routePriceService;
   }
 
   public String getRecNo() {

@@ -39,10 +39,13 @@ public class BookingOrderAction extends ManageAction {
 
   protected DecimalFormat DF = new DecimalFormat("##0");
 
+  @Autowired
   private BookingService bookingService;
 
+  @Autowired
   private EmployeeService employeeService;
 
+  @Autowired
   private TourService tourService;
 
   /** 出团计划编号 */
@@ -92,15 +95,6 @@ public class BookingOrderAction extends ManageAction {
   /** 备注 */
   private String note;
 
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
-
-  @Autowired
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
-  }
 
   public String input() {
     Employee user = getUser();
@@ -516,14 +510,6 @@ public class BookingOrderAction extends ManageAction {
 
   public List<Employee> getSalesmans() {
     return salesmans;
-  }
-
-  public TourService getTourService() {
-    return tourService;
-  }
-
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
   }
 
   public Plan getPlan() {

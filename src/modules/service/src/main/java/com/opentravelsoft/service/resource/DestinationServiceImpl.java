@@ -15,33 +15,15 @@ import com.opentravelsoft.providers.mixed.PlanListDao;
 
 @Service("CategoryService")
 public class DestinationServiceImpl implements DestinationService {
+
+  @Autowired
   private DestinationDao destinationDao;
 
+  @Autowired
   private DistrictDao districtDao;
 
-  private DestinationDao categoryDao;
-
+  @Autowired
   private PlanListDao planListDao;
-
-  @Autowired
-  public void setCategoryDao(DestinationDao categoryDao) {
-    this.categoryDao = categoryDao;
-  }
-
-  @Autowired
-  public void setPlanListDao(PlanListDao planListDao) {
-    this.planListDao = planListDao;
-  }
-
-  @Autowired
-  public void setDistrictDao(DistrictDao destinationDao) {
-    this.districtDao = destinationDao;
-  }
-
-  @Autowired
-  public void setDestinationDao(DestinationDao categoryDao) {
-    this.destinationDao = categoryDao;
-  }
 
   public List<Destination> roGetAllCategorys() {
     return destinationDao.getAllDestination();
@@ -69,7 +51,7 @@ public class DestinationServiceImpl implements DestinationService {
   }
 
   public List<List<LabelValueBean>> getRegionGroupList() {
-    return categoryDao.getRegionGroupList();
+    return destinationDao.getRegionGroupList();
   }
 
   public List<Plan> getPlanList(String region, boolean deadline) {
@@ -77,10 +59,10 @@ public class DestinationServiceImpl implements DestinationService {
   }
 
   public List<List<LabelValueBean>> roGetSubRegions(String regionId) {
-    return categoryDao.getSubRegions(regionId);
+    return destinationDao.getSubRegions(regionId);
   }
 
   public List<Destination> getRegionList() {
-    return categoryDao.getRegionList();
+    return destinationDao.getRegionList();
   }
 }

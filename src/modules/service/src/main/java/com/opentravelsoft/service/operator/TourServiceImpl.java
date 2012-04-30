@@ -27,54 +27,26 @@ import com.opentravelsoft.providers.TouristDao;
 @Service("TourService")
 public class TourServiceImpl implements TourService {
 
+  @Autowired
   private PlanDao planDao;
 
+  @Autowired
   private TouristDao touristDao;
 
+  @Autowired
   private CityDao cityDao;
 
+  @Autowired
   private ListDao listDao;
 
+  @Autowired
   private TeamDao teamDao;
 
+  @Autowired
   private IncomeDao incomeDao;
 
+  @Autowired
   private InvoiceDao invoiceDao;
-
-  @Autowired
-  public void setIncomeDao(IncomeDao incomeDao) {
-    this.incomeDao = incomeDao;
-  }
-
-  @Autowired
-  public void setInvoiceDao(InvoiceDao invoiceDao) {
-    this.invoiceDao = invoiceDao;
-  }
-
-  @Autowired
-  public void setTeamDao(TeamDao departmentDao) {
-    this.teamDao = departmentDao;
-  }
-
-  @Autowired
-  public void setPlanDao(PlanDao tourDao) {
-    this.planDao = tourDao;
-  }
-
-  @Autowired
-  public void setCityDao(CityDao cityDao) {
-    this.cityDao = cityDao;
-  }
-
-  @Autowired
-  public void setListDao(ListDao listDao) {
-    this.listDao = listDao;
-  }
-
-  @Autowired
-  public void setTouristDao(TouristDao touristDao) {
-    this.touristDao = touristDao;
-  }
 
   public List<City> roGetPortCitys() {
     return cityDao.getLineOutCity();

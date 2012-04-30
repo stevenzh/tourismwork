@@ -27,10 +27,13 @@ public class ListFlightAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(ListFlightAction.class);
 
+  @Autowired
   private FlightService flightService;
 
+  @Autowired
   private AirportService airportService;
 
+  @Autowired
   private AirwaysService airwaysService;
 
   private List<Flight> flightList;
@@ -66,21 +69,6 @@ public class ListFlightAction extends ManageAction {
       flightService.txDelete(flightNo);
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setFlightService(FlightService flightService) {
-    this.flightService = flightService;
-  }
-
-  @Autowired
-  public void setAirportService(AirportService airportService) {
-    this.airportService = airportService;
-  }
-
-  @Autowired
-  public void setAirwaysService(AirwaysService airwaysService) {
-    this.airwaysService = airwaysService;
   }
 
   public List<Flight> getFlightList() {

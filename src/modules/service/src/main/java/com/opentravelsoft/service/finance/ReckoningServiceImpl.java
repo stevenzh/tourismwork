@@ -15,26 +15,15 @@ import com.opentravelsoft.providers.product.LineDao;
 
 @Service("ReckoningMakeService")
 public class ReckoningServiceImpl implements ReckoningService {
+  
+  @Autowired
   private LineDao lineDao;
 
+  @Autowired
   private ReckoningDao reckoningDao;
 
+  @Autowired
   private PlanDao planDao;
-
-  @Autowired
-  public void setLineDao(LineDao lineDao) {
-    this.lineDao = lineDao;
-  }
-
-  @Autowired
-  public void setReckoningDao(ReckoningDao reckoningDao) {
-    this.reckoningDao = reckoningDao;
-  }
-
-  @Autowired
-  public void setPlanDao(PlanDao tourDao) {
-    this.planDao = tourDao;
-  }
 
   public List<Reckoning> roGetReckoning(String reserveNo) {
     return reckoningDao.getReckoning(reserveNo);

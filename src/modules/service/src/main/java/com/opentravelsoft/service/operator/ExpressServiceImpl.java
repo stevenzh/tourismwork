@@ -21,19 +21,11 @@ import com.opentravelsoft.workflow.TaskDao;
 @Service("ExpressService")
 public class ExpressServiceImpl implements ExpressService {
 
+  @Autowired
   private ExpressDao expressDao;
 
+  @Autowired
   private TaskDao taskService;
-
-  @Autowired
-  public void setTaskService(TaskDao taskService) {
-    this.taskService = taskService;
-  }
-
-  @Autowired
-  public void setExpressDao(ExpressDao expressDao) {
-    this.expressDao = expressDao;
-  }
 
   public List<Booking> roFind(String user) {
     return expressDao.findBooking(user);

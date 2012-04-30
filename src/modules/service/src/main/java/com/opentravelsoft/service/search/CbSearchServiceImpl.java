@@ -15,12 +15,8 @@ import com.opentravelsoft.search.CraftBrotherIndexer;
 @Service("CbIndexService")
 public class CbSearchServiceImpl implements CbSearchService {
 
-  private CbIndexDao cbIndexDao;
-
   @Autowired
-  public void setCbIndexDao(CbIndexDao cbIndexDao) {
-    this.cbIndexDao = cbIndexDao;
-  }
+  private CbIndexDao cbIndexDao;
 
   public void getLineIndex(String lineNo) throws EbizException {
     try {

@@ -24,6 +24,7 @@ import com.opentravelsoft.util.StringUtil;
 public class EditEmployeeAction extends ManageAction {
   private static final long serialVersionUID = 7671898914387730451L;
 
+  @Autowired
   private EmployeeService employeeService;
 
   private List<LabelValueBean> sexList = new ArrayList<LabelValueBean>();
@@ -91,11 +92,6 @@ public class EditEmployeeAction extends ManageAction {
 
   public String changePwd() {
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
   }
 
   public List<Role> getRoles() {

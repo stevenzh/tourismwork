@@ -12,33 +12,21 @@ import com.opentravelsoft.entity.Customer;
 import com.opentravelsoft.entity.Team;
 import com.opentravelsoft.entity.finance.Income;
 import com.opentravelsoft.entity.product.Warrant;
-import com.opentravelsoft.providers.BookingDao;
 import com.opentravelsoft.providers.IncomeDao;
 import com.opentravelsoft.providers.InvoiceDao;
 import com.opentravelsoft.providers.TeamDao;
 
 @Service("IncomeService")
 public class IncomeServiceImpl implements IncomeService {
+  
+  @Autowired
   private IncomeDao incomeDao;
 
+  @Autowired
   private InvoiceDao invoiceDao;
 
+  @Autowired
   private TeamDao teamDao;
-
-  @Autowired
-  public void setTeamDao(TeamDao teamDao) {
-    this.teamDao = teamDao;
-  }
-
-  @Autowired
-  public void setIncomeDao(IncomeDao incomeDao) {
-    this.incomeDao = incomeDao;
-  }
-
-  @Autowired
-  public void setInvoiceDao(InvoiceDao invoiceDao) {
-    this.invoiceDao = invoiceDao;
-  }
 
   public List<Booking> roGetIncomeBookings(long customerId) {
     return incomeDao.getIncomeBookings(customerId);

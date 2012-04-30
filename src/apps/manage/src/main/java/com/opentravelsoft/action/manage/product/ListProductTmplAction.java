@@ -28,6 +28,7 @@ public class ListProductTmplAction extends ManageAction {
   protected static final Log logger = LogFactory
       .getLog(ListProductTmplAction.class);
 
+  @Autowired
   private ProductTmplService lineTmplService;
 
   private int tmplId;
@@ -86,11 +87,6 @@ public class ListProductTmplAction extends ManageAction {
   @Override
   protected int getMoveCount() {
     return 20;
-  }
-
-  @Autowired
-  public void setLineTmplService(ProductTmplService lineBookNoticeService) {
-    this.lineTmplService = lineBookNoticeService;
   }
 
   public List<ProductTmpl> getTmplList() {

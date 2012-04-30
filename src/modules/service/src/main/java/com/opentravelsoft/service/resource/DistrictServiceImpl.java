@@ -16,33 +16,18 @@ import com.opentravelsoft.util.StringUtil;
 
 @Service("DistrictService")
 public class DistrictServiceImpl implements DistrictService {
+  
+  @Autowired
   private CountryDao countryDao;
 
+  @Autowired
   private ProvinceDao provinceDao;
 
+  @Autowired
   private DistrictDao districtDao;
 
+  @Autowired
   private SequenceDao sequenceDao;
-
-  @Autowired
-  public void setDistrictDao(DistrictDao districtDao) {
-    this.districtDao = districtDao;
-  }
-
-  @Autowired
-  public void setSequenceDao(SequenceDao sequenceDao) {
-    this.sequenceDao = sequenceDao;
-  }
-
-  @Autowired
-  public void setCountryDao(CountryDao countryDao) {
-    this.countryDao = countryDao;
-  }
-
-  @Autowired
-  public void setProvinceDao(ProvinceDao provinceDao) {
-    this.provinceDao = provinceDao;
-  }
 
   public List<District> roGetDistrictList(String districtName,
       String countryNo, String duchy) {

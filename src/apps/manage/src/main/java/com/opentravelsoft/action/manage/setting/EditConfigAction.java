@@ -20,6 +20,7 @@ public class EditConfigAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(EditConfigAction.class);
 
+  @Autowired
   private SysConfigService sysConfigService;
 
   private SysConfig config;
@@ -39,11 +40,6 @@ public class EditConfigAction extends ManageAction {
     ActionContext.getContext().getApplication()
         .put(config.getName(), config.getValue());
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setSysConfigService(SysConfigService sysConfigService) {
-    this.sysConfigService = sysConfigService;
   }
 
   public int getConfigId() {

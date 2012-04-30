@@ -30,61 +30,30 @@ import com.opentravelsoft.util.StringUtil;
 
 @Service("TourPlanService")
 public class TourPlanServiceImpl implements TourPlanService {
+
+  @Autowired
   private PlanListDao planListDao;
 
+  @Autowired
   private BookingDao bookingDao;
 
+  @Autowired
   private TeamDao teamDao;
 
+  @Autowired
   private SequenceDao sequenceDao;
 
-  private LinePriceDao linePriceDao;
+  @Autowired
+  private LinePriceDao routePriceDao;
 
-  private LineDao lineDao;
+  @Autowired
+  private LineDao routeDao;
 
+  @Autowired
   private TraitTypeDao traitTypeDao;
 
+  @Autowired
   private AirwaysDao airwaysDao;
-
-  @Autowired
-  public void setTraitTypeDao(TraitTypeDao traitTypeDao) {
-    this.traitTypeDao = traitTypeDao;
-  }
-
-  @Autowired
-  public void setRouteDao(LineDao routeDao) {
-    this.lineDao = routeDao;
-  }
-
-  @Autowired
-  public void setBookingDao(BookingDao bookingDao) {
-    this.bookingDao = bookingDao;
-  }
-
-  @Autowired
-  public void setSequenceDao(SequenceDao sequenceDao) {
-    this.sequenceDao = sequenceDao;
-  }
-
-  @Autowired
-  public void setTeamDao(TeamDao teamDao) {
-    this.teamDao = teamDao;
-  }
-
-  @Autowired
-  public void setAirwaysDao(AirwaysDao airwaysDao) {
-    this.airwaysDao = airwaysDao;
-  }
-
-  @Autowired
-  public void setPlanListDao(PlanListDao planListDao) {
-    this.planListDao = planListDao;
-  }
-
-  @Autowired
-  public void setRoutePriceDao(LinePriceDao routePriceDao) {
-    this.linePriceDao = routePriceDao;
-  }
 
   public List<Plan> roFind(String lineName, long teamId, long userId,
       Date startDate, Date endDate, double lowerPrice, double upperPrice,
@@ -110,7 +79,7 @@ public class TourPlanServiceImpl implements TourPlanService {
     double price = 0d;
     boolean modi = false;
 
-    List<LinePrice> prices = linePriceDao.getLinePrice(plan.getLine()
+    List<LinePrice> prices = routePriceDao.getLinePrice(plan.getLine()
         .getLineNo(), plan.getOutDate(), plan.getOutDate());
     for (LinePrice routePrice : prices) {
       Calendar cal = Calendar.getInstance();
@@ -163,7 +132,7 @@ public class TourPlanServiceImpl implements TourPlanService {
   public int txInsertPlan(List<Plan> plans, Date startDate, Date endDate,
       List<PlanPrice> planPrices, int shareId) {
     Plan tPlan = plans.get(0);
-    List<LinePrice> prices = linePriceDao.getLinePrice(tPlan.getLine()
+    List<LinePrice> prices = routePriceDao.getLinePrice(tPlan.getLine()
         .getLineNo(), startDate, endDate);
     double price = 0d;
     boolean modi = false;
@@ -235,7 +204,7 @@ public class TourPlanServiceImpl implements TourPlanService {
   }
 
   public Line roGetLine(String lineNo) {
-    return lineDao.get(lineNo);
+    return routeDao.get(lineNo);
   }
 
   public List<LabelValueBean> roSearchShare() {

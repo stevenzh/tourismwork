@@ -12,19 +12,12 @@ import com.opentravelsoft.providers.product.LineVisaDao;
 
 @Service("RouteVisaService")
 public class LineVisaServiceImpl implements LineVisaService {
+  
+  @Autowired
   private LineVisaDao lineVisaDao;
 
+  @Autowired
   private CountryDao countryDao;
-
-  @Autowired
-  public void setRouteVisaDao(LineVisaDao routeVisaDao) {
-    this.lineVisaDao = routeVisaDao;
-  }
-
-  @Autowired
-  public void setCountryDao(CountryDao countryDao) {
-    this.countryDao = countryDao;
-  }
 
   public List<LineVisa> getVisaList(String lineNo) {
     return lineVisaDao.getVisaList(lineNo);

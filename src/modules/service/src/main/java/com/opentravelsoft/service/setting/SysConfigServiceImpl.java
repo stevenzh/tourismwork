@@ -11,12 +11,9 @@ import com.opentravelsoft.providers.SysConfigDao;
 
 @Service("SysConfigService")
 public class SysConfigServiceImpl implements SysConfigService {
-  private SysConfigDao sysConfigDao;
-
+  
   @Autowired
-  public void setSysConfigDao(SysConfigDao sysConfigDao) {
-    this.sysConfigDao = sysConfigDao;
-  }
+  private SysConfigDao sysConfigDao;
 
   public void deleteConfig(long configId) {
     sysConfigDao.remove(configId);

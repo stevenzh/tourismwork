@@ -12,6 +12,7 @@ import com.opentravelsoft.service.finance.InvoiceService;
 public class ListInvoice extends ManageAction {
   private static final long serialVersionUID = -4285814141474897738L;
 
+  @Autowired
   private InvoiceService invoiceService;
 
   private List<Invoice> invoiceList;
@@ -25,11 +26,6 @@ public class ListInvoice extends ManageAction {
   private double maxAmount;
 
   private String inviceId;
-
-  @Autowired
-  public void setInvoiceService(InvoiceService invoiceService) {
-    this.invoiceService = invoiceService;
-  }
 
   @Override
   public String input() throws Exception {

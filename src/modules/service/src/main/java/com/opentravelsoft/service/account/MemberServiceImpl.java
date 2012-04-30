@@ -12,19 +12,12 @@ import com.opentravelsoft.providers.MemberDao;
 
 @Service("MemberService")
 public class MemberServiceImpl implements MemberService {
+  
+  @Autowired
   private MemberDao memberDao;
 
+  @Autowired
   private ListDao listDao;
-
-  @Autowired
-  public void setMemberDao(MemberDao memberDao) {
-    this.memberDao = memberDao;
-  }
-
-  @Autowired
-  public void setListDao(ListDao listDao) {
-    this.listDao = listDao;
-  }
 
   public int txRegister(Member customer) {
     return memberDao.register(customer);

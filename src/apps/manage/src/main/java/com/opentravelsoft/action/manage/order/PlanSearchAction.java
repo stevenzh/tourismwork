@@ -23,8 +23,10 @@ import com.opentravelsoft.service.setting.EmployeeService;
 public class PlanSearchAction extends ManageAction {
   private static final long serialVersionUID = -7625855842902512964L;
 
+  @Autowired
   private PlanSearchService planSearchService;
 
+  @Autowired
   private EmployeeService employeeService;
 
   private List<Employee> employeeList;
@@ -56,16 +58,6 @@ public class PlanSearchAction extends ManageAction {
   private Date kenOrderEndPeriod;
 
   private List<Plan> plans = new ArrayList<Plan>();
-
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
-
-  @Autowired
-  public void setPlanSearchService(PlanSearchService planSearchService) {
-    this.planSearchService = planSearchService;
-  }
 
   public String input() throws Exception {
     Employee user = getUser();

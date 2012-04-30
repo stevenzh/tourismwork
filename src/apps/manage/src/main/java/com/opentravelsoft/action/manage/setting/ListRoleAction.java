@@ -24,14 +24,10 @@ public class ListRoleAction extends ManageAction {
 
   private String keyword;
 
+  @Autowired
   private RoleService roleService;
 
   private List<Role> roleList;
-
-  @Autowired
-  public void setRoleService(RoleService moduleService) {
-    this.roleService = moduleService;
-  }
 
   public String input() throws Exception {
     roleList = roleService.roGetRoleList();

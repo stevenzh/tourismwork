@@ -24,11 +24,12 @@ import com.opentravelsoft.service.setting.EmployeeService;
 public class ListConfirmBookAction extends ManageAction {
   private static final long serialVersionUID = 1873002169910914015L;
 
-  protected static final Log logger = LogFactory
-      .getLog(ListConfirmBookAction.class);
+  protected static final Log logger = LogFactory.getLog(ListConfirmBookAction.class);
 
+  @Autowired
   private EmployeeService employeeService;
 
+  @Autowired
   private BookingService bookService;
 
   private List<Employee> employees;
@@ -49,17 +50,6 @@ public class ListConfirmBookAction extends ManageAction {
   private Date kenEndDate;
 
   private String kenLineName;
-
-  // -------------------------------------------------------------------------
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
-
-  @Autowired
-  public void setBookService(BookingService bookService) {
-    this.bookService = bookService;
-  }
 
   public String input() {
     Employee user = getUser();

@@ -22,6 +22,7 @@ import com.opentravelsoft.service.finance.OutcomeService;
 public class AuditPayRequisitionAction extends ManageAction {
   private static final long serialVersionUID = 7046152940418063549L;
 
+  @Autowired
   private OutcomeService outcomeService;
 
   // -------------------------------------------------------------------------
@@ -118,11 +119,6 @@ public class AuditPayRequisitionAction extends ManageAction {
       addActionMessage("审核失败！");
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setOutcomeService(OutcomeService outcomeService) {
-    this.outcomeService = outcomeService;
   }
 
   public Date getKenStartDate() {

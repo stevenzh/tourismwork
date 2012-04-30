@@ -22,16 +22,12 @@ public class EditTeamAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(EditTeamAction.class);
 
+  @Autowired
   private TeamService teamService;
 
   private List<Team> teamList;
 
   private Team team = new Team();
-
-  @Autowired
-  public void setTeamService(TeamService teamService) {
-    this.teamService = teamService;
-  }
 
   public String input() {
     dreamPage();

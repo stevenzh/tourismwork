@@ -33,8 +33,10 @@ public class EditLineAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(EditLineAction.class);
 
+  @Autowired
   private LineService lineService;
 
+  @Autowired
   private EmployeeService employeeService;
 
   /** 线路号 */
@@ -86,18 +88,6 @@ public class EditLineAction extends ManageAction {
   private String kenClosekey;
 
   private String kenDestination;
-
-  // -------------------------------------------------------------------------
-
-  @Autowired
-  public void setRouteService(LineService lineService) {
-    this.lineService = lineService;
-  }
-
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
 
   /**
    * 线路修改初始化

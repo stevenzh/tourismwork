@@ -21,6 +21,7 @@ public class EditAirwaysAction extends ManageAction {
   protected static final Log logger = LogFactory
       .getLog(EditAirwaysAction.class);
 
+  @Autowired
   private AirwaysService airwaysService;
 
   private Airways airways = new Airways();
@@ -28,11 +29,6 @@ public class EditAirwaysAction extends ManageAction {
   private String airwaysId;
 
   private String opKey;
-
-  @Autowired
-  public void setAirwaysService(AirwaysService airwaysService) {
-    this.airwaysService = airwaysService;
-  }
 
   public String input() {
     if (StringUtil.hasLength(airwaysId)) {

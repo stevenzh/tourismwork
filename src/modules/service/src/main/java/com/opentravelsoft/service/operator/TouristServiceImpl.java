@@ -14,27 +14,18 @@ import com.opentravelsoft.providers.TouristDao;
 
 @Service("TouristService")
 public class TouristServiceImpl implements TouristService {
+  
+  @Autowired
   private TouristDao touristDao;
 
+  @Autowired
   private ListDao listDao;
 
-  private PlanDao tourDao;
-
   @Autowired
-  public void setTouristDao(TouristDao touristDao) {
-    this.touristDao = touristDao;
-  }
+  private PlanDao planDao;
 
   public Tourist roFindCustomerByNmno(String nmno) {
     return touristDao.findCustomerByNmno(nmno);
-  }
-
-  public void setListDao(ListDao listDao) {
-    this.listDao = listDao;
-  }
-
-  public void setPlanDao(PlanDao tourDao) {
-    this.tourDao = tourDao;
   }
 
   public List<LabelValueBean> roGetPassportPlaceList() {
@@ -42,11 +33,11 @@ public class TouristServiceImpl implements TouristService {
   }
 
   public Plan roGetPlanDetail(String tourNo) {
-    return tourDao.getTourInfo(tourNo, false, false);
+    return planDao.getTourInfo(tourNo, false, false);
   }
 
   public int txModifyCustomerInfo(List<Tourist> customerList, String tourNo,
       String note, long uid) {
-    return tourDao.modifyCustomerInfo(customerList, tourNo, note, uid);
+    return planDao.modifyCustomerInfo(customerList, tourNo, note, uid);
   }
 }

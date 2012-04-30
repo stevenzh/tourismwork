@@ -20,6 +20,7 @@ public class CusDbamtDetailAction extends ManageAction {
 
   private static final long serialVersionUID = 1L;
 
+  @Autowired
   private BookingService bookingService;
 
   private List<Booking> bookList = new ArrayList<Booking>();
@@ -46,11 +47,6 @@ public class CusDbamtDetailAction extends ManageAction {
   private double totalCramt;
 
   private double totalUnpay;
-
-  @Autowired
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
-  }
 
   public String get() {
     bookList = bookingService.roGetBooksByCustomer(customerId, kenSales,

@@ -18,6 +18,7 @@ import com.opentravelsoft.service.finance.FinanceAlertService;
 public class FinanceAlertAction extends ManageAction {
   private static final long serialVersionUID = -1246961970794740556L;
 
+  @Autowired
   private FinanceAlertService financeAlertService;
 
   private String kenEmployeeId;
@@ -30,11 +31,6 @@ public class FinanceAlertAction extends ManageAction {
 
   /** 未读付款申请书 */
   private List<Remind> billList = new ArrayList<Remind>();
-
-  @Autowired
-  public void setFinanceAlertService(FinanceAlertService financeAlertService) {
-    this.financeAlertService = financeAlertService;
-  }
 
   @Override
   public String input() throws Exception {

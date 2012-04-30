@@ -26,6 +26,7 @@ public class ListSightAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(ListSightAction.class);
 
+  @Autowired
   private SightService sightService;
 
   private List<Sight> sightList = new ArrayList<Sight>();
@@ -90,11 +91,6 @@ public class ListSightAction extends ManageAction {
 
   public List<Sight> getSightList() {
     return sightList;
-  }
-
-  @Autowired
-  public void setSightService(SightService sightService) {
-    this.sightService = sightService;
   }
 
   public void setSightNo(String sightNo) {

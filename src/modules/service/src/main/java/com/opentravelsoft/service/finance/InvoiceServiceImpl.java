@@ -11,40 +11,27 @@ import com.opentravelsoft.providers.InvoiceDao;
 import com.opentravelsoft.providers.SequenceDao;
 
 @Service("InvoiceService")
-public class InvoiceServiceImpl implements InvoiceService
-{
-    private InvoiceDao invoiceDao;
+public class InvoiceServiceImpl implements InvoiceService {
+  
+  @Autowired
+  private InvoiceDao invoiceDao;
 
-    private SequenceDao sequenceDao;
+  @Autowired
+  private SequenceDao sequenceDao;
 
-    @Autowired
-    public void setInvoiceDao(InvoiceDao invoiceDao)
-    {
-        this.invoiceDao = invoiceDao;
-    }
+  public int txSaveInvoice(Invoice invoice, long groupId) {
+    String no = sequenceDao.getComputerNo("M", groupId);
+    invoice.setRecordNo(no);
+    return invoiceDao.save(invoice, groupId);
+  }
 
-    @Autowired
-    public void setSequenceDao(SequenceDao sequenceDao)
-    {
-        this.sequenceDao = sequenceDao;
-    }
+  public List<Invoice> roGetInvoices(Date startDate, Date endDate,
+      double minAmount, double maxAmount, String sort) {
+    return invoiceDao.getInvoices(startDate, endDate, minAmount, maxAmount,
+        sort);
+  }
 
-    public int txSaveInvoice(Invoice invoice, long groupId)
-    {
-        String no = sequenceDao.getComputerNo("M", groupId);
-        invoice.setRecordNo(no);
-        return invoiceDao.save(invoice, groupId);
-    }
-
-    public List<Invoice> roGetInvoices(Date startDate, Date endDate,
-            double minAmount, double maxAmount, String sort)
-    {
-        return invoiceDao.getInvoices(startDate, endDate, minAmount, maxAmount,
-                sort);
-    }
-
-    public int txDeleteInvoice(String inviceId)
-    {
-        return invoiceDao.deleteInvoice(inviceId);
-    }
+  public int txDeleteInvoice(String inviceId) {
+    return invoiceDao.deleteInvoice(inviceId);
+  }
 }

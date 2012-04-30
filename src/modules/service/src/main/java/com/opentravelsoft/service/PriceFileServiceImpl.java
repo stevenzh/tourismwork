@@ -11,12 +11,8 @@ import com.opentravelsoft.providers.PriceUploadDao;
 @Service("PriceFileService")
 public class PriceFileServiceImpl implements PriceFileService {
 
-  private PriceUploadDao priceUploadDao;
-
   @Autowired
-  public void setPriceUploadDao(PriceUploadDao priceUploadDao) {
-    this.priceUploadDao = priceUploadDao;
-  }
+  private PriceUploadDao priceUploadDao;
 
   public FileItem roGetFileItem(int fileId) {
     return priceUploadDao.getFileItem(fileId);

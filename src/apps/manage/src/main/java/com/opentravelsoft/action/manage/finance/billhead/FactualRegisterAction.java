@@ -26,16 +26,14 @@ import com.opentravelsoft.service.setting.EmployeeService;
 public class FactualRegisterAction extends ManageAction {
   private static final long serialVersionUID = -8806143847619980510L;
 
+  @Autowired
   private OutcomeService outcomeService;
 
+  @Autowired
   private TourService tourService;
 
-  private EmployeeService employeeSevice;
-
   @Autowired
-  public void setEmployeeSevice(EmployeeService employeeSevice) {
-    this.employeeSevice = employeeSevice;
-  }
+  private EmployeeService employeeSevice;
 
   /** 部门 */
   private long kenTeamId;
@@ -73,16 +71,6 @@ public class FactualRegisterAction extends ManageAction {
   private String register = "N";
 
   private List<LabelValueBean> registerList;
-
-  @Autowired
-  public void setOutcomeService(OutcomeService outcomeService) {
-    this.outcomeService = outcomeService;
-  }
-
-  @Autowired
-  public void setTourService(TourService tourSearchService) {
-    this.tourService = tourSearchService;
-  }
 
   /**
    * 进入实付登记搜索

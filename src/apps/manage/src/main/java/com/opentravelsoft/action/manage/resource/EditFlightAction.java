@@ -19,6 +19,7 @@ public class EditFlightAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(EditFlightAction.class);
 
+  @Autowired
   private FlightService flightService;
 
   private Flight flight = new Flight();
@@ -33,11 +34,6 @@ public class EditFlightAction extends ManageAction {
   public String submit() {
     flightService.txUpdate(flight);
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setFlightService(FlightService flightService) {
-    this.flightService = flightService;
   }
 
   public Flight getFlight() {

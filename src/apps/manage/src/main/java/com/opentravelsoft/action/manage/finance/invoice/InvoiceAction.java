@@ -23,8 +23,10 @@ import com.opentravelsoft.service.finance.InvoiceService;
 public class InvoiceAction extends ManageAction {
   private static final long serialVersionUID = -8607586773699795330L;
 
+  @Autowired
   private InvoiceService invoiceService;
 
+  @Autowired
   private IncomeService incomeService;
 
   private Invoice invoice;
@@ -35,18 +37,6 @@ public class InvoiceAction extends ManageAction {
   private List<InvoiceItem> items = new ArrayList<InvoiceItem>();
 
   private List<InvoicePiece> pieces = new ArrayList<InvoicePiece>();
-
-  // -------------------------------------------------------------------------
-
-  @Autowired
-  public void setInvoiceService(InvoiceService invoiceService) {
-    this.invoiceService = invoiceService;
-  }
-
-  @Autowired
-  public void setIncomeService(IncomeService incomeService) {
-    this.incomeService = incomeService;
-  }
 
   public String input() {
     Employee user = getUser();

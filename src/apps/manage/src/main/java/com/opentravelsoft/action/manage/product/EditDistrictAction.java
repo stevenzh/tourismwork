@@ -21,6 +21,7 @@ import com.opentravelsoft.util.StringUtil;
 public class EditDistrictAction extends ManageAction {
   private static final long serialVersionUID = 8905386860268766776L;
 
+  @Autowired
   private DistrictService districtService;
 
   private String countryNo;
@@ -34,11 +35,6 @@ public class EditDistrictAction extends ManageAction {
   private List<Country> countryList;
 
   private List<Province> provinceList;
-
-  @Autowired
-  public void setDistrictService(DistrictService districtService) {
-    this.districtService = districtService;
-  }
 
   @Override
   public String input() throws Exception {

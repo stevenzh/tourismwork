@@ -24,10 +24,13 @@ import com.opentravelsoft.util.StringUtil;
 public class AccountPopupAction extends ManageAction {
   private static final long serialVersionUID = 7671898914387730451L;
 
+  @Autowired
   private CustomerService agentService;
 
+  @Autowired
   private ProvinceService provinceService;
 
+  @Autowired
   private CityService cityService;
 
   // -------------------------------------------------------------------------
@@ -59,16 +62,6 @@ public class AccountPopupAction extends ManageAction {
 
   private List<Employee> saleList = new ArrayList<Employee>();
 
-  @Autowired
-  public void setProvinceService(ProvinceService provinceService) {
-    this.provinceService = provinceService;
-  }
-
-  @Autowired
-  public void setCityService(CityService cityService) {
-    this.cityService = cityService;
-  }
-
   @Override
   public String input() {
     provinceList = provinceService.getAllProvince();
@@ -98,11 +91,6 @@ public class AccountPopupAction extends ManageAction {
   @Override
   protected int getMoveCount() {
     return 10;
-  }
-
-  @Autowired
-  public void setAgentService(CustomerService agentService) {
-    this.agentService = agentService;
   }
 
   public List<Customer> getAgentList() {

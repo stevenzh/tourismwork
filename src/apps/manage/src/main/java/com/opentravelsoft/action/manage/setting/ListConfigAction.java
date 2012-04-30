@@ -22,6 +22,7 @@ public class ListConfigAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(ListConfigAction.class);
 
+  @Autowired
   private SysConfigService sysConfigService;
 
   private List<SysConfig> tmplList;
@@ -50,11 +51,6 @@ public class ListConfigAction extends ManageAction {
   public String delete() {
     sysConfigService.deleteConfig(configId);
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setSysConfigService(SysConfigService sysConfigService) {
-    this.sysConfigService = sysConfigService;
   }
 
   public List<SysConfig> getTmplList() {

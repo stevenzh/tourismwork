@@ -14,19 +14,12 @@ import com.opentravelsoft.providers.mixed.PlanListDao;
 
 @Service("SalesPlanSearchService")
 public class PlanSearchServiceImpl implements PlanSearchService {
+
+  @Autowired
   private PlanListDao planListDao;
 
+  @Autowired
   private TeamDao teamDao;
-
-  @Autowired
-  public void setPlanListDao(PlanListDao planListDao) {
-    this.planListDao = planListDao;
-  }
-
-  @Autowired
-  public void setTeamDao(TeamDao teamDao) {
-    this.teamDao = teamDao;
-  }
 
   public List<Plan> roFind(String lineName, long teamId, long userId,
       Date startDate, Date endDate, double lowerPrice, double upperPrice,

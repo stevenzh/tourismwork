@@ -27,8 +27,10 @@ import com.opentravelsoft.service.product.LineTraitService;
 public class LineExpenseAction extends ManageAction {
   private static final long serialVersionUID = 7671898914387730451L;
 
+  @Autowired
   private LineTraitService routeTraitService;
 
+  @Autowired
   private ProductTmplService lineTmplService;
 
   /** 线路包含 */
@@ -48,15 +50,6 @@ public class LineExpenseAction extends ManageAction {
 
   /** 直客自费 */
   private String zkOwnExpense;
-
-  @Autowired
-  public void setRouteTraitService(LineTraitService routeTraitService) {
-    this.routeTraitService = routeTraitService;
-  }
-
-  public void setLineTmplService(ProductTmplService lineTmplService) {
-    this.lineTmplService = lineTmplService;
-  }
 
   public String input() throws Exception {
     Map<String, Object> session = ActionContext.getContext().getSession();

@@ -27,8 +27,10 @@ public class AddLineAction extends ManageAction {
 
   private static final long serialVersionUID = 7671898914387730451L;
 
+  @Autowired
   private LineService lineService;
 
+  @Autowired
   private EmployeeService employeeService;
 
   /** 线路号 */
@@ -75,16 +77,6 @@ public class AddLineAction extends ManageAction {
   private String kenRouteName;
 
   private String kenClosekey;
-
-  @Autowired
-  public void setRouteService(LineService routeService) {
-    this.lineService = routeService;
-  }
-
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
 
   public AddLineAction() {
     line = new Line();

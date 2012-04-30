@@ -29,10 +29,13 @@ public class TourBalanceAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(ManageAction.class);
 
+  @Autowired
   private TourService tourService;
 
+  @Autowired
   private EmployeeService employeeService;
 
+  @Autowired
   private MyPageService myPageService;
 
   /** 团号 */
@@ -89,11 +92,6 @@ public class TourBalanceAction extends ManageAction {
   /** 总毛利率 */
   private double allGrossAmountRate;
 
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
-
   public String execute() {
     Employee user = getUser();
     kenUserId = user.getUserId();
@@ -140,16 +138,6 @@ public class TourBalanceAction extends ManageAction {
 
     currentPage(tours.size());
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
-  }
-
-  @Autowired
-  public void setMyPageService(MyPageService myPageService) {
-    this.myPageService = myPageService;
   }
 
   public String getTourNo() {

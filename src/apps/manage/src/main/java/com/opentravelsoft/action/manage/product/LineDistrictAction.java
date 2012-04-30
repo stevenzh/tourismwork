@@ -30,6 +30,7 @@ public class LineDistrictAction extends ManageAction {
 
   private Map<String, String> teamList;
 
+  @Autowired
   private LineDistrictService routeDistrictService;
 
   private Line line;
@@ -47,11 +48,6 @@ public class LineDistrictAction extends ManageAction {
   private List<District> districtList;
 
   private List<District> searchList = new ArrayList<District>();
-
-  @Autowired
-  public void setRouteDistrictService(LineDistrictService routeDistrictService) {
-    this.routeDistrictService = routeDistrictService;
-  }
 
   public String input() throws Exception {
     Map<String, Object> session = ActionContext.getContext().getSession();

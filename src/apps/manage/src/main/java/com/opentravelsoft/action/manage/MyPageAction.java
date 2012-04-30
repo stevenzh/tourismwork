@@ -14,12 +14,8 @@ import com.opentravelsoft.service.MyPageService;
 public class MyPageAction extends ManageAction {
   private static final long serialVersionUID = -598635103771546388L;
 
-  private MyPageService myPageService;
-
   @Autowired
-  public void setMyPageService(MyPageService myPageService) {
-    this.myPageService = myPageService;
-  }
+  private MyPageService myPageService;
 
   public String execute() throws Exception {
     return SUCCESS;

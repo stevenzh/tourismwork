@@ -24,14 +24,10 @@ public class ListModuleAction extends ManageAction {
 
   private String keyword;
 
+  @Autowired
   private ModuleService moduleService;
 
   private List<Module> moduleList;
-
-  @Autowired
-  public void setModuleService(ModuleService moduleService) {
-    this.moduleService = moduleService;
-  }
 
   public String input() throws Exception {
     moduleList = moduleService.roGetModuleList(false);

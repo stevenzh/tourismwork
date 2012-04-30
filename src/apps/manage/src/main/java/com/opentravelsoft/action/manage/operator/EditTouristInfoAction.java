@@ -28,16 +28,16 @@ import com.opentravelsoft.service.setting.EmployeeService;
 public class EditTouristInfoAction extends ManageAction {
   private static final long serialVersionUID = 7384681404062382613L;
 
+  @Autowired
   private TouristService touristService;
+
+  @Autowired
   private EmployeeService employeeService;
 
   @Autowired
-  public void setEmployeeService(EmployeeService employeeSevice) {
-    this.employeeService = employeeSevice;
-  }
-
   private TourService tourService;
 
+  @Autowired
   private BookingService bookingService;
 
   private List<Tourist> customerList = new ArrayList<Tourist>();
@@ -158,21 +158,6 @@ public class EditTouristInfoAction extends ManageAction {
       addActionMessage("修改成功!");
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setTouristService(TouristService customerInfoService) {
-    this.touristService = customerInfoService;
-  }
-
-  @Autowired
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
-  }
-
-  @Autowired
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
   }
 
   public String getTourNo() {

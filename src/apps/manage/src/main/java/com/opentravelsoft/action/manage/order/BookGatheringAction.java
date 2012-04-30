@@ -19,6 +19,7 @@ import com.opentravelsoft.service.order.BookingService;
 public class BookGatheringAction extends ManageAction {
   private static final long serialVersionUID = 421467675829379367L;
 
+  @Autowired
   private BookingService bookingService;
 
   /** 付款方式列表 */
@@ -42,11 +43,6 @@ public class BookGatheringAction extends ManageAction {
     Employee user = getUser();
     bookingService.txGathering(payment, user.getUserId());
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
   }
 
   public List<LabelValueBean> getTypes() {

@@ -28,8 +28,10 @@ import com.opentravelsoft.service.setting.EmployeeService;
 public class TourDetailAction extends ManageAction {
   private static final long serialVersionUID = 8751890782466429464L;
 
+  @Autowired
   private TourService tourService;
 
+  @Autowired
   private EmployeeService employeeService;
 
   private Plan tour;
@@ -111,16 +113,6 @@ public class TourDetailAction extends ManageAction {
     nameKey = 'N';
     kenTeamId = 0;
     kenUserId = 0;
-  }
-
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
-
-  @Autowired
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
   }
 
   /**

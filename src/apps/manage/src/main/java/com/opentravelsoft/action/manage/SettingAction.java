@@ -9,12 +9,8 @@ public class SettingAction extends ManageAction {
 
   private static final long serialVersionUID = 2886687498402018762L;
 
-  private MyPageService myPageService;
-
   @Autowired
-  public void setMyPageService(MyPageService myPageService) {
-    this.myPageService = myPageService;
-  }
+  private MyPageService myPageService;
 
   public String execute() throws Exception {
     return SUCCESS;

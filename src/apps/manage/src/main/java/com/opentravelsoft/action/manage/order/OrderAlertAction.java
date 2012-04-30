@@ -22,14 +22,10 @@ public class OrderAlertAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(OrderAlertAction.class);
 
+  @Autowired
   private OperatorAlertService operatorAlertService;
 
   private List<Booking> bookList;
-
-  @Autowired
-  public void setOperatorAlertService(OperatorAlertService operatorAlertService) {
-    this.operatorAlertService = operatorAlertService;
-  }
 
   @Override
   public String input() throws Exception {

@@ -23,12 +23,16 @@ import com.opentravelsoft.workflow.WorkFlowKeyParams;
 public class WarnAction extends ManageAction {
   private static final long serialVersionUID = -1454513816209811339L;
 
+  @Autowired
   private OperatorAlertService operatorAlertService;
 
+  @Autowired
   private FinanceAlertService financeAlertService;
 
+  @Autowired
   private CustomerService customerService;
 
+  @Autowired
   private ExpressService expressService;
 
   private Remind re = new Remind();
@@ -57,26 +61,6 @@ public class WarnAction extends ManageAction {
 
   /** 客户 */
   private List<Remind> cust = new ArrayList<Remind>();
-
-  @Autowired
-  public void setOperatorAlertService(OperatorAlertService operatorAlertService) {
-    this.operatorAlertService = operatorAlertService;
-  }
-
-  @Autowired
-  public void setExpressService(ExpressService expressService) {
-    this.expressService = expressService;
-  }
-
-  @Autowired
-  public void setCustomerService(CustomerService customerService) {
-    this.customerService = customerService;
-  }
-
-  @Autowired
-  public void setFinanceAlertService(FinanceAlertService financeAlertService) {
-    this.financeAlertService = financeAlertService;
-  }
 
   @Override
   public String execute() throws Exception {

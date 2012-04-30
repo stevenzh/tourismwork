@@ -26,6 +26,7 @@ public class EditGuideAction extends ManageAction {
 
   private String accCd;
 
+  @Autowired
   private GuideService guideService;
 
   private Guide guide = new Guide();
@@ -100,11 +101,6 @@ public class EditGuideAction extends ManageAction {
 
   public void setAccCd(String accCd) {
     this.accCd = accCd;
-  }
-
-  @Autowired
-  public void setGuideService(GuideService guideService) {
-    this.guideService = guideService;
   }
 
   public List<LabelValueBean> getSexList() {

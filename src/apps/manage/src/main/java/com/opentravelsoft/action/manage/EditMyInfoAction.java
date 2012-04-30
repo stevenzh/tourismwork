@@ -17,6 +17,7 @@ import com.opentravelsoft.util.StringUtil;
 public class EditMyInfoAction extends ManageAction {
   private static final long serialVersionUID = 2886687498402018762L;
 
+  @Autowired
   private EmployeeService employeeService;
 
   private Employee employee;
@@ -26,11 +27,6 @@ public class EditMyInfoAction extends ManageAction {
   private String newPwd;
 
   private String confirmPwd;
-
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
 
   @Override
   public String input() throws Exception {

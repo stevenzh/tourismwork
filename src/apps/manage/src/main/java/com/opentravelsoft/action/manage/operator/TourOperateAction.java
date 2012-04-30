@@ -32,10 +32,13 @@ import com.opentravelsoft.service.setting.EmployeeService;
 public class TourOperateAction extends ManageAction {
   private static final long serialVersionUID = -4141009845765575704L;
 
+  @Autowired
   private TourService tourService;
 
+  @Autowired
   private TaskDao taskService;
 
+  @Autowired
   private EmployeeService employeeSevice;
 
   private String kenTeamId;
@@ -78,21 +81,6 @@ public class TourOperateAction extends ManageAction {
 
   /** 备注 */
   private String note;
-
-  @Autowired
-  public void setTaskService(TaskDao taskService) {
-    this.taskService = taskService;
-  }
-
-  @Autowired
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
-  }
-
-  @Autowired
-  public void setEmployeeSevice(EmployeeService employeeSevice) {
-    this.employeeSevice = employeeSevice;
-  }
 
   @Override
   public String input() throws Exception {

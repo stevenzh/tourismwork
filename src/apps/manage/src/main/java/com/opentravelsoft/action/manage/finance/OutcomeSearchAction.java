@@ -25,10 +25,15 @@ import com.opentravelsoft.util.StringUtil;
 public class OutcomeSearchAction extends ManageAction {
   private static final long serialVersionUID = -2109168126484132451L;
 
+  @Autowired
   private OutcomeService outcomeService;
 
+  @Autowired
   private CountryService countryService;
+
+  @Autowired
   private CityService cityService;
+
   private Date startDate;
 
   private Date endDate;
@@ -51,16 +56,6 @@ public class OutcomeSearchAction extends ManageAction {
   private String kenCountryId;
 
   private String kenCityId;
-
-  @Autowired
-  public void setCountryService(CountryService countryService) {
-    this.countryService = countryService;
-  }
-
-  @Autowired
-  public void setCityService(CityService cityService) {
-    this.cityService = cityService;
-  }
 
   /**
    * 应付帐款查询初始化
@@ -102,11 +97,6 @@ public class OutcomeSearchAction extends ManageAction {
     resourceList = getCodeList("ebiz_supplier_resource");
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setOutcomeService(OutcomeService outcomeService) {
-    this.outcomeService = outcomeService;
   }
 
   public Date getStartDate() {

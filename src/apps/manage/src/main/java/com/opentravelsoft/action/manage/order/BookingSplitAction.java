@@ -29,10 +29,13 @@ import com.opentravelsoft.util.StringUtil;
 public class BookingSplitAction extends ManageAction {
   private static final long serialVersionUID = -7463230324280513531L;
 
+  @Autowired
   private BookingService bookingService;
 
+  @Autowired
   private EmployeeService employeeService;
 
+  @Autowired
   private TourService tourService;
 
   protected DecimalFormat DF = new DecimalFormat("##0");
@@ -81,11 +84,6 @@ public class BookingSplitAction extends ManageAction {
 
   // 用于拆分订单所选的名单
   private String[] selects;
-
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
 
   /**
    * 拆分订单初始化
@@ -268,16 +266,6 @@ public class BookingSplitAction extends ManageAction {
       }
     }
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
-  }
-
-  @Autowired
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
   }
 
   public String getRecordNo() {

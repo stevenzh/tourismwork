@@ -18,6 +18,7 @@ public class CbIndexAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(CbIndexAction.class);
 
+  @Autowired
   private CbSearchService cbIndexService;
 
   /** 查询字符串 */
@@ -92,11 +93,6 @@ public class CbIndexAction extends ManageAction {
       return INPUT;
     }
 
-  }
-
-  @Autowired
-  public void setCbIndexService(CbSearchService cbIndexService) {
-    this.cbIndexService = cbIndexService;
   }
 
   public String getRouteNo() {

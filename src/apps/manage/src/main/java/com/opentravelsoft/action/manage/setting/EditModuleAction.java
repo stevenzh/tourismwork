@@ -20,14 +20,10 @@ public class EditModuleAction extends ManageAction {
 
   private int moduleId;
 
+  @Autowired
   private ModuleService moduleService;
 
   private Module module = new Module();
-
-  @Autowired
-  public void setModuleService(ModuleService guideService) {
-    this.moduleService = guideService;
-  }
 
   public String input() throws Exception {
     if (moduleId != 0)

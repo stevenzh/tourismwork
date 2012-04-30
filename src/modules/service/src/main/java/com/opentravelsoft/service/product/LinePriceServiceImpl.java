@@ -17,37 +17,23 @@ import com.opentravelsoft.util.StringUtil;
 
 @Service("RoutePriceService")
 public class LinePriceServiceImpl implements LinePriceService {
-  private LinePriceDao linePriceDao;
 
+  @Autowired
+  private LinePriceDao routePriceDao;
+
+  @Autowired
   private AirwaysDao airwaysDao;
-
+  
+  @Autowired
   private ListDao listDao;
-
+  
+  @Autowired
   private SequenceDao sequenceDao;
 
-  @Autowired
-  public void setSequenceDao(SequenceDao sequenceDao) {
-    this.sequenceDao = sequenceDao;
-  }
-
-  @Autowired
-  public void setListDao(ListDao priceTypeDao) {
-    this.listDao = priceTypeDao;
-  }
-
-  @Autowired
-  public void setAirwaysDao(AirwaysDao airwaysDao) {
-    this.airwaysDao = airwaysDao;
-  }
-
-  @Autowired
-  public void setRoutePriceDao(LinePriceDao routePriceDao) {
-    this.linePriceDao = routePriceDao;
-  }
 
   public List<LinePrice> getLinePrice(String lineNo, Date startDate,
       Date endDate) {
-    return linePriceDao.getLinePrice(lineNo, startDate, endDate);
+    return routePriceDao.getLinePrice(lineNo, startDate, endDate);
   }
 
   public List<Airways> roGetAllAirways() {
@@ -59,11 +45,11 @@ public class LinePriceServiceImpl implements LinePriceService {
   }
 
   public int txDeleteLinePrice(String recNo, String note, long userId) {
-    return linePriceDao.deleteLinePrice(recNo, note, userId);
+    return routePriceDao.deleteLinePrice(recNo, note, userId);
   }
 
   public LinePrice findLinePrice(String recNo) {
-    return linePriceDao.get(recNo);
+    return routePriceDao.get(recNo);
   }
 
   public int txEditPrice(LinePrice routePrice, String note, long userId) {
@@ -72,7 +58,7 @@ public class LinePriceServiceImpl implements LinePriceService {
       String no = sequenceDao.getComputerNo("T", userId);
       routePrice.setRecNo(no);
     }
-    linePriceDao.save(routePrice);
+    routePriceDao.save(routePrice);
     return result;
   }
 

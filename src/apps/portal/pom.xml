@@ -58,6 +58,7 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- 
     <dependency>
       <groupId>org.apache.velocity</groupId>
       <artifactId>velocity</artifactId>
@@ -69,20 +70,8 @@
         </exclusion>
       </exclusions>
     </dependency>
-
-    <!-- 
-    <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjrt</artifactId>
-      <version>${aspectj.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjtools</artifactId>
-      <version>${aspectj.version}</version>
-    </dependency>
-     -->
-
+    -->
+    
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>
@@ -135,7 +124,7 @@
       <artifactId>sitemesh</artifactId>
       <version>${sitemesh.version}</version>
     </dependency>
-    
+
     <dependency>
       <groupId>org.apache.struts</groupId>
       <artifactId>struts2-core</artifactId>
@@ -145,12 +134,6 @@
       <groupId>org.apache.struts</groupId>
       <artifactId>struts2-sitemesh-plugin</artifactId>
       <version>${struts.version}</version>
-        <exclusions>
-        <exclusion>
-          <artifactId>javassist</artifactId>
-          <groupId>javassist</groupId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.struts</groupId>
@@ -249,15 +232,7 @@
       <artifactId>slf4j-log4j12</artifactId>
       <version>${slf4j.version}</version>
     </dependency>
-    <!-- Explicitly include latest version of wstx-asl to prevent downstream 
-      issues with Tapestry -->
-    <!--
-    <dependency>
-      <groupId>org.codehaus.woodstox</groupId>
-      <artifactId>woodstox-core-asl</artifactId>
-      <version>4.0.3</version>
-    </dependency>
-     -->
+
     <dependency>
       <groupId>org.tuckey</groupId>
       <artifactId>urlrewritefilter</artifactId>
@@ -359,6 +334,16 @@
       <version>2.1_3</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-convention-plugin</artifactId>
+      <version>2.3.1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-rest-plugin</artifactId>
+      <version>2.3.1.2</version>
+    </dependency>
   </dependencies>
 
 </project>

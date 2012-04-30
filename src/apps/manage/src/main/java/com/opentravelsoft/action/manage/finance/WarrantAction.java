@@ -12,12 +12,12 @@ import com.opentravelsoft.entity.Employee;
 import com.opentravelsoft.entity.Team;
 import com.opentravelsoft.entity.product.Warrant;
 import com.opentravelsoft.service.finance.IncomeService;
-import com.opentravelsoft.service.operator.TourService;
 
 public class WarrantAction extends ManageAction {
 
   private static final long serialVersionUID = 7169395117657538586L;
 
+  @Autowired
   private IncomeService incomeService;
 
   private List<Customer> agentList;
@@ -84,11 +84,6 @@ public class WarrantAction extends ManageAction {
 
   public void setTourNo(String tourNo) {
     this.tourNo = tourNo;
-  }
-
-  @Autowired
-  public void setIncomeService(IncomeService incomeService) {
-    this.incomeService = incomeService;
   }
 
   public List<Customer> getAgentList() {

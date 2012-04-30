@@ -24,13 +24,14 @@ import com.opentravelsoft.service.setting.EmployeeService;
 public class TourIncomeAction extends ManageAction {
   private static final long serialVersionUID = 5799682184580813453L;
 
+  @Autowired
   private IncomeService incomeService;
 
+  @Autowired
   private EmployeeService salesmanService;
 
+  @Autowired
   private TourService tourService;
-
-  // -------------------------------------------------------------------------
 
   /** 部门列表 */
   private List<Team> teamList;
@@ -111,21 +112,6 @@ public class TourIncomeAction extends ManageAction {
     // addActionError("单团收款登记失败.");
     // }
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setIncomeService(IncomeService incomeService) {
-    this.incomeService = incomeService;
-  }
-
-  @Autowired
-  public void setSalesmanService(EmployeeService salesmanService) {
-    this.salesmanService = salesmanService;
-  }
-
-  @Autowired
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
   }
 
   public Plan getTour() {

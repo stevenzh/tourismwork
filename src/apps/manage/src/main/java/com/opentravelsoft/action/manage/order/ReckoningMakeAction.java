@@ -32,12 +32,16 @@ import com.opentravelsoft.util.RowDataUtil;
 public class ReckoningMakeAction extends ManageAction {
   private static final long serialVersionUID = -7852853734687360320L;
 
+  @Autowired
   private BookingService bookingService;
 
+  @Autowired
   private ReckoningService reckoningService;
 
+  @Autowired
   private LineScheduleService lineScheduleService;
 
+  @Autowired
   private LineTraitService lineTraitService;
 
   private List<ReckoningAcct> reckoningAcctList = new ArrayList<ReckoningAcct>();
@@ -495,26 +499,6 @@ public class ReckoningMakeAction extends ManageAction {
     }
 
     return SUCCESS;
-  }
-
-  // ---------------------------------------------------------------------------
-  @Autowired
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
-  }
-
-  @Autowired
-  public void setReckoningMakeService(ReckoningService reckoningMakeService) {
-    this.reckoningService = reckoningMakeService;
-  }
-
-  @Autowired
-  public void setRouteScheduleService(LineScheduleService routeScheduleService) {
-    this.lineScheduleService = routeScheduleService;
-  }
-
-  public void setRouteTraitService(LineTraitService routeTraitService) {
-    this.lineTraitService = routeTraitService;
   }
 
   public String getNameKey() {

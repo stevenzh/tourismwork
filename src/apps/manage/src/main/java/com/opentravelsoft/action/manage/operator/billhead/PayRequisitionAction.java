@@ -24,6 +24,7 @@ import com.opentravelsoft.service.finance.OutcomeService;
 public class PayRequisitionAction extends ManageAction {
   private static final long serialVersionUID = -7852853734687360320L;
 
+  @Autowired
   private OutcomeService outcomeService;
 
   // -------------------------------------------------------------------------
@@ -123,11 +124,6 @@ public class PayRequisitionAction extends ManageAction {
     outcomeService.txSaveBillhead(outcome, audit);
     addActionMessage("付款申请书制作成功！");
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setOutcomeService(OutcomeService outcomeService) {
-    this.outcomeService = outcomeService;
   }
 
   public List<LabelValueBean> getSupplierTypeList() {

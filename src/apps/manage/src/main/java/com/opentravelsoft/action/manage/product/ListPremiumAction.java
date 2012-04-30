@@ -16,6 +16,7 @@ import com.opentravelsoft.service.product.PremiumService;
  */
 public class ListPremiumAction extends ManageAction {
 
+  @Autowired
   private PremiumService premiumService;
 
   private static final long serialVersionUID = 7538617605340027473L;
@@ -23,11 +24,6 @@ public class ListPremiumAction extends ManageAction {
   private List<Premium> preminus;
 
   private String preminuCode;
-
-  @Autowired
-  public void setPremiumService(PremiumService premiumService) {
-    this.premiumService = premiumService;
-  }
 
   public String input() {
     preminus = premiumService.roFind();

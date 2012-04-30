@@ -25,8 +25,10 @@ import com.opentravelsoft.workflow.TaskDao;
 public class ExpressDetailAction extends ManageAction {
   private static final long serialVersionUID = 1L;
 
+  @Autowired
   private ExpressService expressService;
 
+  @Autowired
   private TaskDao taskService;
 
   /** 配送单号 */
@@ -62,16 +64,6 @@ public class ExpressDetailAction extends ManageAction {
 
   /** 配送操作历史记录列表 */
   private List<TourLog> expressLogList = new ArrayList<TourLog>();
-
-  @Autowired
-  public void setExpressService(ExpressService expressService) {
-    this.expressService = expressService;
-  }
-
-  @Autowired
-  public void setTaskService(TaskDao taskService) {
-    this.taskService = taskService;
-  }
 
   public String input() {
     // 取得配送单

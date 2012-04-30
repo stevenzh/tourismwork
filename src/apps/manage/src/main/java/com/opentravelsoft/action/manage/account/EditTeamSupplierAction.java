@@ -31,10 +31,15 @@ public class EditTeamSupplierAction extends ManageAction {
 
   private List<Team> teamList = new ArrayList<Team>();
 
+  @Autowired
   private CustomerService supplierService;
+  @Autowired
   private ProvinceService provinceService;
+  @Autowired
   private CountryService countryService;
+  @Autowired
   private CityService cityService;
+  @Autowired
   private TeamService teamService;
 
   private Customer supplier = new Customer();
@@ -73,26 +78,6 @@ public class EditTeamSupplierAction extends ManageAction {
   private List<LabelValueBean> featureList;
 
   private List<LabelValueBean> resourceList;
-
-  @Autowired
-  public void setCountryService(CountryService countryService) {
-    this.countryService = countryService;
-  }
-
-  @Autowired
-  public void setProvinceService(ProvinceService provinceService) {
-    this.provinceService = provinceService;
-  }
-
-  @Autowired
-  public void setCityService(CityService cityService) {
-    this.cityService = cityService;
-  }
-
-  @Autowired
-  public void setTeamService(TeamService teamService) {
-    this.teamService = teamService;
-  }
 
   public String input() {
     teamList = teamService.getMarketTeam();
@@ -182,11 +167,6 @@ public class EditTeamSupplierAction extends ManageAction {
     }
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setSupplierService(CustomerService supplierService) {
-    this.supplierService = supplierService;
   }
 
   public List<Team> getTeamList() {

@@ -26,6 +26,7 @@ public class EditSightAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(EditSightAction.class);
 
+  @Autowired
   private SightService sightService;
 
   private String sightNo;
@@ -78,11 +79,6 @@ public class EditSightAction extends ManageAction {
 
   public void setSight(Sight sight) {
     this.sight = sight;
-  }
-
-  @Autowired
-  public void setSightService(SightService sightService) {
-    this.sightService = sightService;
   }
 
   public String getSightNo() {

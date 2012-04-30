@@ -20,6 +20,7 @@ import com.opentravelsoft.service.product.LineScheduleService;
 public class ShowRouteJourneyAction extends ManageAction {
   private static final long serialVersionUID = 7671898914387730451L;
 
+  @Autowired
   private LineScheduleService routeScheduleService;
 
   private Line line;
@@ -30,11 +31,6 @@ public class ShowRouteJourneyAction extends ManageAction {
   private List<LineTraffic> lineTrafficList = new ArrayList<LineTraffic>();
 
   private List<LineSchedule> scheduleList = new ArrayList<LineSchedule>();
-
-  @Autowired
-  public void setRouteScheduleService(LineScheduleService routeScheduleService) {
-    this.routeScheduleService = routeScheduleService;
-  }
 
   public String execute() {
     line = routeScheduleService.findLine(lineNo);

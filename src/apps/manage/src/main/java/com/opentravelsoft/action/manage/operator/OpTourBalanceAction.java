@@ -31,10 +31,13 @@ import com.opentravelsoft.workflow.TaskDao;
 public class OpTourBalanceAction extends ManageAction {
   private static final long serialVersionUID = 6943355664892206072L;
 
+  @Autowired
   private TourService tourService;
 
+  @Autowired
   private CustomerService customerService;
-  
+
+  @Autowired
   private TaskDao taskService;
 
   protected SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd");
@@ -73,22 +76,6 @@ public class OpTourBalanceAction extends ManageAction {
   /** 币种 */
   private List<LabelValueBean> currencyList = new ArrayList<LabelValueBean>();
 
-
-  @Autowired
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
-  }
-
-  @Autowired
-  public void setCustomerService(CustomerService contactService) {
-    this.customerService = contactService;
-  }
-
-  @Autowired
-  public void setTaskService(TaskDao taskService) {
-    this.taskService = taskService;
-  }
-  
   /**
    * 单团核算表修改初始化
    * 

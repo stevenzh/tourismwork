@@ -19,6 +19,7 @@ import com.opentravelsoft.service.HotelManager;
 @WebService(serviceName = "HotelService", endpointInterface = "com.opentravelsoft.service.HotelManager")
 public class HotelManagerImpl extends GenericManagerImpl<Hotel, String>
     implements HotelManager {
+  
   private HotelDao hotelDao;
 
   @Autowired

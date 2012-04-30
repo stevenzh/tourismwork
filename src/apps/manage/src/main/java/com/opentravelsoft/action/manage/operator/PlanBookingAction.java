@@ -27,6 +27,7 @@ public class PlanBookingAction extends ManageAction {
   protected static final Log logger = LogFactory
       .getLog(PlanBookingAction.class);
 
+  @Autowired
   private TourPlanService tourPlanService;
 
   /** 计划编号 */
@@ -57,11 +58,6 @@ public class PlanBookingAction extends ManageAction {
 
   /** 出团时间-截止 */
   private Date kenEndDate;
-
-  @Autowired
-  public void setTourPlanService(TourPlanService tourPlanService) {
-    this.tourPlanService = tourPlanService;
-  }
 
   /**
    * 出团计划详细

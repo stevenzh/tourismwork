@@ -23,6 +23,7 @@ import com.opentravelsoft.service.VisaHelpService;
 public class ListVisaAction extends ManageAction {
   private static final long serialVersionUID = 1082931041437688165L;
 
+  @Autowired
   private VisaHelpService visaService;
 
   /** 国家列表 */
@@ -38,11 +39,6 @@ public class ListVisaAction extends ManageAction {
   private String recordNo;
 
   private Line line;
-
-  @Autowired
-  public void setVisaService(VisaHelpService visaService) {
-    this.visaService = visaService;
-  }
 
   /**
    * 查询签证国家

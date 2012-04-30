@@ -11,19 +11,11 @@ import com.opentravelsoft.providers.RoleDao;
 
 @Service("ModuleService")
 public class ModuleServiceImpl implements ModuleService {
+  
+  @Autowired
   private ModuleDao moduleDao;
-
+  @Autowired
   private RoleDao roleDao;
-
-  @Autowired
-  public void setRoleDao(RoleDao roleDao) {
-    this.roleDao = roleDao;
-  }
-
-  @Autowired
-  public void setModuleDao(ModuleDao moduleDao) {
-    this.moduleDao = moduleDao;
-  }
 
   public Module roGetModuleDetail(long moduleId) {
     return moduleDao.get(moduleId);

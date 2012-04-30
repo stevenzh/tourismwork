@@ -15,19 +15,11 @@ import com.opentravelsoft.providers.mixed.PlanListDao;
 @Service("PlanListService")
 public class PlanListServiceImpl implements PlanListService {
 
+  @Autowired
   private PlanListDao planListDao;
 
+  @Autowired
   private DestinationDao destinationDao;
-
-  @Autowired
-  public void setDestinationDao(DestinationDao destinationDao) {
-    this.destinationDao = destinationDao;
-  }
-
-  @Autowired
-  public void setPlanListDao(PlanListDao planListDao) {
-    this.planListDao = planListDao;
-  }
 
   public List<Plan> getPlanList(String region, boolean deadline) {
     return planListDao.getPlanList(0L, deadline, region);

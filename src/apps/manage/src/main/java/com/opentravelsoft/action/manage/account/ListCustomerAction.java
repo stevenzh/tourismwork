@@ -31,11 +31,17 @@ import com.opentravelsoft.util.StringUtil;
 public class ListCustomerAction extends ManageAction {
   private static final long serialVersionUID = 7671898914387730451L;
 
+  @Autowired
   private CustomerService agentService;
+  @Autowired
   private ProvinceService provinceService;
+  @Autowired
   private CountryService countryService;
+  @Autowired
   private CityService cityService;
+  @Autowired
   private TeamService teamService;
+
   private Customer agent = new Customer();
 
   /** 代理商编码 */
@@ -102,26 +108,6 @@ public class ListCustomerAction extends ManageAction {
   /** 提供资源 */
   private List<LabelValueBean> resourceList;
 
-  @Autowired
-  public void setCountryService(CountryService countryService) {
-    this.countryService = countryService;
-  }
-
-  @Autowired
-  public void setProvinceService(ProvinceService provinceService) {
-    this.provinceService = provinceService;
-  }
-
-  @Autowired
-  public void setCityService(CityService cityService) {
-    this.cityService = cityService;
-  }
-
-  @Autowired
-  public void setTeamService(TeamService teamService) {
-    this.teamService = teamService;
-  }
-
   @Override
   public String input() {
     Employee user = getUser();
@@ -184,11 +170,6 @@ public class ListCustomerAction extends ManageAction {
   @Override
   protected int getMoveCount() {
     return 20;
-  }
-
-  @Autowired
-  public void setAgentService(CustomerService agentService) {
-    this.agentService = agentService;
   }
 
   public void setAgentId(int agentId) {

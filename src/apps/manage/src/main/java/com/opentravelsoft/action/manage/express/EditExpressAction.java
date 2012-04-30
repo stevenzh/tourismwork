@@ -18,6 +18,7 @@ import com.opentravelsoft.service.operator.ExpressService;
 public class EditExpressAction extends ManageAction {
   private static final long serialVersionUID = 7113453645461822081L;
 
+  @Autowired
   private ExpressService expressService;
 
   /** 配送单号 */
@@ -93,11 +94,6 @@ public class EditExpressAction extends ManageAction {
     // 提交审核结果
     expressService.txAuditingIsPass(expressId, isPass, user.getUid());
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setExpressService(ExpressService expressService) {
-    this.expressService = expressService;
   }
 
   public List<LabelValueBean> getExpressTypeList() {

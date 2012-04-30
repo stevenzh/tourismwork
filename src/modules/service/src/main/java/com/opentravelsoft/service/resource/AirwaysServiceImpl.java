@@ -11,12 +11,9 @@ import com.opentravelsoft.util.PaginationSupport;
 
 @Service("AirwaysService")
 public class AirwaysServiceImpl implements AirwaysService {
-  private AirwaysDao airwaysDao;
-
+  
   @Autowired
-  public void setAirwaysDao(AirwaysDao airwaysDao) {
-    this.airwaysDao = airwaysDao;
-  }
+  private AirwaysDao airwaysDao;
 
   public Airways roGetAirwaysDetail(String airwaysId) {
     return airwaysDao.get(airwaysId);

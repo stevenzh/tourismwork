@@ -20,6 +20,7 @@ import com.opentravelsoft.service.order.BookingService;
 public class ReadBookingAction extends ManageAction {
   private static final long serialVersionUID = 1L;
 
+  @Autowired
   private BookingService bookingService;
 
   private String bookingNo;
@@ -43,13 +44,6 @@ public class ReadBookingAction extends ManageAction {
   private String kenDepartmentId;
 
   private String kenEmployeeId;
-
-  // -------------------------------------------------------------------------
-
-  @Autowired
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
-  }
 
   @Override
   public String input() throws Exception {

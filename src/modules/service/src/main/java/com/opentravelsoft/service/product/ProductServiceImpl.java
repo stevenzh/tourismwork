@@ -13,19 +13,12 @@ import com.opentravelsoft.providers.product.ProductItemDao;
 
 @Service("ProductService")
 public class ProductServiceImpl implements ProductService {
+  
+  @Autowired
   private CategoryDao categoryDao;
 
+  @Autowired
   private ProductItemDao productItemDao;
-
-  @Autowired
-  public void setCategoryDao(CategoryDao categoryDao) {
-    this.categoryDao = categoryDao;
-  }
-
-  @Autowired
-  public void setProductItemDao(ProductItemDao productItemDao) {
-    this.productItemDao = productItemDao;
-  }
 
   public List<Category> getCategorys() {
     return categoryDao.getCategory();

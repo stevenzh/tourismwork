@@ -13,12 +13,8 @@ import com.opentravelsoft.providers.IncomeDao;
 @Service("PaymentService")
 public class PaymentServiceImpl implements PaymentService {
 
-  private IncomeDao incomeDao;
-
   @Autowired
-  public void setIncomeDao(IncomeDao incomeDao) {
-    this.incomeDao = incomeDao;
-  }
+  private IncomeDao incomeDao;
 
   public List<Income> roGetGatheringList(int customerId, Date paymentDateStart,
       Date paymentDateEnd, double payGatherStart, double payGatherEnd) {

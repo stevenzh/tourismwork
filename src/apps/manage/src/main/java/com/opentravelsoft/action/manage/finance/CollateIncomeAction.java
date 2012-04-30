@@ -20,8 +20,10 @@ import com.opentravelsoft.service.resource.ProvinceService;
 public class CollateIncomeAction extends ManageAction {
   private static final long serialVersionUID = 2405110448984190948L;
 
+  @Autowired
   private ProvinceService provinceService;
 
+  @Autowired
   private CityService cityService;
 
   private List<Province> provinceList;
@@ -44,16 +46,6 @@ public class CollateIncomeAction extends ManageAction {
     provinceList = provinceService.getAllProvince();
     cityList = cityService.getAllCity();
     return INPUT;
-  }
-
-  @Autowired
-  public void setProvinceService(ProvinceService provinceService) {
-    this.provinceService = provinceService;
-  }
-
-  @Autowired
-  public void setCityService(CityService cityService) {
-    this.cityService = cityService;
   }
 
   public List<Province> getProvinceList() {

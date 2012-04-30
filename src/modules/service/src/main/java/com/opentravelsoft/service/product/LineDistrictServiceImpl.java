@@ -15,26 +15,14 @@ import com.opentravelsoft.providers.product.LineDistrictDao;
 @Service("RouteDistrictService")
 public class LineDistrictServiceImpl implements LineDistrictService {
 
+  @Autowired
   private LineDistrictDao routeDistrictDao;
 
+  @Autowired
   private ProvinceDao provinceDao;
 
+  @Autowired
   private CountryDao countryDao;
-
-  @Autowired
-  public void setCountryDao(CountryDao countryDao) {
-    this.countryDao = countryDao;
-  }
-
-  @Autowired
-  public void setProvinceDao(ProvinceDao provinceDao) {
-    this.provinceDao = provinceDao;
-  }
-
-  @Autowired
-  public void setRouteDistrictDao(LineDistrictDao routeDistrictDao) {
-    this.routeDistrictDao = routeDistrictDao;
-  }
 
   public List<Province> getProvinceList() {
     return provinceDao.getStateByCountry("CN");

@@ -20,8 +20,10 @@ import com.opentravelsoft.service.operator.TicketService;
 public class EditParcelAction extends ManageAction {
   private static final long serialVersionUID = 7046152940418063549L;
 
+  @Autowired
   private OutcomeService outcomeService;
 
+  @Autowired
   private TicketService ticketService;
 
   // -------------------------------------------------------------------------
@@ -98,16 +100,6 @@ public class EditParcelAction extends ManageAction {
       addActionMessage("审核失败！");
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setTicketService(TicketService ticketService) {
-    this.ticketService = ticketService;
-  }
-
-  @Autowired
-  public void setOutcomeService(OutcomeService outcomeService) {
-    this.outcomeService = outcomeService;
   }
 
   public int getOutcomeId() {

@@ -15,6 +15,7 @@ public class DistrictStatAction extends ManageAction {
 
   private static final long serialVersionUID = 5517507976456680520L;
 
+  @Autowired
   private BookingService bookingService;
 
   private List<Booking> bookList = new ArrayList<Booking>();
@@ -43,11 +44,6 @@ public class DistrictStatAction extends ManageAction {
   public String submit() {
     bookList = bookingService.roDistrictStat(startDate, endDate, country);
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
   }
 
   public Date getStartDate() {

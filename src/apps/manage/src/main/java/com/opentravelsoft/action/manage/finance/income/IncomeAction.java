@@ -26,12 +26,16 @@ import com.opentravelsoft.service.setting.EmployeeService;
 public class IncomeAction extends ManageAction {
   private static final long serialVersionUID = -1255674570726952412L;
 
+  @Autowired
   private IncomeService incomeService;
 
+  @Autowired
   private EmployeeService salesmanService;
 
+  @Autowired
   private BookingService bookingService;
 
+  @Autowired
   private CustomerService agentService;
 
   private Customer agent;
@@ -144,28 +148,6 @@ public class IncomeAction extends ManageAction {
     addActionMessage("收款登记成功.");
     return SUCCESS;
   }
-
-  @Autowired
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
-  }
-
-  @Autowired
-  public void setAgentService(CustomerService agentService) {
-    this.agentService = agentService;
-  }
-
-  @Autowired
-  public void setSalesmanService(EmployeeService salesmanService) {
-    this.salesmanService = salesmanService;
-  }
-
-  @Autowired
-  public void setIncomeService(IncomeService incomeService) {
-    this.incomeService = incomeService;
-  }
-
-  // -------------------------------------------------------------------------
 
   public List<Team> getTeamList() {
     return teamList;

@@ -20,6 +20,7 @@ import com.opentravelsoft.service.operator.TourService;
 public class MustPayModifyAction extends ManageAction {
   private static final long serialVersionUID = -8062368253187733483L;
 
+  @Autowired
   private TourService tourService;
 
   private List<Booking> bookList = new ArrayList<Booking>();
@@ -81,11 +82,6 @@ public class MustPayModifyAction extends ManageAction {
       addActionMessage("修改保存失败！");
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
   }
 
   public List<Booking> getBookList() {

@@ -14,6 +14,7 @@ import com.opentravelsoft.service.account.ContactService;
 public class EditContactAction extends ManageAction {
   private static final long serialVersionUID = -6218728273863091126L;
 
+  @Autowired
   private ContactService contactService;
 
   private int contactId;
@@ -21,11 +22,6 @@ public class EditContactAction extends ManageAction {
   @Override
   public String input() throws Exception {
     return INPUT;
-  }
-
-  @Autowired
-  public void setContactService(ContactService contactService) {
-    this.contactService = contactService;
   }
 
   public int getContactId() {

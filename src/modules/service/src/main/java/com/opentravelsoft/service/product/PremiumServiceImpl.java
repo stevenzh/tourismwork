@@ -10,12 +10,9 @@ import com.opentravelsoft.providers.product.PremiumDao;
 
 @Service("PremiumService")
 public class PremiumServiceImpl implements PremiumService {
-  private PremiumDao premiumDao;
-
+  
   @Autowired
-  public void setPremiumDao(PremiumDao premiumDao) {
-    this.premiumDao = premiumDao;
-  }
+  private PremiumDao premiumDao;
 
   public List<Premium> roFind() {
     return premiumDao.findAll();

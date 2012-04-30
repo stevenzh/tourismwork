@@ -11,6 +11,8 @@ import com.opentravelsoft.service.MyPageService;
 import com.opentravelsoft.workflow.WorkFlowKeyParams;
 
 public class ExpressTaskAction extends ManageAction {
+
+  @Autowired
   private MyPageService myPageService;
 
   /** 配送任务列表 */
@@ -42,11 +44,6 @@ public class ExpressTaskAction extends ManageAction {
         .roGetExpressTask(WorkFlowKeyParams.EXPRESS_TASK_AGAIN);
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setMyPageService(MyPageService myPageService) {
-    this.myPageService = myPageService;
   }
 
   public List<Express> getCheckExpressList() {

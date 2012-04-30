@@ -12,19 +12,12 @@ import com.opentravelsoft.providers.PlanDao;
 
 @Service("ArrangeLeaderService")
 public class ArrangeLeaderServiceImpl implements ArrangeLeaderService {
+  
+  @Autowired
   private PlanDao planDao;
 
+  @Autowired
   private SequenceDao sequenceDao;
-
-  @Autowired
-  public void setSequenceDao(SequenceDao sequenceDao) {
-    this.sequenceDao = sequenceDao;
-  }
-
-  @Autowired
-  public void setPlanDao(PlanDao tourDao) {
-    this.planDao = tourDao;
-  }
 
   public Plan roGetDetail(String tourNo) {
     // 取得团信息，人名单

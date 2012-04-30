@@ -23,12 +23,8 @@ public class OutBandReportAction extends ManageAction {
 
   private static final long serialVersionUID = 4221358089777062127L;
 
-  private TourService tourService;
-
   @Autowired
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
-  }
+  private TourService tourService;
 
   private Plan tour = new Plan();
 

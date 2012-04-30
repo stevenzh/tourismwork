@@ -29,14 +29,19 @@ public class CustomerAlertAction extends ManageAction {
 
   private static final long serialVersionUID = 3324646809556120903L;
 
+  @Autowired
   private CustomerService agentService;
 
+  @Autowired
   private EmployeeService salesmanService;
 
+  @Autowired
   private ProvinceService provinceService;
 
+  @Autowired
   private CountryService countryService;
 
+  @Autowired
   private CityService cityService;
 
   private Customer agent = new Customer();
@@ -91,21 +96,6 @@ public class CustomerAlertAction extends ManageAction {
 
   private List<Team> teamList = new ArrayList<Team>();
 
-  @Autowired
-  public void setCountryService(CountryService countryService) {
-    this.countryService = countryService;
-  }
-
-  @Autowired
-  public void setProvinceService(ProvinceService provinceService) {
-    this.provinceService = provinceService;
-  }
-
-  @Autowired
-  public void setCityService(CityService cityService) {
-    this.cityService = cityService;
-  }
-
   @Override
   public String input() throws Exception {
     Employee user = getUser();
@@ -121,16 +111,6 @@ public class CustomerAlertAction extends ManageAction {
     saleList = agentService.roGetSalesmanList();
 
     return INPUT;
-  }
-
-  @Autowired
-  public void setAgentService(CustomerService agentService) {
-    this.agentService = agentService;
-  }
-
-  @Autowired
-  public void setSalesmanService(EmployeeService salesmanService) {
-    this.salesmanService = salesmanService;
   }
 
   public Customer getAgent() {

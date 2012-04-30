@@ -13,19 +13,12 @@ import com.opentravelsoft.providers.product.ProductItemDao;
 
 @Service("RouteTraitService")
 public class LineTraitServiceImpl implements LineTraitService {
+  
+  @Autowired
   private LineTraitDao lineTraitDao;
 
+  @Autowired
   private ProductItemDao productItemDao;
-
-  @Autowired
-  public void setProductItemDao(ProductItemDao productItemDao) {
-    this.productItemDao = productItemDao;
-  }
-
-  @Autowired
-  public void setRouteTraitDao(LineTraitDao routeTraitDao) {
-    this.lineTraitDao = routeTraitDao;
-  }
 
   public List<LineDescription> roGetExpense(String lineNo) {
     return lineTraitDao.getExpense(lineNo);

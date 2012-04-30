@@ -21,6 +21,7 @@ import com.opentravelsoft.service.finance.OutcomeService;
 public class EditPayRequisitionAction extends ManageAction {
   private static final long serialVersionUID = -7198529997222740248L;
 
+  @Autowired
   private OutcomeService outcomeService;
 
   private Outcome outcome = new Outcome();
@@ -121,11 +122,6 @@ public class EditPayRequisitionAction extends ManageAction {
       addActionMessage("修改失败！");
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setOutcomeService(OutcomeService outcomeService) {
-    this.outcomeService = outcomeService;
   }
 
   public String getResource() {

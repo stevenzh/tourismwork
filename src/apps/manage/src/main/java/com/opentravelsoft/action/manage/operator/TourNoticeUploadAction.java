@@ -26,6 +26,7 @@ import com.opentravelsoft.service.operator.TourNoticeUploadService;
 public class TourNoticeUploadAction extends ManageAction {
   private static final long serialVersionUID = 47847991228161139L;
 
+  @Autowired
   private TourNoticeUploadService tourNoticeUploadService;
 
   /** 文件标题 */
@@ -162,12 +163,6 @@ public class TourNoticeUploadAction extends ManageAction {
 
     return INPUT;
 
-  }
-
-  @Autowired
-  public void setTourNoticeUploadService(
-      TourNoticeUploadService tourNoticeUploadService) {
-    this.tourNoticeUploadService = tourNoticeUploadService;
   }
 
   public String getTitle() {

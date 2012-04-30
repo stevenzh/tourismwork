@@ -40,10 +40,13 @@ public class BookingDetailAction extends ManageAction {
   protected static final Log logger = LogFactory
       .getLog(BookingDetailAction.class);
 
+  @Autowired
   private BookingService bookingService;
 
+  @Autowired
   private TaskDao taskService;
 
+  @Autowired
   private ReckoningService reckoningMakeService;
 
   /** 订单 */
@@ -93,21 +96,6 @@ public class BookingDetailAction extends ManageAction {
 
   public void setNote(String note) {
     this.note = note;
-  }
-
-  @Autowired
-  public void setTaskService(TaskDao taskService) {
-    this.taskService = taskService;
-  }
-
-  @Autowired
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
-  }
-
-  @Autowired
-  public void setReckoningMakeService(ReckoningService reckoningMakeService) {
-    this.reckoningMakeService = reckoningMakeService;
   }
 
   @Override

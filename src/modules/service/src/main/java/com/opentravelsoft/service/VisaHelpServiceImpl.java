@@ -16,26 +16,15 @@ import com.opentravelsoft.util.StringUtil;
 
 @Service("VisaHelpService")
 public class VisaHelpServiceImpl implements VisaHelpService {
+
+  @Autowired
   private VisaDao visaDao;
 
+  @Autowired
   private CountryDao countryDao;
 
+  @Autowired
   private SequenceDao sequenceDao;
-
-  @Autowired
-  public void setVisaDao(VisaDao visaDao) {
-    this.visaDao = visaDao;
-  }
-
-  @Autowired
-  public void setCountryDao(CountryDao countryDao) {
-    this.countryDao = countryDao;
-  }
-
-  @Autowired
-  public void setSequenceDao(SequenceDao sequenceDao) {
-    this.sequenceDao = sequenceDao;
-  }
 
   public List<Country> roGetCountrys() {
     return countryDao.getCountry();

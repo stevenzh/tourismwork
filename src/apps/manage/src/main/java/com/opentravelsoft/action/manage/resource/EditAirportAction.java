@@ -24,6 +24,7 @@ public class EditAirportAction extends ManageAction {
   protected static final Log logger = LogFactory
       .getLog(EditAirportAction.class);
 
+  @Autowired
   private AirportService airportService;
 
   private Airport airport = new Airport();
@@ -60,11 +61,6 @@ public class EditAirportAction extends ManageAction {
     }
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setAirportService(AirportService airportService) {
-    this.airportService = airportService;
   }
 
   public List<Country> getCountrys() {

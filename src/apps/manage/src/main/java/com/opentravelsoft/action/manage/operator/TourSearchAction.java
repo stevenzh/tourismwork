@@ -28,8 +28,10 @@ public class TourSearchAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(TourSearchAction.class);
 
+  @Autowired
   private TourService tourService;
 
+  @Autowired
   private EmployeeService employeeSevice;
 
   private long kenTeamId;
@@ -61,16 +63,6 @@ public class TourSearchAction extends ManageAction {
   private List<Team> teamList;
 
   private List<Plan> tours = new ArrayList<Plan>();
-
-  @Autowired
-  public void setTourService(TourService tourSearchService) {
-    this.tourService = tourSearchService;
-  }
-
-  @Autowired
-  public void setEmployeeSevice(EmployeeService employeeSevice) {
-    this.employeeSevice = employeeSevice;
-  }
 
   @Override
   public String input() throws Exception {

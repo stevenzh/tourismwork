@@ -15,6 +15,8 @@ import com.opentravelsoft.util.StringUtil;
  * 
  */
 public class EditPremiumAction extends ManageAction {
+  
+  @Autowired
   private PremiumService premiumService;
 
   private static final long serialVersionUID = 7538617605340027473L;
@@ -22,11 +24,6 @@ public class EditPremiumAction extends ManageAction {
   private String preminuCode;
 
   private Premium tblPremium;
-
-  @Autowired
-  public void setPremiumService(PremiumService premiumService) {
-    this.premiumService = premiumService;
-  }
 
   public String input() {
     if (StringUtil.hasLength(preminuCode)) {

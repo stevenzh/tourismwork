@@ -25,8 +25,10 @@ import com.opentravelsoft.service.product.LineService;
 public class LineDetailAction extends ManageAction {
   private static final long serialVersionUID = 1386841816134989283L;
 
+  @Autowired
   private LineService lineService;
 
+  @Autowired
   private PlanListService planService;
 
   private String lineNo;
@@ -56,16 +58,6 @@ public class LineDetailAction extends ManageAction {
 
   /** 线路特色 */
   private List<LineDescription> features;
-
-  @Autowired
-  public void setRouteDetailService(LineService routeDetailService) {
-    this.lineService = routeDetailService;
-  }
-
-  @Autowired
-  public void setPlanListService(PlanListService planService) {
-    this.planService = planService;
-  }
 
   @Override
   public String execute() throws Exception {

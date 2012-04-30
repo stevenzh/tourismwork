@@ -23,6 +23,7 @@ public class ListAirwaysAction extends ManageAction {
   protected static final Log logger = LogFactory
       .getLog(ListAirwaysAction.class);
 
+  @Autowired
   private AirwaysService airwaysService;
 
   private List<Airways> airwaysList;
@@ -30,11 +31,6 @@ public class ListAirwaysAction extends ManageAction {
   private String airwaysId;
 
   private String opKey;
-
-  @Autowired
-  public void setAirwaysService(AirwaysService airwaysService) {
-    this.airwaysService = airwaysService;
-  }
 
   public List<Airways> getAirwaysList() {
     return airwaysList;

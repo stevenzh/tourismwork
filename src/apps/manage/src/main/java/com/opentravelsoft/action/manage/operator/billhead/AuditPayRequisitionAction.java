@@ -21,6 +21,7 @@ import com.opentravelsoft.service.finance.OutcomeService;
 public class AuditPayRequisitionAction extends ManageAction {
   private static final long serialVersionUID = -7935292259982836195L;
 
+  @Autowired
   private OutcomeService outcomeService;
 
   private long outcomeId;
@@ -107,11 +108,6 @@ public class AuditPayRequisitionAction extends ManageAction {
       addActionMessage("审核失败！");
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setOutcomeService(OutcomeService outcomeService) {
-    this.outcomeService = outcomeService;
   }
 
   public Outcome getBillhead() {

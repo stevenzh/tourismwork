@@ -23,8 +23,10 @@ public class EditShortcutAction extends ManageAction {
   protected static final Log logger = LogFactory
       .getLog(EditShortcutAction.class);
 
+  @Autowired
   private ShortcutManager shortcutManager;
 
+  @Autowired
   private ModuleService moduleService;
 
   private Shortcut shortcut;
@@ -34,16 +36,6 @@ public class EditShortcutAction extends ManageAction {
   private String shortcutId;
 
   private String kenModuleName;
-
-  @Autowired
-  public void setModuleService(ModuleService moduleService) {
-    this.moduleService = moduleService;
-  }
-
-  @Autowired
-  public void setShortcutManager(ShortcutManager shortcutManager) {
-    this.shortcutManager = shortcutManager;
-  }
 
   public String input() {
     if (StringUtil.hasLength(shortcutId))

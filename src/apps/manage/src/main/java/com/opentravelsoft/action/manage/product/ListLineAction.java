@@ -26,7 +26,10 @@ public class ListLineAction extends ManageAction {
 
   private static final long serialVersionUID = 7671898914387730451L;
 
+  @Autowired
   private LineService lineService;
+
+  @Autowired
   private EmployeeService employeeService;
 
   private List<Employee> employeeList;
@@ -55,16 +58,6 @@ public class ListLineAction extends ManageAction {
   private String kenActive = Boolean.TRUE.toString();
 
   private String kenDestination;
-
-  @Autowired
-  public void setRouteService(LineService routeService) {
-    this.lineService = routeService;
-  }
-
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
 
   /**
    * 页面初始化

@@ -24,10 +24,13 @@ public class SearchIncomeAction extends ManageAction {
 
   private static final long serialVersionUID = -691156950129863506L;
 
+  @Autowired
   private IncomeService incomeService;
 
+  @Autowired
   private ProvinceService provinceService;
 
+  @Autowired
   private CityService cityService;
 
   private List<Province> provinceList;
@@ -58,16 +61,6 @@ public class SearchIncomeAction extends ManageAction {
 
   private Date endDate;
 
-  @Autowired
-  public void setProvinceService(ProvinceService provinceService) {
-    this.provinceService = provinceService;
-  }
-
-  @Autowired
-  public void setCityService(CityService cityService) {
-    this.cityService = cityService;
-  }
-
   public String input() {
     provinceList = provinceService.getAllProvince();
     cityList = cityService.roGetCitysByProvince(kenProvince);
@@ -96,11 +89,6 @@ public class SearchIncomeAction extends ManageAction {
 
   public void setEndDate(Date endDate) {
     this.endDate = endDate;
-  }
-
-  @Autowired
-  public void setIncomeService(IncomeService incomeInitialService) {
-    this.incomeService = incomeInitialService;
   }
 
   public List<Province> getProvinceList() {

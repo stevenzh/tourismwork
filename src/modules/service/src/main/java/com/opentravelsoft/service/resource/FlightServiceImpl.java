@@ -15,26 +15,15 @@ import com.opentravelsoft.util.PaginationSupport;
 
 @Service("FlightService")
 public class FlightServiceImpl implements FlightService {
+  
+  @Autowired
   private CountryDao countryDao;
 
+  @Autowired
   private CityDao cityDao;
 
+  @Autowired
   private FlightDao flightDao;
-
-  @Autowired
-  public void setCountryDao(CountryDao countryDao) {
-    this.countryDao = countryDao;
-  }
-
-  @Autowired
-  public void setCityDao(CityDao cityDao) {
-    this.cityDao = cityDao;
-  }
-
-  @Autowired
-  public void setFlightDao(FlightDao flightDao) {
-    this.flightDao = flightDao;
-  }
 
   public void txDelete(String flightNo) {
     flightDao.remove(flightNo);

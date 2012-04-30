@@ -22,6 +22,7 @@ public class OperatorTaskAction extends ManageAction {
 
   private static final long serialVersionUID = 1L;
 
+  @Autowired
   private MyPageService myPageService;
 
   /** 未审核订单 */
@@ -46,11 +47,6 @@ public class OperatorTaskAction extends ManageAction {
     // WorkFlowKeyParams.TOUR_ARRANGE_LEADER, "");
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setMyPageService(MyPageService myPageService) {
-    this.myPageService = myPageService;
   }
 
   public List<Booking> getBookList() {

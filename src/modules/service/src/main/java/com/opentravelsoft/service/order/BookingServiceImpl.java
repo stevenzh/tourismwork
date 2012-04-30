@@ -43,96 +43,45 @@ import com.opentravelsoft.workflow.TaskDao;
 
 @Service("BookingService")
 public class BookingServiceImpl implements BookingService {
+
+  @Autowired
   private BookingDao bookingDao;
 
+  @Autowired
   private TeamDao teamDao;
 
+  @Autowired
   private PlanListDao planListDao;
 
+  @Autowired
   private CustomerDao customerDao;
 
+  @Autowired
   private SequenceDao sequenceDao;
 
+  @Autowired
   private InvoiceDao invoiceDao;
 
+  @Autowired
   private IncomeDao paymentDao;
 
+  @Autowired
   private ProvinceDao provinceDao;
 
+  @Autowired
   private CountryDao countryDao;
 
+  @Autowired
   private ExpressDao expressDao;
 
+  @Autowired
   private ListDao listDao;
 
+  @Autowired
   private TouristDao touristDao;
 
+  @Autowired
   private TaskDao taskService;
-
-  @Autowired
-  public void setExpressDao(ExpressDao expressDao) {
-    this.expressDao = expressDao;
-  }
-
-  @Autowired
-  public void setBookingDao(BookingDao bookingDao) {
-    this.bookingDao = bookingDao;
-  }
-
-  @Autowired
-  public void setTeamDao(TeamDao teamDao) {
-    this.teamDao = teamDao;
-  }
-
-  @Autowired
-  public void setListDao(ListDao ListDao) {
-    this.listDao = ListDao;
-  }
-
-  @Autowired
-  public void setPlanListDao(PlanListDao planListDao) {
-    this.planListDao = planListDao;
-  }
-
-  @Autowired
-  public void setAgentDao(CustomerDao agentDao) {
-    this.customerDao = agentDao;
-  }
-
-  @Autowired
-  public void setInvoiceDao(InvoiceDao invoiceDao) {
-    this.invoiceDao = invoiceDao;
-  }
-
-  @Autowired
-  public void setPaymentDao(IncomeDao paymentDao) {
-    this.paymentDao = paymentDao;
-  }
-
-  @Autowired
-  public void setSequenceDao(SequenceDao sequenceDao) {
-    this.sequenceDao = sequenceDao;
-  }
-
-  @Autowired
-  public void setProvinceDao(ProvinceDao provinceDao) {
-    this.provinceDao = provinceDao;
-  }
-
-  @Autowired
-  public void setCountryDao(CountryDao countryDao) {
-    this.countryDao = countryDao;
-  }
-
-  @Autowired
-  public void setTouristDao(TouristDao touristDao) {
-    this.touristDao = touristDao;
-  }
-
-  @Autowired
-  public void setTaskService(TaskDao taskService) {
-    this.taskService = taskService;
-  }
 
   public List<Team> getOperatorTeamList() {
     return teamDao.getTeamList(TeamType.Operator);

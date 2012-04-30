@@ -25,6 +25,7 @@ public class ListDisctrictAction extends ManageAction {
   protected static final Log logger = LogFactory
       .getLog(ListDisctrictAction.class);
 
+  @Autowired
   private DistrictService districtService;
 
   private String districtNo;
@@ -46,11 +47,6 @@ public class ListDisctrictAction extends ManageAction {
   private List<Country> countryList;
 
   private List<Province> provinceList;
-
-  @Autowired
-  public void setDistrictService(DistrictService districtService) {
-    this.districtService = districtService;
-  }
 
   public String input() throws Exception {
     countryList = districtService.roGetCountry();

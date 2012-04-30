@@ -27,33 +27,17 @@ import com.opentravelsoft.providers.TeamDao;
 @Service("UserService")
 public class EmployeeServiceImpl implements EmployeeService, UserDetailsService {
 
+  @Autowired
   private EmployeeDao employeeDao;
 
+  @Autowired
   private RoleDao roleDao;
 
+  @Autowired
   private GroupDao departmentDao;
 
+  @Autowired
   private TeamDao teamDao;
-
-  @Autowired
-  public void setRoleDao(RoleDao roleDao) {
-    this.roleDao = roleDao;
-  }
-
-  @Autowired
-  public void setEmployeeDao(EmployeeDao employeeDao) {
-    this.employeeDao = employeeDao;
-  }
-
-  @Autowired
-  public void setDepartmentDao(GroupDao departmentDao) {
-    this.departmentDao = departmentDao;
-  }
-
-  @Autowired
-  public void setTeamDao(TeamDao teamDao) {
-    this.teamDao = teamDao;
-  }
 
   public List<Employee> getEmployees(int groupId, String userName) {
     return employeeDao.getEmployees(groupId, userName);

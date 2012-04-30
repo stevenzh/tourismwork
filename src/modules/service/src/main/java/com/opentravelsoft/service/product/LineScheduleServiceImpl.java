@@ -14,19 +14,11 @@ import com.opentravelsoft.providers.product.LineScheduleDao;
 @Service("RouteScheduleService")
 public class LineScheduleServiceImpl implements LineScheduleService {
 
+  @Autowired
   private LineScheduleDao routeScheduleDao;
 
+  @Autowired
   private LineDao routeDao;
-
-  @Autowired
-  public void setRouteDao(LineDao routeDao) {
-    this.routeDao = routeDao;
-  }
-
-  @Autowired
-  public void setRouteScheduleDao(LineScheduleDao routeScheduleDao) {
-    this.routeScheduleDao = routeScheduleDao;
-  }
 
   public int txDeleteLineSchedule(LineSchedule schedule) {
     return routeScheduleDao.deleteLineSchedule(schedule);

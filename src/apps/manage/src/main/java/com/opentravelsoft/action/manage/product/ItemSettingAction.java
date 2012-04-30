@@ -17,6 +17,7 @@ public class ItemSettingAction extends ManageAction {
 
   private static final long serialVersionUID = 7671898914387730451L;
 
+  @Autowired
   private ProductService productService;
 
   private List<Category> categorys;
@@ -24,11 +25,6 @@ public class ItemSettingAction extends ManageAction {
   private List<ProductItem> items;
 
   private String category;
-
-  @Autowired
-  public void setProductService(ProductService productService) {
-    this.productService = productService;
-  }
 
   public String input() {
     categorys = productService.getCategorys();

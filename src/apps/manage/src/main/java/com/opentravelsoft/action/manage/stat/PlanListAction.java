@@ -19,6 +19,7 @@ public class PlanListAction extends ManageAction {
 
   private static final long serialVersionUID = -7625855842902512964L;
 
+  @Autowired
   private PlanListService planListService;
 
   /** 地区 */
@@ -33,11 +34,6 @@ public class PlanListAction extends ManageAction {
   private List<List<LabelValueBean>> subRegions;
 
   private List<Plan> plans;
-
-  @Autowired
-  public void setPlanListService(PlanListService planListService) {
-    this.planListService = planListService;
-  }
 
   public String getRegionId() {
     return regionId;

@@ -28,8 +28,10 @@ import com.opentravelsoft.service.operator.TourService;
 public class ArrangeLeaderAction extends ManageAction {
   private static final long serialVersionUID = 4583611932565978060L;
 
+  @Autowired
   private ArrangeLeaderService arrangeLeaderService;
 
+  @Autowired
   private TourService tourService;
 
   /** 团号 */
@@ -51,16 +53,6 @@ public class ArrangeLeaderAction extends ManageAction {
   private List<LabelValueBean> passportPlaceList = new ArrayList<LabelValueBean>();
 
   private List<Leader> leaderList;
-
-  @Autowired
-  public void setArrangeLeaderService(ArrangeLeaderService arrangeLeaderService) {
-    this.arrangeLeaderService = arrangeLeaderService;
-  }
-
-  @Autowired
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
-  }
 
   @Override
   public String input() throws Exception {

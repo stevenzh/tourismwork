@@ -26,6 +26,7 @@ public class EditRoleAction extends ManageAction {
 
   private long roleId;
 
+  @Autowired
   private RoleService roleService;
 
   private Role role = new Role();
@@ -35,11 +36,6 @@ public class EditRoleAction extends ManageAction {
 
   /** List All modules */
   private List<Module> modulePerm = new ArrayList<Module>();
-
-  @Autowired
-  public void setRoleService(RoleService guideService) {
-    this.roleService = guideService;
-  }
 
   public String input() throws Exception {
     if (roleId != 0)

@@ -60,10 +60,6 @@ public class SimpleReportAction extends ManageAction {
     this.tourNo = tourNo;
   }
 
-  public void setTourService(TourService tourService) {
-    this.tourService = tourService;
-  }
-
   public String getSp() {
     return sp;
   }

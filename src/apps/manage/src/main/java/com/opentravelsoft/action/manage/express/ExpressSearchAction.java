@@ -13,6 +13,7 @@ import com.opentravelsoft.service.operator.ExpressService;
 public class ExpressSearchAction extends ManageAction {
   private static final long serialVersionUID = 1L;
 
+  @Autowired
   private ExpressService expressService;
 
   private List<Express> expressList;
@@ -96,11 +97,6 @@ public class ExpressSearchAction extends ManageAction {
 
   public String delete() throws Exception {
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setExpressService(ExpressService expressService) {
-    this.expressService = expressService;
   }
 
   public String getKenExpressId() {

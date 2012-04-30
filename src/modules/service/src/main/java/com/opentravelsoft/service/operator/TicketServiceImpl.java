@@ -12,19 +12,12 @@ import com.opentravelsoft.providers.hibernate.CustomerDao;
 
 @Service("TicketService")
 public class TicketServiceImpl implements TicketService {
+
+  @Autowired
   private OutcomeDao outcomeDao;
 
+  @Autowired
   private CustomerDao agentDao;
-
-  @Autowired
-  public void setOutcomeDao(OutcomeDao outcomeDao) {
-    this.outcomeDao = outcomeDao;
-  }
-
-  @Autowired
-  public void setAgentDao(CustomerDao agentDao) {
-    this.agentDao = agentDao;
-  }
 
   public List<Customer> getAirSuppliers() {
     /**

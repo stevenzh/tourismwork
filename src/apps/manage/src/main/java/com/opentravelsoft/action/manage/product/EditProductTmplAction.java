@@ -29,6 +29,7 @@ public class EditProductTmplAction extends ManageAction {
   protected static final Log logger = LogFactory
       .getLog(EditProductTmplAction.class);
 
+  @Autowired
   private ProductTmplService lineTmplService;
 
   private int tmplId = 0;
@@ -73,11 +74,6 @@ public class EditProductTmplAction extends ManageAction {
     }
 
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setLineTmplService(ProductTmplService lineBookNoticeService) {
-    this.lineTmplService = lineBookNoticeService;
   }
 
   public ProductTmpl getTmpl() {

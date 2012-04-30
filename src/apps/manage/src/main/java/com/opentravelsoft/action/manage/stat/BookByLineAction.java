@@ -14,6 +14,7 @@ public class BookByLineAction extends ManageAction {
 
   private static final long serialVersionUID = -8777085632387927815L;
 
+  @Autowired
   private BookingService bookingService;
 
   private List<Booking> bookList = new ArrayList<Booking>();
@@ -27,11 +28,6 @@ public class BookByLineAction extends ManageAction {
   public String getbyline() {
     bookList = bookingService.getBookByLineNo(lineNo, startDate, endDate);
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
   }
 
   public List<Booking> getBookList() {

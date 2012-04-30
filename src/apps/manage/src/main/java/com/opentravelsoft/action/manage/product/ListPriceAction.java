@@ -29,6 +29,7 @@ public class ListPriceAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(ListPriceAction.class);
 
+  @Autowired
   private LinePriceService routePriceService;
 
   private Line line;
@@ -115,11 +116,6 @@ public class ListPriceAction extends ManageAction {
 
   public void setKenStartDate(Date kenStartDate) {
     this.kenStartDate = kenStartDate;
-  }
-
-  @Autowired
-  public void setRoutePriceService(LinePriceService routePriceService) {
-    this.routePriceService = routePriceService;
   }
 
   public void setRecNo(String recNo) {

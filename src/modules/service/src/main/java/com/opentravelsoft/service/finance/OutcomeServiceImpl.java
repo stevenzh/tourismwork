@@ -20,26 +20,15 @@ import com.opentravelsoft.providers.hibernate.CustomerDao;
 
 @Service("OutcomeService")
 public class OutcomeServiceImpl implements OutcomeService {
+  
+  @Autowired
   private OutcomeDao outcomeDao;
 
+  @Autowired
   private TeamDao teamDao;
 
+  @Autowired
   private CustomerDao customerDao;
-
-  @Autowired
-  public void setCustomerDao(CustomerDao customerDao) {
-    this.customerDao = customerDao;
-  }
-
-  @Autowired
-  public void setTeamDao(TeamDao teamDao) {
-    this.teamDao = teamDao;
-  }
-
-  @Autowired
-  public void setOutcomeDao(OutcomeDao outcomeDao) {
-    this.outcomeDao = outcomeDao;
-  }
 
   public List<TourCost> roGetSupplierOutcomeList(String supplierType,
       String supplierName, String kenCountryId, String kenCityId,

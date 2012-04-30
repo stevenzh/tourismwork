@@ -23,8 +23,10 @@ import com.opentravelsoft.util.StringUtil;
 public class ListPayRequisitionAction extends ManageAction {
   private static final long serialVersionUID = -7852853734687360320L;
 
+  @Autowired
   private OutcomeService outcomeService;
 
+  @Autowired
   private EmployeeService employeeService;
 
   private List<Outcome> outcomeList;
@@ -65,17 +67,6 @@ public class ListPayRequisitionAction extends ManageAction {
 
   /** 是否付款 */
   private String kenPay;
-
-  // -------------------------------------------------------------------------
-  @Autowired
-  public void setEmployeeService(EmployeeService employeeService) {
-    this.employeeService = employeeService;
-  }
-
-  @Autowired
-  public void setOutcomeService(OutcomeService outcomeService) {
-    this.outcomeService = outcomeService;
-  }
 
   public String input() {
     buildSysdate();

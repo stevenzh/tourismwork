@@ -18,8 +18,10 @@ public class ManageAction extends BaseAction {
 
   private static final long serialVersionUID = -4686799509744606110L;
 
+  @Autowired
   private SmsService smsService;
 
+  @Autowired
   protected ListService listService;
 
   private String sysdate;
@@ -73,13 +75,4 @@ public class ManageAction extends BaseAction {
     return sysdate;
   }
 
-  @Autowired
-  public void setSmsService(SmsService smsService) {
-    this.smsService = smsService;
-  }
-
-  @Autowired
-  public void setListService(ListService listService) {
-    this.listService = listService;
-  }
 }

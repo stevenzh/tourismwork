@@ -21,10 +21,13 @@ public class HotelAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(HotelAction.class);
 
+  @Autowired
   private HotelManager hotelManager;
 
+  @Autowired
   private CountryService countryService;
 
+  @Autowired
   private ProvinceService provinceService;
 
   // --------------------------------------------------------------------------
@@ -46,21 +49,6 @@ public class HotelAction extends ManageAction {
   private List<Hotel> hotelList;
 
   private Hotel hotel = new Hotel();
-
-  @Autowired
-  public void setProvinceService(ProvinceService provinceService) {
-    this.provinceService = provinceService;
-  }
-
-  @Autowired
-  public void setHotelManager(HotelManager hotelManager) {
-    this.hotelManager = hotelManager;
-  }
-
-  @Autowired
-  public void setCountryService(CountryService countryService) {
-    this.countryService = countryService;
-  }
 
   public String input() {
     countryList = countryService.getAll();

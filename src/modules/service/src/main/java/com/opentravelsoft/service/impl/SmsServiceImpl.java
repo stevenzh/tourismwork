@@ -10,12 +10,9 @@ import com.opentravelsoft.service.SmsService;
 
 @Service("SmsService")
 public class SmsServiceImpl implements SmsService {
-  private SmsDao smsDao;
-
+  
   @Autowired
-  public void setSmsDao(SmsDao smsDao) {
-    this.smsDao = smsDao;
-  }
+  private SmsDao smsDao;
 
   public int txReceive(String seqno, String mob, String msg, String srcMsg) {
     return smsDao.receive(seqno, mob, msg, srcMsg);

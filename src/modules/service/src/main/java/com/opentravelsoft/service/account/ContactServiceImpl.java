@@ -11,12 +11,8 @@ import com.opentravelsoft.providers.ContactDao;
 @Service("ContactService")
 public class ContactServiceImpl implements ContactService {
 
-  private ContactDao contactDao;
-
   @Autowired
-  public void setContactDao(ContactDao contactDao) {
-    this.contactDao = contactDao;
-  }
+  private ContactDao contactDao;
 
   public List<Contact> searchContact(long accountId, boolean active) {
     return contactDao.searchContact(accountId, active);

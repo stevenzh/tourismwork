@@ -26,8 +26,10 @@ import com.opentravelsoft.util.StringUtil;
 public class LineRuleAction extends ManageAction {
   private static final long serialVersionUID = 7671898914387730451L;
 
+  @Autowired
   private ProductTmplService lineTmplService;
 
+  @Autowired
   private LineTraitService lineTraitService;
 
   private List<LineDescription> ruleList = new ArrayList<LineDescription>();
@@ -45,11 +47,6 @@ public class LineRuleAction extends ManageAction {
   private String itemType;
 
   private ProductItem item;
-
-  @Autowired
-  public void setRouteTraitService(LineTraitService routeTraitService) {
-    this.lineTraitService = routeTraitService;
-  }
 
   @Override
   public String input() throws Exception {
@@ -186,11 +183,6 @@ public class LineRuleAction extends ManageAction {
     }
 
     return list;
-  }
-
-  @Autowired
-  public void setLineTmplService(ProductTmplService personalTmplService) {
-    this.lineTmplService = personalTmplService;
   }
 
   public void setRuleList(List<LineDescription> ruleList) {

@@ -20,11 +20,13 @@ public class ListContactAction extends ManageAction {
 
   private static final long serialVersionUID = -7138389244051722L;
 
+  @Autowired
   private ContactService contactService;
 
-  private List<Contact> contactList;
-
+  @Autowired
   private TeamService teamService;
+
+  private List<Contact> contactList;
 
   private List<Team> teamList;
 
@@ -36,16 +38,6 @@ public class ListContactAction extends ManageAction {
   private String kenName;
 
   private String kenMobile;
-
-  @Autowired
-  public void setTeamService(TeamService teamService) {
-    this.teamService = teamService;
-  }
-
-  @Autowired
-  public void setContactService(ContactService contactService) {
-    this.contactService = contactService;
-  }
 
   @Override
   public String input() throws Exception {

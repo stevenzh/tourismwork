@@ -10,12 +10,9 @@ import com.opentravelsoft.providers.product.LineSightDao;
 
 @Service("RouteSightService")
 public class LineSightServiceImpl implements LineSightService {
-  private LineSightDao lineSightDao;
-
+  
   @Autowired
-  public void setRouteSightDao(LineSightDao routeSightDao) {
-    this.lineSightDao = routeSightDao;
-  }
+  private LineSightDao lineSightDao;
 
   public int txSaveSights(List<Sight> list, String lineNo) {
     return lineSightDao.saveSights(list, lineNo);

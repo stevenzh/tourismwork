@@ -20,24 +20,16 @@ public class AirportServiceImpl extends GenericManagerImpl<Airport, String>
 
   private AirportDao airportDao;
 
+  @Autowired
   private CountryDao countryDao;
 
+  @Autowired
   private CityDao cityDao;
 
   @Autowired
   public void setAirportDao(AirportDao airportDao) {
     this.dao = airportDao;
     this.airportDao = airportDao;
-  }
-
-  @Autowired
-  public void setCityDao(CityDao cityDao) {
-    this.cityDao = cityDao;
-  }
-
-  @Autowired
-  public void setCountryDao(CountryDao countryDao) {
-    this.countryDao = countryDao;
   }
 
   public List<Country> roGetCountry() {

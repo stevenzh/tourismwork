@@ -22,6 +22,7 @@ public class DepartmentAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(DepartmentAction.class);
 
+  @Autowired
   private DepartmentService departmentService;
 
   private Group root = new Group();
@@ -57,11 +58,6 @@ public class DepartmentAction extends ManageAction {
   public String submit() {
     departmentService.txSaveDepartment(group);
     return SUCCESS;
-  }
-
-  @Autowired
-  public void setDepartmentService(DepartmentService departmentService) {
-    this.departmentService = departmentService;
   }
 
   public Group getTreeRootNode() {

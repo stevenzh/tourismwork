@@ -15,19 +15,11 @@ import com.opentravelsoft.providers.hibernate.CustomerDao;
 @Service("AgentService")
 public class CustomerServiceImpl implements CustomerService {
 
+  @Autowired
   private EmployeeDao salesmanDao;
 
+  @Autowired
   private CustomerDao customerDao;
-
-  @Autowired
-  public void setCustomerDao(CustomerDao customerDao) {
-    this.customerDao = customerDao;
-  }
-
-  @Autowired
-  public void setSalesmanDao(EmployeeDao salesmanDao) {
-    this.salesmanDao = salesmanDao;
-  }
 
   public Customer findAgent(long agentId) {
     return customerDao.findAccount(agentId);
