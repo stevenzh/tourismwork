@@ -8,7 +8,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opentravelsoft.action.ManageAction;
 import com.opentravelsoft.common.SessionKeyParams;
 import com.opentravelsoft.entity.Employee;
-import com.opentravelsoft.service.LoginService;
+import com.opentravelsoft.service.setting.EmployeeService;
 
 /**
  * 用户登录
@@ -23,7 +23,7 @@ public class LoginAction extends ManageAction {
   protected static final Log logger = LogFactory.getLog(LoginAction.class);
 
   @Autowired
-  private LoginService loginService;
+  private EmployeeService loginService;
 
   private String uid;
 
@@ -60,7 +60,7 @@ public class LoginAction extends ManageAction {
   }
 
   public String execute() throws Exception {
-    Employee employee = loginService.roGetEmployee(uid);
+    Employee employee = loginService.roGetEmployeeByName(uid);
     if (null != employee) {
       ActionContext.getContext().getSession()
           .put(SessionKeyParams.EBIZ_USER, employee);
