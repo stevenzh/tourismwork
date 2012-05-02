@@ -16,7 +16,6 @@ import com.opentravelsoft.service.finance.OutcomeService;
  * 财务候修改付款申请书
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:24:33 $
  */
 public class EditPayRequisitionAction extends ManageAction {
   private static final long serialVersionUID = -7198529997222740248L;

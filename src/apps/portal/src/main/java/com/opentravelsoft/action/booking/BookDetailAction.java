@@ -9,6 +9,8 @@ import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opentravelsoft.util.LabelValueBean;
 
 import com.opentravelsoft.EbizException;
@@ -34,6 +36,7 @@ public class BookDetailAction extends PortalAction {
 
   protected static final Log logger = LogFactory.getLog(BookDetailAction.class);
 
+  @Autowired
   private BookingService bookService;
 
   /** 订单 */
@@ -72,10 +75,6 @@ public class BookDetailAction extends PortalAction {
   private NetPayEntity entity = new NetPayEntity();
 
   private List<Income> payments;
-
-  public void setBookingService(BookingService bookService) {
-    this.bookService = bookService;
-  }
 
   @Override
   public String input() {

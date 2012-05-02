@@ -2,6 +2,8 @@ package com.opentravelsoft.action.booking;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opentravelsoft.common.SessionKeyParams;
 import com.opentravelsoft.entity.Booking;
@@ -18,16 +20,13 @@ import com.opentravelsoft.webapp.action.PortalAction;
 public class MyBookingAction extends PortalAction {
   private static final long serialVersionUID = 7874299238224325327L;
 
+  @Autowired
   private BookingService bookingService;
 
   private Member member;
 
   /** 订单列表 */
   private List<Booking> bookings;
-
-  public void setBookingService(BookingService memberBookingService) {
-    this.bookingService = memberBookingService;
-  }
 
   public String input() {
     member = (Member) ActionContext.getContext().getSession()

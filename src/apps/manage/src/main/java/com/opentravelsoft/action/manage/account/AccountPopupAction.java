@@ -19,7 +19,6 @@ import com.opentravelsoft.util.StringUtil;
  * 客户查询弹出框
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1.2.1 $ $Date: 2009/06/29 06:17:40 $
  */
 public class AccountPopupAction extends ManageAction {
   private static final long serialVersionUID = 7671898914387730451L;

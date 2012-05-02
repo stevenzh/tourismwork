@@ -16,6 +16,8 @@ import com.opentravelsoft.util.HttpClientUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import com.opentravelsoft.util.LabelValueBean;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 
 import java.util.ArrayList;
@@ -36,7 +38,11 @@ import javax.servlet.http.HttpSession;
  */
 public class PortalAction extends BaseAction {
   private static final long serialVersionUID = 3525445612504421307L;
+
+  @Autowired
   private SmsService smsService;
+
+  @Autowired
   protected ListService listService;
 
   /**
@@ -104,14 +110,6 @@ public class PortalAction extends BaseAction {
    */
   public String cancel() {
     return CANCEL;
-  }
-
-  public void setListService(ListService listService) {
-    this.listService = listService;
-  }
-
-  public void setSmsService(SmsService smsService) {
-    this.smsService = smsService;
   }
 
   /**

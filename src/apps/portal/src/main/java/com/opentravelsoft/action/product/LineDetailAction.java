@@ -2,6 +2,8 @@ package com.opentravelsoft.action.product;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opentravelsoft.util.LabelValueBean;
 
 import com.opentravelsoft.common.KeyParams;
@@ -19,13 +21,14 @@ import com.opentravelsoft.webapp.action.PortalAction;
  * 线路详细信息
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:42 $
  */
 public class LineDetailAction extends PortalAction {
   private static final long serialVersionUID = 1386841816134989283L;
 
+  @Autowired
   private LineService lineService;
 
+  @Autowired
   private PlanListService planService;
 
   private String lineNo;
@@ -58,14 +61,6 @@ public class LineDetailAction extends PortalAction {
 
   /** 所需签证 */
   private List<LineVisa> visaList;
-
-  public void setLineDetailService(LineService lineDetailService) {
-    this.lineService = lineDetailService;
-  }
-
-  public void setPlanService(PlanListService planService) {
-    this.planService = planService;
-  }
 
   @Override
   public String execute() throws Exception {

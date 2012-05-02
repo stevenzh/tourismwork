@@ -2,6 +2,8 @@ package com.opentravelsoft.action.pay;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opentravelsoft.EbizException;
 import com.opentravelsoft.common.EbizCommon;
 import com.opentravelsoft.entity.Booking;
@@ -15,16 +17,12 @@ import com.opentravelsoft.webapp.action.PortalAction;
  * 网上付款返回页面
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.2 $ $Date: 2009/04/10 07:47:30 $
  */
 public class PayerOLReceiveAction extends PortalAction {
   private static final long serialVersionUID = 8812505304255485849L;
 
+  @Autowired
   private BookingService bookingService;
-
-  public void setBookingService(BookingService bookingService) {
-    this.bookingService = bookingService;
-  }
 
   /** 订单号 */
   private String v_oid;

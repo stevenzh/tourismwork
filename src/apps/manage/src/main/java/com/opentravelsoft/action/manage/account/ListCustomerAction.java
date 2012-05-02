@@ -26,7 +26,6 @@ import com.opentravelsoft.util.StringUtil;
  * 代理商
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:24:15 $
  */
 public class ListCustomerAction extends ManageAction {
   private static final long serialVersionUID = 7671898914387730451L;

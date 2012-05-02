@@ -9,7 +9,6 @@ import com.opentravelsoft.service.account.ContactService;
  * 联系人
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:24:15 $
  */
 public class EditContactAction extends ManageAction {
   private static final long serialVersionUID = -6218728273863091126L;

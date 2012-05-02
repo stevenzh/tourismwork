@@ -22,4 +22,10 @@
   <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService" />
   <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService" />
 
+
+  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
+    <property name="configLocation" value="classpath:mybatis-config.xml" />  
+    <property name="dataSource" ref="dataSource" />  
+  </bean> 
+
 </beans>

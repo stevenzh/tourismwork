@@ -22,7 +22,6 @@ import com.opentravelsoft.util.ConvertUtils;
  * 修改收款销帐单
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.2 $ $Date: 2009/04/10 07:47:29 $
  */
 public class ListIncomeAction extends ManageAction {
   private static final long serialVersionUID = -4166608849868194948L;

@@ -14,7 +14,6 @@ import com.opentravelsoft.service.setting.TeamService;
  * 联系人
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:24:15 $
  */
 public class ListContactAction extends ManageAction {
 

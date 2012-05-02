@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opentravelsoft.entity.product.FileItem;
 import com.opentravelsoft.service.PriceFileService;
@@ -19,6 +20,7 @@ public class FileDownloadAction extends PortalAction {
 
   private static final long serialVersionUID = -7557668368553912838L;
 
+  @Autowired
   private PriceFileService priceFileService;
 
   private int fileId;
@@ -28,10 +30,6 @@ public class FileDownloadAction extends PortalAction {
   private String name;
 
   private List<FileItem> fileList = new ArrayList<FileItem>();
-
-  public void setPriceFileService(PriceFileService priceFileService) {
-    this.priceFileService = priceFileService;
-  }
 
   public String input() throws Exception {
     fileList = priceFileService.roGetFileList();

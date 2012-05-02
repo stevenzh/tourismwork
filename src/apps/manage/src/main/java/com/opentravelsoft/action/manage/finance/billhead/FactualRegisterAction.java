@@ -21,7 +21,6 @@ import com.opentravelsoft.service.setting.EmployeeService;
  * 实付登记
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.2 $ $Date: 2009/04/10 07:47:29 $
  */
 public class FactualRegisterAction extends ManageAction {
   private static final long serialVersionUID = -8806143847619980510L;

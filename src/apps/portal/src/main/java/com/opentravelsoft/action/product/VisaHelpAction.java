@@ -1,43 +1,36 @@
 package com.opentravelsoft.action.product;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opentravelsoft.entity.VisaHelp;
 import com.opentravelsoft.service.VisaHelpService;
 import com.opentravelsoft.webapp.action.PortalAction;
 
-public class VisaHelpAction extends PortalAction
-{
-    private static final long serialVersionUID = 2918705663769956262L;
+public class VisaHelpAction extends PortalAction {
+  private static final long serialVersionUID = 2918705663769956262L;
 
-    private VisaHelpService visaHelpService;
+  @Autowired
+  private VisaHelpService visaHelpService;
 
-    private VisaHelp visaItem;
+  private VisaHelp visaItem;
 
-    private String visaId;
+  private String visaId;
 
-    public void setVisaHelpService(VisaHelpService visaHelpService)
-    {
-        this.visaHelpService = visaHelpService;
-    }
+  @Override
+  public String execute() {
+    visaItem = visaHelpService.roGetVisaItem(visaId);
+    return SUCCESS;
+  }
 
-    @Override
-    public String execute()
-    {
-        visaItem = visaHelpService.roGetVisaItem(visaId);
-        return SUCCESS;
-    }
+  public String getVisaId() {
+    return visaId;
+  }
 
-    public String getVisaId()
-    {
-        return visaId;
-    }
+  public void setVisaId(String visaId) {
+    this.visaId = visaId;
+  }
 
-    public void setVisaId(String visaId)
-    {
-        this.visaId = visaId;
-    }
-
-    public VisaHelp getVisaItem()
-    {
-        return visaItem;
-    }
+  public VisaHelp getVisaItem() {
+    return visaItem;
+  }
 }

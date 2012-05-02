@@ -45,6 +45,7 @@ public class CbAdvancedSearchAction extends PortalAction {
   protected static final Log logger = LogFactory
       .getLog(CbAdvancedSearchAction.class);
 
+  @Autowired
   private CountryService countryService;
 
   /** 开始日期 */
@@ -84,11 +85,6 @@ public class CbAdvancedSearchAction extends PortalAction {
   private List<Line> preferRouteIndexList = new ArrayList<Line>();
 
   private String queryString;
-
-  @Autowired
-  public void setCountryService(CountryService countryService) {
-    this.countryService = countryService;
-  }
 
   /**
    * 初始化

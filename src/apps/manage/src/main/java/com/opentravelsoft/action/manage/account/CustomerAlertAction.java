@@ -23,7 +23,6 @@ import com.opentravelsoft.service.setting.EmployeeService;
  * 客户审核预警
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:55 $
  */
 public class CustomerAlertAction extends ManageAction {
 

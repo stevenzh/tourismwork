@@ -22,7 +22,6 @@ import com.opentravelsoft.service.resource.ProvinceService;
  * 代理商维护
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:24:15 $
  */
 public class EditCustomerAction extends ManageAction {
   private static final long serialVersionUID = 7671898914387730451L;

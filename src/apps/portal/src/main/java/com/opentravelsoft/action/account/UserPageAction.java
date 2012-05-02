@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opentravelsoft.util.LabelValueBean;
 
 import com.opentravelsoft.entity.Booking;
@@ -40,12 +42,13 @@ public class UserPageAction extends PortalAction {
 
   private Map<String, String> groupList = new HashMap<String, String>();
 
+  @Autowired
   private BookingService bookingService;
 
+  @Autowired
   private VisaHelpService visaService;
 
-  // private NoticeService noticeService;
-
+  @Autowired
   private TeamService teamService;
 
   public List<Notice> getNotices() {

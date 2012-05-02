@@ -17,9 +17,13 @@
   <modules>
     <module>core</module>
     <module>struts2</module>
-	<module>service</module>
-	<module>hibernate</module>
-	<module>workflow</module>
+    <module>service</module>
+    <module>hibernate</module>
+    <module>workflow</module>
+    <module>model</module>
+    <!-- 
+    <module>mybatis</module>
+     -->
   </modules>
 
 </project>

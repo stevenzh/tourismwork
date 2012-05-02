@@ -6,7 +6,8 @@ import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * Generic Property Accessor with Cache - Utilities for working with properties
@@ -20,7 +21,7 @@ public class UtilProperties implements java.io.Serializable
 
     private static final long serialVersionUID = -3215438684670970638L;
 
-    protected static Logger log = Logger.getLogger(UtilProperties.class);
+    protected static Log log = LogFactory.getLog(UtilProperties.class);
 
     /**
      * Compares the specified property to the compareString, returns true if

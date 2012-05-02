@@ -18,7 +18,6 @@ import com.opentravelsoft.service.finance.InvoiceService;
  * 填写发票
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:24:11 $
  */
 public class InvoiceAction extends ManageAction {
   private static final long serialVersionUID = -8607586773699795330L;

@@ -123,7 +123,7 @@
 
     <dependency>
       <groupId>com.opentravelsoft</groupId>
-      <artifactId>tourismwork-core</artifactId>
+      <artifactId>tourismwork-model</artifactId>
       <version>${project.version}</version>
     </dependency>
   </dependencies>

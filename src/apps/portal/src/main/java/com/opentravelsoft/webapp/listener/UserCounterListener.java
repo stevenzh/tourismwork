@@ -18,154 +18,159 @@ import org.springframework.security.web.context.HttpSessionContextIntegrationFil
 
 import com.opentravelsoft.model.Member;
 
-
 /**
- * UserCounterListener class used to count the current number
- * of active users for the applications.  Does this by counting
- * how many user objects are stuffed into the session.  It also grabs
- * these users and exposes them in the servlet context.
- *
+ * UserCounterListener class used to count the current number of active users
+ * for the applications. Does this by counting how many user objects are stuffed
+ * into the session. It also grabs these users and exposes them in the servlet
+ * context.
+ * 
  */
-public class UserCounterListener implements ServletContextListener, HttpSessionAttributeListener {
-    /**
-     * Name of user counter variable
-     */
-    public static final String COUNT_KEY = "userCounter";
-    /**
-     * Name of users Set in the ServletContext
-     */
-    public static final String USERS_KEY = "userNames";
-    /**
-     * The default event we're looking to trap.
-     */
-    public static final String EVENT_KEY = HttpSessionContextIntegrationFilter.SPRING_SECURITY_CONTEXT_KEY;
-    private transient ServletContext servletContext;
-    private int counter;
-    private Set<Member> users;
+public class UserCounterListener implements ServletContextListener,
+    HttpSessionAttributeListener {
+  /**
+   * Name of user counter variable
+   */
+  public static final String COUNT_KEY = "userCounter";
+  /**
+   * Name of users Set in the ServletContext
+   */
+  public static final String USERS_KEY = "userNames";
+  /**
+   * The default event we're looking to trap.
+   */
+  public static final String EVENT_KEY = HttpSessionContextIntegrationFilter.SPRING_SECURITY_CONTEXT_KEY;
+  private transient ServletContext servletContext;
+  private int counter;
+  private Set<Member> users;
 
-    /**
-     * Initialize the context
-     *
-     * @param sce the event
-     */
-    public synchronized void contextInitialized(ServletContextEvent sce) {
-        servletContext = sce.getServletContext();
-        servletContext.setAttribute((COUNT_KEY), Integer.toString(counter));
+  /**
+   * Initialize the context
+   * 
+   * @param sce the event
+   */
+  public synchronized void contextInitialized(ServletContextEvent sce) {
+    servletContext = sce.getServletContext();
+    servletContext.setAttribute((COUNT_KEY), Integer.toString(counter));
+  }
+
+  /**
+   * Set the servletContext, users and counter to null
+   * 
+   * @param event The servletContextEvent
+   */
+  public synchronized void contextDestroyed(ServletContextEvent event) {
+    servletContext = null;
+    users = null;
+    counter = 0;
+  }
+
+  synchronized void incrementUserCounter() {
+    counter = Integer.parseInt((String) servletContext.getAttribute(COUNT_KEY));
+    counter++;
+    servletContext.setAttribute(COUNT_KEY, Integer.toString(counter));
+  }
+
+  synchronized void decrementUserCounter() {
+    int counter = Integer.parseInt((String) servletContext
+        .getAttribute(COUNT_KEY));
+    counter--;
+
+    if (counter < 0) {
+      counter = 0;
     }
 
-    /**
-     * Set the servletContext, users and counter to null
-     *
-     * @param event The servletContextEvent
-     */
-    public synchronized void contextDestroyed(ServletContextEvent event) {
-        servletContext = null;
-        users = null;
-        counter = 0;
+    servletContext.setAttribute(COUNT_KEY, Integer.toString(counter));
+  }
+
+  @SuppressWarnings("unchecked")
+  synchronized void addUsername(Member user) {
+    users = (Set<Member>) servletContext.getAttribute(USERS_KEY);
+
+    if (users == null) {
+      users = new LinkedHashSet<Member>();
     }
 
-    synchronized void incrementUserCounter() {
-        counter = Integer.parseInt((String) servletContext.getAttribute(COUNT_KEY));
-        counter++;
-        servletContext.setAttribute(COUNT_KEY, Integer.toString(counter));
+    if (!users.contains(user)) {
+      users.add(user);
+      servletContext.setAttribute(USERS_KEY, users);
+      incrementUserCounter();
+    }
+  }
+
+  @SuppressWarnings("unchecked")
+  synchronized void removeUsername(Member user) {
+    users = (Set<Member>) servletContext.getAttribute(USERS_KEY);
+
+    if (users != null) {
+      users.remove(user);
     }
 
-    synchronized void decrementUserCounter() {
-        int counter = Integer.parseInt((String) servletContext.getAttribute(COUNT_KEY));
-        counter--;
+    servletContext.setAttribute(USERS_KEY, users);
+    decrementUserCounter();
+  }
 
-        if (counter < 0) {
-            counter = 0;
-        }
-
-        servletContext.setAttribute(COUNT_KEY, Integer.toString(counter));
+  /**
+   * This method is designed to catch when user's login and record their name
+   * 
+   * @param event the event to process
+   * @see javax.servlet.http.HttpSessionAttributeListener#attributeAdded(javax.servlet.http.HttpSessionBindingEvent)
+   */
+  public void attributeAdded(HttpSessionBindingEvent event) {
+    if (event.getName().equals(EVENT_KEY) && !isAnonymous()) {
+      SecurityContext securityContext = (SecurityContext) event.getValue();
+      if (securityContext.getAuthentication().getPrincipal() instanceof Member) {
+        Member user = (Member) securityContext.getAuthentication()
+            .getPrincipal();
+        addUsername(user);
+      }
     }
+  }
 
-    @SuppressWarnings("unchecked")
-    synchronized void addUsername(Member user) {
-        users = (Set<Member>) servletContext.getAttribute(USERS_KEY);
-
-        if (users == null) {
-            users = new LinkedHashSet<Member>();
-        }
-
-        if (!users.contains(user)) {
-            users.add(user);
-            servletContext.setAttribute(USERS_KEY, users);
-            incrementUserCounter();
-        }
+  private boolean isAnonymous() {
+    AuthenticationTrustResolver resolver = new AuthenticationTrustResolverImpl();
+    SecurityContext ctx = SecurityContextHolder.getContext();
+    if (ctx != null) {
+      Authentication auth = ctx.getAuthentication();
+      return resolver.isAnonymous(auth);
     }
+    return true;
+  }
 
-    @SuppressWarnings("unchecked")
-    synchronized void removeUsername(Member user) {
-        users = (Set<Member>) servletContext.getAttribute(USERS_KEY);
-
-        if (users != null) {
-            users.remove(user);
-        }
-
-        servletContext.setAttribute(USERS_KEY, users);
-        decrementUserCounter();
+  /**
+   * When user's logout, remove their name from the hashMap
+   * 
+   * @param event the session binding event
+   * @see javax.servlet.http.HttpSessionAttributeListener#attributeRemoved(javax.servlet.http.HttpSessionBindingEvent)
+   */
+  public void attributeRemoved(HttpSessionBindingEvent event) {
+    if (event.getName().equals(EVENT_KEY) && !isAnonymous()) {
+      SecurityContext securityContext = (SecurityContext) event.getValue();
+      Authentication auth = securityContext.getAuthentication();
+      if (auth != null && (auth.getPrincipal() instanceof Member)) {
+        Member user = (Member) auth.getPrincipal();
+        removeUsername(user);
+      }
     }
+  }
 
-    /**
-     * This method is designed to catch when user's login and record their name
-     *
-     * @param event the event to process
-     * @see javax.servlet.http.HttpSessionAttributeListener#attributeAdded(javax.servlet.http.HttpSessionBindingEvent)
-     */
-    public void attributeAdded(HttpSessionBindingEvent event) {
-        if (event.getName().equals(EVENT_KEY) && !isAnonymous()) {
-            SecurityContext securityContext = (SecurityContext) event.getValue();
-            if (securityContext.getAuthentication().getPrincipal() instanceof Member) {
-                Member user = (Member) securityContext.getAuthentication().getPrincipal();
-                addUsername(user);
-            }
-        }
+  /**
+   * Needed for Acegi Security 1.0, as it adds an anonymous user to the session
+   * and then replaces it after authentication.
+   * http://forum.springframework.org/showthread.php?p=63593
+   * 
+   * @param event the session binding event
+   * @see javax.servlet.http.HttpSessionAttributeListener#attributeReplaced(javax.servlet.http.HttpSessionBindingEvent)
+   */
+  public void attributeReplaced(HttpSessionBindingEvent event) {
+    if (event.getName().equals(EVENT_KEY) && !isAnonymous()) {
+      final SecurityContext securityContext = (SecurityContext) event
+          .getValue();
+      if (securityContext.getAuthentication() != null
+          && securityContext.getAuthentication().getPrincipal() instanceof Member) {
+        final Member user = (Member) securityContext.getAuthentication()
+            .getPrincipal();
+        addUsername(user);
+      }
     }
-
-    private boolean isAnonymous() {
-        AuthenticationTrustResolver resolver = new AuthenticationTrustResolverImpl();
-        SecurityContext ctx = SecurityContextHolder.getContext();
-        if (ctx != null) {
-            Authentication auth = ctx.getAuthentication();
-            return resolver.isAnonymous(auth);
-        }
-        return true;
-    }
-
-    /**
-     * When user's logout, remove their name from the hashMap
-     *
-     * @param event the session binding event
-     * @see javax.servlet.http.HttpSessionAttributeListener#attributeRemoved(javax.servlet.http.HttpSessionBindingEvent)
-     */
-    public void attributeRemoved(HttpSessionBindingEvent event) {
-        if (event.getName().equals(EVENT_KEY) && !isAnonymous()) {
-            SecurityContext securityContext = (SecurityContext) event.getValue();
-            Authentication auth = securityContext.getAuthentication();
-            if (auth != null && (auth.getPrincipal() instanceof Member)) {
-                Member user = (Member) auth.getPrincipal();
-                removeUsername(user);
-            }
-        }
-    }
-
-    /**
-     * Needed for Acegi Security 1.0, as it adds an anonymous user to the session and
-     * then replaces it after authentication. http://forum.springframework.org/showthread.php?p=63593
-     *
-     * @param event the session binding event
-     * @see javax.servlet.http.HttpSessionAttributeListener#attributeReplaced(javax.servlet.http.HttpSessionBindingEvent)
-     */
-    public void attributeReplaced(HttpSessionBindingEvent event) {
-        if (event.getName().equals(EVENT_KEY) && !isAnonymous()) {
-            final SecurityContext securityContext = (SecurityContext) event.getValue();
-            if (securityContext.getAuthentication() != null
-                    && securityContext.getAuthentication().getPrincipal() instanceof Member) {
-                final Member user = (Member) securityContext.getAuthentication().getPrincipal();
-                addUsername(user);
-            }
-        }
-    }
+  }
 }

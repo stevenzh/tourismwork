@@ -21,7 +21,6 @@ import com.opentravelsoft.service.setting.EmployeeService;
  * 制作收款账单
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.2 $ $Date: 2009/04/10 07:47:29 $
  */
 public class IncomeAction extends ManageAction {
   private static final long serialVersionUID = -1255674570726952412L;

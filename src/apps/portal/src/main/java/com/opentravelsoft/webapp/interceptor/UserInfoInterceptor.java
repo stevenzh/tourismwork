@@ -12,7 +12,7 @@ import com.opentravelsoft.service.UserManager;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.security.access.AccessDeniedException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -22,32 +22,32 @@ public class UserInfoInterceptor extends AbstractInterceptor {
   private static final long serialVersionUID = 1729368460754400272L;
   protected static final Log logger = LogFactory
       .getLog(UserInfoInterceptor.class);
-  private UserManager userManager;
 
-  public void setUserManager(UserManager userManager) {
-    this.userManager = userManager;
-  }
+  @Autowired
+  private UserManager userManager;
 
   public String intercept(ActionInvocation invocation) throws Exception {
     logger.debug("intercepter user info.");
     ActionContext act = invocation.getInvocationContext();
     Map<String, Object> session = act.getSession();
-    
+
     // -------------------------------------------------------------------------
-    Authentication authent = SecurityContextHolder.getContext().getAuthentication();
+    Authentication authent = SecurityContextHolder.getContext()
+        .getAuthentication();
     User currentUser = null;
     if (authent.getPrincipal() instanceof UserDetails) {
       currentUser = (User) authent.getPrincipal();
     } else if (authent.getDetails() instanceof UserDetails) {
       currentUser = (User) authent.getDetails();
     } else {
-      //throw new AccessDeniedException("User not properly authenticated.");
+      // throw new AccessDeniedException("User not properly authenticated.");
     }
     // -------------------------------------------------------------------------
 
     Object suser = session.get(SessionKeyParams.EBIZ_USER);
     if (null != currentUser && null == suser) {
-      Member user = userManager.getUserByUsername(currentUser.getUsername().toUpperCase());
+      Member user = userManager.getUserByUsername(currentUser.getUsername()
+          .toUpperCase());
       session.put(SessionKeyParams.EBIZ_USER, user);
     }
 

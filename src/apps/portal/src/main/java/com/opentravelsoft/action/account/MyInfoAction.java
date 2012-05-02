@@ -31,10 +31,18 @@ public class MyInfoAction extends PortalAction {
 
   protected static final Log logger = LogFactory.getLog(MyInfoAction.class);
 
+  @Autowired
   private MemberService memberService;
+
+  @Autowired
   private ProvinceService provinceService;
+
+  @Autowired
   private CountryService countryService;
+
+  @Autowired
   private CityService cityService;
+
   private Member member;
 
   /** 国家列表 */
@@ -57,25 +65,6 @@ public class MyInfoAction extends PortalAction {
 
   /** 是否 */
   private List<LabelValueBean> yesOrNo;
-
-  public void setMemberService(MemberService memberService) {
-    this.memberService = memberService;
-  }
-
-  @Autowired
-  public void setCountryService(CountryService countryService) {
-    this.countryService = countryService;
-  }
-
-  @Autowired
-  public void setProvinceService(ProvinceService provinceService) {
-    this.provinceService = provinceService;
-  }
-
-  @Autowired
-  public void setCityService(CityService cityService) {
-    this.cityService = cityService;
-  }
 
   public Member getCustomer() {
     return member;

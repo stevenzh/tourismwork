@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opentravelsoft.util.LabelValueBean;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -26,6 +28,7 @@ public class OrderBookingAction extends PortalAction {
 
   private static final Logger log = Logger.getLogger(OrderBookingAction.class);
 
+  @Autowired
   private BookingService bookingService;
 
   private String planNo;
@@ -128,10 +131,6 @@ public class OrderBookingAction extends PortalAction {
 
   public List<LabelValueBean> getSexList() {
     return sexList;
-  }
-
-  public void setBookingService(BookingService memberBookingService) {
-    this.bookingService = memberBookingService;
   }
 
   public String getPlanNo() {

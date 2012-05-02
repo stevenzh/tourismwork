@@ -2,6 +2,7 @@ package com.opentravelsoft.action.account;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opentravelsoft.service.account.MemberService;
 import com.opentravelsoft.webapp.action.PortalAction;
@@ -18,13 +19,10 @@ public class RetrieveMemberAction extends PortalAction {
   protected static final Log logger = LogFactory
       .getLog(RetrieveMemberAction.class);
 
+  @Autowired
   private MemberService memberService;
 
   private String mobileNo;
-
-  public void setMemberService(MemberService memberService) {
-    this.memberService = memberService;
-  }
 
   public String input() {
     return INPUT;

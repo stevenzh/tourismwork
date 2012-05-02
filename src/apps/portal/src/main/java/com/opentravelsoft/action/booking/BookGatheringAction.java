@@ -3,6 +3,8 @@ package com.opentravelsoft.action.booking;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opentravelsoft.util.LabelValueBean;
 
 import com.opentravelsoft.entity.Booking;
@@ -20,6 +22,7 @@ import com.opentravelsoft.webapp.action.PortalAction;
 public class BookGatheringAction extends PortalAction {
   private static final long serialVersionUID = 421467675829379367L;
 
+  @Autowired
   private BookingService bookService;
 
   /** 订单 */
@@ -47,10 +50,6 @@ public class BookGatheringAction extends PortalAction {
     payment.setBookingNo(reserveNo);
     bookService.txGathering(payment, 0);
     return SUCCESS;
-  }
-
-  public void setBookingService(BookingService bookService) {
-    this.bookService = bookService;
   }
 
   public String getReserveNo() {

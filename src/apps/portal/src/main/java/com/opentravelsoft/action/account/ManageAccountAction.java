@@ -19,7 +19,6 @@ import com.opentravelsoft.webapp.action.PortalAction;
  * 客户帐户显示
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:24:17 $
  */
 public class ManageAccountAction extends PortalAction {
 
@@ -28,6 +27,7 @@ public class ManageAccountAction extends PortalAction {
   protected static final Log logger = LogFactory
       .getLog(ManageAccountAction.class);
 
+  @Autowired
   private CustomerService customerService;
 
   private Customer account;
@@ -35,11 +35,6 @@ public class ManageAccountAction extends PortalAction {
   private int accountId;
 
   private List<LabelValueBean> outCityList = new ArrayList<LabelValueBean>();
-
-  @Autowired
-  public void setCustomerService(CustomerService customerService) {
-    this.customerService = customerService;
-  }
 
   public String input() throws Exception {
     Object obj = ActionContext.getContext().getSession()

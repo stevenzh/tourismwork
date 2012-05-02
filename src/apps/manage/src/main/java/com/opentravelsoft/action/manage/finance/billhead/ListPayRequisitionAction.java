@@ -18,7 +18,6 @@ import com.opentravelsoft.util.StringUtil;
  * 查询付款申请书
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.2 $ $Date: 2009/04/10 07:47:29 $
  */
 public class ListPayRequisitionAction extends ManageAction {
   private static final long serialVersionUID = -7852853734687360320L;

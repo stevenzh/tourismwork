@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opentravelsoft.entity.Destination;
 import com.opentravelsoft.entity.Plan;
 import com.opentravelsoft.service.portal.PlanListService;
@@ -13,12 +15,12 @@ import com.opentravelsoft.webapp.action.PortalAction;
  * 出团计划查询
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:24:06 $
  */
 public class LineSearchAction extends PortalAction {
 
   private static final long serialVersionUID = -7625855842902512964L;
 
+  @Autowired
   private PlanListService planService;
 
   private Date kenStartDatePeriod;
@@ -38,16 +40,12 @@ public class LineSearchAction extends PortalAction {
 
   private List<Plan> plans = new ArrayList<Plan>();
 
-  public void setPlanListService(PlanListService planListService) {
-    this.planService = planListService;
-  }
-
   public String input() throws Exception {
     buildSysdate();
     kenStartDatePeriod = systemDate;
     kenEndDatePeriod = systemDate;
-    
-    //destinations = planService.getDestinations(); 改为静态加载
+
+    // destinations = planService.getDestinations(); 改为静态加载
 
     return INPUT;
   }

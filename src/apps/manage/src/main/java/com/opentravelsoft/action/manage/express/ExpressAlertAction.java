@@ -14,7 +14,6 @@ import com.opentravelsoft.workflow.WorkFlowKeyParams;
  * 任务列表
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:24:16 $
  */
 public class ExpressAlertAction extends ManageAction {
 

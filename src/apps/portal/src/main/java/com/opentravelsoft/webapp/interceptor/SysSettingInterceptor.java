@@ -17,6 +17,7 @@ import com.opentravelsoft.service.setting.SysConfigService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class SysSettingInterceptor extends AbstractInterceptor {
   private static final long serialVersionUID = 7884275706687577353L;
@@ -24,17 +25,11 @@ public class SysSettingInterceptor extends AbstractInterceptor {
   protected static final Log logger = LogFactory
       .getLog(SysSettingInterceptor.class);
 
+  @Autowired
   private ProductService productService;
 
+  @Autowired
   private SysConfigService configService;
-
-  public void setProductService(ProductService productService) {
-    this.productService = productService;
-  }
-
-  public void setConfigService(SysConfigService configService) {
-    this.configService = configService;
-  }
 
   public String intercept(ActionInvocation actionInvocation) throws Exception {
     logger.debug("intercepter sys setting.");

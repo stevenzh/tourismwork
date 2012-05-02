@@ -15,7 +15,6 @@ import com.opentravelsoft.service.resource.ProvinceService;
  * 客户对账单（应收/应付）
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:24:06 $
  */
 public class CollateIncomeAction extends ManageAction {
   private static final long serialVersionUID = 2405110448984190948L;

@@ -3,6 +3,8 @@ package com.opentravelsoft.action.branch;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opentravelsoft.common.SessionKeyParams;
 import com.opentravelsoft.entity.Booking;
@@ -18,13 +20,14 @@ import com.opentravelsoft.webapp.action.PortalAction;
  * 填写发票
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:24:06 $
  */
 public class InvoiceAction extends PortalAction {
   private static final long serialVersionUID = -8607586773699795330L;
 
+  @Autowired
   private InvoiceService invoiceService;
 
+  @Autowired
   private BookingService bookService;
 
   /** 订单编号编号 */
@@ -38,14 +41,6 @@ public class InvoiceAction extends PortalAction {
   private List<InvoiceItem> items = new ArrayList<InvoiceItem>();
 
   private List<InvoicePiece> pieces = new ArrayList<InvoicePiece>();
-
-  public void setInvoiceService(InvoiceService invoiceService) {
-    this.invoiceService = invoiceService;
-  }
-
-  public void setBookService(BookingService bookService) {
-    this.bookService = bookService;
-  }
 
   public String input() {
     invoice = new Invoice();
