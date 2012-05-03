@@ -59,11 +59,13 @@ public class PortalAction extends BaseAction {
   /**
    * The UserManager
    */
+  @Autowired
   protected UserManager userManager;
 
   /**
    * The RoleManager
    */
+  @Autowired
   protected RoleManager roleManager;
 
   /**

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -82,28 +81,16 @@ function actionSubmit()
       </tr>
       <tr>
         <td><font size="-1">出发日期：</font></td>
-        <td><font size="-1">
-        <sj:datepicker size="10" displayFormat="yy-mm-dd" id="startDatePeriod"
-                       name="startDatePeriod"
-                       maxlength="10">
-        </sj:datepicker> 至
-        <sj:datepicker size="10" displayFormat="yy-mm-dd" id="endDatePeriod"
-                       name="endDatePeriod"
-                       maxlength="10">
-        </sj:datepicker>&nbsp;&nbsp;日期输入格式：[YYYY-MM-DD]</font>
+        <td>
+		    <input name="startDatePeriod" size="10" type="text" onClick="WdatePicker()"/> 至
+		    <input name="endDatePeriod" size="10" type="text" onClick="WdatePicker()"/>
         </td>
       </tr>
       <tr>
         <td><font size="-1">预订日期：</font></td>
-        <td><font size="-1">
-        <sj:datepicker size="10" displayFormat="yy-mm-dd" id="orderStartDatePeriod"
-                       name="reserveStartDatePeriod"
-                       maxlength="10">
-        </sj:datepicker> 至
-        <sj:datepicker size="10" displayFormat="yy-mm-dd" id="orderEndDatePeriod"
-                       name="reserveEndDatePeriod"
-                       maxlength="10">
-        </sj:datepicker>&nbsp;&nbsp;日期输入格式：[YYYY-MM-DD]</font>
+        <td>
+        <input name="reserveStartDatePeriod" size="10" type="text" onClick="WdatePicker()"/> 至
+        <input name="reserveEndDatePeriod" size="10" type="text" onClick="WdatePicker()"/>
         </td>
       </tr>
       <tr>

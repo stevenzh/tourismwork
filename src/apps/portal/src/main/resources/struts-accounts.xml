@@ -52,19 +52,13 @@
     </action>
 
     <!-- Booking -->
-    <action name="showMyBooking" class="MyBookingAction" method="input">
+    <action name="showMyBooking" class="com.opentravelsoft.action.booking.MyBookingAction" method="input">
       <result>/includes/booking/MyBooking.jsp</result>
     </action>
     <action name="showBookingDetail" class="BookingDetailAction" method="input">
       <result>/includes/accounts/BookingDetail.jsp</result>
     </action>
-    <action name="BookSearch" class="BookSearchAction" method="input">
-      <result name="input">/includes/booking/BookingList.jsp</result>
-    </action>
-    <action name="BookSearchSubmit" class="BookSearchAction" method="submit">
-      <result>/includes/booking/BookingList.jsp</result>
-      <result name="input" type="chain">BookSearch</result>
-    </action>
+
     <action name="showOrderBooking" class="OrderBookingAction" method="input">
       <result>/includes/booking/OrderBooking.jsp</result>
     </action>
@@ -87,7 +81,7 @@
       <result>/includes/booking/BookingDetail.jsp
       </result>
     </action>
-    <action name="cancelBooking" class="BookDetailAction" method="cancel">
+    <action name="cancelBooking" class="com.opentravelsoft.action.booking.BookDetailAction" method="cancel">
       <result name="input" type="chain">BookDetail</result>
       <result name="success" type="chain">BookSearch</result>
     </action>
@@ -113,13 +107,6 @@
       <result>showOrderDetail</result>
     </action>
     
-    <action name="BookGathering" class="BookGatheringAction" method="input">
-      <result name="input">/includes/booking/BookGathering.jsp</result>
-    </action>
-    <action name="submitBookGathering" class="BookGatheringAction" method="submit">
-      <result name="input" type="chain">BookGathering</result>
-      <result type="chain">BookDetail</result>
-    </action>
     <action name="showInvoice" class="InvoiceAction" method="input">
       <result name="input">/includes/booking/EditInvoice.jsp</result>
     </action>

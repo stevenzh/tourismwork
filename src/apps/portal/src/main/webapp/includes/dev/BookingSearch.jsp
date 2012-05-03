@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -160,8 +159,8 @@ function detail(no,val)
       </s:select></td>
       <td class="idx">出发日期：</td>
       <td>
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" name="kenStartDatePeriod" /> 至 
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" name="kenEndDatePeriod" />
+      <input name="kenStartDatePeriod" size="10" type="text" onClick="WdatePicker()"/> 至
+      <input name="kenEndDatePeriod" size="10" type="text" onClick="WdatePicker()"/>
       </td>
     </tr>
     <tr>
@@ -178,8 +177,8 @@ function detail(no,val)
       </td>
       <td class="idx">预订日期：</td>
       <td>
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" name="kenReserveStart"></sj:datepicker>&nbsp;至
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" name="kenReserveEnd"></sj:datepicker>
+      <input name="kenReserveStart" size="10" type="text" onClick="WdatePicker()"/> 至
+      <input name="kenReserveEnd" size="10" type="text" onClick="WdatePicker()"/>
       </td>
     </tr>
     <tr>

@@ -3,6 +3,8 @@ package com.opentravelsoft.action.booking;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opentravelsoft.util.LabelValueBean;
@@ -38,13 +40,16 @@ public class BookGatheringAction extends PortalAction {
 
   private Income payment;
 
-  @Override
+  @Action(value = "/accounts/BookGathering", results = { @Result(name = "input", location = "/includes/booking/BookGathering.jsp") })
   public String input() throws Exception {
     book = bookService.roGetReserve(reserveNo);
     types = bookService.roGetPaymentTypes();
     return INPUT;
   }
 
+  @Action(value = "/accounts/submitBookGathering", results = {
+      @Result(name = "input", type = "chain", location = "BookGathering"),
+      @Result(type = "chain", location = "BookDetail") })
   public String submit() throws Exception {
     // 客户付款
     payment.setBookingNo(reserveNo);

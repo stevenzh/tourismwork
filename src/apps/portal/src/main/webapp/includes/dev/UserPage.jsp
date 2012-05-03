@@ -1,7 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.*,org.apache.struts.util.*"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -338,8 +337,8 @@ function RegionPlan(region)
           <tr>
             <td>出发日期：</td>
             <td>
-            <sj:datepicker size="10" displayFormat="yy-mm-dd" name="kenStartDatePeriod"></sj:datepicker>&nbsp;至
-            <sj:datepicker size="10" displayFormat="yy-mm-dd" name="kenEndDatePeriod"></sj:datepicker>
+            <input name="kenStartDatePeriod" size="10" type="text" onClick="WdatePicker()"/> 至
+            <input name="kenEndDatePeriod" size="10" type="text" onClick="WdatePicker()"/>
             </td>
           </tr>
           <tr>

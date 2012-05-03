@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -39,15 +38,9 @@
 <table width="700" border="0">
   <tr> 
     <td height="25" bordercolor="0"><font size="-1">付款日期：</font></td>
-    <td height="25" colspan="2" bordercolor="0"><font size="-1">
-		<sj:datepicker size="10" displayFormat="yy-mm-dd"  id="paymentDateStart"
-		               name="paymentDateStart"
-		               maxlength="10">
-	  </sj:datepicker> 至
-	  <sj:datepicker size="10" displayFormat="yy-mm-dd" id="paymentDateEnd"
-	                 name="paymentDateEnd"
-	                 maxlength="10">
-	  </sj:datepicker>&nbsp;&nbsp;<font color="red">日期输入格式：[YYYY-MM-DD]</font></font>
+    <td height="25" colspan="2" bordercolor="0">
+    <input name="paymentDateStart" size="10" type="text" onClick="WdatePicker()"/> 至
+    <input name="paymentDateEnd" size="10" type="text" onClick="WdatePicker()"/>
 		</td>
 	</tr>
 	<tr> 

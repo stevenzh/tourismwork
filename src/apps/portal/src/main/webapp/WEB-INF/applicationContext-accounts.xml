@@ -4,64 +4,23 @@
 <beans default-autowire="byType">
 
   <!-- Booking -->
-  <bean id="MyBookingAction" class="com.opentravelsoft.action.booking.MyBookingAction">
-    <property name="bookingService">
-      <ref bean="BookingService" />
-    </property>
-  </bean>
-  <bean id="BookSearchAction" class="com.opentravelsoft.action.booking.BookSearchAction" singleton="false">
-    <property name="bookingService">
-      <ref bean="BookingService" />
-    </property>
-  </bean>
-  <bean id="BookDetailAction" class="com.opentravelsoft.action.booking.BookDetailAction" singleton="false">
-    <property name="bookingService">
-      <ref bean="BookingService" />
-    </property>
-  </bean>
-  <bean id="BookGatheringAction" class="com.opentravelsoft.action.booking.BookGatheringAction" singleton="false">
-    <property name="bookingService">
-      <ref bean="BookingService" />
-    </property>
-  </bean>
   <bean id="OrderBookingAction" class="com.opentravelsoft.action.booking.OrderBookingAction" singleton="false">
-    <property name="bookingService">
-      <ref bean="BookingService" />
-    </property>
   </bean>
   <bean id="InvoiceAction" class="com.opentravelsoft.action.branch.InvoiceAction" singleton="false">
-    <property name="invoiceService">
-      <ref bean="InvoiceService" />
-    </property>
   </bean>
 
   <bean id="PaymentSearchAction" class="com.opentravelsoft.action.account.PaymentSearchAction" singleton="false">
-    <property name="paymentService">
-      <ref bean="PaymentService" />
-    </property>
   </bean>
 
   <bean id="FileDownloadAction" class="com.opentravelsoft.action.account.FileDownloadAction" singleton="false">
-    <property name="priceFileService">
-      <ref bean="PriceFileService" />
-    </property>
   </bean>
 
   <bean id="ManageAccountAction" class="com.opentravelsoft.action.account.ManageAccountAction" singleton="false">
-    <property name="accountService">
-      <ref bean="AccountService" />
-    </property>
   </bean>
 
   <bean id="MyInfoAction" class="com.opentravelsoft.action.account.MyInfoAction" singleton="false">
-    <property name="memberService">
-      <ref bean="MemberService" />
-    </property>
   </bean>
   <bean id="RetrieveMemberAction" class="com.opentravelsoft.action.account.RetrieveMemberAction" singleton="false">
-    <property name="memberService">
-      <ref bean="MemberService" />
-    </property>
   </bean>
 
 </beans>

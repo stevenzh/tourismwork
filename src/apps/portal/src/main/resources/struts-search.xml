@@ -13,13 +13,6 @@
       <result name="input">/includes/search/Search.jsp</result>
       <result>/includes/search/Search.jsp</result>
     </action>
-    <action name="AdvancedSearchInput" class="CbAdvancedSearchAction" method="input">
-      <result name="input">/includes/search/Advanced_Search.jsp</result>
-    </action>
-    <action name="AdvancedSearch" class="CbAdvancedSearchAction" method="advanceSearch">
-      <result name="input">/includes/search/AdvancedSearchResult.jsp</result>
-      <result>/includes/search/AdvancedSearchResult.jsp</result>
-    </action>
     
     <!-- 线路搜索 -->
     <action name="CbSearch" class="com.opentravelsoft.action.search.CbSearchAction">
@@ -27,10 +20,18 @@
       <result>/includes/search/CbSearch.jsp</result>
     </action>
 
-    <action name="CbAdvancedSearchInput" class="CbAdvancedSearchAction" method="input">
+    <action name="AdvancedSearchInput" class="com.opentravelsoft.action.search.CbAdvancedSearchAction" method="input">
       <result name="input">/includes/search/Advanced_Search.jsp</result>
     </action>
-    <action name="CbAdvancedSearch" class="CbAdvancedSearchAction" method="advanceSearch">
+    <action name="AdvancedSearch" class="com.opentravelsoft.action.search.CbAdvancedSearchAction" method="advanceSearch">
+      <result name="input">/includes/search/AdvancedSearchResult.jsp</result>
+      <result>/includes/search/AdvancedSearchResult.jsp</result>
+    </action>
+
+    <action name="CbAdvancedSearchInput" class="com.opentravelsoft.action.search.CbAdvancedSearchAction" method="input">
+      <result name="input">/includes/search/Advanced_Search.jsp</result>
+    </action>
+    <action name="CbAdvancedSearch" class="com.opentravelsoft.action.search.CbAdvancedSearchAction" method="advanceSearch">
       <result name="input">/includes/search/AdvancedSearchResult.jsp</result>
       <result>/includes/search/AdvancedSearchResult.jsp</result>
     </action>

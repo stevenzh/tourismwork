@@ -22,7 +22,7 @@
 <body<decorator:getProperty property="body.id" writeEntireProperty="true"/><decorator:getProperty property="body.class" writeEntireProperty="true"/>>
   <div class="wrapper w920">
     <div class="header">
-      <jsp:include page="/common/header.jsp"/>
+      <s:include value="/common/header.jsp" />
     </div> <!--header-->
 
     <div class="nav">
@@ -79,7 +79,7 @@
 	 </div>
 
     <div class="footer">
-      <jsp:include page="/common/footer.jsp"/>
+      <s:include value="/common/footer.jsp"/>
     </div>
   </div>
 </body>

@@ -1,6 +1,5 @@
 <%@ page language="java" errorPage="/error.jsp" pageEncoding="UTF-8" contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<%@ taglib uri="/struts-jquery-tags" prefix="sj" %>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator"%>
 
 <script language="JavaScript">

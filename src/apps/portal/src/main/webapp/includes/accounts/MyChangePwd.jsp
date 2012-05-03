@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
@@ -174,9 +173,9 @@ function setCheckInDate(d)
               </tr>
               <tr>
                 <td align="left">出发日期：</td>
-                <td valign="center">
-                <sj:datepicker size="10" displayFormat="yy-mm-dd"  name="startDatePeriod" /> 至
-                <sj:datepicker size="10" displayFormat="yy-mm-dd"  name="endDatePeriod" />
+                <td valign="middle">
+                <input name="startDatePeriod" size="10" type="text" onClick="WdatePicker()"/> 至
+                <input name="endDatePeriod" size="10" type="text" onClick="WdatePicker()"/>
                 </td>
               </tr>
               <tr>

@@ -26,15 +26,16 @@
   <constant name="struts.date.format" value="yyyy-MM-dd"></constant>
   <constant name="struts.multipart.maxSize" value="2097152"/>
   <constant name="struts.ui.theme" value="css_xhtml"/>
-  <constant name="struts.codebehind.pathPrefix" value="/includes/"/>
+
   <constant name="struts.enable.SlashesInActionNames" value="true"/>
-  <constant name="struts.convention.action.disableScanning" value="true"/>
-  
+  <constant name="struts.convention.result.path" value="/includes" />
+  <constant name="struts.convention.action.suffix" value="Action" />
+  <constant name="struts.convention.action.disableScanning" value="false"/>
+  <constant name="struts.convention.package.locators.basePackage" value="com.opentravelsoft.action"/> 
+
   <constant name="struts.xwork.chaining.copyErrors" value="true" />
   <constant name="struts.xwork.chaining.copyFieldErrors" value="true" />
   <constant name="struts.xwork.chaining.copyMessages" value="true" />
-
-  <include file="struts-view.xml" />
 
   <include file="struts-accounts.xml" />
   <include file="struts-product.xml" />
@@ -44,8 +45,8 @@
   <package name="default" extends="struts-default">
     <interceptors>
       <!-- Interceptor to handle get user information to session -->
-      <interceptor name="userinfo" class="userInfoInterceptor" />
-      <interceptor name="settingInterceptor" class="sysSettingInterceptor" />
+      <interceptor name="userinfo" class="com.opentravelsoft.webapp.interceptor.UserInfoInterceptor" />
+      <interceptor name="settingInterceptor" class="com.opentravelsoft.webapp.interceptor.SysSettingInterceptor" />
       
       <!-- Copied from struts-default.xml and changed validation exclude methods -->
       <interceptor-stack name="defaultStack">
@@ -95,7 +96,7 @@
     </global-exception-mappings>
 
     <action name="main">
-        <result name="success">/includes/main.jsp</result>
+      <result name="success">/includes/main.jsp</result>
     </action>
 
     <action name="signup" class="signupAction">

@@ -99,7 +99,7 @@ function showLeftCol(bShow, bSetCookie)
 	</div>
 
 	<div id="content" class="clearfix">
-	  <jsp:include page="/includes/decorators/menu.jsp"/>
+	  <s:include value="/includes/decorators/menu.jsp" />
     <div id="main">
 		<table border="0" style="width: 100%">
 		  <tr>

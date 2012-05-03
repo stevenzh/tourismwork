@@ -7,6 +7,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opentravelsoft.util.LabelValueBean;
@@ -79,6 +82,10 @@ public class ClassifySearchAction extends PortalAction {
    * 
    * @return
    */
+  @Action(value="/dest/ClassifySearchInput", results={   
+    @Result(name="input", location="/includes/search/ClassifySearch.jsp"),
+    @Result(location="/includes/search/ClassifySearch.jsp")
+  })
   public String regionSearch() {
     // 搜索目的地导航列表
     findRegionList(cType);

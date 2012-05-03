@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -263,10 +262,9 @@ function goSearch(param)
 			</tr>
 			<tr bgcolor="#FFFFFF">
 				<td width="120" height="25"><font size="-1">出发日期：</font></td>
-				<td valign="bottom"><font size="-1">
-				   <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="s_date"></sj:datepicker> &nbsp;至&nbsp; 
-				   <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="e_date"></sj:datepicker></font>
-				   <font color="red" size="-1">格式：yyyyMMdd</font>
+				<td valign="bottom">
+	      <input name="s_date" size="10" type="text" onClick="WdatePicker()"/> 至
+	      <input name="e_date" size="10" type="text" onClick="WdatePicker()"/>
 				</td>
 			</tr>
 			<tr bgcolor="#FFFFFF">
@@ -320,12 +318,10 @@ function goSearch(param)
 			</tr>
 			<tr bgcolor="#FFFFFF">
 				<td width="120" height="25"><font size="-1">出发日期：</font></td>
-				<td valign="bottom"><font size="-1">
-				   <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="s_date">
-				   </sj:datepicker> &nbsp;至&nbsp; 
-				   <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="e_date">
-				   </sj:datepicker></font>
-				   <font color="red" size="-1">格式：yyyyMMdd</font>
+				<td valign="bottom">
+          <input name="s_date" size="10" type="text" onClick="WdatePicker()"/>
+          &nbsp;至&nbsp; 
+          <input name="e_date" size="10" type="text" onClick="WdatePicker()"/>
 				</td>
 			</tr>
 			<tr bgcolor="#FFFFFF">
@@ -371,12 +367,10 @@ function goSearch(param)
 			</tr>
 			<tr bgcolor="#FFFFFF">
 				<td width="120" height="25"><font size="-1">出发日期：</font></td>
-				<td valign="bottom"><font size="-1">
-				   <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="s_date">
-				   </sj:datepicker> &nbsp;至&nbsp; 
-				   <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="e_date">
-				   </sj:datepicker></font>
-				   <font color="red" size="-1">格式：yyyyMMdd</font>
+				<td valign="bottom">
+          <input name="s_date" size="10" type="text" onClick="WdatePicker()"/>
+          &nbsp;至&nbsp; 
+          <input name="e_date" size="10" type="text" onClick="WdatePicker()"/>
 				</td>
 			</tr>
 			<tr bgcolor="#FFFFFF">
@@ -423,12 +417,10 @@ function goSearch(param)
 			</tr>
 			<tr bgcolor="#FFFFFF">
 				<td width="120" height="25"><font size="-1">出发日期：</font></td>
-				<td valign="bottom"><font size="-1">
-				   <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="s_date">
-				   </sj:datepicker> &nbsp;至&nbsp; 
-				   <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="e_date">
-				   </sj:datepicker></font>
-				   <font color="red" size="-1">格式：yyyyMMdd</font>
+				<td valign="bottom">
+				  <input name="s_date" size="10" type="text" onClick="WdatePicker()"/>
+          &nbsp;至&nbsp; 
+          <input name="e_date" size="10" type="text" onClick="WdatePicker()"/>
 				</td>
 			</tr>
 			<tr bgcolor="#FFFFFF">

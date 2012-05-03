@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -202,10 +201,7 @@ function pinyin(param)
   
       <!-- 出生日期 -->
       <td nowrap="nowrap" valign="middle">
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" name="customerList(%{id}).birthday"
-                     value="%{birthday}"
-                     maxlength="10">
-      </sj:datepicker>
+      <input name="customerList(%{id}).birthday" value="%{birthday}" size="10" type="text" onClick="WdatePicker()"/> 
       </td>
   
       <!-- 出生地  -->
@@ -244,10 +240,7 @@ function pinyin(param)
   
       <!-- 签发日期 -->
       <td nowrap="nowrap" valign="middle">
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" name="customerList(%{id}).passportDate"
-                     value="%{passportDate}"
-                     maxlength="10">
-      </sj:datepicker>
+      <input name="customerList(%{id}).passportDate" value="passportDate" size="10" type="text" onClick="WdatePicker()"/> 
       </td>
   
       <!-- 住房要求  -->

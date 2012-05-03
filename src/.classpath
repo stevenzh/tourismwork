@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="modules/mybatis/src/main/java"/>
+	<classpathentry kind="src" path="modules/mybatis/src/main/resources"/>
 	<classpathentry kind="src" path="modules/model/src/main/java"/>
 	<classpathentry kind="src" output="modules/core/target/classes" path="modules/core/src/main/java"/>
 	<classpathentry kind="src" output="modules/core/target/classes" path="modules/core/src/main/resources"/>
