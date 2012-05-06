@@ -11,7 +11,6 @@
 		<config>apps/manage/src/main/webapp/WEB-INF/applicationContext-crm.xml</config>
 		<config>apps/manage/src/main/webapp/WEB-INF/applicationContext-finance.xml</config>
 		<config>apps/manage/src/main/webapp/WEB-INF/applicationContext-json.xml</config>
-		<config>apps/manage/src/main/webapp/WEB-INF/applicationContext-manage.xml</config>
 		<config>apps/manage/src/main/webapp/WEB-INF/applicationContext-operate.xml</config>
 		<config>apps/manage/src/main/webapp/WEB-INF/applicationContext-product.xml</config>
 		<config>apps/manage/src/main/webapp/WEB-INF/applicationContext-resource.xml</config>

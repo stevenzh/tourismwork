@@ -18,14 +18,14 @@
     <div class="left_box_top">
       <h2>旅游度假</h2>
     </div>
-      <s:action name="lineSearch" namespace="/view" executeResult="true" />
+      <s:action name="lineSearch" namespace="/product" executeResult="true" />
    </div>
   </div>
   
   <div class="w660 main_middle left">
    <div class="middle_box">
      <div class="middle_box1">
-		  <s:action name="listVisa" namespace="/view" executeResult="true">
+		  <s:action name="listVisa" namespace="/product" executeResult="true">
 		    <s:param name="type" value="S" />
 		  </s:action>
      </div>

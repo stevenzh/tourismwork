@@ -8,7 +8,6 @@
       <column name="RECKONING_ID" />
       <generator class="native" />
     </id>
-    <timestamp name="updated" column="UPDATED" />
     <property name="bookingNo" type="string">
       <column name="BOOKING_NO" length="20" not-null="true" />
     </property>
@@ -44,6 +43,9 @@
     </property>
     <property name="createdBy" type="java.lang.Long">
       <column name="CREATEDBY" />
+    </property>
+    <property name="updated" type="date">
+      <column name="UPDATED"></column>
     </property>
     <property name="updatedBy" type="java.lang.Long">
       <column name="UPDATEDBY" />

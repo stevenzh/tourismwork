@@ -8,7 +8,6 @@
       <column name="OUTCOME_ID" />
       <generator class="native" />
     </id>
-    <timestamp name="updated" column="UPDATED" />
     <many-to-one name="customer" class="com.opentravelsoft.entity.Customer" lazy="false" fetch="select">
       <column name="CUSTOMER_ID" not-null="true" />
     </many-to-one>
@@ -26,6 +25,9 @@
     </property>
     <property name="createdBy" type="java.lang.Long">
       <column name="CREATEDBY" />
+    </property>
+    <property name="updated" type="date">
+      <column name="UPDATED"></column>
     </property>
     <property name="updatedBy" type="java.lang.Long">
       <column name="UPDATEDBY" />

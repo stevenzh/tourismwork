@@ -58,7 +58,7 @@ public class LinePriceServiceImpl implements LinePriceService {
       String no = sequenceDao.getComputerNo("T", userId);
       routePrice.setRecNo(no);
     }
-    routePriceDao.save(routePrice);
+    routePriceDao.savePrice(routePrice);
     return result;
   }
 

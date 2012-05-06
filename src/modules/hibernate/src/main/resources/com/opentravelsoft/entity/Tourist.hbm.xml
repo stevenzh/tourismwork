@@ -8,7 +8,6 @@
       <column name="NMNO" length="10" />
       <generator class="assigned" />
     </id>
-    <timestamp name="opdate" column="OPDATE" />
     <many-to-one name="booking" class="com.opentravelsoft.entity.Booking" fetch="select" lazy="false">
       <column name="NAME_NO" length="10"></column>
     </many-to-one>
@@ -92,6 +91,9 @@
     </property>
     <property name="opuser" type="java.lang.Long">
       <column name="OPUSER" />
+    </property>
+    <property name="opdate" type="date">
+      <column name="OPDATE"></column>
     </property>
     <property name="tourKey" type="string">
       <column name="TOUR_KEY" length="1" />

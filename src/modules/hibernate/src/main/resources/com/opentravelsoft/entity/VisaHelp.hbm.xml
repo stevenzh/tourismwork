@@ -8,7 +8,6 @@
       <column name="REC_NO" length="10" />
       <generator class="assigned" />
     </id>
-    <timestamp name="opDate" column="OP_DATE" />
     <property name="country" type="string">
       <column name="COUNTRY" length="2" />
     </property>
@@ -56,6 +55,9 @@
     </property>
     <property name="opUser" type="java.lang.Long">
       <column name="OP_USER" />
+    </property>
+    <property name="opDate" type="date">
+      <column name="OP_DATE"></column>
     </property>
   </class>
 </hibernate-mapping>

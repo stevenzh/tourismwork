@@ -8,7 +8,7 @@
 
   <package name="manage-product" namespace="/product" extends="shcct-manage">
 
-    <action name="ResourceAction" class="ResourceAction">
+    <action name="ResourceAction">
       <result>/includes/Resource.jsp</result>
       <param name="moduleName">Products_view</param>
     </action>

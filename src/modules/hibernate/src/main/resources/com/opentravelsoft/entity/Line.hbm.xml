@@ -9,7 +9,6 @@
       <column name="LINE_NO" length="8" />
       <generator class="assigned" />
     </id>
-    <timestamp name="operateDate" column="OP_DATE" />
     <property name="lineName" type="string">
       <column name="LINE_NAME" length="60" />
     </property>
@@ -72,6 +71,9 @@
     </property>
     <property name="operateUserId" type="java.lang.Long">
       <column name="OP_USER" />
+    </property>
+    <property name="operateDate" type="date">
+      <column name="OP_DATE"></column>
     </property>
     <property name="fitType" type="string">
       <column name="FIT_TYPE" length="2" />

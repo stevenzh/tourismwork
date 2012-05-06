@@ -8,7 +8,7 @@
 
   <package name="manage-finance" namespace="/finance" extends="shcct-manage">
 
-    <action name="FinanceAction" class="FinanceAction">
+    <action name="FinanceAction">
       <result>/includes/Finance.jsp</result>
       <param name="moduleName">Finance_view</param>
     </action>
@@ -17,16 +17,16 @@
     </action>
 
     <action name="TourDetail" class="TourUnite" method="tourDetail">
-      <result>/includes/operator/TourDetailView.jsp</result>
+      <result>/includes/operate/TourDetailView.jsp</result>
       <interceptor-ref name="defaultStackWithSecurity"></interceptor-ref>
       <param name="moduleName">Finance_view</param>
     </action>
-    <action name="SimplePrint" class="com.opentravelsoft.action.manage.operator.SimpleReportAction" method="input">
-      <result name="input">/includes/operator/report/SimplePrint.jsp</result>
+    <action name="SimplePrint" class="com.opentravelsoft.action.manage.operate.SimpleReportAction" method="input">
+      <result name="input">/includes/operate/report/SimplePrint.jsp</result>
       <param name="moduleName">Finance_view</param>
     </action>
     <action name="CustomerDetail" class="TouristInfo" method="input">
-      <result>/includes/operator/Customer.jsp</result>
+      <result>/includes/operate/Customer.jsp</result>
       <param name="moduleName">Finance_view</param>
     </action>
 
@@ -87,7 +87,7 @@
       <param name="moduleName">Finance_view</param>
     </action>
     <action name="PrintSingleBalance" class="SingleTourBalanceAction" method="balanceDetail">
-      <result>/includes/operator/PrintTourBalance.jsp</result>
+      <result>/includes/operate/PrintTourBalance.jsp</result>
       <param name="moduleName">Finance_view</param>
     </action>
 

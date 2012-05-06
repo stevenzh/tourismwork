@@ -8,7 +8,7 @@
 
   <package name="manage-crm" namespace="/crm" extends="shcct-manage">
 
-    <action name="CrmAction" class="CrmAction">
+    <action name="CrmAction">
       <result>/includes/CrmPage.jsp</result>
       <param name="moduleName">CRM_view</param>
     </action>

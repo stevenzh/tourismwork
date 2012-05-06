@@ -15,10 +15,10 @@
     <div class="left_box_top">
       <h2>旅游度假</h2>
     </div>
-      <s:action name="lineSearch" namespace="/view" executeResult="true" />
+      <s:action name="lineSearch" namespace="/product" executeResult="true" />
    </div>
   </div>
   
   <div class="w660 main_middle left">
-	  <s:action name="visaDetail" namespace="/view" executeResult="true"></s:action>
+	  <s:action name="visaDetail" namespace="/product" executeResult="true"></s:action>
   </div>

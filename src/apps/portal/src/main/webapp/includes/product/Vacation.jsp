@@ -17,7 +17,7 @@
     <div class="left_box_top">
       <h2>旅游度假</h2>
     </div>
-      <s:action name="lineSearch" namespace="/view" executeResult="true" />
+      <s:action name="lineSearch" namespace="/product" executeResult="true" />
    </div>
   </div>
 
@@ -37,7 +37,7 @@
 
       <div class="mainDiv">
         <div id="main1">
-	      <s:action name="listLine" namespace="/view" executeResult="true">
+	      <s:action name="listLine" namespace="/product" executeResult="true">
 	        <s:param name="Region" value="" />
 	        <s:param name="Row" value="10" />
 	      </s:action>

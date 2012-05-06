@@ -9,7 +9,6 @@
       <column name="REC_NO" length="8" />
       <generator class="assigned" />
     </id>
-    <timestamp name="opDate" column="OP_DATE" />
     <property name="lineNo" type="string">
       <column name="LINE_NO" length="8" />
     </property>
@@ -45,6 +44,9 @@
     </property>
     <property name="opUser" type="java.lang.Long">
       <column name="OP_USER" />
+    </property>
+    <property name="opDate" type="date">
+      <column name="OP_DATE"></column>
     </property>
     <property name="subScription" type="java.lang.Double">
       <column name="SUBSCRIPTION" precision="9" />

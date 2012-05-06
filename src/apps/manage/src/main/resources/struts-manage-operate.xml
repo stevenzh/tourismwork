@@ -8,22 +8,17 @@
 
   <package name="manage-operator" namespace="/operator" extends="shcct-manage">
 
-    <action name="OperatorAction" class="OperatorAction">
-      <result>/includes/Operator.jsp</result>
+    <action name="OperatorAction">
+      <result>/includes/operate.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="operatorTasks" class="OperatorTasksAction">
-      <result>/includes/operator/Tasks.jsp</result>
+      <result>/includes/operate/Tasks.jsp</result>
     </action>
 
     <!-- 出团计划查询初始化 -->
-    <action name="TourPlan" class="TourPlan" method="input">
-      <result name="input">/includes/operator/TourPlan.jsp</result>
-      <param name="moduleName">Operate_view</param>
-    </action>
-    <action name="TourPlanSearch" class="TourPlan" method="search">
-      <result name="input" type="chain">TourPlan</result>
-      <result>/includes/operator/TourPlan.jsp</result>
+    <action name="TourPlanSearch" class="TourPlan" method="input">
+      <result name="input">/includes/operate/TourPlan.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="TourPlanDelete" class="TourPlan" method="delete">
@@ -31,15 +26,15 @@
       <param name="moduleName">Operate_delete</param>
     </action>
     <action name="TourPlanAddFlight" class="EditTourPlan" method="addFlight">
-      <result>/includes/operator/TourPlanChange.jsp</result>
+      <result>/includes/operate/TourPlanChange.jsp</result>
       <param name="moduleName">Operate_edit</param>
     </action>
     <action name="TourPlanDelFlight" class="EditTourPlan" method="deleteFlight">
-      <result>/includes/operator/TourPlanChange.jsp</result>
+      <result>/includes/operate/TourPlanChange.jsp</result>
       <param name="moduleName">Operate_edit</param>
     </action>
     <action name="TourPlanChange" class="EditTourPlan" method="input">
-      <result name="input">/includes/operator/TourPlanChange.jsp</result>
+      <result name="input">/includes/operate/TourPlanChange.jsp</result>
       <param name="moduleName">Operate_edit</param>
     </action>
     <action name="TourPlanChangeSubmit" class="EditTourPlan" method="submit">
@@ -50,15 +45,15 @@
 
     <!-- ToursSearchPrint -->
     <action name="ToursSearchOutBandPrint" class="ToursSearchPrint">
-      <result>/includes/operator/report/ToursSearchPrint.jsp</result>
+      <result>/includes/operate/report/ToursSearchPrint.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="ToursSearchOutBand" class="ToursSearchPrint" method="search">
-      <result>/includes/operator/report/ToursSearchPrint.jsp</result>
+      <result>/includes/operate/report/ToursSearchPrint.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="ToursSearchOutBandNext" class="ToursSearchPrint" method="next">
-      <result>/includes/operator/report/ToursSearchPrintNext.jsp</result>
+      <result>/includes/operate/report/ToursSearchPrintNext.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="ToursSearchOutBandBack" class="ToursSearchPrint" method="back">
@@ -66,25 +61,25 @@
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="ToursSearchPrint" class="ToursSearchPrint" method="print">
-      <result>/includes/operator/report/OutBandCustomersPrint.jsp</result>
+      <result>/includes/operate/report/OutBandCustomersPrint.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
 
     <!-- GA List -->
     <action name="ToursSearchGAPrint" class="ToursSearchPrint">
-      <result>/includes/operator/report/ToursGASearchPrint.jsp</result>
+      <result>/includes/operate/report/ToursGASearchPrint.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="ToursSearchGA" class="ToursSearchPrint" method="search">
-      <result>/includes/operator/report/ToursGASearchPrint.jsp</result>
+      <result>/includes/operate/report/ToursGASearchPrint.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="ToursSearchGANext" class="ToursSearchPrint" method="next">
-      <result>/includes/operator/report/ToursGASearchPrintNext.jsp</result>
+      <result>/includes/operate/report/ToursGASearchPrintNext.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="ToursSearchGAConfirm" class="ToursSearchPrint" method="print">
-      <result>/includes/operator/report/GACustomersPrint.jsp</result>
+      <result>/includes/operate/report/GACustomersPrint.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="ToursSearchGABack" class="ToursSearchPrint" method="back">
@@ -94,12 +89,12 @@
 
     <!--付款申请书 -->
     <action name="makePayRequisition" class="PayRequisitionAction" method="input">
-      <result name="input">/includes/operator/expend/EditBill.jsp</result>
+      <result name="input">/includes/operate/expend/EditBill.jsp</result>
       <param name="moduleName">Operate_edit</param>
     </action>
     <action name="refreshPayRequisition" class="PayRequisitionAction" method="search">
       <result name="input" type="chain">makePayRequisition</result>
-      <result>/includes/operator/expend/EditBill.jsp</result>
+      <result>/includes/operate/expend/EditBill.jsp</result>
       <param name="moduleName">Operate_edit</param>
     </action>
     <action name="submitPayRequisition" class="PayRequisitionAction" method="submit">
@@ -110,25 +105,25 @@
 
     <!-- 查找付款申请书 -->
     <action name="showPayRequisition" class="ListPayRequisitionAction" method="input">
-      <result name="input">/includes/operator/expend/ListBills.jsp</result>
+      <result name="input">/includes/operate/expend/ListBills.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="listPayRequisition" class="ListPayRequisitionAction" method="search">
       <result name="input" type="chain">showPayRequisition</result>
-      <result>/includes/operator/expend/ListBills.jsp</result>
+      <result>/includes/operate/expend/ListBills.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
 
     <!-- 删除付款申请书 -->
     <action name="deletePayRequisition" class="ListPayRequisitionAction" method="delete">
-      <result name="input">/includes/operator/expend/ListBills.jsp</result>
+      <result name="input">/includes/operate/expend/ListBills.jsp</result>
       <result type="chain">showPayRequisition</result>
       <param name="moduleName">Operate_delete</param>
     </action>
 
     <!-- 修改付款申请书 -->
     <action name="editPayRequisition" class="EditPayRequisitionAction" method="input">
-      <result name="input">/includes/operator/expend/EditPayRequisition.jsp</result>
+      <result name="input">/includes/operate/expend/EditPayRequisition.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="savePayRequisition" class="EditPayRequisitionAction" method="edit">
@@ -139,34 +134,34 @@
 
     <!-- 审核付款申请书 -->
     <action name="detailPayRequisition" class="EditPayRequisitionAction" method="input">
-      <result name="input">/includes/operator/expend/BillDetail.jsp</result>
+      <result name="input">/includes/operate/expend/BillDetail.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="auditPayRequisition" class="AuditPayRequisitionAction" method="submit">
-      <result name="input">/includes/operator/expend/BillDetail.jsp</result>
+      <result name="input">/includes/operate/expend/BillDetail.jsp</result>
       <result type="chain">listPayRequisition</result>
       <param name="moduleName">Operate_edit</param>
     </action>
 
     <!-- 月度报价上传 -->
     <action name="listPrice" class="PriceUploadAction" method="input">
-      <result name="input">/includes/operator/PriceUpload.jsp</result>
+      <result name="input">/includes/operate/PriceUpload.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="priceUpload" class="PriceUploadAction" method="upload">
-      <result name="input">/includes/operator/PriceUpload.jsp</result>
+      <result name="input">/includes/operate/PriceUpload.jsp</result>
       <result type="chain">listPrice</result>
       <param name="moduleName">Operate_edit</param>
     </action>
     <action name="delFileItem" class="PriceUploadAction" method="del">
-      <result name="input">/includes/operator/PriceUpload.jsp</result>
+      <result name="input">/includes/operate/PriceUpload.jsp</result>
       <result type="chain">listPrice</result>
       <param name="moduleName">Operate_edit</param>
     </action>
 
     <!-- 出团通知上传 -->
     <action name="TourNoticeUploadActionInput" class="TourNoticeUploadAction" method="input">
-      <result name="input">/includes/operator/TourNoticeUpload.jsp</result>
+      <result name="input">/includes/operate/TourNoticeUpload.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="TourNoticeUploadAction" class="TourNoticeUploadAction" method="upload">
@@ -186,15 +181,15 @@
 
     <!--帐单制作  -->
     <action name="ReckoningMake" class="ReckoningMakeAction" method="makeInput">
-      <result>/includes/sales/reckoning/ReckoningMake.jsp</result>
+      <result>/includes/order/reckoning/ReckoningMake.jsp</result>
       <param name="moduleName">Operate_edit</param>
     </action>
     <action name="ReckoningDetail" class="ReckoningMakeAction" method="detailInput">
-      <result>/includes/sales/reckoning/ReckoningDetail.jsp</result>
+      <result>/includes/order/reckoning/ReckoningDetail.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="ReckoningOneDetail" class="ReckoningMakeAction" method="detail">
-      <result>/includes/sales/reckoning/ReckoningDetail.jsp</result>
+      <result>/includes/order/reckoning/ReckoningDetail.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="ReckoningMakeSubmit" class="ReckoningMakeAction" method="make">
@@ -202,15 +197,15 @@
       <param name="moduleName">Operate_edit</param>
     </action>
     <action name="ReckoningMakeAdd" class="ReckoningMakeAction" method="add">
-      <result>/includes/sales/reckoning/ReckoningMake.jsp</result>
+      <result>/includes/order/reckoning/ReckoningMake.jsp</result>
       <param name="moduleName">Operate_edit</param>
     </action>
     <action name="ReckoningMakeDelete" class="ReckoningMakeAction" method="delete">
-      <result>/includes/sales/reckoning/ReckoningMake.jsp</result>
+      <result>/includes/order/reckoning/ReckoningMake.jsp</result>
       <param name="moduleName">Operate_delete</param>
     </action>
     <action name="ReckoningModify" class="ReckoningMakeAction" method="modifyInput">
-      <result>/includes/sales/reckoning/ReckoningModify.jsp</result>
+      <result>/includes/order/reckoning/ReckoningModify.jsp</result>
       <param name="moduleName">Operate_edit</param>
     </action>
     <action name="ReckoningModifySubmit" class="ReckoningMakeAction" method="modify">
@@ -218,62 +213,62 @@
       <param name="moduleName">Operate_edit</param>
     </action>
     <action name="ReckoningModifyAdd" class="ReckoningMakeAction" method="add">
-      <result>/includes/sales/reckoning/ReckoningModify.jsp</result>
+      <result>/includes/order/reckoning/ReckoningModify.jsp</result>
       <param name="moduleName">Operate_edit</param>
     </action>
     <action name="ReckoningModifyDelete" class="ReckoningMakeAction" method="delete">
-      <result>/includes/sales/reckoning/ReckoningModify.jsp</result>
+      <result>/includes/order/reckoning/ReckoningModify.jsp</result>
       <param name="moduleName">Operate_delete</param>
     </action>
 
     <action name="showPlanBooking" class="PlanBooking" method="input">
-      <result name="input">/includes/operator/ListPlanBooking.jsp</result>
+      <result name="input">/includes/operate/ListPlanBooking.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="CustomerDetail" class="TouristInfo" method="detail">
-      <result>/includes/operator/Customer.jsp</result>
+      <result>/includes/operate/Customer.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
 
     <action name="listParcel" class="ListParcelAction">
-      <result>/includes/operator/ticket/ListTicket.jsp</result>
+      <result>/includes/operate/ticket/ListTicket.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="editParcelAction" class="EditParcelAction" method="input">
-      <result name="input">/includes/operator/ticket/EditParcel.jsp</result>
+      <result name="input">/includes/operate/ticket/EditParcel.jsp</result>
       <param name="moduleName">Operate_edit</param>
     </action>
     <action name="startParcelAction" class="EditParcelAction" method="start">
-      <result name="input">/includes/operator/ticket/EditParcel.jsp</result>
+      <result name="input">/includes/operate/ticket/EditParcel.jsp</result>
       <result type="chain">listParcel</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="completeParcelAction" class="EditParcelAction" method="complete">
-      <result name="input">/includes/operator/ticket/EditParcel.jsp</result>
+      <result name="input">/includes/operate/ticket/EditParcel.jsp</result>
       <result type="chain">listParcel</result>
       <param name="moduleName">Operate_view</param>
     </action>
 
     <action name="operatorRunPlan" class="OperatorRunPlanAction">
-      <result>/includes/operator/OperatorRunPlan.jsp</result>
+      <result>/includes/operate/OperatorRunPlan.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="TourBalance" class="TourBalanceAction">
-      <result>/includes/operator/SingleTourBalance.jsp</result>
+      <result>/includes/operate/SingleTourBalance.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="TGAPrint" class="TGAPrintAction" method="search">
-      <result>/includes/operator/TSGASearchPrint.jsp</result>
+      <result>/includes/operate/TSGASearchPrint.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     <action name="TOutPrint" class="TGAPrintAction" method="search">
-      <result>/includes/operator/ToursOutPrint.jsp</result>
+      <result>/includes/operate/ToursOutPrint.jsp</result>
       <param name="moduleName">Operate_view</param>
     </action>
     
 
     <action name="showTourOperate" class="TourOperate" method="input">
-      <result name="input">/includes/operator/TourDetail.jsp</result>
+      <result name="input">/includes/operate/TourDetail.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
     <action name="submitTourOperate" class="TourOperate" method="submit">
@@ -288,13 +283,13 @@
     </action>
 
     <action name="TourDetail" class="TourDetail">
-      <result>/includes/operator/TourDetailView.jsp</result>
+      <result>/includes/operate/TourDetailView.jsp</result>
       <param name="moduleName">Tour_edit</param>
     </action>
 
     <!-- Arrange Leader -->
     <action name="showArrangeLeader" class="ArrangeLeaderAction" method="input">
-      <result name="input">/includes/operator/ArrangeLeader.jsp</result>
+      <result name="input">/includes/operate/ArrangeLeader.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
     <action name="submitArrangeLeader" class="ArrangeLeaderAction" method="submit">
@@ -302,7 +297,7 @@
       <param name="moduleName">Tour_view</param>
     </action>
     <action name="chooseLeader" class="ArrangeLeaderAction" method="choose">
-      <result>/includes/operator/LeaderRoom.jsp</result>
+      <result>/includes/operate/LeaderRoom.jsp</result>
       <param name="moduleName">Tour_edit</param>
     </action>
     <action name="submitChooseLeader" class="ArrangeLeaderAction" method="submitChoose">
@@ -316,32 +311,32 @@
 
     <!-- 修改客人信息 -->
     <action name="ModifyCustomerInfoInput" class="EditCustomerInfoAction" method="input">
-      <result name="input">/includes/operator/ModifyCustomerInfo.jsp</result>
+      <result name="input">/includes/operate/ModifyCustomerInfo.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
     <action name="ModifyCustomerInfo" class="EditCustomerInfoAction" method="modify">
-      <result name="input">/includes/operator/ModifyCustomerInfo.jsp</result>
+      <result name="input">/includes/operate/ModifyCustomerInfo.jsp</result>
       <result type="chain">ModifyCustomerInfoInput</result>
       <param name="moduleName">Tour_edit</param>
     </action>
 
     <!-- 单团核算 -->
     <action name="TourBalanceMakeInput" class="OpTourBalanceAction" method="input">
-      <result name="input">/includes/operator/TourBalanceMake.jsp</result>
-      <result name="detail">/includes/operator/TourBalanceDetail.jsp</result>
+      <result name="input">/includes/operate/TourBalanceMake.jsp</result>
+      <result name="detail">/includes/operate/TourBalanceDetail.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
     <action name="TourBalanceMakeAdd" class="OpTourBalanceAction" method="add">
-      <result>/includes/operator/TourBalanceMake.jsp</result>
+      <result>/includes/operate/TourBalanceMake.jsp</result>
       <param name="moduleName">Tour_edit</param>
     </action>
     <action name="TourBalanceMakeDelete" class="OpTourBalanceAction" method="delete">
-      <result>/includes/operator/TourBalanceMake.jsp</result>
+      <result>/includes/operate/TourBalanceMake.jsp</result>
       <param name="moduleName">Tour_edit</param>
     </action>
     <action name="TourBalanceMake" class="OpTourBalanceAction" method="modify">
       <result name="input" type="chain">TourBalanceMakeInput</result>
-      <result>/includes/operator/TourBalanceDetail.jsp</result>
+      <result>/includes/operate/TourBalanceDetail.jsp</result>
       <param name="moduleName">Tour_edit</param>
     </action>
     <action name="TourBalanceAuthorization" class="OpTourBalanceAction" method="authorization">
@@ -350,33 +345,33 @@
       <param name="moduleName">Tour_view</param>
     </action>
     <action name="TourBalanceSubmit" class="OpTourBalanceAction" method="submit">
-      <result>/includes/operator/TourBalanceDetail.jsp</result>
+      <result>/includes/operate/TourBalanceDetail.jsp</result>
       <param name="moduleName">Tour_edit</param>
     </action>
     <action name="PrintTourBalance" class="OpTourBalanceAction" method="submitInput">
-      <result>/includes/operator/PrintTourBalance.jsp</result>
+      <result>/includes/operate/PrintTourBalance.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
 
     <!-- Print -->
-    <action name="SimplePrint" class="com.opentravelsoft.action.manage.operator.SimpleReportAction" method="input">
-      <result name="input">/includes/operator/report/SimplePrint.jsp</result>
+    <action name="SimplePrint" class="com.opentravelsoft.action.manage.operate.SimpleReportAction" method="input">
+      <result name="input">/includes/operate/report/SimplePrint.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
-    <action name="CustomerListPrint" class="com.opentravelsoft.action.manage.operator.CustomerListReportAction" method="input">
-      <result name="input">/includes/operator/report/CustomerListPrint.jsp</result>
+    <action name="CustomerListPrint" class="com.opentravelsoft.action.manage.operate.CustomerListReportAction" method="input">
+      <result name="input">/includes/operate/report/CustomerListPrint.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
-    <action name="THCustomerListPrint" class="com.opentravelsoft.action.manage.operator.THReportAction" method="input">
-      <result name="input">/includes/operator/report/THCustomerListPrint.jsp</result>
+    <action name="THCustomerListPrint" class="com.opentravelsoft.action.manage.operate.THReportAction" method="input">
+      <result name="input">/includes/operate/report/THCustomerListPrint.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
-    <action name="OutBandPrint" class="com.opentravelsoft.action.manage.operator.OutBandReportAction" method="input">
-      <result name="input">/includes/operator/report/OutBandPrint.jsp</result>
+    <action name="OutBandPrint" class="com.opentravelsoft.action.manage.operate.OutBandReportAction" method="input">
+      <result name="input">/includes/operate/report/OutBandPrint.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
-    <action name="OutBandChange" class="com.opentravelsoft.action.manage.operator.OutBandReportAction" method="getObject">
-      <result>/includes/operator/report/OutBandPrint.jsp</result>
+    <action name="OutBandChange" class="com.opentravelsoft.action.manage.operate.OutBandReportAction" method="getObject">
+      <result>/includes/operate/report/OutBandPrint.jsp</result>
       <param name="moduleName">Tour_view</param>
     </action>
   </package>

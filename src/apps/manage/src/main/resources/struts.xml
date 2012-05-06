@@ -99,27 +99,27 @@
     <action name="showShortcut" class="com.opentravelsoft.action.manage.ShortcutAction">
       <result>/includes/Shortcut.jsp</result>
     </action>
-    <action name="HelpAction" class="HelpAction">
+    <action name="HelpAction">
       <result>/includes/Help.jsp</result>
     </action>
-    <action name="StatAction" class="StatAction">
+    <action name="StatAction">
       <result>/includes/StatPage.jsp</result>
     </action>
-    <action name="myTasks" class="MyTaskAction">
+    <action name="myTasks" class="com.opentravelsoft.action.manage.MyTaskAction">
       <result>/includes/MyTasks.jsp</result>
     </action>
 
-    <action name="editMyInfo" class="EditMyInfoAction" method="input">
+    <action name="editMyInfo" class="com.opentravelsoft.action.manage.EditMyInfoAction" method="input">
       <result name="input">/includes/EditMyInfo.jsp</result>
       <param name="moduleName">Desktop_view</param>
     </action>
-    <action name="submitMyInfo" class="EditMyInfoAction" method="submit">
+    <action name="submitMyInfo" class="com.opentravelsoft.action.manage.EditMyInfoAction" method="submit">
       <result name="input" type="chain">editMyInfo</result>
       <result type="chain">editMyInfo</result>
       <param name="moduleName">Desktop_view</param>
     </action>
 
-    <action name="showWarnMessage" class="WarnAction">
+    <action name="showWarnMessage" class="com.opentravelsoft.action.manage.WarnAction">
       <result>/includes/WarnResult.jsp</result>
     </action>
 

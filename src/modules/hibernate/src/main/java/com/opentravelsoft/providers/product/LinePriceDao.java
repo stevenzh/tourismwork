@@ -19,4 +19,6 @@ public interface LinePriceDao extends GenericDao<LinePrice, String> {
 
   public List<LinePrice> getPriceNotice(String lineNo);
 
+  public void savePrice(LinePrice routePrice);
+
 }

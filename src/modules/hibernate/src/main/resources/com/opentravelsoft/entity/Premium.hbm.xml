@@ -8,7 +8,6 @@
       <column name="PRECODE" length="8" />
       <generator class="assigned" />
     </id>
-    <timestamp name="updated" column="UPDATED" />
     <property name="prem" type="java.lang.Double">
       <column name="PREM" precision="16" />
     </property>
@@ -44,6 +43,9 @@
     </property>
     <property name="createdBy" type="java.lang.Long">
       <column name="CREATEDBY" />
+    </property>
+    <property name="updated" type="date">
+      <column name="UPDATED"></column>
     </property>
     <property name="updatedBy" type="java.lang.Long">
       <column name="UPDATEDBY" />

@@ -17,11 +17,11 @@
     </action>
 
     <action name="TourSearch" class="TourSearch" method="input">
-      <result name="input">/includes/operator/TourSearch.jsp</result>
+      <result name="input">/includes/operate/TourSearch.jsp</result>
     </action>
     <action name="submitTourSearch" class="TourSearch" method="submit">
-      <result name="input">/includes/operator/TourSearch.jsp</result>
-      <result>/includes/operator/TourSearch.jsp</result>
+      <result name="input">/includes/operate/TourSearch.jsp</result>
+      <result>/includes/operate/TourSearch.jsp</result>
     </action>
 
   </package>

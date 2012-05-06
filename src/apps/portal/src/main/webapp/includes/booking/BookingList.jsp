@@ -225,7 +225,7 @@ function actionSubmit()
 <s:hidden name="reserveNo"></s:hidden>
 </s:form>
 
-<s:form action="lineDetail" method="post" namespace="/view">
+<s:form action="lineDetail" method="post" namespace="/product">
   <s:hidden name="routeNo"></s:hidden>
 </s:form>
 

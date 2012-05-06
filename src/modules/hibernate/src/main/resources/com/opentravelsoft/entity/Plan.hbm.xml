@@ -9,7 +9,6 @@
       <column name="PLAN_NO" length="10" />
       <generator class="assigned" />
     </id>
-    <timestamp name="opDate" column="OPTIME" />
     <many-to-one name="line" class="com.opentravelsoft.entity.Line" lazy="false" fetch="select">
       <column name="LINE_NO" />
     </many-to-one>
@@ -212,6 +211,9 @@
     <many-to-one name="crUser" class="com.opentravelsoft.entity.Employee" lazy="false" fetch="select">
       <column name="CR_USER" />
     </many-to-one>
+    <property name="opDate" type="date">
+      <column name="OPTIME"></column>
+    </property>
     <property name="opUser" type="java.lang.Long">
       <column name="OPUSER" />
     </property>

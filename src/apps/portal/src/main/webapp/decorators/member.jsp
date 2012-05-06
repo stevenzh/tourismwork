@@ -29,7 +29,7 @@
 	  <div class="nav_left left"></div>
 	  <div class="nav_middle left">
 	   <ul>
-	     <li><a href="/main.html">首页</a><span>|</span></li>
+	     <li><a href="index.html">首页</a><span>|</span></li>
 	     <li><a href="/product/vacations.html">出境游</a><span>|</span></li>
 	     <li><a href="/product/visas.html">签证</a><span>|</span></li>
 	     <li><a href="/product/hotels.html">酒店</a><span>|</span></li>

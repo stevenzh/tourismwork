@@ -8,7 +8,7 @@
   </bean>
 
   <!-- 审核预订单 -->
-  <bean id="ListConfirmBook" class="com.opentravelsoft.action.manage.operator.ListConfirmBookAction" singleton="false">
+  <bean id="ListConfirmBook" class="com.opentravelsoft.action.manage.operate.ListConfirmBookAction" singleton="false">
   </bean>
   <bean id="ConfirmBook" class="com.opentravelsoft.action.manage.order.ConfirmBookAction" singleton="false">
   </bean>

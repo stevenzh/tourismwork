@@ -262,14 +262,13 @@
 
     <dependency>
       <groupId>org.apache.struts</groupId>
-      <artifactId>struts2-sitemesh-plugin</artifactId>
-      <version>${struts2.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.struts</groupId>
       <artifactId>struts2-spring-plugin</artifactId>
       <version>${struts2.version}</version>
-      <exclusions>
+        <exclusions>
+        <exclusion>
+          <artifactId>javassist</artifactId>
+          <groupId>javassist</groupId>
+        </exclusion>
         <exclusion>
           <groupId>org.springframework</groupId>
           <artifactId>spring-beans</artifactId>
@@ -291,6 +290,12 @@
       <artifactId>struts2-dojo-plugin</artifactId>
       <version>${struts2.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-sitemesh-plugin</artifactId>
+      <version>${struts2.version}</version>
+    </dependency>
+
     <dependency>
     	<groupId>com.jgeppert.struts2.jquery</groupId>
     	<artifactId>struts2-jquery-plugin</artifactId>

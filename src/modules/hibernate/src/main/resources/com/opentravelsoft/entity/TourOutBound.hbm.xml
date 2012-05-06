@@ -8,7 +8,6 @@
       <column name="INCOME_ID" />
       <generator class="native" />
     </id>
-    <timestamp name="opdate" column="OPDATE" />
     <property name="type" type="string">
       <column name="TYPE" length="50" />
     </property>
@@ -33,6 +32,8 @@
     <property name="opuser" type="java.lang.Long">
       <column name="OPUSER" />
     </property>
-
+    <property name="opdate" type="date">
+      <column name="OPDATE"></column>
+    </property>
   </class>
 </hibernate-mapping>

@@ -7,6 +7,7 @@ import org.activiti.engine.repository.DeploymentBuilder;
 import org.activiti.engine.repository.ProcessDefinition;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opentravelsoft.BaseAction;
 
@@ -14,7 +15,6 @@ import com.opentravelsoft.BaseAction;
  * 发布工作流
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.2 $ $Date: 2009/04/10 07:47:29 $
  */
 public class DeployAction extends BaseAction {
   private static final long serialVersionUID = -6773542712338723141L;
@@ -25,6 +25,7 @@ public class DeployAction extends BaseAction {
 
   private String srcClasspath;
 
+  @Autowired
   private ProcessEngine processEngine;
 
   @Override
@@ -43,10 +44,6 @@ public class DeployAction extends BaseAction {
     addActionMessage("Deloy process success.");
 
     return SUCCESS;
-  }
-
-  public void setProcessEngine(ProcessEngine processEngine) {
-    this.processEngine = processEngine;
   }
 
   public List<ProcessDefinition> getDefinitions() {

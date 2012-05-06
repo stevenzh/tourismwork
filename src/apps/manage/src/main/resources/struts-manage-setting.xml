@@ -7,7 +7,7 @@
 
   <package name="manage-setting" namespace="/setting" extends="shcct-manage">
 
-    <action name="SettingAction" class="SettingAction">
+    <action name="SettingAction">
       <result>/includes/Setting.jsp</result>
       <param name="moduleName">System_view</param>
     </action>

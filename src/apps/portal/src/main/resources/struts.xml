@@ -37,10 +37,6 @@
   <constant name="struts.xwork.chaining.copyFieldErrors" value="true" />
   <constant name="struts.xwork.chaining.copyMessages" value="true" />
 
-  <include file="struts-accounts.xml" />
-  <include file="struts-product.xml" />
-  <include file="struts-search.xml" />
-
   <!-- Configuration for the default package. -->
   <package name="default" extends="struts-default">
     <interceptors>
@@ -87,45 +83,272 @@
     <default-interceptor-ref name="defaultStack"></default-interceptor-ref>
 
     <global-results>
-        <result name="main" type="redirectAction">main</result>
-        <result name="dataAccessFailure">/includes/dataAccessFailure.jsp</result>
+      <result name="index" type="redirectAction">index</result>
+      <result name="dataAccessFailure">/includes/dataAccessFailure.jsp</result>
     </global-results>
 
     <global-exception-mappings>
-        <exception-mapping exception="org.springframework.dao.DataAccessException" result="dataAccessFailure"/>
+      <exception-mapping exception="org.springframework.dao.DataAccessException" result="dataAccessFailure"/>
     </global-exception-mappings>
 
-    <action name="main">
+    <action name="index">
       <result name="success">/includes/main.jsp</result>
     </action>
 
     <action name="signup" class="signupAction">
-        <result name="cancel" type="redirect">/</result>
-        <result name="input">/includes/signup.jsp</result>
-        <result name="success" type="chain">saveSignup</result>
+      <result name="cancel" type="redirect">/</result>
+      <result name="input">/includes/signup.jsp</result>
+      <result name="success" type="chain">saveSignup</result>
     </action>
 
     <action name="saveSignup" class="signupAction" method="save">
-        <result name="input">/includes/signup.jsp</result>
-        <result name="success" type="redirectAction">/main</result>
+      <result name="input">/includes/signup.jsp</result>
+      <result name="success" type="redirectAction">/main</result>
     </action>
 
     <action name="editProfile" class="userAction" method="edit">
-        <result name="success">/includes/userForm.jsp</result>
-        <result name="error">/includes/main.jsp</result>
+      <result name="success">/includes/userForm.jsp</result>
+      <result name="error">/includes/main.jsp</result>
     </action>
 
     <action name="saveUser" class="userAction" method="save">
-        <result name="cancel" type="redirectAction">admin/users</result>
-        <result name="input">/includes/userForm.jsp</result>
-        <result name="success" type="redirectAction">admin/users</result>
+      <result name="cancel" type="redirectAction">admin/users</result>
+      <result name="input">/includes/userForm.jsp</result>
+      <result name="success" type="redirectAction">admin/users</result>
     </action>
 
     <action name="passwordHint" class="passwordHintAction">
-        <result name="input">/</result>
-        <result name="success">/</result>
+      <result name="input">/</result>
+      <result name="success">/</result>
+    </action>
+  </package>
+
+  <package name="product" extends="default" namespace="/product">
+    <action name="vacations">
+      <result name="success">/includes/product/Vacation.jsp</result>
+    </action>
+    <action name="pkgVacation">
+      <result name="success">/includes/product/pkgVacation.jsp</result>
+    </action>
+    <action name="visas">
+      <result name="success">/includes/product/Visa.jsp</result>
+    </action>
+    <action name="visaDetail">
+      <result name="success">/includes/product/pkgVisa.jsp</result>
     </action>
 
+    <action name="processLineSearch" class="LineSearchAction">
+      <result name="input" type="chain">lineSearch</result>
+      <result>/includes/product/LineSearchResult.jsp</result>
+    </action>
+
+    <action name="RegionPlanList" class="RegionPlanListAction">
+      <result>/includes/category/PlanList.jsp</result>
+    </action>
+    <action name="BranchPage" class="BranchAction" method="input">
+      <result name="input">/includes/aboutus/BranchPage.jsp</result>
+    </action>
+
+    <action name="PlanSearch" class="PlanSearchAction" method="input">
+      <result>/includes/distribution/PlanSearch.jsp</result>
+    </action>
+    <action name="PlanSearchSubmit" class="PlanSearchAction" method="submit">
+      <result>/includes/distribution/PlanSearch.jsp</result>
+    </action>
+    <action name="PlanList" class="PlanListAction">
+      <result>/includes/distribution/PlanList.jsp</result>
+    </action>
+
+    <action name="listLine" class="LineListAction">
+      <result>/includes/product/box/LineList.jsp</result>
+    </action>
+    <action name="lineDetail" class="LineDetailAction">
+      <result>/includes/product/box/LineDetail.jsp</result>
+    </action>
+    <action name="listVisa" class="VisaListAction">
+      <result>/includes/product/box/ListVisa.jsp</result>
+    </action>
+    <action name="visaDetail" class="VisaDetailAction">
+      <result>/includes/product/box/VisaDetail.jsp</result>
+    </action>
+    <action name="lineSearch" class="LineSearchAction" method="input">
+      <result name="input">/includes/product/LineSearch.jsp</result>
+    </action>
+   </package>
+   
+  <package name="accounts" extends="default" namespace="/accounts">
+
+    <!-- 修改密码 -->
+    <action name="ManageAccount" class="ManageAccountAction" method="input">
+      <result name="input">/includes/accounts/ManageAccount.jsp</result>
+    </action>
+    <action name="showMyInfo" class="MyInfoAction" method="input">
+      <result>/includes/accounts/MyInfo.jsp</result>
+    </action>
+    <action name="showMyBasicInfo" class="MyInfoAction" method="input">
+      <result>/includes/accounts/ShowMyInfo.jsp</result>
+    </action>
+    <action name="submitMyInfo" class="MyInfoAction" method="submit">
+      <result name="input" type="chain">showMyInfo</result>
+      <result type="chain">showMyPage</result>
+    </action>
+    <action name="ModifyPasswordMyInfo" class="MyInfoAction">
+      <result>/includes/accounts/ModifyPasswordMyInfo.jsp</result>
+    </action>
+    <action name="ModifyPasswordSubmitMyInfo" class="MyInfoAction" method="modifyPassword">
+      <result name="error" type="chain">showMyPage</result>
+      <result name="input" type="chain">ModifyPasswordMyInfo</result>
+      <result type="chain">showMyPage</result>
+    </action>
+    <action name="showRetrieveMember" class="RetrieveMemberAction" method="input">
+      <result name="input">/includes/accounts/RetrieveMember.jsp</result>
+    </action>
+    <action name="submitRetrieveMember" class="RetrieveMemberAction" method="submit">
+      <result type="chain">showLogin</result>
+    </action>
+
+    <!-- 客户服务 -->
+    <action name="CustomerServiceAction" class="CustomerServiceAction">
+      <result>/includes/accounts/CustomerService.jsp</result>
+    </action>
+    <action name="FeqCustomerServiceAction" class="CustomerServiceAction" method="frequentAQ">
+      <result>/includes/accounts/CustomerService.jsp</result>
+    </action>
+    <action name="NewPeopleCustomerServiceAction" class="CustomerServiceAction" method="newPeople">
+      <result>/includes/accounts/CustomerService.jsp</result>
+    </action>
+    <action name="AnswerCustomerServiceAction" class="CustomerServiceAction" method="answerOnline">
+      <result>/includes/accounts/CustomerService.jsp</result>
+    </action>
+
+    <!-- Booking -->
+    <action name="showMyBooking" class="com.opentravelsoft.action.booking.MyBookingAction" method="input">
+      <result>/includes/booking/MyBooking.jsp</result>
+    </action>
+    <action name="showBookingDetail" class="BookingDetailAction" method="input">
+      <result>/includes/accounts/BookingDetail.jsp</result>
+    </action>
+
+    <action name="showOrderBooking" class="OrderBookingAction" method="input">
+      <result>/includes/booking/OrderBooking.jsp</result>
+    </action>
+    <action name="submitOrderBooking" class="OrderBookingAction">
+      <result name="changePax">/includes/booking/OrderBooking.jsp</result>
+      <result type="chain">showMyBooking</result>
+    </action>
+    <action name="OrderAgreement" class="com.opentravelsoft.action.booking.OrderAgreementAction">
+      <result>/includes/booking/OrderAgreement.jsp</result>
+    </action>
+    <action name="searchOrder" class="SearchOrderAction" method="input">
+      <result name="input">/includes/booking/SearchOrder.jsp</result>
+    </action>
+    <action name="searchOrderResult" class="SearchOrderAction">
+      <result name="input" type="chain">searchOrder</result>
+      <result>/includes/booking/SearchOrderResult.jsp</result>
+    </action>
+
+    <action name="showBookingDetail" class="BookingDetailAction" method="input">
+      <result>/includes/booking/BookingDetail.jsp
+      </result>
+    </action>
+    <action name="cancelBooking" class="com.opentravelsoft.action.booking.BookDetailAction" method="cancel">
+      <result name="input" type="chain">BookDetail</result>
+      <result name="success" type="chain">BookSearch</result>
+    </action>
+
+    <!-- Payment -->
+    <action name="ReceivePay" class="ReceivePayAction">
+      <result>/includes/booking/BookingPayResult.jsp</result>
+    </action>
+    <action name="showPay" class="PayerOLAction" method="input">
+      <result name="input">/includes/payment/PayOL.jsp</result>
+      <result>/includes/payment/PayOL.jsp
+      </result>
+    </action>
+    <action name="affirmPay" class="PayerOLAction" method="submit">
+      <result name="success"> /includes/payment/Payment.jsp</result>
+      <result name="input" type="chain">showPay</result>
+    </action>
+    <action name="showOrderDetail" class="OrderBookingAction" method="input">
+      <result name="input">/includes/payment/Send.jsp</result>
+    </action>
+    <action name="sendChinabank" class="OrderBookingAction" method="submit">
+      <result name="input" type="chain">showOrderDetail</result>
+      <result>showOrderDetail</result>
+    </action>
+    
+    <action name="showInvoice" class="InvoiceAction" method="input">
+      <result name="input">/includes/booking/EditInvoice.jsp</result>
+    </action>
+    <action name="submitInvoice" class="InvoiceAction" method="submit">
+      <result name="input" type="chain">showInvoice</result>
+      <result type="chain">BookDetail</result>
+    </action>
+
+    <!-- Payment -->
+    <action name="PaymentSearch" class="PaymentSearchAction" method="input">
+      <result name="input">/includes/accounts/PaymentList.jsp</result>
+    </action>
+    <action name="PaymentSearchSubmit" class="PaymentSearchAction" method="submit">
+      <result>/includes/accounts/PaymentList.jsp</result>
+      <result name="input" type="chain">PaymentSearch</result>
+    </action>
+    <action name="PaymentDetail" class="PaymentSearchAction" method="paymentDetail">
+      <result>/includes/accounts/Payment.jsp</result>
+      <result name="input" type="chain">PaymentSearch</result>
+    </action>
+  </package>
+
+  <package name="search" extends="default" namespace="/search">
+
+    <!-- 线路搜索 -->
+    <action name="Search" class="com.opentravelsoft.action.search.CbSearchAction">
+      <result name="input">/includes/search/Search.jsp</result>
+      <result>/includes/search/Search.jsp</result>
+    </action>
+    
+    <!-- 线路搜索 -->
+    <action name="CbSearch" class="com.opentravelsoft.action.search.CbSearchAction">
+      <result name="input">/includes/search/CbSearch.jsp</result>
+      <result>/includes/search/CbSearch.jsp</result>
+    </action>
+
+    <action name="AdvancedSearchInput" class="com.opentravelsoft.action.search.CbAdvancedSearchAction" method="input">
+      <result name="input">/includes/search/Advanced_Search.jsp</result>
+    </action>
+    <action name="AdvancedSearch" class="com.opentravelsoft.action.search.CbAdvancedSearchAction" method="advanceSearch">
+      <result name="input">/includes/search/AdvancedSearchResult.jsp</result>
+      <result>/includes/search/AdvancedSearchResult.jsp</result>
+    </action>
+
+    <action name="CbAdvancedSearchInput" class="com.opentravelsoft.action.search.CbAdvancedSearchAction" method="input">
+      <result name="input">/includes/search/Advanced_Search.jsp</result>
+    </action>
+    <action name="CbAdvancedSearch" class="com.opentravelsoft.action.search.CbAdvancedSearchAction" method="advanceSearch">
+      <result name="input">/includes/search/AdvancedSearchResult.jsp</result>
+      <result>/includes/search/AdvancedSearchResult.jsp</result>
+    </action>
+
+  </package>
+
+  <package name="branch" extends="default" namespace="/branch">
+    <action name="UserPage" class="UserPageAction">
+      <result name="success">/includes/dev/UserPage.jsp</result>
+    </action>
+
+    <action name="PriceList" class="FileDownloadAction" method="input">
+      <result name="input">/includes/dev/PriceList.jsp</result>
+    </action>
+    <action name="ReceiveSms" class="ReceiveSmsAction">
+    </action>
+    <action name="fileDownload" class="FileDownloadAction">
+      <result name="success" type="stream">
+        <param name="contentType">application/zip</param>
+        <param name="inputName">inputStream</param>
+        <param name="contentDisposition">filename="${name}"</param>
+        <param name="bufferSize">4096</param>
+      </result>
+    </action>
   </package>
 
 </struts>

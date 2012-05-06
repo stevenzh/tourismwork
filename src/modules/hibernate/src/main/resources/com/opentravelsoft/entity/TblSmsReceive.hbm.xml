@@ -8,7 +8,6 @@
       <column name="ID" />
       <generator class="native" />
     </id>
-    <timestamp name="updDate" column="UPD_DATE" />
     <property name="seqno" type="string">
       <column name="SEQNO" length="20" not-null="true" />
     </property>
@@ -29,6 +28,9 @@
     </property>
     <property name="msgSrc" type="string">
       <column name="MSG_SRC" length="500" />
+    </property>
+    <property name="updDate" type="date">
+      <column name="UPD_DATE"></column>
     </property>
   </class>
 </hibernate-mapping>

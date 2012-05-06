@@ -82,4 +82,12 @@ public class LinePriceDaoImpl extends GenericDaoHibernate<LinePrice, String>
     Object[] ooj = { lineNo };
     return getHibernateTemplate().find(sql.toString(), ooj);
   }
+
+  @Override
+  public void savePrice(LinePrice routePrice) {
+    getHibernateTemplate().saveOrUpdate(routePrice);
+//    LinePrice price = get(routePrice.getRecNo());
+//    price.setStartDate(routePrice.getStartDate());
+//    getHibernateTemplate().saveOrUpdate(price);
+  }
 }

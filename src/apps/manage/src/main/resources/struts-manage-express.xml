@@ -8,7 +8,7 @@
 
   <package name="manage-express" namespace="/express" extends="shcct-manage">
 
-    <action name="ExpressAction" class="ExpressAction">
+    <action name="ExpressAction">
       <result>/includes/Express.jsp</result>
       <param name="moduleName">Express_view</param>
     </action>

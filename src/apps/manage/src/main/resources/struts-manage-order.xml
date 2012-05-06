@@ -8,20 +8,20 @@
 
   <package name="manage-order" namespace="/sales" extends="shcct-manage">
 
-    <action name="OrderAction" class="SaleAction">
+    <action name="OrderAction">
       <result>/includes/Order.jsp</result>
       <param name="moduleName">Order_view</param>
     </action>
 
     <!--  Order Booking -->
     <action name="showOrder" class="BookingOrderAction" method="input">
-      <result name="input">/includes/sales/BookOrder.jsp</result>
+      <result name="input">/includes/order/BookOrder.jsp</result>
       <param name="moduleName">Order_view</param>
     </action>
 
     <!-- Gathering booking -->
     <action name="showBookGathering" class="BookGatheringAction" method="input">
-      <result name="input">/includes/sales/GatheringDialog.jsp</result>
+      <result name="input">/includes/order/GatheringDialog.jsp</result>
       <param name="moduleName">Order_view</param>
     </action>
     <action name="submitBookGathering" class="BookGatheringAction" method="submit">
@@ -37,18 +37,18 @@
     </action>
     <action name="changeBookPax" class="BookingOrderAction" method="changePax">
       <result name="input" type="chain">showOrder</result>
-      <result>/includes/sales/BookOrder.jsp</result>
+      <result>/includes/order/BookOrder.jsp</result>
       <param name="moduleName">Order_edit</param>
     </action>
 
     <!-- Edit Booking -->
     <action name="EditBook" class="BookingOrderAction">
-      <result>/includes/sales/EditBooking.jsp</result>
+      <result>/includes/order/EditBooking.jsp</result>
       <param name="moduleName">Order_view</param>
     </action>
     <action name="changeEditBookPax" class="BookingOrderAction" method="changePax">
       <result name="input" type="chain">EditBook</result>
-      <result>/includes/sales/EditBooking.jsp</result>
+      <result>/includes/order/EditBooking.jsp</result>
       <param name="moduleName">Order_edit</param>
     </action>
     <action name="submitEditBook" class="BookingOrderAction" method="change">
@@ -58,47 +58,47 @@
     </action>
 
     <action name="SalesBookDetail" class="SalesBookingAction" method="input">
-      <result name="input">/includes/sales/BookingkDetail.jsp</result>
-      <result>/includes/sales/BookingkDetail.jsp</result>
+      <result name="input">/includes/order/BookingkDetail.jsp</result>
+      <result>/includes/order/BookingkDetail.jsp</result>
       <param name="moduleName">Order_view</param>
     </action>
     <action name="cancelCustomers" class="SalesBookingAction" method="cancelCustomers">
       <result name="input" type="chain">SalesBookDetail</result>
-      <result>/includes/sales/BookingkDetail.jsp</result>
+      <result>/includes/order/BookingkDetail.jsp</result>
       <param name="moduleName">Order_edit</param>
     </action>
 
     <action name="cancelOrder" class="SalesBookingAction" method="cancel">
       <result name="input" type="chain">SalesBookDetail</result>
-      <result>/includes/sales/BookingkDetail.jsp</result>
+      <result>/includes/order/BookingkDetail.jsp</result>
       <param name="moduleName">Order_edit</param>
     </action>
 
     <!-- 拆分订单->跳转到新拆分的订单-->
     <action name="splitBooking" class="SalesBookingAction" method="splitBooking">
       <result name="input" type="chain">SalesBookDetail</result>
-      <result>/includes/sales/BookingkDetail.jsp</result>
+      <result>/includes/order/BookingkDetail.jsp</result>
       <param name="moduleName">Order_view</param>
     </action>
 
     <!-- Plan Search -->
     <action name="showPlanSearch" class="SalesPlanSearchAction" method="input">
-      <result name="input">/includes/sales/PlanSearch.jsp</result>
+      <result name="input">/includes/order/PlanSearch.jsp</result>
       <param name="moduleName">Order_view</param>
     </action>
     <action name="submitPlanSearch" class="SalesPlanSearchAction" method="submit">
       <result name="input">showPlanSearch</result>
-      <result>/includes/sales/PlanSearch.jsp</result>
+      <result>/includes/order/PlanSearch.jsp</result>
       <param name="moduleName">Order_edit</param>
     </action>
 
     <!-- Booking Search -->
     <action name="showBookingSearch" class="BookingSearchAction" method="input">
-      <result>/includes/sales/BookingSearch.jsp</result>
+      <result>/includes/order/BookingSearch.jsp</result>
       <param name="moduleName">Order_view</param>
     </action>
     <action name="submitBookingSearch" class="BookingSearchAction" method="submit">
-      <result>/includes/sales/BookingSearch.jsp</result>
+      <result>/includes/order/BookingSearch.jsp</result>
       <param name="moduleName">Order_edit</param>
     </action>
 
@@ -141,7 +141,7 @@
       <param name="moduleName">Order_view</param>
     </action>
     <!--
-      <action name="getBookDetailByDistrict" class="BookByDistrictDetailAction" method="get"> <result name="success">/includes/sales/BookingkDetailByDistrict.jsp</result> </action>
+      <action name="getBookDetailByDistrict" class="BookByDistrictDetailAction" method="get"> <result name="success">/includes/order/BookingkDetailByDistrict.jsp</result> </action>
     -->
     <action name="getByLineNo" class="BookByLineNoAction" method="getbyline">
       <result name="success">/includes/stats/BookingDetailByLineNo.jsp</result>
@@ -150,15 +150,15 @@
 
     <!-- confirm booking  -->
     <action name="showConfirmBookSearch" class="ListConfirmBook" method="input">
-      <result name="input">/includes/sales/BookSearch.jsp</result>
+      <result name="input">/includes/order/BookSearch.jsp</result>
       <param name="moduleName">Order_view</param>
     </action>
     <action name="ConfirmBookSearch" class="ListConfirmBook">
-      <result name="success">/includes/sales/BookSearch.jsp</result>
+      <result name="success">/includes/order/BookSearch.jsp</result>
       <param name="moduleName">Order_view</param>
     </action>
     <action name="ConfirmBookInput" class="ConfirmBook" method="input">
-      <result name="input">/includes/sales/ConfirmBook.jsp</result>
+      <result name="input">/includes/order/ConfirmBook.jsp</result>
       <param name="moduleName">Order_edit</param>
     </action>
     <action name="ConfirmBook" class="ConfirmBook" method="confirm">
@@ -168,10 +168,10 @@
     </action>
 
     <action name="showOperatorAlert" class="OperatorAlertAction" method="input">
-      <result name="input">/includes/sales/OperatorBookings.jsp</result>
+      <result name="input">/includes/order/OperatorBookings.jsp</result>
     </action>
     <action name="showReadBooking" class="ReadBookingAction" method="input">
-      <result name="input">/includes/sales/BookingDetail.jsp</result>
+      <result name="input">/includes/order/BookingDetail.jsp</result>
       <param name="moduleName">Order_view</param>
     </action>
     <action name="submitReadBooking" class="ReadBookingAction" method="submit">

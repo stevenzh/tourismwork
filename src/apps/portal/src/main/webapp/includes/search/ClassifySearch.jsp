@@ -271,7 +271,7 @@ function regionSearch(param1, param2)
     	  strPax = "……";
     %>
     <tr>
-        <td><a href="<s:url namespace='/view' action='lineDetail' includeParams='none'/>?routeNo=<%=routeNo %>" title="本线路详细信息" target="_blank"><%=routeName %></a></td>
+        <td><a href="<s:url namespace='/product' action='lineDetail' includeParams='none'/>?routeNo=<%=routeNo %>" title="本线路详细信息" target="_blank"><%=routeName %></a></td>
       </tr>
     <tr>
       <td><font size="-1">

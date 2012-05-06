@@ -8,7 +8,6 @@
       <column name="CONTACT_ID" />
       <generator class="native" />
     </id>
-    <timestamp name="updated" column="UPDATED" />
     <property name="customerId" type="long">
       <column name="CUSTOMER_ID" not-null="true" />
     </property>
@@ -50,6 +49,9 @@
     </property>
     <property name="createdBy" type="java.lang.Long">
       <column name="CREATEDBY" />
+    </property>
+    <property name="updated" type="date">
+      <column name="UPDATED"></column>
     </property>
     <property name="updatedBy" type="java.lang.Long">
       <column name="UPDATEDBY" />

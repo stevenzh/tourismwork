@@ -14,4 +14,4 @@ terminate.setMaxAge(0);
 response.addCookie(terminate);
 %>
 
-<c:redirect url="/main.html"/>
+<c:redirect url="/index.html"/>

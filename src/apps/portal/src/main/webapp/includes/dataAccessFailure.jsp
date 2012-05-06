@@ -18,4 +18,4 @@
 %>
 -->
 
-<a href="main.html" onclick="history.back();return false">&#171; Back</a>
+<a href="index.html" onclick="history.back();return false">&#171; Back</a>
