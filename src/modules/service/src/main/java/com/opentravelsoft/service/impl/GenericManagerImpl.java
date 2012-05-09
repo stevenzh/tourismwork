@@ -19,7 +19,7 @@ import com.opentravelsoft.service.GenericManager;
  *     &lt;bean id="userManager" class="com.opentravelsoft.service.impl.GenericManagerImpl"&gt;
  *         &lt;constructor-arg&gt;
  *             &lt;bean class="com.opentravelsoft.dao.hibernate.GenericDaoHibernate"&gt;
- *                 &lt;constructor-arg value="com.opentravelsoft.model.User"/&gt;
+ *                 &lt;constructor-arg value="com.opentravelsoft.entity.User"/&gt;
  *                 &lt;property name="sessionFactory" ref="sessionFactory"/&gt;
  *             &lt;/bean&gt;
  *         &lt;/constructor-arg&gt;

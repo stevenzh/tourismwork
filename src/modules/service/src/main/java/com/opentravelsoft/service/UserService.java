@@ -5,7 +5,7 @@ import javax.jws.WebService;
 
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.opentravelsoft.model.Member;
+import com.opentravelsoft.entity.Member;
 
 /**
  * Web Service interface so hierarchy of Generic Manager isn't carried through.

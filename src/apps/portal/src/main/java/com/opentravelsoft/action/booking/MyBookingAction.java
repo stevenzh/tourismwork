@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.ActionContext;
 import com.opentravelsoft.common.SessionKeyParams;
 import com.opentravelsoft.entity.Booking;
-import com.opentravelsoft.model.Member;
+import com.opentravelsoft.entity.Member;
 import com.opentravelsoft.service.order.BookingService;
 import com.opentravelsoft.webapp.action.PortalAction;
 

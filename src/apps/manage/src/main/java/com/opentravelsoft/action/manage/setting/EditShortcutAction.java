@@ -7,8 +7,8 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opentravelsoft.action.ManageAction;
-import com.opentravelsoft.model.Module;
-import com.opentravelsoft.model.Shortcut;
+import com.opentravelsoft.entity.Module;
+import com.opentravelsoft.entity.Shortcut;
 import com.opentravelsoft.service.ShortcutManager;
 import com.opentravelsoft.service.module.ModuleService;
 import com.opentravelsoft.util.StringUtil;

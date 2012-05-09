@@ -5,7 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opentravelsoft.action.ManageAction;
-import com.opentravelsoft.model.Module;
+import com.opentravelsoft.entity.Module;
 import com.opentravelsoft.service.module.ModuleService;
 
 /**

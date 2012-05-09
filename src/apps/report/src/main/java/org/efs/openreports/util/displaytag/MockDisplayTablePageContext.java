@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.Enumeration;
 import java.util.HashMap;
 
+import javax.el.ELContext;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -197,4 +198,10 @@ public class MockDisplayTablePageContext extends PageContext
 
 	@Override
 	public void setAttribute(String arg0, Object arg1) {}
+
+  @Override
+  public ELContext getELContext() {
+    // TODO Auto-generated method stub
+    return null;
+  }
 }

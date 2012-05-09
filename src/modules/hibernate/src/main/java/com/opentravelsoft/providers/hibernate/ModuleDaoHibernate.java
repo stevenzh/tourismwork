@@ -8,7 +8,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import com.opentravelsoft.model.Module;
+import com.opentravelsoft.entity.Module;
 import com.opentravelsoft.providers.ModuleDao;
 
 /**

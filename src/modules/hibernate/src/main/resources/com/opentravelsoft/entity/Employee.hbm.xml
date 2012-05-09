@@ -79,7 +79,7 @@
       <key>
         <column name="USER_ID" not-null="true" />
       </key>
-      <many-to-many class="com.opentravelsoft.model.Role">
+      <many-to-many class="com.opentravelsoft.entity.Role">
         <column name="ROLE_ID" not-null="true"></column>
       </many-to-many>
     </set>

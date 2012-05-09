@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.opentravelsoft.model.ModulePermission" table="TBL_MODULE_PERMISSION">
+  <class name="com.opentravelsoft.entity.ModulePermission" table="TBL_MODULE_PERMISSION">
     <id name="modulePermissionId" type="int">
       <column name="ModulePermissionID" />
       <generator class="native" />

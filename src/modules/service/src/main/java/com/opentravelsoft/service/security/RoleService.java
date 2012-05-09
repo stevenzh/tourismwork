@@ -3,8 +3,8 @@ package com.opentravelsoft.service.security;
 import java.util.List;
 import java.util.Map;
 
-import com.opentravelsoft.model.Module;
-import com.opentravelsoft.model.Role;
+import com.opentravelsoft.entity.Module;
+import com.opentravelsoft.entity.Role;
 
 public interface RoleService {
 

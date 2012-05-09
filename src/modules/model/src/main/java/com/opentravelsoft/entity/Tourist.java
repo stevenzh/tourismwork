@@ -4,7 +4,6 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.opentravelsoft.model.BaseObject;
 
 /**
  * 旅行者

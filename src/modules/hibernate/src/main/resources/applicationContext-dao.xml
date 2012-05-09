@@ -40,7 +40,7 @@
     <!-- Compass Bean, automatically scanning for searchable classes within the model -->
     <!-- Hooks into Spring transaction management and stores the index on the file system -->
     <bean id="compass" class="org.compass.spring.LocalCompassBean">
-        <property name="mappingScan" value="com.opentravelsoft.model" />
+        <property name="mappingScan" value="com.opentravelsoft.entity" />
         <property name="transactionManager" ref="transactionManager" />
         <property name="settings">
             <map>

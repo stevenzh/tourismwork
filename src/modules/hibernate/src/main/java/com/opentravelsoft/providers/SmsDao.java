@@ -2,7 +2,7 @@ package com.opentravelsoft.providers;
 
 import java.util.Date;
 
-import com.opentravelsoft.model.SmsMessage;
+import com.opentravelsoft.entity.SmsMessage;
 
 public interface SmsDao extends GenericDao<SmsMessage, Long> {
 	int receive(String seqno, String mob, String msg, String srcMsg);

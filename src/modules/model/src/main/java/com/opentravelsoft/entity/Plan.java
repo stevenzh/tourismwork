@@ -12,7 +12,6 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 import com.opentravelsoft.entity.xml.TourInputSource;
 import com.opentravelsoft.entity.xml.TourXMLReader;
-import com.opentravelsoft.model.BaseObject;
 
 /**
  * 出团计划

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.opentravelsoft.util.LabelValueBean;
 
-import com.opentravelsoft.model.Member;
+import com.opentravelsoft.entity.Member;
 
 public interface MemberService {
 

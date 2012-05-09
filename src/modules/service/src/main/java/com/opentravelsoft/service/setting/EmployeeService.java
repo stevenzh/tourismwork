@@ -4,9 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 import com.opentravelsoft.entity.Employee;
+import com.opentravelsoft.entity.Role;
 import com.opentravelsoft.entity.Team;
 import com.opentravelsoft.entity.Group;
-import com.opentravelsoft.model.Role;
 
 public interface EmployeeService {
   public List<Employee> getEmployees(int groupId, String userName);

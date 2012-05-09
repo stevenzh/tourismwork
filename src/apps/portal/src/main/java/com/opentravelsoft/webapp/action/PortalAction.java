@@ -5,7 +5,7 @@ import com.opentravelsoft.BaseAction;
 import com.opentravelsoft.Constants;
 import com.opentravelsoft.common.SessionKeyParams;
 import com.opentravelsoft.entity.Employee;
-import com.opentravelsoft.model.Member;
+import com.opentravelsoft.entity.Member;
 import com.opentravelsoft.service.MailEngine;
 import com.opentravelsoft.service.RoleManager;
 import com.opentravelsoft.service.SmsService;

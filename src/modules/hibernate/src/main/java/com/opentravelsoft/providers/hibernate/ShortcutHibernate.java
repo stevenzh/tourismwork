@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.opentravelsoft.model.Shortcut;
+import com.opentravelsoft.entity.Shortcut;
 import com.opentravelsoft.providers.ShortcutDao;
 
 @Repository("shortcutDao")

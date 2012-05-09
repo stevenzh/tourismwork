@@ -17,8 +17,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.opentravelsoft.Constants;
-import com.opentravelsoft.model.PortalRole;
-import com.opentravelsoft.model.Member;
+import com.opentravelsoft.entity.Member;
+import com.opentravelsoft.entity.PortalRole;
 
 import java.lang.reflect.Method;
 import java.util.Collection;

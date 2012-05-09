@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.opentravelsoft.model.PortalRole;
+import com.opentravelsoft.entity.PortalRole;
 import com.opentravelsoft.providers.MemberRoleDao;
 
 /**

@@ -3,7 +3,7 @@ package com.opentravelsoft.webapp.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.opentravelsoft.model.Member;
+import com.opentravelsoft.entity.Member;
 import com.opentravelsoft.webapp.util.RequestUtil;
 import org.springframework.mail.MailException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.opentravelsoft.model.Role" table="TBL_ROLE">
+  <class name="com.opentravelsoft.entity.Role" table="TBL_ROLE">
     <id name="roleId" type="long">
       <column name="ROLE_ID" />
       <generator class="native" />

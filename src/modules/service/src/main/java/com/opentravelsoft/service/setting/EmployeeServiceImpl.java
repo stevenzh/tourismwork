@@ -16,9 +16,9 @@ import org.springframework.stereotype.Service;
 
 import com.opentravelsoft.common.TeamType;
 import com.opentravelsoft.entity.Employee;
+import com.opentravelsoft.entity.Role;
 import com.opentravelsoft.entity.Team;
 import com.opentravelsoft.entity.Group;
-import com.opentravelsoft.model.Role;
 import com.opentravelsoft.providers.EmployeeDao;
 import com.opentravelsoft.providers.GroupDao;
 import com.opentravelsoft.providers.RoleDao;

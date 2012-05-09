@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.opentravelsoft.model.Module;
+import com.opentravelsoft.entity.Module;
 import com.opentravelsoft.providers.ModuleDao;
 import com.opentravelsoft.providers.RoleDao;
 

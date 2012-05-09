@@ -2,7 +2,6 @@ package com.opentravelsoft.entity;
 
 import java.util.Date;
 
-import com.opentravelsoft.model.BaseObject;
 
 /**
  * 保险信息

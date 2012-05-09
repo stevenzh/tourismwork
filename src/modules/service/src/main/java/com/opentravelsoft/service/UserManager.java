@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.opentravelsoft.model.Member;
+import com.opentravelsoft.entity.Member;
 import com.opentravelsoft.providers.MemberDao;
 
 

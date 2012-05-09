@@ -95,7 +95,7 @@
     <mapping resource="com/opentravelsoft/entity/TblSmsReceive.hbm.xml" />
     <mapping resource="com/opentravelsoft/entity/TblSmsSend.hbm.xml" />
     
-    <mapping class="com.opentravelsoft.model.Shortcut"/>
+    <mapping class="com.opentravelsoft.entity.Shortcut"/>
     <mapping class="com.opentravelsoft.entity.Country"/>
     <mapping class="com.opentravelsoft.entity.City"/>
     <mapping class="com.opentravelsoft.entity.Province"/>

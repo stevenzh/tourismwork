@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.opentravelsoft.model.Member;
+import com.opentravelsoft.entity.Member;
 
 import java.util.List;
 

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.opentravelsoft.model.Shortcut;
+import com.opentravelsoft.entity.Shortcut;
 import com.opentravelsoft.providers.ShortcutDao;
 import com.opentravelsoft.service.ShortcutManager;
 

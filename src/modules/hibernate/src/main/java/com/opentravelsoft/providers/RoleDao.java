@@ -2,8 +2,8 @@ package com.opentravelsoft.providers;
 
 import java.util.List;
 
-import com.opentravelsoft.model.Module;
-import com.opentravelsoft.model.Role;
+import com.opentravelsoft.entity.Module;
+import com.opentravelsoft.entity.Role;
 
 public interface RoleDao extends GenericDao<Role, Long> {
 

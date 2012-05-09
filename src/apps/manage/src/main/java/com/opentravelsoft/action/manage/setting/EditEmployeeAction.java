@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opentravelsoft.action.ManageAction;
 import com.opentravelsoft.entity.Employee;
+import com.opentravelsoft.entity.Role;
 import com.opentravelsoft.entity.Team;
 import com.opentravelsoft.entity.Group;
-import com.opentravelsoft.model.Role;
 import com.opentravelsoft.service.setting.EmployeeService;
 import com.opentravelsoft.util.MD5;
 import com.opentravelsoft.util.StringUtil;

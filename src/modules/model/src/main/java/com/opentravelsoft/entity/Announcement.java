@@ -5,7 +5,6 @@ import java.util.Date;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-import com.opentravelsoft.model.BaseObject;
 
 /**
  * 系统宣告

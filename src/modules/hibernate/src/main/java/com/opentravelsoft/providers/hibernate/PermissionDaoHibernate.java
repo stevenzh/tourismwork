@@ -7,7 +7,7 @@ import java.util.TreeMap;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.opentravelsoft.model.Permission;
+import com.opentravelsoft.entity.Permission;
 import com.opentravelsoft.providers.PermissionDao;
 
 @Repository("PermissionDao")

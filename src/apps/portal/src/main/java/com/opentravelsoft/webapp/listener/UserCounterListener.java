@@ -16,7 +16,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.context.HttpSessionContextIntegrationFilter;
 
-import com.opentravelsoft.model.Member;
+import com.opentravelsoft.entity.Member;
 
 /**
  * UserCounterListener class used to count the current number of active users

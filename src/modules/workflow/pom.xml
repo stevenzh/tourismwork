@@ -24,8 +24,7 @@
   <properties>
     <commons-collections.version>3.2.1</commons-collections.version>
     <commons-codec.version>1.3</commons-codec.version>
-    <hibernate.version>3.3.2.GA</hibernate.version>
-    <hibernate.annotations.version>3.4.0.GA</hibernate.annotations.version>
+    <hibernate.version>3.6.10.Final</hibernate.version>
     <activiti.version>5.9</activiti.version>
   </properties>
 
@@ -53,19 +52,9 @@
 
     <dependency>
       <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-core</artifactId>
+      <artifactId>hibernate-entitymanager</artifactId>
       <version>${hibernate.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-annotations</artifactId>
-      <version>${hibernate.annotations.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.hibernate</groupId>
-          <artifactId>ejb3-persistence</artifactId>
-        </exclusion>
-      </exclusions>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>

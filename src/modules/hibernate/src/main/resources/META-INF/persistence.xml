@@ -3,10 +3,10 @@
 
     <persistence-unit name="ApplicationEntityManager" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <class>com.opentravelsoft.model.Member</class>
-        <class>com.opentravelsoft.model.PortalRole</class>
+        <class>com.opentravelsoft.entity.Member</class>
+        <class>com.opentravelsoft.entity.PortalRole</class>
         
-        <class>com.opentravelsoft.model.Shortcut</class>
+        <class>com.opentravelsoft.entity.Shortcut</class>
         <class>com.opentravelsoft.entity.City</class>
         <class>com.opentravelsoft.entity.Province</class>
         <class>com.opentravelsoft.entity.Country</class>

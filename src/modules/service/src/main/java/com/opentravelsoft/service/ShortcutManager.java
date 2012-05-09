@@ -3,7 +3,7 @@ package com.opentravelsoft.service;
 import java.util.List;
 import javax.jws.WebService;
 
-import com.opentravelsoft.model.Shortcut;
+import com.opentravelsoft.entity.Shortcut;
 
 @WebService
 public interface ShortcutManager

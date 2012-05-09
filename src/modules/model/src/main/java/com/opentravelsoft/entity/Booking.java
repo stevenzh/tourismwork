@@ -9,7 +9,6 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 import com.opentravelsoft.entity.finance.Income;
 import com.opentravelsoft.entity.finance.Invoice;
-import com.opentravelsoft.model.BaseObject;
 
 /**
  * 订单

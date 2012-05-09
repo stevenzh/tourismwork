@@ -3,7 +3,6 @@ package com.opentravelsoft.entity;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.opentravelsoft.model.BaseObject;
 
 /**
  * 目的地

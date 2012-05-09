@@ -1,6 +1,6 @@
 package com.opentravelsoft.service;
 
-import com.opentravelsoft.model.PortalRole;
+import com.opentravelsoft.entity.PortalRole;
 
 import java.util.List;
 

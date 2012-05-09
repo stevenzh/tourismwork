@@ -1,6 +1,6 @@
 package com.opentravelsoft.providers;
 
-import com.opentravelsoft.model.PortalRole;
+import com.opentravelsoft.entity.PortalRole;
 
 
 /**

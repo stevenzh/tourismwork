@@ -2,7 +2,7 @@ package com.opentravelsoft.providers;
 
 import java.util.List;
 
-import com.opentravelsoft.model.Shortcut;
+import com.opentravelsoft.entity.Shortcut;
 
 public interface ShortcutDao extends GenericDao<Shortcut, Long>
 {

@@ -7,10 +7,10 @@ import java.util.TreeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.opentravelsoft.model.Module;
-import com.opentravelsoft.model.ModulePermission;
-import com.opentravelsoft.model.Permission;
-import com.opentravelsoft.model.Role;
+import com.opentravelsoft.entity.Module;
+import com.opentravelsoft.entity.ModulePermission;
+import com.opentravelsoft.entity.Permission;
+import com.opentravelsoft.entity.Role;
 import com.opentravelsoft.providers.PermissionDao;
 import com.opentravelsoft.providers.RoleDao;
 import com.opentravelsoft.util.RowDataUtil;

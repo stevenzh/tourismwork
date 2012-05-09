@@ -1,6 +1,5 @@
 package com.opentravelsoft.entity;
 
-import com.opentravelsoft.model.BaseObject;
 import com.opentravelsoft.util.StringUtil;
 
 /**

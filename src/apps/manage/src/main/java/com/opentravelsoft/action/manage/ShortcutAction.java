@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opentravelsoft.action.ManageAction;
 import com.opentravelsoft.common.EbizCommon;
 import com.opentravelsoft.entity.ProductItem;
-import com.opentravelsoft.model.Shortcut;
+import com.opentravelsoft.entity.Shortcut;
 import com.opentravelsoft.service.ShortcutManager;
 import com.opentravelsoft.util.StringUtil;
 

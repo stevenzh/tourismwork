@@ -2,7 +2,7 @@ package com.opentravelsoft.providers;
 
 import java.util.List;
 
-import com.opentravelsoft.model.Module;
+import com.opentravelsoft.entity.Module;
 
 /**
  * 

@@ -7,7 +7,6 @@ import java.util.TreeSet;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-import com.opentravelsoft.model.BaseObject;
 
 /**
  * 组织结构单元

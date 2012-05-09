@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 
 import com.opentravelsoft.Constants;
-import com.opentravelsoft.model.Member;
+import com.opentravelsoft.entity.Member;
 import com.opentravelsoft.service.UserExistsException;
 import com.opentravelsoft.webapp.util.RequestUtil;
 import org.springframework.mail.MailException;

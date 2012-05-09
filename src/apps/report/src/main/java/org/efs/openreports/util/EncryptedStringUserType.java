@@ -89,7 +89,7 @@ public class EncryptedStringUserType implements UserType
 		}
 		else
 		{
-			Hibernate.STRING.nullSafeSet(pStmt, value, index);
+			Hibernate.STRING.nullSafeSet(pStmt, String.valueOf(value), index);
 		}
 	}
 

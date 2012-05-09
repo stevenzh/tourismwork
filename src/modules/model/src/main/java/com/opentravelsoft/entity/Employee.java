@@ -15,8 +15,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.opentravelsoft.common.EbizCommon;
-import com.opentravelsoft.model.BaseObject;
-import com.opentravelsoft.model.Role;
 
 /**
  * 员工

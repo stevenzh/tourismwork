@@ -83,7 +83,7 @@
   <mapping class="com.opentravelsoft.entity.Country"/>
   <mapping class="com.opentravelsoft.entity.City"/>
   <mapping class="com.opentravelsoft.entity.Province"/>
-  <mapping class="com.opentravelsoft.model.Shortcut"/>
+  <mapping class="com.opentravelsoft.entity.Shortcut"/>
   
   <mapping class="com.opentravelsoft.entity.vacation.LineTheme"/>
   <mapping class="com.opentravelsoft.entity.vacation.LineCyclePrice"/>

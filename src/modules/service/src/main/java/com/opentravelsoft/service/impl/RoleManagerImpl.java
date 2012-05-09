@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.opentravelsoft.model.PortalRole;
+import com.opentravelsoft.entity.PortalRole;
 import com.opentravelsoft.providers.MemberRoleDao;
 import com.opentravelsoft.service.RoleManager;
 

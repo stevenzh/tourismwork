@@ -2,9 +2,9 @@ package com.opentravelsoft.providers.hibernate;
 
 import org.springframework.stereotype.Repository;
 
+import com.opentravelsoft.entity.SmsMessage;
 import com.opentravelsoft.entity.TblSmsReceive;
 import com.opentravelsoft.entity.TblSmsSend;
-import com.opentravelsoft.model.SmsMessage;
 import com.opentravelsoft.providers.SmsDao;
 
 @Repository("SmsDao")

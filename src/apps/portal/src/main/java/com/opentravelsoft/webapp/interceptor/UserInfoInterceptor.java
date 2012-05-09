@@ -7,7 +7,7 @@ import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
 import com.opentravelsoft.common.SessionKeyParams;
-import com.opentravelsoft.model.Member;
+import com.opentravelsoft.entity.Member;
 import com.opentravelsoft.service.UserManager;
 
 import org.apache.commons.logging.Log;

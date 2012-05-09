@@ -6,7 +6,7 @@ import com.opentravelsoft.util.LabelValueBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.opentravelsoft.model.Member;
+import com.opentravelsoft.entity.Member;
 import com.opentravelsoft.providers.ListDao;
 import com.opentravelsoft.providers.MemberDao;
 

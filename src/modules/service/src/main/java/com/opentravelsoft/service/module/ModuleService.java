@@ -2,7 +2,7 @@ package com.opentravelsoft.service.module;
 
 import java.util.List;
 
-import com.opentravelsoft.model.Module;
+import com.opentravelsoft.entity.Module;
 
 public interface ModuleService {
   List<Module> roGetModuleList(boolean active);

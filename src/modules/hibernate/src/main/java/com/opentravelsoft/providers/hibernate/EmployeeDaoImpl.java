@@ -17,8 +17,8 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.opentravelsoft.entity.Employee;
+import com.opentravelsoft.entity.Role;
 import com.opentravelsoft.entity.Team;
-import com.opentravelsoft.model.Role;
 import com.opentravelsoft.providers.EmployeeDao;
 import com.opentravelsoft.util.RowDataUtil;
 import com.opentravelsoft.util.StringUtil;

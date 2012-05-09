@@ -39,7 +39,7 @@ import java.util.Map;
  * 
  * <pre>
  *      &lt;bean id="fooDao" class="com.opentravelsoft.dao.hibernate.GenericDaoHibernate"&gt;
- *          &lt;constructor-arg value="com.opentravelsoft.model.Foo"/&gt;
+ *          &lt;constructor-arg value="com.opentravelsoft.entity.Foo"/&gt;
  *          &lt;property name="sessionFactory" ref="sessionFactory"/&gt;
  *      &lt;/bean&gt;
  * </pre>

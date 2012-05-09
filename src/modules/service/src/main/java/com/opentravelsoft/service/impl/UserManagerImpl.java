@@ -10,7 +10,7 @@ import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.opentravelsoft.model.Member;
+import com.opentravelsoft.entity.Member;
 import com.opentravelsoft.providers.MemberDao;
 import com.opentravelsoft.service.UserExistsException;
 import com.opentravelsoft.service.UserManager;

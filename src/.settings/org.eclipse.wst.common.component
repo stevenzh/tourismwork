@@ -13,11 +13,11 @@
         <wb-resource deploy-path="/" source-path="/apps/portal/src/main/java"/>
         <wb-resource deploy-path="/" source-path="/apps/portal/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/modules/struts2/src/main/java"/>
-        <wb-resource deploy-path="/" source-path="/apps/report/src/main/java"/>
-        <wb-resource deploy-path="/" source-path="/apps/report/src/main/resources"/>
-        <wb-resource deploy-path="/" source-path="/modules/mybatis/src/main/java"/>
         <wb-resource deploy-path="/" source-path="/modules/model/src/main/java"/>
         <wb-resource deploy-path="/" source-path="/modules/workflow/src/main/resources"/>
-        <wb-resource deploy-path="/" source-path="/modules/mybatis/src/main/resources"/>
+        <wb-resource deploy-path="/" source-path="/apps/report/src/main/java"/>
+        <wb-resource deploy-path="/" source-path="/apps/report/src/main/resources"/>
+        <wb-resource deploy-path="/" source-path="/apps/admin/src/main/java"/>
+        <wb-resource deploy-path="/" source-path="/apps/admin/src/main/resources"/>
     </wb-module>
 </project-modules>

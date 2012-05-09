@@ -9,7 +9,7 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.commons.logging.Log;
 import org.hibernate.SessionFactory;
 
-import com.opentravelsoft.model.PortalRole;
+import com.opentravelsoft.entity.PortalRole;
 import com.opentravelsoft.providers.LookupDao;
 
 /**

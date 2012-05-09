@@ -3,7 +3,6 @@ package com.opentravelsoft.entity;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-import com.opentravelsoft.model.BaseObject;
 
 /**
  * 航空机场

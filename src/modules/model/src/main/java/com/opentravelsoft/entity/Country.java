@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.opentravelsoft.model.BaseObject;
 
 /**
  * 国家
