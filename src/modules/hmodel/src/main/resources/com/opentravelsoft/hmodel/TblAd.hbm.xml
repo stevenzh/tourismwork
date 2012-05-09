@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.hmodel.TblAd" table="tbl_ad" catalog="tourismwork_db">
+        <id name="adId" type="java.lang.Integer">
+            <column name="AD_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="storeId" type="short">
+            <column name="STORE_ID" not-null="true" />
+        </property>
+        <property name="positionId" type="short">
+            <column name="POSITION_ID" not-null="true" />
+        </property>
+        <property name="adType" type="string">
+            <column name="AD_TYPE" length="10" not-null="true" />
+        </property>
+        <property name="adName" type="string">
+            <column name="AD_NAME" length="120" not-null="true" />
+        </property>
+        <property name="adLink" type="string">
+            <column name="AD_LINK" not-null="true" />
+        </property>
+        <property name="adCode" type="string">
+            <column name="AD_CODE" />
+        </property>
+        <property name="startTime" type="timestamp">
+            <column name="START_TIME" length="19" not-null="true" />
+        </property>
+        <property name="endTime" type="timestamp">
+            <column name="END_TIME" length="19" not-null="true" />
+        </property>
+        <property name="clickCount" type="int">
+            <column name="CLICK_COUNT" not-null="true" />
+        </property>
+        <property name="enabled" type="byte">
+            <column name="ENABLED" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

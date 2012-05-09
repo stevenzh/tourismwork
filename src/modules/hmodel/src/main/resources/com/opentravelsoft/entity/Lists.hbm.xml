@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.Lists" table="tbl_lists" catalog="tourismwork_db">
+        <id name="entryId" type="java.lang.Integer">
+            <column name="EntryID" />
+            <generator class="identity" />
+        </id>
+        <property name="listName" type="string">
+            <column name="ListName" length="50" not-null="true" />
+        </property>
+        <property name="value" type="string">
+            <column name="Value" length="100" not-null="true" />
+        </property>
+        <property name="text" type="string">
+            <column name="Text" length="150" not-null="true" />
+        </property>
+        <property name="parentId" type="int">
+            <column name="ParentID" not-null="true" />
+        </property>
+        <property name="level" type="int">
+            <column name="Level" not-null="true" />
+        </property>
+        <property name="enabled" type="byte">
+            <column name="Enabled" not-null="true" />
+        </property>
+        <property name="sortOrder" type="int">
+            <column name="SortOrder" not-null="true" />
+        </property>
+        <property name="definitionId" type="int">
+            <column name="DefinitionID" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="Description" length="500" />
+        </property>
+        <property name="systemList" type="byte">
+            <column name="SystemList" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

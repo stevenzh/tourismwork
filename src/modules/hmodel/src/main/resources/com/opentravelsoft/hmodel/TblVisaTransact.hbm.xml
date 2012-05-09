@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.hmodel.TblVisaTransact" table="tbl_visa_transact" catalog="tourismwork_db">
+        <id name="applyId" type="java.lang.Integer">
+            <column name="APPLY_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="applyUser" type="java.lang.Integer">
+            <column name="APPLY_USER" />
+        </property>
+        <property name="applyDate" type="timestamp">
+            <column name="APPLY_DATE" length="19" />
+        </property>
+        <property name="status" type="java.lang.Character">
+            <column name="STATUS" length="1" />
+        </property>
+        <property name="chkUser" type="java.lang.Integer">
+            <column name="CHK_USER" />
+        </property>
+        <property name="chkDate" type="timestamp">
+            <column name="CHK_DATE" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

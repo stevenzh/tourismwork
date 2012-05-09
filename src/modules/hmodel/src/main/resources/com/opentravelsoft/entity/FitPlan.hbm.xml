@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.FitPlan" table="tbl_planfit" catalog="tourismwork_db">
+        <id name="recNo" type="string">
+            <column name="REC_NO" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="lineNo" type="string">
+            <column name="LINE_NO" length="10" />
+        </property>
+        <property name="planType" type="java.lang.Character">
+            <column name="PLAN_TYPE" length="1">
+                <comment>??&#161;&#227;&#168;&#164;&#161;&#164;???</comment>
+            </column>
+        </property>
+        <property name="weekbit" type="string">
+            <column name="WEEKBIT" length="7" />
+        </property>
+        <property name="checkDays" type="java.lang.Integer">
+            <column name="CHECK_DAYS" />
+        </property>
+        <property name="leastMan" type="java.lang.Integer">
+            <column name="LEAST_MAN" />
+        </property>
+        <property name="price" type="big_decimal">
+            <column name="PRICE" precision="9" />
+        </property>
+        <property name="SDate" type="timestamp">
+            <column name="S_DATE" length="19" />
+        </property>
+        <property name="EDate" type="timestamp">
+            <column name="E_DATE" length="19" />
+        </property>
+        <property name="isDelete" type="java.lang.Byte">
+            <column name="IS_DELETE" />
+        </property>
+        <property name="pax" type="java.lang.Integer">
+            <column name="PAX">
+                <comment>&#161;&#193;?????[&#161;&#164;??&#168;&#178;]</comment>
+            </column>
+        </property>
+        <property name="surpluspax" type="java.lang.Integer">
+            <column name="SURPLUSPAX">
+                <comment>????????[&#161;&#164;??&#168;&#178;]</comment>
+            </column>
+        </property>
+        <property name="confirmPax" type="java.lang.Integer">
+            <column name="ConfirmPax">
+                <comment>?&#161;&#164;?&#161;&#167;????(???&#161;&#167;????)</comment>
+            </column>
+        </property>
+        <property name="isShare" type="java.lang.Byte">
+            <column name="IS_SHARE">
+                <comment>0?? ?????&#168;&#170; 1?????&#168;&#170;</comment>
+            </column>
+        </property>
+        <property name="shareFlightId" type="java.lang.Integer">
+            <column name="SHARE_FLIGHT_ID">
+                <comment>?&#168;&#178;????</comment>
+            </column>
+        </property>
+        <property name="createdBy" type="string">
+            <column name="CreatedBy" length="20" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="19" />
+        </property>
+        <property name="modifiedBy" type="string">
+            <column name="ModifiedBy" length="20" />
+        </property>
+        <property name="modifiedDate" type="timestamp">
+            <column name="ModifiedDate" length="19" />
+        </property>
+        <property name="isLastMinute" type="java.lang.Character">
+            <column name="IS_LAST_MINUTE" length="1" />
+        </property>
+        <property name="discountRate" type="big_decimal">
+            <column name="DISCOUNT_RATE" precision="5" />
+        </property>
+        <property name="createdByIp" type="string">
+            <column name="CreatedByIp" length="50" />
+        </property>
+        <property name="modifiedByIp" type="string">
+            <column name="ModifiedByIp" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

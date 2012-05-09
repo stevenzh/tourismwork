@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.LineVisa" table="tbl_line_visa" catalog="tourismwork_db">
+        <composite-id name="id" class="com.opentravelsoft.entity.LineVisaId">
+            <key-property name="lineNo" type="string">
+                <column name="LINE_NO" length="8" />
+            </key-property>
+            <key-property name="recNo" type="string">
+                <column name="REC_NO" length="10" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

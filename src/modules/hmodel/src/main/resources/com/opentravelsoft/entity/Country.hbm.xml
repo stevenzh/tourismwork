@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.Country" table="tbl_country" catalog="tourismwork_db">
+        <id name="countryId" type="string">
+            <column name="COUNTRY_ID" length="2" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="150" not-null="true" />
+        </property>
+        <property name="enabled" type="byte">
+            <column name="ENABLED" not-null="true" />
+        </property>
+        <set name="districts" table="tbl_district" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="COUNTRY" length="2" not-null="true" />
+            </key>
+            <one-to-many class="com.opentravelsoft.entity.District" />
+        </set>
+        <set name="sights" table="tbl_sight" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="COUNTRY" length="2" not-null="true" />
+            </key>
+            <one-to-many class="com.opentravelsoft.entity.Sight" />
+        </set>
+        <set name="cities" table="tbl_city" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="COUNTRY" length="2" />
+            </key>
+            <one-to-many class="com.opentravelsoft.entity.City" />
+        </set>
+    </class>
+</hibernate-mapping>

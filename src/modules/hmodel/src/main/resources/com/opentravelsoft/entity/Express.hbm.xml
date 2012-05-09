@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.Express" table="tbl_crm_express" catalog="tourismwork_db">
+        <id name="expressId" type="string">
+            <column name="EXPRESS_ID" length="12" />
+            <generator class="assigned" />
+        </id>
+        <property name="caseId" type="string">
+            <column name="CASE_ID" length="12" />
+        </property>
+        <property name="customer" type="string">
+            <column name="CUSTOMER" length="12" not-null="true" />
+        </property>
+        <property name="address" type="string">
+            <column name="ADDRESS" length="50" not-null="true" />
+        </property>
+        <property name="tel" type="string">
+            <column name="TEL" length="35" not-null="true" />
+        </property>
+        <property name="orderId" type="string">
+            <column name="ORDER_ID" length="12" not-null="true" />
+        </property>
+        <property name="contactor" type="string">
+            <column name="CONTACTOR" length="12" />
+        </property>
+        <property name="zip" type="string">
+            <column name="ZIP" length="12" />
+        </property>
+        <property name="expressType" type="string">
+            <column name="EXPRESS_TYPE" length="12" />
+        </property>
+        <property name="expressModlue" type="string">
+            <column name="EXPRESS_MODLUE" length="12" />
+        </property>
+        <property name="payType" type="string">
+            <column name="PAY_TYPE" length="12" />
+        </property>
+        <property name="payModlue" type="string">
+            <column name="PAY_MODLUE" length="12" />
+        </property>
+        <property name="line" type="string">
+            <column name="LINE" length="20" />
+        </property>
+        <property name="money" type="java.lang.Byte">
+            <column name="MONEY" precision="2" scale="0" />
+        </property>
+        <property name="expressDate" type="timestamp">
+            <column name="EXPRESS_DATE" length="19" not-null="true" />
+        </property>
+        <property name="expressLastdate" type="timestamp">
+            <column name="EXPRESS_LASTDATE" length="19" not-null="true" />
+        </property>
+        <property name="teamNo" type="string">
+            <column name="TEAM_NO" length="60" />
+        </property>
+        <property name="pay" type="big_decimal">
+            <column name="PAY" precision="16" />
+        </property>
+        <property name="expressState" type="string">
+            <column name="EXPRESS_STATE" length="10" not-null="true" />
+        </property>
+        <property name="memo" type="string">
+            <column name="MEMO" length="500" />
+        </property>
+        <property name="workflowId" type="java.lang.Long">
+            <column name="WORKFLOW_ID" precision="18" scale="0" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="CREATED" length="19" />
+        </property>
+        <property name="createdby" type="java.lang.Integer">
+            <column name="CREATEDBY" />
+        </property>
+        <property name="updated" type="timestamp">
+            <column name="UPDATED" length="19" not-null="true" />
+        </property>
+        <property name="updatedby" type="java.lang.Integer">
+            <column name="UPDATEDBY" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.finance.Outcome" table="tbl_outcome" catalog="tourismwork_db">
+        <id name="outcomeId" type="java.lang.Integer">
+            <column name="OUTCOME_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="customerId" type="int">
+            <column name="CUSTOMER_ID" not-null="true" />
+        </property>
+        <property name="tourNo" type="string">
+            <column name="TOUR_NO" length="100" />
+        </property>
+        <property name="note" type="string">
+            <column name="NOTE" length="1000" />
+        </property>
+        <property name="payDate" type="timestamp">
+            <column name="PAY_DATE" length="19" />
+        </property>
+        <property name="payMode" type="java.lang.Character">
+            <column name="PAY_MODE" length="1" />
+        </property>
+        <property name="billNo" type="string">
+            <column name="BILL_NO" length="30" />
+        </property>
+        <property name="payRegisterDate" type="timestamp">
+            <column name="PAY_REGISTER_DATE" length="19" />
+        </property>
+        <property name="payRegisterby" type="string">
+            <column name="PAY_REGISTERBY" length="20" />
+        </property>
+        <property name="amount" type="big_decimal">
+            <column name="AMOUNT" precision="10" />
+        </property>
+        <property name="carryTicket" type="java.lang.Short">
+            <column name="CARRY_TICKET" />
+        </property>
+        <property name="carryStatus" type="java.lang.Short">
+            <column name="CARRY_STATUS" />
+        </property>
+        <property name="carryStart" type="timestamp">
+            <column name="CARRY_START" length="19" />
+        </property>
+        <property name="carryUserid" type="string">
+            <column name="CARRY_USERID" length="10" />
+        </property>
+        <property name="carryWorker" type="string">
+            <column name="CARRY_WORKER" length="20" />
+        </property>
+        <property name="carryWorkday" type="timestamp">
+            <column name="CARRY_WORKDAY" length="19" />
+        </property>
+        <property name="carryComplete" type="timestamp">
+            <column name="CARRY_COMPLETE" length="19" />
+        </property>
+        <property name="carryLastdate" type="timestamp">
+            <column name="CARRY_LASTDATE" length="19" />
+        </property>
+        <property name="carryNote" type="string">
+            <column name="CARRY_NOTE" length="1000" />
+        </property>
+        <property name="flightNo" type="string">
+            <column name="FLIGHT_NO" length="10" />
+        </property>
+        <property name="planNo" type="string">
+            <column name="PLAN_NO" length="20" />
+        </property>
+        <property name="workflowId" type="string">
+            <column name="WORKFLOW_ID" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="CREATED" length="19" />
+        </property>
+        <property name="createdby" type="java.lang.Integer">
+            <column name="CREATEDBY" />
+        </property>
+        <property name="opApproved" type="timestamp">
+            <column name="OP_APPROVED" length="19" />
+        </property>
+        <property name="opApprovedby" type="java.lang.Integer">
+            <column name="OP_APPROVEDBY" />
+        </property>
+        <property name="opApprovedFlag" type="java.lang.Character">
+            <column name="OP_APPROVED_FLAG" length="1" />
+        </property>
+        <property name="frRead" type="timestamp">
+            <column name="FR_READ" length="19" />
+        </property>
+        <property name="frReadby" type="java.lang.Integer">
+            <column name="FR_READBY" />
+        </property>
+        <property name="frReadFlag" type="java.lang.Character">
+            <column name="FR_READ_FLAG" length="1" />
+        </property>
+        <property name="frApproved" type="timestamp">
+            <column name="FR_APPROVED" length="19" />
+        </property>
+        <property name="frApprovedby" type="java.lang.Integer">
+            <column name="FR_APPROVEDBY" />
+        </property>
+        <property name="frApprovedFlag" type="java.lang.Character">
+            <column name="FR_APPROVED_FLAG" length="1" />
+        </property>
+        <property name="updated" type="timestamp">
+            <column name="UPDATED" length="19" not-null="true" />
+        </property>
+        <property name="updatedby" type="java.lang.Integer">
+            <column name="UPDATEDBY" />
+        </property>
+    </class>
+</hibernate-mapping>

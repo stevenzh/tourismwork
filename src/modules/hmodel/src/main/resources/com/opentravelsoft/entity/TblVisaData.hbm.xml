@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.TblVisaData" table="tbl_visa_data" catalog="tourismwork_db">
+        <id name="itemId" type="java.lang.Integer">
+            <column name="ITEM_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="50" />
+        </property>
+        <property name="unit" type="string">
+            <column name="UNIT" length="10" />
+        </property>
+        <property name="desc" type="string">
+            <column name="DESC_" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.hmodel.TblCrmCaseB" table="tbl_crm_case_b" catalog="tourismwork_db">
+        <id name="caseId" type="java.lang.Integer">
+            <column name="CASE_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="customerId" type="java.lang.Integer">
+            <column name="CUSTOMER_ID" />
+        </property>
+        <property name="lineNo" type="string">
+            <column name="LINE_NO" length="8" not-null="true" />
+        </property>
+        <property name="lineName" type="string">
+            <column name="LINE_NAME" length="60" />
+        </property>
+        <property name="customerSource" type="java.lang.Character">
+            <column name="CUSTOMER_SOURCE" length="1" />
+        </property>
+        <property name="caseType" type="java.lang.Character">
+            <column name="CASE_TYPE" length="1" />
+        </property>
+        <property name="createDt" type="timestamp">
+            <column name="CREATE_DT" length="19" />
+        </property>
+        <property name="createUser" type="string">
+            <column name="CREATE_USER" length="4" />
+        </property>
+    </class>
+</hibernate-mapping>

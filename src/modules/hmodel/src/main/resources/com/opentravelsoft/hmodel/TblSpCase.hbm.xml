@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.hmodel.TblSpCase" table="tbl_sp_case" catalog="tourismwork_db">
+        <composite-id name="id" class="com.opentravelsoft.hmodel.TblSpCaseId">
+            <key-property name="spId" type="string">
+                <column name="SP_ID" length="10" />
+            </key-property>
+            <key-property name="spQuoteId" type="int">
+                <column name="SP_QUOTE_ID" />
+            </key-property>
+        </composite-id>
+        <property name="SOutDate" type="timestamp">
+            <column name="S_OUT_DATE" length="19" not-null="true" />
+        </property>
+        <property name="EOutDate" type="timestamp">
+            <column name="E_OUT_DATE" length="19" not-null="true" />
+        </property>
+        <property name="hotelLevel" type="string">
+            <column name="HOTEL_LEVEL" length="50" />
+        </property>
+        <property name="hotelPos" type="string">
+            <column name="HOTEL_POS" length="50" />
+        </property>
+        <property name="pax" type="string">
+            <column name="PAX" length="50" />
+        </property>
+        <property name="isLeader" type="java.lang.Character">
+            <column name="IS_LEADER" length="1" />
+        </property>
+        <property name="customerSource" type="java.lang.Character">
+            <column name="CUSTOMER_SOURCE" length="1" />
+        </property>
+        <property name="visaType" type="java.lang.Character">
+            <column name="VISA_TYPE" length="1" />
+        </property>
+        <property name="visaCountry" type="string">
+            <column name="VISA_COUNTRY" length="20" />
+        </property>
+        <property name="airPrice" type="big_decimal">
+            <column name="AIR_PRICE" precision="9" />
+        </property>
+        <property name="hotelPrice" type="big_decimal">
+            <column name="HOTEL_PRICE" precision="9" />
+        </property>
+        <property name="quotePrice" type="big_decimal">
+            <column name="QUOTE_PRICE" precision="9" />
+        </property>
+        <property name="leaderPrice" type="big_decimal">
+            <column name="LEADER_PRICE" precision="9" />
+        </property>
+        <property name="costPrice" type="big_decimal">
+            <column name="COST_PRICE" precision="9" />
+        </property>
+        <property name="flightInfo" type="string">
+            <column name="FLIGHT_INFO" length="50" />
+        </property>
+        <property name="flightType" type="java.lang.Character">
+            <column name="FLIGHT_TYPE" length="1" />
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" />
+        </property>
+        <property name="other" type="string">
+            <column name="OTHER" />
+        </property>
+        <property name="route" type="string">
+            <column name="ROUTE" />
+        </property>
+        <property name="travelType" type="string">
+            <column name="TRAVEL_TYPE" length="10" />
+        </property>
+        <property name="opDate" type="timestamp">
+            <column name="OP_DATE" length="19" />
+        </property>
+        <property name="opUser" type="string">
+            <column name="OP_USER" length="4" />
+        </property>
+        <property name="createDate" type="timestamp">
+            <column name="CREATE_DATE" length="19" />
+        </property>
+        <property name="createUser" type="string">
+            <column name="CREATE_USER" length="4" />
+        </property>
+        <property name="customerId" type="string">
+            <column name="CUSTOMER_ID" length="10" not-null="true" />
+        </property>
+        <property name="cptNo" type="string">
+            <column name="CPT_NO" length="10" />
+        </property>
+        <property name="lineNo" type="string">
+            <column name="LINE_NO" length="8" />
+        </property>
+        <property name="isSuccess" type="java.lang.Character">
+            <column name="IS_SUCCESS" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

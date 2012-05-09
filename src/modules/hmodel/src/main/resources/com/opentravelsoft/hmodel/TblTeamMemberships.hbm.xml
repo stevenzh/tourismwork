@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.hmodel.TblTeamMemberships" table="tbl_team_memberships" catalog="tourismwork_db">
+        <composite-id name="id" class="com.opentravelsoft.hmodel.TblTeamMembershipsId">
+            <key-property name="teamId" type="int">
+                <column name="TEAM_ID" />
+            </key-property>
+            <key-property name="userId" type="int">
+                <column name="USER_ID" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="employee" class="com.opentravelsoft.entity.Employee" update="false" insert="false" fetch="select">
+            <column name="USER_ID" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

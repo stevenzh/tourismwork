@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.LineSchedule" table="tbl_line_schedule" catalog="tourismwork_db">
+        <composite-id name="id" class="com.opentravelsoft.entity.LineScheduleId">
+            <key-property name="lineNo" type="string">
+                <column name="LINE_NO" length="8" />
+            </key-property>
+            <key-property name="day" type="int">
+                <column name="DAY" />
+            </key-property>
+        </composite-id>
+        <property name="traffic" type="string">
+            <column name="TRAFFIC" length="200" />
+        </property>
+        <property name="traffic1" type="string">
+            <column name="TRAFFIC1" length="100" />
+        </property>
+        <property name="breakfast" type="string">
+            <column name="BREAKFAST" length="50" />
+        </property>
+        <property name="lunch" type="string">
+            <column name="LUNCH" length="50" />
+        </property>
+        <property name="supper" type="string">
+            <column name="SUPPER" length="50" />
+        </property>
+        <property name="program" type="string">
+            <column name="PROGRAM" length="3000" />
+        </property>
+        <property name="quarter" type="string">
+            <column name="QUARTER" length="100" />
+        </property>
+        <property name="outCity" type="string">
+            <column name="OUT_CITY" length="10" />
+        </property>
+        <property name="toCity" type="string">
+            <column name="TO_CITY" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

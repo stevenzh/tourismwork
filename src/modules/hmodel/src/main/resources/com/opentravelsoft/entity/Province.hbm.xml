@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.Province" table="tbl_province" catalog="tourismwork_db">
+        <id name="code" type="string">
+            <column name="CODE" length="2" />
+            <generator class="assigned" />
+        </id>
+        <property name="cnName" type="string">
+            <column name="CN_NAME" length="20" not-null="true" />
+        </property>
+        <property name="enName" type="string">
+            <column name="EN_NAME" length="30" />
+        </property>
+        <property name="country" type="string">
+            <column name="COUNTRY" length="3" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.District" table="tbl_district" catalog="tourismwork_db">
+        <id name="districtNo" type="string">
+            <column name="DISTRICT_NO" length="10" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="country" class="com.opentravelsoft.entity.Country" fetch="select">
+            <column name="COUNTRY" length="2" not-null="true" />
+        </many-to-one>
+        <property name="cnName" type="string">
+            <column name="CN_NAME" length="30" not-null="true" />
+        </property>
+        <property name="cnNote" type="string">
+            <column name="CN_NOTE" length="2000" />
+        </property>
+        <property name="mapAddress1" type="string">
+            <column name="MAP_ADDRESS1" length="50" />
+        </property>
+        <property name="mapAddress2" type="string">
+            <column name="MAP_ADDRESS2" length="50" />
+        </property>
+        <property name="duchy" type="string">
+            <column name="DUCHY" length="2" />
+        </property>
+        <set name="sights" table="tbl_sight" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DISTRICT_NO" length="10" />
+            </key>
+            <one-to-many class="com.opentravelsoft.entity.Sight" />
+        </set>
+    </class>
+</hibernate-mapping>

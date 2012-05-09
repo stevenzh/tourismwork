@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.vacation.BookExtService" table="tbl_booking_ext" catalog="tourismwork_db">
+        <id name="recNo" type="java.lang.Integer">
+            <column name="REC_NO" />
+            <generator class="identity" />
+        </id>
+        <property name="bookingNo" type="string">
+            <column name="BookingNo" length="10" />
+        </property>
+        <property name="type" type="java.lang.Byte">
+            <column name="Type">
+                <comment>1: ?????? 2??&#161;&#192;??? 3?????? 4?????&#161;&#232; 5:??&#161;&#193;????&#161;&#167;?&#161;&#232;?? 6??PASS 7?????? 8???????????&#161;&#192; 9??????
+                10?????&#161;&#192; 11?????? 12?????&#168;&#185;????</comment>
+            </column>
+        </property>
+        <property name="productNo" type="string">
+            <column name="ProductNo" length="10" />
+        </property>
+        <property name="num" type="java.lang.Integer">
+            <column name="Num">
+                <comment>????</comment>
+            </column>
+        </property>
+        <property name="price" type="big_decimal">
+            <column name="Price" precision="9">
+                <comment>????</comment>
+            </column>
+        </property>
+        <property name="totalPrice" type="big_decimal">
+            <column name="TotalPrice" precision="9">
+                <comment>&#161;&#193;???</comment>
+            </column>
+        </property>
+        <property name="useDate" type="timestamp">
+            <column name="UseDate" length="19">
+                <comment>????????</comment>
+            </column>
+        </property>
+        <property name="state" type="java.lang.Integer">
+            <column name="State">
+                <comment>0:???&#161;&#164;??1: ?????&#168;&#178;?&#161;&#164;?&#161;&#164;?? 2?????&#161;&#164;??</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="Remark" length="2000" />
+        </property>
+        <property name="isDelete" type="java.lang.Byte">
+            <column name="IsDelete" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="CreatedBy" length="20" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="19" />
+        </property>
+        <property name="modifiedBy" type="string">
+            <column name="ModifiedBy" length="20" />
+        </property>
+        <property name="modifiedDate" type="timestamp">
+            <column name="ModifiedDate" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

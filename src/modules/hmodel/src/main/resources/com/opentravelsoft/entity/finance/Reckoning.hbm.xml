@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.finance.Reckoning" table="tbl_reckoning" catalog="tourismwork_db">
+        <id name="reckoningId" type="java.lang.Integer">
+            <column name="RECKONING_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="bookingNo" type="string">
+            <column name="BOOKING_NO" length="20" not-null="true" />
+        </property>
+        <property name="number" type="int">
+            <column name="NUMBER" not-null="true" />
+        </property>
+        <property name="tourType" type="char">
+            <column name="TOUR_TYPE" length="1" not-null="true" />
+        </property>
+        <property name="routeNote" type="string">
+            <column name="ROUTE_NOTE" length="1000" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="1000" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="REMARKS" length="1000" />
+        </property>
+        <property name="contact" type="string">
+            <column name="CONTACT" length="20" />
+        </property>
+        <property name="phone" type="string">
+            <column name="PHONE" length="100" />
+        </property>
+        <property name="fax" type="string">
+            <column name="FAX" length="20" />
+        </property>
+        <property name="leaderAmt" type="java.lang.Integer">
+            <column name="LEADER_AMT" />
+        </property>
+        <property name="isprinted" type="java.lang.Character">
+            <column name="ISPRINTED" length="1" />
+        </property>
+        <property name="printed" type="timestamp">
+            <column name="PRINTED" length="19" />
+        </property>
+        <property name="printedCount" type="java.lang.Integer">
+            <column name="PRINTED_COUNT" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="CREATED" length="19" />
+        </property>
+        <property name="createdby" type="java.lang.Integer">
+            <column name="CREATEDBY" />
+        </property>
+        <property name="updated" type="timestamp">
+            <column name="UPDATED" length="19" not-null="true" />
+        </property>
+        <property name="updatedby" type="java.lang.Integer">
+            <column name="UPDATEDBY" />
+        </property>
+    </class>
+</hibernate-mapping>

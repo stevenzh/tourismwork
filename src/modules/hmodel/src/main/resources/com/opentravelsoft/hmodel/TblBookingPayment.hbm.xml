@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.hmodel.TblBookingPayment" table="tbl_booking_payment" catalog="tourismwork_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="orderNo" type="string">
+            <column name="ORDER_NO" length="20" />
+        </property>
+        <property name="bookingNo" type="string">
+            <column name="BOOKING_NO" length="20" not-null="true" />
+        </property>
+        <property name="payType" type="string">
+            <column name="PAY_TYPE" length="10" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="TYPE" length="3" />
+        </property>
+        <property name="amount" type="big_decimal">
+            <column name="AMOUNT" precision="9" />
+        </property>
+        <property name="schedule" type="timestamp">
+            <column name="SCHEDULE" length="19" />
+        </property>
+        <property name="result" type="string">
+            <column name="RESULT" length="10" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="REMARKS" length="1000" />
+        </property>
+    </class>
+</hibernate-mapping>

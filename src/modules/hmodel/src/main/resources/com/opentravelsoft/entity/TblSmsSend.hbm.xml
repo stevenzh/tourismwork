@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.TblSmsSend" table="tbl_sms_send" catalog="tourismwork_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="message" type="string">
+            <column name="MESSAGE" length="200" />
+        </property>
+        <property name="sendCnt" type="java.lang.Integer">
+            <column name="SEND_CNT" />
+        </property>
+        <property name="receivedCnt" type="java.lang.Integer">
+            <column name="RECEIVED_CNT" />
+        </property>
+        <property name="status" type="java.lang.Character">
+            <column name="STATUS" length="1" />
+        </property>
+        <property name="sendDate" type="timestamp">
+            <column name="SEND_DATE" length="19" not-null="true" />
+        </property>
+        <property name="opUser" type="java.lang.Integer">
+            <column name="OP_USER" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.Employee" table="tbl_employee" catalog="tourismwork_db">
+        <id name="userId" type="java.lang.Integer">
+            <column name="USER_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="group" class="com.opentravelsoft.entity.Group" fetch="select">
+            <column name="GROUP_ID" not-null="true" />
+        </many-to-one>
+        <property name="userCd" type="string">
+            <column name="USER_CD" length="20" not-null="true" />
+        </property>
+        <property name="passwd" type="string">
+            <column name="PASSWD" length="32" not-null="true" />
+        </property>
+        <property name="ctiNo" type="string">
+            <column name="CTI_NO" length="5" />
+        </property>
+        <property name="userNm" type="string">
+            <column name="USER_NM" length="20" />
+        </property>
+        <property name="givenName" type="string">
+            <column name="GIVEN_NAME" length="20" />
+        </property>
+        <property name="familyName" type="string">
+            <column name="FAMILY_NAME" length="20" />
+        </property>
+        <property name="isAdmin" type="java.lang.Boolean">
+            <column name="IS_ADMIN" />
+        </property>
+        <property name="tel" type="string">
+            <column name="TEL" length="30" />
+        </property>
+        <property name="fax" type="string">
+            <column name="FAX" length="30" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="MOBILE" length="20" />
+        </property>
+        <property name="sex" type="java.lang.Character">
+            <column name="SEX" length="1" />
+        </property>
+        <property name="cardId" type="string">
+            <column name="CARD_ID" length="20" />
+        </property>
+        <property name="age" type="java.lang.Integer">
+            <column name="AGE" />
+        </property>
+        <property name="discont" type="java.lang.Integer">
+            <column name="DISCONT" />
+        </property>
+        <property name="webKey" type="string">
+            <column name="WEB_KEY" length="10" />
+        </property>
+        <property name="workFlg" type="string">
+            <column name="WORK_FLG" length="2" />
+        </property>
+        <property name="workKey" type="java.lang.Character">
+            <column name="WORK_KEY" length="1" />
+        </property>
+        <property name="isActive" type="java.lang.Boolean">
+            <column name="IS_ACTIVE" />
+        </property>
+        <property name="msn" type="string">
+            <column name="MSN" length="50" />
+        </property>
+        <property name="skype" type="string">
+            <column name="SKYPE" length="50" />
+        </property>
+        <property name="opIp" type="string">
+            <column name="OP_IP" length="8" />
+        </property>
+        <set name="plans" table="tbl_plan" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CR_USER" />
+            </key>
+            <one-to-many class="com.opentravelsoft.entity.Plan" />
+        </set>
+        <set name="tblTeamMembershipses" table="tbl_team_memberships" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USER_ID" not-null="true" />
+            </key>
+            <one-to-many class="com.opentravelsoft.hmodel.TblTeamMemberships" />
+        </set>
+        <set name="roles" table="tbl_membership" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="USER_ID" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.opentravelsoft.entity.Role">
+                <column name="ROLE_ID" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.Airport" table="tbl_airport" catalog="tourismwork_db">
+        <id name="code" type="string">
+            <column name="CODE" length="3" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="city" class="com.opentravelsoft.entity.City" fetch="select">
+            <column name="CITY_ID" length="4" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="20" />
+        </property>
+        <property name="enName" type="string">
+            <column name="EN_NAME" length="50" />
+        </property>
+        <property name="isActive" type="java.lang.Byte">
+            <column name="IS_ACTIVE" />
+        </property>
+    </class>
+</hibernate-mapping>

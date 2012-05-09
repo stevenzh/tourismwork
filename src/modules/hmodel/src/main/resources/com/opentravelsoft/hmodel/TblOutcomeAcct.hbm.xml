@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.hmodel.TblOutcomeAcct" table="tbl_outcome_acct" catalog="tourismwork_db">
+        <id name="outcomeAcctId" type="java.lang.Integer">
+            <column name="OUTCOME_ACCT_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="outcomeId" type="int">
+            <column name="OUTCOME_ID" not-null="true" />
+        </property>
+        <property name="acctId" type="int">
+            <column name="ACCT_ID" not-null="true" />
+        </property>
+        <property name="tourNo" type="string">
+            <column name="TOUR_NO" length="100" />
+        </property>
+        <property name="opRoe" type="big_decimal">
+            <column name="OP_ROE" precision="9" scale="4" />
+        </property>
+        <property name="currency" type="string">
+            <column name="CURRENCY" length="4" />
+        </property>
+        <property name="fcAmount" type="big_decimal">
+            <column name="FC_AMOUNT" precision="9" />
+        </property>
+        <property name="roe" type="big_decimal">
+            <column name="ROE" precision="9" scale="4" />
+        </property>
+        <property name="amount" type="big_decimal">
+            <column name="AMOUNT" precision="10" />
+        </property>
+        <property name="note" type="string">
+            <column name="NOTE" length="100" />
+        </property>
+        <property name="planNo" type="string">
+            <column name="PLAN_NO" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

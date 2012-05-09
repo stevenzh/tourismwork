@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.hmodel.TblScheduledFlight" table="tbl_scheduled_flight" catalog="tourismwork_db">
+        <id name="recNo" type="string">
+            <column name="REC_NO" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="fromCity" type="string">
+            <column name="FROM_CITY" length="4" />
+        </property>
+        <property name="fromCityAirport" type="string">
+            <column name="FROM_CITY_AIRPORT" length="4" />
+        </property>
+        <property name="toCity" type="string">
+            <column name="TO_CITY" length="4" />
+        </property>
+        <property name="toCityAirport" type="string">
+            <column name="TO_CITY_AIRPORT" length="4" />
+        </property>
+        <property name="flightNoSix" type="string">
+            <column name="FLIGHT_NO_SIX" length="6" />
+        </property>
+        <property name="flightNoFour" type="string">
+            <column name="FLIGHT_NO_FOUR" length="4" />
+        </property>
+        <property name="airlineCompany" type="string">
+            <column name="AIRLINE_COMPANY" length="2" />
+        </property>
+        <property name="weekbit" type="string">
+            <column name="WEEKBIT" length="7" />
+        </property>
+        <property name="fromTime" type="timestamp">
+            <column name="FROM_TIME" length="19" />
+        </property>
+        <property name="toTime" type="timestamp">
+            <column name="TO_TIME" length="19" />
+        </property>
+        <property name="stayNight" type="java.lang.Integer">
+            <column name="STAY_NIGHT" />
+        </property>
+        <property name="stopStation" type="java.lang.Integer">
+            <column name="STOP_STATION" />
+        </property>
+        <property name="airplaneModel" type="string">
+            <column name="AIRPLANE_MODEL" length="12" />
+        </property>
+        <property name="startDate" type="timestamp">
+            <column name="START_DATE" length="19" />
+        </property>
+        <property name="endDate" type="timestamp">
+            <column name="END_DATE" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

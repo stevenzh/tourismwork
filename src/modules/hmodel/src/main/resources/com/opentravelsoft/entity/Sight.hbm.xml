@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.Sight" table="tbl_sight" catalog="tourismwork_db">
+        <id name="sightNo" type="string">
+            <column name="SIGHT_NO" length="10" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="country" class="com.opentravelsoft.entity.Country" fetch="select">
+            <column name="COUNTRY" length="2" not-null="true" />
+        </many-to-one>
+        <many-to-one name="district" class="com.opentravelsoft.entity.District" fetch="select">
+            <column name="DISTRICT_NO" length="10" />
+        </many-to-one>
+        <property name="cnName" type="string">
+            <column name="CN_NAME" length="30" />
+        </property>
+        <property name="enName" type="string">
+            <column name="EN_NAME" length="60" />
+        </property>
+        <property name="cnNote" type="string">
+            <column name="CN_NOTE" length="1500" />
+        </property>
+        <property name="enNote" type="string">
+            <column name="EN_NOTE" length="1500" />
+        </property>
+        <property name="mapAddress1" type="string">
+            <column name="MAP_ADDRESS1" length="50" />
+        </property>
+        <property name="mapAddress2" type="string">
+            <column name="MAP_ADDRESS2" length="50" />
+        </property>
+        <property name="sightType" type="string">
+            <column name="SIGHT_TYPE" length="10" />
+        </property>
+        <property name="clickNumber" type="java.lang.Double">
+            <column name="CLICK_NUMBER" precision="22" scale="0" />
+        </property>
+        <property name="clickDate" type="timestamp">
+            <column name="CLICK_DATE" length="19" />
+        </property>
+        <property name="districtKey" type="java.lang.Character">
+            <column name="DISTRICT_KEY" length="1" />
+        </property>
+        <property name="duchy" type="string">
+            <column name="DUCHY" length="2" />
+        </property>
+        <property name="isDelete" type="byte">
+            <column name="IS_DELETE" not-null="true" />
+        </property>
+        <set name="tblLineSightses" table="tbl_line_sights" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SIGHT_NO" length="10" not-null="true" />
+            </key>
+            <one-to-many class="com.opentravelsoft.hmodel.TblLineSights" />
+        </set>
+    </class>
+</hibernate-mapping>

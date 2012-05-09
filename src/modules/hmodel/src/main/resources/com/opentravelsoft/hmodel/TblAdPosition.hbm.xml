@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.hmodel.TblAdPosition" table="tbl_ad_position" catalog="tourismwork_db">
+        <id name="positionId" type="java.lang.Short">
+            <column name="POSITION_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="storeId" type="short">
+            <column name="STORE_ID" not-null="true" />
+        </property>
+        <property name="positionName" type="string">
+            <column name="POSITION_NAME" length="60" not-null="true" />
+        </property>
+        <property name="positionDesc" type="string">
+            <column name="POSITION_DESC" not-null="true" />
+        </property>
+        <property name="width" type="short">
+            <column name="WIDTH" not-null="true" />
+        </property>
+        <property name="height" type="short">
+            <column name="HEIGHT" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

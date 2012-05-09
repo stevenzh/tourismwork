@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.ProductItem" table="tbl_product_item" catalog="tourismwork_db">
+        <id name="itemId" type="java.lang.Integer">
+            <column name="ITEM_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="catId" type="int">
+            <column name="CAT_ID" not-null="true" />
+        </property>
+        <property name="itemCode" type="string">
+            <column name="ITEM_CODE" length="50" not-null="true" />
+        </property>
+        <property name="itemName" type="string">
+            <column name="ITEM_NAME" length="50" not-null="true" />
+        </property>
+        <property name="sortOrder" type="int">
+            <column name="SORT_ORDER" not-null="true" />
+        </property>
+        <property name="isActive" type="byte">
+            <column name="IS_ACTIVE" not-null="true" />
+        </property>
+        <property name="showInPortal" type="byte">
+            <column name="SHOW_IN_PORTAL" not-null="true" />
+        </property>
+        <property name="isTmpl" type="byte">
+            <column name="IS_TMPL" not-null="true" />
+        </property>
+        <property name="isText" type="byte">
+            <column name="IS_TEXT" not-null="true" />
+        </property>
+        <property name="hasTitle" type="byte">
+            <column name="HAS_TITLE" not-null="true" />
+        </property>
+        <property name="systemList" type="byte">
+            <column name="SYSTEM_LIST" not-null="true" />
+        </property>
+        <property name="linkUrl" type="string">
+            <column name="LINK_URL" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

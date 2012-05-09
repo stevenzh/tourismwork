@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.Flight" table="tbl_flight" catalog="tourismwork_db">
+        <id name="recNo" type="string">
+            <column name="REC_NO" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="airCode" type="string">
+            <column name="AIR_CODE" length="2" not-null="true" />
+        </property>
+        <property name="fromCity" type="string">
+            <column name="FROM_CITY" length="6" />
+        </property>
+        <property name="fromAirport" type="string">
+            <column name="FROM_AIRPORT" length="3" />
+        </property>
+        <property name="toCity" type="string">
+            <column name="TO_CITY" length="6" />
+        </property>
+        <property name="toAirport" type="string">
+            <column name="TO_AIRPORT" length="3" />
+        </property>
+        <property name="flightNo" type="string">
+            <column name="FLIGHT_NO" length="6" not-null="true" />
+        </property>
+        <property name="weekbit" type="string">
+            <column name="WEEKBIT" length="20" />
+        </property>
+        <property name="fromTime" type="string">
+            <column name="FROM_TIME" length="12" />
+        </property>
+        <property name="toTime" type="string">
+            <column name="TO_TIME" length="12" />
+        </property>
+        <property name="nights" type="string">
+            <column name="NIGHTS" length="12" />
+        </property>
+        <property name="stopStation" type="java.lang.Integer">
+            <column name="STOP_STATION" />
+        </property>
+        <property name="airModel" type="string">
+            <column name="AIR_MODEL" length="12" />
+        </property>
+        <property name="airSeat" type="java.lang.Integer">
+            <column name="AIR_SEAT" />
+        </property>
+        <property name="startDate" type="timestamp">
+            <column name="START_DATE" length="19" />
+        </property>
+        <property name="endDate" type="timestamp">
+            <column name="END_DATE" length="19" />
+        </property>
+        <property name="isDelete" type="java.lang.Byte">
+            <column name="IS_DELETE" />
+        </property>
+    </class>
+</hibernate-mapping>

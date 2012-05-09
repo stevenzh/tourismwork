@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.ProductFile" table="tbl_product_file" catalog="tourismwork_db">
+        <id name="prodNo" type="string">
+            <column name="PROD_NO" length="12" />
+            <generator class="assigned" />
+        </id>
+        <property name="type" type="string">
+            <column name="TYPE_" length="5" />
+        </property>
+        <property name="path" type="string">
+            <column name="PATH_" length="200" />
+        </property>
+        <property name="desc" type="string">
+            <column name="DESC_" length="45" />
+        </property>
+        <property name="del" type="java.lang.Byte">
+            <column name="DEL" />
+        </property>
+    </class>
+</hibernate-mapping>

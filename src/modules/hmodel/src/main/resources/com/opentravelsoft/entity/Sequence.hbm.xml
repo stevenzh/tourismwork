@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.Sequence" table="tbl_sequence" catalog="tourismwork_db">
+        <composite-id name="id" class="com.opentravelsoft.entity.SequenceId">
+            <key-property name="rectype" type="string">
+                <column name="RECTYPE" length="1" />
+            </key-property>
+            <key-property name="year" type="string">
+                <column name="YEAR" length="4" />
+            </key-property>
+            <key-property name="month" type="string">
+                <column name="MONTH" length="2" />
+            </key-property>
+        </composite-id>
+        <property name="groupId" type="java.lang.Integer">
+            <column name="GROUP_ID" />
+        </property>
+        <property name="regPlcd" type="java.lang.Character">
+            <column name="REG_PLCD" length="1" />
+        </property>
+        <property name="cptno" type="java.lang.Integer">
+            <column name="CPTNO" />
+        </property>
+    </class>
+</hibernate-mapping>

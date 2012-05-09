@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.vacation.ExtendServices" table="tbl_extendservices" catalog="tourismwork_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="cityCd" type="string">
+            <column name="CityCD" length="10" not-null="true" />
+        </property>
+        <property name="cnSubject" type="string">
+            <column name="CnSubject" length="200" not-null="true">
+                <comment>?&#161;&#194;??</comment>
+            </column>
+        </property>
+        <property name="lowLimit" type="int">
+            <column name="LowLimit" not-null="true">
+                <comment>????</comment>
+            </column>
+        </property>
+        <property name="upperLimit" type="int">
+            <column name="UpperLimit" not-null="true">
+                <comment>????</comment>
+            </column>
+        </property>
+        <property name="type" type="int">
+            <column name="Type" not-null="true">
+                <comment>1: ?????? 2??&#161;&#192;??? 3?????? 4?????&#161;&#232; 5:??&#161;&#193;????&#161;&#167;?&#161;&#232;?? 6??PASS 7?????? 8???????????&#161;&#192; 9??????
+                10?????&#161;&#192; 11?????? 12?????&#168;&#185;????</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="Remark" length="65535" />
+        </property>
+        <property name="price" type="big_decimal">
+            <column name="Price" precision="9" not-null="true">
+                <comment>?&#168;&#178;????</comment>
+            </column>
+        </property>
+        <property name="cost" type="big_decimal">
+            <column name="Cost" precision="9" not-null="true">
+                <comment>??&#161;&#192;?</comment>
+            </column>
+        </property>
+        <property name="unit" type="string">
+            <column name="Unit" length="20">
+                <comment>????</comment>
+            </column>
+        </property>
+        <property name="startDate" type="timestamp">
+            <column name="StartDate" length="19" not-null="true" />
+        </property>
+        <property name="endDate" type="timestamp">
+            <column name="EndDate" length="19" not-null="true" />
+        </property>
+        <property name="isDeleted" type="boolean">
+            <column name="IsDeleted" not-null="true" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="CreatedBy" length="20" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="19" />
+        </property>
+        <property name="createdByIp" type="string">
+            <column name="CreatedByIp" length="20" />
+        </property>
+        <property name="modifiedBy" type="string">
+            <column name="ModifiedBy" length="20" />
+        </property>
+        <property name="modifiedDate" type="timestamp">
+            <column name="ModifiedDate" length="19" />
+        </property>
+        <property name="modifiedByIp" type="string">
+            <column name="ModifiedByIp" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

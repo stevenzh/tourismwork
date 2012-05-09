@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.vacation.FlightGroup" table="tbl_flightgroup" catalog="tourismwork_db">
+        <id name="flightGroupId" type="string">
+            <column name="FlightGroupID" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="flightPlanId" type="string">
+            <column name="FlightPlanID" length="36" not-null="true" />
+        </property>
+        <property name="flightId1" type="string">
+            <column name="FlightID1" length="10" />
+        </property>
+        <property name="flightNo1" type="string">
+            <column name="FlightNo1" length="20" />
+        </property>
+        <property name="flightId2" type="string">
+            <column name="FlightID2" length="10" />
+        </property>
+        <property name="flightNo2" type="string">
+            <column name="FlightNo2" length="20" />
+        </property>
+        <property name="flightId3" type="string">
+            <column name="FlightID3" length="10" />
+        </property>
+        <property name="flightNo3" type="string">
+            <column name="FlightNo3" length="20" />
+        </property>
+        <property name="flightId4" type="string">
+            <column name="FlightID4" length="10" />
+        </property>
+        <property name="flightNo4" type="string">
+            <column name="FlightNo4" length="20" />
+        </property>
+        <property name="flightId5" type="string">
+            <column name="FlightID5" length="10" />
+        </property>
+        <property name="flightNo5" type="string">
+            <column name="FlightNo5" length="20" />
+        </property>
+        <property name="flightId6" type="string">
+            <column name="FlightID6" length="10" />
+        </property>
+        <property name="flightNo6" type="string">
+            <column name="FlightNo6" length="20" />
+        </property>
+        <property name="isDeleted" type="boolean">
+            <column name="IsDeleted" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

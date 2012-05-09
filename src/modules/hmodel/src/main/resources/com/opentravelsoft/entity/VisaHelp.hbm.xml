@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.VisaHelp" table="tbl_visa" catalog="tourismwork_db">
+        <id name="recNo" type="string">
+            <column name="REC_NO" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="country" type="string">
+            <column name="COUNTRY" length="2" />
+        </property>
+        <property name="subject" type="string">
+            <column name="SUBJECT" length="200" />
+        </property>
+        <property name="price1" type="big_decimal">
+            <column name="PRICE1" precision="9" />
+        </property>
+        <property name="price2" type="big_decimal">
+            <column name="PRICE2" precision="9" />
+        </property>
+        <property name="cost" type="big_decimal">
+            <column name="COST" precision="9" />
+        </property>
+        <property name="unit" type="string">
+            <column name="UNIT" length="16" />
+        </property>
+        <property name="SDate" type="timestamp">
+            <column name="S_DATE" length="19" />
+        </property>
+        <property name="EDate" type="timestamp">
+            <column name="E_DATE" length="19" />
+        </property>
+        <property name="note" type="string">
+            <column name="NOTE" length="3000" />
+        </property>
+        <property name="canQuick" type="java.lang.Integer">
+            <column name="CAN_QUICK" />
+        </property>
+        <property name="visaKind" type="java.lang.Character">
+            <column name="VISA_KIND" length="1" />
+        </property>
+        <property name="stayDays" type="string">
+            <column name="STAY_DAYS" length="20" />
+        </property>
+        <property name="transactDays" type="string">
+            <column name="TRANSACT_DAYS" length="20" />
+        </property>
+        <property name="isOpen" type="java.lang.Integer">
+            <column name="IS_OPEN" />
+        </property>
+        <property name="opKey" type="java.lang.Character">
+            <column name="OP_KEY" length="1" />
+        </property>
+        <property name="opUser" type="java.lang.Integer">
+            <column name="OP_USER" />
+        </property>
+        <property name="opDate" type="timestamp">
+            <column name="OP_DATE" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

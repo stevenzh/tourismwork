@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.opentravelsoft.entity.TourOutBound" table="tbl_tour_outbound" catalog="tourismwork_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="planNo" type="string">
+            <column name="PLAN_NO" length="20" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="TYPE" length="50" not-null="true" />
+        </property>
+        <property name="text1" type="string">
+            <column name="TEXT1" length="100" />
+        </property>
+        <property name="text2" type="string">
+            <column name="TEXT2" length="500" />
+        </property>
+        <property name="text3" type="string">
+            <column name="TEXT3" />
+        </property>
+        <property name="text4" type="string">
+            <column name="TEXT4" length="400" />
+        </property>
+        <property name="text5" type="string">
+            <column name="TEXT5" length="400" />
+        </property>
+        <property name="opuser" type="java.lang.Integer">
+            <column name="OPUSER" />
+        </property>
+        <property name="opdate" type="timestamp">
+            <column name="OPDATE" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
