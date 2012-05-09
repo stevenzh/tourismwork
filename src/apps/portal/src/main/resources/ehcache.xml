@@ -63,28 +63,21 @@
 
   <!-- OpenReports specific caches -->
 
-  <cache name="com.opentravelsoft.entity.SysConfig"
-    maxElementsInMemory="100" eternal="true" overflowToDisk="false" />
-  <cache name="com.opentravelsoft.entity.Airport"
-    maxElementsInMemory="100" eternal="true" overflowToDisk="false" />
+  <cache name="com.opentravelsoft.entity.SysConfig" maxElementsInMemory="100" eternal="true" overflowToDisk="false" />
+  <cache name="com.opentravelsoft.entity.Flight" maxElementsInMemory="100" eternal="true" overflowToDisk="false" />
+  <cache name="com.opentravelsoft.entity.Airport" maxElementsInMemory="100" eternal="true" overflowToDisk="false" />
+  <cache name="com.opentravelsoft.entity.Airways" maxElementsInMemory="100" eternal="true" overflowToDisk="false" />
 
-  <cache name="com.opentravelsoft.entity.Line"
-   maxElementsInMemory="300" eternal="false" overflowToDisk="false" />
-  <cache name="com.opentravelsoft.entity.LinePrice"
-   maxElementsInMemory="500" eternal="false" overflowToDisk="false" />
+  <cache name="com.opentravelsoft.entity.Line" maxElementsInMemory="300" eternal="false" overflowToDisk="false" />
+  <cache name="com.opentravelsoft.entity.LinePrice" maxElementsInMemory="500" eternal="false" overflowToDisk="false" />
 
-  <cache name="com.opentravelsoft.entity.Plan"
-   maxElementsInMemory="500" eternal="false" overflowToDisk="false" />
-  <cache name="com.opentravelsoft.entity.Booking"
-   maxElementsInMemory="500" eternal="false" overflowToDisk="false" />
+  <cache name="com.opentravelsoft.entity.Plan" maxElementsInMemory="500" eternal="false" overflowToDisk="false" />
+  <cache name="com.opentravelsoft.entity.Booking" maxElementsInMemory="500" eternal="false" overflowToDisk="false" />
 
-  <cache name="com.opentravelsoft.entity.Group"
-   maxElementsInMemory="100" eternal="false" overflowToDisk="false" />
-  <cache name="com.opentravelsoft.entity.Employee"
-   maxElementsInMemory="300" eternal="false" overflowToDisk="false" />
+  <cache name="com.opentravelsoft.entity.Group" maxElementsInMemory="100" eternal="false" overflowToDisk="false" />
+  <cache name="com.opentravelsoft.entity.Employee" maxElementsInMemory="300" eternal="false" overflowToDisk="false" />
 
-  <cache name="com.opentravelsoft.entity.Line.sights"
-   maxElementsInMemory="100" eternal="false" overflowToDisk="false" />
+  <cache name="com.opentravelsoft.entity.Line.sights" maxElementsInMemory="100" eternal="false" overflowToDisk="false" />
 
   <cache name="org.hibernate.cache.StandardQueryCache"
     maxElementsInMemory="5" eternal="false" timeToLiveSeconds="120"

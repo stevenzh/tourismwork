@@ -12,3 +12,5 @@
 /src/apps/flexserver/target
 /src/modules/model/target
 /src/modules/mybatis/target
+/src/apps/admin/target
+/src/apps/admin/src/main/webapp/WEB-INF/classes

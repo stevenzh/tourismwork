@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
  <session-factory>
   <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
@@ -67,10 +67,10 @@
   <mapping resource="com/opentravelsoft/entity/Employee.hbm.xml"/>
   <mapping resource="com/opentravelsoft/entity/Guide.hbm.xml"/>
   <mapping resource="com/opentravelsoft/entity/Team.hbm.xml"/>
-  <mapping resource="com/opentravelsoft/model/Role.hbm.xml"/>
-  <mapping resource="com/opentravelsoft/model/Permission.hbm.xml"/>
-  <mapping resource="com/opentravelsoft/model/Module.hbm.xml"/>
-  <mapping resource="com/opentravelsoft/model/ModulePermission.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Role.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Permission.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/Module.hbm.xml"/>
+  <mapping resource="com/opentravelsoft/entity/ModulePermission.hbm.xml"/>
   <mapping resource="com/opentravelsoft/entity/TblExpenseTmpl.hbm.xml"/>
   <mapping resource="com/opentravelsoft/entity/TblVisaItem.hbm.xml"/>
   <mapping resource="com/opentravelsoft/entity/TblVisaAttached.hbm.xml"/>
