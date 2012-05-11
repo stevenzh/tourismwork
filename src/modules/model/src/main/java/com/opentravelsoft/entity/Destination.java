@@ -1,53 +1,45 @@
 package com.opentravelsoft.entity;
 
+import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-/**
- * 目的地
- * 
- * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:32 $
- */
-public class Destination extends BaseObject implements Comparable<Destination> {
-  private static final long serialVersionUID = -6861307843240952269L;
-
+@Entity
+@Table(name = "tbl_destination")
+public class Destination implements java.io.Serializable {
   /** 目的地ID */
-  private long destId;
-
+  private Integer destId;
+  private Destination parent;
   /** 目的地编号 */
   private String code;
-
   /** 中文名称 */
   private String cnName;
-
-  /** 区域 1：国外 2：国内 */
-  private String classType;
-
-  private String imagePath;
-
   /** 中文全称 */
   private String fullName;
-
+  /** 级别 */
+  private Character level;
+  private Character nextKey;
   /** 关键字 内部搜索 */
   private String keywords;
-
   /** 描述 */
   private String destDesc;
-
   /** 网页 META */
   private String metaKeywords;
-
   /** 网页 META */
   private String metaDesc;
-
-  /** 级别 */
-  private String level;
-
-  private Destination parent = null;
-
-  private Set<Destination> children = new TreeSet<Destination>();
+  /** 区域 1：国外 2：国内 */
+  private Character classType;
+  private Set<Destination> children = new HashSet<Destination>(0);
 
   public Destination() {
     code = "";
@@ -56,7 +48,7 @@ public class Destination extends BaseObject implements Comparable<Destination> {
     imagePath = "";
   }
 
-  public Destination(long destId) {
+  public Destination(Integer destId) {
     this();
     this.destId = destId;
   }
@@ -66,54 +58,23 @@ public class Destination extends BaseObject implements Comparable<Destination> {
     this.cnName = name;
   }
 
-  public long getDestId() {
-    return destId;
+  public Destination(String code) {
+    this.code = code;
   }
 
-  public void setDestId(long destId) {
+  @Id
+  @GeneratedValue(strategy = IDENTITY)
+  @Column(name = "DEST_ID", unique = true, nullable = false)
+  public Integer getDestId() {
+    return this.destId;
+  }
+
+  public void setDestId(Integer destId) {
     this.destId = destId;
   }
 
-  public String getLevel() {
-    return this.level;
-  }
-
-  public void setLevel(String level) {
-    this.level = level;
-  }
-
-  public String getKeywords() {
-    return keywords;
-  }
-
-  public void setKeywords(String keywords) {
-    this.keywords = keywords;
-  }
-
-  public String getDestDesc() {
-    return destDesc;
-  }
-
-  public void setDestDesc(String destDesc) {
-    this.destDesc = destDesc;
-  }
-
-  public String getMetaKeywords() {
-    return metaKeywords;
-  }
-
-  public void setMetaKeywords(String metaKeywords) {
-    this.metaKeywords = metaKeywords;
-  }
-
-  public String getMetaDesc() {
-    return metaDesc;
-  }
-
-  public void setMetaDesc(String metaDesc) {
-    this.metaDesc = metaDesc;
-  }
-
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "PARENT_ID")
   public Destination getParent() {
     return parent;
   }
@@ -122,6 +83,97 @@ public class Destination extends BaseObject implements Comparable<Destination> {
     this.parent = parent;
   }
 
+  @Column(name = "CODE", nullable = false, length = 6)
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  @Column(name = "CN_NAME", length = 30)
+  public String getCnName() {
+    return this.cnName;
+  }
+
+  public void setCnName(String cnName) {
+    this.cnName = cnName;
+  }
+
+  @Column(name = "FULL_NAME", length = 120)
+  public String getFullName() {
+    return this.fullName;
+  }
+
+  public void setFullName(String fullName) {
+    this.fullName = fullName;
+  }
+
+  @Column(name = "LEVEL", length = 1)
+  public Character getLevel() {
+    return this.level;
+  }
+
+  public void setLevel(Character level) {
+    this.level = level;
+  }
+
+  @Column(name = "NEXT_KEY", length = 1)
+  public Character getNextKey() {
+    return this.nextKey;
+  }
+
+  public void setNextKey(Character nextKey) {
+    this.nextKey = nextKey;
+  }
+
+  @Column(name = "KEYWORDS", length = 50)
+  public String getKeywords() {
+    return this.keywords;
+  }
+
+  public void setKeywords(String keywords) {
+    this.keywords = keywords;
+  }
+
+  @Column(name = "DEST_DESC", length = 50)
+  public String getDestDesc() {
+    return this.destDesc;
+  }
+
+  public void setDestDesc(String destDesc) {
+    this.destDesc = destDesc;
+  }
+
+  @Column(name = "META_KEYWORDS", length = 50)
+  public String getMetaKeywords() {
+    return this.metaKeywords;
+  }
+
+  public void setMetaKeywords(String metaKeywords) {
+    this.metaKeywords = metaKeywords;
+  }
+
+  @Column(name = "META_DESC", length = 50)
+  public String getMetaDesc() {
+    return this.metaDesc;
+  }
+
+  public void setMetaDesc(String metaDesc) {
+    this.metaDesc = metaDesc;
+  }
+
+  @Column(name = "CLASS_TYPE", length = 1)
+  public Character getClassType() {
+    return this.classType;
+  }
+
+  public void setClassType(Character classType) {
+    this.classType = classType;
+  }
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "destination")
   public Set<Destination> getChildren() {
     return children;
   }
@@ -130,70 +182,11 @@ public class Destination extends BaseObject implements Comparable<Destination> {
     this.children = children;
   }
 
+  private String imagePath;
+
   public void addChildren(Destination child) {
     children.add(child);
     child.setParent(this);
   }
 
-  public String getClassType() {
-    return classType;
-  }
-
-  public void setClassType(String classType) {
-    this.classType = classType;
-  }
-
-  public String getCode() {
-    return code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public String getFullName() {
-    return fullName;
-  }
-
-  public void setFullName(String fullName) {
-    this.fullName = fullName;
-  }
-
-  public String getCnName() {
-    return cnName;
-  }
-
-  public void setCnName(String name) {
-    this.cnName = name;
-  }
-
-  public String getImagePath() {
-    return imagePath;
-  }
-
-  public void setImagePath(String imagePath) {
-    this.imagePath = imagePath;
-  }
-
-  public int compareTo(Destination o) {
-    if (this.destId == o.getDestId())
-      return 0;
-    else
-      return 1;
-  }
-
-  @Override
-  public String toString() {
-    return null;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    return false;
-  }
-
-  @Override
-  public int hashCode() {
-    return 0;
-  }
 }

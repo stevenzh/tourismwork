@@ -4,21 +4,21 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.Airport" table="TBL_AIRPORT">
-    <cache usage="nonstrict-read-write"/>
+    <cache usage="nonstrict-read-write" />
     <id name="code" type="string">
       <column name="CODE" length="3" />
       <generator class="assigned" />
     </id>
+    <many-to-one name="city" class="com.opentravelsoft.entity.City" fetch="select">
+      <column name="CITY_ID" length="4" />
+    </many-to-one>
     <property name="name" type="string">
-      <column name="NAME" length="20" not-null="true" />
+      <column name="NAME" length="20" />
     </property>
     <property name="enName" type="string">
       <column name="EN_NAME" length="50" />
     </property>
-    <many-to-one name="city" class="com.opentravelsoft.entity.City" fetch="select">
-      <column name="CITY_ID" />
-    </many-to-one>
-    <property name="isActive" type="boolean">
+    <property name="isActive" type="java.lang.Byte">
       <column name="IS_ACTIVE" />
     </property>
   </class>

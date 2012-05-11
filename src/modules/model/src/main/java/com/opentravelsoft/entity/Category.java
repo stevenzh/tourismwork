@@ -2,54 +2,81 @@ package com.opentravelsoft.entity;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
+@Entity
+@Table(name = "tbl_category", catalog = "tourismwork_db")
+public class Category implements java.io.Serializable {
 
-
-/**
- * 产品分类
- * 
- * @author zhangst
- * 
- */
-public class Category extends BaseObject {
-
-  private static final long serialVersionUID = 2476134054380727845L;
-
-  private long catId;
-
+  private Integer catId;
   private Category parent;
-
   private String code;
-
   private String name;
-
   private String keywords;
-
   private String description;
-
   private String metaKeywords;
-
   private String metaDesc;
-
   private Set<Category> children = new HashSet<Category>(0);
 
   public Category() {
   }
 
-  public Category(String catName) {
-    this.name = catName;
+  public Category(String name) {
+    this.name = name;
   }
 
-  public long getCatId() {
+  public Category(Category category, String code, String name, String keywords,
+      String description, String metaKeywords, String metaDesc,
+      Set<Category> categories) {
+    this.parent = category;
+    this.code = code;
+    this.name = name;
+    this.keywords = keywords;
+    this.description = description;
+    this.metaKeywords = metaKeywords;
+    this.metaDesc = metaDesc;
+    this.children = categories;
+  }
+
+  @Id
+  @GeneratedValue(strategy = IDENTITY)
+  @Column(name = "CAT_ID", unique = true, nullable = false)
+  public Integer getCatId() {
     return this.catId;
   }
 
-  public void setCatId(long catId) {
+  public void setCatId(Integer catId) {
     this.catId = catId;
   }
 
+  @Column(name = "CODE", length = 20)
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  @Column(name = "NAME", nullable = false, length = 50)
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  @Column(name = "KEYWORDS", length = 100)
   public String getKeywords() {
     return this.keywords;
   }
@@ -58,6 +85,16 @@ public class Category extends BaseObject {
     this.keywords = keywords;
   }
 
+  @Column(name = "DESCRIPTION", length = 100)
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  @Column(name = "META_KEYWORDS", length = 50)
   public String getMetaKeywords() {
     return this.metaKeywords;
   }
@@ -66,6 +103,7 @@ public class Category extends BaseObject {
     this.metaKeywords = metaKeywords;
   }
 
+  @Column(name = "META_DESC", length = 50)
   public String getMetaDesc() {
     return this.metaDesc;
   }
@@ -74,6 +112,8 @@ public class Category extends BaseObject {
     this.metaDesc = metaDesc;
   }
 
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "PARENT_ID")
   public Category getParent() {
     return parent;
   }
@@ -82,65 +122,13 @@ public class Category extends BaseObject {
     this.parent = parent;
   }
 
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
   public Set<Category> getChildren() {
     return children;
   }
 
   public void setChildren(Set<Category> children) {
     this.children = children;
-  }
-
-  public String getCode() {
-    return code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof Category)) {
-      return false;
-    }
-
-    final Category category = (Category) o;
-    return this.hashCode() == category.hashCode();
-  }
-
-  @Override
-  public int hashCode() {
-    int result;
-    result = (name != null ? name.hashCode() : 0);
-    result = result * 29 + (int) catId;
-    result = result * 29 + (description != null ? description.hashCode() : 0);
-    return result;
-  }
-
-  @Override
-  public String toString() {
-    return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-        .append("Id", this.catId).append("code", this.code)
-        .append("name", this.name).toString();
   }
 
 }

@@ -4,24 +4,25 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.Employee" table="TBL_EMPLOYEE">
-    <cache usage="read-write"/>
-    <id name="userId" type="long">
+    <cache usage="read-write" />
+    <id name="userId" type="java.lang.Integer">
       <column name="USER_ID" />
-      <generator class="native" />
+      <generator class="identity" />
     </id>
+    <many-to-one name="group" class="com.opentravelsoft.entity.Group"
+      fetch="select">
+      <column name="GROUP_ID" not-null="true" />
+    </many-to-one>
     <property name="userCd" type="string">
-      <column name="USER_CD" length="20" not-null="true" unique="true" />
+      <column name="USER_CD" length="20" not-null="true" />
     </property>
     <property name="passwd" type="string">
-      <column name="PASSWD" length="32" />
+      <column name="PASSWD" length="32" not-null="true" />
     </property>
-    <many-to-one name="group" class="com.opentravelsoft.entity.Group" lazy="false" fetch="select">
-      <column name="GROUP_ID"></column>
-    </many-to-one>
     <property name="ctiNo" type="string">
       <column name="CTI_NO" length="5" />
     </property>
-    <property name="userName" type="string">
+    <property name="userNm" type="string">
       <column name="USER_NM" length="20" />
     </property>
     <property name="givenName" type="string">
@@ -30,10 +31,10 @@
     <property name="familyName" type="string">
       <column name="FAMILY_NAME" length="20" />
     </property>
-    <property name="isAdmin" type="boolean">
+    <property name="isAdmin" type="java.lang.Boolean">
       <column name="IS_ADMIN" />
     </property>
-    <property name="phone" type="string">
+    <property name="tel" type="string">
       <column name="TEL" length="30" />
     </property>
     <property name="fax" type="string">
@@ -42,7 +43,7 @@
     <property name="mobile" type="string">
       <column name="MOBILE" length="20" />
     </property>
-    <property name="sex" type="string">
+    <property name="sex" type="java.lang.Character">
       <column name="SEX" length="1" />
     </property>
     <property name="cardId" type="string">
@@ -57,13 +58,13 @@
     <property name="webKey" type="string">
       <column name="WEB_KEY" length="10" />
     </property>
-    <property name="workKey" type="string">
-      <column name="WORK_KEY" length="1" />
-    </property>
     <property name="workFlg" type="string">
       <column name="WORK_FLG" length="2" />
     </property>
-    <property name="isActive" type="boolean">
+    <property name="workKey" type="java.lang.Character">
+      <column name="WORK_KEY" length="1" />
+    </property>
+    <property name="isActive" type="java.lang.Boolean">
       <column name="IS_ACTIVE" />
     </property>
     <property name="msn" type="string">
@@ -75,20 +76,29 @@
     <property name="opIp" type="string">
       <column name="OP_IP" length="8" />
     </property>
-    <set name="memberships" table="TBL_MEMBERSHIP" inverse="false" lazy="false">
+    <set name="plans" table="tbl_plan" inverse="true" lazy="true"
+      fetch="select">
       <key>
-        <column name="USER_ID" not-null="true" />
+        <column name="CR_USER" />
       </key>
-      <many-to-many class="com.opentravelsoft.entity.Role">
-        <column name="ROLE_ID" not-null="true"></column>
-      </many-to-many>
+      <one-to-many class="com.opentravelsoft.entity.Plan" />
     </set>
-    <set name="teamMemberships" table="TBL_TEAM_MEMBERSHIPS" inverse="false" lazy="false">
+    <set name="teamMemberships" table="TBL_TEAM_MEMBERSHIPS" inverse="false"
+      lazy="false">
       <key>
         <column name="USER_ID" not-null="true" />
       </key>
       <many-to-many class="com.opentravelsoft.entity.Team">
         <column name="TEAM_ID" not-null="true"></column>
+      </many-to-many>
+    </set>
+    <set name="memberships" table="tbl_membership" inverse="false"
+      lazy="true" fetch="select">
+      <key>
+        <column name="USER_ID" not-null="true" />
+      </key>
+      <many-to-many entity-name="com.opentravelsoft.entity.Role">
+        <column name="ROLE_ID" not-null="true" />
       </many-to-many>
     </set>
   </class>

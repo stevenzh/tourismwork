@@ -8,11 +8,15 @@
       <column name="DISTRICT_NO" length="10" />
       <generator class="assigned" />
     </id>
+    <many-to-one name="country" class="com.opentravelsoft.entity.Country"
+      fetch="select">
+      <column name="COUNTRY" length="2" not-null="true" />
+    </many-to-one>
     <property name="cnName" type="string">
-      <column name="CN_NAME" length="30" />
+      <column name="CN_NAME" length="30" not-null="true" />
     </property>
     <property name="cnNote" type="string">
-      <column name="CN_NOTE" length="1500" />
+      <column name="CN_NOTE" length="2000" />
     </property>
     <property name="mapAddress1" type="string">
       <column name="MAP_ADDRESS1" length="50" />
@@ -20,13 +24,16 @@
     <property name="mapAddress2" type="string">
       <column name="MAP_ADDRESS2" length="50" />
     </property>
-    <many-to-one name="country" class="com.opentravelsoft.entity.Country" lazy="false" fetch="select">
-      <column name="COUNTRY" unique="true"></column>
-    </many-to-one>
-
-    <many-to-one name="province" class="com.opentravelsoft.entity.Province" lazy="false" fetch="join" not-found="ignore">
+    <many-to-one name="province" class="com.opentravelsoft.entity.Province"
+      lazy="false" fetch="join" not-found="ignore">
       <column name="DUCHY" unique="true"></column>
     </many-to-one>
-
+    <set name="sights" table="tbl_sight" inverse="true" lazy="true"
+      fetch="select">
+      <key>
+        <column name="DISTRICT_NO" length="10" />
+      </key>
+      <one-to-many class="com.opentravelsoft.entity.Sight" />
+    </set>
   </class>
 </hibernate-mapping>

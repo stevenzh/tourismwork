@@ -2,7 +2,6 @@ package com.opentravelsoft.entity;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,38 +9,34 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
-/**
- * 国家
- * 
- * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:32 $
- */
 @Entity
-@Table(name = "tbl_country")
-public class Country extends BaseObject {
+@Table(name = "tbl_country", catalog = "tourismwork_db")
+public class Country implements java.io.Serializable {
 
-  private static final long serialVersionUID = 7448412839346927911L;
-
-  /** 国家两字码 */
   private String countryId;
   private String name;
-  private boolean enabled;
-  // private Set<District> tblDistricts = new HashSet<District>(0);
-  // private Set<Sight> tblSights = new HashSet<Sight>(0);
-  private Set<City> tblCities = new HashSet<City>(0);
+  private byte enabled;
+  private Set<District> districts = new HashSet<District>(0);
+  private Set<Sight> sights = new HashSet<Sight>(0);
+  private Set<City> cities = new HashSet<City>(0);
 
   public Country() {
   }
 
-  public Country(String countryId) {
-    this.countryId = countryId;
-  }
-
-  public Country(String countryId, String name, boolean enabled) {
+  public Country(String countryId, String name, byte enabled) {
     this.countryId = countryId;
     this.name = name;
     this.enabled = enabled;
+  }
+
+  public Country(String countryId, String name, byte enabled,
+      Set<District> districts, Set<Sight> sights, Set<City> cities) {
+    this.countryId = countryId;
+    this.name = name;
+    this.enabled = enabled;
+    this.districts = districts;
+    this.sights = sights;
+    this.cities = cities;
   }
 
   @Id
@@ -64,57 +59,39 @@ public class Country extends BaseObject {
   }
 
   @Column(name = "ENABLED", nullable = false)
-  public boolean getEnabled() {
+  public byte getEnabled() {
     return this.enabled;
   }
 
-  public void setEnabled(boolean enabled) {
+  public void setEnabled(byte enabled) {
     this.enabled = enabled;
   }
 
-  // @OneToMany(fetch = FetchType.LAZY, mappedBy = "country")
-  // public Set<District> getDistricts() {
-  // return this.tblDistricts;
-  // }
-  //
-  // public void setDistricts(Set<District> tblDistricts) {
-  // this.tblDistricts = tblDistricts;
-  // }
-  //
-  // @OneToMany(fetch = FetchType.LAZY, mappedBy = "country")
-  // public Set<Sight> getSights() {
-  // return this.tblSights;
-  // }
-  //
-  // public void setSights(Set<Sight> tblSights) {
-  // this.tblSights = tblSights;
-  // }
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "country")
+  public Set<District> getDistricts() {
+    return this.districts;
+  }
+
+  public void setDistricts(Set<District> districts) {
+    this.districts = districts;
+  }
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "country")
+  public Set<Sight> getSights() {
+    return this.sights;
+  }
+
+  public void setSights(Set<Sight> sights) {
+    this.sights = sights;
+  }
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "country")
   public Set<City> getCities() {
-    return this.tblCities;
+    return this.cities;
   }
 
-  public void setCities(Set<City> tblCities) {
-    this.tblCities = tblCities;
-  }
-
-  @Override
-  public String toString() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    // TODO Auto-generated method stub
-    return false;
-  }
-
-  @Override
-  public int hashCode() {
-    // TODO Auto-generated method stub
-    return 0;
+  public void setCities(Set<City> cities) {
+    this.cities = cities;
   }
 
 }

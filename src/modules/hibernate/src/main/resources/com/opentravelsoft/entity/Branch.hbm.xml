@@ -4,7 +4,7 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.Branch" table="TBL_BRANCH">
-    <id name="branchId" type="long">
+    <id name="branchId" type="int">
       <column name="BRANCH_ID" />
       <generator class="assigned" />
     </id>
@@ -47,16 +47,22 @@
     <property name="opKey" type="java.lang.Character">
       <column name="OP_KEY" length="1" />
     </property>
+    <property name="opUser" type="java.lang.Integer">
+      <column name="OP_USER" />
+    </property>
+    <property name="opDate" type="timestamp">
+      <column name="OP_DATE" length="19" not-null="true" />
+    </property>
     <property name="webKey" type="string">
       <column name="WEB_KEY" length="10" />
     </property>
-    <property name="arrearage" type="java.lang.Double">
+    <property name="arrearage" type="big_decimal">
       <column name="ARREARAGE" precision="10" />
     </property>
     <property name="warnKey" type="java.lang.Character">
       <column name="WARN_KEY" length="1" />
     </property>
-    <property name="payment" type="java.lang.Double">
+    <property name="payment" type="big_decimal">
       <column name="PAYMENT" precision="10" />
     </property>
     <property name="reckoning" type="java.lang.Character">
@@ -89,14 +95,8 @@
     <property name="createUser" type="java.lang.Integer">
       <column name="CREATE_USER" />
     </property>
-    <property name="createDate" type="date">
-      <column name="CREATE_DATE" />
-    </property>
-    <property name="opUser" type="java.lang.Long">
-      <column name="OP_USER" />
-    </property>
-    <property name="opDate" type="date">
-      <column name="OP_DATE"></column>
+    <property name="createDate" type="timestamp">
+      <column name="CREATE_DATE" length="19" />
     </property>
     <property name="checkKey" type="java.lang.Character">
       <column name="CHECK_KEY" length="1" />

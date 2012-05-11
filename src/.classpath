@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" output="apps/admin/target/classes" path="apps/admin/src/main/java"/>
+	<classpathentry kind="src" path="modules/hmodel/src/main/resources"/>
+	<classpathentry kind="src" path="modules/hmodel/src/main/java"/>
 	<classpathentry kind="src" path="modules/model/src/main/java"/>
 	<classpathentry kind="src" output="apps/admin/target/classes" path="apps/admin/src/main/resources"/>
 	<classpathentry kind="src" output="apps/report/target/classes" path="apps/report/src/main/java"/>

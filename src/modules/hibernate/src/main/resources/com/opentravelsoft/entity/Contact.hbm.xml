@@ -4,11 +4,11 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.Contact" table="TBL_CONTACT">
-    <id name="contactId" type="long">
+    <id name="contactId" type="java.lang.Integer">
       <column name="CONTACT_ID" />
       <generator class="native" />
     </id>
-    <property name="customerId" type="long">
+    <property name="customerId" type="int">
       <column name="CUSTOMER_ID" not-null="true" />
     </property>
     <property name="name" type="string">
@@ -35,26 +35,27 @@
     <property name="skype" type="string">
       <column name="SKYPE" length="60" />
     </property>
-    <property name="del" type="string">
-      <column name="DEL" length="1" />
-    </property>
     <property name="qq" type="string">
       <column name="QQ" length="30" />
     </property>
-    <property name="salesId" type="java.lang.Long">
+    <property name="del" type="java.lang.Character">
+      <column name="DEL" length="1" />
+    </property>
+    <property name="salesId" type="java.lang.Integer">
       <column name="SALES_ID" />
     </property>
-    <property name="created" type="date">
-      <column name="CREATED" />
+    <property name="created" type="timestamp">
+      <column name="CREATED" length="19" />
     </property>
-    <property name="createdBy" type="java.lang.Long">
+    <property name="createdby" type="java.lang.Integer">
       <column name="CREATEDBY" />
     </property>
-    <property name="updated" type="date">
-      <column name="UPDATED"></column>
+    <property name="updated" type="timestamp">
+      <column name="UPDATED" length="19" not-null="true" />
     </property>
-    <property name="updatedBy" type="java.lang.Long">
+    <property name="updatedby" type="java.lang.Integer">
       <column name="UPDATEDBY" />
     </property>
+
   </class>
 </hibernate-mapping>

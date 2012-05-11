@@ -19,5 +19,7 @@
         <wb-resource deploy-path="/" source-path="/apps/admin/src/main/java"/>
         <wb-resource deploy-path="/" source-path="/apps/admin/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/modules/model/src/main/java"/>
+        <wb-resource deploy-path="/" source-path="/modules/hmodel/src/main/resources"/>
+        <wb-resource deploy-path="/" source-path="/modules/hmodel/src/main/java"/>
     </wb-module>
 </project-modules>

@@ -31,8 +31,6 @@
     <spring-security.version>3.0.6.RELEASE</spring-security.version>
     <quartz.version>1.6.1</quartz.version>
     <velocity.version>1.6.4</velocity.version>
-    <lucene.version>2.4.0</lucene.version>
-    <IKAnalyzer.version>1.4</IKAnalyzer.version>
     <jmock.version>2.5.1</jmock.version>
   </properties>
   <dependencies>
@@ -108,31 +106,6 @@
           <artifactId>spring-support</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.lucene</groupId>
-      <artifactId>lucene-core</artifactId>
-      <version>${lucene.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.lucene</groupId>
-      <artifactId>lucene-analyzers</artifactId>
-      <version>${lucene.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.lucene</groupId>
-      <artifactId>lucene-highlighter</artifactId>
-      <version>${lucene.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mira.lucene.analysis</groupId>
-      <artifactId>IKAnalyzer</artifactId>
-      <version>${IKAnalyzer.version}</version>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>

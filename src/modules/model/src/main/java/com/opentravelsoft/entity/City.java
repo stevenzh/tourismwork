@@ -1,55 +1,57 @@
 package com.opentravelsoft.entity;
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
-/**
- * 城市
- * 
- * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:33 $
- */
 @Entity
-@Table(name = "tbl_city")
-public class City extends BaseObject {
+@Table(name = "tbl_city", catalog = "tourismwork_db")
+public class City implements java.io.Serializable {
 
-  private static final long serialVersionUID = -8804934097042527415L;
-
-  /** 城市编码 */
   private String citycd;
   private Country country;
-
-  /** 城市名称 */
   private String citynm;
   private String cityen;
-  // private String province;
-  private Province province;
-  /** 入境城市 */
+  private String province;
   private Character inOut;
-  /** 出境城市 */
-
   private Character ioCity;
   private char webKey;
-
-  private short isDelete;
-
-  // private Set<Line> tblLines = new HashSet<Line>(0);
-  // private Set<Plan> tblPlans = new HashSet<Plan>(0);
-  // private Set<Airport> tblAirports = new HashSet<Airport>(0);
+  private Byte isDelete;
+  private Set<Line> lines = new HashSet<Line>(0);
+  private Set<Plan> plans = new HashSet<Plan>(0);
+  private Set<Airport> airports = new HashSet<Airport>(0);
 
   public City() {
-    citycd = "";
-    citynm = "";
-    country = new Country();
-    isDelete = 0;
-    // province = new Province();
+  }
 
+  public City(String citycd, String citynm, char webKey) {
+    this.citycd = citycd;
+    this.citynm = citynm;
+    this.webKey = webKey;
+  }
+
+  public City(String citycd, Country country, String citynm, String cityen,
+      String province, Character inOut, Character ioCity, char webKey,
+      Byte isDelete, Set<Line> lines, Set<Plan> plans, Set<Airport> airports) {
+    this.citycd = citycd;
+    this.country = country;
+    this.citynm = citynm;
+    this.cityen = cityen;
+    this.province = province;
+    this.inOut = inOut;
+    this.ioCity = ioCity;
+    this.webKey = webKey;
+    this.isDelete = isDelete;
+    this.lines = lines;
+    this.plans = plans;
+    this.airports = airports;
   }
 
   @Id
@@ -68,8 +70,8 @@ public class City extends BaseObject {
     return this.country;
   }
 
-  public void setCountry(Country tblCountry) {
-    this.country = tblCountry;
+  public void setCountry(Country country) {
+    this.country = country;
   }
 
   @Column(name = "CITYNM", nullable = false, length = 20)
@@ -90,13 +92,12 @@ public class City extends BaseObject {
     this.cityen = cityen;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
-  @JoinColumn(name = "PROVINCE")
-  public Province getProvince() {
+  @Column(name = "PROVINCE", length = 2)
+  public String getProvince() {
     return this.province;
   }
 
-  public void setProvince(Province province) {
+  public void setProvince(String province) {
     this.province = province;
   }
 
@@ -127,57 +128,40 @@ public class City extends BaseObject {
     this.webKey = webKey;
   }
 
-  @Column(name = "IS_DELETE", nullable = false)
-  public short getIsDelete() {
+  @Column(name = "IS_DELETE")
+  public Byte getIsDelete() {
     return this.isDelete;
   }
 
-  public void setIsDelete(short isDelete) {
+  public void setIsDelete(Byte isDelete) {
     this.isDelete = isDelete;
   }
 
-  // @OneToMany(fetch = FetchType.LAZY, mappedBy = "city")
-  // public Set<Line> getLines() {
-  // return this.tblLines;
-  // }
-  //
-  // public void setLines(Set<Line> tblLines) {
-  // this.tblLines = tblLines;
-  // }
-  //
-  // @OneToMany(fetch = FetchType.LAZY, mappedBy = "city")
-  // public Set<Plan> getPlans() {
-  // return this.tblPlans;
-  // }
-  //
-  // public void setPlans(Set<Plan> tblPlans) {
-  // this.tblPlans = tblPlans;
-  // }
-  //
-  // @OneToMany(fetch = FetchType.LAZY, mappedBy = "city")
-  // public Set<Airport> getAirports() {
-  // return this.tblAirports;
-  // }
-  //
-  // public void setAirports(Set<Airport> tblAirports) {
-  // this.tblAirports = tblAirports;
-  // }
-
-  @Override
-  public String toString() {
-    // TODO Auto-generated method stub
-    return null;
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "city")
+  public Set<Line> getLines() {
+    return this.lines;
   }
 
-  @Override
-  public boolean equals(Object o) {
-    // TODO Auto-generated method stub
-    return false;
+  public void setLines(Set<Line> lines) {
+    this.lines = lines;
   }
 
-  @Override
-  public int hashCode() {
-    // TODO Auto-generated method stub
-    return 0;
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "city")
+  public Set<Plan> getPlans() {
+    return this.plans;
   }
+
+  public void setPlans(Set<Plan> plans) {
+    this.plans = plans;
+  }
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "city")
+  public Set<Airport> getAirports() {
+    return this.airports;
+  }
+
+  public void setAirports(Set<Airport> airports) {
+    this.airports = airports;
+  }
+
 }

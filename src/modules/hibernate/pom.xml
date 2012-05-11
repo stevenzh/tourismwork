@@ -28,8 +28,6 @@
     <springframework.version>3.0.6.RELEASE</springframework.version>
     <spring-security.version>3.0.6.RELEASE</spring-security.version>
     <hibernate.version>3.6.10.Final</hibernate.version>
-    <lucene.version>2.4.0</lucene.version>
-    <IKAnalyzer.version>1.4</IKAnalyzer.version>
     <jmock.version>2.5.1</jmock.version>
     <ehcache.version>2.5.1</ehcache.version>
     <javassist.version>3.15.0-GA</javassist.version>
@@ -143,30 +141,6 @@
           <artifactId>spring-support</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.lucene</groupId>
-      <artifactId>lucene-core</artifactId>
-      <version>${lucene.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.lucene</groupId>
-      <artifactId>lucene-analyzers</artifactId>
-      <version>${lucene.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.lucene</groupId>
-      <artifactId>lucene-highlighter</artifactId>
-      <version>${lucene.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mira.lucene.analysis</groupId>
-      <artifactId>IKAnalyzer</artifactId>
-      <version>${IKAnalyzer.version}</version>
     </dependency>
 
     <dependency>

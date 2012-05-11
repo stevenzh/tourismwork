@@ -4,9 +4,9 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.Category" table="TBL_CATEGORY">
-    <id name="catId" type="long">
+    <id name="catId" type="java.lang.Integer">
       <column name="CAT_ID" />
-      <generator class="native" />
+      <generator class="identity" />
     </id>
     <many-to-one name="parent" class="com.opentravelsoft.entity.Category" fetch="select">
       <column name="PARENT_ID" />
@@ -29,11 +29,12 @@
     <property name="metaDesc" type="string">
       <column name="META_DESC" length="50" />
     </property>
-    <set name="children" inverse="true" lazy="false" table="TBL_CATEGORY" fetch="select">
+    <set name="children" table="tbl_category" inverse="true" lazy="true" fetch="select">
       <key>
         <column name="PARENT_ID" />
       </key>
       <one-to-many class="com.opentravelsoft.entity.Category" />
     </set>
+
   </class>
 </hibernate-mapping>

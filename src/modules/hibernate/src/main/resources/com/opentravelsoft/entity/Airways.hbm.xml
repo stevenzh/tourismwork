@@ -4,9 +4,9 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.Airways" table="TBL_AIRWAYS">
-    <cache usage="nonstrict-read-write"/>
+    <cache usage="nonstrict-read-write" />
     <id name="code" type="string">
-      <column name="CODE" length="3" />
+      <column name="CODE" length="2" />
       <generator class="assigned" />
     </id>
     <property name="name" type="string">
@@ -18,10 +18,10 @@
     <property name="contact" type="string">
       <column name="CONTACT" length="20" />
     </property>
-    <property name="phone" type="string">
+    <property name="phoneNumber" type="string">
       <column name="PHONE_NUMBER" length="20" />
     </property>
-    <property name="isActive" type="boolean">
+    <property name="isActive" type="java.lang.Byte">
       <column name="IS_ACTIVE" />
     </property>
   </class>
