@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.entity.FitPlan" table="tbl_planfit" catalog="tourismwork_db">
+    <class name="com.opentravelsoft.entity.vacation.FitPlan" table="tbl_planfit" catalog="tourismwork_db">
         <id name="recNo" type="string">
             <column name="REC_NO" length="10" />
             <generator class="assigned" />
