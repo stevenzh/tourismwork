@@ -3,9 +3,6 @@ package com.opentravelsoft.entity;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-import org.compass.annotations.SearchableComponent;
-import org.compass.annotations.SearchableId;
-import org.compass.annotations.SearchableProperty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,7 +25,9 @@ import java.util.Set;
  * 
  */
 @Entity
-@Table(name = "tbl_member")
+@Table(name = "tbl_member", catalog = "tourismwork_db", uniqueConstraints = {
+    @UniqueConstraint(columnNames = "email"),
+    @UniqueConstraint(columnNames = "username") })
 public class Member extends BaseObject implements Serializable, UserDetails {
   private static final long serialVersionUID = 3832626162173359411L;
 
@@ -52,8 +51,6 @@ public class Member extends BaseObject implements Serializable, UserDetails {
 
   private String website;
 
-  private Address address = new Address();
-
   private Integer version;
 
   private Set<PortalRole> roles = new HashSet<PortalRole>();
@@ -66,9 +63,13 @@ public class Member extends BaseObject implements Serializable, UserDetails {
 
   private boolean credentialsExpired;
 
-  /**
-   * Default constructor - creates a new instance with no values set.
-   */
+  private String address;
+  private String city;
+  private String country;
+  private String postalCode;
+  private String province;
+  private Boolean accountEnabled;
+
   public Member() {
     receiveMail = "N";
     score = 0;
@@ -78,8 +79,7 @@ public class Member extends BaseObject implements Serializable, UserDetails {
   /**
    * Create a new instance and set the username.
    * 
-   * @param username
-   *          login name for user.
+   * @param username login name for user.
    */
   public Member(final String username) {
     this.username = username;
@@ -87,13 +87,11 @@ public class Member extends BaseObject implements Serializable, UserDetails {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @SearchableId
   public Long getId() {
     return id;
   }
 
   @Column(nullable = false, length = 50, unique = true)
-  @SearchableProperty
   public String getUsername() {
     return username;
   }
@@ -114,30 +112,25 @@ public class Member extends BaseObject implements Serializable, UserDetails {
   }
 
   @Column(name = "first_name", nullable = false, length = 50)
-  @SearchableProperty
   public String getFirstName() {
     return firstName;
   }
 
   @Column(name = "last_name", nullable = false, length = 50)
-  @SearchableProperty
   public String getLastName() {
     return lastName;
   }
 
   @Column(nullable = false, unique = true)
-  @SearchableProperty
   public String getEmail() {
     return email;
   }
 
   @Column(name = "phone_number")
-  @SearchableProperty
   public String getPhoneNumber() {
     return phoneNumber;
   }
 
-  @SearchableProperty
   public String getWebsite() {
     return website;
   }
@@ -150,12 +143,6 @@ public class Member extends BaseObject implements Serializable, UserDetails {
   @Transient
   public String getFullName() {
     return firstName + ' ' + lastName;
-  }
-
-  @Embedded
-  @SearchableComponent
-  public Address getAddress() {
-    return address;
   }
 
   @ManyToMany(fetch = FetchType.EAGER)
@@ -186,8 +173,7 @@ public class Member extends BaseObject implements Serializable, UserDetails {
   /**
    * Adds a role for the user
    * 
-   * @param role
-   *          the fully instantiated role
+   * @param role the fully instantiated role
    */
   public void addRole(PortalRole role) {
     getRoles().add(role);
@@ -297,10 +283,6 @@ public class Member extends BaseObject implements Serializable, UserDetails {
     this.website = website;
   }
 
-  public void setAddress(Address address) {
-    this.address = address;
-  }
-
   public void setRoles(Set<PortalRole> roles) {
     this.roles = roles;
   }
@@ -354,8 +336,7 @@ public class Member extends BaseObject implements Serializable, UserDetails {
    */
   public String toString() {
     ToStringBuilder sb = new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE)
-        .append("username", this.username)
-        .append("enabled", this.enabled)
+        .append("username", this.username).append("enabled", this.enabled)
         .append("accountExpired", this.accountExpired)
         .append("credentialsExpired", this.credentialsExpired)
         .append("accountLocked", this.accountLocked);
@@ -420,12 +401,6 @@ public class Member extends BaseObject implements Serializable, UserDetails {
 
   /** 国家 */
   private String nation;
-
-  /** 省份 */
-  private String province;
-
-  /** 城市 */
-  private String city;
 
   /** 职业 */
   private String vocation;
@@ -516,11 +491,6 @@ public class Member extends BaseObject implements Serializable, UserDetails {
   }
 
   @Transient
-  public String getCity() {
-    return city;
-  }
-
-  @Transient
   public String getNation() {
     return nation;
   }
@@ -553,11 +523,6 @@ public class Member extends BaseObject implements Serializable, UserDetails {
   @Transient
   public String getPostcode() {
     return postcode;
-  }
-
-  @Transient
-  public String getProvince() {
-    return province;
   }
 
   @Transient
@@ -719,10 +684,6 @@ public class Member extends BaseObject implements Serializable, UserDetails {
     this.cardNo = cardNo;
   }
 
-  public void setCity(String city) {
-    this.city = city;
-  }
-
   public void setNation(String nation) {
     this.nation = nation;
   }
@@ -749,10 +710,6 @@ public class Member extends BaseObject implements Serializable, UserDetails {
 
   public void setPostcode(String postcode) {
     this.postcode = postcode;
-  }
-
-  public void setProvince(String province) {
-    this.province = province;
   }
 
   public void setRealName(String realName) {
@@ -878,4 +835,59 @@ public class Member extends BaseObject implements Serializable, UserDetails {
   public void setSendPwdDate(Date sendPwdDate) {
     this.sendPwdDate = sendPwdDate;
   }
+
+  @Column(name = "address", length = 150)
+  public String getAddress() {
+    return this.address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+  @Column(name = "city", length = 50)
+  public String getCity() {
+    return this.city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+  @Column(name = "country", length = 100)
+  public String getCountry() {
+    return this.country;
+  }
+
+  public void setCountry(String country) {
+    this.country = country;
+  }
+
+  @Column(name = "postal_code", length = 15)
+  public String getPostalCode() {
+    return this.postalCode;
+  }
+
+  public void setPostalCode(String postalCode) {
+    this.postalCode = postalCode;
+  }
+
+  @Column(name = "province", length = 100)
+  public String getProvince() {
+    return this.province;
+  }
+
+  public void setProvince(String province) {
+    this.province = province;
+  }
+
+  @Column(name = "account_enabled")
+  public Boolean getAccountEnabled() {
+    return this.accountEnabled;
+  }
+
+  public void setAccountEnabled(Boolean accountEnabled) {
+    this.accountEnabled = accountEnabled;
+  }
+
 }

@@ -4,14 +4,14 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.LineTraffic" table="TBL_LINE_TRAFFIC">
-    <id name="id" type="long">
+    <id name="id" type="java.lang.Integer">
       <column name="ID" />
-      <generator class="native" />
+      <generator class="identity" />
     </id>
     <property name="lineNo" type="string">
       <column name="LINE_NO" length="50" />
     </property>
-    <property name="day" type="int">
+    <property name="day" type="java.lang.Integer">
       <column name="DAY" />
     </property>
     <property name="fromCity" type="string">
@@ -23,8 +23,8 @@
     <property name="travelTime" type="string">
       <column name="TRAVEL_TIME" length="50" />
     </property>
-    <property name="traffic" type="string">
-      <column name="Traffic" length="50" />
+    <property name="traffic" type="java.lang.Character">
+      <column name="TRAFFIC" length="1" />
     </property>
     <property name="step" type="java.lang.Integer">
       <column name="STEP" />

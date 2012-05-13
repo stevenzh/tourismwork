@@ -4,9 +4,9 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.Lists" table="TBL_LISTS">
-    <id name="entryId" type="long">
+    <id name="entryId" type="java.lang.Integer">
       <column name="EntryID" />
-      <generator class="native" />
+      <generator class="identity" />
     </id>
     <property name="listName" type="string">
       <column name="ListName" length="50" not-null="true" />
@@ -23,7 +23,7 @@
     <property name="level" type="int">
       <column name="Level" not-null="true" />
     </property>
-    <property name="enabled" type="boolean">
+    <property name="enabled" type="byte">
       <column name="Enabled" not-null="true" />
     </property>
     <property name="sortOrder" type="int">
@@ -35,7 +35,7 @@
     <property name="description" type="string">
       <column name="Description" length="500" />
     </property>
-    <property name="systemList" type="boolean">
+    <property name="systemList" type="byte">
       <column name="SystemList" not-null="true" />
     </property>
   </class>

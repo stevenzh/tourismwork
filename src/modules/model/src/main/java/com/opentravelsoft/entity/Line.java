@@ -5,29 +5,617 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import javax.xml.transform.Source;
-import javax.xml.transform.sax.SAXSource;
-
-import com.opentravelsoft.entity.product.ProductBase;
-import com.opentravelsoft.entity.xml.LineInputSource;
-import com.opentravelsoft.entity.xml.LineXMLReader;
 import com.opentravelsoft.util.LabelValueBean;
 
-/**
- * 旅游线路
- * 
- * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:32 $
- */
-public class Line extends ProductBase implements FopTeam, java.io.Serializable {
-  private static final long serialVersionUID = 759680527140271551L;
-
+@Entity
+@Table(name = "tbl_line", catalog = "tourismwork_db")
+public class Line implements java.io.Serializable {
   /** 线路号 */
   private String lineNo;
-
+  private Team team;
+  private City outCity;
+  private String lineName;
+  private Integer day;
+  private Employee assigned;
   /** 线路操作组 */
   private Team opTeam;
+  /** 市场划分 */
+  private Character classKey1;
+  private Character classKey2;
+  private Character classKey3;
+  private String classKey4;
+  /** 目的地 */
+  private Destination destination;
+  private String classKey6;
+  private Character classKey7;
+  private String firstCity;
+  /** 副标题 */
+  private String title;
+  /** 广告 */
+  private String description;
+
+  private boolean isActive;
+  /** 状态 */
+  private Character delKey;
+  private Character newKey;
+  private Integer crUser;
+  private Date crDate;
+  private Integer opUser;
+  private Date opDate;
+  private String fitType;
+  private Integer OPax;
+  private Integer ONight1;
+  private Integer ONight2;
+
+  /** 同行不包含自费项目 */
+  private String comOwnExpense;
+  /** 直客包含自费项目 */
+  private String perOwnExpense;
+  private Integer traitType;
+  /** 入境口岸 */
+  private String portOfEntry;
+  /** 出境口岸 */
+  private String portOfDeparture;
+  /** 同业百分比 */
+  private String percentage;
+  /** 同业利润额 */
+  private String profit;
+  /** 区分同业百分比和利润额 */
+  private String flag;
+  /** 直客百分比 */
+  private String guestPercentage;
+  /** 直客利润额 */
+  private String guestProfit;
+  /** 热卖 */
+  private Byte isHot;
+  /** 是否能够延住 */
+  private Byte canDefer;
+  /** 最少天数 */
+  private Integer minDays;
+
+  private Integer minNights;
+  /** 航空公司 */
+  private String airwaysId;
+  private Integer createdBy;
+  private Date createdDate;
+  private String createdByIp;
+  private Integer modifiedBy;
+  private Date modifiedDate;
+  private String modifiedByIp;
+  private Set<Plan> plans = new HashSet<Plan>(0);
+
+  /** 游览景点 */
+  private Set<Sight> sights = new HashSet<Sight>(0);
+
+  /** 途径国家 */
+  private Set<Country> countrys = new HashSet<Country>(0);
+
+  public Line() {
+    this.plan = new ArrayList<Plan>();
+    this.delKey = 'N';
+    this.isActive = true;
+    // *团队旅游 自由行
+    this.classKeyContent = "1";
+    outCity = new City();
+    destination = new Destination();
+
+    // 线路索引
+    isPrefer = "N";
+    price1Str = "00000000";
+    price2Str = "00000000";
+    outDateStr = "20900101";
+    planPax = "0";
+    districtProvinceName = "";
+    sightNo = "";
+    sightName = "";
+    region = "";
+    regionId = "";
+    classifyRegion = "";
+    classifyRegionId = "";
+    outDate_price1 = "";
+    outDate_price1 = "";
+    outDate_price2 = "";
+  }
+
+  public Line(String lineNo, Team team, String lineName, boolean isActive,
+      String flag) {
+    this.lineNo = lineNo;
+    this.team = team;
+    this.lineName = lineName;
+    this.isActive = isActive;
+    this.flag = flag;
+  }
+
+  @Id
+  @Column(name = "LINE_NO", unique = true, nullable = false, length = 8)
+  public String getLineNo() {
+    return this.lineNo;
+  }
+
+  public void setLineNo(String lineNo) {
+    this.lineNo = lineNo;
+  }
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "TEAM_ID", nullable = false)
+  public Team getTeam() {
+    return this.team;
+  }
+
+  public void setTeam(Team team) {
+    this.team = team;
+  }
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "OUT_CITY")
+  public City getOutCity() {
+    return this.outCity;
+  }
+
+  public void setOutCity(City outCity) {
+    this.outCity = outCity;
+  }
+
+  @Column(name = "LINE_NAME", nullable = false, length = 60)
+  public String getLineName() {
+    return this.lineName;
+  }
+
+  public void setLineName(String lineName) {
+    this.lineName = lineName;
+  }
+
+  @Column(name = "DAY")
+  public Integer getDay() {
+    return this.day;
+  }
+
+  public void setDay(Integer day) {
+    this.day = day;
+  }
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "ASSIGNED_USER_ID")
+  public Employee getAssigned() {
+    return assigned;
+  }
+
+  public void setAssigned(Employee assigned) {
+    this.assigned = assigned;
+  }
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "OP_TEAM_ID")
+  public Team getOpTeam() {
+    return opTeam;
+  }
+
+  public void setOpTeam(Team opTeam) {
+    this.opTeam = opTeam;
+  }
+
+  @Column(name = "CLASS_KEY1", length = 1)
+  public Character getClassKey1() {
+    return this.classKey1;
+  }
+
+  public void setClassKey1(Character classKey1) {
+    this.classKey1 = classKey1;
+  }
+
+  @Column(name = "CLASS_KEY2", length = 1)
+  public Character getClassKey2() {
+    return this.classKey2;
+  }
+
+  public void setClassKey2(Character classKey2) {
+    this.classKey2 = classKey2;
+  }
+
+  @Column(name = "CLASS_KEY3", length = 1)
+  public Character getClassKey3() {
+    return this.classKey3;
+  }
+
+  public void setClassKey3(Character classKey3) {
+    this.classKey3 = classKey3;
+  }
+
+  @Column(name = "CLASS_KEY4", length = 2)
+  public String getClassKey4() {
+    return this.classKey4;
+  }
+
+  public void setClassKey4(String classKey4) {
+    this.classKey4 = classKey4;
+  }
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "CLASS_KEY5")
+  public Destination getDestination() {
+    return destination;
+  }
+
+  public void setDestination(Destination destination) {
+    this.destination = destination;
+  }
+
+  @Column(name = "CLASS_KEY6", length = 2)
+  public String getClassKey6() {
+    return this.classKey6;
+  }
+
+  public void setClassKey6(String classKey6) {
+    this.classKey6 = classKey6;
+  }
+
+  @Column(name = "CLASS_KEY7", length = 1)
+  public Character getClassKey7() {
+    return this.classKey7;
+  }
+
+  public void setClassKey7(Character classKey7) {
+    this.classKey7 = classKey7;
+  }
+
+  @Column(name = "FIRST_CITY", length = 4)
+  public String getFirstCity() {
+    return this.firstCity;
+  }
+
+  public void setFirstCity(String firstCity) {
+    this.firstCity = firstCity;
+  }
+
+  @Column(name = "TITLE", length = 100)
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  @Column(name = "DESCRIPTION", length = 200)
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  @Column(name = "IS_ACTIVE", nullable = false)
+  public boolean isIsActive() {
+    return this.isActive;
+  }
+
+  public void setIsActive(boolean isActive) {
+    this.isActive = isActive;
+  }
+
+  @Column(name = "DEL_KEY", length = 1)
+  public Character getDelKey() {
+    return this.delKey;
+  }
+
+  public void setDelKey(Character delKey) {
+    this.delKey = delKey;
+  }
+
+  @Column(name = "NEW_KEY", length = 1)
+  public Character getNewKey() {
+    return this.newKey;
+  }
+
+  public void setNewKey(Character newKey) {
+    this.newKey = newKey;
+  }
+
+  @Column(name = "CR_USER")
+  public Integer getCrUser() {
+    return this.crUser;
+  }
+
+  public void setCrUser(Integer crUser) {
+    this.crUser = crUser;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "CR_DATE", length = 19)
+  public Date getCrDate() {
+    return this.crDate;
+  }
+
+  public void setCrDate(Date crDate) {
+    this.crDate = crDate;
+  }
+
+  @Column(name = "OP_USER")
+  public Integer getOpUser() {
+    return this.opUser;
+  }
+
+  public void setOpUser(Integer opUser) {
+    this.opUser = opUser;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "OP_DATE", length = 19)
+  public Date getOpDate() {
+    return this.opDate;
+  }
+
+  public void setOpDate(Date opDate) {
+    this.opDate = opDate;
+  }
+
+  @Column(name = "FIT_TYPE", length = 2)
+  public String getFitType() {
+    return this.fitType;
+  }
+
+  public void setFitType(String fitType) {
+    this.fitType = fitType;
+  }
+
+  @Column(name = "O_PAX")
+  public Integer getOPax() {
+    return this.OPax;
+  }
+
+  public void setOPax(Integer OPax) {
+    this.OPax = OPax;
+  }
+
+  @Column(name = "O_NIGHT1")
+  public Integer getONight1() {
+    return this.ONight1;
+  }
+
+  public void setONight1(Integer ONight1) {
+    this.ONight1 = ONight1;
+  }
+
+  @Column(name = "O_NIGHT2")
+  public Integer getONight2() {
+    return this.ONight2;
+  }
+
+  public void setONight2(Integer ONight2) {
+    this.ONight2 = ONight2;
+  }
+
+  @Column(name = "COM_OWN_EXPENSE", length = 500)
+  public String getComOwnExpense() {
+    return this.comOwnExpense;
+  }
+
+  public void setComOwnExpense(String comOwnExpense) {
+    this.comOwnExpense = comOwnExpense;
+  }
+
+  @Column(name = "PER_OWN_EXPENSE", length = 500)
+  public String getPerOwnExpense() {
+    return this.perOwnExpense;
+  }
+
+  public void setPerOwnExpense(String perOwnExpense) {
+    this.perOwnExpense = perOwnExpense;
+  }
+
+  @Column(name = "TRAIT_TYPE")
+  public Integer getTraitType() {
+    return this.traitType;
+  }
+
+  public void setTraitType(Integer traitType) {
+    this.traitType = traitType;
+  }
+
+  @Column(name = "PORT_OF_ENTRY", length = 20)
+  public String getPortOfEntry() {
+    return this.portOfEntry;
+  }
+
+  public void setPortOfEntry(String portOfEntry) {
+    this.portOfEntry = portOfEntry;
+  }
+
+  @Column(name = "PORT_OF_DEPARTURE", length = 20)
+  public String getPortOfDeparture() {
+    return this.portOfDeparture;
+  }
+
+  public void setPortOfDeparture(String portOfDeparture) {
+    this.portOfDeparture = portOfDeparture;
+  }
+
+  @Column(name = "PERCENTAGE", length = 10)
+  public String getPercentage() {
+    return this.percentage;
+  }
+
+  public void setPercentage(String percentage) {
+    this.percentage = percentage;
+  }
+
+  @Column(name = "PROFIT", length = 10)
+  public String getProfit() {
+    return this.profit;
+  }
+
+  public void setProfit(String profit) {
+    this.profit = profit;
+  }
+
+  @Column(name = "FLAG", nullable = false, length = 1)
+  public String getFlag() {
+    return this.flag;
+  }
+
+  public void setFlag(String flag) {
+    this.flag = flag;
+  }
+
+  @Column(name = "GUEST_PERCENTAGE", length = 10)
+  public String getGuestPercentage() {
+    return this.guestPercentage;
+  }
+
+  public void setGuestPercentage(String guestPercentage) {
+    this.guestPercentage = guestPercentage;
+  }
+
+  @Column(name = "GUEST_PROFIT", length = 10)
+  public String getGuestProfit() {
+    return this.guestProfit;
+  }
+
+  public void setGuestProfit(String guestProfit) {
+    this.guestProfit = guestProfit;
+  }
+
+  @Column(name = "IS_HOT")
+  public Byte getIsHot() {
+    return this.isHot;
+  }
+
+  public void setIsHot(Byte isHot) {
+    this.isHot = isHot;
+  }
+
+  @Column(name = "CAN_DEFER")
+  public Byte getCanDefer() {
+    return this.canDefer;
+  }
+
+  public void setCanDefer(Byte canDefer) {
+    this.canDefer = canDefer;
+  }
+
+  @Column(name = "MIN_DAYS")
+  public Integer getMinDays() {
+    return this.minDays;
+  }
+
+  public void setMinDays(Integer minDays) {
+    this.minDays = minDays;
+  }
+
+  @Column(name = "MIN_NIGHTS")
+  public Integer getMinNights() {
+    return this.minNights;
+  }
+
+  public void setMinNights(Integer minNights) {
+    this.minNights = minNights;
+  }
+
+  @Column(name = "AIRWAYS_ID", length = 20)
+  public String getAirwaysId() {
+    return this.airwaysId;
+  }
+
+  public void setAirwaysId(String airwaysId) {
+    this.airwaysId = airwaysId;
+  }
+
+  @Column(name = "CreatedBy")
+  public Integer getCreatedBy() {
+    return this.createdBy;
+  }
+
+  public void setCreatedBy(Integer createdBy) {
+    this.createdBy = createdBy;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "CreatedDate", length = 19)
+  public Date getCreatedDate() {
+    return this.createdDate;
+  }
+
+  public void setCreatedDate(Date createdDate) {
+    this.createdDate = createdDate;
+  }
+
+  @Column(name = "CreatedByIP", length = 20)
+  public String getCreatedByIp() {
+    return this.createdByIp;
+  }
+
+  public void setCreatedByIp(String createdByIp) {
+    this.createdByIp = createdByIp;
+  }
+
+  @Column(name = "ModifiedBy")
+  public Integer getModifiedBy() {
+    return this.modifiedBy;
+  }
+
+  public void setModifiedBy(Integer modifiedBy) {
+    this.modifiedBy = modifiedBy;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "ModifiedDate", length = 19)
+  public Date getModifiedDate() {
+    return this.modifiedDate;
+  }
+
+  public void setModifiedDate(Date modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
+  @Column(name = "ModifiedByIP", length = 20)
+  public String getModifiedByIp() {
+    return this.modifiedByIp;
+  }
+
+  public void setModifiedByIp(String modifiedByIp) {
+    this.modifiedByIp = modifiedByIp;
+  }
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "line")
+  public Set<Plan> getPlans() {
+    return this.plans;
+  }
+
+  public void setPlans(Set<Plan> plans) {
+    this.plans = plans;
+  }
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "line")
+  public Set<Sight> getSights() {
+    return sights;
+  }
+
+  public void setSights(Set<Sight> sights) {
+    this.sights = sights;
+  }
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "line")
+  public Set<Country> getCountrys() {
+    return countrys;
+  }
+
+  public void setCountrys(Set<Country> countrys) {
+    this.countrys = countrys;
+  }
+
+  // -------------------------------------------------------------------------
 
   /** 天数 */
   private Integer lineDay;
@@ -35,33 +623,10 @@ public class Line extends ProductBase implements FopTeam, java.io.Serializable {
   /** 产品内容划分的类型 1-团队旅游,2-自助游,3-奖励旅游 */
   private String classKeyContent;
 
-  private String classKey3;
-
-  private String classKey4;
-
-  /** 目的地 */
-  private Destination destination;
-
   /** 交通工具划分的类型 按交通工具分类 06表示'大巴游'或'汽车游',在国内时即为国内短线 */
   private String classKeyVehicle;
 
-  private String classKey7;
-
   /** 出发城市编号 */
-  private City outCity;
-
-  private String firstCity;
-
-  /** 副标题 */
-  private String title;
-
-  /** 广告 */
-  private String description;
-
-  /** 状态 */
-  private boolean isActive;
-
-  private String delKey;
 
   /** 创建人 */
   private Long createUserId;
@@ -74,67 +639,6 @@ public class Line extends ProductBase implements FopTeam, java.io.Serializable {
 
   /** 最后操作时间 */
   private Date operateDate;
-
-  private String fitType;
-
-  private Integer OPax;
-
-  private Integer ONight1;
-
-  private Integer ONight2;
-
-  /** 同行不包含自费项目 */
-  private String comOwnExpense;
-
-  /** 直客包含自费项目 */
-  private String perOwnExpense;
-
-  private Integer traitType;
-
-  /** 入境口岸 */
-  private String portOfEntry;
-
-  /** 出境口岸 */
-  private String portOfDeparture;
-  // --------------------------------------------------------------------------
-  // 度假产品补充
-  /** 市场划分 */
-  private Character classKey1;
-  /** 同业百分比 */
-  private String percentage;
-  /** 同业利润额 */
-  private String profit;
-  /** 区分同业百分比和利润额 */
-  private String flag;
-  /** 直客百分比 */
-  private String guestPercentage;
-  /** 直客利润额 */
-  private String guestProfit;
-  /** 热卖 */
-  private Short isHot;
-  /** 是否能够延住 */
-  private Short canDefer;
-  /** 最少天数 */
-  private Integer minDays;
-  /** */
-  private Integer minNights;
-  /** 航空公司 */
-  private String airwaysId;
-
-  private Integer createdBy;
-
-  private Date createdDate;
-
-  private String createdByIp;
-
-  private Integer modifiedBy;
-
-  private Date modifiedDate;
-
-  private String modifiedByIp;
-
-  // -------------------------------------------------------------------------
-
   /** 目的地国家名称 */
   private String countryName;
 
@@ -193,8 +697,6 @@ public class Line extends ProductBase implements FopTeam, java.io.Serializable {
 
   private String journey;
 
-  // -------------------------------------------------------------------------
-
   /** 线路特色 */
   private List<LineDescription> features;
 
@@ -227,16 +729,9 @@ public class Line extends ProductBase implements FopTeam, java.io.Serializable {
   /** 所需签证 */
   private List<LineVisa> visaList;
 
-  /** 游览景点 */
-  private Set<Sight> sights = new HashSet<Sight>(0);
-
-  /** 途径国家 */
-  private Set<Country> countrys = new HashSet<Country>(0);
-
   /** 出团计划 */
   private List<Plan> plan;
 
-  // ------------------------------------------------------------------
   // 以下线路索引使用
   /** 目的地 */
   private String destinationNo;
@@ -301,157 +796,9 @@ public class Line extends ProductBase implements FopTeam, java.io.Serializable {
 
   private String classifyRegionId;
 
-  public Line() {
-    this.plan = new ArrayList<Plan>();
-    this.delKey = "N";
-    this.isActive = true;
-    // *团队旅游 自由行
-    this.classKeyContent = "1";
-    outCity = new City();
-    destination = new Destination();
-
-    // -------------------------------------------
-    // 线路索引
-    isPrefer = "N";
-    price1Str = "00000000";
-    price2Str = "00000000";
-    outDateStr = "20900101";
-    planPax = "0";
-    districtProvinceName = "";
-    sightNo = "";
-    sightName = "";
-    region = "";
-    regionId = "";
-    classifyRegion = "";
-    classifyRegionId = "";
-    outDate_price1 = "";
-    outDate_price1 = "";
-    outDate_price2 = "";
-  }
-
-  public Source getSource() {
-    return new SAXSource(new LineXMLReader(), new LineInputSource(this));
-  }
-
-  public String getLineNo() {
-    return this.lineNo;
-  }
-
-  public void setLineNo(String lineNo) {
-    this.lineNo = lineNo;
-  }
-
-  public String getLineName() {
-    return getName();
-  }
-
-  public void setLineName(String name) {
-    setName(name);
-  }
-
-  public String getClassKey3() {
-    return this.classKey3;
-  }
-
-  public void setClassKey3(String classKey3) {
-    this.classKey3 = classKey3;
-  }
-
-  public String getClassKey4() {
-    return this.classKey4;
-  }
-
-  public void setClassKey4(String classKey4) {
-    this.classKey4 = classKey4;
-  }
-
-  public String getClassKey7() {
-    return this.classKey7;
-  }
-
-  public void setClassKey7(String classKey7) {
-    this.classKey7 = classKey7;
-  }
-
-  public City getOutCity() {
-    return this.outCity;
-  }
-
-  public void setOutCity(City outCity) {
-    this.outCity = outCity;
-  }
-
-  public String getFirstCity() {
-    return this.firstCity;
-  }
-
-  public void setFirstCity(String firstCity) {
-    this.firstCity = firstCity;
-  }
-
-  public String getDelKey() {
-    return this.delKey;
-  }
-
-  public void setDelKey(String delKey) {
-    this.delKey = delKey;
-  }
-
-  public String getFitType() {
-    return this.fitType;
-  }
-
-  public void setFitType(String fitType) {
-    this.fitType = fitType;
-  }
-
-  public Integer getOPax() {
-    return this.OPax;
-  }
-
-  public void setOPax(Integer OPax) {
-    this.OPax = OPax;
-  }
-
-  public Integer getONight1() {
-    return this.ONight1;
-  }
-
-  public void setONight1(Integer ONight1) {
-    this.ONight1 = ONight1;
-  }
-
-  public Integer getONight2() {
-    return this.ONight2;
-  }
-
-  public void setONight2(Integer ONight2) {
-    this.ONight2 = ONight2;
-  }
-
-  public String getComOwnExpense() {
-    return this.comOwnExpense;
-  }
-
-  public void setComOwnExpense(String comOwnExpense) {
-    this.comOwnExpense = comOwnExpense;
-  }
-
-  public String getPerOwnExpense() {
-    return this.perOwnExpense;
-  }
-
-  public void setPerOwnExpense(String perOwnExpense) {
-    this.perOwnExpense = perOwnExpense;
-  }
-
-  public Integer getTraitType() {
-    return traitType;
-  }
-
-  public void setTraitType(Integer traitType) {
-    this.traitType = traitType;
-  }
+  // public Source getSource() {
+  // return new SAXSource(new LineXMLReader(), new LineInputSource(this));
+  // }
 
   public Double getPrice() {
     return price;
@@ -487,14 +834,6 @@ public class Line extends ProductBase implements FopTeam, java.io.Serializable {
 
   public void setPlanView(String planView) {
     this.planView = planView;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
   }
 
   public List<LineSchedule> getSchedule() {
@@ -553,28 +892,12 @@ public class Line extends ProductBase implements FopTeam, java.io.Serializable {
     this.classKeyContent = classKeyContent;
   }
 
-  public boolean getIsActive() {
-    return isActive;
-  }
-
-  public void setIsActive(boolean active) {
-    this.isActive = active;
-  }
-
   public String getClassKeyVehicle() {
     return classKeyVehicle;
   }
 
   public void setClassKeyVehicle(String classKeyVehicle) {
     this.classKeyVehicle = classKeyVehicle;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
   }
 
   public List<LineDescription> getExpenseIn() {
@@ -793,60 +1116,12 @@ public class Line extends ProductBase implements FopTeam, java.io.Serializable {
     EDate = date;
   }
 
-  public String getPortOfEntry() {
-    return portOfEntry;
-  }
-
-  public void setPortOfEntry(String portOfEntry) {
-    this.portOfEntry = portOfEntry;
-  }
-
-  public String getPortOfDeparture() {
-    return portOfDeparture;
-  }
-
-  public void setPortOfDeparture(String portOfDeparture) {
-    this.portOfDeparture = portOfDeparture;
-  }
-
   public Date getSDate() {
     return SDate;
   }
 
   public void setSDate(Date date) {
     SDate = date;
-  }
-
-  public Set<Sight> getSights() {
-    return sights;
-  }
-
-  public void setSights(Set<Sight> sights) {
-    this.sights = sights;
-  }
-
-  public Set<Country> getCountrys() {
-    return countrys;
-  }
-
-  public void setCountrys(Set<Country> countrys) {
-    this.countrys = countrys;
-  }
-
-  public Team getOpTeam() {
-    return opTeam;
-  }
-
-  public void setOpTeam(Team opTeam) {
-    this.opTeam = opTeam;
-  }
-
-  public Destination getDestination() {
-    return destination;
-  }
-
-  public void setDestination(Destination destination) {
-    this.destination = destination;
   }
 
   public String getDestinationNo() {
@@ -1041,139 +1316,4 @@ public class Line extends ProductBase implements FopTeam, java.io.Serializable {
     this.classifyRegionId = classifyRegionId;
   }
 
-  public Character getClassKey1() {
-    return classKey1;
-  }
-
-  public void setClassKey1(Character classKey1) {
-    this.classKey1 = classKey1;
-  }
-
-  public String getPercentage() {
-    return percentage;
-  }
-
-  public void setPercentage(String percentage) {
-    this.percentage = percentage;
-  }
-
-  public String getProfit() {
-    return profit;
-  }
-
-  public void setProfit(String profit) {
-    this.profit = profit;
-  }
-
-  public String getFlag() {
-    return flag;
-  }
-
-  public void setFlag(String flag) {
-    this.flag = flag;
-  }
-
-  public String getGuestPercentage() {
-    return guestPercentage;
-  }
-
-  public void setGuestPercentage(String guestPercentage) {
-    this.guestPercentage = guestPercentage;
-  }
-
-  public String getGuestProfit() {
-    return guestProfit;
-  }
-
-  public void setGuestProfit(String guestProfit) {
-    this.guestProfit = guestProfit;
-  }
-
-  public Short getIsHot() {
-    return isHot;
-  }
-
-  public void setIsHot(Short isHot) {
-    this.isHot = isHot;
-  }
-
-  public Short getCanDefer() {
-    return canDefer;
-  }
-
-  public void setCanDefer(Short canDefer) {
-    this.canDefer = canDefer;
-  }
-
-  public Integer getMinDays() {
-    return minDays;
-  }
-
-  public void setMinDays(Integer minDays) {
-    this.minDays = minDays;
-  }
-
-  public Integer getMinNights() {
-    return minNights;
-  }
-
-  public void setMinNights(Integer minNights) {
-    this.minNights = minNights;
-  }
-
-  public String getAirwaysId() {
-    return airwaysId;
-  }
-
-  public void setAirwaysId(String airwaysId) {
-    this.airwaysId = airwaysId;
-  }
-
-  public Integer getCreatedBy() {
-    return createdBy;
-  }
-
-  public void setCreatedBy(Integer createdBy) {
-    this.createdBy = createdBy;
-  }
-
-  public Date getCreatedDate() {
-    return createdDate;
-  }
-
-  public void setCreatedDate(Date createdDate) {
-    this.createdDate = createdDate;
-  }
-
-  public String getCreatedByIp() {
-    return createdByIp;
-  }
-
-  public void setCreatedByIp(String createdByIp) {
-    this.createdByIp = createdByIp;
-  }
-
-  public Integer getModifiedBy() {
-    return modifiedBy;
-  }
-
-  public void setModifiedBy(Integer modifiedBy) {
-    this.modifiedBy = modifiedBy;
-  }
-
-  public Date getModifiedDate() {
-    return modifiedDate;
-  }
-
-  public void setModifiedDate(Date modifiedDate) {
-    this.modifiedDate = modifiedDate;
-  }
-
-  public String getModifiedByIp() {
-    return modifiedByIp;
-  }
-
-  public void setModifiedByIp(String modifiedByIp) {
-    this.modifiedByIp = modifiedByIp;
-  }
 }

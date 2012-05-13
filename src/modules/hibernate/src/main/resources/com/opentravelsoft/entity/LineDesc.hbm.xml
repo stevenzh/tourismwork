@@ -4,18 +4,18 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.LineDescription" table="TBL_LINE_DESC">
-    <id name="id" type="long">
+    <id name="id" type="java.lang.Integer">
       <column name="ID" />
-      <generator class="native" />
+      <generator class="identity" />
     </id>
     <property name="lineNo" type="string">
-      <column name="LINE_NO" length="10" not-null="true" />
+      <column name="LINE_NO" length="8" not-null="true" />
     </property>
     <property name="type" type="string">
-      <column name="TYPE" length="20" not-null="true" />
+      <column name="TYPE" length="50" not-null="true" />
     </property>
     <property name="item" type="string">
-      <column name="ITEM" length="100" not-null="true" />
+      <column name="ITEM" length="100" />
     </property>
     <property name="description" type="string">
       <column name="DESCRIPTION" length="1500" />

@@ -4,7 +4,7 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.LinePrice" table="TBL_LINE_PRICE">
-    <cache usage="read-write"/>
+    <cache usage="read-write" />
     <id name="recNo" type="string">
       <column name="REC_NO" length="8" />
       <generator class="assigned" />
@@ -12,101 +12,104 @@
     <property name="lineNo" type="string">
       <column name="LINE_NO" length="8" />
     </property>
-    <property name="type" type="string">
+    <property name="priceKey" type="java.lang.Character">
+      <column name="PRICE_KEY" length="1" />
+    </property>
+    <property name="subject" type="string">
       <column name="SUBJECT" length="80" />
     </property>
-    <property name="price" type="java.lang.Double">
+    <property name="price1" type="big_decimal">
       <column name="PRICE1" precision="9" />
     </property>
-    <property name="priceOther" type="java.lang.Double">
+    <property name="price2" type="big_decimal">
       <column name="PRICE2" precision="9" />
     </property>
-    <property name="priceCost" type="java.lang.Double">
+    <property name="price3" type="big_decimal">
       <column name="PRICE3" precision="9" />
     </property>
-    <property name="priceContrast" type="java.lang.Double">
+    <property name="price4" type="big_decimal">
       <column name="PRICE4" precision="9" />
     </property>
-    <property name="startDate" type="date">
-      <column name="S_DATE" />
+    <property name="SDate" type="timestamp">
+      <column name="S_DATE" length="19" />
     </property>
-    <property name="endDate" type="date">
-      <column name="E_DATE" />
+    <property name="EDate" type="timestamp">
+      <column name="E_DATE" length="19" />
     </property>
     <property name="weekBit" type="string">
       <column name="WEEK_BIT" length="7" />
     </property>
-    <property name="crUser" type="java.lang.Long">
-      <column name="CR_USER" />
-    </property>
-    <property name="crDate" type="date">
-      <column name="CR_DATE" />
-    </property>
-    <property name="opUser" type="java.lang.Long">
-      <column name="OP_USER" />
-    </property>
-    <property name="opDate" type="date">
-      <column name="OP_DATE"></column>
-    </property>
-    <property name="subScription" type="java.lang.Double">
+    <property name="subscription" type="big_decimal">
       <column name="SUBSCRIPTION" precision="9" />
     </property>
-    <property name="difference" type="java.lang.Double">
+    <property name="difference" type="big_decimal">
       <column name="DIFFERENCE" precision="9" />
     </property>
-    <property name="cost1" type="java.lang.Double">
-      <column name="COST1" precision="7" />
+    <property name="crUser" type="java.lang.Integer">
+      <column name="CR_USER" />
     </property>
-    <property name="cost2" type="java.lang.Double">
-      <column name="COST2" precision="7" />
+    <property name="crDate" type="timestamp">
+      <column name="CR_DATE" length="19" />
     </property>
-    <property name="cost3" type="java.lang.Double">
-      <column name="COST3" precision="7" />
+    <property name="opUser" type="java.lang.Integer">
+      <column name="OP_USER" />
     </property>
-    <property name="cost4" type="java.lang.Double">
-      <column name="COST4" precision="7" />
+    <property name="opDate" type="timestamp">
+      <column name="OP_DATE" length="19" not-null="true" />
     </property>
-    <property name="cost5" type="java.lang.Double">
-      <column name="COST5" precision="7" />
+    <property name="cost1" type="big_decimal">
+      <column name="COST1" precision="11" />
     </property>
-    <property name="cost6" type="java.lang.Double">
-      <column name="COST6" precision="7" />
+    <property name="cost2" type="big_decimal">
+      <column name="COST2" precision="11" />
     </property>
-    <property name="cost7" type="java.lang.Double">
-      <column name="COST7" precision="7" />
+    <property name="cost3" type="big_decimal">
+      <column name="COST3" precision="11" />
     </property>
-    <property name="cost8" type="java.lang.Double">
-      <column name="COST8" precision="7" />
+    <property name="cost4" type="big_decimal">
+      <column name="COST4" precision="11" />
     </property>
-    <property name="cost9" type="java.lang.Double">
-      <column name="COST9" precision="7" />
+    <property name="cost5" type="big_decimal">
+      <column name="COST5" precision="11" />
     </property>
-    <property name="cost10" type="java.lang.Double">
-      <column name="COST10" precision="7" />
+    <property name="cost6" type="big_decimal">
+      <column name="COST6" precision="11" />
     </property>
-    <property name="cost11" type="java.lang.Double">
-      <column name="COST11" precision="7" />
+    <property name="cost7" type="big_decimal">
+      <column name="COST7" precision="11" />
     </property>
-    <property name="cost12" type="java.lang.Double">
-      <column name="COST12" precision="7" />
+    <property name="cost8" type="big_decimal">
+      <column name="COST8" precision="11" />
+    </property>
+    <property name="cost9" type="big_decimal">
+      <column name="COST9" precision="11" />
+    </property>
+    <property name="cost10" type="big_decimal">
+      <column name="COST10" precision="11" />
+    </property>
+    <property name="cost11" type="big_decimal">
+      <column name="COST11" precision="11" />
+    </property>
+    <property name="cost12" type="big_decimal">
+      <column name="COST12" precision="11" />
     </property>
     <property name="reamrks" type="string">
-      <column name="REAMRKS" length="1000" />
+      <column name="REAMRKS" length="100" />
     </property>
     <property name="currency" type="string">
-      <column name="CURRENCY" length="20" />
+      <column name="CURRENCY" length="10" />
     </property>
-    <property name="roe" type="java.lang.Double">
+    <property name="roe" type="big_decimal">
       <column name="ROE" precision="7" />
     </property>
-    <property name="unitPrice" type="java.lang.Double">
-      <column name="UNIT_PRICE" precision="7" />
+    <property name="unitPrice" type="big_decimal">
+      <column name="UNIT_PRICE" precision="11" />
     </property>
-    <property name="backMoney" type="java.lang.Double">
-      <column name="BACK_MONEY" precision="7" />
+    <property name="backMoney" type="big_decimal">
+      <column name="BACK_MONEY" precision="11" />
     </property>
-    <property name="afieldDuty" type="java.lang.Double">
-      <column name="AFIELD_DUTY" precision="7" />
+    <property name="afieldDuty" type="big_decimal">
+      <column name="AFIELD_DUTY" precision="11" />
     </property>
   </class>
 </hibernate-mapping>

@@ -1,89 +1,52 @@
 package com.opentravelsoft.entity;
 
-import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "tbl_pinyin", catalog = "tourismwork_db")
+public class Pinyin implements java.io.Serializable {
 
-/**
- * 
- * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:32 $
- */
-public class Pinyin extends BaseObject
-{
+  private String chinese;
+  private String english;
+  private String telexcd;
 
-    private static final long serialVersionUID = 6385971327502988770L;
+  public Pinyin() {
+  }
 
-    private String chinese;
+  public Pinyin(String chinese, String english, String telexcd) {
+    this.chinese = chinese;
+    this.english = english;
+    this.telexcd = telexcd;
+  }
 
-    private String english;
+  @Id
+  @Column(name = "CHINESE", unique = true, nullable = false, length = 2)
+  public String getChinese() {
+    return this.chinese;
+  }
 
-    private String telexcd;
+  public void setChinese(String chinese) {
+    this.chinese = chinese;
+  }
 
-    public Pinyin()
-    {
-    }
+  @Column(name = "ENGLISH", nullable = false, length = 6)
+  public String getEnglish() {
+    return this.english;
+  }
 
-    public Pinyin(String chinese, String english, String telexcd)
-    {
-        this.chinese = chinese;
-        this.english = english;
-        this.telexcd = telexcd;
-    }
+  public void setEnglish(String english) {
+    this.english = english;
+  }
 
-    public Pinyin(String chinese, String english, String telexcd,
-            Character opKey, String opUser, Date opDate)
-    {
-        this.chinese = chinese;
-        this.english = english;
-        this.telexcd = telexcd;
-    }
+  @Column(name = "TELEXCD", nullable = false, length = 4)
+  public String getTelexcd() {
+    return this.telexcd;
+  }
 
-    public String getChinese()
-    {
-        return this.chinese;
-    }
-
-    public void setChinese(String chinese)
-    {
-        this.chinese = chinese;
-    }
-
-    public String getEnglish()
-    {
-        return this.english;
-    }
-
-    public void setEnglish(String english)
-    {
-        this.english = english;
-    }
-
-    public String getTelexcd()
-    {
-        return this.telexcd;
-    }
-
-    public void setTelexcd(String telexcd)
-    {
-        this.telexcd = telexcd;
-    }
-
-    @Override
-    public String toString()
-    {
-        return null;
-    }
-
-    @Override
-    public boolean equals(Object o)
-    {
-        return false;
-    }
-
-    @Override
-    public int hashCode()
-    {
-        return 0;
-    }
-
+  public void setTelexcd(String telexcd) {
+    this.telexcd = telexcd;
+  }
 }

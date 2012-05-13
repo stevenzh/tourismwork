@@ -4,36 +4,36 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.Module" table="TBL_MODULE">
-    <id name="moduleId" type="long">
+    <id name="moduleId" type="java.lang.Integer">
       <column name="MID" />
-      <generator class="native" />
+      <generator class="identity" />
     </id>
+    <version name="version" type="string">
+      <column name="VERSION" length="50" />
+    </version>
     <property name="moduleName" type="string">
       <column name="NAME" length="50" not-null="true" />
     </property>
     <property name="moduleTitle" type="string">
       <column name="TITLE" length="50" />
     </property>
-    <property name="type" type="string">
-      <column name="TYPE" length="10" not-null="true" />
+    <property name="action" type="string">
+      <column name="ACTION" length="50" />
     </property>
     <property name="description" type="string">
       <column name="DESCRIPTION" length="500" />
     </property>
-    <property name="isActive" type="boolean">
-      <column name="IS_ACTIVE" not-null="true" />
-    </property>
-    <property name="action" type="string">
-      <column name="ACTION" length="50" />
-    </property>
-    <property name="version" type="string">
-      <column name="VERSION" length="50" />
-    </property>
     <property name="sortOrder" type="java.lang.Integer">
       <column name="SORT_ORDER" />
     </property>
+    <property name="type" type="string">
+      <column name="TYPE" length="10" />
+    </property>
     <property name="parentId" type="java.lang.Integer">
       <column name="PARENT_ID" />
+    </property>
+    <property name="isActive" type="byte">
+      <column name="IS_ACTIVE" not-null="true" />
     </property>
   </class>
 </hibernate-mapping>

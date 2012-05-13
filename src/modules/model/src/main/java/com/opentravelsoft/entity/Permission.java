@@ -1,65 +1,67 @@
 package com.opentravelsoft.entity;
 
-/**
- * 
- * @author zhangst
- * 
- */
-public class Permission implements java.io.Serializable
-{
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-    private static final long serialVersionUID = 2965607205737704598L;
+@Entity
+@Table(name = "tbl_permission", catalog = "tourismwork_db")
+public class Permission implements java.io.Serializable {
 
-    private int permissionId;
+  private Integer permissionId;
+  private String permissionCode;
+  private String permissionKey;
+  private String permissionName;
 
-    private String permissionCode;
+  public Permission() {
+  }
 
-    private String permissionKey;
+  public Permission(String permissionCode, String permissionKey,
+      String permissionName) {
+    this.permissionCode = permissionCode;
+    this.permissionKey = permissionKey;
+    this.permissionName = permissionName;
+  }
 
-    private String permissionName;
+  @Id
+  @GeneratedValue(strategy = IDENTITY)
+  @Column(name = "PermissionID", unique = true, nullable = false)
+  public Integer getPermissionId() {
+    return this.permissionId;
+  }
 
-    public Permission()
-    {
-    }
+  public void setPermissionId(Integer permissionId) {
+    this.permissionId = permissionId;
+  }
 
-    public int getPermissionId()
-    {
-        return this.permissionId;
-    }
+  @Column(name = "PermissionCode", nullable = false, length = 50)
+  public String getPermissionCode() {
+    return this.permissionCode;
+  }
 
-    public void setPermissionId(int permissionId)
-    {
-        this.permissionId = permissionId;
-    }
+  public void setPermissionCode(String permissionCode) {
+    this.permissionCode = permissionCode;
+  }
 
-    public String getPermissionCode()
-    {
-        return this.permissionCode;
-    }
+  @Column(name = "PermissionKey", nullable = false, length = 50)
+  public String getPermissionKey() {
+    return this.permissionKey;
+  }
 
-    public void setPermissionCode(String permissionCode)
-    {
-        this.permissionCode = permissionCode;
-    }
+  public void setPermissionKey(String permissionKey) {
+    this.permissionKey = permissionKey;
+  }
 
-    public String getPermissionKey()
-    {
-        return this.permissionKey;
-    }
+  @Column(name = "PermissionName", nullable = false, length = 50)
+  public String getPermissionName() {
+    return this.permissionName;
+  }
 
-    public void setPermissionKey(String permissionKey)
-    {
-        this.permissionKey = permissionKey;
-    }
-
-    public String getPermissionName()
-    {
-        return this.permissionName;
-    }
-
-    public void setPermissionName(String permissionName)
-    {
-        this.permissionName = permissionName;
-    }
+  public void setPermissionName(String permissionName) {
+    this.permissionName = permissionName;
+  }
 
 }

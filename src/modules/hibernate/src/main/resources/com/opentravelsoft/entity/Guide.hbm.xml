@@ -17,10 +17,10 @@
     <property name="pinyin" type="string">
       <column name="PINYIN" length="50" />
     </property>
-    <property name="teamId" type="java.lang.Long">
+    <property name="teamId" type="java.lang.Integer">
       <column name="TEAM_ID" />
     </property>
-    <property name="idCard" type="string">
+    <property name="card" type="string">
       <column name="CARD" length="20" />
     </property>
     <property name="leadCard" type="string">
@@ -35,14 +35,14 @@
     <property name="high" type="string">
       <column name="HIGH" length="6" />
     </property>
-    <property name="leaderKey" type="string">
+    <property name="leadKey" type="string">
       <column name="LEAD_KEY" length="1" />
     </property>
-    <property name="dateStart" type="date">
-      <column name="DATE_START" />
+    <property name="dateStart" type="timestamp">
+      <column name="DATE_START" length="19" />
     </property>
-    <property name="dateEnd" type="date">
-      <column name="DATE_END" />
+    <property name="dateEnd" type="timestamp">
+      <column name="DATE_END" length="19" />
     </property>
     <property name="weight" type="string">
       <column name="WEIGHT" length="6" />
@@ -56,8 +56,8 @@
     <property name="tourCard" type="string">
       <column name="TOUR_CARD" length="20" />
     </property>
-    <property name="checkDate" type="date">
-      <column name="CHECK_DATE" />
+    <property name="checkDate" type="timestamp">
+      <column name="CHECK_DATE" length="19" />
     </property>
     <property name="icCard" type="string">
       <column name="IC_CARD" length="20" />
@@ -104,29 +104,29 @@
     <property name="finishSchool" type="string">
       <column name="FINISH_SCHOOL" length="40" />
     </property>
-    <property name="finishDate" type="date">
-      <column name="FINISH_DATE" />
+    <property name="finishDate" type="timestamp">
+      <column name="FINISH_DATE" length="19" />
     </property>
-    <property name="birthday" type="date">
-      <column name="BIRTHDAY" />
+    <property name="birthday" type="timestamp">
+      <column name="BIRTHDAY" length="19" />
     </property>
-    <property name="birthplace" type="string">
+    <property name="bthplc" type="string">
       <column name="BTHPLC" length="2" />
     </property>
-    <property name="passportType" type="string">
+    <property name="hzzl" type="string">
       <column name="HZZL" length="2" />
     </property>
-    <property name="passportNo" type="string">
+    <property name="hzno" type="string">
       <column name="HZNO" length="12" />
     </property>
-    <property name="passportDate" type="date">
-      <column name="HZDATE1" />
-    </property>
-    <property name="passportPlace" type="string">
+    <property name="hzadd" type="string">
       <column name="HZADD" length="3" />
     </property>
-    <property name="passportExpiry" type="date">
-      <column name="HZRANG" />
+    <property name="hzdate1" type="timestamp">
+      <column name="HZDATE1" length="19" />
+    </property>
+    <property name="hzrang" type="timestamp">
+      <column name="HZRANG" length="19" />
     </property>
     <property name="photoFile" type="string">
       <column name="PHOTO_FILE" length="40" />

@@ -16,22 +16,28 @@
       <column name="TRAFFIC" length="200" />
     </property>
     <property name="traffic1" type="string">
-      <column name="TRAFFIC1" length="100"></column>
+      <column name="TRAFFIC1" length="100" />
     </property>
     <property name="breakfast" type="string">
-      <column name="BREAKFAST" length="50"></column>
+      <column name="BREAKFAST" length="50" />
     </property>
     <property name="lunch" type="string">
-      <column name="LUNCH" length="50"></column>
+      <column name="LUNCH" length="50" />
     </property>
     <property name="supper" type="string">
-      <column name="SUPPER" length="50"></column>
+      <column name="SUPPER" length="50" />
     </property>
     <property name="program" type="string">
       <column name="PROGRAM" length="3000" />
     </property>
     <property name="quarter" type="string">
       <column name="QUARTER" length="100" />
+    </property>
+    <property name="outCity" type="string">
+      <column name="OUT_CITY" length="10" />
+    </property>
+    <property name="toCity" type="string">
+      <column name="TO_CITY" length="10" />
     </property>
   </class>
 </hibernate-mapping>

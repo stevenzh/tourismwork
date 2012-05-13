@@ -4,9 +4,9 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.ModulePermission" table="TBL_MODULE_PERMISSION">
-    <id name="modulePermissionId" type="int">
+    <id name="modulePermissionId" type="java.lang.Integer">
       <column name="ModulePermissionID" />
-      <generator class="native" />
+      <generator class="identity" />
     </id>
     <property name="moduleId" type="int">
       <column name="ModuleID" not-null="true" />
@@ -14,13 +14,13 @@
     <property name="permissionId" type="int">
       <column name="PermissionID" not-null="true" />
     </property>
-    <property name="allowAccess" type="boolean">
+    <property name="allowAccess" type="byte">
       <column name="AllowAccess" not-null="true" />
     </property>
-    <property name="roleId" type="java.lang.Long">
+    <property name="roleId" type="java.lang.Integer">
       <column name="RoleID" />
     </property>
-    <property name="userId" type="java.lang.Long">
+    <property name="userId" type="java.lang.Integer">
       <column name="UserID" />
     </property>
   </class>
