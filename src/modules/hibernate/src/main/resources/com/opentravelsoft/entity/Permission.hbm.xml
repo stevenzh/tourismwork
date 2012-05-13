@@ -3,19 +3,19 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.opentravelsoft.entity.Permission" table="TBL_PERMISSION">
-    <id name="permissionId" type="int">
-      <column name="PermissionID" />
-      <generator class="native" />
-    </id>
-    <property name="permissionCode" type="string">
-      <column name="PermissionCode" length="50" not-null="true" />
-    </property>
-    <property name="permissionKey" type="string">
-      <column name="PermissionKey" length="50" not-null="true" />
-    </property>
-    <property name="permissionName" type="string">
-      <column name="PermissionName" length="50" not-null="true" />
-    </property>
-  </class>
+	<class name="com.opentravelsoft.entity.Permission" table="TBL_PERMISSION">
+		<id name="permissionId" type="java.lang.Integer">
+			<column name="PermissionID" />
+			<generator class="identity" />
+		</id>
+		<property name="permissionCode" type="string">
+			<column name="PermissionCode" length="50" not-null="true" />
+		</property>
+		<property name="permissionKey" type="string">
+			<column name="PermissionKey" length="50" not-null="true" />
+		</property>
+		<property name="permissionName" type="string">
+			<column name="PermissionName" length="50" not-null="true" />
+		</property>
+	</class>
 </hibernate-mapping>

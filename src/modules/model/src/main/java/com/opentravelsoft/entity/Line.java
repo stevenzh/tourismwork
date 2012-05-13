@@ -15,7 +15,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.transform.Source;
+import javax.xml.transform.sax.SAXSource;
 
+import com.opentravelsoft.entity.xml.LineInputSource;
+import com.opentravelsoft.entity.xml.LineXMLReader;
 import com.opentravelsoft.util.LabelValueBean;
 
 @Entity
@@ -796,9 +800,9 @@ public class Line implements java.io.Serializable {
 
   private String classifyRegionId;
 
-  // public Source getSource() {
-  // return new SAXSource(new LineXMLReader(), new LineInputSource(this));
-  // }
+  public Source getSource() {
+    return new SAXSource(new LineXMLReader(), new LineInputSource(this));
+  }
 
   public Double getPrice() {
     return price;

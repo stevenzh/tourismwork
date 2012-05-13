@@ -3,16 +3,16 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.opentravelsoft.entity.PlanPrice" table="TBL_PLAN_PRICE">
-    <id name="id" type="long">
-      <column name="ID" />
-      <generator class="native" />
-    </id>
-    <property name="planNo" type="string">
-      <column name="PLAN_NO" length="10" not-null="true" />
-    </property>
-    <property name="priceNo" type="string">
-      <column name="PRICE_NO" length="10" not-null="true" />
-    </property>
-  </class>
+	<class name="com.opentravelsoft.entity.PlanPrice" table="TBL_PLAN_PRICE">
+		<id name="id" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="identity" />
+		</id>
+		<property name="planNo" type="string">
+			<column name="PLAN_NO" length="10" not-null="true" />
+		</property>
+		<property name="priceNo" type="string">
+			<column name="PRICE_NO" length="10" not-null="true" />
+		</property>
+	</class>
 </hibernate-mapping>

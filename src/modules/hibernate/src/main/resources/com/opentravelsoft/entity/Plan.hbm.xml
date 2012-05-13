@@ -3,276 +3,284 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.opentravelsoft.entity.Plan" table="TBL_PLAN">
-    <cache usage="read-write" />
-    <id name="planNo" type="string">
-      <column name="PLAN_NO" length="10" />
-      <generator class="assigned" />
-    </id>
-    <many-to-one name="line" class="com.opentravelsoft.entity.Line" lazy="false" fetch="select">
-      <column name="LINE_NO" />
-    </many-to-one>
-    <property name="outDate" type="date">
-      <column name="OUT_DATE" not-null="true" />
-    </property>
-    <many-to-one name="team" class="com.opentravelsoft.entity.Team" lazy="false" fetch="select">
-      <column name="TEAM_ID" not-null="true" />
-    </many-to-one>
-    <many-to-one name="assigned" class="com.opentravelsoft.entity.Employee" lazy="false" fetch="select">
-      <column name="ASSIGNED_USER_ID" not-null="true" />
-    </many-to-one>
-    <property name="outCity" type="string">
-      <column name="OUT_CITY" length="4" />
-    </property>
-    <property name="tourNo" type="string">
-      <column name="TOUR_NO" length="100" />
-    </property>
-    <property name="tourNm" type="string">
-      <column name="TOUR_NM" length="100" />
-    </property>
-    <property name="paxkey" type="string">
-      <column name="PAXKEY" length="1" />
-    </property>
-    <property name="pax1" type="java.lang.Integer">
-      <column name="PLAN_PAX" />
-    </property>
-    <property name="pax4" type="java.lang.Integer">
-      <column name="HOLD_PAX" />
-    </property>
-    <property name="pax5" type="java.lang.Integer">
-      <column name="BUILD_MIN_PAX" />
-    </property>
-    <property name="uniteStatus" type="string" not-null="true">
-      <column name="UNITE_STATUS" length="1" />
-    </property>
-    <property name="pax2" type="java.lang.Integer">
-      <column name="PAX2" />
-    </property>
-    <property name="pax3" type="java.lang.Integer">
-      <column name="PAX3" />
-    </property>
-    <property name="pax" type="int" not-null="true">
-      <column name="PAX" />
-    </property>
-    <property name="malePax" type="java.lang.Integer">
-      <column name="MALE_PAX" />
-    </property>
-    <property name="femalePax" type="java.lang.Integer">
-      <column name="FEMALE_PAX" />
-    </property>
-    <property name="childPax" type="java.lang.Integer">
-      <column name="CHILD_PAX" />
-    </property>
-    <property name="leaderPax" type="java.lang.Integer">
-      <column name="LEAD_PAX" />
-    </property>
-    <property name="recRmk" type="string">
-      <column name="REC_RMK" length="60" />
-    </property>
-    <property name="deadline" type="date">
-      <column name="PLANDATE1" not-null="true" />
-    </property>
-    <property name="plandate2" type="date">
-      <column name="PLANDATE2" />
-    </property>
-    <property name="planDate3" type="java.lang.Integer">
-      <column name="PLAN_DATE3" />
-    </property>
-    <property name="planDate4" type="java.lang.Integer">
-      <column name="PLAN_DATE4" />
-    </property>
-    <property name="passDate" type="date">
-      <column name="PASS_DATE" />
-    </property>
-    <property name="deployFlag" type="string">
-      <column name="OTHER_KEY1" length="1" />
-    </property>
-    <property name="message" type="string">
-      <column name="MESSAGEBOX" length="500" />
-    </property>
-    <property name="favourable" type="string">
-      <column name="FAVOURABLE" length="1" />
-    </property>
-    <property name="shareFlight" type="string">
-      <column name="SHARE_FLIGHT" length="1" />
-    </property>
-    <property name="shareFlightId" type="java.lang.Integer">
-      <column name="SHARE_FLIGHT_ID" />
-    </property>
-
-    <many-to-one name="packagePrice" class="com.opentravelsoft.entity.LinePrice" lazy="false" fetch="select" not-found="ignore">
-      <column name="PRICE_NO" />
-    </many-to-one>
-    <property name="singleFlag" type="java.lang.Byte">
-      <column name="SINGLE_FLAG" />
-    </property>
-    <property name="traitType" type="java.lang.Integer">
-      <column name="TRAIT_TYPE" />
-    </property>
-    <property name="isEnter" type="java.lang.Integer">
-      <column name="IS_ENTER" />
-    </property>
-    <property name="inDate" type="date">
-      <column name="IN_DATE" />
-    </property>
-    <property name="inCity" type="string">
-      <column name="IN_CITY" length="3" />
-    </property>
-    <property name="venue" type="string">
-      <column name="GP_CITY" length="3" />
-    </property>
-    <property name="dbrm" type="java.lang.Integer">
-      <column name="DBRM" />
-    </property>
-    <property name="sgrm" type="java.lang.Integer">
-      <column name="SGRM" />
-    </property>
-    <property name="adrm" type="java.lang.Integer">
-      <column name="ADRM" />
-    </property>
-    <property name="_day" type="java.lang.Integer">
-      <column name="DAY" />
-    </property>
-    <property name="paxday" type="java.lang.Integer">
-      <column name="PAXDAY" />
-    </property>
-    <property name="amount" type="java.lang.Double">
-      <column name="AMOUNT" precision="53" scale="0" />
-    </property>
-    <property name="cost" type="java.lang.Double">
-      <column name="COST" precision="10" />
-    </property>
-    <property name="blnrate" type="java.lang.Double">
-      <column name="BLNRATE" precision="6" />
-    </property>
-    <property name="camt03" type="java.lang.Double">
-      <column name="CAMT03" precision="10" />
-    </property>
-    <property name="airco" type="string">
-      <column name="AIRCO" length="2" />
-    </property>
-    <property name="aramt" type="java.lang.Double">
-      <column name="ARAMT" precision="10" />
-    </property>
-    <property name="tourKey" type="string">
-      <column name="TOUR_KEY" length="1" />
-    </property>
-    <property name="opuser1" type="java.lang.Long">
-      <column name="OPUSER1" />
-    </property>
-    <property name="optime1" type="date">
-      <column name="OPTIME1" />
-    </property>
-    <property name="opuser2" type="java.lang.Long">
-      <column name="OPUSER2" />
-    </property>
-    <property name="optime2" type="date">
-      <column name="OPTIME2" />
-    </property>
-    <property name="country" type="string">
-      <column name="COUNTRY" length="100" />
-    </property>
-    <property name="piccNo" type="string">
-      <column name="PICC_NO" length="12" />
-    </property>
-    <property name="ghdNum" type="java.lang.Integer">
-      <column name="GHD_NUM" />
-    </property>
-    <property name="ghdDate" type="date">
-      <column name="GHD_DATE" />
-    </property>
-    <property name="tourRmk" type="string">
-      <column name="TOUR_RMK" length="40" />
-    </property>
-    <property name="delKey" type="string">
-      <column name="TOUR_DEL" length="1" />
-    </property>
-    <property name="remarks" type="string">
-      <column name="REMARKS" length="1000" />
-    </property>
-    <property name="invpntKey" type="string">
-      <column name="INVPNT_KEY" length="1" />
-    </property>
-    <property name="isNeedLeader" type="java.lang.Integer">
-      <column name="IS_NEED_LEADER" />
-    </property>
-    <property name="dbamt" type="java.lang.Double">
-      <column name="DBAMT" precision="18" />
-    </property>
-    <property name="cramt" type="java.lang.Double">
-      <column name="CRAMT" precision="18" />
-    </property>
-    <property name="isBuildup" type="string">
-      <column name="OP_KEY" length="1" />
-    </property>
-    <property name="crDate" type="date">
-      <column name="CR_DATE" />
-    </property>
-    <many-to-one name="crUser" class="com.opentravelsoft.entity.Employee" lazy="false" fetch="select">
-      <column name="CR_USER" />
-    </many-to-one>
-    <property name="opDate" type="date">
-      <column name="OPTIME"></column>
-    </property>
-    <property name="opUser" type="java.lang.Long">
-      <column name="OPUSER" />
-    </property>
-    <property name="chkKey" type="string">
-      <column name="CHK_KEY" length="1" />
-    </property>
-    <property name="chkIssue" type="string">
-      <column name="CHK_ISSUE" length="1" />
-    </property>
-    <property name="chkUser" type="java.lang.Long">
-      <column name="CHK_USER" />
-    </property>
-    <property name="chkDate" type="date">
-      <column name="CHK_DATE" />
-    </property>
-    <property name="invKey" type="string">
-      <column name="INV_KEY" length="1" />
-    </property>
-    <property name="invUser" type="java.lang.Long">
-      <column name="INV_USER" />
-    </property>
-    <property name="invDate" type="date">
-      <column name="INV_DATE" />
-    </property>
-    <property name="customerId" type="java.lang.Integer">
-      <column name="CUSTOMER_ID" />
-    </property>
-
-    <property name="exemptPax" type="java.lang.Integer">
-      <column name="EXEMPT_PAX" />
-    </property>
-
-
-    <property name="opAccount" type="string" not-null="true">
-      <column name="OP_ACCOUNT" length="1" />
-    </property>
-    <property name="opRefactor" type="string">
-      <column name="OP_REFACTOR" length="1" />
-    </property>
-    <property name="frChecked" type="string">
-      <column name="FR_CHECKED" length="1" />
-    </property>
-    <property name="frUser" type="java.lang.Integer">
-      <column name="FR_USER" />
-    </property>
-    <property name="frDate" type="date">
-      <column name="FR_DATE" />
-    </property>
-    <property name="extCost" type="java.lang.Double">
-      <column name="EXT_COST" precision="10" />
-    </property>
-    <property name="extCostNote" type="string">
-      <column name="EXT_COST_NOTE" length="200" />
-    </property>
-    <property name="tourAmount" type="double" not-null="true">
-      <column name="TOUR_AMOUNT" precision="53" scale="0" />
-    </property>
-    <property name="workflowId" type="string">
-      <column name="WORKFLOW_ID" length="255" />
-    </property>
-  </class>
+	<class name="com.opentravelsoft.entity.Plan" table="TBL_PLAN">
+		<cache usage="read-write" />
+		<id name="planNo" type="string">
+			<column name="PLAN_NO" length="10" />
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="team" class="com.opentravelsoft.entity.Team" fetch="select">
+			<column name="TEAM_ID" />
+		</many-to-one>
+		<many-to-one name="line" class="com.opentravelsoft.entity.Line" fetch="select">
+			<column name="LINE_NO" length="8" not-null="true" />
+		</many-to-one>
+		<many-to-one name="crUser" class="com.opentravelsoft.entity.Employee" fetch="select">
+			<column name="CR_USER" />
+		</many-to-one>
+		<many-to-one name="city" class="com.opentravelsoft.entity.City" fetch="select">
+			<column name="OUT_CITY" length="4" />
+		</many-to-one>
+		<property name="outDate" type="timestamp">
+			<column name="OUT_DATE" length="19" not-null="true" />
+		</property>
+		<property name="tourNo" type="string">
+			<column name="TOUR_NO" length="100" />
+		</property>
+		<property name="tourNm" type="string">
+			<column name="TOUR_NM" length="100" />
+		</property>
+		<many-to-one name="assigned" class="com.opentravelsoft.entity.Employee" lazy="false" fetch="select">
+			<column name="ASSIGNED_USER_ID" not-null="true" />
+		</many-to-one>
+		<property name="paxkey" type="string">
+			<column name="PAXKEY" length="1" />
+		</property>
+		<property name="planPax" type="java.lang.Integer">
+			<column name="PLAN_PAX" />
+		</property>
+		<property name="holdPax" type="java.lang.Integer">
+			<column name="HOLD_PAX" />
+		</property>
+		<property name="buildMinPax" type="java.lang.Integer">
+			<column name="BUILD_MIN_PAX" />
+		</property>
+		<property name="uniteStatus" type="char">
+			<column name="UNITE_STATUS" length="1" not-null="true" />
+		</property>
+		<property name="pax2" type="java.lang.Integer">
+			<column name="PAX2" />
+		</property>
+		<property name="pax3" type="java.lang.Integer">
+			<column name="PAX3" />
+		</property>
+		<property name="pax" type="int">
+			<column name="PAX" not-null="true" />
+		</property>
+		<property name="malePax" type="java.lang.Integer">
+			<column name="MALE_PAX" />
+		</property>
+		<property name="femalePax" type="java.lang.Integer">
+			<column name="FEMALE_PAX" />
+		</property>
+		<property name="childPax" type="java.lang.Integer">
+			<column name="CHILD_PAX" />
+		</property>
+		<property name="leadPax" type="java.lang.Integer">
+			<column name="LEAD_PAX" />
+		</property>
+		<property name="workflowId" type="string">
+			<column name="WORKFLOW_ID" />
+		</property>
+		<property name="recRmk" type="string">
+			<column name="REC_RMK" length="60" />
+		</property>
+		<property name="plandate1" type="timestamp">
+			<column name="PLANDATE1" length="19" not-null="true" />
+		</property>
+		<property name="plandate2" type="timestamp">
+			<column name="PLANDATE2" length="19" />
+		</property>
+		<property name="planDate3" type="java.lang.Integer">
+			<column name="PLAN_DATE3" />
+		</property>
+		<property name="planDate4" type="java.lang.Integer">
+			<column name="PLAN_DATE4" />
+		</property>
+		<property name="passDate" type="timestamp">
+			<column name="PASS_DATE" length="19" />
+		</property>
+		<property name="otherKey1" type="string">
+			<column name="OTHER_KEY1" length="1" />
+		</property>
+		<property name="messagebox" type="string">
+			<column name="MESSAGEBOX" length="500" />
+		</property>
+		<property name="favourable" type="java.lang.Character">
+			<column name="FAVOURABLE" length="1" />
+		</property>
+		<property name="shareFlight" type="java.lang.Character">
+			<column name="SHARE_FLIGHT" length="1" />
+		</property>
+		<property name="shareFlightId" type="java.lang.Integer">
+			<column name="SHARE_FLIGHT_ID" />
+		</property>
+		<many-to-one name="packagePrice" class="com.opentravelsoft.entity.LinePrice" lazy="false" fetch="select" not-found="ignore">
+			<column name="PRICE_NO" />
+		</many-to-one>
+		<property name="singleFlag" type="java.lang.Byte">
+			<column name="SINGLE_FLAG" />
+		</property>
+		<property name="traitType" type="java.lang.Integer">
+			<column name="TRAIT_TYPE" />
+		</property>
+		<property name="isEnter" type="java.lang.Integer">
+			<column name="IS_ENTER" />
+		</property>
+		<property name="inDate" type="timestamp">
+			<column name="IN_DATE" length="19" />
+		</property>
+		<property name="inCity" type="string">
+			<column name="IN_CITY" length="4" />
+		</property>
+		<property name="gpCity" type="string">
+			<column name="GP_CITY" length="4" />
+		</property>
+		<property name="dbrm" type="java.lang.Integer">
+			<column name="DBRM" />
+		</property>
+		<property name="sgrm" type="java.lang.Integer">
+			<column name="SGRM" />
+		</property>
+		<property name="adrm" type="java.lang.Integer">
+			<column name="ADRM" />
+		</property>
+		<property name="day" type="java.lang.Integer">
+			<column name="DAY" />
+		</property>
+		<property name="paxday" type="java.lang.Integer">
+			<column name="PAXDAY" />
+		</property>
+		<property name="income" type="big_decimal">
+			<column name="INCOME" precision="10" />
+		</property>
+		<property name="cost" type="big_decimal">
+			<column name="COST" precision="10" />
+		</property>
+		<property name="blnrate" type="big_decimal">
+			<column name="BLNRATE" precision="6" />
+		</property>
+		<property name="camt03" type="big_decimal">
+			<column name="CAMT03" precision="10" />
+		</property>
+		<property name="airco" type="string">
+			<column name="AIRCO" length="2" />
+		</property>
+		<property name="aramt" type="big_decimal">
+			<column name="ARAMT" precision="10" />
+		</property>
+		<property name="tourKey" type="string">
+			<column name="TOUR_KEY" length="1" />
+		</property>
+		<property name="opuser1" type="java.lang.Integer">
+			<column name="OPUSER1" />
+		</property>
+		<property name="optime1" type="timestamp">
+			<column name="OPTIME1" length="19" />
+		</property>
+		<property name="opuser2" type="java.lang.Integer">
+			<column name="OPUSER2" />
+		</property>
+		<property name="optime2" type="timestamp">
+			<column name="OPTIME2" length="19" />
+		</property>
+		<property name="country" type="string">
+			<column name="COUNTRY" length="100" />
+		</property>
+		<property name="piccNo" type="string">
+			<column name="PICC_NO" length="12" />
+		</property>
+		<property name="ghdNum" type="java.lang.Integer">
+			<column name="GHD_NUM" />
+		</property>
+		<property name="ghdDate" type="timestamp">
+			<column name="GHD_DATE" length="19" />
+		</property>
+		<property name="tourRmk" type="string">
+			<column name="TOUR_RMK" length="40" />
+		</property>
+		<property name="tourDel" type="java.lang.Character">
+			<column name="TOUR_DEL" length="1" />
+		</property>
+		<property name="remarks" type="string">
+			<column name="REMARKS" length="1000" />
+		</property>
+		<property name="invpntKey" type="java.lang.Character">
+			<column name="INVPNT_KEY" length="1" />
+		</property>
+		<property name="visaNcode" type="string">
+			<column name="VISA_NCODE" length="30" />
+		</property>
+		<property name="visaNname" type="string">
+			<column name="VISA_NNAME" length="100" />
+		</property>
+		<property name="isNeedLeader" type="java.lang.Integer">
+			<column name="IS_NEED_LEADER" />
+		</property>
+		<property name="dbamt" type="big_decimal">
+			<column name="DBAMT" precision="18" />
+		</property>
+		<property name="cramt" type="big_decimal">
+			<column name="CRAMT" precision="18" />
+		</property>
+		<property name="opKey" type="java.lang.Character">
+			<column name="OP_KEY" length="1" />
+		</property>
+		<property name="crDate" type="timestamp">
+			<column name="CR_DATE" length="19" />
+		</property>
+		<property name="chkKey" type="java.lang.Character">
+			<column name="CHK_KEY" length="1" />
+		</property>
+		<property name="chkIssue" type="string">
+			<column name="CHK_ISSUE" length="1" />
+		</property>
+		<property name="chkUser" type="java.lang.Integer">
+			<column name="CHK_USER" />
+		</property>
+		<property name="chkDate" type="timestamp">
+			<column name="CHK_DATE" length="19" />
+		</property>
+		<property name="invKey" type="java.lang.Character">
+			<column name="INV_KEY" length="1" />
+		</property>
+		<property name="invUser" type="java.lang.Integer">
+			<column name="INV_USER" />
+		</property>
+		<property name="invDate" type="timestamp">
+			<column name="INV_DATE" length="19" />
+		</property>
+		<property name="opuser" type="java.lang.Integer">
+			<column name="OPUSER" />
+		</property>
+		<property name="optime" type="timestamp">
+			<column name="OPTIME" length="19" not-null="true" />
+		</property>
+		<property name="customerId" type="java.lang.Integer">
+			<column name="CUSTOMER_ID" />
+		</property>
+		<property name="exemptPax" type="java.lang.Integer">
+			<column name="EXEMPT_PAX" />
+		</property>
+		<property name="amount" type="big_decimal">
+			<column name="AMOUNT" precision="18" />
+		</property>
+		<property name="costAmount" type="big_decimal">
+			<column name="COST_AMOUNT" precision="18" not-null="true" />
+		</property>
+		<property name="opAccount" type="char">
+			<column name="OP_ACCOUNT" length="1" not-null="true" />
+		</property>
+		<property name="opRefactor" type="char">
+			<column name="OP_REFACTOR" length="1" not-null="true" />
+		</property>
+		<property name="frChecked" type="java.lang.Character">
+			<column name="FR_CHECKED" length="1" />
+		</property>
+		<property name="frUser" type="java.lang.Integer">
+			<column name="FR_USER" />
+		</property>
+		<property name="frDate" type="timestamp">
+			<column name="FR_DATE" length="19" />
+		</property>
+		<property name="extCost" type="big_decimal">
+			<column name="EXT_COST" precision="10" />
+		</property>
+		<property name="extCostNote" type="string">
+			<column name="EXT_COST_NOTE" length="200" />
+		</property>
+		<property name="tourAmount" type="big_decimal">
+			<column name="TOUR_AMOUNT" precision="16" />
+		</property>
+	</class>
 </hibernate-mapping>

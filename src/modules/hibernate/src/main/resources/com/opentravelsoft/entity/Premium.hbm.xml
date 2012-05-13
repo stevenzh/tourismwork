@@ -3,52 +3,52 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.opentravelsoft.entity.Premium" table="TBL_CPIC_PREM">
-    <id name="precode" type="string">
-      <column name="PRECODE" length="8" />
-      <generator class="assigned" />
-    </id>
-    <property name="prem" type="java.lang.Double">
-      <column name="PREM" precision="16" />
-    </property>
-    <property name="preday" type="java.lang.Integer">
-      <column name="PREDAY" />
-    </property>
-    <property name="ywpre" type="java.lang.Double">
-      <column name="YWPRE" precision="10" scale="3" />
-    </property>
-    <property name="ylpre" type="java.lang.Double">
-      <column name="YLPRE" precision="10" scale="3" />
-    </property>
-    <property name="bcpre" type="java.lang.Double">
-      <column name="BCPRE" precision="10" scale="3" />
-    </property>
-    <property name="clpre" type="java.lang.Double">
-      <column name="CLPRE" precision="10" scale="3" />
-    </property>
-    <property name="hkpre" type="java.lang.Double">
-      <column name="HKPRE" precision="10" scale="3" />
-    </property>
-    <property name="dodate" type="date">
-      <column name="DODATE" />
-    </property>
-    <property name="note" type="string">
-      <column name="NOTE" length="200" />
-    </property>
-    <property name="del" type="string">
-      <column name="DEL" length="1" />
-    </property>
-    <property name="created" type="date" generated="insert">
-      <column name="CREATED" default="current_date" />
-    </property>
-    <property name="createdBy" type="java.lang.Long">
-      <column name="CREATEDBY" />
-    </property>
-    <property name="updated" type="date">
-      <column name="UPDATED"></column>
-    </property>
-    <property name="updatedBy" type="java.lang.Long">
-      <column name="UPDATEDBY" />
-    </property>
-  </class>
+	<class name="com.opentravelsoft.entity.Premium" table="TBL_CPIC_PREM">
+		<id name="precode" type="string">
+			<column name="PRECODE" length="8" />
+			<generator class="assigned" />
+		</id>
+		<property name="prem" type="big_decimal">
+			<column name="PREM" precision="16" />
+		</property>
+		<property name="preday" type="java.lang.Integer">
+			<column name="PREDAY" />
+		</property>
+		<property name="ywpre" type="big_decimal">
+			<column name="YWPRE" precision="10" scale="3" />
+		</property>
+		<property name="ylpre" type="big_decimal">
+			<column name="YLPRE" precision="10" scale="3" />
+		</property>
+		<property name="bcpre" type="big_decimal">
+			<column name="BCPRE" precision="10" scale="3" />
+		</property>
+		<property name="clpre" type="big_decimal">
+			<column name="CLPRE" precision="10" scale="3" />
+		</property>
+		<property name="hkpre" type="big_decimal">
+			<column name="HKPRE" precision="10" scale="3" />
+		</property>
+		<property name="dodate" type="timestamp">
+			<column name="DODATE" length="19" />
+		</property>
+		<property name="note" type="string">
+			<column name="NOTE" length="200" />
+		</property>
+		<property name="del" type="java.lang.Character">
+			<column name="DEL" length="1" />
+		</property>
+		<property name="created" type="timestamp">
+			<column name="CREATED" length="19" />
+		</property>
+		<property name="createdby" type="java.lang.Integer">
+			<column name="CREATEDBY" />
+		</property>
+		<property name="updated" type="timestamp">
+			<column name="UPDATED" length="19" not-null="true" />
+		</property>
+		<property name="updatedby" type="java.lang.Integer">
+			<column name="UPDATEDBY" />
+		</property>
+	</class>
 </hibernate-mapping>

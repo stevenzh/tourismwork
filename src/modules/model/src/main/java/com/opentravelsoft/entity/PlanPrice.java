@@ -1,25 +1,19 @@
 package com.opentravelsoft.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-/**
- * 出团航班信息
- * 
- * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:32 $
- */
-public class PlanPrice extends BaseObject {
+@Entity
+@Table(name = "tbl_plan_price", catalog = "tourismwork_db")
+public class PlanPrice implements java.io.Serializable {
 
-  private static final long serialVersionUID = 5240784419494487667L;
-
-  private long id;
-
-  private int idx;
-
-  private boolean defaultValue;
-
+  private Integer id;
   /** 计划编号 */
   private String planNo;
-
   private String priceNo;
 
   public PlanPrice() {
@@ -28,9 +22,43 @@ public class PlanPrice extends BaseObject {
 
   public PlanPrice(String planNo, String priceNo) {
     this();
+
+    this.planNo = planNo;
     this.priceNo = priceNo;
+  }
+
+  @Id
+  @GeneratedValue(strategy = IDENTITY)
+  @Column(name = "ID", unique = true, nullable = false)
+  public Integer getId() {
+    return this.id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  @Column(name = "PLAN_NO", nullable = false, length = 10)
+  public String getPlanNo() {
+    return this.planNo;
+  }
+
+  public void setPlanNo(String planNo) {
     this.planNo = planNo;
   }
+
+  @Column(name = "PRICE_NO", nullable = false, length = 10)
+  public String getPriceNo() {
+    return this.priceNo;
+  }
+
+  public void setPriceNo(String priceNo) {
+    this.priceNo = priceNo;
+  }
+
+  private int idx;
+
+  private boolean defaultValue;
 
   public int getIdx() {
     return idx;
@@ -40,51 +68,12 @@ public class PlanPrice extends BaseObject {
     this.idx = idx;
   }
 
-  public String getPlanNo() {
-    return this.planNo;
-  }
-
-  public void setPlanNo(String planNo) {
-    this.planNo = planNo;
-  }
-
-  public String getPriceNo() {
-    return priceNo;
-  }
-
-  public void setPriceNo(String priceNo) {
-    this.priceNo = priceNo;
-  }
-
   public boolean getDefaultValue() {
     return defaultValue;
   }
 
   public void setDefaultValue(boolean defaultValue) {
     this.defaultValue = defaultValue;
-  }
-
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
-
-  @Override
-  public String toString() {
-    return null;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    return false;
-  }
-
-  @Override
-  public int hashCode() {
-    return 0;
   }
 
 }
