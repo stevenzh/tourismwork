@@ -1,34 +1,35 @@
 package com.opentravelsoft.entity;
 
-/**
- * 
- * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.2 $ $Date: 2009/04/10 07:47:28 $
- */
-public class TeamSupplier implements java.io.Serializable
-{
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-    private static final long serialVersionUID = -708497038792746996L;
+@Entity
+@Table(name = "tbl_team_customer", catalog = "tourismwork_db")
+public class TeamSupplier implements java.io.Serializable {
 
-    private TeamSupplierId id;
+  private TeamSupplierId id;
 
-    public TeamSupplier()
-    {
-    }
+  public TeamSupplier() {
+  }
 
-    public TeamSupplier(TeamSupplierId id)
-    {
-        this.id = id;
-    }
+  public TeamSupplier(TeamSupplierId id) {
+    this.id = id;
+  }
 
-    public TeamSupplierId getId()
-    {
-        return this.id;
-    }
+  @EmbeddedId
+  @AttributeOverrides({
+      @AttributeOverride(name = "customerId", column = @Column(name = "CUSTOMER_ID", nullable = false)),
+      @AttributeOverride(name = "teamId", column = @Column(name = "TEAM_ID", nullable = false)) })
+  public TeamSupplierId getId() {
+    return this.id;
+  }
 
-    public void setId(TeamSupplierId id)
-    {
-        this.id = id;
-    }
+  public void setId(TeamSupplierId id) {
+    this.id = id;
+  }
 
 }

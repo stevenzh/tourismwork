@@ -4,9 +4,9 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.ShareFlight" table="TBL_SHARE_FLIGHT">
-    <id name="shareFlightId" type="int">
+    <id name="shareFlightId" type="java.lang.Integer">
       <column name="SHARE_FLIGHT_ID" />
-      <generator class="native" />
+      <generator class="identity" />
     </id>
     <property name="flightNo" type="string">
       <column name="FLIGHT_NO" length="10" not-null="true" />
@@ -14,8 +14,8 @@
     <property name="airwaysCode" type="string">
       <column name="AIRWAYS_CODE" length="4" />
     </property>
-    <property name="departureDate" type="date">
-      <column name="DEPARTURE_DATE" not-null="true" />
+    <property name="departureDate" type="timestamp">
+      <column name="DEPARTURE_DATE" length="19" not-null="true" />
     </property>
     <property name="seating" type="java.lang.Integer">
       <column name="SEATING" />

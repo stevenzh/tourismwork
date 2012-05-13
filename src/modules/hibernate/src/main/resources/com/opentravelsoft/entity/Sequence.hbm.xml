@@ -5,7 +5,7 @@
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.Sequence" table="TBL_SEQUENCE">
     <composite-id name="id" class="com.opentravelsoft.entity.SequenceId">
-      <key-property name="rectype" type="char">
+      <key-property name="rectype" type="string">
         <column name="RECTYPE" length="1" />
       </key-property>
       <key-property name="year" type="string">
@@ -15,10 +15,13 @@
         <column name="MONTH" length="2" />
       </key-property>
     </composite-id>
-    <property name="regPlcd" type="string">
+    <property name="groupId" type="java.lang.Integer">
+      <column name="GROUP_ID" />
+    </property>
+    <property name="regPlcd" type="java.lang.Character">
       <column name="REG_PLCD" length="1" />
     </property>
-    <property name="cptno" type="java.lang.Long">
+    <property name="cptno" type="java.lang.Integer">
       <column name="CPTNO" />
     </property>
   </class>

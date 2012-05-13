@@ -1,28 +1,19 @@
 package com.opentravelsoft.entity;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "tbl_sys_config", catalog = "tourismwork_db")
+public class SysConfig implements java.io.Serializable {
 
-/**
- * 系统设置参数
- * 
- * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:32 $
- */
-public class SysConfig extends BaseObject {
-  private static final long serialVersionUID = 5032068897606000462L;
-
-  private long id;
-
-  private String type;
-
+  private int id;
   private String name;
-
   private String category;
-
+  private String type;
   private String storeRange;
-
   private String value;
 
   public SysConfig() {
@@ -31,42 +22,44 @@ public class SysConfig extends BaseObject {
     storeRange = "";
   }
 
-  public SysConfig(long configId) {
-    this.id = configId;
-  }
-
-  public long getId() {
+  @Id
+  @Column(name = "ID", unique = true, nullable = false)
+  public int getId() {
     return this.id;
   }
 
-  public void setId(long id) {
+  public void setId(int id) {
     this.id = id;
   }
 
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
+  @Column(name = "NAME", nullable = false, length = 50)
   public String getName() {
-    return name;
+    return this.name;
   }
 
   public void setName(String name) {
     this.name = name;
   }
 
+  @Column(name = "CATEGORY", nullable = false, length = 20)
   public String getCategory() {
-    return category;
+    return this.category;
   }
 
   public void setCategory(String category) {
     this.category = category;
   }
 
+  @Column(name = "TYPE", nullable = false, length = 16)
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  @Column(name = "STORE_RANGE", length = 170)
   public String getStoreRange() {
     return this.storeRange;
   }
@@ -75,43 +68,13 @@ public class SysConfig extends BaseObject {
     this.storeRange = storeRange;
   }
 
+  @Column(name = "VALUE", length = 189)
   public String getValue() {
     return this.value;
   }
 
   public void setValue(String value) {
     this.value = value;
-  }
-
-  @Override
-  public String toString() {
-    return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-    .append("Id", this.getId())
-    .append("Category", this.getCategory())
-    .append("Name", this.getName())
-    .append("Value", this.getValue()).toString();
-}
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof SysConfig)) {
-      return false;
-    }
-
-    final SysConfig t = (SysConfig) o;
-    return id == t.getId();
-  }
-
-  @Override
-  public int hashCode() {
-    int result;
-    result = (int)id;
-    result = 29 * result + (name != null ? name.hashCode() : 0);
-    result = 29 * result + (category != null ? category.hashCode() : 0);
-    return result;
   }
 
 }

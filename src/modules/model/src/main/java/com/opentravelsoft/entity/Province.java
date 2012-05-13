@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 /**
  * 省份
  * 
@@ -14,7 +13,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tbl_province")
-public class Province extends BaseObject {
+public class Province {
   private static final long serialVersionUID = -3397929975585184234L;
 
   public Province(String code) {
@@ -73,21 +72,4 @@ public class Province extends BaseObject {
     this.country = country;
   }
 
-  @Override
-  public String toString() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    // TODO Auto-generated method stub
-    return false;
-  }
-
-  @Override
-  public int hashCode() {
-    // TODO Auto-generated method stub
-    return 0;
-  }
 }
