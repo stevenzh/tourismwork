@@ -3,22 +3,28 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.opentravelsoft.entity.TblUserPayOL" table="TBL_USERPAYOL">
-    <id name="payId" column="PAYID">
-      <generator class="native"></generator>
-    </id>
-    <property name="payerName" column="PAYERNAME" type="string" length="50">
-    </property>
-    <property name="payerPhone" column="PAYERPHONE" type="string" length="50">
-    </property>
-    <property name="tourRoute" column="TOURROUTE" type="string" length="100">
-    </property>
-    <property name="payAmount" column="PAYAMOUNT" type="double">
-    </property>
-    <property name="remark" column="REMARK" type="string" length="1000">
-    </property>
-    <property name="payTime" column="PAYTIME" type="string" length="50">
-    </property>
-  </class>
-
+	<class name="com.opentravelsoft.entity.TblUserPayOL" table="TBL_USERPAYOL">
+		<id name="payid" type="long">
+			<column name="PAYID" precision="12" scale="0" />
+			<generator class="assigned" />
+		</id>
+		<property name="payername" type="string">
+			<column name="PAYERNAME" length="50" not-null="true" />
+		</property>
+		<property name="payerphone" type="string">
+			<column name="PAYERPHONE" length="50" not-null="true" />
+		</property>
+		<property name="tourroute" type="string">
+			<column name="TOURROUTE" length="100" not-null="true" />
+		</property>
+		<property name="payamount" type="double">
+			<column name="PAYAMOUNT" precision="22" scale="0" not-null="true" />
+		</property>
+		<property name="remark" type="string">
+			<column name="REMARK" length="1000" />
+		</property>
+		<property name="paytime" type="timestamp">
+			<column name="PAYTIME" length="19" />
+		</property>
+	</class>
 </hibernate-mapping>

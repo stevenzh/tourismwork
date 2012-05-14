@@ -3,19 +3,19 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.opentravelsoft.entity.TblVisaData" table="TBL_VISA_DATA">
-    <id name="itemId" type="int">
-      <column name="ITEM_ID" />
-      <generator class="native" />
-    </id>
-    <property name="name" type="string">
-      <column name="NAME" length="50" />
-    </property>
-    <property name="unit" type="string">
-      <column name="UNIT" length="10" />
-    </property>
-    <property name="description" type="string">
-      <column name="DESC_" length="50" />
-    </property>
-  </class>
+	<class name="com.opentravelsoft.entity.TblVisaData" table="TBL_VISA_DATA">
+		<id name="itemId" type="java.lang.Integer">
+			<column name="ITEM_ID" />
+			<generator class="identity" />
+		</id>
+		<property name="name" type="string">
+			<column name="NAME" length="50" />
+		</property>
+		<property name="unit" type="string">
+			<column name="UNIT" length="10" />
+		</property>
+		<property name="desc" type="string">
+			<column name="DESC_" length="50" />
+		</property>
+	</class>
 </hibernate-mapping>

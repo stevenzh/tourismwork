@@ -3,34 +3,34 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.opentravelsoft.entity.TblSmsReceive" table="TBL_SMS_RECEIVE">
-    <id name="id" type="int">
-      <column name="ID" />
-      <generator class="native" />
-    </id>
-    <property name="seqno" type="string">
-      <column name="SEQNO" length="20" not-null="true" />
-    </property>
-    <property name="mobile" type="string">
-      <column name="MOBILE" length="11" />
-    </property>
-    <property name="message" type="string">
-      <column name="MESSAGE" length="200" />
-    </property>
-    <property name="receiveDate" type="date">
-      <column name="RECEIVE_DATE" />
-    </property>
-    <property name="reply" type="string">
-      <column name="REPLY" length="1" />
-    </property>
-    <property name="replyDate" type="date">
-      <column name="REPLY_DATE" />
-    </property>
-    <property name="msgSrc" type="string">
-      <column name="MSG_SRC" length="500" />
-    </property>
-    <property name="updDate" type="date">
-      <column name="UPD_DATE"></column>
-    </property>
-  </class>
+	<class name="com.opentravelsoft.entity.TblSmsReceive" table="TBL_SMS_RECEIVE">
+		<id name="id" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="identity" />
+		</id>
+		<property name="seqno" type="string">
+			<column name="SEQNO" length="20" not-null="true" />
+		</property>
+		<property name="mobile" type="string">
+			<column name="MOBILE" length="11" />
+		</property>
+		<property name="message" type="string">
+			<column name="MESSAGE" length="200" />
+		</property>
+		<property name="receiveDate" type="timestamp">
+			<column name="RECEIVE_DATE" length="19" />
+		</property>
+		<property name="reply" type="java.lang.Character">
+			<column name="REPLY" length="1" />
+		</property>
+		<property name="replyDate" type="timestamp">
+			<column name="REPLY_DATE" length="19" />
+		</property>
+		<property name="updDate" type="timestamp">
+			<column name="UPD_DATE" length="19" />
+		</property>
+		<property name="msgSrc" type="string">
+			<column name="MSG_SRC" length="500" />
+		</property>
+	</class>
 </hibernate-mapping>

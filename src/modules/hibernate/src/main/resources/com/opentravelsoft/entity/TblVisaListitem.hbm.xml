@@ -3,20 +3,20 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.opentravelsoft.entity.TblVisaListitem" table="TBL_VISA_LISTITEM">
-    <composite-id name="id" class="com.opentravelsoft.entity.TblVisaListitemId">
-      <key-property name="nmno" type="string">
-        <column name="NMNO" length="10" />
-      </key-property>
-      <key-property name="itemId" type="int">
-        <column name="ITEM_ID" />
-      </key-property>
-    </composite-id>
-    <property name="checkIn" type="int">
-      <column name="CHECK_IN" not-null="true" />
-    </property>
-    <property name="note" type="string">
-      <column name="NOTE" length="50" />
-    </property>
-  </class>
+	<class name="com.opentravelsoft.entity.TblVisaListitem" table="TBL_VISA_LISTITEM">
+		<composite-id name="id" class="com.opentravelsoft.entity.TblVisaListitemId">
+			<key-property name="nmno" type="string">
+				<column name="NMNO" length="10" />
+			</key-property>
+			<key-property name="itemId" type="int">
+				<column name="ITEM_ID" />
+			</key-property>
+		</composite-id>
+		<property name="checkIn" type="int">
+			<column name="CHECK_IN" not-null="true" />
+		</property>
+		<property name="note" type="string">
+			<column name="NOTE" length="50" />
+		</property>
+	</class>
 </hibernate-mapping>

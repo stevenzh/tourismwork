@@ -3,14 +3,14 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.opentravelsoft.entity.TblVisaList" table="TBL_VISA_LIST">
-    <composite-id name="id" class="com.opentravelsoft.entity.TblVisaListId">
-      <key-property name="nmno" type="string">
-        <column name="NMNO" length="10" />
-      </key-property>
-      <key-property name="applyId" type="int">
-        <column name="APPLY_ID" />
-      </key-property>
-    </composite-id>
-  </class>
+	<class name="com.opentravelsoft.entity.TblVisaList" table="TBL_VISA_LIST">
+		<composite-id name="id" class="com.opentravelsoft.entity.TblVisaListId">
+			<key-property name="nmno" type="string">
+				<column name="NMNO" length="10" />
+			</key-property>
+			<key-property name="applyId" type="int">
+				<column name="APPLY_ID" />
+			</key-property>
+		</composite-id>
+	</class>
 </hibernate-mapping>
