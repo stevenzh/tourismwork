@@ -3,26 +3,26 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.opentravelsoft.entity.SysConfig" table="TBL_SYS_CONFIG">
-    <cache usage="nonstrict-read-write"/>
-    <id name="id" type="long">
-      <column name="ID" />
-      <generator class="native" />
-    </id>
-    <property name="name" type="string">
-      <column name="NAME" length="20" not-null="true" />
-    </property>
-    <property name="category" type="string">
-      <column name="CATEGORY" length="6" not-null="true" />
-    </property>
-    <property name="type" type="string">
-      <column name="TYPE" not-null="true" />
-    </property>
-    <property name="storeRange" type="string">
-      <column name="STORE_RANGE" length="170" />
-    </property>
-    <property name="value" type="string">
-      <column name="VALUE" length="189" />
-    </property>
-  </class>
+	<class name="com.opentravelsoft.entity.SysConfig" table="TBL_SYS_CONFIG">
+		<cache usage="nonstrict-read-write" />
+		<id name="id" type="int">
+			<column name="ID" />
+			<generator class="assigned" />
+		</id>
+		<property name="name" type="string">
+			<column name="NAME" length="50" not-null="true" />
+		</property>
+		<property name="category" type="string">
+			<column name="CATEGORY" length="20" not-null="true" />
+		</property>
+		<property name="type" type="string">
+			<column name="TYPE" length="16" not-null="true" />
+		</property>
+		<property name="storeRange" type="string">
+			<column name="STORE_RANGE" length="170" />
+		</property>
+		<property name="value" type="string">
+			<column name="VALUE" length="189" />
+		</property>
+	</class>
 </hibernate-mapping>

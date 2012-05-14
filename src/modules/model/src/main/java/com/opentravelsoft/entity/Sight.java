@@ -41,7 +41,9 @@ public class Sight implements java.io.Serializable {
   private Double clickNumber;
   private Date clickDate;
   private Character districtKey;
-  private String duchy;
+  /** 所在省 */
+  private Province province;
+
   private byte isDelete;
   private Set<TblLineSights> tblLineSightses = new HashSet<TblLineSights>(0);
 
@@ -179,13 +181,14 @@ public class Sight implements java.io.Serializable {
     this.districtKey = districtKey;
   }
 
-  @Column(name = "DUCHY", length = 2)
-  public String getDuchy() {
-    return this.duchy;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "DUCHY")
+  public Province getProvince() {
+    return province;
   }
 
-  public void setDuchy(String duchy) {
-    this.duchy = duchy;
+  public void setProvince(Province province) {
+    this.province = province;
   }
 
   @Column(name = "IS_DELETE", nullable = false)
@@ -217,9 +220,6 @@ public class Sight implements java.io.Serializable {
   /** 景点分类名称 */
   private String sightTypeName;
 
-  /** 所在省 */
-  private Province province;
-
   /** 城市 */
   private String cityId;
 
@@ -247,14 +247,6 @@ public class Sight implements java.io.Serializable {
 
   public void setMapAdd(String mapAdd) {
     this.mapAdd = mapAdd;
-  }
-
-  public Province getProvince() {
-    return province;
-  }
-
-  public void setProvince(Province province) {
-    this.province = province;
   }
 
   public String getCityId() {

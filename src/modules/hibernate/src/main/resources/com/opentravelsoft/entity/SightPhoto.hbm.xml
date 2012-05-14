@@ -3,19 +3,19 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.opentravelsoft.entity.SightPhoto" table="TBL_SIGHT_PHOTO">
-    <id name="recNo" type="string">
-      <column name="REC_NO" length="10" />
-      <generator class="assigned" />
-    </id>
-    <property name="sightNo" type="string">
-      <column name="SIGHT_NO" length="10" />
-    </property>
-    <property name="mapAddress" type="string">
-      <column name="MAP_ADDRESS" length="50" />
-    </property>
-    <property name="note" type="string">
-      <column name="NOTE" length="200" />
-    </property>
-  </class>
+	<class name="com.opentravelsoft.entity.SightPhoto" table="TBL_SIGHT_PHOTO">
+		<id name="recNo" type="string">
+			<column name="REC_NO" length="10" />
+			<generator class="assigned" />
+		</id>
+		<property name="sightNo" type="string">
+			<column name="SIGHT_NO" length="10" />
+		</property>
+		<property name="mapAddress" type="string">
+			<column name="MAP_ADDRESS" length="50" />
+		</property>
+		<property name="note" type="string">
+			<column name="NOTE" length="200" />
+		</property>
+	</class>
 </hibernate-mapping>
