@@ -43,7 +43,7 @@ public class GuideDaoImpl extends GenericDaoHibernate<Guide, String> implements
       guide.setAccNm(RowDataUtil.getString(wlt.getAccNm()));
       guide.setPinyin(wlt.getPinyin());
       guide.setAccSex(RowDataUtil.getString(wlt.getAccSex()));
-      guide.setTeamId(RowDataUtil.getLong(wlt.getTeamId()));
+      guide.setTeamId(RowDataUtil.getInt(wlt.getTeamId()));
       guide.setIdCard(RowDataUtil.getString(wlt.getIdCard()));
       guide.setLeadCard(RowDataUtil.getString(wlt.getLeadCard()));
       guide.setBusiness(RowDataUtil.getString(wlt.getBusiness()));
@@ -216,7 +216,7 @@ public class GuideDaoImpl extends GenericDaoHibernate<Guide, String> implements
       newguide.setAccNm(RowDataUtil.getString(obj.getAccNm()));
       newguide.setPinyin(obj.getPinyin());
       newguide.setAccSex(RowDataUtil.getString(obj.getAccSex()));
-      newguide.setTeamId(RowDataUtil.getLong(obj.getTeamId()));
+      newguide.setTeamId(RowDataUtil.getInt(obj.getTeamId()));
       newguide.setIdCard(RowDataUtil.getString(obj.getIdCard()));
       newguide.setLeadCard(RowDataUtil.getString(obj.getLeadCard()));
       newguide.setBusiness(RowDataUtil.getString(obj.getBusiness()));

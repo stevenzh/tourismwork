@@ -62,7 +62,7 @@ public interface LineDao extends GenericDao<Line, String> {
   public int duplicateRoute(String lineNo, String newLineNo,
       String newLineName, String copyFeature, String copySchedule,
       String copyPrice, String copyDestination, String copySight,
-      String copyVisa, long userId);
+      String copyVisa, Integer userId);
 
   public List<PortalCategory> getWebNavigation();
 

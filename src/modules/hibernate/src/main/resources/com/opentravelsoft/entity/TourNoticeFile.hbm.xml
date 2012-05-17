@@ -4,12 +4,15 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.TourNoticeFile" table="TBL_TOURNOTICE_FILE">
-    <id name="id" type="long">
+    <id name="id" type="java.lang.Integer">
       <column name="ID" />
-      <generator class="native"></generator>
+      <generator class="identity" />
     </id>
+    <property name="tourNo" type="string">
+      <column name="TOUR_NO" length="100" not-null="true" />
+    </property>
     <property name="planNo" type="string">
-      <column name="PLAN_NO" />
+      <column name="PLAN_NO" length="20" />
     </property>
     <property name="dptCd" type="string">
       <column name="DPT_CD" length="4" />
@@ -23,20 +26,20 @@
     <property name="filesize" type="java.lang.Integer">
       <column name="FILESIZE" />
     </property>
-    <property name="created" type="date">
-      <column name="CREATED" />
+    <property name="overdue" type="timestamp">
+      <column name="OVERDUE" length="19" />
     </property>
-    <property name="createdBy" type="java.lang.Long">
-      <column name="CREATEDBY" />
-    </property>
-    <property name="overdue" type="date">
-      <column name="OVERDUE" />
-    </property>
-    <property name="del" type="string">
+    <property name="del" type="java.lang.Character">
       <column name="DEL" length="1" />
     </property>
     <property name="note" type="string">
       <column name="NOTE" length="60" />
+    </property>
+    <property name="created" type="timestamp">
+      <column name="CREATED" length="19" />
+    </property>
+    <property name="createdby" type="java.lang.Integer">
+      <column name="CREATEDBY" />
     </property>
   </class>
 </hibernate-mapping>

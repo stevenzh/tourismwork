@@ -74,7 +74,7 @@ public class LineScheduleDaoImpl extends
   @SuppressWarnings("unchecked")
   public int deleteLineSchedule(LineSchedule schedule) {
     LineScheduleId tfa602Id = new LineScheduleId();
-    tfa602Id.setLineNo(schedule.getRouteNo());
+    tfa602Id.setLineNo(schedule.getId().getLineNo());
     tfa602Id.setDay(schedule.getDay());
     HibernateTemplate template = getHibernateTemplate();
     LineSchedule tfa602 = (LineSchedule) template.get(LineSchedule.class,
@@ -87,7 +87,7 @@ public class LineScheduleDaoImpl extends
     sb.append("from LineTraffic ");
     sb.append("where lineNo=? and day=? ");
 
-    Object[] params = { schedule.getRouteNo(), schedule.getDay() };
+    Object[] params = { schedule.getId().getLineNo(), schedule.getDay() };
     List<LineTraffic> list = template.find(sb.toString(), params);
     if (list != null) {
       template.deleteAll(list);
@@ -107,7 +107,7 @@ public class LineScheduleDaoImpl extends
 
     for (LineSchedule obj : scheduleList) {
       LineScheduleId tfa602Id = new LineScheduleId();
-      lineNo = obj.getRouteNo();
+      lineNo = obj.getId().getLineNo();
       tfa602Id.setLineNo(lineNo);
       tfa602Id.setDay(obj.getDay());
       LineSchedule schedule = (LineSchedule) template.get(LineSchedule.class,

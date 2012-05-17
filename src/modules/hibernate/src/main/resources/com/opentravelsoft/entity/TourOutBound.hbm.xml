@@ -4,15 +4,15 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.TourOutBound" table="TBL_TOUR_OUTBOUND">
-    <id name="id" type="int">
-      <column name="INCOME_ID" />
-      <generator class="native" />
+    <id name="id" type="java.lang.Integer">
+      <column name="ID" />
+      <generator class="identity" />
     </id>
-    <property name="type" type="string">
-      <column name="TYPE" length="50" />
-    </property>
     <property name="planNo" type="string">
-      <column name="PLAN_NO" not-null="true" />
+      <column name="PLAN_NO" length="20" not-null="true" />
+    </property>
+    <property name="type" type="string">
+      <column name="TYPE" length="50" not-null="true" />
     </property>
     <property name="text1" type="string">
       <column name="TEXT1" length="100" />
@@ -21,7 +21,7 @@
       <column name="TEXT2" length="500" />
     </property>
     <property name="text3" type="string">
-      <column name="TEXT3" length="2000" />
+      <column name="TEXT3" />
     </property>
     <property name="text4" type="string">
       <column name="TEXT4" length="400" />
@@ -29,11 +29,11 @@
     <property name="text5" type="string">
       <column name="TEXT5" length="400" />
     </property>
-    <property name="opuser" type="java.lang.Long">
+    <property name="opuser" type="java.lang.Integer">
       <column name="OPUSER" />
     </property>
-    <property name="opdate" type="date">
-      <column name="OPDATE"></column>
+    <property name="opdate" type="timestamp">
+      <column name="OPDATE" length="19" not-null="true" />
     </property>
   </class>
 </hibernate-mapping>

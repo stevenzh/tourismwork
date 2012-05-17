@@ -1,6 +1,18 @@
 package com.opentravelsoft.entity.finance;
 
+import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.sax.SAXSource;
@@ -10,69 +22,408 @@ import com.opentravelsoft.entity.Plan;
 import com.opentravelsoft.entity.xml.OutcomeInputSource;
 import com.opentravelsoft.entity.xml.OutcomeXMLReader;
 
-/**
- * 付款申请书
- * 
- * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:32 $
- */
-public class Outcome {
+@Entity
+@Table(name = "tbl_outcome", catalog = "tourismwork_db")
+public class Outcome implements java.io.Serializable {
 
   /** 付款申请书号 */
-  private long outcomeId;
-
+  private Integer outcomeId;
   private Customer customer;
 
+  /** 团号 */
+  private String tourNo;
+  /** 中段说明 */
+  private String note;
+  private Date payDate;
+  private Character payMode;
+  private String billNo;
+  /** 支付登记日期 */
+  private Date payRegisterDate;
+  private String payRegisterby;
+  /** 付款总金额 */
+  private BigDecimal amount;
+  /** 票务配送 */
+  private Short carryTicket = 0;
+  /** 配送状态 1: 开始 2: 暂停 3: 完成 4: 取消 */
+  private Short carryStatus;
+  /** 配送启动时间 */
+  private Date carryStart;
+  /** 配送启动操作员 */
+  private String carryUserid;
+  /** 配送人员 */
+  private String carryWorker;
+  /** 配送时间 */
+  private Date carryWorkday;
+  /** 配送完成时间 */
+  private Date carryComplete;
+
+  private Date carryLastdate;
+  /** 配送说明 */
+  private String carryNote;
+  private String flightNo;
   private Plan tour;
+  private String workflowId;
+  /** 制单时间 */
+  private Date created;
+  private Integer createdby;
+
+  private Date opApproved;
+  private Integer opApprovedby;
+  /** 计调是否审核 */
+  private Character opApprovedFlag;
+  private Date frRead;
+  private Integer frReadby;
+  /** 财务人员已读 */
+  private Character frReadFlag;
+  private Date frApproved;
+  private Integer frApprovedby;
+  /** 财务是否审核 */
+  private Character frApprovedFlag;
+  private Date updated;
+  private Integer updatedby;
+
+  public Outcome() {
+    customer = new Customer();
+    opRoe = 1d;
+    roe = 1d;
+    currency = "RMB";
+  }
+
+  @Id
+  @GeneratedValue(strategy = IDENTITY)
+  @Column(name = "OUTCOME_ID", unique = true, nullable = false)
+  public Integer getOutcomeId() {
+    return this.outcomeId;
+  }
+
+  public void setOutcomeId(Integer outcomeId) {
+    this.outcomeId = outcomeId;
+  }
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "CUSTOMER_ID")
+  public Customer getCustomer() {
+    return customer;
+  }
+
+  public void setCustomer(Customer customer) {
+    this.customer = customer;
+  }
+
+  @Column(name = "TOUR_NO", length = 100)
+  public String getTourNo() {
+    return this.tourNo;
+  }
+
+  public void setTourNo(String tourNo) {
+    this.tourNo = tourNo;
+  }
+
+  @Column(name = "NOTE", length = 1000)
+  public String getNote() {
+    return this.note;
+  }
+
+  public void setNote(String note) {
+    this.note = note;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "PAY_DATE", length = 19)
+  public Date getPayDate() {
+    return this.payDate;
+  }
+
+  public void setPayDate(Date payDate) {
+    this.payDate = payDate;
+  }
+
+  @Column(name = "PAY_MODE", length = 1)
+  public Character getPayMode() {
+    return this.payMode;
+  }
+
+  public void setPayMode(Character payMode) {
+    this.payMode = payMode;
+  }
+
+  @Column(name = "BILL_NO", length = 30)
+  public String getBillNo() {
+    return this.billNo;
+  }
+
+  public void setBillNo(String billNo) {
+    this.billNo = billNo;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "PAY_REGISTER_DATE", length = 19)
+  public Date getPayRegisterDate() {
+    return this.payRegisterDate;
+  }
+
+  public void setPayRegisterDate(Date payRegisterDate) {
+    this.payRegisterDate = payRegisterDate;
+  }
+
+  @Column(name = "PAY_REGISTERBY", length = 20)
+  public String getPayRegisterby() {
+    return this.payRegisterby;
+  }
+
+  public void setPayRegisterby(String payRegisterby) {
+    this.payRegisterby = payRegisterby;
+  }
+
+  @Column(name = "AMOUNT", precision = 10)
+  public BigDecimal getAmount() {
+    return this.amount;
+  }
+
+  public void setAmount(BigDecimal amount) {
+    this.amount = amount;
+  }
+
+  @Column(name = "CARRY_TICKET")
+  public Short getCarryTicket() {
+    return this.carryTicket;
+  }
+
+  public void setCarryTicket(Short carryTicket) {
+    this.carryTicket = carryTicket;
+  }
+
+  @Column(name = "CARRY_STATUS")
+  public Short getCarryStatus() {
+    return this.carryStatus;
+  }
+
+  public void setCarryStatus(Short carryStatus) {
+    this.carryStatus = carryStatus;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "CARRY_START", length = 19)
+  public Date getCarryStart() {
+    return this.carryStart;
+  }
+
+  public void setCarryStart(Date carryStart) {
+    this.carryStart = carryStart;
+  }
+
+  @Column(name = "CARRY_USERID", length = 10)
+  public String getCarryUserid() {
+    return this.carryUserid;
+  }
+
+  public void setCarryUserid(String carryUserid) {
+    this.carryUserid = carryUserid;
+  }
+
+  @Column(name = "CARRY_WORKER", length = 20)
+  public String getCarryWorker() {
+    return this.carryWorker;
+  }
+
+  public void setCarryWorker(String carryWorker) {
+    this.carryWorker = carryWorker;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "CARRY_WORKDAY", length = 19)
+  public Date getCarryWorkday() {
+    return this.carryWorkday;
+  }
+
+  public void setCarryWorkday(Date carryWorkday) {
+    this.carryWorkday = carryWorkday;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "CARRY_COMPLETE", length = 19)
+  public Date getCarryComplete() {
+    return this.carryComplete;
+  }
+
+  public void setCarryComplete(Date carryComplete) {
+    this.carryComplete = carryComplete;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "CARRY_LASTDATE", length = 19)
+  public Date getCarryLastdate() {
+    return this.carryLastdate;
+  }
+
+  public void setCarryLastdate(Date carryLastdate) {
+    this.carryLastdate = carryLastdate;
+  }
+
+  @Column(name = "CARRY_NOTE", length = 1000)
+  public String getCarryNote() {
+    return this.carryNote;
+  }
+
+  public void setCarryNote(String carryNote) {
+    this.carryNote = carryNote;
+  }
+
+  @Column(name = "FLIGHT_NO", length = 10)
+  public String getFlightNo() {
+    return this.flightNo;
+  }
+
+  public void setFlightNo(String flightNo) {
+    this.flightNo = flightNo;
+  }
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "PLAN_NO")
+  public Plan getTour() {
+    return tour;
+  }
+
+  public void setTour(Plan tour) {
+    this.tour = tour;
+  }
+
+  @Column(name = "WORKFLOW_ID")
+  public String getWorkflowId() {
+    return this.workflowId;
+  }
+
+  public void setWorkflowId(String workflowId) {
+    this.workflowId = workflowId;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "CREATED", length = 19)
+  public Date getCreated() {
+    return this.created;
+  }
+
+  public void setCreated(Date created) {
+    this.created = created;
+  }
+
+  @Column(name = "CREATEDBY")
+  public Integer getCreatedby() {
+    return this.createdby;
+  }
+
+  public void setCreatedby(Integer createdby) {
+    this.createdby = createdby;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "OP_APPROVED", length = 19)
+  public Date getOpApproved() {
+    return this.opApproved;
+  }
+
+  public void setOpApproved(Date opApproved) {
+    this.opApproved = opApproved;
+  }
+
+  @Column(name = "OP_APPROVEDBY")
+  public Integer getOpApprovedby() {
+    return this.opApprovedby;
+  }
+
+  public void setOpApprovedby(Integer opApprovedby) {
+    this.opApprovedby = opApprovedby;
+  }
+
+  @Column(name = "OP_APPROVED_FLAG", length = 1)
+  public Character getOpApprovedFlag() {
+    return this.opApprovedFlag;
+  }
+
+  public void setOpApprovedFlag(Character opApprovedFlag) {
+    this.opApprovedFlag = opApprovedFlag;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "FR_READ", length = 19)
+  public Date getFrRead() {
+    return this.frRead;
+  }
+
+  public void setFrRead(Date frRead) {
+    this.frRead = frRead;
+  }
+
+  @Column(name = "FR_READBY")
+  public Integer getFrReadby() {
+    return this.frReadby;
+  }
+
+  public void setFrReadby(Integer frReadby) {
+    this.frReadby = frReadby;
+  }
+
+  @Column(name = "FR_READ_FLAG", length = 1)
+  public Character getFrReadFlag() {
+    return this.frReadFlag;
+  }
+
+  public void setFrReadFlag(Character frReadFlag) {
+    this.frReadFlag = frReadFlag;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "FR_APPROVED", length = 19)
+  public Date getFrApproved() {
+    return this.frApproved;
+  }
+
+  public void setFrApproved(Date frApproved) {
+    this.frApproved = frApproved;
+  }
+
+  @Column(name = "FR_APPROVEDBY")
+  public Integer getFrApprovedby() {
+    return this.frApprovedby;
+  }
+
+  public void setFrApprovedby(Integer frApprovedby) {
+    this.frApprovedby = frApprovedby;
+  }
+
+  @Column(name = "FR_APPROVED_FLAG", length = 1)
+  public Character getFrApprovedFlag() {
+    return this.frApprovedFlag;
+  }
+
+  public void setFrApprovedFlag(Character frApprovedFlag) {
+    this.frApprovedFlag = frApprovedFlag;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "UPDATED", nullable = false, length = 19)
+  public Date getUpdated() {
+    return this.updated;
+  }
+
+  public void setUpdated(Date updated) {
+    this.updated = updated;
+  }
+
+  @Column(name = "UPDATEDBY")
+  public Integer getUpdatedby() {
+    return this.updatedby;
+  }
+
+  public void setUpdatedby(Integer updatedby) {
+    this.updatedby = updatedby;
+  }
 
   /** 成本ID */
   private long acctId;
 
-  /** 中段说明 */
-  private String note;
-
-  /** 制单时间 */
-  private Date created;
-
   /** 制单人 */
   private Long createdBy;
-
-  private Date opApproved;
-
-  private Long opApprovedby;
-
-  /** 计调是否审核 */
-  private Character opApprovedFlag;
-
-  private Date frRead;
-
-  private Long frReadby;
-
-  /** 财务人员已读 */
-  private Character frReadFlag;
-
-  private Date frApproved;
-
-  private Long frApprovedby;
-
-  /** 财务是否审核 */
-  private Character frApprovedFlag;
-
-  private Date payDate;
-
-  private Character payMode;
-
-  private Date billNo;
-
-  /** 支付登记日期 */
-  private Date payRegisterDate;
-
-  private String payRegisterby;
-
-  /** 付款总金额 */
-  private Double amount;
-
-  private Date updated;
 
   private Long updatedBy;
 
@@ -86,48 +437,15 @@ public class Outcome {
   /** 财务结算汇率 */
   private double roe;
 
-  private String workflowId;
-
   private String del;
-  // ----------------------------------
-  /** 票务配送 */
-  private short carryTicket = 0;
-
-  /** 配送状态 1: 开始 2: 暂停 3: 完成 4: 取消 */
-  private Short carryStatus;
-
-  /** 配送启动时间 */
-  private Date carryStart;
-
-  /** 配送启动操作员 */
-  private String carryUserid;
-
-  /** 配送人员 */
-  private String carryWorker;
-
-  /** 配送时间 */
-  private Date carryWorkday;
-
-  /** 配送完成时间 */
-  private Date carryComplete;
 
   /** 配送最后时间 */
   private Date carryLastDate;
 
-  /** 配送说明 */
-  private String carryNote;
-
   /** 机票配送航班号 */
   private String carryFlightNo;
 
-  private String flightNo;
-
-  // --------------------------------------------------------------------------
-
   private int id;
-
-  /** 团号 */
-  private String tourNo;
 
   private String lineNo;
 
@@ -154,10 +472,6 @@ public class Outcome {
   /** 是否能审核 */
   private Character isAuditing;
 
-  private Date carryLastdate;
-
-  // -------------------------------------------------------------------------
-
   /** 内容 */
   private String description;
 
@@ -170,63 +484,12 @@ public class Outcome {
   /** 付款方式 */
   private String payWay;
 
-  public Outcome() {
-    customer = new Customer();
-    opRoe = 1d;
-    roe = 1d;
-    currency = "RMB";
-  }
-
-  public Customer getCustomer() {
-    return customer;
-  }
-
-  public void setCustomer(Customer customer) {
-    this.customer = customer;
-  }
-
   public Long getUpdatedBy() {
     return this.updatedBy;
   }
 
   public void setUpdatedBy(Long updatedby) {
     this.updatedBy = updatedby;
-  }
-
-  public void setAmount(Double amount) {
-    this.amount = amount;
-  }
-
-  public Date getCarryLastdate() {
-    return this.carryLastdate;
-  }
-
-  public void setCarryLastdate(Date carryLastdate) {
-    this.carryLastdate = carryLastdate;
-  }
-
-  public String getFlightNo() {
-    return this.flightNo;
-  }
-
-  public void setFlightNo(String flightNo) {
-    this.flightNo = flightNo;
-  }
-
-  public Plan getTour() {
-    return tour;
-  }
-
-  public void setTour(Plan tour) {
-    this.tour = tour;
-  }
-
-  public String getWorkflowId() {
-    return workflowId;
-  }
-
-  public void setWorkflowId(String workflowId) {
-    this.workflowId = workflowId;
   }
 
   public int getId() {
@@ -237,140 +500,12 @@ public class Outcome {
     this.id = id;
   }
 
-  public long getOutcomeId() {
-    return outcomeId;
-  }
-
-  public void setOutcomeId(long outcomeId) {
-    this.outcomeId = outcomeId;
-  }
-
-  public String getNote() {
-    return note;
-  }
-
-  public void setNote(String note) {
-    this.note = note;
-  }
-
-  public Date getCreated() {
-    return created;
-  }
-
-  public void setCreated(Date created) {
-    this.created = created;
-  }
-
   public Long getCreatedBy() {
     return createdBy;
   }
 
   public void setCreatedBy(Long createdBy) {
     this.createdBy = createdBy;
-  }
-
-  public Date getOpApproved() {
-    return opApproved;
-  }
-
-  public void setOpApproved(Date opApproved) {
-    this.opApproved = opApproved;
-  }
-
-  public Long getOpApprovedby() {
-    return opApprovedby;
-  }
-
-  public void setOpApprovedby(Long opApprovedby) {
-    this.opApprovedby = opApprovedby;
-  }
-
-  public Character getOpApprovedFlag() {
-    return opApprovedFlag;
-  }
-
-  public void setOpApprovedFlag(Character opApprovedFlag) {
-    this.opApprovedFlag = opApprovedFlag;
-  }
-
-  public Date getFrApproved() {
-    return frApproved;
-  }
-
-  public void setFrApproved(Date frApproved) {
-    this.frApproved = frApproved;
-  }
-
-  public Long getFrApprovedby() {
-    return frApprovedby;
-  }
-
-  public void setFrApprovedby(Long frApprovedby) {
-    this.frApprovedby = frApprovedby;
-  }
-
-  public Character getFrApprovedFlag() {
-    return frApprovedFlag;
-  }
-
-  public void setFrApprovedFlag(Character frApprovedFlag) {
-    this.frApprovedFlag = frApprovedFlag;
-  }
-
-  public Date getPayDate() {
-    return payDate;
-  }
-
-  public void setPayDate(Date payDate) {
-    this.payDate = payDate;
-  }
-
-  public Character getPayMode() {
-    return payMode;
-  }
-
-  public void setPayMode(Character payMode) {
-    this.payMode = payMode;
-  }
-
-  public Date getBillNo() {
-    return billNo;
-  }
-
-  public void setBillNo(Date billNo) {
-    this.billNo = billNo;
-  }
-
-  public Date getPayRegisterDate() {
-    return payRegisterDate;
-  }
-
-  public void setPayRegisterDate(Date payRegisterDate) {
-    this.payRegisterDate = payRegisterDate;
-  }
-
-  public String getPayRegisterby() {
-    return payRegisterby;
-  }
-
-  public void setPayRegisterby(String payRegisterby) {
-    this.payRegisterby = payRegisterby;
-  }
-
-  public Date getUpdated() {
-    return updated;
-  }
-
-  public void setUpdated(Date updated) {
-    this.updated = updated;
-  }
-
-  public void setAmount(double amount) {
-    this.amount = amount;
-  }
-
-  public double getAmount() {
-    return amount;
   }
 
   public String getCreatedByName() {
@@ -395,38 +530,6 @@ public class Outcome {
 
   public void setIsAuditing(Character isAuditing) {
     this.isAuditing = isAuditing;
-  }
-
-  public String getTourNo() {
-    return tourNo;
-  }
-
-  public void setTourNo(String tourNo) {
-    this.tourNo = tourNo;
-  }
-
-  public Date getFrRead() {
-    return frRead;
-  }
-
-  public void setFrRead(Date frRead) {
-    this.frRead = frRead;
-  }
-
-  public Long getFrReadby() {
-    return frReadby;
-  }
-
-  public void setFrReadby(Long frReadby) {
-    this.frReadby = frReadby;
-  }
-
-  public Character getFrReadFlag() {
-    return frReadFlag;
-  }
-
-  public void setFrReadFlag(Character frReadFlag) {
-    this.frReadFlag = frReadFlag;
   }
 
   public String getOpApprovedbyName() {
@@ -481,62 +584,6 @@ public class Outcome {
     this.isRegister = isRegister;
   }
 
-  public short getCarryTicket() {
-    return carryTicket;
-  }
-
-  public void setCarryTicket(short carryTicket) {
-    this.carryTicket = carryTicket;
-  }
-
-  public Short getCarryStatus() {
-    return carryStatus;
-  }
-
-  public void setCarryStatus(Short carryStatus) {
-    this.carryStatus = carryStatus;
-  }
-
-  public Date getCarryStart() {
-    return carryStart;
-  }
-
-  public void setCarryStart(Date carryStart) {
-    this.carryStart = carryStart;
-  }
-
-  public String getCarryUserid() {
-    return carryUserid;
-  }
-
-  public void setCarryUserid(String carryUserid) {
-    this.carryUserid = carryUserid;
-  }
-
-  public String getCarryWorker() {
-    return carryWorker;
-  }
-
-  public void setCarryWorker(String carryWorker) {
-    this.carryWorker = carryWorker;
-  }
-
-  public Date getCarryWorkday() {
-    return carryWorkday;
-  }
-
-  public void setCarryWorkday(Date carryWorkday) {
-    this.carryWorkday = carryWorkday;
-  }
-
-  public Date getCarryComplete() {
-    return carryComplete;
-  }
-
-  public void setCarryComplete(Date carryComplete) {
-    this.carryComplete = carryComplete;
-  }
-
   public String getRouteNo() {
     return lineNo;
   }
@@ -559,14 +606,6 @@ public class Outcome {
 
   public void setCarryLastDate(Date carryLastDate) {
     this.carryLastDate = carryLastDate;
-  }
-
-  public String getCarryNote() {
-    return carryNote;
-  }
-
-  public void setCarryNote(String carryNote) {
-    this.carryNote = carryNote;
   }
 
   public String getCarryFlightNo() {

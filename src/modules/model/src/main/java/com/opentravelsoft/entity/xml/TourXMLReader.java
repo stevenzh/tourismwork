@@ -52,7 +52,7 @@ public class TourXMLReader extends AbstractObjectReader {
 
     handler.startElement("tour");
     handler.element("tour-name", tour.getTourNo());
-    handler.element("line-name", tour.getLine().getName());
+    handler.element("line-name", tour.getLine().getLineName());
 
     if (null == tour.getOutDate()) {
       handler.element("out-date", "");
@@ -87,7 +87,7 @@ public class TourXMLReader extends AbstractObjectReader {
     handler.element("tourSerialNumber", tour.getTourSerialNumber());
     handler.element("tourNo", tour.getTourNo());
     handler.element("year", tour.getYear());
-    handler.element("routeName", tour.getLine().getName());
+    handler.element("routeName", tour.getLine().getLineName());
     handler.element("printPax", tour.getPrintPax());
     handler.element("printMalePax", tour.getPrintMalePax());
     handler.element("printFemalePax", tour.getPrintFemalePax());
@@ -358,7 +358,7 @@ public class TourXMLReader extends AbstractObjectReader {
     handler.element("seller", String.valueOf(book.getSalesman()));
     handler.element("pax", RowDataUtil.intFormat(book.getPax()));
     handler.element("expenseFinalExpense",
-        RowDataUtil.doubleFormat(book.getDbamt() + book.getFinalExpense()));
+        RowDataUtil.doubleFormat(book.getDbamt().add(book.getFinalExpense())));
     handler.element("payCosts", RowDataUtil.doubleFormat(book.getPayCosts()));
     handler.element("unPay", RowDataUtil.doubleFormat(book.getUnPay()));
 

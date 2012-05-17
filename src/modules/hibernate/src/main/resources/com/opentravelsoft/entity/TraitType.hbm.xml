@@ -4,9 +4,9 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.TraitType" table="TBL_TRAIT_TYPE">
-    <id name="traitId" type="int">
+    <id name="traitId" type="java.lang.Integer">
       <column name="TRAIT_ID" />
-      <generator class="assigned" />
+      <generator class="identity" />
     </id>
     <property name="name" type="string">
       <column name="NAME" length="50" />

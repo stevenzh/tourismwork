@@ -1,66 +1,217 @@
 package com.opentravelsoft.entity.finance;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import com.opentravelsoft.entity.Customer;
 
-/**
- * 收款单<br>
- * 一单唯一一个订单
- * 
- * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:32 $
- */
+@Entity
+@Table(name = "tbl_income", catalog = "tourismwork_db")
 public class Income implements java.io.Serializable {
-
-  private static final long serialVersionUID = -2485586888207997076L;
-
   /** 收款ID */
-  private long incomeId;
-
+  private Integer incomeId;
   /** 客户ID */
   private Customer customer;
-
   /** 收款方式 (现金\转账\网上) */
-  private String payMode;
-
+  private Character payMode;
+  private String dptNo;
   /** 收款人 */
   private String receiver;
-
   /** 备注 */
   private String note;
-
   /** 收款金额 */
-  private Double amount;
-
+  private BigDecimal amount;
   /** 付款时间 */
   private Date incomeDate;
-
-  private Double offSetAmount;
-
+  private BigDecimal offsetAmount;
   /** 创建时间 */
   private Date created;
+  private Integer createdby;
+  /** 更新时间 */
+  private Date updated;
+  private Integer updatedby;
+  /** 订单ID */
+  private String bookingNo;
+  /** 付款类别（定金、预付款、余款） */
+  private String useType;
+
+  public Income() {
+    this.payMode = '1';
+    this.invices = new ArrayList<Invoice>();
+    this.customer = new Customer();
+  }
+
+  public Income(int incomeId, int customerId) {
+    this();
+    this.incomeId = incomeId;
+    customer.setCustomerId(customerId);
+  }
+
+  @Id
+  @GeneratedValue(strategy = IDENTITY)
+  @Column(name = "INCOME_ID", unique = true, nullable = false)
+  public Integer getIncomeId() {
+    return this.incomeId;
+  }
+
+  public void setIncomeId(Integer incomeId) {
+    this.incomeId = incomeId;
+  }
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "CUSTOMER_ID")
+  public Customer getCustomer() {
+    return customer;
+  }
+
+  public void setCustomer(Customer customer) {
+    this.customer = customer;
+  }
+
+  @Column(name = "PAY_MODE", length = 1)
+  public Character getPayMode() {
+    return this.payMode;
+  }
+
+  public void setPayMode(Character payMode) {
+    this.payMode = payMode;
+  }
+
+  @Column(name = "DPT_NO", length = 6)
+  public String getDptNo() {
+    return this.dptNo;
+  }
+
+  public void setDptNo(String dptNo) {
+    this.dptNo = dptNo;
+  }
+
+  @Column(name = "RECEIVER", length = 20)
+  public String getReceiver() {
+    return this.receiver;
+  }
+
+  public void setReceiver(String receiver) {
+    this.receiver = receiver;
+  }
+
+  @Column(name = "NOTE", length = 1000)
+  public String getNote() {
+    return this.note;
+  }
+
+  public void setNote(String note) {
+    this.note = note;
+  }
+
+  @Column(name = "AMOUNT", precision = 10)
+  public BigDecimal getAmount() {
+    return this.amount;
+  }
+
+  public void setAmount(BigDecimal amount) {
+    this.amount = amount;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "INCOME_DATE", length = 19)
+  public Date getIncomeDate() {
+    return this.incomeDate;
+  }
+
+  public void setIncomeDate(Date incomeDate) {
+    this.incomeDate = incomeDate;
+  }
+
+  @Column(name = "OFFSET_AMOUNT", precision = 10)
+  public BigDecimal getOffsetAmount() {
+    return this.offsetAmount;
+  }
+
+  public void setOffsetAmount(BigDecimal offsetAmount) {
+    this.offsetAmount = offsetAmount;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "CREATED", length = 19)
+  public Date getCreated() {
+    return this.created;
+  }
+
+  public void setCreated(Date created) {
+    this.created = created;
+  }
+
+  @Column(name = "CREATEDBY")
+  public Integer getCreatedby() {
+    return this.createdby;
+  }
+
+  public void setCreatedby(Integer createdby) {
+    this.createdby = createdby;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "UPDATED", nullable = false, length = 19)
+  public Date getUpdated() {
+    return this.updated;
+  }
+
+  public void setUpdated(Date updated) {
+    this.updated = updated;
+  }
+
+  @Column(name = "UPDATEDBY")
+  public Integer getUpdatedby() {
+    return this.updatedby;
+  }
+
+  public void setUpdatedby(Integer updatedby) {
+    this.updatedby = updatedby;
+  }
+
+  @Column(name = "BOOKING_NO", nullable = false, length = 20)
+  public String getBookingNo() {
+    return this.bookingNo;
+  }
+
+  public void setBookingNo(String bookingNo) {
+    this.bookingNo = bookingNo;
+  }
+
+  @Column(name = "USE_TYPE", length = 20)
+  public String getUseType() {
+    return this.useType;
+  }
+
+  public void setUseType(String useType) {
+    this.useType = useType;
+  }
+
+  private Double offSetAmount;
 
   /** 创建人 */
   private Long createdBy;
 
-  /** 更新时间 */
-  private Date updated;
-
   /** 更新人 */
   private Long updatedBy;
 
-  /** 付款类别（定金、预付款、余款） */
-  private String useType;
-
-  /** 订单ID */
-  private String bookingNo;
-
   private String del;
-
-  // -------------------------------------------------------------------------
 
   /** 未收 */
   private double unpay;
@@ -90,66 +241,6 @@ public class Income implements java.io.Serializable {
   /** 发票记录 */
   private List<Invoice> invices;
 
-  public Income() {
-    this.payMode = "1";
-    this.invices = new ArrayList<Invoice>();
-    this.customer = new Customer();
-  }
-
-  public Income(int incomeId, int customerId) {
-    this();
-    this.incomeId = incomeId;
-    customer.setCustomerId(customerId);
-  }
-
-  public long getIncomeId() {
-    return this.incomeId;
-  }
-
-  public void setIncomeId(long incomeId) {
-    this.incomeId = incomeId;
-  }
-
-  public Customer getCustomer() {
-    return customer;
-  }
-
-  public void setCustomer(Customer customer) {
-    this.customer = customer;
-  }
-
-  public String getReceiver() {
-    return this.receiver;
-  }
-
-  public void setReceiver(String receiver) {
-    this.receiver = receiver;
-  }
-
-  public String getNote() {
-    return this.note;
-  }
-
-  public void setNote(String note) {
-    this.note = note;
-  }
-
-  public Double getAmount() {
-    return this.amount;
-  }
-
-  public void setAmount(Double amount) {
-    this.amount = amount;
-  }
-
-  public Date getIncomeDate() {
-    return this.incomeDate;
-  }
-
-  public void setIncomeDate(Date incomeDate) {
-    this.incomeDate = incomeDate;
-  }
-
   public Double getOffSetAmount() {
     return this.offSetAmount;
   }
@@ -158,28 +249,12 @@ public class Income implements java.io.Serializable {
     this.offSetAmount = offsetAmount;
   }
 
-  public Date getCreated() {
-    return this.created;
-  }
-
-  public void setCreated(Date created) {
-    this.created = created;
-  }
-
   public Long getCreatedBy() {
     return this.createdBy;
   }
 
   public void setCreatedBy(Long createdBy) {
     this.createdBy = createdBy;
-  }
-
-  public Date getUpdated() {
-    return this.updated;
-  }
-
-  public void setUpdated(Date updated) {
-    this.updated = updated;
   }
 
   public Long getUpdatedBy() {
@@ -204,14 +279,6 @@ public class Income implements java.io.Serializable {
 
   public void setUnpay(double unpay) {
     this.unpay = unpay;
-  }
-
-  public String getPayMode() {
-    return payMode;
-  }
-
-  public void setPayMode(String payMode) {
-    this.payMode = payMode;
   }
 
   public double getUnOffSetMon() {
@@ -280,22 +347,6 @@ public class Income implements java.io.Serializable {
 
   public Long getUpdateBy() {
     return updatedBy;
-  }
-
-  public String getBookingNo() {
-    return this.bookingNo;
-  }
-
-  public void setBookingNo(String bookingNo) {
-    this.bookingNo = bookingNo;
-  }
-
-  public String getUseType() {
-    return useType;
-  }
-
-  public void setUseType(String useType) {
-    this.useType = useType;
   }
 
   public String getUseTypeLabel() {

@@ -139,7 +139,7 @@ public class Booking implements java.io.Serializable {
     plan = new Plan();
     customer = new Customer();
     salesman = new Employee();
-    payCosts = 0d;
+    payCosts = new BigDecimal(0);
   }
 
   public Booking(String nameNo, String namekey, Date opTime) {
@@ -789,7 +789,7 @@ public class Booking implements java.io.Serializable {
   private Date opDate;
 
   /** 预订人 */
-  private Long reserve;
+  private Integer reserve;
 
   /** 预订日期 */
   private Date reserveDate;
@@ -803,7 +803,7 @@ public class Booking implements java.io.Serializable {
   private int id;
 
   /** 是否可拆分 */
-  private String canSplit;
+  private Character canSplit;
 
   /** 客户月结/现结 */
   private String clearingCycle;
@@ -812,16 +812,16 @@ public class Booking implements java.io.Serializable {
   private String paymentType;
 
   /** 最终费用 */
-  private Double finalExpense;
+  private BigDecimal finalExpense;
 
   /** 已付费用 */
-  private Double payCosts;
+  private BigDecimal payCosts;
 
   /** 未付费用 */
-  private Double unPay;
+  private BigDecimal unPay;
 
   /** 现付费用 */
-  private Double payBack;
+  private BigDecimal payBack;
 
   /** 付款状态 */
   private String paymentStatus;
@@ -833,7 +833,7 @@ public class Booking implements java.io.Serializable {
   private String nameKey;
 
   /** 调整金额为 */
-  private Double adjustExpense;
+  private BigDecimal adjustExpense;
 
   /** 调整原因 */
   private String adjustReason;
@@ -871,13 +871,13 @@ public class Booking implements java.io.Serializable {
   private int sumpax;
 
   /** 总应收 */
-  private Double sumDbamt;
+  private BigDecimal sumDbamt;
 
   /** 总已收 */
-  private Double sumCramt;
+  private BigDecimal sumCramt;
 
   /** 总未收 */
-  private Double sumUnpay;
+  private BigDecimal sumUnpay;
 
   private String leaders;
 
@@ -931,11 +931,11 @@ public class Booking implements java.io.Serializable {
     this.opDate = opDate;
   }
 
-  public Long getReserve() {
+  public Integer getReserve() {
     return this.reserve;
   }
 
-  public void setReserve(Long receive) {
+  public void setReserve(Integer receive) {
     this.reserve = receive;
   }
 
@@ -951,11 +951,11 @@ public class Booking implements java.io.Serializable {
     this.confirmStatus = cfmKey;
   }
 
-  public String getCanSplit() {
+  public Character getCanSplit() {
     return canSplit;
   }
 
-  public void setCanSplit(String canSplit) {
+  public void setCanSplit( canSplit) {
     this.canSplit = canSplit;
   }
 
@@ -987,11 +987,11 @@ public class Booking implements java.io.Serializable {
     customerList.add(tourist);
   }
 
-  public Double getPayCosts() {
+  public BigDecimal getPayCosts() {
     return payCosts;
   }
 
-  public void setPayCosts(Double payCosts) {
+  public void setPayCosts(BigDecimal payCosts) {
     this.payCosts = payCosts;
   }
 
@@ -1049,19 +1049,19 @@ public class Booking implements java.io.Serializable {
     this.nameKey = nameKey;
   }
 
-  public Double getPayBack() {
+  public BigDecimal getPayBack() {
     return payBack;
   }
 
-  public void setPayBack(Double payBack) {
+  public void setPayBack(BigDecimal payBack) {
     this.payBack = payBack;
   }
 
-  public Double getUnPay() {
+  public BigDecimal getUnPay() {
     return unPay;
   }
 
-  public void setUnPay(Double unPay) {
+  public void setUnPay(BigDecimal unPay) {
     this.unPay = unPay;
   }
 
@@ -1073,11 +1073,11 @@ public class Booking implements java.io.Serializable {
     this.id = id;
   }
 
-  public Double getAdjustExpense() {
+  public BigDecimal getAdjustExpense() {
     return adjustExpense;
   }
 
-  public void setAdjustExpense(Double adjustExpense) {
+  public void setAdjustExpense(BigDecimal adjustExpense) {
     this.adjustExpense = adjustExpense;
   }
 
@@ -1121,11 +1121,11 @@ public class Booking implements java.io.Serializable {
     this.leaders = leaders;
   }
 
-  public Double getFinalExpense() {
+  public BigDecimal getFinalExpense() {
     return finalExpense;
   }
 
-  public void setFinalExpense(Double finalExpense) {
+  public void setFinalExpense(BigDecimal finalExpense) {
     this.finalExpense = finalExpense;
   }
 
@@ -1153,27 +1153,27 @@ public class Booking implements java.io.Serializable {
     this.sumpax = sumpax;
   }
 
-  public Double getSumDbamt() {
+  public BigDecimal getSumDbamt() {
     return sumDbamt;
   }
 
-  public void setSumDbamt(Double sumDbamt) {
+  public void setSumDbamt(BigDecimal sumDbamt) {
     this.sumDbamt = sumDbamt;
   }
 
-  public Double getSumCramt() {
+  public BigDecimal getSumCramt() {
     return sumCramt;
   }
 
-  public void setSumCramt(Double sumCramt) {
+  public void setSumCramt(BigDecimal sumCramt) {
     this.sumCramt = sumCramt;
   }
 
-  public Double getSumUnpay() {
+  public BigDecimal getSumUnpay() {
     return sumUnpay;
   }
 
-  public void setSumUnpay(Double sumUnpay) {
+  public void setSumUnpay(BigDecimal sumUnpay) {
     this.sumUnpay = sumUnpay;
   }
 

@@ -30,7 +30,7 @@ public class AirportDaoImpl extends GenericDaoHibernate<Airport, String>
     if (null == rlt) {
       return -1;
     }
-    rlt.setIsActive(false);
+    rlt.setIsActive((byte) 0);
     template.update(rlt);
     return 0;
   }

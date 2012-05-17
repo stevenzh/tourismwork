@@ -8,11 +8,14 @@
       <column name="REC_NO" length="10" />
       <generator class="assigned" />
     </id>
-    <property name="incomeId" type="java.lang.Long">
+    <property name="invNo" type="string">
+      <column name="INV_NO" length="12" />
+    </property>
+    <property name="incomeId" type="java.lang.Integer">
       <column name="INCOME_ID" />
     </property>
-    <property name="prtDate" type="date">
-      <column name="PRT_DATE" />
+    <property name="prtDate" type="timestamp">
+      <column name="PRT_DATE" length="19" />
     </property>
     <property name="customs" type="string">
       <column name="CUSTOMS" length="70" />
@@ -20,71 +23,71 @@
     <property name="exp1" type="string">
       <column name="EXP1" length="60" />
     </property>
-    <property name="amount1" type="double">
+    <property name="amount1" type="big_decimal">
       <column name="AMOUNT1" precision="18" />
     </property>
     <property name="exp2" type="string">
       <column name="EXP2" length="60" />
     </property>
-    <property name="amount2" type="double">
+    <property name="amount2" type="big_decimal">
       <column name="AMOUNT2" precision="18" />
     </property>
     <property name="exp3" type="string">
       <column name="EXP3" length="60" />
     </property>
-    <property name="amount3" type="double">
+    <property name="amount3" type="big_decimal">
       <column name="AMOUNT3" precision="18" />
     </property>
     <property name="exp4" type="string">
       <column name="EXP4" length="60" />
     </property>
-    <property name="amount4" type="double">
+    <property name="amount4" type="big_decimal">
       <column name="AMOUNT4" precision="18" />
     </property>
     <property name="type1" type="java.lang.Character">
       <column name="TYPE1" length="1" />
     </property>
-    <property name="pamount1" type="double">
+    <property name="pamount1" type="big_decimal">
       <column name="PAMOUNT1" precision="18" />
     </property>
     <property name="type2" type="java.lang.Character">
       <column name="TYPE2" length="1" />
     </property>
-    <property name="pamount2" type="double">
+    <property name="pamount2" type="big_decimal">
       <column name="PAMOUNT2" precision="18" />
     </property>
     <property name="type3" type="java.lang.Character">
       <column name="TYPE3" length="1" />
     </property>
-    <property name="pamount3" type="double">
+    <property name="pamount3" type="big_decimal">
       <column name="PAMOUNT3" precision="18" />
     </property>
     <property name="type4" type="java.lang.Character">
       <column name="TYPE4" length="1" />
     </property>
-    <property name="pamount4" type="double">
+    <property name="pamount4" type="big_decimal">
       <column name="PAMOUNT4" precision="18" />
     </property>
-    <property name="type5" type="java.lang.Character">
+    <property name="type5" type="string">
       <column name="TYPE5" length="1" />
     </property>
-    <property name="pamount5" type="double">
+    <property name="pamount5" type="big_decimal">
       <column name="PAMOUNT5" precision="18" />
     </property>
     <property name="remarks" type="string">
       <column name="REMARKS" length="100" />
     </property>
-    <property name="opUser" type="java.lang.Long">
-      <column name="OP_USER" />
-    </property>
-    <property name="casher" type="java.lang.Integer">
-      <column name="CASHER" />
-    </property>
-    <property name="signature" type="java.lang.Integer">
-      <column name="SIGNATURE" />
-    </property>
-    <property name="del" type="java.lang.Integer">
+    <property name="del" type="java.lang.Byte">
       <column name="DEL" />
+    </property>
+    <property name="signature" type="string">
+      <column name="SIGNATURE" length="20" />
+    </property>
+    <property name="casher" type="string">
+      <column name="CASHER" length="20" />
+    </property>
+    <property name="opUser" type="java.lang.Integer">
+      <column name="OP_USER" />
     </property>
   </class>
 </hibernate-mapping>

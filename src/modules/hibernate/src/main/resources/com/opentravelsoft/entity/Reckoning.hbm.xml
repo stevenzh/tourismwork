@@ -4,9 +4,9 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.finance.Reckoning" table="TBL_RECKONING">
-    <id name="reckoningId" type="long">
+    <id name="reckoningId" type="java.lang.Integer">
       <column name="RECKONING_ID" />
-      <generator class="native" />
+      <generator class="identity" />
     </id>
     <property name="bookingNo" type="string">
       <column name="BOOKING_NO" length="20" not-null="true" />
@@ -30,34 +30,34 @@
       <column name="CONTACT" length="20" />
     </property>
     <property name="phone" type="string">
-      <column name="PHONE" length="20" />
+      <column name="PHONE" length="100" />
     </property>
     <property name="fax" type="string">
       <column name="FAX" length="20" />
     </property>
-    <property name="leaderPax" type="java.lang.Integer">
+    <property name="leaderAmt" type="java.lang.Integer">
       <column name="LEADER_AMT" />
     </property>
-    <property name="created" type="date">
-      <column name="CREATED" />
-    </property>
-    <property name="createdBy" type="java.lang.Long">
-      <column name="CREATEDBY" />
-    </property>
-    <property name="updated" type="date">
-      <column name="UPDATED"></column>
-    </property>
-    <property name="updatedBy" type="java.lang.Long">
-      <column name="UPDATEDBY" />
-    </property>
-    <property name="isprinted" type="string">
+    <property name="isprinted" type="java.lang.Character">
       <column name="ISPRINTED" length="1" />
     </property>
-    <property name="printed" type="date">
-      <column name="PRINTED" />
+    <property name="printed" type="timestamp">
+      <column name="PRINTED" length="19" />
     </property>
     <property name="printedCount" type="java.lang.Integer">
       <column name="PRINTED_COUNT" />
+    </property>
+    <property name="created" type="timestamp">
+      <column name="CREATED" length="19" />
+    </property>
+    <property name="createdby" type="java.lang.Integer">
+      <column name="CREATEDBY" />
+    </property>
+    <property name="updated" type="timestamp">
+      <column name="UPDATED" length="19" not-null="true" />
+    </property>
+    <property name="updatedby" type="java.lang.Integer">
+      <column name="UPDATEDBY" />
     </property>
   </class>
 </hibernate-mapping>

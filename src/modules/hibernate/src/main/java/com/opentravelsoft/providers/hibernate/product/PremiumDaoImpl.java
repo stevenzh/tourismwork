@@ -30,7 +30,7 @@ public class PremiumDaoImpl extends GenericDaoHibernate<Premium, String>
         preminuCode, LockMode.UPGRADE);
     if (null == prem)
       return -1;
-    prem.setDel("Y");
+    prem.setDel('Y');
     getHibernateTemplate().update(prem);
     return 0;
   }
@@ -50,14 +50,14 @@ public class PremiumDaoImpl extends GenericDaoHibernate<Premium, String>
     prem.setYwpre(premium.getYwpre());
     prem.setPrecode(premium.getPrecode());
     if (newflag) {
-      prem.setCreatedBy(premium.getUpdatedBy());
+      prem.setCreatedby(premium.getUpdatedby());
     }
-    prem.setDel("N");
+    prem.setDel('N');
     prem.setDodate(premium.getDodate());
     // prem.setHkpre(tblpremium.getHkpre());
     // prem.setClpre(tblpremium.getClpre());
     prem.setNote(premium.getNote());
-    prem.setUpdatedBy(premium.getUpdatedBy());
+    prem.setUpdatedby(premium.getUpdatedby());
     getHibernateTemplate().saveOrUpdate(prem);
     return 0;
   }

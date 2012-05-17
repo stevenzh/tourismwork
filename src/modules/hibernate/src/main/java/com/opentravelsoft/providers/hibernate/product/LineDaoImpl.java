@@ -80,7 +80,7 @@ public class LineDaoImpl extends GenericDaoHibernate<Line, String> implements
     if (line == null)
       return -1;
 
-    line.setDelKey("Y");
+    line.setDelKey('Y');
     template.update(line);
 
     return 0;
@@ -102,7 +102,7 @@ public class LineDaoImpl extends GenericDaoHibernate<Line, String> implements
       line1.setClassKeyContent(line.getClassKeyContent());
       line1.setDestination(line.getDestination());
       line1.setClassKeyVehicle(line.getClassKeyVehicle());
-      line1.setIsActive(line.getIsActive());
+      line1.setIsActive(line.isIsActive());
       line1.setTitle(line.getTitle());
       line1.setDescription(line.getDescription());
       line1.setOperateUserId(line.getOperateUserId());
@@ -121,7 +121,7 @@ public class LineDaoImpl extends GenericDaoHibernate<Line, String> implements
   public int duplicateRoute(String lineNo, String newLineNo,
       String newLineName, String copyFeature, String copySchedule,
       String copyPrice, String copyDestination, String copySight,
-      String copyVisa, long userId) {
+      String copyVisa, Integer userId) {
     HibernateTemplate template = getHibernateTemplate();
     Line line = (Line) template.get(Line.class, lineNo, LockMode.READ);
     if (line == null) {

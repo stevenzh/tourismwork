@@ -4,28 +4,48 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.Team" table="TBL_TEAMS">
-    <id name="teamId" type="long">
+    <id name="teamId" type="java.lang.Integer">
       <column name="ID" />
       <generator class="native" />
     </id>
-    <property name="id" type="string">
-      <column name="CODE" length="50" not-null="true" />
+    <property name="code" type="string">
+      <column name="CODE" length="50" />
     </property>
     <property name="name" type="string">
       <column name="NAME" length="20" not-null="true" />
     </property>
-    <property name="description" type="string">
-      <column name="DESCRIPTION" length="50" />
-    </property>
-    <property name="type" type="int">
+    <property name="type" type="short">
       <column name="TYPE" not-null="true" />
     </property>
     <property name="active" type="boolean">
       <column name="ACTIVE" not-null="true" />
     </property>
+    <property name="description" type="string">
+      <column name="DESCRIPTION" length="20" />
+    </property>
     <property name="private_" type="java.lang.Boolean">
       <column name="PRIVATE" />
     </property>
-    <many-to-one name="parent" column="PARENT_" class="com.opentravelsoft.entity.Team" />
+    <many-to-one name="parent" class="com.opentravelsoft.entity.Team" fetch="select">
+      <column name="PARENT_" />
+    </many-to-one>
+    <set name="plans" table="tbl_plan" inverse="true" lazy="true" fetch="select">
+      <key>
+        <column name="TEAM_ID" />
+      </key>
+      <one-to-many class="com.opentravelsoft.entity.Plan" />
+    </set>
+    <set name="lines" table="tbl_line" inverse="true" lazy="true" fetch="select">
+      <key>
+        <column name="TEAM_ID" not-null="true" />
+      </key>
+      <one-to-many class="com.opentravelsoft.entity.Line" />
+    </set>
+    <set name="children" table="tbl_teams" inverse="true" lazy="true" fetch="select">
+      <key>
+        <column name="PARENT_" />
+      </key>
+      <one-to-many class="com.opentravelsoft.entity.Team" />
+    </set>
   </class>
 </hibernate-mapping>

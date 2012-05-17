@@ -5,10 +5,10 @@
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.TeamSupplier" table="TBL_TEAM_CUSTOMER">
     <composite-id name="id" class="com.opentravelsoft.entity.TeamSupplierId">
-      <key-property name="supplierId" type="long">
+      <key-property name="customerId" type="int">
         <column name="CUSTOMER_ID" />
       </key-property>
-      <key-property name="teamId" type="long">
+      <key-property name="teamId" type="int">
         <column name="TEAM_ID" />
       </key-property>
     </composite-id>

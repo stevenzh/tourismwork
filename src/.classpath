@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" output="apps/admin/target/classes" path="apps/admin/src/main/java"/>
-	<classpathentry kind="src" path="modules/hmodel/src/main/resources"/>
-	<classpathentry kind="src" path="modules/hmodel/src/main/java"/>
 	<classpathentry kind="src" path="modules/model/src/main/java"/>
-	<classpathentry kind="src" output="apps/admin/target/classes" path="apps/admin/src/main/resources"/>
-	<classpathentry kind="src" output="apps/report/target/classes" path="apps/report/src/main/java"/>
-	<classpathentry kind="src" output="apps/report/target/classes" path="apps/report/src/main/resources"/>
 	<classpathentry kind="src" output="modules/core/target/classes" path="modules/core/src/main/java"/>
 	<classpathentry kind="src" output="modules/core/target/classes" path="modules/core/src/main/resources"/>
 	<classpathentry kind="src" output="modules/core/target/classes" path="modules/core/src/test/java"/>
@@ -19,6 +13,10 @@
 	<classpathentry kind="src" output="modules/service/target/classes" path="modules/service/src/main/resources"/>
 	<classpathentry kind="src" output="apps/manage/target/classes" path="apps/manage/src/main/java"/>
 	<classpathentry kind="src" output="apps/manage/target/classes" path="apps/manage/src/main/resources"/>
+	<classpathentry kind="src" output="apps/admin/target/classes" path="apps/admin/src/main/java"/>
+	<classpathentry kind="src" output="apps/admin/target/classes" path="apps/admin/src/main/resources"/>
+	<classpathentry kind="src" output="apps/report/target/classes" path="apps/report/src/main/java"/>
+	<classpathentry kind="src" output="apps/report/target/classes" path="apps/report/src/main/resources"/>
 	<classpathentry kind="src" output="apps/portal/target/classes" path="apps/portal/src/main/java"/>
 	<classpathentry kind="src" output="apps/portal/target/classes" path="apps/portal/src/main/resources"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER"/>

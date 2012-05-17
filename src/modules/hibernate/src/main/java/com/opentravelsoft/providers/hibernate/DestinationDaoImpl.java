@@ -167,7 +167,7 @@ public class DestinationDaoImpl extends GenericDaoHibernate<Destination, Long>
             region = new Destination();
             region.setCode(RowDataUtil.getString(obj4[0]));
             region.setCnName(RowDataUtil.getString(obj4[1]));
-            region.setClassType(RowDataUtil.getString(obj4[2]));
+            region.setClassType(RowDataUtil.getChar(obj4[2]));
             region.setParent(new Destination());
             region.getParent().setCnName(regionName);
             region.getParent().setCode(code);

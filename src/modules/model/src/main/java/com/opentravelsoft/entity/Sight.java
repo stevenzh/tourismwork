@@ -1,6 +1,7 @@
 package com.opentravelsoft.entity;
 
-import com.opentravelsoft.hmodel.TblLineSights;
+import com.opentravelsoft.entity.out.TblLineSights;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;

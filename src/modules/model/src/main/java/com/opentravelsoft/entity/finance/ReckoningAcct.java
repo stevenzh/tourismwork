@@ -1,39 +1,113 @@
 package com.opentravelsoft.entity.finance;
 
-/**
- * 帐单明细
- * 
- * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:32 $
- */
-public class ReckoningAcct {
+import java.math.BigDecimal;
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tbl_reckoning_acct", catalog = "tourismwork_db")
+public class ReckoningAcct implements java.io.Serializable {
+
+  private ReckoningAcctId id;
+  /** 说明 摘要 */
+  private String description;
+  /** 单价 */
+  private BigDecimal unitPrice;
+  /** 份数 */
+  private Integer count;
+  /** 金额 */
+  private BigDecimal amount;
+  /** 单位 */
+  private String unit;
+
+  public ReckoningAcct() {
+  }
+
+  public ReckoningAcct(ReckoningAcctId id) {
+    this.id = id;
+  }
+
+  public ReckoningAcct(ReckoningAcctId id, String description,
+      BigDecimal unitPrice, Integer count, BigDecimal amount, String unit) {
+    this.id = id;
+    this.description = description;
+    this.unitPrice = unitPrice;
+    this.count = count;
+    this.amount = amount;
+    this.unit = unit;
+  }
+
+  @EmbeddedId
+  @AttributeOverrides({
+      @AttributeOverride(name = "reckoningId", column = @Column(name = "RECKONING_ID", nullable = false)),
+      @AttributeOverride(name = "itemId", column = @Column(name = "ITEM_ID", nullable = false)) })
+  public ReckoningAcctId getId() {
+    return this.id;
+  }
+
+  public void setId(ReckoningAcctId id) {
+    this.id = id;
+  }
+
+  @Column(name = "DESCRIPTION", length = 1000)
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  @Column(name = "UNIT_PRICE", precision = 9)
+  public BigDecimal getUnitPrice() {
+    return this.unitPrice;
+  }
+
+  public void setUnitPrice(BigDecimal unitPrice) {
+    this.unitPrice = unitPrice;
+  }
+
+  @Column(name = "COUNT")
+  public Integer getCount() {
+    return this.count;
+  }
+
+  public void setCount(Integer count) {
+    this.count = count;
+  }
+
+  @Column(name = "AMOUNT", precision = 9)
+  public BigDecimal getAmount() {
+    return this.amount;
+  }
+
+  public void setAmount(BigDecimal amount) {
+    this.amount = amount;
+  }
+
+  @Column(name = "UNIT", length = 10)
+  public String getUnit() {
+    return this.unit;
+  }
+
+  public void setUnit(String unit) {
+    this.unit = unit;
+  }
+
   /** 帐单号 */
   private long reckoningId;
 
   /** 帐单序号 */
   private int itemId;
 
-  /** 说明 摘要 */
-  private String description;
-
-  /** 份数 */
-  private int count;
-
-  /** 单价 */
-  private double unitPrice;
-
-  /** 金额 */
-  private double amount;
-
-  /** 单位 */
-  private String unit;
-
   private String name;
 
   /** 订单号 */
   private String bookingNo;
-
-  private ReckoningAcctId id;
 
   public long getReckoningId() {
     return reckoningId;
@@ -49,46 +123,6 @@ public class ReckoningAcct {
 
   public void setItemId(int itemId) {
     this.itemId = itemId;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public int getCount() {
-    return count;
-  }
-
-  public void setCount(int count) {
-    this.count = count;
-  }
-
-  public double getUnitPrice() {
-    return unitPrice;
-  }
-
-  public void setUnitPrice(double unitPrice) {
-    this.unitPrice = unitPrice;
-  }
-
-  public double getAmount() {
-    return amount;
-  }
-
-  public void setAmount(double amount) {
-    this.amount = amount;
-  }
-
-  public String getUnit() {
-    return unit;
-  }
-
-  public void setUnit(String unit) {
-    this.unit = unit;
   }
 
   public String getName() {
@@ -107,11 +141,4 @@ public class ReckoningAcct {
     this.bookingNo = bookingNo;
   }
 
-  public ReckoningAcctId getId() {
-    return this.id;
-  }
-
-  public void setId(ReckoningAcctId id) {
-    this.id = id;
-  }
 }

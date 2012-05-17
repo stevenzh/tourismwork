@@ -4,9 +4,9 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.TourCost" table="TBL_TOUR_COST">
-    <id name="acctId" type="long">
+    <id name="acctId" type="java.lang.Integer">
       <column name="ACCT_ID" />
-      <generator class="native" />
+      <generator class="identity" />
     </id>
     <many-to-one name="tour" class="com.opentravelsoft.entity.Plan" lazy="false" fetch="select">
       <column name="PLAN_NO" />
@@ -20,7 +20,7 @@
     <property name="description" type="string">
       <column name="DESCRIPTION" length="1000" />
     </property>
-    <property name="unitPrice" type="double">
+    <property name="unitPrice" type="big_decimal">
       <column name="UNIT_PRICE" precision="9" />
     </property>
     <property name="count" type="java.lang.Integer">
@@ -32,30 +32,29 @@
     <property name="currency" type="string">
       <column name="CURRENCY" length="4" />
     </property>
-    <property name="roe" type="double">
+    <property name="roe" type="big_decimal">
       <column name="ROE" precision="9" scale="4" />
     </property>
-    <property name="fcAmount" type="double">
+    <property name="fcAmount" type="big_decimal">
       <column name="FC_AMOUNT" precision="9" />
     </property>
-    <property name="amount" type="double">
+    <property name="amount" type="big_decimal">
       <column name="AMOUNT" precision="9" />
     </property>
-    <property name="payAmount" type="double">
+    <property name="payAmount" type="big_decimal">
       <column name="PAY_AMOUNT" precision="9" />
     </property>
-    <property name="isMakeOutcome" type="string">
-      <column name="IS_MAKE_PAPER" length="1" />
+    <property name="isMakePaper" type="char">
+      <column name="IS_MAKE_PAPER" length="1" not-null="true" />
     </property>
     <property name="frChecked" type="string">
       <column name="FR_CHECKED" length="1" />
     </property>
-    <property name="created" type="date">
-      <column name="CREATED" />
+    <property name="created" type="timestamp">
+      <column name="CREATED" length="19" />
     </property>
-    <property name="createdBy" type="java.lang.Long">
+    <property name="createdby" type="java.lang.Integer">
       <column name="CREATEDBY" />
     </property>
-
   </class>
 </hibernate-mapping>

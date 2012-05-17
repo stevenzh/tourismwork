@@ -1,5 +1,6 @@
 package com.opentravelsoft.providers.hibernate;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -96,7 +97,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     }
 
     //
-    book.setTourKey("3");
+    book.setTourKey('3');
     if (place) {
       // 确认人数
       book.setConfirmPax(book.getPax());
@@ -110,7 +111,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     // 取消标志
     book.setDelkey("N");
     // 已付帐款
-    book.setCramt(0d);
+    book.setCramt(new BigDecimal(0));
     // 是否配送
     // tfj006.setExpresskey(book.getExpressKey());
 
@@ -128,8 +129,9 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 是否以阅读
       book.setReadKey("N");
     }
-    
-    book.setCustomer(template.get(Customer.class, book.getCustomer().getCustomerId()));
+
+    book.setCustomer(template.get(Customer.class, book.getCustomer()
+        .getCustomerId()));
     template.save(book);
 
     supplyYin(customers);
@@ -145,11 +147,11 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 应收团款
       trip.setAmt01(trip.getReceivables());
       // 优惠申请
-      trip.setAmt02(0d);
+      trip.setAmt02(new BigDecimal(0));
       // 已收团款
       trip.setAmt03(trip.getAmount());
       // 已退团款
-      trip.setAmt04(0d);
+      trip.setAmt04(new BigDecimal(0));
       // 重点客人否
       trip.setVipkey('N');
       // 备注
@@ -167,7 +169,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 操作人
       trip.setOpuser(book.getOpuser());
       // 分团标志
-      trip.setTourKey("N");
+      trip.setTourKey('N');
       // 领队标志
       trip.setLeaderKey("N");
       // 送签登记表号
@@ -242,7 +244,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 住房序号
       trip.setRoomNo(RowDataUtil.getInt(trip.getRmNum()));
       // 应收团款
-      trip.setReceivables(RowDataUtil.getDouble(trip.getAmt01()));
+      trip.setReceivables(trip.getAmt01());
       // 已收团款
       // trip.setAmount(RowDataUtil.getDouble(trip.getAmt03()));
     }
@@ -265,8 +267,8 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     // tfj006.setPax(0);
     // 确认人数
     tfj006.setConfirmPax(zero);
-    tfj006.setDbamt(0d);
-    tfj006.setCramt(0d);
+    tfj006.setDbamt(new BigDecimal(0));
+    tfj006.setCramt(new BigDecimal(0));
     // tfj006.setReadKey('N');
     // 最后修改人
     tfj006.setOpuser(book.getOpuser());
@@ -281,7 +283,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
     for (Tourist tourist : list) {
       // 取消标志
-      tourist.setDel("Y");
+      tourist.setDel('Y');
       // 操作人
       tourist.setOpuser(book.getOpuser());
 
@@ -340,15 +342,15 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       if (customers.contains(tfj007.getNmno())) {
         customer.append(tfj007.getUserName() + ",");
         // 取消标志
-        tfj007.setDel("Y");
+        tfj007.setDel('Y');
         // 操作人
         tfj007.setOpuser(book.getOpuser());
-        tfj007.setAmt01(0d);
-        tfj007.setAmt03(0d);
+        tfj007.setAmt01(new BigDecimal(0));
+        tfj007.setAmt03(new BigDecimal(0));
         template.update(tfj007);
       }
 
-      if (tfj007.getDel().equals("N"))
+      if (tfj007.getDel() == 'N')
         confirmPax++;
     }
 
@@ -434,7 +436,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
       // customers 包含已取消客人
       for (Tourist obj : customers) {
-        if (obj.getDel().equals("N"))
+        if (obj.getDel() == 'N')
           realPax++;
       }
 
