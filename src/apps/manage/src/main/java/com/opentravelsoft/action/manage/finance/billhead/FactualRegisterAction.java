@@ -35,10 +35,10 @@ public class FactualRegisterAction extends ManageAction {
   private EmployeeService employeeSevice;
 
   /** 部门 */
-  private long kenTeamId;
+  private int kenTeamId;
 
   /** 操作员 */
-  private long kenUserId;
+  private int kenUserId;
 
   private Date kenStartDate;
 
@@ -156,19 +156,19 @@ public class FactualRegisterAction extends ManageAction {
     return SUCCESS;
   }
 
-  public long getKenDepartmentId() {
+  public int getKenDepartmentId() {
     return kenTeamId;
   }
 
-  public void setKenDepartmentId(long teamId) {
+  public void setKenDepartmentId(int teamId) {
     this.kenTeamId = teamId;
   }
 
-  public long getKenEmployeeId() {
+  public int getKenEmployeeId() {
     return kenUserId;
   }
 
-  public void setKenEmployeeId(long kenEmployeeId) {
+  public void setKenEmployeeId(int kenEmployeeId) {
     this.kenUserId = kenEmployeeId;
   }
 

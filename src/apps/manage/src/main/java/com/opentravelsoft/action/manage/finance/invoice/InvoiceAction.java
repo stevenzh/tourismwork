@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.manage.finance.invoice;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class InvoiceAction extends ManageAction {
   private Invoice invoice;
 
   /** 付款记录ID */
-  private long incomeId;
+  private int incomeId;
 
   private List<InvoiceItem> items = new ArrayList<InvoiceItem>();
 
@@ -80,28 +81,28 @@ public class InvoiceAction extends ManageAction {
     // Gathering gathering = incomeService.roGetIncome(Integer
     // .parseInt(incomeId));
 
-    double pay = 0d;
+    BigDecimal pay = new BigDecimal(0);
     for (InvoiceItem item : items) {
-      pay += item.getExpense();
+      pay = pay.add(item.getExpense());
     }
 
     // if (pay > gathering.getIncomeMon())
     // {
     // addActionError("发票付款项目总额大于付款额.");
     // } else
-    if (pay == 0) {
+    if (pay.doubleValue() == 0) {
       addActionError("发票付款项目总额为零.");
     }
 
-    double block = 0d;
+    BigDecimal block = new BigDecimal(0);
     for (InvoicePiece piece : pieces) {
-      block += piece.getAmount();
+      block = block.add(piece.getAmount());
     }
     // if (block > gathering.getIncomeMon())
     // {
     // addActionError("发票收款方式一栏总额大于付款额.");
     // } else
-    if (block == 0) {
+    if (block.doubleValue() == 0) {
       addActionError("发票收款方式一栏总额为零.");
     }
 
@@ -142,11 +143,11 @@ public class InvoiceAction extends ManageAction {
     this.pieces = pieces;
   }
 
-  public Long getIncomeId() {
+  public int getIncomeId() {
     return incomeId;
   }
 
-  public void setIncomeId(Long incomeId) {
+  public void setIncomeId(int incomeId) {
     this.incomeId = incomeId;
   }
 

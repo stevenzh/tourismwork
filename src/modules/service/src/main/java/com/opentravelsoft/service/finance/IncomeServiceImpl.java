@@ -18,7 +18,7 @@ import com.opentravelsoft.providers.TeamDao;
 
 @Service("IncomeService")
 public class IncomeServiceImpl implements IncomeService {
-  
+
   @Autowired
   private IncomeDao incomeDao;
 
@@ -28,12 +28,12 @@ public class IncomeServiceImpl implements IncomeService {
   @Autowired
   private TeamDao teamDao;
 
-  public List<Booking> roGetIncomeBookings(long customerId) {
+  public List<Booking> roGetIncomeBookings(int customerId) {
     return incomeDao.getIncomeBookings(customerId);
   }
 
   public List<Booking> roSearchIncome(String proCd, String cityCd,
-      long customerId, Date stDate, Date endDate) {
+      Integer customerId, Date stDate, Date endDate) {
     return incomeDao.searchIncome(proCd, cityCd, customerId, stDate, endDate);
   }
 
@@ -42,19 +42,19 @@ public class IncomeServiceImpl implements IncomeService {
     return incomeDao.saveIncome(gathering);
   }
 
-  public List<Income> roShowIncomeHis(long teamId, String customerId,
+  public List<Income> roShowIncomeHis(Integer teamId, String customerId,
       Date startDate, Date endDate, double startMon, double endMon) {
     return incomeDao.findIncome(teamId, customerId, startDate, endDate,
         startMon, endMon);
   }
 
-  public Income roGetIncome(long incomeId) {
+  public Income roGetIncome(int incomeId) {
     Income gat = incomeDao.get(incomeId);
     gat.setInvices(invoiceDao.getInvoice(incomeId));
     return gat;
   }
 
-  public int txDeleteIncome(long incomeId) {
+  public int txDeleteIncome(int incomeId) {
     return incomeDao.cancelIncome(incomeId);
   }
 

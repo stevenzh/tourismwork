@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_pinyin", catalog = "tourismwork_db")
+@Table(name = "tbl_pinyin")
 public class Pinyin implements java.io.Serializable {
 
   private String chinese;

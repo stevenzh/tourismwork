@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_permission", catalog = "tourismwork_db")
+@Table(name = "tbl_permission")
 public class Permission implements java.io.Serializable {
 
   private Integer permissionId;

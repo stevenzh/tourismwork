@@ -48,10 +48,10 @@ public class ToursSearchPrintAction extends ManageAction {
   private String[] tourNum;
 
   /** 部门 */
-  private long kenTeamId;
+  private int kenTeamId;
 
   /** 专管员 */
-  private long kenUserId;
+  private int kenUserId;
 
   /** 线路名 */
   private String kenLineName;
@@ -243,19 +243,19 @@ public class ToursSearchPrintAction extends ManageAction {
     return SUCCESS;
   }
 
-  public long getKenDepartmentId() {
+  public int getKenDepartmentId() {
     return kenTeamId;
   }
 
-  public void setKenDepartmentId(long teamId) {
+  public void setKenDepartmentId(int teamId) {
     this.kenTeamId = teamId;
   }
 
-  public long getKenEmployeeId() {
+  public int getKenEmployeeId() {
     return kenUserId;
   }
 
-  public void setKenEmployeeId(long kenEmployeeId) {
+  public void setKenEmployeeId(int kenEmployeeId) {
     this.kenUserId = kenEmployeeId;
   }
 

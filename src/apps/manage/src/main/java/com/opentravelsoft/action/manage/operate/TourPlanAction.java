@@ -66,10 +66,10 @@ public class TourPlanAction extends ManageAction {
   private String kenLineName;
 
   /** 部门编号 */
-  private long kenTeamId = 0;
+  private int kenTeamId = 0;
 
   /** 专管员 */
-  private long kenUserId = 0;
+  private int kenUserId = 0;
 
   /** 出团时间-开始 */
   private Date kenStartDate;
@@ -178,11 +178,11 @@ public class TourPlanAction extends ManageAction {
     this.kenLineName = kenRrouteName;
   }
 
-  public long getKenDepartment() {
+  public int getKenDepartment() {
     return kenTeamId;
   }
 
-  public void setKenDepartment(long teamId) {
+  public void setKenDepartment(int teamId) {
     this.kenTeamId = teamId;
   }
 
@@ -194,11 +194,11 @@ public class TourPlanAction extends ManageAction {
     this.kenEndDate = kenEndDate;
   }
 
-  public Long getKenPrincipal() {
+  public int getKenPrincipal() {
     return kenUserId;
   }
 
-  public void setKenPrincipal(Long kenPrincipal) {
+  public void setKenPrincipal(int kenPrincipal) {
     this.kenUserId = kenPrincipal;
   }
 

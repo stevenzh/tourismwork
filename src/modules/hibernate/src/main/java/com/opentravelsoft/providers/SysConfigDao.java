@@ -5,10 +5,9 @@ import java.util.Set;
 
 import com.opentravelsoft.entity.SysConfig;
 
-public interface SysConfigDao extends GenericDao<SysConfig, Long>
-{
-    Set<String> getCategory();
+public interface SysConfigDao extends GenericDao<SysConfig, Integer> {
+  Set<String> getCategory();
 
-    List<SysConfig> getConfigByCategory(String category);
+  List<SysConfig> getConfigByCategory(String category);
 
 }

@@ -11,13 +11,13 @@ import com.opentravelsoft.providers.RoleDao;
 
 @Service("ModuleService")
 public class ModuleServiceImpl implements ModuleService {
-  
+
   @Autowired
   private ModuleDao moduleDao;
   @Autowired
   private RoleDao roleDao;
 
-  public Module roGetModuleDetail(long moduleId) {
+  public Module roGetModuleDetail(Integer moduleId) {
     return moduleDao.get(moduleId);
   }
 
@@ -29,7 +29,7 @@ public class ModuleServiceImpl implements ModuleService {
     return moduleDao.queryModle(keyword);
   }
 
-  public void txDelModule(long moduleId) {
+  public void txDelModule(Integer moduleId) {
     moduleDao.remove(moduleId);
   }
 
@@ -37,7 +37,7 @@ public class ModuleServiceImpl implements ModuleService {
     moduleDao.save(module);
   }
 
-  public String txSaveRoleModelPerm(long roleId, String moduleName,
+  public String txSaveRoleModelPerm(Integer roleId, String moduleName,
       String moduleAction, String permValue) {
     return roleDao.saveModulePerm(roleId, moduleName, moduleAction, permValue);
   }

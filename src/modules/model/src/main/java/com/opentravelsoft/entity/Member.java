@@ -25,7 +25,7 @@ import java.util.Set;
  * 
  */
 @Entity
-@Table(name = "tbl_member", catalog = "tourismwork_db", uniqueConstraints = {
+@Table(name = "tbl_member", uniqueConstraints = {
     @UniqueConstraint(columnNames = "email"),
     @UniqueConstraint(columnNames = "username") })
 public class Member extends BaseObject implements Serializable, UserDetails {

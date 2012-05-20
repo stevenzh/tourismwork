@@ -1,5 +1,6 @@
 package com.opentravelsoft.providers.hibernate;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -31,7 +32,7 @@ import com.opentravelsoft.util.StringUtil;
  * @author zhangst
  */
 @Repository("IncomeDao")
-public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
+public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
     implements IncomeDao {
 
   public IncomeDaoHibernate() {
@@ -44,7 +45,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
    * @see com.opentravelsoft.providers.IncomeDao#getIncomeBookings(long)
    */
   @SuppressWarnings("unchecked")
-  public List<Booking> getIncomeBookings(long customerId) {
+  public List<Booking> getIncomeBookings(int customerId) {
     StringBuilder sb = new StringBuilder();
     sb.append("from Booking ");
     sb.append("where customer.customerId=? and dbamt<>cramt ");
@@ -57,8 +58,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * com.opentravelsoft.providers.IncomeDao#saveIncome(com.opentravelsoft
+   * @see com.opentravelsoft.providers.IncomeDao#saveIncome(com.opentravelsoft
    * .ebiz.entity.finance.Income)
    */
   public long saveIncome(Income gathering) {
@@ -70,7 +70,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
     getHibernateTemplate().save(gathering);
 
     if (book != null) {
-      book.setCramt(book.getPayCosts() + book.getPayBack());
+      book.setCramt(book.getPayCosts().add(book.getPayBack()));
       getHibernateTemplate().update(book);
     }
 
@@ -80,13 +80,12 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * com.opentravelsoft.providers.IncomeDao#searchIncome(java.lang.String,
+   * @see com.opentravelsoft.providers.IncomeDao#searchIncome(java.lang.String,
    * java.lang.String, long, java.util.Date, java.util.Date)
    */
   @SuppressWarnings("unchecked")
   public List<Booking> searchIncome(String provinceCd, String cityCd,
-      long customerId, Date stDate, Date endDate) {
+      Integer customerId, Date stDate, Date endDate) {
     StringBuilder sb = new StringBuilder();
     List<Object> params = new ArrayList<Object>();
     sb.append("from Booking ");
@@ -124,8 +123,9 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
   }
 
   @SuppressWarnings("unchecked")
-  public List<Income> getGatheringList(int customerId, Date paymentDateStart,
-      Date paymentDateEnd, double payGatherStart, double payGatherEnd) {
+  public List<Income> getGatheringList(Integer customerId,
+      Date paymentDateStart, Date paymentDateEnd, double payGatherStart,
+      double payGatherEnd) {
     HibernateTemplate template = getHibernateTemplate();
     List<Object> params = new ArrayList<Object>();
     StringBuilder sql = new StringBuilder();
@@ -172,7 +172,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
 
     List<Income> tblIncomeList = template.find(sql.toString(), param);
     for (Income obj : tblIncomeList) {
-      obj.setUnOffSetMon(obj.getAmount() - obj.getOffSetAmount());
+      obj.setUnOffSetMon(obj.getAmount().subtract(obj.getOffSetAmount()));
       if (obj.getNote().equals(""))
         obj.setNote(obj.getIncomeDate().toString());
     }
@@ -187,7 +187,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
    * java.lang.String, java.util.Date, java.util.Date, double, double)
    */
   @SuppressWarnings("unchecked")
-  public List<Income> findIncome(long teamId, String customerId,
+  public List<Income> findIncome(Integer teamId, String customerId,
       Date startDate, Date endDate, double startMon, double endMon) {
     StringBuilder sb = new StringBuilder();
     List<Object> params = new ArrayList<Object>();
@@ -241,15 +241,15 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
    * 
    * @see com.opentravelsoft.providers.IncomeDao#cancelIncome(long)
    */
-  public int cancelIncome(long incomeId) {
+  public int cancelIncome(int incomeId) {
     Income tblIncome = getHibernateTemplate().get(Income.class, incomeId);
     if (null == tblIncome) {
       return -1;
     }
     Booking tfj006 = (Booking) getHibernateTemplate().get(Booking.class,
-        tblIncome.getBookingNo(), LockMode.UPGRADE);
+        tblIncome.getBookingNo(), LockMode.PESSIMISTIC_WRITE);
 
-    tfj006.setCramt(tfj006.getCramt() - tblIncome.getAmount());
+    tfj006.setCramt(tfj006.getCramt().subtract(tblIncome.getAmount()));
     getHibernateTemplate().update(tfj006);
 
     tblIncome.setDel("Y");
@@ -263,7 +263,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
    * @see com.opentravelsoft.providers.IncomeDao#getGathering(long)
    */
   @SuppressWarnings("unchecked")
-  public Income getGathering(long incomeId) {
+  public Income getGathering(int incomeId) {
     HibernateTemplate template = getHibernateTemplate();
     StringBuilder sql = new StringBuilder();
     sql.append("select a.incomeId,a.customer.customerId,b.name,a.payMode,");
@@ -281,13 +281,13 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
       gathering.setIncomeId(RowDataUtil.getInt(objG[0]));
       gathering.getCustomer().setCustomerId(RowDataUtil.getInt(objG[1]));
       gathering.getCustomer().setName(RowDataUtil.getString(objG[2]));
-      gathering.setPayMode(RowDataUtil.getString(objG[3]));
+      gathering.setPayMode(RowDataUtil.getChar(objG[3]));
       gathering.setNote(RowDataUtil.getString(objG[4]));
       gathering.setIncomeDate(RowDataUtil.getDate(objG[5]));
-      gathering.setAmount(RowDataUtil.getDouble(objG[6]));
-      gathering.setOffSetAmount(RowDataUtil.getDouble(objG[7]));
-      gathering.setUnOffSetMon(gathering.getAmount()
-          - gathering.getOffSetAmount());
+      gathering.setAmount(RowDataUtil.getBigDecimal(objG[6]));
+      gathering.setOffSetAmount(RowDataUtil.getBigDecimal(objG[7]));
+      gathering.setUnOffSetMon(gathering.getAmount().subtract(
+          gathering.getOffSetAmount()));
 
       // book.setFinalExpense(RowDataUtil.getDouble(obj[0]));
       // book.setPayCosts(RowDataUtil.getDouble(obj[1]));
@@ -317,8 +317,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * com.opentravelsoft.providers.IncomeDao#updateIncome(com.opentravelsoft
+   * @see com.opentravelsoft.providers.IncomeDao#updateIncome(com.opentravelsoft
    * .ebiz.entity.finance.Income)
    */
   public int updateIncome(Income gather) {
@@ -330,9 +329,9 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
 
     // 更新订单
     Booking tfj006 = (Booking) getHibernateTemplate().get(Booking.class,
-        gather.getBookingNo(), LockMode.UPGRADE);
-    tfj006.setCramt(tfj006.getCramt() - gather.getAmount()
-        + tfj006.getPayBack());
+        gather.getBookingNo(), LockMode.PESSIMISTIC_WRITE);
+    tfj006.setCramt(tfj006.getCramt().subtract(gather.getAmount())
+        .add(tfj006.getPayBack()));
     gather.setAmount(tfj006.getPayBack());
     getHibernateTemplate().update(tfj006);
 
@@ -370,14 +369,14 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
         book.getPlan().setOutDate(RowDataUtil.getDate(obj[1]));
         book.setPax(RowDataUtil.getInt(obj[2]));
         book.setSalesman(new Employee(RowDataUtil.getInt(obj[3])));
-        book.setDbamt(RowDataUtil.getDouble(obj[4]));
-        book.setPayCosts(RowDataUtil.getDouble(obj[5]));
-        book.setUnPay(RowDataUtil.getDouble(obj[4])
-            - RowDataUtil.getDouble(obj[5]));
+        book.setDbamt(RowDataUtil.getBigDecimal(obj[4]));
+        book.setPayCosts(RowDataUtil.getBigDecimal(obj[5]));
+        book.setUnPay(RowDataUtil.getBigDecimal(obj[4]).subtract(
+            RowDataUtil.getBigDecimal(obj[5])));
         book.getPlan().getLine().setLineName(RowDataUtil.getString(obj[6]));
         book.setBookingNo(RowDataUtil.getString(obj[7]));
         book.getCustomer().setName(RowDataUtil.getString(obj[8]));
-        book.setPayBack(RowDataUtil.getDouble(obj[9]));
+        book.setPayBack(RowDataUtil.getBigDecimal(obj[9]));
         books.add(book);
       }
     }
@@ -412,7 +411,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
       book.setBookingNo(alert.getBookingNo());
       book.setTourNo(alert.getPlan().getTourNo());
       book.setOutDate(alert.getPlan().getOutDate());
-      book.setRouteName(alert.getPlan().getLine().getName());
+      book.setRouteName(alert.getPlan().getLine().getLineName());
       book.setExpense(RowDataUtil.getDouble(alert.getDbamt())
           - RowDataUtil.getDouble(alert.getCramt()));
     }
@@ -477,9 +476,9 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
       // 付款单NO
       pay.setBookingNo(RowDataUtil.getString(obj[0]));
       // 付款方式
-      pay.setPayMode(RowDataUtil.getString(obj[1]));
+      pay.setPayMode(RowDataUtil.getChar(obj[1]));
       // 付款金额
-      pay.setAmount(RowDataUtil.getDouble(obj[2]));
+      pay.setAmount(RowDataUtil.getBigDecimal(obj[2]));
       // 付款类别（0：定金 1：预付款...）
       pay.setUseType(RowDataUtil.getString(obj[3]));
       // 操作时间
@@ -508,21 +507,21 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
   }
 
   @SuppressWarnings("unchecked")
-  public int netPay(String orderId, String paymentMode, double amount,
+  public int netPay(String orderId, String paymentMode, BigDecimal amount,
       String moneyType, String paymentNo, String invNo) throws EbizException {
     HibernateTemplate template = getHibernateTemplate();
 
     // ---------------------------------------------------------------------
     // 更新 报名单索引表（TFJ006） 预订人数 确认人数 已交款 确认状态
     Booking tfj006 = (Booking) template.load(Booking.class, orderId,
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     if (null == tfj006)
       throw new EbizException("报名单索引表(TFJ006)记录错误.");
 
     // ---------------------------------------------------------------------
     //
     Plan plan = (Plan) template.load(Plan.class, tfj006.getPlan().getPlanNo(),
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     if (null == plan)
       throw new EbizException("线路计划表(TBL_PLAN)记录错误.");
 
@@ -553,11 +552,11 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Long>
 
     // ---------------------------------------------------------------------
     // 已交款
-    tfj006.setCramt(tfj006.getCramt() - amount);
+    tfj006.setCramt(tfj006.getCramt().subtract(amount));
     // 客户收款登记
-    tfj006.setCramt(tfj006.getCramt() - amount);
+    tfj006.setCramt(tfj006.getCramt().subtract(amount));
     // 最后修改人
-    tfj006.setOpuser(0L);
+    tfj006.setOpuser(0);
 
     template.update(tfj006);
 

@@ -14,8 +14,8 @@ import com.opentravelsoft.providers.SysConfigDao;
 import com.opentravelsoft.util.StringUtil;
 
 @Repository("SysConfigDao")
-public class SysConfigDaoHibernate extends GenericDaoHibernate<SysConfig, Long>
-    implements SysConfigDao {
+public class SysConfigDaoHibernate extends
+    GenericDaoHibernate<SysConfig, Integer> implements SysConfigDao {
 
   public SysConfigDaoHibernate() {
     super(SysConfig.class);

@@ -12,6 +12,7 @@ public interface VisaDao extends GenericDao<VisaHelp, String> {
 
   /**
    * 办理签证的国家地区
+   * 
    * @return
    */
   List<LabelValueBean> getAreas();
@@ -20,7 +21,7 @@ public interface VisaDao extends GenericDao<VisaHelp, String> {
 
   VisaHelp getItem(String recordNo);
 
-  boolean deleteItem(String recordNo, long opUser);
+  boolean deleteItem(String recordNo, Integer opUser);
 
   /**
    * 取得可用签证列表,网站使用

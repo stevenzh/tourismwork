@@ -8,7 +8,7 @@ import com.opentravelsoft.entity.Group;
 import com.opentravelsoft.providers.GroupDao;
 
 @Repository("DepartmentDao")
-public class GroupDaoImpl extends GenericDaoHibernate<Group, Long> implements
+public class GroupDaoImpl extends GenericDaoHibernate<Group, Integer> implements
     GroupDao {
   public GroupDaoImpl() {
     super(Group.class);

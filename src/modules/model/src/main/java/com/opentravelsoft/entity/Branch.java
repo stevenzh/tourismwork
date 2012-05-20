@@ -6,7 +6,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tbl_branch", catalog = "tourismwork_db")
+@Table(name = "tbl_branch")
 public class Branch implements java.io.Serializable {
 
   private int branchId;

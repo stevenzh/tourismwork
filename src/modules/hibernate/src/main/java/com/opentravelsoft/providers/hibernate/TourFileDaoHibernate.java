@@ -10,8 +10,8 @@ import com.opentravelsoft.entity.product.FileItem;
 import com.opentravelsoft.providers.PriceUploadDao;
 
 @Repository("PriceUploadDao")
-public class TourFileDaoHibernate extends GenericDaoHibernate<FileItem, Long>
-    implements PriceUploadDao {
+public class TourFileDaoHibernate extends
+    GenericDaoHibernate<FileItem, Integer> implements PriceUploadDao {
   public TourFileDaoHibernate() {
     super(FileItem.class);
   }
@@ -61,8 +61,8 @@ public class TourFileDaoHibernate extends GenericDaoHibernate<FileItem, Long>
     file.setGroupId(fileItem.getGroupId());
     file.setFilename(fileItem.getFileName());
     file.setFilepath(fileItem.getFilePath());
-    file.setCreatedBy(fileItem.getOperator());
-    file.setDel("N");
+    file.setCreatedby(fileItem.getOperator());
+    file.setDel('N');
 
     getHibernateTemplate().save(file);
     return 0;
@@ -73,7 +73,7 @@ public class TourFileDaoHibernate extends GenericDaoHibernate<FileItem, Long>
         TblPriceFile.class, fileId);
 
     if (null != fileItem) {
-      fileItem.setDel("Y");
+      fileItem.setDel('Y');
       getHibernateTemplate().save(fileItem);
       return 0;
     }

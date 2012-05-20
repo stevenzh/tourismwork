@@ -18,5 +18,5 @@ public interface DistrictService {
 
   public int txDeleteDistrict(String districtNo);
 
-  public int txEditDistrict(District district, long userId);
+  public int txEditDistrict(District district, int userId);
 }

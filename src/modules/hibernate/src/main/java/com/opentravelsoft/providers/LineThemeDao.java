@@ -4,8 +4,7 @@ import java.util.List;
 
 import com.opentravelsoft.entity.vacation.LineTheme;
 
-public interface LineThemeDao extends GenericDao<LineTheme, String>
-{
-    public List<LineTheme> getTypeList();
+public interface LineThemeDao extends GenericDao<LineTheme, String> {
+  public List<LineTheme> getTypeList();
 
 }

@@ -33,5 +33,5 @@ public interface TouristService {
    * @return
    */
   public int txModifyCustomerInfo(List<Tourist> customerList, String tourNo,
-      String note, long uid);
+      String note, int uid);
 }

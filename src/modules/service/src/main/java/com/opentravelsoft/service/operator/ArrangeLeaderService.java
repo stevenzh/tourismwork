@@ -9,12 +9,12 @@ public interface ArrangeLeaderService {
 
   Plan roGetDetail(String tourNo);
 
-  int txArrangeLeader(String tourNo, String[] nameKey, long userId);
+  int txArrangeLeader(String tourNo, String[] nameKey, int userId);
 
   List<Leader> roGetLeaderList();
 
-  int txArrangeFromLeader(String toutNo, String[] nameKey, long userId);
+  int txArrangeFromLeader(String toutNo, String[] nameKey, int userId);
 
-  int txCancelLeader(String tourNo, String[] nameKey, long userId);
+  int txCancelLeader(String tourNo, String[] nameKey, int userId);
 
 }

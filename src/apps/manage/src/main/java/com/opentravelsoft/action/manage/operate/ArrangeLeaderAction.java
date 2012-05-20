@@ -80,7 +80,7 @@ public class ArrangeLeaderAction extends ManageAction {
     for (Tourist item : tour.getCustomerList()) {
       item.setBirthplaceName(birthPlace.get(item.getBirthplace()));
       item.setPassportPlaceName(passportPlace.get(item.getPassportPlace()));
-      item.setSex(item.getSex().equals("M") ? "男" : "女");
+      item.setSex(item.getSex());
     }
 
     return INPUT;
@@ -114,7 +114,7 @@ public class ArrangeLeaderAction extends ManageAction {
     for (Leader item : leaderList) {
       item.setBirthplaceName(birthPlace.get(item.getBirthplace()));
       item.setPassportPlaceName(passportPlace.get(item.getPassportPlace()));
-      item.setSex(item.getSex().equals("M") ? "男" : "女");
+      item.setSex(item.getSex());
     }
 
     currentPage(leaderList.size());

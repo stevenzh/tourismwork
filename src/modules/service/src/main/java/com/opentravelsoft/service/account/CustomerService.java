@@ -12,9 +12,9 @@ public interface CustomerService {
       String cityId, String agentName, String opKey, String clearingCycle,
       int salesId, String customerCode, int teamId, String accountType);
 
-  public int txDeleteAgent(long agentId);
+  public int txDeleteAgent(int agentId);
 
-  public Customer findAgent(long agentId);
+  public Customer findAgent(int agentId);
 
   /**
    * 修改客户资料
@@ -35,13 +35,14 @@ public interface CustomerService {
 
   int txDeleteSupplier(int supplierId);
 
-  List<Customer> roGetSupplier(long teamId, String supplierResource, boolean b);
+  List<Customer> roGetSupplier(Integer teamId, String supplierResource,
+      boolean b);
 
   List<Customer> roFindSupplier(String countryId, String supplierResource);
 
-  int txSaveGroupSupplier(long teamId, String[] select);
+  int txSaveGroupSupplier(Integer teamId, String[] select);
 
-  int txEditSupplier(Customer supplier, long teamId);
+  int txEditSupplier(Customer supplier, Integer teamId);
 
   /**
    * 根据地区取得代理商
@@ -57,5 +58,5 @@ public interface CustomerService {
 
   public List<Customer> getSuppliserByType(String resource, int teamId);
 
-  public List<Customer> getUsableSupplier(long teamId);
+  public List<Customer> getUsableSupplier(Integer teamId);
 }

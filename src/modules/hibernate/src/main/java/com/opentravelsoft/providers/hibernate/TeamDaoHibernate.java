@@ -17,8 +17,8 @@ import com.opentravelsoft.providers.TeamDao;
 import com.opentravelsoft.util.PaginationSupport;
 
 @Repository("TeamDao")
-public class TeamDaoHibernate extends GenericDaoHibernate<Team, Long> implements
-    TeamDao {
+public class TeamDaoHibernate extends GenericDaoHibernate<Team, Integer>
+    implements TeamDao {
   public TeamDaoHibernate() {
     super(Team.class);
   }

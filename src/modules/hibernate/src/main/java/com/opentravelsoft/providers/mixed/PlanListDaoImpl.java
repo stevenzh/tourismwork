@@ -263,7 +263,7 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
   public int deletePlan(Plan plan, long userId, String note) {
     HibernateTemplate template = getHibernateTemplate();
     Plan planInt = (Plan) template.get(Plan.class, plan.getPlanNo(),
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
 
     if (planInt == null)
       return -1;
@@ -283,7 +283,7 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
   public int updatePlan(Plan plan, int shareId, String note) {
     HibernateTemplate template = getHibernateTemplate();
     Plan planInts = (Plan) template.get(Plan.class, plan.getPlanNo(),
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     if (null == planInts) {
       log.error("Plan no find.");
       return -1;
@@ -302,7 +302,8 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
     planInts.setSingleFlag(plan.getSingleFlag());
     planInts.setTraitId(plan.getTraitId());
     planInts.setOpUser(plan.getOpUser());
-    planInts.setPackagePrice(template.get(LinePrice.class, plan.getPackagePrice().getRecNo()));
+    planInts.setPackagePrice(template.get(LinePrice.class, plan
+        .getPackagePrice().getRecNo()));
     planInts.setAssigned(plan.getAssigned());
     planInts.setTeam(plan.getTeam());
 
@@ -325,7 +326,7 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
     }
 
     if (plan.getShareFlight().equals("N")) {
-      planInts.setShareFlight("N");
+      planInts.setShareFlight('N');
       planInts.setShareFlightId(-1);
       ShareFlight tblsf = (ShareFlight) template.get(ShareFlight.class,
           planInts.getShareFlightId());
@@ -366,8 +367,8 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
       plan.setStartDate(calDate.getTime());
       plan.setEndDate(calDate.getTime());
       plan.setPax1(zero);
-      plan.setPax2(zero);
-      plan.setPax3(zero);
+      plan.setPax2(0);
+      plan.setPax3(0);
       plan.setPax4(zero);
       plan.setPax5(zero);
       plan.setTourNo("");
@@ -380,7 +381,7 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
     for (Plan plan : plans) {
       HibernateTemplate template = getHibernateTemplate();
       Plan planInst = (Plan) template.get(Plan.class, plan.getPlanNo(),
-          LockMode.UPGRADE);
+          LockMode.PESSIMISTIC_WRITE);
 
       if (planInst == null) {
         planInst = new Plan();
@@ -396,7 +397,7 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
         planInst.setDeployFlag(RowDataUtil.getString(plan.getDeployFlag()));
 
         if (plan.getTraitId() == 4) {
-          plan.setFavourable("Y");
+          plan.setFavourable('Y');
         }
 
         planInst.setFavourable(plan.getFavourable());
@@ -413,7 +414,8 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
         planInst.setTeam(plan.getTeam());
 
         planInst.setShareFlight(plan.getShareFlight());
-        planInst.setPackagePrice(template.get(LinePrice.class, plan.getPackagePrice().getRecNo()));
+        planInst.setPackagePrice(template.get(LinePrice.class, plan
+            .getPackagePrice().getRecNo()));
 
         ShareFlight tblSF = new ShareFlight();
         if (plan.getShareFlight().equals('Y') && plan.getSelectNO().equals('N')) {

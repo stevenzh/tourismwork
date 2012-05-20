@@ -42,7 +42,7 @@ public class ListTeamSupplierAction extends ManageAction {
 
   private int supplierId;
 
-  private long teamId;
+  private int teamId;
 
   private String[] select;
 
@@ -77,7 +77,7 @@ public class ListTeamSupplierAction extends ManageAction {
         false);
 
     for (Customer Supplier : supplierList) {
-      Supplier.setChecked("true");
+      Supplier.setIsActive('Y');
     }
 
     return INPUT;
@@ -97,13 +97,13 @@ public class ListTeamSupplierAction extends ManageAction {
         kenSupplierResource);
 
     for (Customer Supplier : supplierList) {
-      Supplier.setChecked("true");
+      Supplier.setIsActive('Y');
     }
 
     for (Customer supplier : listSupplier) {
       for (int i = supplierList.size() - 1; i >= 0; i--) {
         if (supplier.getSupplierId() == supplierList.get(i).getSupplierId()) {
-          supplier.setChecked("true");
+          supplier.setIsActive('Y');
           supplierList.remove(i);
           break;
         }
@@ -179,7 +179,7 @@ public class ListTeamSupplierAction extends ManageAction {
     return teamId;
   }
 
-  public void setGroupId(long groupId) {
+  public void setGroupId(int groupId) {
     this.teamId = groupId;
   }
 

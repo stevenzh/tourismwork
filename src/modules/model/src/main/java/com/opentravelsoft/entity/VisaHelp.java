@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 import com.opentravelsoft.entity.product.VisaItem;
 
 @Entity
-@Table(name = "tbl_visa", catalog = "tourismwork_db")
+@Table(name = "tbl_visa")
 public class VisaHelp implements java.io.Serializable {
 
   private String recNo;

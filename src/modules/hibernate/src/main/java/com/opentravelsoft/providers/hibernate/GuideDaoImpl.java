@@ -25,7 +25,7 @@ public class GuideDaoImpl extends GenericDaoHibernate<Guide, String> implements
 
   public int deleteGuide(String accCd) {
     HibernateTemplate template = getHibernateTemplate();
-    Guide guide = (Guide) template.get(Guide.class, accCd, LockMode.UPGRADE);
+    Guide guide = (Guide) template.get(Guide.class, accCd, LockMode.PESSIMISTIC_WRITE);
     template.delete(guide);
 
     return 0;
@@ -34,7 +34,7 @@ public class GuideDaoImpl extends GenericDaoHibernate<Guide, String> implements
   public Guide getGuideDetail(String accCd) {
     Guide guide = null;
     HibernateTemplate template = getHibernateTemplate();
-    Guide wlt = (Guide) template.get(Guide.class, accCd, LockMode.UPGRADE);
+    Guide wlt = (Guide) template.get(Guide.class, accCd, LockMode.PESSIMISTIC_WRITE);
     if (wlt == null) {
       return wlt;
     } else {
@@ -89,7 +89,7 @@ public class GuideDaoImpl extends GenericDaoHibernate<Guide, String> implements
   public int insertGuide(Guide guide) {
     HibernateTemplate template = getHibernateTemplate();
     Guide wlt = (Guide) template.get(Guide.class, guide.getAccCd(),
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     if (null != wlt) {
       return -1;
     }
@@ -147,7 +147,7 @@ public class GuideDaoImpl extends GenericDaoHibernate<Guide, String> implements
   public int updateGuide(Guide guide) {
     HibernateTemplate template = getHibernateTemplate();
     Guide wlt = (Guide) template.get(Guide.class, guide.getAccCd(),
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     if (null == wlt) {
       return -1;
     }

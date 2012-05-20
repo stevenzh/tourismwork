@@ -7,22 +7,21 @@ import com.opentravelsoft.util.LabelValueBean;
 
 import com.opentravelsoft.entity.Lists;
 
-public interface ListService
-{
-    List<Lists> getAllList();
+public interface ListService {
+  List<Lists> getAllList();
 
-    List<Lists> getList(String type);
+  List<Lists> getList(String type);
 
-    void deleteList(long listId);
+  void deleteList(int listId);
 
-    Lists getList(long listId);
+  Lists getList(int listId);
 
-    int updateList(Lists config);
+  int updateList(Lists config);
 
-    List<Lists> searchList(String listName);
+  List<Lists> searchList(String listName);
 
-    Set<String> getListType();
+  Set<String> getListType();
 
-    List<LabelValueBean> getListByCategory(String listName);
+  List<LabelValueBean> getListByCategory(String listName);
 
 }

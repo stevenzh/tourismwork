@@ -65,8 +65,8 @@
     <property name="memo" type="string">
       <column name="MEMO" length="500" />
     </property>
-    <property name="workflowId" type="java.lang.Long">
-      <column name="WORKFLOW_ID" precision="18" scale="0" />
+    <property name="workflowId" type="string">
+      <column name="WORKFLOW_ID" length="64"/>
     </property>
     <property name="created" type="timestamp">
       <column name="CREATED" length="19" />

@@ -23,7 +23,7 @@ import com.opentravelsoft.entity.xml.OutcomeInputSource;
 import com.opentravelsoft.entity.xml.OutcomeXMLReader;
 
 @Entity
-@Table(name = "tbl_outcome", catalog = "tourismwork_db")
+@Table(name = "tbl_outcome")
 public class Outcome implements java.io.Serializable {
 
   /** 付款申请书号 */
@@ -423,9 +423,9 @@ public class Outcome implements java.io.Serializable {
   private long acctId;
 
   /** 制单人 */
-  private Long createdBy;
+  private Integer createdBy;
 
-  private Long updatedBy;
+  private Integer updatedBy;
 
   /** 币种 */
   private String currency;
@@ -484,11 +484,11 @@ public class Outcome implements java.io.Serializable {
   /** 付款方式 */
   private String payWay;
 
-  public Long getUpdatedBy() {
+  public Integer getUpdatedBy() {
     return this.updatedBy;
   }
 
-  public void setUpdatedBy(Long updatedby) {
+  public void setUpdatedBy(Integer updatedby) {
     this.updatedBy = updatedby;
   }
 
@@ -500,11 +500,11 @@ public class Outcome implements java.io.Serializable {
     this.id = id;
   }
 
-  public Long getCreatedBy() {
+  public Integer getCreatedBy() {
     return createdBy;
   }
 
-  public void setCreatedBy(Long createdBy) {
+  public void setCreatedBy(Integer createdBy) {
     this.createdBy = createdBy;
   }
 

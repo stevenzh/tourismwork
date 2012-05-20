@@ -7,15 +7,14 @@ import com.opentravelsoft.util.LabelValueBean;
 
 import com.opentravelsoft.entity.Lists;
 
-public interface ListDao extends GenericDao<Lists, Long>
-{
+public interface ListDao extends GenericDao<Lists, Integer> {
 
-    public List<LabelValueBean> getList(String listName);
+  public List<LabelValueBean> getList(String listName);
 
-    public List<Lists> getListByType(String listName);
+  public List<Lists> getListByType(String listName);
 
-    public int updateList(Lists config);
+  public int updateList(Lists config);
 
-    public Set<String> getListType();
+  public Set<String> getListType();
 
 }

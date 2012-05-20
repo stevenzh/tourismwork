@@ -10,16 +10,15 @@ import com.opentravelsoft.entity.product.FileItem;
  * @author zhangst
  * 
  */
-public interface PriceUploadDao extends GenericDao<FileItem, Long>
-{
-    List<FileItem> getAllFileList();
+public interface PriceUploadDao extends GenericDao<FileItem, Integer> {
+  List<FileItem> getAllFileList();
 
-    List<FileItem> getFileList(long groupCd);
+  List<FileItem> getFileList(long groupCd);
 
-    FileItem getFileItem(int fileId);
+  FileItem getFileItem(int fileId);
 
-    int saveFile(FileItem fileItem);
+  int saveFile(FileItem fileItem);
 
-    int deleteFile(int fileId);
+  int deleteFile(int fileId);
 
 }

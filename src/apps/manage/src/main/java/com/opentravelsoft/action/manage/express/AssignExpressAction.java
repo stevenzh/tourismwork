@@ -75,7 +75,7 @@ public class AssignExpressAction extends ManageAction {
 
   public String submit() throws Exception {
     Employee user = getUser();
-    express.setUpdatedBy(user.getUserId());
+    express.setUpdatedby(user.getUserId());
     int result = expressService.txAssignExpress(express, expressList, note);
     if (result < 0) {
       addActionError("添加失败");

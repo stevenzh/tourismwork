@@ -17,7 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-@Table(name = "tbl_tour_cost", catalog = "tourismwork_db")
+@Table(name = "tbl_tour_cost")
 public class TourCost implements java.io.Serializable {
   /** 结算单号 */
   private Integer acctId;
@@ -222,7 +222,7 @@ public class TourCost implements java.io.Serializable {
   private String isMakeOutcome;
 
   /** 创建人ID */
-  private Long createdBy;
+  private Integer createdBy;
 
   // ------------------------------------------------------------------------
   /** 创建人姓名 */
@@ -251,11 +251,11 @@ public class TourCost implements java.io.Serializable {
     this.id = id;
   }
 
-  public Long getCreatedBy() {
+  public Integer getCreatedBy() {
     return createdBy;
   }
 
-  public void setCreatedBy(Long createdBy) {
+  public void setCreatedBy(Integer createdBy) {
     this.createdBy = createdBy;
   }
 

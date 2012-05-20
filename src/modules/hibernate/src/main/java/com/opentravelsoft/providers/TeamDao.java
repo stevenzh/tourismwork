@@ -6,7 +6,7 @@ import com.opentravelsoft.common.TeamType;
 import com.opentravelsoft.entity.Team;
 import com.opentravelsoft.util.PaginationSupport;
 
-public interface TeamDao extends GenericDao<Team, Long> {
+public interface TeamDao extends GenericDao<Team, Integer> {
 
   public List<Team> getTeam(long userId, TeamType type);
 

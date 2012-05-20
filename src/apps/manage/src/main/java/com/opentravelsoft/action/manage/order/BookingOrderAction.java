@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.manage.order;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -95,11 +96,10 @@ public class BookingOrderAction extends ManageAction {
   /** 备注 */
   private String note;
 
-
   public String input() {
     Employee user = getUser();
 
-    double defaultPrice = 0d;
+    BigDecimal defaultPrice = new BigDecimal(0);
     plan = bookingService.roGetPlanDetail(recordNo);
 
     if (null == plan) {
@@ -137,7 +137,7 @@ public class BookingOrderAction extends ManageAction {
     }
 
     // 独立成团 1 不可分拆 2 无 3
-    book.setCanSplit("2");
+    book.setCanSplit('2');
     /** 可预订人数 */
     paxSum = plan.getPax3();
 
@@ -186,7 +186,7 @@ public class BookingOrderAction extends ManageAction {
     Employee user = getUser();
 
     plan = bookingService.roGetPlanDetail(recordNo);
-    double defaultPrice = 0d;
+    BigDecimal defaultPrice = new BigDecimal(0);
     canSplitList = getCodeList("ebiz_can_split");
 
     // 2008年7月启动 只显示月结客户
@@ -261,13 +261,13 @@ public class BookingOrderAction extends ManageAction {
     // 操作人
     book.setOpuser(user.getUserId());
 
-    double expense = 0d;
+    BigDecimal expense = new BigDecimal(0);
     int realPax = 0;
     for (int i = customerList.size() - 1; i >= 0; i--) {
       Tourist trip = customerList.get(i);
       if (trip.getUserName().trim().length() > 0) {
         realPax++;
-        expense += trip.getReceivables();
+        expense = expense.add(trip.getReceivables());
       } else
         customerList.remove(i);
     }
@@ -333,7 +333,7 @@ public class BookingOrderAction extends ManageAction {
   public String execute() {
     Employee user = getUser();
 
-    double defaultPrice = 0d;
+    BigDecimal defaultPrice = new BigDecimal(0);
     sexList = getSysList("DOM_sex");
     birthPlaceList = bookingService.roGetBirthplaceList();
     passportPlaceList = bookingService.roGetPassportPlaceList();
@@ -406,9 +406,9 @@ public class BookingOrderAction extends ManageAction {
     logger.info("submit");
     Employee user = getUser();
 
-    Double expense = 0d;
+    BigDecimal expense = new BigDecimal(0);
     for (Tourist trip : customerList) {
-      expense = expense + trip.getReceivables();
+      expense = expense.add(trip.getReceivables());
       if (!StringUtil.hasLength(trip.getUserName())) {
         trip.setUserName("客人");
         trip.setPinYin("KE REN");

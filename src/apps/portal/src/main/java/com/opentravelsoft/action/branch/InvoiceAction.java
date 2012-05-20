@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.branch;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,24 +91,24 @@ public class InvoiceAction extends PortalAction {
     Income payment = (Income) ActionContext.getContext().getSession()
         .get(SessionKeyParams.EBIZ_CURRENT_PAYMENT);
 
-    double pay = 0f;
+    BigDecimal pay = new BigDecimal(0);
     for (InvoiceItem item : items) {
-      pay += item.getExpense();
+      pay = pay.add(item.getExpense());
     }
 
-    if (pay > payment.getAmount()) {
+    if (pay.compareTo(payment.getAmount()) > 0) {
       addActionError("发票付款项目总额大于付款额.");
-    } else if (pay == 0) {
+    } else if (pay.doubleValue() == 0) {
       addActionError("发票付款项目总额为零.");
     }
 
-    double block = 0d;
+    BigDecimal block = new BigDecimal(0);
     for (InvoicePiece piece : pieces) {
-      block += piece.getAmount();
+      block = block.add(piece.getAmount());
     }
-    if (block > payment.getAmount()) {
+    if (block.compareTo(payment.getAmount()) > 0) {
       addActionError("发票收款方式一栏总额大于付款额.");
-    } else if (block == 0) {
+    } else if (block.doubleValue() == 0) {
       addActionError("发票收款方式一栏总额为零.");
     }
 

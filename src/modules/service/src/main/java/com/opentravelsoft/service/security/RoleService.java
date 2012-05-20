@@ -12,9 +12,9 @@ public interface RoleService {
 
   List<Role> roGetQueryRole(String keyword);
 
-  void txDelRole(long roleId);
+  void txDelRole(int roleId);
 
-  Role roGetRoleDetail(long roleId);
+  Role roGetRoleDetail(int roleId);
 
   Role txSaveRole(Role role);
 
@@ -29,6 +29,6 @@ public interface RoleService {
    * @param roleId
    * @return
    */
-  List<Module> roGetModulePermission(long roleId);
+  List<Module> roGetModulePermission(int roleId);
 
 }

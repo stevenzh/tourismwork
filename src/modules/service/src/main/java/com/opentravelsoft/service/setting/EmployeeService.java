@@ -13,11 +13,11 @@ public interface EmployeeService {
 
   public List<Group> getAllDepartments();
 
-  public int txDeleteEmployee(long userId);
+  public int txDeleteEmployee(int userId);
 
   public int txInsertEmployee(Employee employee);
 
-  public Employee roGetEmployee(long userId);
+  public Employee roGetEmployee(int userId);
 
   public Employee roGetEmployeeByName(String userName);
 
@@ -33,9 +33,9 @@ public interface EmployeeService {
 
   public List<Team> roGetMarketTeams();
 
-  public List<Employee> roGetSalesByTeam(long teamId);
+  public List<Employee> roGetSalesByTeam(int teamId);
 
-  public List<Employee> getUserByTeam(long teamId);
+  public List<Employee> getUserByTeam(int teamId);
 
   public List<Employee> getEmployees(boolean enabled);
 }

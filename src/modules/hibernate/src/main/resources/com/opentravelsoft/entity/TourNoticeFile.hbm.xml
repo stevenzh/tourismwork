@@ -23,7 +23,7 @@
     <property name="filepath" type="string">
       <column name="FILEPATH" length="120" not-null="true" />
     </property>
-    <property name="filesize" type="java.lang.Integer">
+    <property name="filesize" type="java.lang.Long">
       <column name="FILESIZE" />
     </property>
     <property name="overdue" type="timestamp">

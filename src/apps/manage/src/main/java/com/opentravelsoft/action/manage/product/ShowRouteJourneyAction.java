@@ -41,7 +41,7 @@ public class ShowRouteJourneyAction extends ManageAction {
 
       for (int i = 1; i <= line.getLineDay(); i++) {
         LineSchedule schedule = new LineSchedule();
-        schedule.setDay(i);
+        schedule.getId().setDay(i);
         scheduleList.add(schedule);
 
       }
@@ -67,9 +67,9 @@ public class ShowRouteJourneyAction extends ManageAction {
       }
 
       for (LineSchedule obj : scheduleList) {
-        if (!array.contains(obj.getDay())) {
+        if (!array.contains(obj.getId().getDay())) {
           LineTraffic traffic = new LineTraffic();
-          traffic.setDay(obj.getDay());
+          traffic.setDay(obj.getId().getDay());
           traffic.setStep(lineTrafficList.size() + 1);
           traffic.setLineNo(lineNo);
           lineTrafficList.add(traffic);

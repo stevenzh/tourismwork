@@ -18,7 +18,7 @@ import com.opentravelsoft.util.RowDataUtil;
 import com.opentravelsoft.util.StringUtil;
 
 @Repository("ListDao")
-public class ListDaoHibernate extends GenericDaoHibernate<Lists, Long>
+public class ListDaoHibernate extends GenericDaoHibernate<Lists, Integer>
     implements ListDao {
 
   public ListDaoHibernate() {
@@ -46,8 +46,7 @@ public class ListDaoHibernate extends GenericDaoHibernate<Lists, Long>
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * com.opentravelsoft.providers.ListDao#getListByType(java.lang.String)
+   * @see com.opentravelsoft.providers.ListDao#getListByType(java.lang.String)
    */
   @SuppressWarnings("unchecked")
   public List<Lists> getListByType(String listName) {
@@ -65,8 +64,7 @@ public class ListDaoHibernate extends GenericDaoHibernate<Lists, Long>
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * com.opentravelsoft.providers.ListDao#updateList(com.opentravelsoft
+   * @see com.opentravelsoft.providers.ListDao#updateList(com.opentravelsoft
    * .ebiz.entity.Lists)
    */
   public int updateList(Lists config) {

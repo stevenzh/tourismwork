@@ -12,9 +12,10 @@ import com.opentravelsoft.entity.Destination;
  * @author zhangst
  * 
  */
-public interface DestinationDao extends GenericDao<Destination, Long> {
+public interface DestinationDao extends GenericDao<Destination, Integer> {
   /**
    * 取得所有的目的地
+   * 
    * @return
    */
   List<Destination> getAllDestination();
@@ -25,7 +26,7 @@ public interface DestinationDao extends GenericDao<Destination, Long> {
    * @param catId
    * @return
    */
-  int delDestination(long catId);
+  int delDestination(int catId);
 
   public List<List<LabelValueBean>> getRegionGroupList();
 
@@ -39,6 +40,7 @@ public interface DestinationDao extends GenericDao<Destination, Long> {
 
   /**
    * 网站显示常用目的地
+   * 
    * @return
    */
   public List<Destination> getTopDestination();

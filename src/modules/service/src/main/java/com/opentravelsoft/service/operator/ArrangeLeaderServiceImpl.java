@@ -12,7 +12,7 @@ import com.opentravelsoft.providers.PlanDao;
 
 @Service("ArrangeLeaderService")
 public class ArrangeLeaderServiceImpl implements ArrangeLeaderService {
-  
+
   @Autowired
   private PlanDao planDao;
 
@@ -24,7 +24,7 @@ public class ArrangeLeaderServiceImpl implements ArrangeLeaderService {
     return planDao.getTourInfo(tourNo, true, false);
   }
 
-  public int txArrangeLeader(String tourNo, String[] nameKey, long operator) {
+  public int txArrangeLeader(String tourNo, String[] nameKey, int operator) {
     // TODO WorkFLow
     return planDao.arrangeLeader(tourNo, nameKey, operator);
   }
@@ -33,13 +33,13 @@ public class ArrangeLeaderServiceImpl implements ArrangeLeaderService {
     return planDao.getLeaderList();
   }
 
-  public int txArrangeFromLeader(String tourNo, String[] nameKey, long userId) {
+  public int txArrangeFromLeader(String tourNo, String[] nameKey, int userId) {
     String[] sqe = sequenceDao.getComputerNo("H", nameKey.length, userId);
     // TODO WorkFLow
     return planDao.arrangeFromLeader(tourNo, nameKey, sqe, userId);
   }
 
-  public int txCancelLeader(String tourNo, String[] nameKey, long uid) {
+  public int txCancelLeader(String tourNo, String[] nameKey, int uid) {
     return planDao.cancelLeader(tourNo, nameKey, uid);
   }
 }

@@ -9,7 +9,7 @@ import com.opentravelsoft.entity.TourOutBound;
 import com.opentravelsoft.entity.Tourist;
 import com.opentravelsoft.entity.product.Leader;
 
-public interface PlanDao extends GenericDao<Plan, Long> {
+public interface PlanDao extends GenericDao<Plan, String> {
 
   /**
    * 查找团（团处理、出境游名单打印）
@@ -22,7 +22,7 @@ public interface PlanDao extends GenericDao<Plan, Long> {
    * @return
    * 
    */
-  public List<Plan> getTours(long teamId, long userId, String lineName,
+  public List<Plan> getTours(Integer teamId, Integer userId, String lineName,
       Date startDate, Date endDate);
 
   /**
@@ -51,7 +51,7 @@ public interface PlanDao extends GenericDao<Plan, Long> {
    * @param tourNo
    * @return
    */
-  public int cancelTour(String tourNo, String note, long userId);
+  public int cancelTour(String tourNo, String note, int userId);
 
   /**
    * 如团信息中所登记的人数与实际客人不符，更新团信息
@@ -94,7 +94,7 @@ public interface PlanDao extends GenericDao<Plan, Long> {
    * @return
    */
   public int modifyCustomerInfo(List<Tourist> customerList, String tourNo,
-      String note, long userId);
+      String note, int userId);
 
   // -------------------------------------------------------------------------
 
@@ -115,7 +115,7 @@ public interface PlanDao extends GenericDao<Plan, Long> {
    * @param uid
    * @return
    */
-  public Plan auditTourAccounts(String tourNo, long uid);
+  public Plan auditTourAccounts(String tourNo, int uid);
 
   /**
    * 修改订单应收帐款
@@ -124,7 +124,7 @@ public interface PlanDao extends GenericDao<Plan, Long> {
    * @param uid
    * @return
    */
-  public List<Booking> mustPayModify(List<Booking> bookList, long uid);
+  public List<Booking> mustPayModify(List<Booking> bookList, int uid);
 
   /**
    * 计调取团核算表及其成本明细
@@ -141,7 +141,7 @@ public interface PlanDao extends GenericDao<Plan, Long> {
    * @param uid
    * @return
    */
-  public int authorizationModify(long accountId, long uid);
+  public int authorizationModify(long accountId, int uid);
 
   // -----------------------------------------------------------------------
   /**
@@ -151,7 +151,7 @@ public interface PlanDao extends GenericDao<Plan, Long> {
    * @param nameKey 客人数组
    * @return
    */
-  public int arrangeLeader(String tourNo, String[] nameKey, long operator);
+  public int arrangeLeader(String tourNo, String[] nameKey, int operator);
 
   public List<Leader> getLeaderList();
 
@@ -165,7 +165,7 @@ public interface PlanDao extends GenericDao<Plan, Long> {
    * @return
    */
   public int arrangeFromLeader(String tourNo, String[] nameKey, String[] sqe,
-      long operator);
+      Integer operator);
 
-  public int cancelLeader(String tourNo, String[] nameKey, long uid);
+  public int cancelLeader(String tourNo, String[] nameKey, int uid);
 }

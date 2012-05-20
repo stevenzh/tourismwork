@@ -74,7 +74,7 @@ public class LineScheduleAction extends ManageAction {
     if (scheduleList.size() == 0) {
       for (int i = 1; i <= line.getLineDay(); i++) {
         LineSchedule schedule = new LineSchedule();
-        schedule.setDay(i);
+        schedule.getId().setDay(i);
         scheduleList.add(schedule);
       }
     }
@@ -97,9 +97,9 @@ public class LineScheduleAction extends ManageAction {
       }
 
       for (LineSchedule obj : scheduleList) {
-        if (!array.contains(obj.getDay())) {
+        if (!array.contains(obj.getId().getDay())) {
           LineTraffic traffic = new LineTraffic();
-          traffic.setDay(obj.getDay());
+          traffic.setDay(obj.getId().getDay());
           traffic.setStep(lineTrafficList.size() + 1);
           traffic.setLineNo(line.getLineNo());
           lineTrafficList.add(traffic);
@@ -118,12 +118,12 @@ public class LineScheduleAction extends ManageAction {
     scheduleList = sort(scheduleList);
     int day = 1;
     for (LineSchedule obj : scheduleList) {
-      obj.setDay(day++);
+      obj.getId().setDay(day++);
     }
 
     // -----------------------------------------------------------
     LineSchedule schedule = new LineSchedule();
-    schedule.setDay(day);
+    schedule.getId().setDay(day);
     scheduleList.add(schedule);
 
     LineTraffic traffic = new LineTraffic();
@@ -183,10 +183,10 @@ public class LineScheduleAction extends ManageAction {
     line = (Line) ActionContext.getContext().getSession()
         .get(SessionKeyParams.EBIZ_CURRENT_ROUTE);
     for (LineSchedule obj : scheduleList) {
-      if (obj.getDay() == day) {
+      if (obj.getId().getDay() == day) {
         LineSchedule schedule = new LineSchedule();
-        schedule.setDay(day);
-        schedule.setRouteNo(line.getLineNo());
+        schedule.getId().setDay(day);
+        schedule.getId().setLineNo(line.getLineNo());
 
         routeScheduleService.txDeleteLineSchedule(schedule);
         scheduleList.remove(obj);
@@ -216,8 +216,8 @@ public class LineScheduleAction extends ManageAction {
     scheduleList = sort(scheduleList);
     int day1 = 1;
     for (LineSchedule obj : scheduleList) {
-      obj.setRouteNo(lineNo);
-      obj.setDay(day1++);
+      obj.getId().setLineNo(lineNo);
+      obj.getId().setDay(day1++);
     }
 
     routeScheduleService.txSaveLineSchedule(scheduleList, lineTrafficList);
@@ -230,7 +230,7 @@ public class LineScheduleAction extends ManageAction {
 
   public String save() {
     for (LineSchedule obj : scheduleList) {
-      obj.setRouteNo(lineNo);
+      obj.getId().setLineNo(lineNo);
     }
 
     for (LineTraffic obj1 : lineTrafficList) {
@@ -266,13 +266,13 @@ public class LineScheduleAction extends ManageAction {
     List<LineSchedule> list = new ArrayList<LineSchedule>();
     int maxDay = 1;
     for (LineSchedule schedule : scheduleList) {
-      if (schedule.getDay() > maxDay)
-        maxDay = schedule.getDay();
+      if (schedule.getId().getDay() > maxDay)
+        maxDay = schedule.getId().getDay();
     }
     for (int i = 0; i < maxDay; i++) {
       for (int j = 0; j < scheduleList.size(); j++) {
         LineSchedule obj = scheduleList.get(j);
-        if (obj.getDay() == i + 1) {
+        if (obj.getId().getDay() == i + 1) {
           list.add(obj);
           break;
         }

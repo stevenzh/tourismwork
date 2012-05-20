@@ -4,10 +4,9 @@ import java.util.List;
 
 import com.opentravelsoft.entity.Branch;
 
-public interface BranchService
-{
+public interface BranchService {
 
-    public List<Branch> roGetBranchList();
+  public List<Branch> roGetBranchList();
 
-    public Branch roGetBranch(long branchId);
+  public Branch roGetBranch(int branchId);
 }

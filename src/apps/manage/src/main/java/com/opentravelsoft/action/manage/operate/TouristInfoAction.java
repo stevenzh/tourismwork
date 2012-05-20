@@ -31,13 +31,7 @@ public class TouristInfoAction extends ManageAction {
   public String input() {
     // 显示一个游客信息
     tcustomer = touristService.roFindCustomerByNmno(nmno);
-    if (null != tcustomer) {
-      if (tcustomer.getSex().equals("M")) {
-        tcustomer.setSex("男");
-      } else if (tcustomer.getSex().equals("F")) {
-        tcustomer.setSex("女");
-      }
-    }
+
     return INPUT;
   }
 

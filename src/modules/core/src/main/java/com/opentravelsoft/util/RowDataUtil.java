@@ -103,6 +103,23 @@ public class RowDataUtil {
    * @param o
    * @return
    */
+  public static BigDecimal getBigDecimal(Object o) {
+    BigDecimal sh = new BigDecimal(0);
+    if (null == o)
+      return sh;
+
+    if (o instanceof Number) {
+      Number num = (Number) o;
+      sh = new BigDecimal(num.doubleValue());
+    }
+    return sh;
+  }
+
+  /**
+   * 
+   * @param o
+   * @return
+   */
   public static int getInt(Object o) {
     int sh = 0;
     if (null == o)

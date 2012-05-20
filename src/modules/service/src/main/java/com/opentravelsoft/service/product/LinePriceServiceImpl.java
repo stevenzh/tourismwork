@@ -23,13 +23,12 @@ public class LinePriceServiceImpl implements LinePriceService {
 
   @Autowired
   private AirwaysDao airwaysDao;
-  
+
   @Autowired
   private ListDao listDao;
-  
+
   @Autowired
   private SequenceDao sequenceDao;
-
 
   public List<LinePrice> getLinePrice(String lineNo, Date startDate,
       Date endDate) {
@@ -44,7 +43,7 @@ public class LinePriceServiceImpl implements LinePriceService {
     return listDao.getList("PriceType");
   }
 
-  public int txDeleteLinePrice(String recNo, String note, long userId) {
+  public int txDeleteLinePrice(String recNo, String note, int userId) {
     return routePriceDao.deleteLinePrice(recNo, note, userId);
   }
 
@@ -52,7 +51,7 @@ public class LinePriceServiceImpl implements LinePriceService {
     return routePriceDao.get(recNo);
   }
 
-  public int txEditPrice(LinePrice routePrice, String note, long userId) {
+  public int txEditPrice(LinePrice routePrice, String note, int userId) {
     int result = 0;
     if (!StringUtil.hasLength(routePrice.getRecNo())) {
       String no = sequenceDao.getComputerNo("T", userId);

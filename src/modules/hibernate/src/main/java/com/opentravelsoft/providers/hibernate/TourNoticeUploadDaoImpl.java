@@ -14,7 +14,7 @@ import com.opentravelsoft.util.RowDataUtil;
  */
 @Repository("TourNoticeUploadDao")
 public class TourNoticeUploadDaoImpl extends
-    GenericDaoHibernate<TourNoticeFile, Long> implements TourNoticeUploadDao {
+    GenericDaoHibernate<TourNoticeFile, Integer> implements TourNoticeUploadDao {
 
   public TourNoticeUploadDaoImpl() {
     super(TourNoticeFile.class);
@@ -34,11 +34,11 @@ public class TourNoticeUploadDaoImpl extends
       TourNoticeFile tblTourNoticeFile = new TourNoticeFile();
       tblTourNoticeFile.setTourNo(tourNoticeFile.getTourNo());
       tblTourNoticeFile.setDptCd(tourNoticeFile.getDptNo());
-      tblTourNoticeFile.setFilename(tourNoticeFile.getFileName());
-      tblTourNoticeFile.setFilepath(tourNoticeFile.getFilePath());
-      tblTourNoticeFile.setFilesize((int) tourNoticeFile.getFileSize());
-      tblTourNoticeFile.setDel("N");
-      tblTourNoticeFile.setCreatedBy(tourNoticeFile.getOperator());
+      tblTourNoticeFile.setFileName(tourNoticeFile.getFileName());
+      tblTourNoticeFile.setFilePath(tourNoticeFile.getFilePath());
+      tblTourNoticeFile.setFileSize(tourNoticeFile.getFileSize());
+      tblTourNoticeFile.setDel('N');
+      tblTourNoticeFile.setCreatedby(tourNoticeFile.getOperator());
       tblTourNoticeFile.setNote(tourNoticeFile.getNote());
 
       template.save(tblTourNoticeFile);
@@ -59,22 +59,23 @@ public class TourNoticeUploadDaoImpl extends
     if (!list1.isEmpty()) {
       tourNoticeFile = new TourNoticeFile();
       TourNoticeFile tblTourNoticeFile = list1.get(0);
-      tourNoticeFile.setFileId(RowDataUtil.getInt(tblTourNoticeFile.getId()));
+      tourNoticeFile
+          .setFileId(RowDataUtil.getInt(tblTourNoticeFile.getFileId()));
       tourNoticeFile.setTourNo(RowDataUtil.getString(tblTourNoticeFile
           .getTourNo()));
       tourNoticeFile.setFileName(RowDataUtil.getString(tblTourNoticeFile
-          .getFilename()));
-      tourNoticeFile.setFileSize(RowDataUtil.getInt(tblTourNoticeFile
-          .getFilesize()));
+          .getFileName()));
+      tourNoticeFile.setFileSize(RowDataUtil.getLong(tblTourNoticeFile
+          .getFileSize()));
       tourNoticeFile.setFilePath(RowDataUtil.getString(tblTourNoticeFile
-          .getFilepath()));
+          .getFilePath()));
       tourNoticeFile.setCreated(RowDataUtil.getDate(tblTourNoticeFile
           .getCreated()));
       tourNoticeFile.setDptNo(RowDataUtil.getString(tblTourNoticeFile
           .getDptCd()));
       tourNoticeFile
           .setDelKey(RowDataUtil.getString(tblTourNoticeFile.getDel()));
-      tourNoticeFile.setOperator(tblTourNoticeFile.getCreatedBy());
+      tourNoticeFile.setOperator(tblTourNoticeFile.getCreatedby());
 
       return tourNoticeFile;
     } else {
@@ -89,7 +90,7 @@ public class TourNoticeUploadDaoImpl extends
         TourNoticeFile.class, fileId);
     if (null != tblTourNoticeFile) {
       // template.delete(tblTourNoticeFile);
-      tblTourNoticeFile.setDel("Y");
+      tblTourNoticeFile.setDel('Y');
       template.update(tblTourNoticeFile);
       return 0;
     } else {

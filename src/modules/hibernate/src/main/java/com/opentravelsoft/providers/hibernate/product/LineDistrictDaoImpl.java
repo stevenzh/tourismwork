@@ -18,7 +18,6 @@ import com.opentravelsoft.util.StringUtil;
 /**
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.2 $ $Date: 2009/03/09 15:37:04 $
  */
 @Repository("RouteDistrictDao")
 public class LineDistrictDaoImpl extends
@@ -113,7 +112,7 @@ public class LineDistrictDaoImpl extends
       districtId.setLineNo(lineNo);
       districtId.setDistrictNo(obj.getDistrictNo());
       LineDistrict lineDistrict = (LineDistrict) template.get(
-          LineDistrict.class, districtId, LockMode.UPGRADE);
+          LineDistrict.class, districtId, LockMode.PESSIMISTIC_WRITE);
       if (lineDistrict == null) {
         lineDistrict = new LineDistrict();
         lineDistrict.setId(districtId);

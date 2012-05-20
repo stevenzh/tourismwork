@@ -23,7 +23,7 @@ import com.opentravelsoft.entity.xml.LineXMLReader;
 import com.opentravelsoft.util.LabelValueBean;
 
 @Entity
-@Table(name = "tbl_line", catalog = "tourismwork_db")
+@Table(name = "tbl_line")
 public class Line implements java.io.Serializable {
   /** 线路号 */
   private String lineNo;
@@ -633,13 +633,13 @@ public class Line implements java.io.Serializable {
   /** 出发城市编号 */
 
   /** 创建人 */
-  private Long createUserId;
+  private Integer createUserId;
 
   /** 创建时间 */
   private Date createDate;
 
   /** 最后操作人 */
-  private Long operateUserId;
+  private Integer operateUserId;
 
   /** 最后操作时间 */
   private Date operateDate;
@@ -872,19 +872,19 @@ public class Line implements java.io.Serializable {
     this.operateDate = operateDate;
   }
 
-  public Long getCreateUserId() {
+  public Integer getCreateUserId() {
     return createUserId;
   }
 
-  public void setCreateUserId(Long createUserId) {
+  public void setCreateUserId(Integer createUserId) {
     this.createUserId = createUserId;
   }
 
-  public Long getOperateUserId() {
+  public Integer getOperateUserId() {
     return operateUserId;
   }
 
-  public void setOperateUserId(Long operateUserId) {
+  public void setOperateUserId(Integer operateUserId) {
     this.operateUserId = operateUserId;
   }
 

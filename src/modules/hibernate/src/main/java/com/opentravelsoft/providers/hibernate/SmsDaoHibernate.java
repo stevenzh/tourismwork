@@ -2,16 +2,15 @@ package com.opentravelsoft.providers.hibernate;
 
 import org.springframework.stereotype.Repository;
 
-import com.opentravelsoft.entity.SmsMessage;
 import com.opentravelsoft.entity.TblSmsReceive;
 import com.opentravelsoft.entity.TblSmsSend;
 import com.opentravelsoft.providers.SmsDao;
 
 @Repository("SmsDao")
-public class SmsDaoHibernate extends GenericDaoHibernate<SmsMessage, Long>
+public class SmsDaoHibernate extends GenericDaoHibernate<TblSmsSend, Integer>
     implements SmsDao {
   public SmsDaoHibernate() {
-    super(SmsMessage.class);
+    super(TblSmsSend.class);
   }
 
   public int receive(String seqno, String mob, String msg, String msgSrc) {
@@ -19,7 +18,7 @@ public class SmsDaoHibernate extends GenericDaoHibernate<SmsMessage, Long>
     record.setSeqno(seqno);
     record.setMessage(msg);
     record.setMobile(mob);
-    record.setReply("N");
+    record.setReply('N');
     record.setMsgSrc(msgSrc);
     getHibernateTemplate().save(record);
 

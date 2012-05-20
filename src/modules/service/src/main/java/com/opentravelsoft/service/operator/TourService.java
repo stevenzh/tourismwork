@@ -29,7 +29,7 @@ public interface TourService {
 
   List<LabelValueBean> roGetPassportPlaceList();
 
-  int txCancelTour(String tourNo, String note, long uid);
+  int txCancelTour(String tourNo, String note, int uid);
 
   /**
    * 
@@ -71,7 +71,7 @@ public interface TourService {
    * @param endDate
    * @return
    */
-  public List<Plan> roGetTours(long teamId, long userId, String lineName,
+  public List<Plan> roGetTours(Integer teamId, Integer userId, String lineName,
       Date startDate, Date endDate);
 
   /**
@@ -107,7 +107,7 @@ public interface TourService {
    * @param userId
    * @return
    */
-  public Plan txSingleTourBalanceAuditing(String tourNo, long userId);
+  public Plan txSingleTourBalanceAuditing(String tourNo, int userId);
 
   /**
    * 修改订单应收款（危险）
@@ -116,9 +116,9 @@ public interface TourService {
    * @param uid
    * @return
    */
-  public List<Booking> txMustPayModify(List<Booking> bookList, long uid);
+  public List<Booking> txMustPayModify(List<Booking> bookList, int uid);
 
-  public int txAuthorizationModify(int accountId, long uid);
+  public int txAuthorizationModify(int accountId, int uid);
 
   public List<LabelValueBean> roGetCurrencyList();
 

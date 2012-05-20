@@ -36,7 +36,7 @@ public class MyPageServiceImpl implements MyPageService {
     return planListDao.getRunPlans(teamId, userId);
   }
 
-  public List<Plan> roGetTours(long teamId, long userId, String lineName,
+  public List<Plan> roGetTours(Integer teamId, Integer userId, String lineName,
       Date startDate, Date endDate) {
     return tourDao.getTours(teamId, userId, lineName, startDate, endDate);
   }

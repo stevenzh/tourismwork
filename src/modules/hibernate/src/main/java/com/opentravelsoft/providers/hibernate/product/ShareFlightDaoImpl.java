@@ -21,7 +21,8 @@ public class ShareFlightDaoImpl extends GenericDaoHibernate<ShareFlight, Long>
 
   public int editShareFlight(ShareFlight shareFlight) {
     ShareFlight sf = (ShareFlight) getHibernateTemplate().get(
-        ShareFlight.class, shareFlight.getShareFlightId(), LockMode.UPGRADE);
+        ShareFlight.class, shareFlight.getShareFlightId(),
+        LockMode.PESSIMISTIC_WRITE);
     if (null == sf) {
       sf = new ShareFlight();
     } else {

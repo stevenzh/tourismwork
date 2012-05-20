@@ -11,7 +11,7 @@ import com.opentravelsoft.entity.Category;
 import com.opentravelsoft.providers.CategoryDao;
 
 @Repository("CategoryDao")
-public class CategoryDaoImpl extends GenericDaoHibernate<Category, Long>
+public class CategoryDaoImpl extends GenericDaoHibernate<Category, Integer>
     implements CategoryDao {
 
   public CategoryDaoImpl() {

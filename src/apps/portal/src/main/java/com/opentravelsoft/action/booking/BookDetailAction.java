@@ -88,7 +88,7 @@ public class BookDetailAction extends PortalAction {
     Map<String, String> typeMap = ConvertUtils.beansToMap(roomTypeList);
     customerList = book.getCustomerList();
     for (Tourist trip : customerList) {
-      trip.setSex(sexMap.get(trip.getSex()));
+      // trip.setSex(sexMap.get(trip.getSex()));
       trip.setRoomType(typeMap.get(trip.getRoomType()));
     }
     // 订单详细
@@ -112,7 +112,7 @@ public class BookDetailAction extends PortalAction {
     logger.info("submit");
 
     try {
-      book.setOpuser(0L);
+      book.setOpuser(0);
       bookService.txUpdateBooking(book, customerList, note);
     } catch (EbizException e) {
       logger.error("update failure", e);
@@ -128,7 +128,7 @@ public class BookDetailAction extends PortalAction {
    */
   public String cancel() {
     book.setBookingNo(reserveNo);
-    book.setOpuser(0L);
+    book.setOpuser(0);
     bookService.txCancelBooking(book, note);
 
     sexList = getSysList("DOM_sex");
@@ -147,7 +147,7 @@ public class BookDetailAction extends PortalAction {
    */
   public String cancelCustomers() {
     book.setBookingNo(reserveNo);
-    book.setOpuser(0L);
+    book.setOpuser(0);
 
     Set<String> set = new HashSet<String>(0);
     for (int i = 0; i < tourists.length; i++) {

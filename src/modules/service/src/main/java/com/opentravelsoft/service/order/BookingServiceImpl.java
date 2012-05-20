@@ -1,5 +1,6 @@
 package com.opentravelsoft.service.order;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
@@ -27,6 +28,7 @@ import com.opentravelsoft.entity.finance.Income;
 import com.opentravelsoft.entity.finance.Invoice;
 import com.opentravelsoft.providers.BookingDao;
 import com.opentravelsoft.providers.CountryDao;
+import com.opentravelsoft.providers.CustomerDao;
 import com.opentravelsoft.providers.ExpressDao;
 import com.opentravelsoft.providers.IncomeDao;
 import com.opentravelsoft.providers.InvoiceDao;
@@ -35,7 +37,6 @@ import com.opentravelsoft.providers.ProvinceDao;
 import com.opentravelsoft.providers.SequenceDao;
 import com.opentravelsoft.providers.TeamDao;
 import com.opentravelsoft.providers.TouristDao;
-import com.opentravelsoft.providers.hibernate.CustomerDao;
 import com.opentravelsoft.providers.mixed.PlanListDao;
 import com.opentravelsoft.util.RowDataUtil;
 import com.opentravelsoft.util.StringUtil;
@@ -119,7 +120,7 @@ public class BookingServiceImpl implements BookingService {
    * opentravelsoft.ebiz.entity.Booking, java.util.List, long, boolean)
    */
   public Hashtable<String, String> txAddBook(Booking book,
-      List<Tourist> customers, long userId, boolean isHold) {
+      List<Tourist> customers, int userId, boolean isHold) {
     // 检查前款额度
     Hashtable<String, String> ht = new Hashtable<String, String>();
     ht.put("CHECK", "1");
@@ -164,7 +165,7 @@ public class BookingServiceImpl implements BookingService {
    * @see com.opentravelsoft.service.order.BookingService#getAgentBySales(long,
    * java.lang.String)
    */
-  public List<LabelValueBean> getAgentBySales(long userId, String area) {
+  public List<LabelValueBean> getAgentBySales(int userId, String area) {
     return customerDao.getCustomerBySales(userId, area);
   }
 
@@ -297,7 +298,7 @@ public class BookingServiceImpl implements BookingService {
     return bookingDao.findBookings(orderNo, tourist, account);
   }
 
-  public int txNetPay(String orderId, String paymentMode, double amount,
+  public int txNetPay(String orderId, String paymentMode, BigDecimal amount,
       String moneyType) throws EbizException {
     String[] code = sequenceDao.getComputerNo("J", 2, 0);
     String paymentNo = code[0];

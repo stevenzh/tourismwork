@@ -1,5 +1,6 @@
 package com.opentravelsoft.providers;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -13,14 +14,14 @@ import com.opentravelsoft.entity.finance.Income;
 import com.opentravelsoft.entity.product.Remind;
 import com.opentravelsoft.entity.product.Warrant;
 
-public interface IncomeDao extends GenericDao<Income, Long> {
+public interface IncomeDao extends GenericDao<Income, Integer> {
   /**
    * 取得客户应收帐款
    * 
    * @param customerId
    * @return
    */
-  public List<Booking> getIncomeBookings(long customerId);
+  public List<Booking> getIncomeBookings(int customerId);
 
   /**
    * 未付清款的订单
@@ -32,7 +33,7 @@ public interface IncomeDao extends GenericDao<Income, Long> {
    * @return
    */
   public List<Booking> searchIncome(String proCd, String cityId,
-      long customerId, Date stDate, Date endDate);
+      Integer customerId, Date stDate, Date endDate);
 
   /**
    * 保存收款单
@@ -53,7 +54,7 @@ public interface IncomeDao extends GenericDao<Income, Long> {
    * @param endMon
    * @return
    */
-  public List<Income> findIncome(long teamId, String customerId,
+  public List<Income> findIncome(Integer teamId, String customerId,
       Date startDate, Date endDate, double startMon, double endMon);
 
   /**
@@ -67,8 +68,9 @@ public interface IncomeDao extends GenericDao<Income, Long> {
    * @param payGatherEnd
    * @return
    */
-  public List<Income> getGatheringList(int customerId, Date paymentDateStart,
-      Date paymentDateEnd, double payGatherStart, double payGatherEnd);
+  public List<Income> getGatheringList(Integer customerId,
+      Date paymentDateStart, Date paymentDateEnd, double payGatherStart,
+      double payGatherEnd);
 
   /**
    * 取消收款单
@@ -76,7 +78,7 @@ public interface IncomeDao extends GenericDao<Income, Long> {
    * @param incomeId
    * @return
    */
-  public int cancelIncome(long incomeId);
+  public int cancelIncome(int incomeId);
 
   /**
    * 取得收款信息<br>
@@ -85,7 +87,7 @@ public interface IncomeDao extends GenericDao<Income, Long> {
    * @param incomeId
    * @return
    */
-  public Income getGathering(long incomeId);
+  public Income getGathering(int incomeId);
 
   /**
    * 更新收款信息
@@ -158,7 +160,7 @@ public interface IncomeDao extends GenericDao<Income, Long> {
    * @return
    * @throws EbizException
    */
-  public int netPay(String orderId, String paymentMode, double amount,
+  public int netPay(String orderId, String paymentMode, BigDecimal amount,
       String moneyType, String paymentNo, String inverceNo)
       throws EbizException;
 

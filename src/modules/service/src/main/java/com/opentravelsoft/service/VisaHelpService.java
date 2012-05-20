@@ -26,7 +26,7 @@ public interface VisaHelpService {
   boolean txEditVisaItem(VisaHelp visaItem, List<VisaItem> items,
       List<VisaItem> fileItems);
 
-  boolean txDeleteVisaItem(String recordNo, long userId);
+  boolean txDeleteVisaItem(String recordNo, int userId);
 
   boolean txDelAttached(int attachedId);
 
@@ -38,8 +38,10 @@ public interface VisaHelpService {
    * @return
    */
   List<LabelValueBean> roGetDatas();
+
   /**
    * 办理签证的国家地区
+   * 
    * @return
    */
   List<LabelValueBean> getAreas();

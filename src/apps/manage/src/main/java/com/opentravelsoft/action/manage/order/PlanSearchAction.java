@@ -37,10 +37,10 @@ public class PlanSearchAction extends ManageAction {
   // 检索条件
 
   /** 专管员 */
-  private long kenUserId;
+  private int kenUserId;
 
   /** 部门 */
-  private long kenTeamId;
+  private int kenTeamId;
 
   /** 线路名 */
   private String kenLineName;
@@ -133,20 +133,20 @@ public class PlanSearchAction extends ManageAction {
     return kenTeamId;
   }
 
-  public void setKenDepartmentNo(long teamId) {
+  public void setKenDepartmentNo(int teamId) {
     this.kenTeamId = teamId;
   }
 
-  public long getKenUserId() {
+  public int getKenUserId() {
     return kenUserId;
   }
 
-  public void setKenUserId(long kenUserId) {
+  public void setKenUserId(int kenUserId) {
     this.kenUserId = kenUserId;
   }
 
   public void setKenUserId(String kenUserId) {
-    this.kenUserId = Long.parseLong(kenUserId);
+    this.kenUserId = Integer.getInteger(kenUserId);
   }
 
   public Date getKenOrderEndPeriod() {

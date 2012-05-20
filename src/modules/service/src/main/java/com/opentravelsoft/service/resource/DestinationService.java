@@ -14,9 +14,9 @@ public interface DestinationService {
 
   void txSaveCategory(Destination department);
 
-  Destination roGetCategory(long catId);
+  Destination roGetCategory(int catId);
 
-  int txDelCategorys(long catId);
+  int txDelCategorys(int catId);
 
   List<Destination> getCategirys();
 

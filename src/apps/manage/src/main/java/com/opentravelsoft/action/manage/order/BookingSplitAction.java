@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.manage.order;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -91,7 +92,7 @@ public class BookingSplitAction extends ManageAction {
   public String input() {
     Employee user = getUser();
 
-    double defaultPrice = 0d;
+    BigDecimal defaultPrice = new BigDecimal(0);
     Plan plan = bookingService.roGetPlanDetail(recordNo);
 
     canSplitList = getCodeList("ebiz_can_split");
@@ -125,7 +126,7 @@ public class BookingSplitAction extends ManageAction {
     }
 
     // 独立成团 1 不可分拆 2 无 3
-    book.setCanSplit("2");
+    book.setCanSplit('2');
     /** 可预订人数 */
     paxSum = plan.getPax3();
 
@@ -191,7 +192,7 @@ public class BookingSplitAction extends ManageAction {
     Employee user = getUser();
 
     Plan plan = bookingService.roGetPlanDetail(recordNo);
-    double defaultPrice = 0d;
+    BigDecimal defaultPrice = new BigDecimal(0);
     canSplitList = getCodeList("ebiz_can_split");
 
     // 2008年7月启动 只显示月结客户

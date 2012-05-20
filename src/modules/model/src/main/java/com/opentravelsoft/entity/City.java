@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_city", catalog = "tourismwork_db")
+@Table(name = "tbl_city")
 public class City implements java.io.Serializable {
 
   private String citycd;

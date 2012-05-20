@@ -8,7 +8,7 @@ import com.opentravelsoft.entity.Contact;
 import com.opentravelsoft.providers.ContactDao;
 
 @Repository("ContactDao")
-public class ContactDaoHibernate extends GenericDaoHibernate<Contact, Long>
+public class ContactDaoHibernate extends GenericDaoHibernate<Contact, Integer>
     implements ContactDao {
   public ContactDaoHibernate() {
     super(Contact.class);
@@ -17,11 +17,10 @@ public class ContactDaoHibernate extends GenericDaoHibernate<Contact, Long>
   /*
    * (non-Javadoc)
    * 
-   * @see com.opentravelsoft.providers.ContactDao#searchContact(long,
-   * boolean)
+   * @see com.opentravelsoft.providers.ContactDao#searchContact(long, boolean)
    */
   @SuppressWarnings("unchecked")
-  public List<Contact> searchContact(long customerId, boolean active) {
+  public List<Contact> searchContact(int customerId, boolean active) {
     StringBuilder sb = new StringBuilder();
     sb.append("from Contact where customerId=? ");
     if (active)

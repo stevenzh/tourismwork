@@ -43,7 +43,7 @@ public class LineVisaDaoImpl extends GenericDaoHibernate<LineVisa, String>
     for (Object[] obj : list) {
       visa = new LineVisa();
       visa.setRefNo(idx++);
-      visa.setRecNo(RowDataUtil.getString(obj[0]));
+      // visa.setRecNo(RowDataUtil.getString(obj[0]));
       visa.setCountryCode(RowDataUtil.getString(obj[1]));
       visa.setItem(RowDataUtil.getString(obj[2]));
       visa.setUnit(RowDataUtil.getString(obj[6]));
@@ -67,7 +67,7 @@ public class LineVisaDaoImpl extends GenericDaoHibernate<LineVisa, String>
     for (LineVisa obj : dblist) {
       boolean has = false;
       for (int i = list.size() - 1; i >= 0; i--) {
-        if (list.get(i).getRecNo().equals(obj.getId().getRecNo())) {
+        if (list.get(i).getId().getRecNo().equals(obj.getId().getRecNo())) {
           has = true;
           list.remove(i);
           break;
@@ -79,7 +79,8 @@ public class LineVisaDaoImpl extends GenericDaoHibernate<LineVisa, String>
     }
 
     for (LineVisa trait : list) {
-      LineVisa tfa = new LineVisa(new LineVisaId(lineNo, trait.getRecNo()));
+      LineVisa tfa = new LineVisa(new LineVisaId(lineNo, trait.getId()
+          .getRecNo()));
       template.save(tfa);
     }
 
@@ -99,7 +100,7 @@ public class LineVisaDaoImpl extends GenericDaoHibernate<LineVisa, String>
     LineVisa visa = null;
     for (VisaHelp obj : list) {
       visa = new LineVisa();
-      visa.setRecNo(obj.getRecNo());
+      // visa.setRecNo(obj.getRecNo());
       visa.setItem(obj.getSubject());
       visa.setDescription(obj.getNote());
       visa.setCountryCode(country);

@@ -45,6 +45,7 @@ public class Customer implements java.io.Serializable {
   /** 联系人姓名 */
   private String contact;
   private String email;
+  /** 公司类别 (有限公司 合伙商行 个人独资 其他) */
   private Character type;
   private String passwd;
   /** 观光、度假 */
@@ -547,9 +548,6 @@ public class Customer implements java.io.Serializable {
   /** 审核时间 */
   private Date checkDate;
 
-  /** 公司类别 (有限公司 合伙商行 个人独资 其他) */
-  private String companyType;
-
   /** 公司形式["代理商","加盟店","营业部"] */
   private String agentType;
 
@@ -557,7 +555,7 @@ public class Customer implements java.io.Serializable {
   private String clearingMode;
 
   /** 结算周期 月结M 现结N */
-  private String clearingCycle;
+  private Character clearingCycle;
 
   private List<Contact> contacts;
 
@@ -574,9 +572,9 @@ public class Customer implements java.io.Serializable {
   private Date lastLogindate;
 
   /** 地接地区 */
-  private String region;
+  private Character region;
 
-  public long getSupplierId() {
+  public Integer getSupplierId() {
     return getCustomerId();
   }
 
@@ -598,14 +596,6 @@ public class Customer implements java.io.Serializable {
 
   public void setCheckDate(Date checkDate) {
     this.checkDate = checkDate;
-  }
-
-  public String getCompanyType() {
-    return companyType;
-  }
-
-  public void setCompanyType(String companyType) {
-    this.companyType = companyType;
   }
 
   public String getContactEmail() {
@@ -640,11 +630,11 @@ public class Customer implements java.io.Serializable {
     this.checkedBy = checkBy;
   }
 
-  public String getClearingCycle() {
+  public Character getClearingCycle() {
     return clearingCycle;
   }
 
-  public void setClearingCycle(String clearingCycle) {
+  public void setClearingCycle(Character clearingCycle) {
     this.clearingCycle = clearingCycle;
   }
 
@@ -700,11 +690,11 @@ public class Customer implements java.io.Serializable {
     this.setName(name);
   }
 
-  public String getRegion() {
+  public Character getRegion() {
     return region;
   }
 
-  public void setRegion(String region) {
+  public void setRegion(Character region) {
     this.region = region;
   }
 

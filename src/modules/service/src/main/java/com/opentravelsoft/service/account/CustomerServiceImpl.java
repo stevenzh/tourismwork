@@ -9,8 +9,8 @@ import com.opentravelsoft.entity.Contact;
 import com.opentravelsoft.entity.Customer;
 import com.opentravelsoft.entity.Employee;
 import com.opentravelsoft.entity.product.Remind;
+import com.opentravelsoft.providers.CustomerDao;
 import com.opentravelsoft.providers.EmployeeDao;
-import com.opentravelsoft.providers.hibernate.CustomerDao;
 
 @Service("AgentService")
 public class CustomerServiceImpl implements CustomerService {
@@ -21,7 +21,7 @@ public class CustomerServiceImpl implements CustomerService {
   @Autowired
   private CustomerDao customerDao;
 
-  public Customer findAgent(long agentId) {
+  public Customer findAgent(int agentId) {
     return customerDao.findAccount(agentId);
   }
 
@@ -35,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
 
   // -------------------------------------------------------------------------
 
-  public int txDeleteAgent(long agentId) {
+  public int txDeleteAgent(int agentId) {
     return customerDao.deleteAccount(agentId);
   }
 
@@ -63,15 +63,15 @@ public class CustomerServiceImpl implements CustomerService {
         supplierResource, null, 0, null);
   }
 
-  public List<Customer> roGetSupplier(long teamId, String resource, boolean b) {
+  public List<Customer> roGetSupplier(Integer teamId, String resource, boolean b) {
     return customerDao.getSuppliers(teamId, resource, b);
   }
 
-  public int txSaveGroupSupplier(long teamId, String[] select) {
+  public int txSaveGroupSupplier(Integer teamId, String[] select) {
     return customerDao.saveGroupSupplier(teamId, select);
   }
 
-  public int txEditSupplier(Customer supplier, long teamId) {
+  public int txEditSupplier(Customer supplier, Integer teamId) {
     return customerDao.editSupplier(supplier, teamId);
   }
 
@@ -83,7 +83,7 @@ public class CustomerServiceImpl implements CustomerService {
     if (agentId.isEmpty()) {
       return "" + "," + "" + "," + "";
     }
-    Customer agent = customerDao.findAccount(Long.parseLong(agentId));
+    Customer agent = customerDao.findAccount(Integer.parseInt(agentId));
     if (null == agent)
       return null;
     else
@@ -99,7 +99,7 @@ public class CustomerServiceImpl implements CustomerService {
     return customerDao.getSupplierByType(resource, teamId);
   }
 
-  public List<Customer> getUsableSupplier(long teamId) {
+  public List<Customer> getUsableSupplier(Integer teamId) {
     return customerDao.getUsableSupplier(teamId);
   }
 }

@@ -9,9 +9,7 @@ import javax.persistence.Table;
  * 线路主题
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:33 $
  */
-
 @Entity
 @Table(name = "tbl_line_theme")
 public class LineTheme implements java.io.Serializable {
@@ -30,13 +28,6 @@ public class LineTheme implements java.io.Serializable {
 
   public LineTheme(String code) {
     this.code = code;
-  }
-
-  public LineTheme(String code, String cnName, String enName, String mapFile) {
-    this.code = code;
-    this.cnName = cnName;
-    this.enName = enName;
-    this.mapFile = mapFile;
   }
 
   @Id

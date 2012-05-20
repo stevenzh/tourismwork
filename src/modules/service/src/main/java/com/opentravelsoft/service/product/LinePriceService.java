@@ -16,10 +16,10 @@ public interface LinePriceService {
 
   public List<LabelValueBean> getPriceType();
 
-  public int txDeleteLinePrice(String priceNo, String note, long userId);
+  public int txDeleteLinePrice(String priceNo, String note, int userId);
 
   public LinePrice findLinePrice(String priceNo);
 
-  public int txEditPrice(LinePrice linePrice, String note, long userId);
+  public int txEditPrice(LinePrice linePrice, String note, int userId);
 
 }

@@ -57,11 +57,11 @@ public class ExpressDaoHibernate extends GenericDaoHibernate<Express, String>
       // 预订人数
       book.setPax(RowDataUtil.getInt(obj[3]));
       // 应收款
-      book.setDbamt(RowDataUtil.getDouble(obj[4]));
+      book.setDbamt(RowDataUtil.getBigDecimal(obj[4]));
       // 已收款
-      book.setPayCosts(RowDataUtil.getDouble(obj[5]));
+      book.setPayCosts(RowDataUtil.getBigDecimal(obj[5]));
       // 未收款
-      book.setUnPay(RowDataUtil.getDouble(obj[6]));
+      book.setUnPay(RowDataUtil.getBigDecimal(obj[6]));
       // 审核否
       book.setConfirmStatus(RowDataUtil.getString(obj[7]));
       // 取消状态
@@ -203,7 +203,7 @@ public class ExpressDaoHibernate extends GenericDaoHibernate<Express, String>
       expressInfo.setLine(RowDataUtil.getString(obj[9]));
       expressInfo.setMemo(RowDataUtil.getString(obj[10]));
       expressInfo.setOrderId(RowDataUtil.getString(obj[11]));
-      expressInfo.setPay(RowDataUtil.getDouble(obj[12]));
+      expressInfo.setPay(RowDataUtil.getBigDecimal(obj[12]));
       expressInfo.setPayModlue(RowDataUtil.getString(obj[13]));
       expressInfo.setPayType(RowDataUtil.getString(obj[14]));
       expressInfo.setTeamNo(RowDataUtil.getString(obj[15]));
@@ -233,7 +233,7 @@ public class ExpressDaoHibernate extends GenericDaoHibernate<Express, String>
     HibernateTemplate template = getHibernateTemplate();
 
     Express tblCrmExpress = (Express) template.get(Express.class,
-        express.getExpressId(), LockMode.UPGRADE);
+        express.getExpressId(), LockMode.PESSIMISTIC_WRITE);
     ArrayList<Express> all = new ArrayList<Express>();
     try {
       all.add(tblCrmExpress.clone());
@@ -262,7 +262,7 @@ public class ExpressDaoHibernate extends GenericDaoHibernate<Express, String>
 
     for (ExpressList item : expressInfo) {
       ExpressList tblCrmExpresslist = (ExpressList) template.get(
-          ExpressList.class, item.getItemId(), LockMode.UPGRADE);
+          ExpressList.class, item.getItemId(), LockMode.PESSIMISTIC_WRITE);
 
       tblCrmExpresslist.setItemNum(item.getItemNum());
       tblCrmExpresslist.setExpressType(item.getExpressType());
@@ -278,13 +278,13 @@ public class ExpressDaoHibernate extends GenericDaoHibernate<Express, String>
   public int delExpress(String expressId, String note) {
     HibernateTemplate template = getHibernateTemplate();
     Express express = (Express) template.get(Express.class, expressId,
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     ArrayList<Express> all = new ArrayList<Express>();
     all.add(express);
     all.add(null);
 
     ExpressList expresslist = (ExpressList) template.get(ExpressList.class,
-        expressId, LockMode.UPGRADE);
+        expressId, LockMode.PESSIMISTIC_WRITE);
 
     if (null == express || null == expresslist) {
       return -1;

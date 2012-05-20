@@ -24,7 +24,8 @@ import com.opentravelsoft.service.setting.EmployeeService;
 public class ListConfirmBookAction extends ManageAction {
   private static final long serialVersionUID = 1873002169910914015L;
 
-  protected static final Log logger = LogFactory.getLog(ListConfirmBookAction.class);
+  protected static final Log logger = LogFactory
+      .getLog(ListConfirmBookAction.class);
 
   @Autowired
   private EmployeeService employeeService;
@@ -39,9 +40,9 @@ public class ListConfirmBookAction extends ManageAction {
   private List<Booking> books = new ArrayList<Booking>();
 
   // -------------------------------------------------------------------------
-  private long kenTeamId;
+  private int kenTeamId;
 
-  private long kenUserId;
+  private int kenUserId;
 
   /** 出团日期 -开始 */
   private Date kenStartDate;
@@ -87,19 +88,19 @@ public class ListConfirmBookAction extends ManageAction {
     return SUCCESS;
   }
 
-  public long getKenDepartmentId() {
+  public int getKenDepartmentId() {
     return kenTeamId;
   }
 
-  public void setKenDepartmentId(long teamId) {
+  public void setKenDepartmentId(int teamId) {
     this.kenTeamId = teamId;
   }
 
-  public long getKenEmployeeId() {
+  public int getKenEmployeeId() {
     return kenUserId;
   }
 
-  public void setKenEmployeeId(long kenEmployeeId) {
+  public void setKenEmployeeId(int kenEmployeeId) {
     this.kenUserId = kenEmployeeId;
   }
 

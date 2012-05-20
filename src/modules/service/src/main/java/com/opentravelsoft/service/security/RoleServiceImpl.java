@@ -24,7 +24,7 @@ public class RoleServiceImpl implements RoleService {
     return roleDao.queryRole(keyword);
   }
 
-  public Role roGetRoleDetail(long roleId) {
+  public Role roGetRoleDetail(int roleId) {
     return roleDao.get(roleId);
   }
 
@@ -32,7 +32,7 @@ public class RoleServiceImpl implements RoleService {
     return roleDao.getRoleList();
   }
 
-  public void txDelRole(long roleId) {
+  public void txDelRole(int roleId) {
     roleDao.remove(roleId);
   }
 
@@ -44,7 +44,7 @@ public class RoleServiceImpl implements RoleService {
     return permissionDao.getPermissions();
   }
 
-  public List<Module> roGetModulePermission(long roleId) {
+  public List<Module> roGetModulePermission(int roleId) {
     return roleDao.getModulePermission(roleId);
   }
 

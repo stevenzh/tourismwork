@@ -50,7 +50,7 @@ public class DistrictDaoImpl extends GenericDaoHibernate<District, String>
   public int deleteDistrict(String districtNo) {
     HibernateTemplate template = getHibernateTemplate();
     District tfa021 = (District) template.get(District.class, districtNo,
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     if (tfa021 != null)
       template.delete(tfa021);
     else
@@ -63,7 +63,7 @@ public class DistrictDaoImpl extends GenericDaoHibernate<District, String>
     String districtNo = district.getDistrictNo();
     HibernateTemplate template = getHibernateTemplate();
     District tfa021 = (District) template.get(District.class, districtNo,
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     if (null == tfa021 && method.equals("update")) {
       return -1;
     }

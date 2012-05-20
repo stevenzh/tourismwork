@@ -11,7 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "tbl_contact", catalog = "tourismwork_db")
+@Table(name = "tbl_contact")
 public class Contact implements java.io.Serializable {
 
   private Integer contactId;
@@ -39,28 +39,6 @@ public class Contact implements java.io.Serializable {
   public Contact(int customerId, Date updated) {
     this.customerId = customerId;
     this.updated = updated;
-  }
-
-  public Contact(int customerId, String name, String rank, String phone,
-      String fax, String mobile, String email, String msn, String skype,
-      String qq, Character del, Integer salesId, Date created,
-      Integer createdby, Date updated, Integer updatedby) {
-    this.customerId = customerId;
-    this.name = name;
-    this.rank = rank;
-    this.phone = phone;
-    this.fax = fax;
-    this.mobile = mobile;
-    this.email = email;
-    this.msn = msn;
-    this.skype = skype;
-    this.qq = qq;
-    this.del = del;
-    this.salesId = salesId;
-    this.created = created;
-    this.createdby = createdby;
-    this.updated = updated;
-    this.updatedby = updatedby;
   }
 
   @Id

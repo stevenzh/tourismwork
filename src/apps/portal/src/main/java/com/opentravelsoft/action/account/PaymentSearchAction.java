@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.account;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -29,17 +30,17 @@ public class PaymentSearchAction extends PortalAction {
   /**
    * 付款合计
    */
-  private double totalExpense;
+  private BigDecimal totalExpense;
 
   /**
    * 销款合计
    */
-  private double totalPayCosts;
+  private BigDecimal totalPayCosts;
 
   /**
    * 未销合计
    */
-  private double totalUnPay;
+  private BigDecimal totalUnPay;
 
   /** 付款日期 */
   private Date paymentDateStart;
@@ -86,14 +87,14 @@ public class PaymentSearchAction extends PortalAction {
       payModeMap.put(obj.getValue(), obj.getLabel());
     }
 
-    totalExpense = 0f;
-    totalPayCosts = 0f;
+    totalExpense = new BigDecimal(0);
+    totalPayCosts = new BigDecimal(0);
     for (Income obj1 : gatheringList) {
       obj1.setIncomeModeShow(payModeMap.get(obj1.getPayMode().toString()));
-      totalExpense += obj1.getAmount();
-      totalPayCosts += obj1.getOffSetAmount();
+      totalExpense = totalExpense.add(obj1.getAmount());
+      totalPayCosts = totalPayCosts.add(obj1.getOffSetAmount());
     }
-    totalUnPay = totalExpense - totalPayCosts;
+    totalUnPay = totalExpense.subtract(totalPayCosts);
     return SUCCESS;
   }
 
@@ -127,15 +128,15 @@ public class PaymentSearchAction extends PortalAction {
     this.gathering = gathering;
   }
 
-  public double getTotalExpense() {
+  public BigDecimal getTotalExpense() {
     return totalExpense;
   }
 
-  public double getTotalPayCosts() {
+  public BigDecimal getTotalPayCosts() {
     return totalPayCosts;
   }
 
-  public double getTotalUnPay() {
+  public BigDecimal getTotalUnPay() {
     return totalUnPay;
   }
 

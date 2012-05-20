@@ -28,45 +28,45 @@ public interface OutcomeService {
       String supplierName, String kenCountryId, String kenCityId,
       Date startDate, Date endDate);
 
-  public Outcome roGetBillhead(long outcomeId);
+  public Outcome roGetBillhead(Integer outcomeId);
 
-  public int txOpApproved(long outcomeId, long userId);
+  public int txOpApproved(Integer outcomeId, Integer userId);
 
-  public Customer roGetSupplier(long supplierId);
+  public Customer roGetSupplier(int supplierId);
 
-  public int txPoModifyBillhead(Outcome outcome, long uid);
+  public int txPoModifyBillhead(Outcome outcome, Integer uid);
 
   public int txDeleteBillhead(long outcomeId);
 
-  public List<Outcome> roGetBillheadList(long userId, Date kenStartDate,
+  public List<Outcome> roGetBillheadList(Integer userId, Date kenStartDate,
       Date kenEndDate, Date kenStartOutDate, Date kenEndOutDate,
       boolean opAudited, String kenAudit, String kenPay, Date frStartDate,
       Date frEndDate);
 
-  public List<TourCost> roGetOwedList(long supplierId, String tourNo);
+  public List<TourCost> roGetOwedList(Integer supplierId, String tourNo);
 
   public long txSaveBillhead(Outcome outcome, String audit);
 
-  public List<Customer> roGetSupplierByType(String resource, long teamId);
+  public List<Customer> roGetSupplierByType(String resource, Integer teamId);
 
-  public List<LabelValueBean> roGetTourList(long teamId, long uid,
-      long supplierId);
+  public List<LabelValueBean> roGetTourList(Integer teamId, Integer uid,
+      Integer supplierId);
 
   // -------------------------------------------------------------------------
   // 财务
-  public int txAuditingBillhead(long outcomeId, long uid);
+  public int txAuditingBillhead(Integer outcomeId, Integer uid);
 
-  public int txFrReadBillhead(Outcome outcome, long uid);
+  public int txFrReadBillhead(Outcome outcome, Integer uid);
 
-  public int txFrModifyBillhead(Outcome outcome, long uid);
+  public int txFrModifyBillhead(Outcome outcome, Integer uid);
 
   public int roIsAuditing(String tourNo, double amount);
 
   // 实付登记
-  public List<Outcome> roGetOutcomeList(long userId, Date startDate,
+  public List<Outcome> roGetOutcomeList(Integer userId, Date startDate,
       Date endDate, String register);
 
-  public int txFactualRegister(int[] outcomeIds, long uid, String billNo,
+  public int txFactualRegister(int[] outcomeIds, Integer uid, String billNo,
       Date payDate);
 
   /**
@@ -75,7 +75,7 @@ public interface OutcomeService {
    * @param outcomeId
    * @return
    */
-  public int txOpModifyPayReturn(long outcomeId);
+  public int txOpModifyPayReturn(int outcomeId);
 
   public List<Team> getOperatorTeamList();
 

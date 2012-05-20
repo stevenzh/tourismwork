@@ -26,7 +26,7 @@ public class AirportDaoImpl extends GenericDaoHibernate<Airport, String>
   public int delete(Airport airways) {
     HibernateTemplate template = getHibernateTemplate();
     Airport rlt = (Airport) template.get(Airport.class, airways.getCode(),
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     if (null == rlt) {
       return -1;
     }

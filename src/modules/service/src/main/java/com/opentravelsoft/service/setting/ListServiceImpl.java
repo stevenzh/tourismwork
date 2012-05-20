@@ -16,7 +16,7 @@ public class ListServiceImpl implements ListService {
   @Autowired
   private ListDao listDao;
 
-  public void deleteList(long listId) {
+  public void deleteList(int listId) {
     listDao.remove(listId);
   }
 
@@ -24,7 +24,7 @@ public class ListServiceImpl implements ListService {
     return listDao.getListByType(type);
   }
 
-  public Lists getList(long listId) {
+  public Lists getList(int listId) {
     return listDao.get(listId);
   }
 

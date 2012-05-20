@@ -1,5 +1,6 @@
 package com.opentravelsoft.providers.hibernate;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,7 +23,7 @@ import com.opentravelsoft.util.RowDataUtil;
 import com.opentravelsoft.util.StringUtil;
 
 @Repository("OutcomeDao")
-public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
+public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     implements OutcomeDao {
 
   public OutcomeDaoHibernate() {
@@ -36,7 +37,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
    * java.lang.String)
    */
   @SuppressWarnings("unchecked")
-  public List<TourCost> getOwedList(long customerId, String tourNo) {
+  public List<TourCost> getOwedList(Integer customerId, String tourNo) {
     HibernateTemplate template = getHibernateTemplate();
     StringBuilder sb = new StringBuilder();
     sb.append("from TourCost ");
@@ -83,7 +84,8 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
    * java.util.Date, java.util.Date)
    */
   @SuppressWarnings("unchecked")
-  public List<TourCost> findBill(long customerId, Date startDate, Date endDate) {
+  public List<TourCost> findBill(Integer customerId, Date startDate,
+      Date endDate) {
     HibernateTemplate template = getHibernateTemplate();
 
     StringBuilder sql = new StringBuilder();
@@ -107,7 +109,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
     Outcome tblOutcome = new Outcome();
     if (bill.getOutcomeId() > 0) {
       tblOutcome = (Outcome) getHibernateTemplate().get(Outcome.class,
-          bill.getOutcomeId(), LockMode.UPGRADE);
+          bill.getOutcomeId(), LockMode.PESSIMISTIC_WRITE);
     }
 
     if (null == tblOutcome)
@@ -188,9 +190,9 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
    * java.lang.String, java.lang.String, java.util.Date, java.util.Date)
    */
   @SuppressWarnings("unchecked")
-  public List<Outcome> getBillList(long userId, Date startDate, Date endDate,
-      Date startOutDate, Date endOutDate, boolean opAudited, String frAudit,
-      String kenPay, Date frStartDate, Date frEndDate) {
+  public List<Outcome> getBillList(Integer userId, Date startDate,
+      Date endDate, Date startOutDate, Date endOutDate, boolean opAudited,
+      String frAudit, String kenPay, Date frStartDate, Date frEndDate) {
     StringBuilder sql = new StringBuilder();
     List<Object> params = new ArrayList<Object>();
     sql.append("from Outcome where del='N' ");
@@ -254,8 +256,8 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
   }
 
   @SuppressWarnings("unchecked")
-  public List<Outcome> getBillList(long userId, Date startDate, Date endDate,
-      String register) {
+  public List<Outcome> getBillList(Integer userId, Date startDate,
+      Date endDate, String register) {
     StringBuilder sql = new StringBuilder();
     List<Object> params = new ArrayList<Object>();
     sql.append("from Outcome a,");
@@ -299,10 +301,9 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
   /*
    * (non-Javadoc)
    * 
-   * @see com.opentravelsoft.providers.OutcomeDao#auditingBillhead(long,
-   * long)
+   * @see com.opentravelsoft.providers.OutcomeDao#auditingBillhead(long, long)
    */
-  public int auditingBill(long outcomeId, long uid) {
+  public int auditingBill(Integer outcomeId, Integer uid) {
     HibernateTemplate template = getHibernateTemplate();
     Outcome outcome = (Outcome) template.get(Outcome.class, outcomeId);
     TourCost tblCostAcct = null;
@@ -334,7 +335,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
    * 
    * @see com.opentravelsoft.providers.OutcomeDao#opApproved(long, long)
    */
-  public int opApproved(long outcomeId, long uid) {
+  public int opApproved(Integer outcomeId, Integer uid) {
     HibernateTemplate template = getHibernateTemplate();
     Outcome tblOutcome = (Outcome) template.get(Outcome.class, outcomeId);
     if (null != tblOutcome) {
@@ -358,7 +359,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
    * com.opentravelsoft.providers.OutcomeDao#frReadBillhead(com.opentravelsoft
    * .ebiz.entity.finance.Outcome, long)
    */
-  public int frReadBill(Outcome outcome, long uid) {
+  public int frReadBill(Outcome outcome, Integer uid) {
     HibernateTemplate template = getHibernateTemplate();
     Outcome tblOutcome = (Outcome) template.get(Outcome.class,
         outcome.getOutcomeId());
@@ -382,7 +383,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
    * @see com.opentravelsoft.providers.OutcomeDao#frModifyBillhead(com.
    * opentravelsoft.ebiz.entity.finance.Outcome, long)
    */
-  public int frModifyBill(Outcome outcome, long uid) {
+  public int frModifyBill(Outcome outcome, Integer uid) {
     HibernateTemplate template = getHibernateTemplate();
     Outcome tblOutcome = (Outcome) template.get(Outcome.class,
         outcome.getOutcomeId());
@@ -412,11 +413,11 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
   /*
    * (non-Javadoc)
    * 
-   * @see com.opentravelsoft.providers.OutcomeDao#factualRegister(int[],
-   * long, java.lang.String, java.util.Date)
+   * @see com.opentravelsoft.providers.OutcomeDao#factualRegister(int[], long,
+   * java.lang.String, java.util.Date)
    */
   @SuppressWarnings("unchecked")
-  public int factualRegister(int[] outcomeIds, long uid, String billNo,
+  public int factualRegister(int[] outcomeIds, Integer uid, String billNo,
       Date payDate) {
     StringBuilder sql = new StringBuilder();
     sql.append("from Outcome ");
@@ -442,12 +443,12 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
       List<TourCost> costList = getHibernateTemplate().find(
           sql.substring(0, sql.length() - 1) + ")");
 
-      double payAmount = 0;
+      BigDecimal payAmount = new BigDecimal(0);
       for (TourCost cost : costList) {
         for (Outcome outcome : outcomeList) {
           if (outcome.getAcctId() == cost.getAcctId()) {
-            payAmount = RowDataUtil.getDouble(cost.getPayAmount());
-            payAmount += RowDataUtil.getDouble(outcome.getAmount());
+            payAmount = cost.getPayAmount();
+            payAmount = payAmount.add(outcome.getAmount());
             cost.setPayAmount(payAmount);
           }
           break;
@@ -480,7 +481,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
    * @see com.opentravelsoft.providers.OutcomeDao#poModifyBillhead(com.
    * opentravelsoft.ebiz.entity.finance.Outcome, long)
    */
-  public int opModifyBill(Outcome outcome, long uid) {
+  public int opModifyBill(Outcome outcome, Integer uid) {
     HibernateTemplate template = getHibernateTemplate();
     Outcome tblOutcome = (Outcome) template.get(Outcome.class,
         outcome.getOutcomeId());
@@ -572,7 +573,8 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
   }
 
   @SuppressWarnings("unchecked")
-  public List<Plan> getTourList(long teamId, long userId, long customerId) {
+  public List<Plan> getTourList(Integer teamId, Integer userId,
+      Integer customerId) {
     StringBuilder sql = new StringBuilder();
 
     sql.append("select distinct plan.tourNo,plan.outDate,plan.line.lineNo,");
@@ -678,7 +680,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
     return reminds;
   }
 
-  public int opModifyPayReturn(long outcomeId) {
+  public int opModifyPayReturn(int outcomeId) {
     // 付款申请书置位(打回计调操作)
     HibernateTemplate template = getHibernateTemplate();
     Outcome tblOutcome = (Outcome) template.get(Outcome.class, outcomeId);
@@ -708,7 +710,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
 
   // --------------------------------------------------------------------------
   @SuppressWarnings("unchecked")
-  public List<Outcome> listParcels(String supplierId, long userId,
+  public List<Outcome> listParcels(String supplierId, Integer userId,
       short carryStatus) {
     StringBuilder sql = new StringBuilder();
 
@@ -738,8 +740,8 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Long>
       billhead.setOutcomeId(RowDataUtil.getInt(obj[0]));
       billhead.getCustomer().setCustomerId(RowDataUtil.getInt(obj[1]));
       billhead.getCustomer().setName(RowDataUtil.getString(obj[2]));
-      billhead.setAmount(RowDataUtil.getDouble(obj[3]));
-      billhead.setCreatedBy(RowDataUtil.getLong(obj[4]));
+      billhead.setAmount(RowDataUtil.getBigDecimal(obj[3]));
+      billhead.setCreatedBy(RowDataUtil.getInt(obj[4]));
       billhead.setCreated(RowDataUtil.getDate(obj[5]));
       billhead.setCreatedByName(RowDataUtil.getString(obj[6]));
       billhead.setPayRegisterDate(RowDataUtil.getDate(obj[7]));

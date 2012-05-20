@@ -5,19 +5,18 @@ import java.util.Set;
 
 import com.opentravelsoft.entity.SysConfig;
 
-public interface SysConfigService
-{
+public interface SysConfigService {
 
-    List<SysConfig> getAllConfig();
+  List<SysConfig> getAllConfig();
 
-    void deleteConfig(long configId);
+  void deleteConfig(int configId);
 
-    SysConfig getConfig(long configId);
+  SysConfig getConfig(int configId);
 
-    void updateConfig(SysConfig config);
+  void updateConfig(SysConfig config);
 
-    Set<String> getCategory();
+  Set<String> getCategory();
 
-    List<SysConfig> getConfigByCategory(String category);
+  List<SysConfig> getConfigByCategory(String category);
 
 }

@@ -38,7 +38,7 @@ public class VisaHelpServiceImpl implements VisaHelpService {
     return visaDao.getItem(recordNo);
   }
 
-  public boolean txDeleteVisaItem(String recordNo, long opUser) {
+  public boolean txDeleteVisaItem(String recordNo, int opUser) {
     return visaDao.deleteItem(recordNo, opUser);
   }
 

@@ -16,8 +16,8 @@ import com.opentravelsoft.providers.RoleDao;
 import com.opentravelsoft.util.RowDataUtil;
 
 @Repository("RoleDao")
-public class RoleDaoHibernate extends GenericDaoHibernate<Role, Long> implements
-    RoleDao {
+public class RoleDaoHibernate extends GenericDaoHibernate<Role, Integer>
+    implements RoleDao {
 
   private PermissionDao permissionDao;
 
@@ -44,7 +44,7 @@ public class RoleDaoHibernate extends GenericDaoHibernate<Role, Long> implements
   }
 
   @SuppressWarnings("unchecked")
-  public List<Module> getModulePermission(long roleId) {
+  public List<Module> getModulePermission(int roleId) {
     // Get All active module
     List<Module> modules = getActiveModules();
     Map<Integer, String> perm = permissionDao.getPermissions();
@@ -94,7 +94,7 @@ public class RoleDaoHibernate extends GenericDaoHibernate<Role, Long> implements
   }
 
   @SuppressWarnings("unchecked")
-  public String saveModulePerm(long roleId, String moduleName,
+  public String saveModulePerm(Integer roleId, String moduleName,
       String moduleAction, String perm) {
     StringBuilder sql = new StringBuilder();
     String result = Boolean.FALSE.toString();
@@ -126,10 +126,10 @@ public class RoleDaoHibernate extends GenericDaoHibernate<Role, Long> implements
     if (list2.size() > 0) {
       ModulePermission mp = list2.get(0);
       if (perm.equalsIgnoreCase(Boolean.FALSE.toString())) {
-        mp.setAllowAccess(true);
+        mp.setAllowAccess((byte) 1);
         result = Boolean.TRUE.toString();
       } else
-        mp.setAllowAccess(false);
+        mp.setAllowAccess((byte) 0);
       getHibernateTemplate().update(mp);
 
     } else {
@@ -138,10 +138,10 @@ public class RoleDaoHibernate extends GenericDaoHibernate<Role, Long> implements
       mp.setPermissionId(permission.getPermissionId());
       mp.setRoleId(roleId);
       if (perm.equalsIgnoreCase(Boolean.FALSE.toString())) {
-        mp.setAllowAccess(true);
+        mp.setAllowAccess((byte) 1);
         result = Boolean.TRUE.toString();
       } else
-        mp.setAllowAccess(false);
+        mp.setAllowAccess((byte) 0);
 
       getHibernateTemplate().save(mp);
     }

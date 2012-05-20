@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_reckoning_acct", catalog = "tourismwork_db")
+@Table(name = "tbl_reckoning_acct")
 public class ReckoningAcct implements java.io.Serializable {
 
   private ReckoningAcctId id;

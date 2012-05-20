@@ -29,7 +29,7 @@ public class DestinationServiceImpl implements DestinationService {
     return destinationDao.getAllDestination();
   }
 
-  public Destination roGetCategory(long destId) {
+  public Destination roGetCategory(int destId) {
     return destinationDao.get(destId);
   }
 
@@ -37,7 +37,7 @@ public class DestinationServiceImpl implements DestinationService {
     destinationDao.save(category);
   }
 
-  public int txDelCategorys(long catId) {
+  public int txDelCategorys(int catId) {
     return destinationDao.delDestination(catId);
   }
 

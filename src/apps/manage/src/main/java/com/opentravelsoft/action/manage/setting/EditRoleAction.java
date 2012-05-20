@@ -24,7 +24,7 @@ public class EditRoleAction extends ManageAction {
 
   protected static final Log logger = LogFactory.getLog(EditRoleAction.class);
 
-  private long roleId;
+  private int roleId;
 
   @Autowired
   private RoleService roleService;
@@ -68,11 +68,11 @@ public class EditRoleAction extends ManageAction {
     this.role = guide;
   }
 
-  public long getRoleId() {
+  public int getRoleId() {
     return roleId;
   }
 
-  public void setRoleId(long roleId) {
+  public void setRoleId(int roleId) {
     this.roleId = roleId;
   }
 

@@ -71,29 +71,29 @@ public class ExpressDetailAction extends ManageAction {
     // 取得配送明细
     expressList = expressService.roExpressInfoList(expressId);
 
-    if (StringUtil.hasLength(express.getExpressState())) {
-      dictionary = expressService.rogetName(express.getExpressState());
-      eState = dictionary.getT11();
-    }
-
-    if (StringUtil.hasLength(express.getPayType())) {
-      dictionary = expressService.rogetName(express.getPayType());
-      pType = dictionary.getMoneyType();
-    }
-
-    if (StringUtil.hasLength(express.getPayModlue())) {
-      dictionary = expressService.rogetName(express.getPayModlue());
-      pModlue = dictionary.getPayType();
-    }
-
-    if (StringUtil.hasLength(express.getExpressType())) {
-      dictionary = expressService.rogetName(express.getExpressType());
-      eType = dictionary.getExpressType();
-    }
-    if (StringUtil.hasLength(express.getExpressModlue())) {
-      dictionary = expressService.rogetName(express.getExpressModlue());
-      eModlue = dictionary.getExpressModlue();
-    }
+    // if (StringUtil.hasLength(express.getExpressState())) {
+    // dictionary = expressService.rogetName(express.getExpressState());
+    // eState = dictionary.getT11();
+    // }
+    //
+    // if (StringUtil.hasLength(express.getPayType())) {
+    // dictionary = expressService.rogetName(express.getPayType());
+    // pType = dictionary.getMoneyType();
+    // }
+    //
+    // if (StringUtil.hasLength(express.getPayModlue())) {
+    // dictionary = expressService.rogetName(express.getPayModlue());
+    // pModlue = dictionary.getPayType();
+    // }
+    //
+    // if (StringUtil.hasLength(express.getExpressType())) {
+    // dictionary = expressService.rogetName(express.getExpressType());
+    // eType = dictionary.getExpressType();
+    // }
+    // if (StringUtil.hasLength(express.getExpressModlue())) {
+    // dictionary = expressService.rogetName(express.getExpressModlue());
+    // eModlue = dictionary.getExpressModlue();
+    // }
 
     taskList = taskService.getExpressTask(expressId);
 

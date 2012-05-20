@@ -56,7 +56,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       manager = true;
 
     if (manager) {
-      template.lock(plan, LockMode.UPGRADE);
+      template.lock(plan, LockMode.PESSIMISTIC_WRITE);
       // 计划名额
       int _pax1 = plan.getPax1();
       Object[] params1 = { book.getBookingNo() };
@@ -259,7 +259,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     HibernateTemplate template = getHibernateTemplate();
     int zero = 0;
     Booking tfj006 = (Booking) template.load(Booking.class,
-        book.getBookingNo(), LockMode.UPGRADE);
+        book.getBookingNo(), LockMode.PESSIMISTIC_WRITE);
 
     // 取消标志
     tfj006.setDelkey("Y");
@@ -305,7 +305,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       int pax2 = RowDataUtil.getShort(bookList.get(0));
 
       Plan plan = (Plan) getHibernateTemplate().load(Plan.class,
-          book.getPlan().getPlanNo(), LockMode.UPGRADE);
+          book.getPlan().getPlanNo(), LockMode.PESSIMISTIC_WRITE);
       // 已订名额
       plan.setPax2(pax2);
       // 可用名额
@@ -356,7 +356,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
     // ---------------------------------------------------------------------
     Booking tfj006 = (Booking) template.load(Booking.class,
-        book.getBookingNo(), LockMode.UPGRADE);
+        book.getBookingNo(), LockMode.PESSIMISTIC_WRITE);
 
     if (tfj006.getConfirmStatus().equals("1")) {
       // 确认人数
@@ -387,7 +387,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       int pax2 = RowDataUtil.getShort(bookList.get(0));
 
       Plan plan = (Plan) getHibernateTemplate().load(Plan.class,
-          tfj006.getPlan().getPlanNo(), LockMode.UPGRADE);
+          tfj006.getPlan().getPlanNo(), LockMode.PESSIMISTIC_WRITE);
       // 已订名额
       plan.setPax2(pax2);
       // 可用名额
@@ -417,7 +417,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     // 更新计划人数
     if (confirm.equals("1")) {
       Plan plan = (Plan) template.get(Plan.class, inbook.getPlan().getPlanNo(),
-          LockMode.UPGRADE);
+          LockMode.PESSIMISTIC_WRITE);
       if (null == plan)
         throw new EbizException("plan is not find.");
 
@@ -462,7 +462,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     }
 
     Booking book = (Booking) template.load(Booking.class,
-        inbook.getBookingNo(), LockMode.UPGRADE);
+        inbook.getBookingNo(), LockMode.PESSIMISTIC_WRITE);
 
     // 联系人
     book.setContact(inbook.getContact());
@@ -520,7 +520,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       if (null == trip)
         continue;
 
-      template.lock(tourist, LockMode.UPGRADE);
+      template.lock(tourist, LockMode.PESSIMISTIC_WRITE);
 
       // 名单号
       tourist.setNmno(trip.getNmno());
@@ -650,11 +650,11 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 应收团款
       tourist.setAmt01(trip.getReceivables());
       // 优惠申请
-      tourist.setAmt02(0d);
+      tourist.setAmt02(new BigDecimal(0));
       // 已收团款
       tourist.setAmt03(trip.getAmount());
       // 已退团款
-      tourist.setAmt04(0d);
+      tourist.setAmt04(new BigDecimal(0));
       // 重点客人否
       tourist.setVipkey('N');
       // 备注
@@ -672,11 +672,11 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       tourist.setRoomKey1('Y');
 
       // 取消标志
-      tourist.setDel("N");
+      tourist.setDel('N');
       // 操作人
       tourist.setOpuser(inbook.getOpuser());
       // 分团标志
-      tourist.setTourKey("N");
+      tourist.setTourKey('N');
       // 领队标志
       tourist.setLeaderKey("N");
       // 送签登记表号
@@ -702,7 +702,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
   public int readBooking(Booking booking) {
     Date sysdate = getSysdate();
     Booking tfj006 = (Booking) getHibernateTemplate().get(Booking.class,
-        booking.getBookingNo(), LockMode.UPGRADE);
+        booking.getBookingNo(), LockMode.PESSIMISTIC_WRITE);
 
     if (tfj006.getConfirmStatus().equals("2"))
       return -1;
@@ -719,11 +719,11 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
   @SuppressWarnings("unchecked")
   public int confirm(Booking book) {
     Plan plan = (Plan) getHibernateTemplate().get(Plan.class,
-        book.getPlan().getPlanNo(), LockMode.UPGRADE);
+        book.getPlan().getPlanNo(), LockMode.PESSIMISTIC_WRITE);
     // 已订名额
     int _pax2 = plan.getPax2();
     // 订单应收款
-    double expense = 0d;
+    BigDecimal expense = new BigDecimal(0);
 
     StringBuilder sql = new StringBuilder();
     sql.append("select sum(confirmPax) ");
@@ -744,7 +744,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
     Date sysdate = getSysdate();
     Booking tfj006 = (Booking) getHibernateTemplate().load(Booking.class,
-        book.getBookingNo(), LockMode.UPGRADE);
+        book.getBookingNo(), LockMode.PESSIMISTIC_WRITE);
 
     if (tfj006.getConfirmStatus().equals("1")) {
       log.warn("订单已经占位.booking_no=" + book.getBookingNo());
@@ -771,10 +771,10 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
       for (Tourist trip : book.getCustomerList()) {
         Tourist tfj007 = (Tourist) getHibernateTemplate().load(Tourist.class,
-            trip.getNmno(), LockMode.UPGRADE);
+            trip.getNmno(), LockMode.PESSIMISTIC_WRITE);
         // 应收团款
         tfj007.setAmt01(trip.getReceivables());
-        expense += trip.getReceivables();
+        expense = expense.add(trip.getReceivables());
         getHibernateTemplate().update(tfj007);
       }
 
@@ -814,7 +814,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     HibernateTemplate template = getHibernateTemplate();
     StringBuilder sql = new StringBuilder();
     Booking oldbook = (Booking) template.load(Booking.class,
-        book.getBookingNo(), LockMode.UPGRADE);
+        book.getBookingNo(), LockMode.PESSIMISTIC_WRITE);
     Booking newbook = null;
     try {
       newbook = oldbook.clone();
@@ -832,13 +832,13 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     // 确认人数
     int confirmPax = 0;
     // 应收团款
-    double amt01All = 0;
+    BigDecimal amt01All = new BigDecimal(0);
     for (Tourist tfj007 : list) {
       if (set.contains(tfj007.getNmno())) {
         tfj007.setBooking(newbook);
         // 操作人
         tfj007.setOpuser(newbook.getOpuser());
-        amt01All += RowDataUtil.getDouble(tfj007.getAmt01());
+        amt01All = amt01All.add(RowDataUtil.getBigDecimal(tfj007.getAmt01()));
         template.update(tfj007);
 
         if (tfj007.getConfirmStatus().equals("1"))
@@ -846,7 +846,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       }
     }
 
-    oldbook.setDbamt(oldbook.getDbamt() - amt01All);
+    oldbook.setDbamt(oldbook.getDbamt().subtract(amt01All));
     oldbook.setPax(oldbook.getPax() - set.size());
     oldbook.setConfirmPax(oldbook.getConfirmPax() - confirmPax);
     template.update(oldbook);
@@ -878,19 +878,19 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     for (Tourist tfj007 : list) {
       if (customers.contains(tfj007.getNmno())) {
         // 取消标志
-        tfj007.setDel("N");
+        tfj007.setDel('N');
         // 操作人
         tfj007.setOpuser(book.getOpuser());
         template.update(tfj007);
       }
 
-      if (tfj007.getDel().equals("N"))
+      if (tfj007.getDel() == 'N')
         confirmPax++;
     }
 
     // ---------------------------------------------------------------------
     Booking tfj006 = (Booking) template.load(Booking.class,
-        book.getBookingNo(), LockMode.UPGRADE);
+        book.getBookingNo(), LockMode.PESSIMISTIC_WRITE);
 
     if (tfj006.getConfirmStatus().equals("1")) {
       // 确认人数
@@ -922,7 +922,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       int pax2 = RowDataUtil.getShort(bookList.get(0));
 
       Plan plan = (Plan) getHibernateTemplate().load(Plan.class,
-          tfj006.getPlan().getPlanNo(), LockMode.UPGRADE);
+          tfj006.getPlan().getPlanNo(), LockMode.PESSIMISTIC_WRITE);
       // 已订名额
       plan.setPax2(pax2);
       // 可用名额
@@ -1060,9 +1060,9 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 预订人数
       book.setPax(RowDataUtil.getInt(obj[3]));
       // 应收款
-      book.setDbamt(RowDataUtil.getDouble(obj[4]));
+      book.setDbamt(RowDataUtil.getBigDecimal(obj[4]));
       // 已收款
-      book.setPayCosts(RowDataUtil.getDouble(obj[5]));
+      book.setPayCosts(RowDataUtil.getBigDecimal(obj[5]));
       // 审核否
       book.setConfirmStatus(RowDataUtil.getString(obj[7]));
       // 取消状态
@@ -1246,9 +1246,9 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 预订人数
       book.setPax(RowDataUtil.getInt(obj[3]));
       // 应收款
-      book.setDbamt(RowDataUtil.getDouble(obj[4]));
+      book.setDbamt(RowDataUtil.getBigDecimal(obj[4]));
       // 已收款
-      book.setPayCosts(RowDataUtil.getDouble(obj[5]));
+      book.setPayCosts(RowDataUtil.getBigDecimal(obj[5]));
       // 审核否
       book.setConfirmStatus(RowDataUtil.getString(obj[7]));
       // 取消状态
@@ -1266,7 +1266,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 确认人数
       book.setConfirmPax(RowDataUtil.getInt(obj[13]));
 
-      book.setReserve(RowDataUtil.getLong(obj[14]));
+      book.setReserve(RowDataUtil.getInt(obj[14]));
       // 是否已读
       book.setReadKey(RowDataUtil.getString(obj[15]));
 
@@ -1392,9 +1392,9 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       book.getCustomer().setName(RowDataUtil.getString(obj[0]));
       book.setBatch(RowDataUtil.getInt(obj[2]));
       book.setSumpax(RowDataUtil.getInt(obj[3]));
-      book.setSumDbamt(RowDataUtil.getDouble(obj[4]));
-      book.setSumCramt(RowDataUtil.getDouble(obj[5]));
-      book.setSumUnpay(RowDataUtil.getDouble(obj[6]));
+      book.setSumDbamt(RowDataUtil.getBigDecimal(obj[4]));
+      book.setSumCramt(RowDataUtil.getBigDecimal(obj[5]));
+      book.setSumUnpay(RowDataUtil.getBigDecimal(obj[6]));
       book.getCustomer().setCustomerId(RowDataUtil.getInt(obj[7]));
       Character pay = RowDataUtil.getChar(obj[8]);
       book.setContact(RowDataUtil.getString(obj[9]));
@@ -1489,7 +1489,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       book.setDistrictNo(RowDataUtil.getString(obj[1]));
       book.setCountry(RowDataUtil.getString(obj[2]));
       book.setSumpax(RowDataUtil.getInt(obj[3]));
-      book.setSumDbamt(RowDataUtil.getDouble(obj[4]));
+      book.setSumDbamt(RowDataUtil.getBigDecimal(obj[4]));
       bookList.add(book);
     }
     return bookList;
@@ -1579,9 +1579,9 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 预订人数
       book.setPax(RowDataUtil.getInt(obj[3]));
       // 应收款
-      book.setDbamt(RowDataUtil.getDouble(obj[4]));
+      book.setDbamt(RowDataUtil.getBigDecimal(obj[4]));
       // 已收款
-      book.setPayCosts(RowDataUtil.getDouble(obj[5]));
+      book.setPayCosts(RowDataUtil.getBigDecimal(obj[5]));
       // 审核否
       book.setConfirmStatus(RowDataUtil.getString(obj[7]));
       // 取消状态

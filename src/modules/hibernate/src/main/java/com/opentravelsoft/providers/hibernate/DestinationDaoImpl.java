@@ -15,8 +15,8 @@ import com.opentravelsoft.providers.DestinationDao;
 import com.opentravelsoft.util.RowDataUtil;
 
 @Repository("DestinationDao")
-public class DestinationDaoImpl extends GenericDaoHibernate<Destination, Long>
-    implements DestinationDao {
+public class DestinationDaoImpl extends
+    GenericDaoHibernate<Destination, Integer> implements DestinationDao {
 
   public DestinationDaoImpl() {
     super(Destination.class);
@@ -32,10 +32,10 @@ public class DestinationDaoImpl extends GenericDaoHibernate<Destination, Long>
     return getHibernateTemplate().findByCriteria(criteria);
   }
 
-  public int delDestination(long destId) {
+  public int delDestination(int destId) {
     // 取得父分类ID
     Destination dest = (Destination) getHibernateTemplate().get(
-        Destination.class, destId, LockMode.UPGRADE);
+        Destination.class, destId, LockMode.PESSIMISTIC_WRITE);
     String code = "";
     String parentId = "";
     if (null == dest) {

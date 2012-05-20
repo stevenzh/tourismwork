@@ -6,7 +6,7 @@ import com.opentravelsoft.providers.BranchDao;
 import org.springframework.stereotype.Repository;
 
 @Repository("BranchDao")
-public class BranchDaoHibernate extends GenericDaoHibernate<Branch, Long>
+public class BranchDaoHibernate extends GenericDaoHibernate<Branch, Integer>
     implements BranchDao {
   public BranchDaoHibernate() {
     super(Branch.class);

@@ -5,7 +5,7 @@ import java.util.List;
 import com.opentravelsoft.entity.Module;
 import com.opentravelsoft.entity.Role;
 
-public interface RoleDao extends GenericDao<Role, Long> {
+public interface RoleDao extends GenericDao<Role, Integer> {
 
   List<Role> queryRole(String keyword);
 
@@ -16,9 +16,9 @@ public interface RoleDao extends GenericDao<Role, Long> {
    * @param roleId
    * @return
    */
-  List<Module> getModulePermission(long roleId);
+  List<Module> getModulePermission(int roleId);
 
-  String saveModulePerm(long roleId, String moduleName, String moduleAction,
+  String saveModulePerm(Integer roleId, String moduleName, String moduleAction,
       String perm);
 
   public List<Role> getRoles();

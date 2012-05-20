@@ -47,11 +47,11 @@ public class ListLineAction extends ManageAction {
   // 检索条件
 
   /** 专管员 */
-  private long kenUserId = 0;
+  private int kenUserId = 0;
 
   private String kenClasskey = "";
 
-  private long kenTeamId = 0;
+  private int kenTeamId = 0;
 
   private String kenLineName = "";
 
@@ -145,7 +145,7 @@ public class ListLineAction extends ManageAction {
     return kenTeamId;
   }
 
-  public void setKenDepartmentNo(long teamId) {
+  public void setKenDepartmentNo(int teamId) {
     this.kenTeamId = teamId;
   }
 
@@ -161,7 +161,7 @@ public class ListLineAction extends ManageAction {
     return kenUserId;
   }
 
-  public void setKenUserId(long kenUserId) {
+  public void setKenUserId(int kenUserId) {
     this.kenUserId = kenUserId;
   }
 

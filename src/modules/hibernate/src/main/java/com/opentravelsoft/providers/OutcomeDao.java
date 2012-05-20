@@ -8,7 +8,7 @@ import com.opentravelsoft.entity.TourCost;
 import com.opentravelsoft.entity.finance.Outcome;
 import com.opentravelsoft.entity.product.Remind;
 
-public interface OutcomeDao extends GenericDao<Outcome, Long> {
+public interface OutcomeDao extends GenericDao<Outcome, Integer> {
 
   /**
    * 应付账款查询
@@ -17,7 +17,7 @@ public interface OutcomeDao extends GenericDao<Outcome, Long> {
    * @param tourNo
    * @return
    */
-  public List<TourCost> getOwedList(long customerId, String tourNo);
+  public List<TourCost> getOwedList(Integer customerId, String tourNo);
 
   /**
    * 查找某一时间内对应供应商的应付帐款
@@ -43,7 +43,8 @@ public interface OutcomeDao extends GenericDao<Outcome, Long> {
    * @return
    * @deprecated
    */
-  public List<TourCost> findBill(long customerId, Date startDate, Date endDate);
+  public List<TourCost> findBill(Integer customerId, Date startDate,
+      Date endDate);
 
   /**
    * 保存付款单
@@ -77,9 +78,9 @@ public interface OutcomeDao extends GenericDao<Outcome, Long> {
    * @param frEndDate
    * @return
    */
-  public List<Outcome> getBillList(long userId, Date startDate, Date endDate,
-      Date startOutDate, Date endOutDate, boolean opAudited, String kenAudit,
-      String kenPay, Date frStartDate, Date frEndDate);
+  public List<Outcome> getBillList(Integer userId, Date startDate,
+      Date endDate, Date startOutDate, Date endOutDate, boolean opAudited,
+      String kenAudit, String kenPay, Date frStartDate, Date frEndDate);
 
   /**
    * 实付账款查询
@@ -90,8 +91,8 @@ public interface OutcomeDao extends GenericDao<Outcome, Long> {
    * @param register
    * @return
    */
-  public List<Outcome> getBillList(long userId, Date startDate, Date endDate,
-      String register);
+  public List<Outcome> getBillList(Integer userId, Date startDate,
+      Date endDate, String register);
 
   /**
    * 实付登记
@@ -102,7 +103,7 @@ public interface OutcomeDao extends GenericDao<Outcome, Long> {
    * @param payDate
    * @return
    */
-  public int factualRegister(int[] outcomeIds, long uid, String billNo,
+  public int factualRegister(int[] outcomeIds, Integer uid, String billNo,
       Date payDate);
 
   /**
@@ -112,7 +113,7 @@ public interface OutcomeDao extends GenericDao<Outcome, Long> {
    * @param uid
    * @return
    */
-  public int auditingBill(long outcomeId, long uid);
+  public int auditingBill(Integer outcomeId, Integer uid);
 
   /**
    * 审核付款申请书--计调
@@ -121,7 +122,7 @@ public interface OutcomeDao extends GenericDao<Outcome, Long> {
    * @param uid
    * @return
    */
-  public int opApproved(long outcomeId, long uid);
+  public int opApproved(Integer outcomeId, Integer uid);
 
   /**
    * 财务读取申请书
@@ -130,7 +131,7 @@ public interface OutcomeDao extends GenericDao<Outcome, Long> {
    * @param uid
    * @return
    */
-  public int frReadBill(Outcome outcome, long uid);
+  public int frReadBill(Outcome outcome, Integer uid);
 
   /**
    * 财务修改付款申请书
@@ -139,7 +140,7 @@ public interface OutcomeDao extends GenericDao<Outcome, Long> {
    * @param uid
    * @return
    */
-  public int frModifyBill(Outcome outcome, long uid);
+  public int frModifyBill(Outcome outcome, Integer uid);
 
   /**
    * 修改付款申请书--计调
@@ -148,7 +149,7 @@ public interface OutcomeDao extends GenericDao<Outcome, Long> {
    * @param uid
    * @return
    */
-  public int opModifyBill(Outcome outcome, long uid);
+  public int opModifyBill(Outcome outcome, Integer uid);
 
   /**
    * 判断是否能审核付款申请书
@@ -166,7 +167,7 @@ public interface OutcomeDao extends GenericDao<Outcome, Long> {
    * @param supplierId
    * @return
    */
-  public List<Plan> getTourList(long teamId, long uid, long supplierId);
+  public List<Plan> getTourList(Integer teamId, Integer uid, Integer supplierId);
 
   // -------------------------------------------------------------------------
   /**
@@ -188,7 +189,7 @@ public interface OutcomeDao extends GenericDao<Outcome, Long> {
    * @param outcomeId
    * @return
    */
-  public int opModifyPayReturn(long outcomeId);
+  public int opModifyPayReturn(int outcomeId);
 
   /**
    * 付款配送
@@ -198,7 +199,7 @@ public interface OutcomeDao extends GenericDao<Outcome, Long> {
    * @param carryStatus
    * @return
    */
-  List<Outcome> listParcels(String supplierId, long userId, short carryStatus);
+  List<Outcome> listParcels(String supplierId, Integer userId, short carryStatus);
 
   /**
    * 机票配送完成

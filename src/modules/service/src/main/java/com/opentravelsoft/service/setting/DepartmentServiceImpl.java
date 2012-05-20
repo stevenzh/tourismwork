@@ -10,7 +10,7 @@ import com.opentravelsoft.providers.GroupDao;
 
 @Service("DepartmentService")
 public class DepartmentServiceImpl implements DepartmentService {
-  
+
   @Autowired
   private GroupDao groupDao;
 
@@ -18,7 +18,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     return groupDao.getAllGroups();
   }
 
-  public Group getDepartment(long groupId) {
+  public Group getDepartment(int groupId) {
     return groupDao.get(groupId);
   }
 

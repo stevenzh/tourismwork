@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.manage.order;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,7 +73,7 @@ public class ReckoningMakeAction extends ManageAction {
   /** 订单号 */
   private String reserveNo;
 
-  private long reckoningId;
+  private int reckoningId;
 
   private int version;
 
@@ -82,7 +83,7 @@ public class ReckoningMakeAction extends ManageAction {
 
   private int itemId = 0;
 
-  private long userId;
+  private int userId;
 
   // ------------------------------------------------------------------------------
   /**
@@ -121,9 +122,9 @@ public class ReckoningMakeAction extends ManageAction {
       if ("A".equals(nameKey)) {
         reckoningAcctList = reckoningService.roGetCustomerList(reserveNo);
         if (!(reckoningAcctList.isEmpty())) {
-          double amount = 0;
+          BigDecimal amount = new BigDecimal(0);
           for (ReckoningAcct obj : reckoningAcctList) {
-            amount += obj.getAmount();
+            amount = amount.add(obj.getAmount());
           }
           reckoning.setAmount(Arith.round(amount, 2));
 
@@ -162,7 +163,8 @@ public class ReckoningMakeAction extends ManageAction {
         obj.setUnit("元");
         obj.setUnitPrice(book.getCustomerList().get(0).getResidual());
         obj.setCount(book.getPax());
-        obj.setAmount(obj.getUnitPrice() * reckoning.getPax());
+        obj.setAmount(obj.getUnitPrice().multiply(
+            new BigDecimal(reckoning.getPax())));
         reckoning.setAmount(obj.getAmount());
       }
 
@@ -224,9 +226,9 @@ public class ReckoningMakeAction extends ManageAction {
         if ("A".equals(nameKey)) {
           reckoningAcctList = reckoningService.roGetCustomerList(reserveNo);
           if (!(reckoningAcctList.isEmpty())) {
-            double amount = 0;
+            BigDecimal amount = new BigDecimal(0);
             for (ReckoningAcct obj : reckoningAcctList) {
-              amount += obj.getAmount();
+              amount = amount.add(obj.getAmount());
             }
             reckoning.setAmount(Arith.round(amount, 2));
           }
@@ -236,9 +238,10 @@ public class ReckoningMakeAction extends ManageAction {
           if (null != tour)
             reckoning.setLeaderPax(tour.getLeaderPax());
 
-          double amount1 = 0;
+          BigDecimal amount1 = new BigDecimal(0);
           for (int i = 0; i < reckoning.getReckoningAcctList().size(); i++) {
-            amount1 += reckoning.getReckoningAcctList().get(i).getAmount();
+            amount1 = amount1.add(reckoning.getReckoningAcctList().get(i)
+                .getAmount());
           }
 
           reckoning.setAmount(Arith.round(amount1, 2));
@@ -288,9 +291,9 @@ public class ReckoningMakeAction extends ManageAction {
       if ("A".equals(nameKey)) {
         reckoningAcctList = reckoningService.roGetCustomerList(reserveNo);
         if (!(reckoningAcctList.isEmpty())) {
-          double amount = 0;
+          BigDecimal amount = new BigDecimal(0);
           for (ReckoningAcct obj : reckoningAcctList) {
-            amount += obj.getAmount();
+            amount = amount.add(obj.getAmount());
           }
           reckoning.setAmount(Arith.round(amount, 2));
         }
@@ -299,9 +302,10 @@ public class ReckoningMakeAction extends ManageAction {
         if (null != tour)
           reckoning.setLeaderPax(tour.getLeaderPax());
 
-        double amount1 = 0;
+        BigDecimal amount1 = new BigDecimal(0);
         for (int i = 0; i < reckoning.getReckoningAcctList().size(); i++) {
-          amount1 += reckoning.getReckoningAcctList().get(i).getAmount();
+          amount1 = amount1.add(reckoning.getReckoningAcctList().get(i)
+              .getAmount());
         }
 
         reckoning.setAmount(Arith.round(amount1, 2));
@@ -330,7 +334,7 @@ public class ReckoningMakeAction extends ManageAction {
         reckoning.setTourType('1');
 
       reckoning.setBookingNo(reserveNo.trim());
-      reckoning.setCreatedBy(user.getUserId());
+      reckoning.setCreatedby(user.getUserId());
       reckoning.setUserDept("");
       reckoning.setReckoningAcctList(reckoningAcctList);
       reckoning = reckoningService.txWholeReckoningMake(reckoning);
@@ -339,7 +343,7 @@ public class ReckoningMakeAction extends ManageAction {
       reckoning.setTourType('3');
 
       reckoning.setBookingNo(reserveNo.trim());
-      reckoning.setCreatedBy(user.getUserId());
+      reckoning.setCreatedby(user.getUserId());
       reckoning.setUserDept("");
       reckoning = reckoningService.txWholeReckoningMake(reckoning);
     }
@@ -390,9 +394,9 @@ public class ReckoningMakeAction extends ManageAction {
       if ("A".equals(nameKey)) {
         reckoningAcctList = reckoningService.roGetCustomerList(reserveNo);
         if (!(reckoningAcctList.isEmpty())) {
-          double amount = 0;
+          BigDecimal amount = new BigDecimal(0);
           for (ReckoningAcct obj : reckoningAcctList) {
-            amount += obj.getAmount();
+            amount = amount.add(obj.getAmount());
           }
           reckoning.setAmount(Arith.round(amount, 2));
         }
@@ -401,9 +405,10 @@ public class ReckoningMakeAction extends ManageAction {
         if (null != tour)
           reckoning.setLeaderPax(tour.getLeaderPax());
 
-        double amount1 = 0;
+        BigDecimal amount1 = new BigDecimal(0);
         for (int i = 0; i < reckoning.getReckoningAcctList().size(); i++) {
-          amount1 += reckoning.getReckoningAcctList().get(i).getAmount();
+          amount1 = amount1.add(reckoning.getReckoningAcctList().get(i)
+              .getAmount());
         }
 
         reckoning.setAmount(Arith.round(amount1, 2));
@@ -436,7 +441,7 @@ public class ReckoningMakeAction extends ManageAction {
 
     reckoning.setReckoningId(reckoningId);
     reckoning.setBookingNo(reserveNo);
-    reckoning.setUpdatedBy(user.getUserId());
+    reckoning.setUpdatedby(user.getUserId());
     reckoning.setReckoningAcctList(reckoningAcctList);
     ret = reckoningService.txWholeReckoningModify(reckoning);
     if (ret == 0)
@@ -485,8 +490,8 @@ public class ReckoningMakeAction extends ManageAction {
           reckoningAcct.setItemId(i);
           reckoningAcctList.set(i, reckoningAcct);
         }
-        double amount = 0d;
-        amount = reckoning.getAmount() - obj.getAmount();
+        BigDecimal amount = new BigDecimal(0);
+        amount = reckoning.getAmount().subtract(obj.getAmount());
         reckoning.setAmount(amount);
         reckoningAcctList.remove(obj);
         break;
@@ -565,19 +570,19 @@ public class ReckoningMakeAction extends ManageAction {
     this.itemId = itemId;
   }
 
-  public long getReckoningId() {
+  public int getReckoningId() {
     return reckoningId;
   }
 
-  public void setReckoningId(long reckoningId) {
+  public void setReckoningId(int reckoningId) {
     this.reckoningId = reckoningId;
   }
 
-  public long getUserId() {
+  public int getUserId() {
     return userId;
   }
 
-  public void setUserId(long userId) {
+  public void setUserId(int userId) {
     this.userId = userId;
   }
 

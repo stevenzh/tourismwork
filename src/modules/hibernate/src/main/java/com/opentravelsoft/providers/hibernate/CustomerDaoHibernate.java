@@ -1,10 +1,12 @@
 package com.opentravelsoft.providers.hibernate;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import com.opentravelsoft.providers.CustomerDao;
 import com.opentravelsoft.util.LabelValueBean;
 import org.hibernate.LockMode;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -19,15 +21,15 @@ import com.opentravelsoft.util.RowDataUtil;
 import com.opentravelsoft.util.StringUtil;
 
 @Repository("CustomerDao")
-public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
-    implements CustomerDao {
+public class CustomerDaoHibernate extends
+    GenericDaoHibernate<Customer, Integer> implements CustomerDao {
 
   public CustomerDaoHibernate() {
     super(Customer.class);
   }
 
   @SuppressWarnings("unchecked")
-  public List<LabelValueBean> getCustomerBySales(long salesId, String area) {
+  public List<LabelValueBean> getCustomerBySales(int salesId, String area) {
     StringBuilder sql = new StringBuilder();
 
     sql.append("select customerId,name,contact,contactTel,isActive,code,");
@@ -47,8 +49,8 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
       agent.setName(RowDataUtil.getString(obj[1]));
       agent.setContact(RowDataUtil.getString(obj[2]));
       agent.setContactTel(RowDataUtil.getString(obj[3]));
-      agent.setEnabled(RowDataUtil.getString(obj[4]));
-      agent.setCompanyId(RowDataUtil.getString(obj[5]));
+      agent.setIsActive(RowDataUtil.getChar(obj[4]));
+      agent.setCode(RowDataUtil.getString(obj[5]));
       agent.setPasswd(RowDataUtil.getString(obj[6]));
 
       //
@@ -78,20 +80,20 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
       agent.setName(obj.getName());
       agent.setContact(obj.getContact());
       agent.setContactTel(obj.getContactTel());
-      agent.setEnabled(RowDataUtil.getString(obj.getIsActive()));
+      agent.setIsActive(RowDataUtil.getChar(obj.getIsActive()));
       ret.add(agent);
     }
     return ret;
   }
 
-  public Customer findAccount(long customerId) {
+  public Customer findAccount(int customerId) {
     Customer customer = (Customer) getHibernateTemplate().get(Customer.class,
         customerId, LockMode.READ);
 
-    customer.setCompanyType(RowDataUtil.getString(customer.getType()));
-    customer.setStay(RowDataUtil.getDouble(customer.getStay()) * 100);
+    customer.setType(RowDataUtil.getChar(customer.getType()));
+    customer.setStay(customer.getStay().multiply(new BigDecimal(100)));
     customer.setRegion(customer.getRoute());
-    customer.setEnabled(RowDataUtil.getString(customer.getIsActive()));
+    customer.setIsActive(RowDataUtil.getChar(customer.getIsActive()));
 
     return customer;
   }
@@ -99,7 +101,7 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
   @SuppressWarnings("unchecked")
   public List<Customer> getAgent(String countryId, String provinceId,
       String cityId, String agentName, String enabled, String clear,
-      long userId, String customerCode, long teamId, String accountType) {
+      Integer userId, String customerCode, Integer teamId, String accountType) {
     StringBuilder sb = new StringBuilder();
     sb.append("select a.customerId,a.name,a.address,b.cnName,"); // 3
     sb.append("a.city.citynm,a.contact,a.contactTel,a.contactFax,"); // 7
@@ -160,10 +162,10 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
       agent.setContactFax(RowDataUtil.getString(obj[7]));
       agent.setContactEmail(RowDataUtil.getString(obj[8]));
 
-      agent.setEnabled(RowDataUtil.getString(obj[11]));
+      agent.setIsActive(RowDataUtil.getChar(obj[11]));
       agent.getSales().setUserId(RowDataUtil.getInt(obj[12]));
       agent.getSales().setUserName(RowDataUtil.getString(obj[13]));
-      agent.setCompanyId(RowDataUtil.getString(obj[14]));
+      agent.setCode(RowDataUtil.getString(obj[14]));
       agent.setPasswd(RowDataUtil.getString(obj[15]));
 
       ret.add(agent);
@@ -172,7 +174,7 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
     return ret;
   }
 
-  public int deleteAccount(long agentId) {
+  public int deleteAccount(int agentId) {
     StringBuilder sql = new StringBuilder();
     sql.append("update Contact set del='Y' where customerId=? ");
     Object[] params = { agentId };
@@ -186,13 +188,13 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
   public int checkedAccount(Customer agent) {
     HibernateTemplate template = getHibernateTemplate();
     Customer tblCustomer = (Customer) template.get(Customer.class,
-        agent.getCustomerId(), LockMode.UPGRADE);
+        agent.getCustomerId(), LockMode.PESSIMISTIC_WRITE);
     if (tblCustomer != null) {
       if (null != tblCustomer.getIsActive()
           && tblCustomer.getIsActive().equals("Y"))
         return -2;
 
-      tblCustomer.setIsActive("Y");
+      tblCustomer.setIsActive('Y');
       Date sysdate = getSysdate();
       tblCustomer.setCheckDate(sysdate);
       tblCustomer.setCheckedBy(agent.getCheckedBy());
@@ -211,7 +213,7 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
 
     if (agent.getCustomerId() != 0) {
       customer = (Customer) template.get(Customer.class, agent.getCustomerId(),
-          LockMode.UPGRADE);
+          LockMode.PESSIMISTIC_WRITE);
     }
 
     if (null == customer) {
@@ -225,7 +227,7 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
     customer.setProvinceCd(agent.getProvinceCd());
     customer.setCity(agent.getCity());
     customer.setDistrict(agent.getDistrict());
-    customer.setZip(agent.getZipCode());
+    customer.setZip(agent.getZip());
 
     // 联系人信息
     customer.setContact(agent.getContact());
@@ -235,31 +237,31 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
 
     customer.setBussId(agent.getBussId());
     customer.setBussDate(agent.getBussDate());
-    customer.setType(agent.getCompanyType());
+    customer.setType(agent.getType());
     customer.setCreditAmt1(agent.getCreditAmt1());
     customer.setCreditAmt2(agent.getCreditAmt2());
     customer.setSales(agent.getSales());
 
-    if (agent.getStay() == 0)
-      customer.setStay(0.0);
+    if (agent.getStay().doubleValue() == 0)
+      customer.setStay(new BigDecimal(0));
     else
-      customer.setStay(agent.getStay() / 100);
+      customer.setStay(agent.getStay().divide(new BigDecimal(100)));
 
-    customer.setStructure(RowDataUtil.getString(agent.getStructure()));
+    customer.setStructure(RowDataUtil.getChar(agent.getStructure()));
     customer.setPayment(agent.getClearingCycle());
 
-    customer.setUpdatedBy(agent.getUpdatedBy());
-    customer.setDel("N");
-    customer.setIsAgent(agent.getIsAgent());
-    customer.setIsSupplier(agent.getIsSupplier());
+    customer.setUpdatedby(agent.getUpdatedby());
+    customer.setDel('N');
+    customer.setIsAgent(agent.isIsAgent());
+    customer.setIsSupplier(agent.isIsSupplier());
 
     if (create) {
       Random rand = new Random();
       String s = String.valueOf(rand.nextFloat());
       // Set password
       customer.setPasswd(s.substring(2, 8));
-      customer.setIsActive("N");
-      customer.setCreatedBy(agent.getUpdatedBy());
+      customer.setIsActive('N');
+      customer.setCreatedby(agent.getUpdatedby());
       customer.setCode(StringUtil.padding(customer.getCustomerId(), 10));
       template.save(customer);
     }
@@ -296,7 +298,7 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
           cont.setMsn(contact.getMsn());
           cont.setEmail(contact.getEmail());
           cont.setQq(contact.getQq());
-          cont.setDel("N");
+          cont.setDel('N');
 
           getHibernateTemplate().save(cont);
         }
@@ -319,7 +321,7 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
   }
 
   @SuppressWarnings("unchecked")
-  public int checkBound(long agentId) {
+  public int checkBound(int agentId) {
     // 客户的欠款额度
     double amt = 0;
     double amt2 = 0;
@@ -341,9 +343,8 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
     /*
      * String month = ""; double mhRemainder = 0; sql = new StringBuilder();
      * sql.append("select id.month, remainder "); sql.append("from
-     * com.opentravelsoft.entity.finance.CustomerMonth
-     * "); sql.append("where id.customerId=?"); sql.append("ORDER BY id.month
-     * DESC ");
+     * com.opentravelsoft.entity.finance.CustomerMonth "); sql.append("where
+     * id.customerId=?"); sql.append("ORDER BY id.month DESC ");
      * 
      * List<Object[]> list = getHibernateTemplate() .find(sql.toString(),
      * param); if (null != list && list.size() > 0) { Object[] obj =
@@ -383,7 +384,7 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
    * 取得供应商
    */
   @SuppressWarnings("unchecked")
-  public List<Customer> getUsableSupplier(long teamId) {
+  public List<Customer> getUsableSupplier(Integer teamId) {
     StringBuilder sb = new StringBuilder();
     sb.append("select a.customerId,a.name ");
     sb.append("from Customer a ");
@@ -415,7 +416,7 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
    * 按照供应商类型查找供应商
    */
   @SuppressWarnings("unchecked")
-  public List<Customer> getSupplierByType(String resource, long teamId) {
+  public List<Customer> getSupplierByType(String resource, Integer teamId) {
     StringBuilder sb = new StringBuilder();
 
     sb.append("select a.customerId,a.name ");
@@ -449,7 +450,7 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
   @SuppressWarnings("unchecked")
   public List<Customer> getSupplies(String countryId, String provinceId,
       String cityId, String supplierName, String feature, String resource,
-      String destination, long teamId, String state) {
+      String destination, Integer teamId, String state) {
     StringBuilder sb = new StringBuilder();
     sb.append("select a.customerId,a.name,a.countryCd,b.name,");
     sb.append("a.provinceCd,a.city.citycd,a.city.citynm,");
@@ -502,7 +503,7 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
       supplier.getCity().setCitycd(RowDataUtil.getString(obj[5]));
       supplier.getCity().setCitynm(RowDataUtil.getString(obj[6]));
       supplier.setAddress(RowDataUtil.getString(obj[7]));
-      supplier.setEnabled(RowDataUtil.getString(obj[9]));
+      supplier.setIsActive(RowDataUtil.getChar(obj[9]));
       supplier.setContact(RowDataUtil.getString(obj[10]));
 
       ret.add(supplier);
@@ -512,7 +513,7 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
   }
 
   @SuppressWarnings("unchecked")
-  public List<Customer> getSuppliers(long teamId, String supplierResource,
+  public List<Customer> getSuppliers(Integer teamId, String supplierResource,
       boolean b) {
     StringBuilder sb = new StringBuilder();
     sb.append("select a.customerId,a.name,a.countryCd,a.provinceCd,");
@@ -540,15 +541,15 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
       supplier.getCity().setCitycd(RowDataUtil.getString(obj[4]));
       supplier.setContact(RowDataUtil.getString(obj[5]));
       supplier.setContactTel(RowDataUtil.getString(obj[6]));
-      supplier.setEnabled(RowDataUtil.getString(obj[7]));
-      supplier.setDel(RowDataUtil.getString(obj[8]));
+      supplier.setIsActive(RowDataUtil.getChar(obj[7]));
+      supplier.setDel(RowDataUtil.getChar(obj[8]));
       ret.add(supplier);
     }
 
     return ret;
   }
 
-  public int saveGroupSupplier(long teamId, String[] select) {
+  public int saveGroupSupplier(Integer teamId, String[] select) {
     StringBuilder sql = new StringBuilder();
 
     sql.append("delete from TeamSupplier where id.teamId=? ");
@@ -564,11 +565,11 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
     return 0;
   }
 
-  public int editSupplier(Customer supplier, long teamId) {
+  public int editSupplier(Customer supplier, Integer teamId) {
     boolean create = false;
     HibernateTemplate template = getHibernateTemplate();
     Customer tblCust = (Customer) template.get(Customer.class,
-        supplier.getSupplierId(), LockMode.UPGRADE);
+        supplier.getSupplierId(), LockMode.PESSIMISTIC_WRITE);
 
     if (null == tblCust) {
       tblCust = new Customer();
@@ -579,7 +580,7 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
     tblCust.setCountryCd(supplier.getCountryCd());
     tblCust.setProvinceCd(supplier.getProvinceCd());
     tblCust.setCity(supplier.getCity());
-    tblCust.setZip(supplier.getZipCode());
+    tblCust.setZip(supplier.getZip());
     tblCust.setAddress(supplier.getAddress());
     tblCust.setBussId(supplier.getBussId());
 
@@ -588,20 +589,20 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
     tblCust.setContact(supplier.getContact());
     tblCust.setContactEmail(supplier.getContactEmail());
 
-    tblCust.setFeature(RowDataUtil.getString(supplier.getFeature()));
+    tblCust.setFeature(RowDataUtil.getChar(supplier.getFeature()));
     tblCust.setRoute(supplier.getRegion());
-    tblCust.setResource(RowDataUtil.getString(supplier.getResource()));
+    tblCust.setResource(RowDataUtil.getChar(supplier.getResource()));
     tblCust.setPayment(supplier.getClearingCycle());
 
     tblCust.setBankid1(supplier.getBankid1());
     tblCust.setBankname1(supplier.getBankname1());
     tblCust.setBcltname1(supplier.getBcltname1());
     // tblCust.setEnabled('N');
-    tblCust.setDel("N");
+    tblCust.setDel('N');
 
-    tblCust.setUpdatedBy(supplier.getUpdatedBy());
+    tblCust.setUpdatedby(supplier.getUpdatedby());
     if (supplier.getSupplierId() <= 0) {
-      tblCust.setCreatedBy(supplier.getUpdatedBy());
+      tblCust.setCreatedby(supplier.getUpdatedby());
     }
     template.saveOrUpdate(tblCust);
 
@@ -624,7 +625,7 @@ public class CustomerDaoHibernate extends GenericDaoHibernate<Customer, Long>
       tblSupplierContact.setMobile(contact.getMobile());
       tblSupplierContact.setEmail(contact.getEmail());
       tblSupplierContact.setMsn(contact.getMsn());
-      tblSupplierContact.setCreatedBy(supplier.getUpdatedBy());
+      tblSupplierContact.setCreatedby(supplier.getUpdatedby());
       template.save(tblSupplierContact);
     }
 

@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.manage.finance;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -43,7 +44,7 @@ public class SingleTourBalanceAction extends ManageAction {
   private String tourNo;
 
   /** 部门 */
-  private long kenTeamId = 0;
+  private int kenTeamId = 0;
 
   /** 专管员 */
   private int kenUserId;
@@ -87,22 +88,22 @@ public class SingleTourBalanceAction extends ManageAction {
   private int allLeaderPax;
 
   /** 总收入 */
-  private double allAmount;
+  private BigDecimal allAmount;
 
   /** 已收款 */
-  private double allAlAmount;
+  private BigDecimal allAlAmount;
 
   /** 总的纯团费 */
-  private double allTourAmount;
+  private BigDecimal allTourAmount;
 
   /** 总的成本 */
-  private double allCostAmount;
+  private BigDecimal allCostAmount;
 
   /** 总毛利 */
-  private double allGrossAmount;
+  private BigDecimal allGrossAmount;
 
   /** 总毛利率 */
-  private double allGrossAmountRate;
+  private BigDecimal allGrossAmountRate;
 
   public String execute() {
     // 页面初始化
@@ -126,29 +127,29 @@ public class SingleTourBalanceAction extends ManageAction {
 
     allPax = 0;
     allLeaderPax = 0;
-    allAmount = 0.0;
-    allAlAmount = 0.0;
-    allTourAmount = 0.0;
-    allCostAmount = 0.0;
-    allGrossAmount = 0.0;
-    allGrossAmountRate = 0.0;
+    allAmount = new BigDecimal(0);
+    allAlAmount = new BigDecimal(0);
+    allTourAmount = new BigDecimal(0);
+    allCostAmount = new BigDecimal(0);
+    allGrossAmount = new BigDecimal(0);
+    allGrossAmountRate = new BigDecimal(0);
 
     for (Plan tour : tours) {
       allPax += tour.getPax();
       allLeaderPax += tour.getLeaderPax();
-      allAmount = Arith.add(allAmount, tour.getAmount());
-      allAlAmount = Arith.add(allAlAmount, tour.getAlAmount());
-      allTourAmount = Arith.add(allTourAmount, tour.getTourAmount());
-      allCostAmount = Arith.add(allCostAmount, tour.getCost());
+      allAmount = allAmount.add(tour.getAmount());
+      allAlAmount = allAlAmount.add(tour.getAlAmount());
+      allTourAmount = allTourAmount.add(tour.getTourAmount());
+      allCostAmount = allCostAmount.add(tour.getCost());
       // 四舍五入保留两位小数
       allAmount = Arith.round(allAmount, 2);
       allTourAmount = Arith.round(allTourAmount, 2);
       allCostAmount = Arith.round(allCostAmount, 2);
     }
-    allGrossAmount = Arith.sub(allTourAmount, allCostAmount);
-    if (allTourAmount != 0.0) {
-      allGrossAmountRate = Arith.div(allGrossAmount, allTourAmount);
-      allGrossAmountRate = Arith.mul(allGrossAmountRate, 100.0);
+    allGrossAmount = allTourAmount.subtract(allCostAmount);
+    if (allTourAmount.doubleValue() != 0.0) {
+      allGrossAmountRate = allGrossAmount.divide(allTourAmount);
+      allGrossAmountRate = allGrossAmountRate.multiply(new BigDecimal(100));
       // 四舍五入保留两位小数
       allGrossAmountRate = Arith.round(allGrossAmountRate, 2);
     }
@@ -172,14 +173,14 @@ public class SingleTourBalanceAction extends ManageAction {
       costTypeList = getCodeList("ebiz_cost_type");
       supplierList = customerService.getUsableSupplier(0);
       bookList = tourService.roGetBookList(tourNo);
-      double amount = 0;
-      double payCosts = 0;
+      BigDecimal amount = new BigDecimal(0);
+      BigDecimal payCosts = new BigDecimal(0);
       int pax = 0;
 
       String str = new String();
       for (Booking book : bookList) {
-        amount += (book.getDbamt() + book.getFinalExpense());
-        payCosts += book.getPayCosts();
+        amount = amount.add(book.getDbamt()).add(book.getFinalExpense());
+        payCosts = payCosts.add(book.getPayCosts());
         pax += book.getPax();
         if (null != book.getLeaders() && !"".equals(book.getLeaders()))
           str = str + book.getLeaders();
@@ -188,12 +189,12 @@ public class SingleTourBalanceAction extends ManageAction {
 
       plan.setMuAmount(Arith.round(amount, 2));
       plan.setAlAmount(payCosts);
-      plan.setWiAmount(Arith.round(amount - payCosts, 2));
-      double grossAmount = plan.getTourAmount() - plan.getCost();
+      plan.setWiAmount(Arith.round(amount.subtract(payCosts), 2));
+      BigDecimal grossAmount = plan.getTourAmount().subtract(plan.getCost());
       plan.setGrossAmount(Arith.round(grossAmount, 2));
-      if (plan.getTourAmount() != 0) {
-        double grossAmountRate = plan.getGrossAmount() / plan.getTourAmount()
-            * 100;
+      if (plan.getTourAmount().doubleValue() != 0) {
+        BigDecimal grossAmountRate = plan.getGrossAmount()
+            .divide(plan.getTourAmount()).multiply(new BigDecimal(100));
         plan.setGrossAmountRate(Arith.round(grossAmountRate, 2));
       }
 
@@ -275,14 +276,14 @@ public class SingleTourBalanceAction extends ManageAction {
     }
 
     bookList = tourService.roGetBookList(tourNo);
-    double amount = 0;
-    double payCosts = 0;
+    BigDecimal amount = new BigDecimal(0);
+    BigDecimal payCosts = new BigDecimal(0);
     int pax = 0;
 
     String str = new String();
     for (Booking book : bookList) {
-      amount += (book.getDbamt() + book.getFinalExpense());
-      payCosts += book.getPayCosts();
+      amount = amount.add(book.getDbamt()).add(book.getFinalExpense());
+      payCosts = payCosts.add(book.getPayCosts());
       pax += book.getPax();
       if (null != book.getLeaders() && !"".equals(book.getLeaders()))
         str = str + book.getLeaders();
@@ -293,12 +294,12 @@ public class SingleTourBalanceAction extends ManageAction {
     if (null != plan) {
       plan.setMuAmount(Arith.round(amount, 2));
       plan.setAlAmount(payCosts);
-      plan.setWiAmount(Arith.round(amount - payCosts, 2));
-      double grossAmount = plan.getTourAmount() - plan.getCost();
+      plan.setWiAmount(Arith.round(amount.subtract(payCosts), 2));
+      BigDecimal grossAmount = plan.getTourAmount().subtract(plan.getCost());
       plan.setGrossAmount(Arith.round(grossAmount, 2));
-      if (plan.getTourAmount() != 0) {
-        double grossAmountRate = plan.getGrossAmount() / plan.getTourAmount()
-            * 100;
+      if (plan.getTourAmount().doubleValue() != 0) {
+        BigDecimal grossAmountRate = plan.getGrossAmount()
+            .divide(plan.getTourAmount()).multiply(new BigDecimal(100));
         plan.setGrossAmountRate(Arith.round(grossAmountRate, 2));
       }
 
@@ -306,7 +307,8 @@ public class SingleTourBalanceAction extends ManageAction {
 
     }
     if (plan.getPax() != 0) {
-      double grossAmountAverage = plan.getGrossAmount() / plan.getPax();
+      BigDecimal grossAmountAverage = plan.getGrossAmount().divide(
+          new BigDecimal(plan.getPax()));
       plan.setGrossAmountAverage(Arith.round(grossAmountAverage, 2));
     }
 
@@ -345,14 +347,14 @@ public class SingleTourBalanceAction extends ManageAction {
 
     plan = tourService.roGetTourInfo(tourNo, false, true);
     bookList = tourService.roGetBookList(tourNo);
-    double amount = 0;
-    double payCosts = 0;
+    BigDecimal amount = new BigDecimal(0);
+    BigDecimal payCosts = new BigDecimal(0);
     int pax = 0;
 
     String str = new String();
     for (Booking book : bookList) {
-      amount += (book.getDbamt() + book.getFinalExpense());
-      payCosts += book.getPayCosts();
+      amount = amount.add(book.getDbamt()).add(book.getFinalExpense());
+      payCosts = payCosts.add(book.getPayCosts());
       pax += book.getPax();
       if (null != book.getLeaders() && !"".equals(book.getLeaders()))
         str = str + book.getLeaders();
@@ -363,12 +365,12 @@ public class SingleTourBalanceAction extends ManageAction {
     if (null != plan) {
       plan.setMuAmount(Arith.round(amount, 2));
       plan.setAlAmount(payCosts);
-      plan.setWiAmount(Arith.round(amount - payCosts, 2));
-      double grossAmount = plan.getTourAmount() - plan.getCost();
+      plan.setWiAmount(Arith.round(amount.subtract(payCosts), 2));
+      BigDecimal grossAmount = plan.getTourAmount().subtract(plan.getCost());
       plan.setGrossAmount(Arith.round(grossAmount, 2));
-      if (plan.getTourAmount() != 0) {
-        double grossAmountRate = plan.getGrossAmount() / plan.getTourAmount()
-            * 100;
+      if (plan.getTourAmount().doubleValue() != 0) {
+        BigDecimal grossAmountRate = plan.getGrossAmount()
+            .divide(plan.getTourAmount()).multiply(new BigDecimal(100));
         plan.setGrossAmountRate(Arith.round(grossAmountRate, 2));
       }
 
@@ -376,7 +378,8 @@ public class SingleTourBalanceAction extends ManageAction {
 
     }
     if (plan.getPax() != 0) {
-      double grossAmountAverage = plan.getGrossAmount() / plan.getPax();
+      BigDecimal grossAmountAverage = plan.getGrossAmount().divide(
+          new BigDecimal(plan.getPax()));
       plan.setGrossAmountAverage(Arith.round(grossAmountAverage, 2));
     }
 
@@ -410,14 +413,14 @@ public class SingleTourBalanceAction extends ManageAction {
       // ----------------------------------------------------------------------
 
       bookList = tourService.roGetBookList(tourNo);
-      double amount = 0;
-      double payCosts = 0;
+      BigDecimal amount = new BigDecimal(0);
+      BigDecimal payCosts = new BigDecimal(0);
       int pax = 0;
 
       String str = new String();
       for (Booking book : bookList) {
-        amount += (book.getDbamt() + book.getFinalExpense());
-        payCosts += book.getPayCosts();
+        amount = amount.add(book.getDbamt()).add(book.getFinalExpense());
+        payCosts = payCosts.add(book.getPayCosts());
         pax += book.getPax();
         if (null != book.getLeaders() && !"".equals(book.getLeaders()))
           str = str + book.getLeaders();
@@ -428,19 +431,20 @@ public class SingleTourBalanceAction extends ManageAction {
       if (null != plan) {
         plan.setMuAmount(Arith.round(amount, 2));
         plan.setAlAmount(payCosts);
-        plan.setWiAmount(Arith.round(amount - payCosts, 2));
-        double grossAmount = plan.getTourAmount() - plan.getCost();
+        plan.setWiAmount(Arith.round(amount.subtract(payCosts), 2));
+        BigDecimal grossAmount = plan.getTourAmount().subtract(plan.getCost());
         plan.setGrossAmount(Arith.round(grossAmount, 2));
-        if (plan.getTourAmount() != 0) {
-          double grossAmountRate = plan.getGrossAmount() / plan.getTourAmount()
-              * 100;
+        if (plan.getTourAmount().doubleValue() != 0) {
+          BigDecimal grossAmountRate = plan.getGrossAmount()
+              .divide(plan.getTourAmount()).multiply(new BigDecimal(100));
           plan.setGrossAmountRate(Arith.round(grossAmountRate, 2));
         }
 
         costList = plan.getCostList();
       }
       if (plan.getPax() != 0) {
-        double grossAmountAverage = plan.getGrossAmount() / plan.getPax();
+        BigDecimal grossAmountAverage = plan.getGrossAmount().divide(
+            new BigDecimal(plan.getPax()));
         plan.setGrossAmountAverage(Arith.round(grossAmountAverage, 2));
       }
 
@@ -493,8 +497,8 @@ public class SingleTourBalanceAction extends ManageAction {
           singleTourCostAcct.setId(i);
           costList.set(i, singleTourCostAcct);
         }
-        double amount = 0;
-        amount = plan.getCost() - obj.getAmount();
+        BigDecimal amount = new BigDecimal(0);
+        amount = plan.getCost().subtract(obj.getAmount());
         plan.setCost(Arith.round(amount, 2));
         costList.remove(obj);
         break;
@@ -512,11 +516,11 @@ public class SingleTourBalanceAction extends ManageAction {
     return SUCCESS;
   }
 
-  public long getKenDepartmentId() {
+  public int getKenDepartmentId() {
     return kenTeamId;
   }
 
-  public void setKenDepartmentId(long teamId) {
+  public void setKenDepartmentId(int teamId) {
     this.kenTeamId = teamId;
   }
 
@@ -648,23 +652,23 @@ public class SingleTourBalanceAction extends ManageAction {
     return allPax;
   }
 
-  public double getAllAmount() {
+  public BigDecimal getAllAmount() {
     return allAmount;
   }
 
-  public double getAllTourAmount() {
+  public BigDecimal getAllTourAmount() {
     return allTourAmount;
   }
 
-  public double getAllCostAmount() {
+  public BigDecimal getAllCostAmount() {
     return allCostAmount;
   }
 
-  public double getAllGrossAmount() {
+  public BigDecimal getAllGrossAmount() {
     return allGrossAmount;
   }
 
-  public double getAllGrossAmountRate() {
+  public BigDecimal getAllGrossAmountRate() {
     return allGrossAmountRate;
   }
 
@@ -672,7 +676,7 @@ public class SingleTourBalanceAction extends ManageAction {
     return allLeaderPax;
   }
 
-  public double getAllAlAmount() {
+  public BigDecimal getAllAlAmount() {
     return allAlAmount;
   }
 

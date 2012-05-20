@@ -75,9 +75,9 @@ public class VisaDaoHibernate extends GenericDaoHibernate<VisaHelp, String>
       visaItem.setCountry(RowDataUtil.getString(obj[1]));
       visaItem.setCnName(RowDataUtil.getString(obj[2]));
       visaItem.setSubject(RowDataUtil.getString(obj[3]));
-      visaItem.setMarketPrice(RowDataUtil.getDouble(obj[4]));
-      visaItem.setQuotedPrice(RowDataUtil.getDouble(obj[5]));
-      visaItem.setCostPrice(RowDataUtil.getDouble(obj[6]));
+      visaItem.setMarketPrice(RowDataUtil.getBigDecimal(obj[4]));
+      visaItem.setQuotedPrice(RowDataUtil.getBigDecimal(obj[5]));
+      visaItem.setCostPrice(RowDataUtil.getBigDecimal(obj[6]));
       visaItem.setUnit(RowDataUtil.getString(obj[7]));
       visaItem.setStartDate(RowDataUtil.getDate(obj[8]));
       visaItem.setEndDate(RowDataUtil.getDate(obj[9]));
@@ -119,9 +119,9 @@ public class VisaDaoHibernate extends GenericDaoHibernate<VisaHelp, String>
       visaItem.setRecordNo(RowDataUtil.getString(obj[0]));
       visaItem.setCnName(RowDataUtil.getString(obj[1]));
       visaItem.setSubject(RowDataUtil.getString(obj[2]));
-      visaItem.setMarketPrice(RowDataUtil.getDouble(obj[3]));
-      visaItem.setQuotedPrice(RowDataUtil.getDouble(obj[4]));
-      visaItem.setCostPrice(RowDataUtil.getDouble(obj[5]));
+      visaItem.setMarketPrice(RowDataUtil.getBigDecimal(obj[3]));
+      visaItem.setQuotedPrice(RowDataUtil.getBigDecimal(obj[4]));
+      visaItem.setCostPrice(RowDataUtil.getBigDecimal(obj[5]));
       visaItem.setUnit(RowDataUtil.getString(obj[6]));
       visaItem.setStartDate(RowDataUtil.getDate(obj[7]));
       visaItem.setEndDate(RowDataUtil.getDate(obj[8]));
@@ -152,9 +152,9 @@ public class VisaDaoHibernate extends GenericDaoHibernate<VisaHelp, String>
     item.setCountry(RowDataUtil.getString(visahelp.getCountry()));
     item.setCnName(RowDataUtil.getString(country.getName()));
     item.setSubject(RowDataUtil.getString(visahelp.getSubject()));
-    item.setMarketPrice(RowDataUtil.getDouble(visahelp.getPrice1()));
-    item.setQuotedPrice(RowDataUtil.getDouble(visahelp.getPrice2()));
-    item.setCostPrice(RowDataUtil.getDouble(visahelp.getCost()));
+    item.setMarketPrice(RowDataUtil.getBigDecimal(visahelp.getPrice1()));
+    item.setQuotedPrice(RowDataUtil.getBigDecimal(visahelp.getPrice2()));
+    item.setCostPrice(RowDataUtil.getBigDecimal(visahelp.getCost()));
     item.setUnit(RowDataUtil.getString(visahelp.getUnit()));
     item.setStartDate(RowDataUtil.getDate(visahelp.getSDate()));
     item.setEndDate(RowDataUtil.getDate(visahelp.getEDate()));
@@ -206,7 +206,7 @@ public class VisaDaoHibernate extends GenericDaoHibernate<VisaHelp, String>
     HibernateTemplate template = getHibernateTemplate();
     String recordNo = visaItem.getRecordNo();
     VisaHelp visahelp = (VisaHelp) template.get(VisaHelp.class, recordNo,
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
 
     if (target.equals("insert")) {
       if (visahelp != null) {
@@ -269,10 +269,10 @@ public class VisaDaoHibernate extends GenericDaoHibernate<VisaHelp, String>
     return true;
   }
 
-  public boolean deleteItem(String recordNo, long opUser) {
+  public boolean deleteItem(String recordNo, Integer opUser) {
     HibernateTemplate template = getHibernateTemplate();
     VisaHelp visahelp = (VisaHelp) template.get(VisaHelp.class, recordNo,
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     if (visahelp != null) {
       visahelp.setOpUser(opUser);
       visahelp.setOpKey('D');

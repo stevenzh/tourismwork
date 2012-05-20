@@ -14,10 +14,9 @@ import com.opentravelsoft.providers.ModuleDao;
 /**
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.2 $ $Date: 2009/03/09 15:37:04 $
  */
 @Repository("ModuleDao")
-public class ModuleDaoHibernate extends GenericDaoHibernate<Module, Long>
+public class ModuleDaoHibernate extends GenericDaoHibernate<Module, Integer>
     implements ModuleDao {
 
   public ModuleDaoHibernate() {

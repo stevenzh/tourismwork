@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.manage.finance.income;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,17 +63,17 @@ public class TourIncomeAction extends ManageAction {
   /**
    * 应付合计
    */
-  private double totalExpense;
+  private BigDecimal totalExpense;
 
   /**
    * 已收合计
    */
-  private double totalPayCosts;
+  private BigDecimal totalPayCosts;
 
   /**
    * 未收合计
    */
-  private double totalUnPay;
+  private BigDecimal totalUnPay;
 
   public String get() {
     teamList = incomeService.getOperatorTeamList();
@@ -87,9 +88,9 @@ public class TourIncomeAction extends ManageAction {
       bookList.set(i, book);
 
       totalPax += book.getPax();
-      totalExpense += book.getDbamt();
-      totalPayCosts += book.getPayCosts();
-      totalUnPay = totalExpense - totalPayCosts;
+      totalExpense = totalExpense.add(book.getDbamt());
+      totalPayCosts = totalPayCosts.add(book.getPayCosts());
+      totalUnPay = totalExpense.subtract(totalPayCosts);
     }
     return INPUT;
   }
@@ -98,7 +99,7 @@ public class TourIncomeAction extends ManageAction {
     Employee user = getUser();
     for (int i = bookList.size() - 1; i >= 0; i--) {
       Booking book = bookList.get(i);
-      if (book.getPayBack() == 0)
+      if (book.getPayBack().doubleValue() == 0)
         bookList.remove(i);
     }
     gathering.setCreatedBy(user.getUserId());
@@ -175,27 +176,27 @@ public class TourIncomeAction extends ManageAction {
     this.totalPax = totalPax;
   }
 
-  public double getTotalExpense() {
+  public BigDecimal getTotalExpense() {
     return totalExpense;
   }
 
-  public void setTotalExpense(double totalExpense) {
+  public void setTotalExpense(BigDecimal totalExpense) {
     this.totalExpense = totalExpense;
   }
 
-  public double getTotalPayCosts() {
+  public BigDecimal getTotalPayCosts() {
     return totalPayCosts;
   }
 
-  public void setTotalPayCosts(double totalPayCosts) {
+  public void setTotalPayCosts(BigDecimal totalPayCosts) {
     this.totalPayCosts = totalPayCosts;
   }
 
-  public double getTotalUnPay() {
+  public BigDecimal getTotalUnPay() {
     return totalUnPay;
   }
 
-  public void setTotalUnPay(double totalUnPay) {
+  public void setTotalUnPay(BigDecimal totalUnPay) {
     this.totalUnPay = totalUnPay;
   }
 

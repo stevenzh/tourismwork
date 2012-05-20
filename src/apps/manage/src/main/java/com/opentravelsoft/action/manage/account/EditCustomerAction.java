@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.manage.account;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class EditCustomerAction extends ManageAction {
   private CountryService countryService;
   @Autowired
   private CityService cityService;
-  
+
   private Customer agent = new Customer();
 
   /** 代理商编码 */
@@ -104,7 +105,7 @@ public class EditCustomerAction extends ManageAction {
       cityList = cityService.roGetCitysByProvince(agent.getProvinceCd());
     } else {
       cityList = cityService.getInlandCity();
-      agent.setStay(10f);
+      agent.setStay(new BigDecimal(10));
     }
 
     countryList = countryService.getCountryList();
@@ -173,7 +174,7 @@ public class EditCustomerAction extends ManageAction {
 
   public String submit() {
     Employee user = getUser();
-    agent.setUpdatedBy(user.getUserId());
+    agent.setUpdatedby(user.getUserId());
     int result = agentService.txEditAgent(agent, contacts);
     if (result < 0) {
       addActionError("客户的名称和联系人姓名重复.");
@@ -185,7 +186,7 @@ public class EditCustomerAction extends ManageAction {
 
   public String checked() {
     Employee user = getUser();
-    agent.setCheckedBy(user.getUserId());
+    agent.setCheckedby(user.getUserId());
     agentService.txCheckedAgent(agent);
 
     return SUCCESS;

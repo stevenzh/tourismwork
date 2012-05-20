@@ -21,7 +21,6 @@ import com.opentravelsoft.util.StringUtil;
 /**
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.2 $ $Date: 2009/03/09 15:37:04 $
  */
 @Repository("LineScheduleDao")
 public class LineScheduleDaoImpl extends
@@ -62,7 +61,7 @@ public class LineScheduleDaoImpl extends
     tfa602Id.setDay(day);
     HibernateTemplate template = getHibernateTemplate();
     LineSchedule schedule = (LineSchedule) template.get(LineSchedule.class,
-        tfa602Id, LockMode.UPGRADE);
+        tfa602Id, LockMode.PESSIMISTIC_WRITE);
     if (schedule == null) {
       LineSchedule schedule1 = new LineSchedule();
       schedule1.setId(tfa602Id);
@@ -75,10 +74,10 @@ public class LineScheduleDaoImpl extends
   public int deleteLineSchedule(LineSchedule schedule) {
     LineScheduleId tfa602Id = new LineScheduleId();
     tfa602Id.setLineNo(schedule.getId().getLineNo());
-    tfa602Id.setDay(schedule.getDay());
+    tfa602Id.setDay(schedule.getId().getDay());
     HibernateTemplate template = getHibernateTemplate();
     LineSchedule tfa602 = (LineSchedule) template.get(LineSchedule.class,
-        tfa602Id, LockMode.UPGRADE);
+        tfa602Id, LockMode.PESSIMISTIC_WRITE);
     if (tfa602 != null) {
       template.delete(tfa602);
     }
@@ -87,7 +86,7 @@ public class LineScheduleDaoImpl extends
     sb.append("from LineTraffic ");
     sb.append("where lineNo=? and day=? ");
 
-    Object[] params = { schedule.getId().getLineNo(), schedule.getDay() };
+    Object[] params = { schedule.getId().getLineNo(), schedule.getId().getDay() };
     List<LineTraffic> list = template.find(sb.toString(), params);
     if (list != null) {
       template.deleteAll(list);
@@ -109,9 +108,9 @@ public class LineScheduleDaoImpl extends
       LineScheduleId tfa602Id = new LineScheduleId();
       lineNo = obj.getId().getLineNo();
       tfa602Id.setLineNo(lineNo);
-      tfa602Id.setDay(obj.getDay());
+      tfa602Id.setDay(obj.getId().getDay());
       LineSchedule schedule = (LineSchedule) template.get(LineSchedule.class,
-          tfa602Id, LockMode.UPGRADE);
+          tfa602Id, LockMode.PESSIMISTIC_WRITE);
 
       if (schedule != null) {
         if (StringUtil.hasLength(obj.getProgram())
@@ -129,7 +128,7 @@ public class LineScheduleDaoImpl extends
           schedule.setQuarter(obj.getQuarter());
           template.saveOrUpdate(schedule);
         } else {
-          keyList1.add(obj.getDay());
+          keyList1.add(obj.getId().getDay());
         }
       } else {
         if (StringUtil.hasLength(obj.getProgram())
@@ -148,29 +147,29 @@ public class LineScheduleDaoImpl extends
           schedule.setQuarter(obj.getQuarter());
           template.save(schedule);
         } else {
-          keyList1.add(obj.getDay());
+          keyList1.add(obj.getId().getDay());
         }
       }
-      keyList.add(obj.getDay());
+      keyList.add(obj.getId().getDay());
 
     }
 
     List<LineSchedule> oldList = this.getLineSchedule(lineNo);
     for (LineSchedule schedule : oldList) {
       // 删除多余的天
-      if (!keyList.contains(schedule.getDay())) {
+      if (!keyList.contains(schedule.getId().getDay())) {
         LineScheduleId tfa602Id = new LineScheduleId();
         tfa602Id.setLineNo(lineNo);
-        tfa602Id.setDay(schedule.getDay());
+        tfa602Id.setDay(schedule.getId().getDay());
         LineSchedule tfa602 = (LineSchedule) template.get(LineSchedule.class,
-            tfa602Id, LockMode.UPGRADE);
+            tfa602Id, LockMode.PESSIMISTIC_WRITE);
         template.delete(tfa602);
       }
     }
 
     for (LineTraffic obj1 : trifficList) {
       LineTraffic tbllinetraffic = (LineTraffic) template.get(
-          LineTraffic.class, obj1.getId(), LockMode.UPGRADE);
+          LineTraffic.class, obj1.getId(), LockMode.PESSIMISTIC_WRITE);
 
       if (tbllinetraffic != null) {
         if (StringUtil.hasLength(obj1.getFromCity())
@@ -217,7 +216,8 @@ public class LineScheduleDaoImpl extends
     for (LineTraffic tbllinetraffic : oldList1) {
       if (keyList1.contains(tbllinetraffic.getDay())) {
         LineTraffic tbllinetraffic1 = (LineTraffic) template.get(
-            LineTraffic.class, tbllinetraffic.getId(), LockMode.UPGRADE);
+            LineTraffic.class, tbllinetraffic.getId(),
+            LockMode.PESSIMISTIC_WRITE);
         template.delete(tbllinetraffic1);
       }
 
@@ -227,7 +227,8 @@ public class LineScheduleDaoImpl extends
       // 删除多余的天
       if (keyList2.contains(tbllinetraffic.getStep())) {
         LineTraffic tbllinetraffic1 = (LineTraffic) template.get(
-            LineTraffic.class, tbllinetraffic.getId(), LockMode.UPGRADE);
+            LineTraffic.class, tbllinetraffic.getId(),
+            LockMode.PESSIMISTIC_WRITE);
         template.delete(tbllinetraffic1);
       }
     }

@@ -67,7 +67,7 @@ public class LineDaoImpl extends GenericDaoHibernate<Line, String> implements
   @SuppressWarnings({ "unchecked", "rawtypes" })
   public int cancelLine(String lineNo) {
     HibernateTemplate template = getHibernateTemplate();
-    Line line = (Line) template.get(Line.class, lineNo, LockMode.UPGRADE);
+    Line line = (Line) template.get(Line.class, lineNo, LockMode.PESSIMISTIC_WRITE);
 
     Object[] params = { lineNo };
     StringBuilder sb = new StringBuilder();
@@ -89,7 +89,7 @@ public class LineDaoImpl extends GenericDaoHibernate<Line, String> implements
   public int updateLine(Line line) {
     HibernateTemplate template = getHibernateTemplate();
     Line line1 = (Line) template.load(Line.class, line.getLineNo(),
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
 
     if (line1 != null) {
       line1.setLineName(line.getLineName());

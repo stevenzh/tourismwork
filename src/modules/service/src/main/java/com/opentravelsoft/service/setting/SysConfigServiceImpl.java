@@ -11,11 +11,11 @@ import com.opentravelsoft.providers.SysConfigDao;
 
 @Service("SysConfigService")
 public class SysConfigServiceImpl implements SysConfigService {
-  
+
   @Autowired
   private SysConfigDao sysConfigDao;
 
-  public void deleteConfig(long configId) {
+  public void deleteConfig(int configId) {
     sysConfigDao.remove(configId);
   }
 
@@ -23,7 +23,7 @@ public class SysConfigServiceImpl implements SysConfigService {
     return sysConfigDao.getAll();
   }
 
-  public SysConfig getConfig(long configId) {
+  public SysConfig getConfig(int configId) {
     return sysConfigDao.get(configId);
   }
 

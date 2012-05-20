@@ -3,7 +3,6 @@ package com.opentravelsoft.service;
 import java.util.Date;
 import java.util.List;
 
-import com.opentravelsoft.entity.Booking;
 import com.opentravelsoft.entity.Express;
 import com.opentravelsoft.entity.Plan;
 
@@ -44,7 +43,7 @@ public interface MyPageService {
    * 
    * @return
    */
-  public List<Plan> roGetTours(long teamId, long userId, String lineName,
+  public List<Plan> roGetTours(Integer teamId, Integer userId, String lineName,
       Date startDate, Date endDate);
 
   // public List<Booking> roGetOrderTask(String teamId, String userId,

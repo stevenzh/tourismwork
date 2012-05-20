@@ -7,12 +7,10 @@ import com.opentravelsoft.entity.Module;
 /**
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.2 $ $Date: 2009/03/09 15:37:04 $
  */
-public interface ModuleDao extends GenericDao<Module, Long>
-{
-    List<Module> getModuleList(boolean active);
+public interface ModuleDao extends GenericDao<Module, Integer> {
+  List<Module> getModuleList(boolean active);
 
-    List<Module> queryModle(String keyword);
+  List<Module> queryModle(String keyword);
 
 }

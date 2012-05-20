@@ -1,6 +1,7 @@
 package com.opentravelsoft.report.action;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -410,7 +411,7 @@ public class FopReportAction extends ActionSupport {
         outBandObject.setText1(label1);
         outBandObject.setText2(label2);
         outBandObject.setText3(label3);
-        outBandObject.setOpuser(userName);
+        outBandObject.setOpUserName(userName);
         tourService.txSaveOutBandObject(outBandObject);
       }
       tour.setLabel1(label1);
@@ -820,9 +821,10 @@ public class FopReportAction extends ActionSupport {
       if (null != tour)
         reckoning.setLeaderPax(tour.getLeaderPax());
 
-      double amount1 = 0;
+      BigDecimal amount1 = new BigDecimal(0);
       for (int i = 0; i < reckoning.getReckoningAcctList().size(); i++) {
-        amount1 += reckoning.getReckoningAcctList().get(i).getAmount();
+        amount1 = amount1.add(reckoning.getReckoningAcctList().get(i)
+            .getAmount());
       }
       reckoning.setAmount(amount1);
 
@@ -848,9 +850,9 @@ public class FopReportAction extends ActionSupport {
 
       reckoningAcctList = reckoningMakeService.roGetCustomerList(reserveNo);
       if (!(reckoningAcctList.isEmpty())) {
-        double amount = 0;
+        BigDecimal amount = new BigDecimal(0);
         for (ReckoningAcct obj : reckoningAcctList) {
-          amount += obj.getAmount();
+          amount = amount.add(obj.getAmount());
         }
         reckoning.setAmount(amount);
       }
@@ -926,14 +928,14 @@ public class FopReportAction extends ActionSupport {
         tour.setBookList(bookList);
       }
 
-      double amount = 0;
-      double payCosts = 0;
+      BigDecimal amount = new BigDecimal(0);
+      BigDecimal payCosts = new BigDecimal(0);
       int pax = 0;
 
       String str = new String();
       for (Booking book : bookList) {
-        amount += (book.getDbamt() + book.getFinalExpense());
-        payCosts += book.getPayCosts();
+        amount = amount.add(book.getDbamt()).add(book.getFinalExpense());
+        payCosts = payCosts.add(book.getPayCosts());
         pax += book.getPax();
         if (null != book.getLeaders() && !"".equals(book.getLeaders()))
           str = str + book.getLeaders();
@@ -952,26 +954,28 @@ public class FopReportAction extends ActionSupport {
         tour.setExtraBedRoom(tour.getExtraBedRoom());
         tour.setMuAmount(amount);
         tour.setAlAmount(payCosts);
-        tour.setWiAmount(amount - payCosts);
+        tour.setWiAmount(amount.subtract(payCosts));
         tour.setRemarks(tour.getRemarks());
         tour.setTeam(tour.getTeam());
         if (null != suser) {
           tour.setOprateUserName(suser.getUserName());
         }
-        tour.setGrossAmount(tour.getTourAmount() - tour.getCost());
+        tour.setGrossAmount(tour.getTourAmount().subtract(tour.getCost()));
 
         // 计算毛利率
-        double grossAmountRate = 0d;
-        if (tour.getTourAmount() != 0)
-          grossAmountRate = tour.getGrossAmount() / tour.getTourAmount() * 100;
+        BigDecimal grossAmountRate = new BigDecimal(0);
+        if (tour.getTourAmount().doubleValue() != 0)
+          grossAmountRate = tour.getGrossAmount().divide(tour.getTourAmount())
+              .multiply(new BigDecimal(100));
 
-        tour.setGrossAmountRate(new Double(df.format(grossAmountRate)));
+        tour.setGrossAmountRate(grossAmountRate);
 
         costList = tour.getCostList();
 
       }
-      double grossAmountAverage = tour.getGrossAmount() / tour.getPax();
-      tour.setGrossAmountAverage(new Double(df.format(grossAmountAverage)));
+      BigDecimal grossAmountAverage = tour.getGrossAmount().divide(
+          new BigDecimal(tour.getPax()));
+      tour.setGrossAmountAverage(grossAmountAverage);
 
       if (costList.isEmpty()) {
         costList.add(new TourCost());

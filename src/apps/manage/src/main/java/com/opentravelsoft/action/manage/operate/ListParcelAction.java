@@ -39,7 +39,7 @@ public class ListParcelAction extends ManageAction {
   private List<Outcome> parcels = null;
 
   /** 部门 */
-  private long kenTeamId = 0;
+  private int kenTeamId = 0;
 
   /** 操作员 */
   private int kenEmployeeId = 0;
@@ -86,11 +86,11 @@ public class ListParcelAction extends ManageAction {
     return parcels;
   }
 
-  public long getKenDepartmentId() {
+  public int getKenDepartmentId() {
     return kenTeamId;
   }
 
-  public void setKenDepartmentId(long teamId) {
+  public void setKenDepartmentId(int teamId) {
     this.kenTeamId = teamId;
   }
 

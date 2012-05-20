@@ -61,7 +61,8 @@ public class LineVisaAction extends ManageAction {
 
     for (LineVisa routeVisa : visaTl) {
       for (int i = 0; i < visaList.size(); i++) {
-        if (routeVisa.getRecNo().equals(visaList.get(i).getRecNo())) {
+        if (routeVisa.getId().getRecNo()
+            .equals(visaList.get(i).getId().getRecNo())) {
           visaList.remove(i);
           break;
         }

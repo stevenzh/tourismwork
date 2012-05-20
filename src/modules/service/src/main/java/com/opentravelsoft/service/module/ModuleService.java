@@ -9,12 +9,12 @@ public interface ModuleService {
 
   List<Module> roGetQueryModule(String keyword);
 
-  void txDelModule(long moduleId);
+  void txDelModule(Integer moduleId);
 
-  Module roGetModuleDetail(long moduleId);
+  Module roGetModuleDetail(Integer moduleId);
 
   void txSaveModule(Module module);
 
-  public String txSaveRoleModelPerm(long roleId, String moduleName,
+  public String txSaveRoleModelPerm(Integer roleId, String moduleName,
       String moduleAction, String permValue);
 }

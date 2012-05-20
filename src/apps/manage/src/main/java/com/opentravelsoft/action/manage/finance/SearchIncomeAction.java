@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.manage.finance;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,11 +45,11 @@ public class SearchIncomeAction extends ManageAction {
   // 合计(对应地区) ---------------------
   private int totalpax;
 
-  private double totalDbamt;
+  private BigDecimal totalDbamt;
 
-  private double totalCramt;
+  private BigDecimal totalCramt;
 
-  private double totalUnpay;
+  private BigDecimal totalUnpay;
 
   // 查询条件 ---------------------------
   private String kenProvince;
@@ -76,9 +77,9 @@ public class SearchIncomeAction extends ManageAction {
       Booking income = bookingList.get(i);
       bookingList.set(i, income);
       totalpax += income.getPax();
-      totalDbamt += income.getDbamt();
-      totalCramt += income.getCramt();
-      totalUnpay = totalDbamt - totalCramt;
+      totalDbamt = totalDbamt.add(income.getDbamt());
+      totalCramt = totalCramt.add(income.getCramt());
+      totalUnpay = totalDbamt.subtract(totalCramt);
     }
     return SUCCESS;
   }
@@ -147,27 +148,27 @@ public class SearchIncomeAction extends ManageAction {
     this.totalpax = totalpax;
   }
 
-  public double getTotalDbamt() {
+  public BigDecimal getTotalDbamt() {
     return totalDbamt;
   }
 
-  public void setTotalDbamt(double totalDbamt) {
+  public void setTotalDbamt(BigDecimal totalDbamt) {
     this.totalDbamt = totalDbamt;
   }
 
-  public double getTotalCramt() {
+  public BigDecimal getTotalCramt() {
     return totalCramt;
   }
 
-  public void setTotalCramt(double totalCramt) {
+  public void setTotalCramt(BigDecimal totalCramt) {
     this.totalCramt = totalCramt;
   }
 
-  public double getTotalUnpay() {
+  public BigDecimal getTotalUnpay() {
     return totalUnpay;
   }
 
-  public void setTotalUnpay(double totalUnpay) {
+  public void setTotalUnpay(BigDecimal totalUnpay) {
     this.totalUnpay = totalUnpay;
   }
 

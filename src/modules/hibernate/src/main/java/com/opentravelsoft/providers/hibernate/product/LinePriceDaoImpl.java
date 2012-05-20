@@ -51,10 +51,10 @@ public class LinePriceDaoImpl extends GenericDaoHibernate<LinePrice, String>
   }
 
   @SuppressWarnings("unchecked")
-  public int deleteLinePrice(String priceNo, String note, long uid) {
+  public int deleteLinePrice(String priceNo, String note, int uid) {
     HibernateTemplate template = getHibernateTemplate();
     LinePrice tfa606 = (LinePrice) template.get(LinePrice.class, priceNo,
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     if (tfa606 != null) {
       // 修改对应计划
       StringBuilder sb = new StringBuilder();
@@ -86,8 +86,8 @@ public class LinePriceDaoImpl extends GenericDaoHibernate<LinePrice, String>
   @Override
   public void savePrice(LinePrice routePrice) {
     getHibernateTemplate().saveOrUpdate(routePrice);
-//    LinePrice price = get(routePrice.getRecNo());
-//    price.setStartDate(routePrice.getStartDate());
-//    getHibernateTemplate().saveOrUpdate(price);
+    // LinePrice price = get(routePrice.getRecNo());
+    // price.setStartDate(routePrice.getStartDate());
+    // getHibernateTemplate().saveOrUpdate(price);
   }
 }

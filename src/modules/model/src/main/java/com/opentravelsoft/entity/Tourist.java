@@ -15,8 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-@Table(name = "tbl_tourist", catalog = "tourismwork_db")
-public class Tourist implements java.io.Serializable {
+@Table(name = "tbl_tourist")
+public class Tourist implements Comparable<Tourist>, java.io.Serializable {
 
   private String nmno;
   private Booking booking;
@@ -62,7 +62,7 @@ public class Tourist implements java.io.Serializable {
   private Character roomKey1;
   /** 取消状态 */
   private char del;
-  private String opuser;
+  private Integer opuser;
   /** 更新时间 */
   private Date opdate;
   /** 参团要求 */
@@ -382,12 +382,12 @@ public class Tourist implements java.io.Serializable {
     this.del = del;
   }
 
-  @Column(name = "OPUSER", length = 4)
-  public String getOpuser() {
+  @Column(name = "OPUSER")
+  public Integer getOpuser() {
     return this.opuser;
   }
 
-  public void setOpuser(String opuser) {
+  public void setOpuser(Integer opuser) {
     this.opuser = opuser;
   }
 
@@ -916,7 +916,7 @@ public class Tourist implements java.io.Serializable {
   public void setReceivables(BigDecimal receivables) {
     this.receivables = receivables;
     this.receivablesSTR = DF.format(receivables);
-    this.residual = receivables.divide(amount);
+    this.residual = receivables.subtract(amount);
   }
 
   /**

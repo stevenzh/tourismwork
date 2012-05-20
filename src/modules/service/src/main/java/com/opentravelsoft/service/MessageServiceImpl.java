@@ -18,7 +18,7 @@ import com.opentravelsoft.providers.OutcomeDao;
 @WebService
 @Service("MessageService")
 public class MessageServiceImpl implements MessageService {
-  
+
   @Autowired
   private BookingDao bookingDao;
 
@@ -31,7 +31,7 @@ public class MessageServiceImpl implements MessageService {
   @Autowired
   private OutcomeDao outcomeDao;
 
-  public int getMessages(long uid) {
+  public int getMessages(int uid) {
     int count = 0;
 
     List<Booking> list = bookingDao.getUnreadBookings(uid);

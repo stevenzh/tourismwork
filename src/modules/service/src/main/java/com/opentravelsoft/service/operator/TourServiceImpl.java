@@ -64,7 +64,7 @@ public class TourServiceImpl implements TourService {
     return listDao.getList("Homeplace");
   }
 
-  public int txCancelTour(String tourNo, String note, long uid) {
+  public int txCancelTour(String tourNo, String note, int uid) {
     return planDao.cancelTour(tourNo, note, uid);
   }
 
@@ -96,7 +96,7 @@ public class TourServiceImpl implements TourService {
     return teamDao.getTeamList(TeamType.Operator);
   }
 
-  public List<Plan> roGetTours(long teamId, long userId, String lineName,
+  public List<Plan> roGetTours(Integer teamId, Integer userId, String lineName,
       Date kenStartDate, Date kenEndDate) {
     return planDao.getTours(teamId, userId, lineName, kenStartDate, kenEndDate);
   }
@@ -129,16 +129,16 @@ public class TourServiceImpl implements TourService {
     return planDao.makeTourAccounts(singleTourBalance);
   }
 
-  public Plan txSingleTourBalanceAuditing(String tourNo, long uid) {
+  public Plan txSingleTourBalanceAuditing(String tourNo, int uid) {
     // TODO WorkFLow
     return planDao.auditTourAccounts(tourNo, uid);
   }
 
-  public List<Booking> txMustPayModify(List<Booking> bookList, long uid) {
+  public List<Booking> txMustPayModify(List<Booking> bookList, int uid) {
     return planDao.mustPayModify(bookList, uid);
   }
 
-  public int txAuthorizationModify(int accountId, long uid) {
+  public int txAuthorizationModify(int accountId, int uid) {
     return planDao.authorizationModify(accountId, uid);
   }
 

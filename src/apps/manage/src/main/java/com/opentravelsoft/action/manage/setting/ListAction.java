@@ -24,7 +24,7 @@ public class ListAction extends ManageAction {
 
   private Set<String> listType;
 
-  private long listId;
+  private int listId;
 
   private String listName;
 

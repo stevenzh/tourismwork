@@ -114,7 +114,7 @@ public class TourOperateAction extends ManageAction {
     for (Tourist item : tour.getCustomerList()) {
       item.setBirthplaceName(birthPlace.get(item.getBirthplace()));
       item.setPassportPlaceName(passportPlace.get(item.getPassportPlace()));
-      item.setSex(item.getSex().equals("M") ? "男" : "女");
+      item.setSex(item.getSex());
     }
 
     if (tour.getPax() != tour.getCustomerList().size()) {

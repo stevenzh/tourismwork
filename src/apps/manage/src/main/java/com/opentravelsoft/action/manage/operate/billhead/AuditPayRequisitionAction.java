@@ -24,7 +24,7 @@ public class AuditPayRequisitionAction extends ManageAction {
   @Autowired
   private OutcomeService outcomeService;
 
-  private long outcomeId;
+  private int outcomeId;
 
   private Outcome billhead;
 
@@ -118,11 +118,11 @@ public class AuditPayRequisitionAction extends ManageAction {
     this.billhead = billhead;
   }
 
-  public long getOutcomeId() {
+  public int getOutcomeId() {
     return outcomeId;
   }
 
-  public void setOutcomeId(long outcomeId) {
+  public void setOutcomeId(int outcomeId) {
     this.outcomeId = outcomeId;
   }
 

@@ -12,21 +12,19 @@ import com.opentravelsoft.providers.PermissionDao;
 
 @Repository("PermissionDao")
 public class PermissionDaoHibernate extends
-		GenericDaoHibernate<Permission, Long> implements PermissionDao {
+    GenericDaoHibernate<Permission, Integer> implements PermissionDao {
 
-	public PermissionDaoHibernate() {
-		super(Permission.class);
-	}
+  public PermissionDaoHibernate() {
+    super(Permission.class);
+  }
 
-	public Map<Integer, String> getPermissions() {
-		HibernateTemplate templte = getHibernateTemplate();
-		List<Permission> list = templte.loadAll(Permission.class);
-		Map<Integer, String> map = new TreeMap<Integer, String>();
-		for (Permission permission : list) {
-			map
-					.put(permission.getPermissionId(), permission
-							.getPermissionKey());
-		}
-		return map;
-	}
+  public Map<Integer, String> getPermissions() {
+    HibernateTemplate templte = getHibernateTemplate();
+    List<Permission> list = templte.loadAll(Permission.class);
+    Map<Integer, String> map = new TreeMap<Integer, String>();
+    for (Permission permission : list) {
+      map.put(permission.getPermissionId(), permission.getPermissionKey());
+    }
+    return map;
+  }
 }

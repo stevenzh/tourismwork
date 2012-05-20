@@ -9,12 +9,10 @@ import javax.persistence.Table;
  * 省份
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:32 $
  */
 @Entity
 @Table(name = "tbl_province")
 public class Province {
-  private static final long serialVersionUID = -3397929975585184234L;
 
   public Province(String code) {
     this.code = code;

@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_teams", catalog = "tourismwork_db")
+@Table(name = "tbl_teams")
 public class Team implements java.io.Serializable {
 
   private Integer teamId;
@@ -33,25 +33,15 @@ public class Team implements java.io.Serializable {
     this.active = true;
   }
 
+  public Team(Integer team_id) {
+    this();
+    this.teamId = team_id;
+  }
+
   public Team(String name, short type, boolean active) {
     this.name = name;
     this.type = type;
     this.active = active;
-  }
-
-  public Team(Team team, String name, String code, short type, boolean active,
-      String description, Boolean private_, Set<Plan> plans, Set<Line> lines,
-      Set<Team> teams) {
-    this.parent = team;
-    this.name = name;
-    this.code = code;
-    this.type = type;
-    this.active = active;
-    this.description = description;
-    this.private_ = private_;
-    this.plans = plans;
-    this.lines = lines;
-    this.children = teams;
   }
 
   @Id

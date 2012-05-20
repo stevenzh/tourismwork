@@ -60,7 +60,7 @@ public interface LineService {
 
   public String txDuplicateRoute(String lineNo, String newLineName,
       String copyFeature, String copySchedule, String copyPrice,
-      String copyDestination, String copySight, String copyVisa, long userId)
+      String copyDestination, String copySight, String copyVisa, int userId)
       throws EbizException;
 
   public List<LineSchedule> getLineSchedule(String lineNo);

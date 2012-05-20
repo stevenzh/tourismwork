@@ -47,9 +47,9 @@ public class ListPayRequisitionAction extends ManageAction {
 
   // 查询条件 ------------------------------------------------------------------
 
-  private long kenUserId;
+  private int kenUserId;
 
-  private long kenTeamId;
+  private int kenTeamId;
 
   /** 团号 */
   private String kenTourNo;
@@ -138,11 +138,11 @@ public class ListPayRequisitionAction extends ManageAction {
     this.kenEndDate = kenEndDate;
   }
 
-  public long getKenMaker() {
+  public int getKenMaker() {
     return kenUserId;
   }
 
-  public void setKenMaker(long kenMaker) {
+  public void setKenMaker(int kenMaker) {
     this.kenUserId = kenMaker;
   }
 
@@ -154,11 +154,11 @@ public class ListPayRequisitionAction extends ManageAction {
     this.outcomeId = outcomeId;
   }
 
-  public long getKenDepartment() {
+  public int getKenDepartment() {
     return kenTeamId;
   }
 
-  public void setKenDepartment(long teamId) {
+  public void setKenDepartment(int teamId) {
     this.kenTeamId = teamId;
   }
 

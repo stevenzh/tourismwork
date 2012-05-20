@@ -68,7 +68,7 @@
     <property name="pamount4" type="big_decimal">
       <column name="PAMOUNT4" precision="18" />
     </property>
-    <property name="type5" type="string">
+    <property name="type5" type="java.lang.Character">
       <column name="TYPE5" length="1" />
     </property>
     <property name="pamount5" type="big_decimal">

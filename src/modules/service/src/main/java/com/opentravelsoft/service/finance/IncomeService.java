@@ -16,7 +16,7 @@ public interface IncomeService {
    * @param customerId
    * @return
    */
-  public List<Booking> roGetIncomeBookings(long customerId);
+  public List<Booking> roGetIncomeBookings(int customerId);
 
   /**
    * 未付清款订单
@@ -29,7 +29,7 @@ public interface IncomeService {
    * @return
    */
   public List<Booking> roSearchIncome(String proCd, String cityCd,
-      long customerId, Date stDate, Date endDate);
+      Integer customerId, Date stDate, Date endDate);
 
   /**
    * 保存收款账单
@@ -50,7 +50,7 @@ public interface IncomeService {
    * @param endMon 付款低于金额
    * @return
    */
-  public List<Income> roShowIncomeHis(long groupId, String customerId,
+  public List<Income> roShowIncomeHis(Integer teamId, String customerId,
       Date startDate, Date endDate, double startMon, double endMon);
 
   /**
@@ -59,7 +59,7 @@ public interface IncomeService {
    * @param incomeId
    * @return
    */
-  public int txDeleteIncome(long incomeId);
+  public int txDeleteIncome(int incomeId);
 
   /**
    * 取得收款账单的详细
@@ -67,7 +67,7 @@ public interface IncomeService {
    * @param incomeId
    * @return
    */
-  public Income roGetIncome(long incomeId);
+  public Income roGetIncome(int incomeId);
 
   /**
    * 更新收款账单

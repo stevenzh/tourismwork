@@ -109,7 +109,7 @@ public class LineServiceImpl implements LineService {
 
   public String txDuplicateRoute(String lineNo, String newRouteName,
       String copyFeature, String copySchedule, String copyPrice,
-      String copyDestination, String copySight, String copyVisa, long userId)
+      String copyDestination, String copySight, String copyVisa, int userId)
       throws EbizException {
     String newLineNo = sequenceDao.getComputerNo("T", userId);
 

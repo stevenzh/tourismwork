@@ -43,7 +43,7 @@ public class PayerOLAction extends PortalAction {
   public String input() {
     logger.info("execute[] start");
     tblUserPayOl = new TblUserPayOL();
-    tblUserPayOl.setPayTime(new Date().toString());
+    tblUserPayOl.setPayTime(new Date());
     return SUCCESS;
 
   }

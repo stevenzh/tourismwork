@@ -2,10 +2,10 @@ package com.opentravelsoft.report.action;
 
 import java.sql.Connection;
 import java.text.ParseException;
-import java.util.Collections;
 import java.util.Date;
 import java.util.ArrayList;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -141,9 +141,9 @@ public class JXLSReportAction extends QueryReportAction {
 
         plan.setCount(count++);
         plan.setZkProfit(plan.getPackagePrice().getPrice()
-            - plan.getPackagePrice().getPriceCost());
+            .subtract(plan.getPackagePrice().getPriceCost()));
         plan.setTyProfit(plan.getPackagePrice().getPriceOther()
-            - plan.getPackagePrice().getPriceCost());
+            .subtract(plan.getPackagePrice().getPriceCost()));
 
       }
       param.put("plans", plans);
@@ -195,7 +195,7 @@ public class JXLSReportAction extends QueryReportAction {
       List<LineSchedule> schedule = route.getSchedule();
       for (LineSchedule s : schedule) {
 
-        journey += "第" + s.getDay() + "天" + "," + s.getTraffic() + ","
+        journey += "第" + s.getId().getDay() + "天" + "," + s.getTraffic() + ","
             + s.getProgram() + ";";
 
       }

@@ -10,11 +10,11 @@ import com.opentravelsoft.providers.BranchDao;
 
 @Service("BranchService")
 public class BranchServiceImpl implements BranchService {
-  
+
   @Autowired
   private BranchDao branchDao;
 
-  public Branch roGetBranch(long branchId) {
+  public Branch roGetBranch(int branchId) {
     return branchDao.get(branchId);
   }
 

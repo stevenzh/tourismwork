@@ -18,7 +18,7 @@ public interface InvoiceDao extends GenericDao<Invoice, String> {
    * @param book
    * @return
    */
-  public List<Invoice> getInvoice(long reserveNo);
+  public List<Invoice> getInvoice(int bookingNo);
 
   /**
    * 取得收款账单的发票列表
@@ -26,7 +26,7 @@ public interface InvoiceDao extends GenericDao<Invoice, String> {
    * @param incomeId
    * @return
    */
-  public List<Invoice> getInvoice1(long incomeId);
+  public List<Invoice> getInvoice1(int incomeId);
 
   /**
    * 添加发票
@@ -35,7 +35,7 @@ public interface InvoiceDao extends GenericDao<Invoice, String> {
    * @param userId
    * @return
    */
-  public int save(Invoice invoice, long userId);
+  public int save(Invoice invoice, int userId);
 
   /**
    * 取得订单的付款记录(新)

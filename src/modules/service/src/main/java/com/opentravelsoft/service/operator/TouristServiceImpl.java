@@ -14,7 +14,7 @@ import com.opentravelsoft.providers.TouristDao;
 
 @Service("TouristService")
 public class TouristServiceImpl implements TouristService {
-  
+
   @Autowired
   private TouristDao touristDao;
 
@@ -37,7 +37,7 @@ public class TouristServiceImpl implements TouristService {
   }
 
   public int txModifyCustomerInfo(List<Tourist> customerList, String tourNo,
-      String note, long uid) {
+      String note, int uid) {
     return planDao.modifyCustomerInfo(customerList, tourNo, note, uid);
   }
 }

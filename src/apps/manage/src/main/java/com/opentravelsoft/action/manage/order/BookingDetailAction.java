@@ -111,11 +111,11 @@ public class BookingDetailAction extends ManageAction {
       status = "T";
     } else
       status = "F";
-    Map<String, String> sexMap = ConvertUtils.beansToMap(sexList);
+    Map<String, String> sexMap = ConvertUtils.beansToMap(sexList); //用与替代F'M
     Map<String, String> typeMap = ConvertUtils.beansToMap(roomTypeList);
     customerList = book.getCustomerList();
     for (Tourist trip : customerList) {
-      trip.setSex(sexMap.get(trip.getSex()));
+      trip.setSex(trip.getSex());
       trip.setRoomType(typeMap.get(trip.getRoomType()));
     }
 

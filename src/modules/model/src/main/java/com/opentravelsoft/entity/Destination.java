@@ -184,6 +184,14 @@ public class Destination implements java.io.Serializable {
 
   private String imagePath;
 
+  public String getImagePath() {
+    return imagePath;
+  }
+
+  public void setImagePath(String imagePath) {
+    this.imagePath = imagePath;
+  }
+
   public void addChildren(Destination child) {
     children.add(child);
     child.setParent(this);

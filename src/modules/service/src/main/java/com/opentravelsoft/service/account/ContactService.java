@@ -12,7 +12,7 @@ public interface ContactService {
    * @param active
    * @return
    */
-  public List<Contact> searchContact(long accountId, boolean active);
+  public List<Contact> searchContact(int accountId, boolean active);
 
   public List<Contact> getAllContacts();
 

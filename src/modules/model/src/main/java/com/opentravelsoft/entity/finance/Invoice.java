@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 import com.opentravelsoft.util.ChineseMoney;
 
 @Entity
-@Table(name = "tbl_invoice", catalog = "tourismwork_db")
+@Table(name = "tbl_invoice")
 public class Invoice implements java.io.Serializable {
 
   private String recNo;
@@ -40,7 +40,7 @@ public class Invoice implements java.io.Serializable {
   private BigDecimal pamount3;
   private Character type4;
   private BigDecimal pamount4;
-  private String type5;
+  private Character type5;
   private BigDecimal pamount5;
   private String remarks;
   private Byte del;
@@ -250,11 +250,11 @@ public class Invoice implements java.io.Serializable {
   }
 
   @Column(name = "TYPE5", length = 1)
-  public String getType5() {
+  public Character getType5() {
     return this.type5;
   }
 
-  public void setType5(String type5) {
+  public void setType5(Character type5) {
     this.type5 = type5;
   }
 
@@ -323,7 +323,7 @@ public class Invoice implements java.io.Serializable {
 
   private Date crateDate;
 
-  private Long createUser;
+  private Integer createUser;
 
   /** 大写金额 */
   private String amountChinese;
@@ -373,11 +373,11 @@ public class Invoice implements java.io.Serializable {
     this.crateDate = crateDate;
   }
 
-  public Long getCreateUser() {
+  public Integer getCreateUser() {
     return createUser;
   }
 
-  public void setCreateUser(Long createUser) {
+  public void setCreateUser(Integer createUser) {
     this.createUser = createUser;
   }
 
@@ -389,7 +389,7 @@ public class Invoice implements java.io.Serializable {
     this.items = items;
   }
 
-  public void addItem(String item, double expense) {
+  public void addItem(String item, BigDecimal expense) {
     items.add(new InvoiceItem(item, expense));
 
   }
@@ -402,7 +402,7 @@ public class Invoice implements java.io.Serializable {
     this.pieces = pieces;
   }
 
-  public void addPiece(String type, double expense) {
+  public void addPiece(String type, BigDecimal expense) {
     pieces.add(new InvoicePiece(type, expense));
 
   }

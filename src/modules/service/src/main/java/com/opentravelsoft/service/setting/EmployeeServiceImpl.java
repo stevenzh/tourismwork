@@ -47,7 +47,7 @@ public class EmployeeServiceImpl implements EmployeeService, UserDetailsService 
     return departmentDao.getAllGroups();
   }
 
-  public int txDeleteEmployee(long userId) {
+  public int txDeleteEmployee(int userId) {
     return employeeDao.deleteEmployee(userId);
   }
 
@@ -55,7 +55,7 @@ public class EmployeeServiceImpl implements EmployeeService, UserDetailsService 
     return employeeDao.insertEmployee(employee);
   }
 
-  public Employee roGetEmployee(long userId) {
+  public Employee roGetEmployee(int userId) {
     return employeeDao.getEmployee(userId);
   }
 
@@ -87,12 +87,12 @@ public class EmployeeServiceImpl implements EmployeeService, UserDetailsService 
     return teamDao.getTeamList(TeamType.Sales);
   }
 
-  public List<Employee> roGetSalesByTeam(long teamId) {
+  public List<Employee> roGetSalesByTeam(int teamId) {
     return employeeDao.getSalesByTeam(teamId);
   }
 
   @Override
-  public List<Employee> getUserByTeam(long teamId) {
+  public List<Employee> getUserByTeam(int teamId) {
     return employeeDao.getUserByTeam(teamId);
   }
 

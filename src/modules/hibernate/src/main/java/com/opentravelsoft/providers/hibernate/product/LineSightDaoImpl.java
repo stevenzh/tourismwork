@@ -54,7 +54,8 @@ public class LineSightDaoImpl extends GenericDaoHibernate<Sight, String>
 
   public int saveSights(List<Sight> list, String lineNo) {
     HibernateTemplate template = getHibernateTemplate();
-    Line line = (Line) template.get(Line.class, lineNo, LockMode.UPGRADE);
+    Line line = (Line) template.get(Line.class, lineNo,
+        LockMode.PESSIMISTIC_WRITE);
 
     Set<Sight> sights = new HashSet<Sight>(0);
 

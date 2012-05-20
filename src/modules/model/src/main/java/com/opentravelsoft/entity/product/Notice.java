@@ -8,99 +8,83 @@ import com.opentravelsoft.entity.Group;
  * 通知
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.2 $ $Date: 2009/04/10 07:47:28 $
  */
-public class Notice
-{
+public class Notice {
 
-    private String noticeId;
+  private String noticeId;
 
-    /** 主题 */
-    private String subject;
+  /** 主题 */
+  private String subject;
 
-    /** 内容 */
-    private String text;
+  /** 内容 */
+  private String text;
 
-    /** 类型 */
-    private int type;
+  /** 类型 */
+  private int type;
 
-    /** 发布开始时间 */
-    private Date startingTime;
+  /** 发布开始时间 */
+  private Date startingTime;
 
-    /** 发布截止时间 */
-    private Date deadline;
+  /** 发布截止时间 */
+  private Date deadline;
 
-    /** 发布部门 */
-    private Group group;
+  /** 发布部门 */
+  private Group group;
 
-    public Notice()
-    {
-        group = new Group();
-    }
+  public Notice() {
+    group = new Group();
+  }
 
-    public String getNoticeId()
-    {
-        return noticeId;
-    }
+  public String getNoticeId() {
+    return noticeId;
+  }
 
-    public void setNoticeId(String noticeId)
-    {
-        this.noticeId = noticeId;
-    }
+  public void setNoticeId(String noticeId) {
+    this.noticeId = noticeId;
+  }
 
-    public String getSubject()
-    {
-        return subject;
-    }
+  public String getSubject() {
+    return subject;
+  }
 
-    public void setSubject(String subject)
-    {
-        this.subject = subject;
-    }
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
 
-    public String getText()
-    {
-        return text;
-    }
+  public String getText() {
+    return text;
+  }
 
-    public void setText(String text)
-    {
-        this.text = text;
-    }
+  public void setText(String text) {
+    this.text = text;
+  }
 
-    public Date getDeadline()
-    {
-        return deadline;
-    }
+  public Date getDeadline() {
+    return deadline;
+  }
 
-    public void setDeadline(Date deadline)
-    {
-        this.deadline = deadline;
-    }
+  public void setDeadline(Date deadline) {
+    this.deadline = deadline;
+  }
 
-    public Date getStartingTime()
-    {
-        return startingTime;
-    }
+  public Date getStartingTime() {
+    return startingTime;
+  }
 
-    public void setStartingTime(Date startingTime)
-    {
-        this.startingTime = startingTime;
-    }
+  public void setStartingTime(Date startingTime) {
+    this.startingTime = startingTime;
+  }
 
-    public int getType()
-    {
-        return type;
-    }
+  public int getType() {
+    return type;
+  }
 
-    public void setType(int type)
-    {
-        this.type = type;
-    }
+  public void setType(int type) {
+    this.type = type;
+  }
 
-    public Group getDepartment()
-    {
-        return group;
-    }
+  public Group getDepartment() {
+    return group;
+  }
 
 }

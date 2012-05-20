@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_sys_config", catalog = "tourismwork_db")
+@Table(name = "tbl_sys_config")
 public class SysConfig implements java.io.Serializable {
 
   private int id;

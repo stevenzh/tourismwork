@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_country", catalog = "tourismwork_db")
+@Table(name = "tbl_country")
 public class Country implements java.io.Serializable {
 
   private String countryId;
@@ -29,14 +29,8 @@ public class Country implements java.io.Serializable {
     this.enabled = enabled;
   }
 
-  public Country(String countryId, String name, byte enabled,
-      Set<District> districts, Set<Sight> sights, Set<City> cities) {
-    this.countryId = countryId;
-    this.name = name;
-    this.enabled = enabled;
-    this.districts = districts;
-    this.sights = sights;
-    this.cities = cities;
+  public Country(String country) {
+    this.countryId = country;
   }
 
   @Id

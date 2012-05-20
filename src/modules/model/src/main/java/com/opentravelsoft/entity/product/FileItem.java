@@ -5,7 +5,6 @@ import java.util.Date;
 /**
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.1 $ $Date: 2009/03/01 16:23:32 $
  */
 public class FileItem {
   private int fileId;
@@ -14,9 +13,9 @@ public class FileItem {
 
   private String filePath;
 
-  private Long teamId;
+  private Integer teamId;
 
-  private Long operator;
+  private Integer operator;
 
   private String note;
 
@@ -46,19 +45,19 @@ public class FileItem {
     this.fileId = fileId;
   }
 
-  public Long getGroupId() {
+  public Integer getGroupId() {
     return teamId;
   }
 
-  public void setGroupId(Long groupId) {
+  public void setGroupId(Integer groupId) {
     this.teamId = groupId;
   }
 
-  public Long getOperator() {
+  public Integer getOperator() {
     return operator;
   }
 
-  public void setOperator(Long operator) {
+  public void setOperator(Integer operator) {
     this.operator = operator;
   }
 

@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_plan_price", catalog = "tourismwork_db")
+@Table(name = "tbl_plan_price")
 public class PlanPrice implements java.io.Serializable {
 
   private Integer id;

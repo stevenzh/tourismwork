@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_district", catalog = "tourismwork_db")
+@Table(name = "tbl_district")
 public class District implements java.io.Serializable {
   /** 景区编号 */
   private String districtNo;
@@ -37,6 +37,10 @@ public class District implements java.io.Serializable {
     this.districtNo = districtNo;
     this.country = country;
     this.cnName = cnName;
+  }
+
+  public District(String district) {
+    this.districtNo = district;
   }
 
   @Id

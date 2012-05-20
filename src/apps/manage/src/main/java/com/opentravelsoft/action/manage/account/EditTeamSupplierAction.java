@@ -49,7 +49,7 @@ public class EditTeamSupplierAction extends ManageAction {
 
   private int supplierId;
 
-  private long teamId;
+  private int teamId;
 
   /** 付款申请书ID 用于记录付款申请时修改供应商信息 */
   private String outcomeId;
@@ -104,7 +104,7 @@ public class EditTeamSupplierAction extends ManageAction {
 
   public String submit() {
     Employee user = getUser();
-    supplier.setUpdatedBy(user.getUserId());
+    supplier.setUpdatedby(user.getUserId());
     supplier.setContacts(contacts);
     supplierService.txEditSupplier(supplier, teamId);
 
@@ -209,7 +209,7 @@ public class EditTeamSupplierAction extends ManageAction {
     return teamId;
   }
 
-  public void setGroupId(long groupId) {
+  public void setGroupId(int groupId) {
     this.teamId = groupId;
   }
 

@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.pay;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,8 +79,8 @@ public class NetPayReceiveAction extends PortalAction {
         addActionMessage("网银返回数据: 支付成功");
         // 支付成功，商户 根据自己业务做相应逻辑处理
         // 此处加入商户系统的逻辑处理（例如判断金额，判断支付状态，更新订单状态等等）......
-        int result = bookingService.txNetPay(v_oid, v_pmode,
-            Double.parseDouble(v_amount), v_moneytype);
+        int result = bookingService.txNetPay(v_oid, v_pmode, new BigDecimal(
+            v_amount), v_moneytype);
 
         if (result < 0) {
           addActionMessage("数据更新失败: 支付成功");

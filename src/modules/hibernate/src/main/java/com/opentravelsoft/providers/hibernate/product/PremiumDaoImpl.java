@@ -27,7 +27,7 @@ public class PremiumDaoImpl extends GenericDaoHibernate<Premium, String>
 
   public int deletePrem(String preminuCode) {
     Premium prem = (Premium) getHibernateTemplate().load(Premium.class,
-        preminuCode, LockMode.UPGRADE);
+        preminuCode, LockMode.PESSIMISTIC_WRITE);
     if (null == prem)
       return -1;
     prem.setDel('Y');
@@ -37,7 +37,7 @@ public class PremiumDaoImpl extends GenericDaoHibernate<Premium, String>
 
   public int editPrem(Premium premium) {
     Premium prem = (Premium) getHibernateTemplate().get(Premium.class,
-        premium.getPrecode(), LockMode.UPGRADE);
+        premium.getPrecode(), LockMode.PESSIMISTIC_WRITE);
     boolean newflag = false;
     if (null == prem) {
       prem = new Premium();

@@ -44,7 +44,7 @@ public class AirwaysDaoImpl extends GenericDaoHibernate<Airways, String>
   public int delete(Airways airways) {
     HibernateTemplate template = getHibernateTemplate();
     Airways rlt = (Airways) template.get(Airways.class, airways.getCode(),
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     if (null == rlt) {
       return -1;
     }

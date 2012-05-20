@@ -1,5 +1,6 @@
 package com.opentravelsoft.service.operator;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -76,7 +77,7 @@ public class TourPlanServiceImpl implements TourPlanService {
 
   public int txUpdatePlan(Plan plan, List<PlanPrice> planPrices, int shareId,
       String note) {
-    double price = 0d;
+    BigDecimal price = new BigDecimal(0);
     boolean modi = false;
 
     List<LinePrice> prices = routePriceDao.getLinePrice(plan.getLine()
@@ -99,13 +100,13 @@ public class TourPlanServiceImpl implements TourPlanService {
         price = routePrice.getPrice();
       }
 
-      if (routePrice.isDefaultPrice() && price == 0
+      if (routePrice.isDefaultPrice() && price.doubleValue() == 0
           && routePrice.getWeekBit().equals("NNNNNNN"))
         price = routePrice.getPrice();
     }
 
     // 报价为0的 不可以发布到网站
-    if (price == 0 && plan.getDeployFlag().equals("Y")) {
+    if (price.doubleValue() == 0 && plan.getDeployFlag().equals("Y")) {
       plan.setDeployFlag("N");
       modi = true;
     }
@@ -134,7 +135,7 @@ public class TourPlanServiceImpl implements TourPlanService {
     Plan tPlan = plans.get(0);
     List<LinePrice> prices = routePriceDao.getLinePrice(tPlan.getLine()
         .getLineNo(), startDate, endDate);
-    double price = 0d;
+    BigDecimal price = new BigDecimal(0);
     boolean modi = false;
 
     String[] no = sequenceDao.getComputerNo("Q", plans.size(),
@@ -162,7 +163,8 @@ public class TourPlanServiceImpl implements TourPlanService {
           priceNo = linePrice.getRecNo();
         }
 
-        if (price == 0 && linePrice.getWeekBit().equals("NNNNNNN")) {
+        if (price.doubleValue() == 0
+            && linePrice.getWeekBit().equals("NNNNNNN")) {
           price = linePrice.getPrice();
           priceNo = linePrice.getRecNo();
         }
@@ -175,7 +177,7 @@ public class TourPlanServiceImpl implements TourPlanService {
       plan.setPlanNo(no[i]);
 
       // 报价为0的 不可以发布到网站
-      if (price == 0 && plan.getDeployFlag().equals("Y")) {
+      if (price.doubleValue() == 0 && plan.getDeployFlag().equals("Y")) {
         plan.setDeployFlag("N");
         modi = true;
       }

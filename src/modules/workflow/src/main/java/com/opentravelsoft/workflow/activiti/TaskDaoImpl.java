@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.activiti.engine.ProcessEngine;
-import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;

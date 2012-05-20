@@ -1,5 +1,6 @@
 package com.opentravelsoft.service.order;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
@@ -53,7 +54,7 @@ public interface BookingService {
    * @param area 区域ID
    * @return
    */
-  public List<LabelValueBean> getAgentBySales(long userId, String area);
+  public List<LabelValueBean> getAgentBySales(int userId, String area);
 
   /**
    * 取得客户列表
@@ -74,7 +75,7 @@ public interface BookingService {
    * @return 订单号 如果为null则增加失败，不为null则增加成功
    */
   public Hashtable<String, String> txAddBook(Booking book,
-      List<Tourist> customers, long userId, boolean ishold);
+      List<Tourist> customers, int userId, boolean ishold);
 
   public List<LabelValueBean> roGetBirthplaceList();
 
@@ -154,7 +155,7 @@ public interface BookingService {
    * @param moneyType 币种
    * @return
    */
-  int txNetPay(String orderId, String paymentMode, double amount,
+  int txNetPay(String orderId, String paymentMode, BigDecimal amount,
       String moneyType) throws EbizException;
 
   /**

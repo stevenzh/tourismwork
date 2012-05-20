@@ -22,7 +22,7 @@ public class TeamServiceImpl implements TeamService {
     teamDao.remove(team.getTeamId());
   }
 
-  public Team getTeamDetail(long teamId) {
+  public Team getTeamDetail(int teamId) {
     return teamDao.get(teamId);
   }
 

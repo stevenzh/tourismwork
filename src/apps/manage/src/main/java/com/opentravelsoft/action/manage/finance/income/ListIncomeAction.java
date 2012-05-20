@@ -78,7 +78,7 @@ public class ListIncomeAction extends ManageAction {
   // 查询条件
 
   /** 部门ＩＤ */
-  private long teamId;
+  private int teamId;
 
   /** 地区ＩＤ */
   private String regionId;
@@ -131,11 +131,11 @@ public class ListIncomeAction extends ManageAction {
     return SUCCESS;
   }
 
-  public long getDepartmentNo() {
+  public int getDepartmentNo() {
     return teamId;
   }
 
-  public void setDepartmentNo(long teamId) {
+  public void setDepartmentNo(int teamId) {
     this.teamId = teamId;
   }
 

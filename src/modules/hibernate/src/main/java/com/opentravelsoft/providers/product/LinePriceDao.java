@@ -15,7 +15,7 @@ public interface LinePriceDao extends GenericDao<LinePrice, String> {
   public List<LinePrice> getLinePrice(String lineNo, Date startDate,
       Date endDate);
 
-  public int deleteLinePrice(String recNo, String note, long uid);
+  public int deleteLinePrice(String recNo, String note, int uid);
 
   public List<LinePrice> getPriceNotice(String lineNo);
 

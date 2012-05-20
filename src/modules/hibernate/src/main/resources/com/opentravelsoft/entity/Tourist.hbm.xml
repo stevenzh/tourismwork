@@ -89,8 +89,8 @@
     <property name="del" type="char">
       <column name="DEL" length="1" not-null="true" />
     </property>
-    <property name="opuser" type="string">
-      <column name="OPUSER" length="4" />
+    <property name="opuser" type="java.lang.Integer">
+      <column name="OPUSER" />
     </property>
     <property name="opdate" type="timestamp">
       <column name="OPDATE" length="19" not-null="true" />

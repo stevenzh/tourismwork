@@ -12,17 +12,17 @@ import com.opentravelsoft.providers.SequenceDao;
 
 @Service("InvoiceService")
 public class InvoiceServiceImpl implements InvoiceService {
-  
+
   @Autowired
   private InvoiceDao invoiceDao;
 
   @Autowired
   private SequenceDao sequenceDao;
 
-  public int txSaveInvoice(Invoice invoice, long groupId) {
-    String no = sequenceDao.getComputerNo("M", groupId);
+  public int txSaveInvoice(Invoice invoice, int teamId) {
+    String no = sequenceDao.getComputerNo("M", teamId);
     invoice.setRecordNo(no);
-    return invoiceDao.save(invoice, groupId);
+    return invoiceDao.save(invoice, teamId);
   }
 
   public List<Invoice> roGetInvoices(Date startDate, Date endDate,

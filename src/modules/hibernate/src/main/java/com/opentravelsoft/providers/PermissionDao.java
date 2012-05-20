@@ -4,6 +4,6 @@ import java.util.Map;
 
 import com.opentravelsoft.entity.Permission;
 
-public interface PermissionDao extends GenericDao<Permission, Long> {
-	Map<Integer, String> getPermissions();
+public interface PermissionDao extends GenericDao<Permission, Integer> {
+  Map<Integer, String> getPermissions();
 }

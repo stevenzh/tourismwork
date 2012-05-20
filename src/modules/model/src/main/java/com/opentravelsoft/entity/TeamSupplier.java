@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_team_customer", catalog = "tourismwork_db")
+@Table(name = "tbl_team_customer")
 public class TeamSupplier implements java.io.Serializable {
 
   private TeamSupplierId id;

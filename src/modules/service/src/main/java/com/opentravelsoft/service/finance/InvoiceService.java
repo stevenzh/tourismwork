@@ -6,7 +6,7 @@ import java.util.List;
 import com.opentravelsoft.entity.finance.Invoice;
 
 public interface InvoiceService {
-  int txSaveInvoice(Invoice invoice, long groupId);
+  int txSaveInvoice(Invoice invoice, int teamId);
 
   List<Invoice> roGetInvoices(Date startDate, Date endDate, double minAmount,
       double maxAmount, String sort);

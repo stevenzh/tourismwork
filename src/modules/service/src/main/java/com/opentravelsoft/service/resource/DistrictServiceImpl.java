@@ -16,7 +16,7 @@ import com.opentravelsoft.util.StringUtil;
 
 @Service("DistrictService")
 public class DistrictServiceImpl implements DistrictService {
-  
+
   @Autowired
   private CountryDao countryDao;
 
@@ -50,7 +50,7 @@ public class DistrictServiceImpl implements DistrictService {
     return districtDao.deleteDistrict(districtNo);
   }
 
-  public int txEditDistrict(District district, long userId) {
+  public int txEditDistrict(District district, int userId) {
     String method = "update";
     if (!StringUtil.hasLength(district.getDistrictNo())) {
       method = "insert";

@@ -18,7 +18,7 @@ public class ModuleAction extends ManageAction {
 
   private String result;
 
-  private long roleId;
+  private int roleId;
 
   private String moName;
 
@@ -41,7 +41,7 @@ public class ModuleAction extends ManageAction {
     return result;
   }
 
-  public void setRoleId(long roleId) {
+  public void setRoleId(int roleId) {
     this.roleId = roleId;
   }
 

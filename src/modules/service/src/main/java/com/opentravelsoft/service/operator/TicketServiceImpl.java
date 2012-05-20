@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.opentravelsoft.entity.Customer;
 import com.opentravelsoft.entity.finance.Outcome;
+import com.opentravelsoft.providers.CustomerDao;
 import com.opentravelsoft.providers.OutcomeDao;
-import com.opentravelsoft.providers.hibernate.CustomerDao;
 
 @Service("TicketService")
 public class TicketServiceImpl implements TicketService {

@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.manage.operate;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,10 +43,10 @@ public class TourBalanceAction extends ManageAction {
   private String tourNo;
 
   /** 部门 */
-  private long kenTeamId = 0;
+  private int kenTeamId = 0;
 
   /** 专管员 */
-  private Long kenUserId;
+  private int kenUserId;
 
   /** 线路名 */
   private String kenLineName;
@@ -75,22 +76,22 @@ public class TourBalanceAction extends ManageAction {
   private int allLeaderPax;
 
   /** 总收入 */
-  private double allAmount;
+  private BigDecimal allAmount;
 
   /** 已收款 */
-  private double allAlAmount;
+  private BigDecimal allAlAmount;
 
   /** 总的纯团费 */
-  private double allTourAmount;
+  private BigDecimal allTourAmount;
 
   /** 总的成本 */
-  private double allCostAmount;
+  private BigDecimal allCostAmount;
 
   /** 总毛利 */
-  private double allGrossAmount;
+  private BigDecimal allGrossAmount;
 
   /** 总毛利率 */
-  private double allGrossAmountRate;
+  private BigDecimal allGrossAmountRate;
 
   public String execute() {
     Employee user = getUser();
@@ -107,31 +108,30 @@ public class TourBalanceAction extends ManageAction {
     // --------------------------------
     allPax = 0;
     allLeaderPax = 0;
-    allAmount = 0.0;
-    allAlAmount = 0.0;
-    allTourAmount = 0.0;
-    allCostAmount = 0.0;
-    allGrossAmount = 0.0;
-    allGrossAmountRate = 0.0;
+    allAmount = new BigDecimal(0);
+    allAlAmount = new BigDecimal(0);
+    allTourAmount = new BigDecimal(0);
+    allCostAmount = new BigDecimal(0);
+    allGrossAmount = new BigDecimal(0);
+    allGrossAmountRate = new BigDecimal(0);
 
     for (Plan singleTourBalance : tours) {
       allPax += singleTourBalance.getPax();
       allLeaderPax += singleTourBalance.getLeaderPax();
-      allAmount = Arith.add(allAmount, singleTourBalance.getAmount());
-      allAlAmount = Arith.add(allAlAmount, singleTourBalance.getAlAmount());
-      allTourAmount = Arith.add(allTourAmount,
-          singleTourBalance.getTourAmount());
-      allCostAmount = Arith.add(allCostAmount, singleTourBalance.getCost());
+      allAmount = allAmount.add(singleTourBalance.getAmount());
+      allAlAmount = allAlAmount.add(singleTourBalance.getAlAmount());
+      allTourAmount = allTourAmount.add(singleTourBalance.getTourAmount());
+      allCostAmount = allCostAmount.add(singleTourBalance.getCost());
       // 四舍五入保留两位小数
       allAmount = Arith.round(allAmount, 2);
       allTourAmount = Arith.round(allTourAmount, 2);
       allCostAmount = Arith.round(allCostAmount, 2);
     }
 
-    allGrossAmount = Arith.sub(allTourAmount, allCostAmount);
-    if (allTourAmount != 0.0) {
-      allGrossAmountRate = Arith.div(allGrossAmount, allTourAmount);
-      allGrossAmountRate = Arith.mul(allGrossAmountRate, 100.0);
+    allGrossAmount = allTourAmount.subtract(allCostAmount);
+    if (allTourAmount.doubleValue() != 0.0) {
+      allGrossAmountRate = allGrossAmount.divide(allTourAmount);
+      allGrossAmountRate = allGrossAmountRate.multiply(new BigDecimal(100.0));
       // 四舍五入保留两位小数
       allGrossAmountRate = Arith.round(allGrossAmountRate, 2);
     }
@@ -148,19 +148,19 @@ public class TourBalanceAction extends ManageAction {
     this.tourNo = tourNo;
   }
 
-  public long getKenDepartmentId() {
+  public int getKenDepartmentId() {
     return kenTeamId;
   }
 
-  public void setKenDepartmentId(long teamId) {
+  public void setKenDepartmentId(int teamId) {
     this.kenTeamId = teamId;
   }
 
-  public Long getKenEmployeeId() {
+  public int getKenEmployeeId() {
     return kenUserId;
   }
 
-  public void setKenEmployeeId(Long kenEmployeeId) {
+  public void setKenEmployeeId(int kenEmployeeId) {
     this.kenUserId = kenEmployeeId;
   }
 
@@ -248,55 +248,52 @@ public class TourBalanceAction extends ManageAction {
     this.allLeaderPax = allLeaderPax;
   }
 
-  public double getAllAmount() {
+  public BigDecimal getAllAmount() {
     return allAmount;
   }
 
-  public void setAllAmount(double allAmount) {
+  public void setAllAmount(BigDecimal allAmount) {
     this.allAmount = allAmount;
   }
 
-  public double getAllAlAmount() {
+  public BigDecimal getAllAlAmount() {
     return allAlAmount;
   }
 
-  public void setAllAlAmount(double allAlAmount) {
+  public void setAllAlAmount(BigDecimal allAlAmount) {
     this.allAlAmount = allAlAmount;
   }
 
-  public double getAllTourAmount() {
+  public BigDecimal getAllTourAmount() {
     return allTourAmount;
   }
 
-  public void setAllTourAmount(double allTourAmount) {
+  public void setAllTourAmount(BigDecimal allTourAmount) {
     this.allTourAmount = allTourAmount;
   }
 
-  public double getAllCostAmount() {
+  public BigDecimal getAllCostAmount() {
     return allCostAmount;
   }
 
-  public void setAllCostAmount(double allCostAmount) {
+  public void setAllCostAmount(BigDecimal allCostAmount) {
     this.allCostAmount = allCostAmount;
   }
 
-  public double getAllGrossAmount() {
+  public BigDecimal getAllGrossAmount() {
     return allGrossAmount;
   }
 
-  public void setAllGrossAmount(double allGrossAmount) {
+  public void setAllGrossAmount(BigDecimal allGrossAmount) {
     this.allGrossAmount = allGrossAmount;
   }
 
-  public double getAllGrossAmountRate() {
+  public BigDecimal getAllGrossAmountRate() {
     return allGrossAmountRate;
   }
 
-  public void setAllGrossAmountRate(double allGrossAmountRate) {
+  public void setAllGrossAmountRate(BigDecimal allGrossAmountRate) {
     this.allGrossAmountRate = allGrossAmountRate;
   }
 
-  public static long getSerialVersionUID() {
-    return serialVersionUID;
-  }
 }

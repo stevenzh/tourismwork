@@ -21,7 +21,7 @@ import javax.persistence.ManyToOne;
 import com.opentravelsoft.entity.Customer;
 
 @Entity
-@Table(name = "tbl_income", catalog = "tourismwork_db")
+@Table(name = "tbl_income")
 public class Income implements java.io.Serializable {
   /** 收款ID */
   private Integer incomeId;
@@ -203,13 +203,13 @@ public class Income implements java.io.Serializable {
     this.useType = useType;
   }
 
-  private Double offSetAmount;
+  private BigDecimal offSetAmount;
 
   /** 创建人 */
-  private Long createdBy;
+  private Integer createdBy;
 
   /** 更新人 */
-  private Long updatedBy;
+  private Integer updatedBy;
 
   private String del;
 
@@ -220,7 +220,7 @@ public class Income implements java.io.Serializable {
   private int batch;
 
   /** 未销金额 */
-  private double unOffSetMon;
+  private BigDecimal unOffSetMon;
 
   /** 应付 */
   private double finalExpense;
@@ -241,27 +241,27 @@ public class Income implements java.io.Serializable {
   /** 发票记录 */
   private List<Invoice> invices;
 
-  public Double getOffSetAmount() {
+  public BigDecimal getOffSetAmount() {
     return this.offSetAmount;
   }
 
-  public void setOffSetAmount(Double offsetAmount) {
+  public void setOffSetAmount(BigDecimal offsetAmount) {
     this.offSetAmount = offsetAmount;
   }
 
-  public Long getCreatedBy() {
+  public Integer getCreatedBy() {
     return this.createdBy;
   }
 
-  public void setCreatedBy(Long createdBy) {
+  public void setCreatedBy(Integer createdBy) {
     this.createdBy = createdBy;
   }
 
-  public Long getUpdatedBy() {
+  public Integer getUpdatedBy() {
     return this.updatedBy;
   }
 
-  public void setUpdatedBy(Long updatedBy) {
+  public void setUpdatedBy(Integer updatedBy) {
     this.updatedBy = updatedBy;
   }
 
@@ -281,11 +281,11 @@ public class Income implements java.io.Serializable {
     this.unpay = unpay;
   }
 
-  public double getUnOffSetMon() {
+  public BigDecimal getUnOffSetMon() {
     return unOffSetMon;
   }
 
-  public void setUnOffSetMon(double unOffSetMon) {
+  public void setUnOffSetMon(BigDecimal unOffSetMon) {
     this.unOffSetMon = unOffSetMon;
   }
 
@@ -341,11 +341,11 @@ public class Income implements java.io.Serializable {
     this.invices = list;
   }
 
-  public void setUpdateBy(Long updatedBy2) {
+  public void setUpdateBy(Integer updatedBy2) {
     this.updatedBy = updatedBy2;
   }
 
-  public Long getUpdateBy() {
+  public Integer getUpdateBy() {
     return updatedBy;
   }
 

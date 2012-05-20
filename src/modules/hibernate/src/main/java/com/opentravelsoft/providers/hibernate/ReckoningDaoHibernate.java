@@ -1,5 +1,6 @@
 package com.opentravelsoft.providers.hibernate;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -76,7 +77,7 @@ public class ReckoningDaoHibernate extends GenericDaoHibernate<Reckoning, Long>
     tblReckoning.setContact(reckoning.getContact());
     tblReckoning.setPhone(reckoning.getPhone());
     tblReckoning.setFax(reckoning.getFax());
-    tblReckoning.setCreatedBy(reckoning.getCreatedBy());
+    tblReckoning.setCreatedby(reckoning.getCreatedby());
     tblReckoning.setPrintedCount(0);
 
     getHibernateTemplate().save(tblReckoning);
@@ -168,7 +169,7 @@ public class ReckoningDaoHibernate extends GenericDaoHibernate<Reckoning, Long>
 
       StringBuilder sql = new StringBuilder();
       sql.append("from Employee where userId=?");
-      Object[] params = { reckoning.getCreatedBy() };
+      Object[] params = { reckoning.getCreatedby() };
 
       List<Employee> employees = getHibernateTemplate().find(sql.toString(),
           params);
@@ -206,15 +207,15 @@ public class ReckoningDaoHibernate extends GenericDaoHibernate<Reckoning, Long>
     Reckoning tblReckoning = new Reckoning();
 
     tblReckoning = (Reckoning) getHibernateTemplate().get(Reckoning.class,
-        reckoning.getReckoningId(), LockMode.UPGRADE);
+        reckoning.getReckoningId(), LockMode.PESSIMISTIC_WRITE);
 
     if (null != tblReckoning
         && tblReckoning.getReckoningId() == reckoning.getReckoningId()) {
-      //String str = getReckoningInfo(tblReckoning, reckoning);
+      // String str = getReckoningInfo(tblReckoning, reckoning);
       tblReckoning.setContact(reckoning.getContact());
       tblReckoning.setPhone(reckoning.getPhone());
       tblReckoning.setFax(reckoning.getFax());
-      tblReckoning.setUpdatedBy(reckoning.getUpdatedBy());
+      tblReckoning.setUpdatedby(reckoning.getUpdatedby());
 
       getHibernateTemplate().update(tblReckoning);
 
@@ -255,7 +256,7 @@ public class ReckoningDaoHibernate extends GenericDaoHibernate<Reckoning, Long>
       Booking tfj006 = (Booking) getHibernateTemplate().get(Booking.class,
           reckoning.getBookingNo());
 
-      Double old_Amount = tfj006.getDbamt();
+      BigDecimal old_Amount = tfj006.getDbamt();
 
       tfj006.setDbamt(reckoning.getAmount());
       getHibernateTemplate().update(tfj006);
@@ -289,7 +290,7 @@ public class ReckoningDaoHibernate extends GenericDaoHibernate<Reckoning, Long>
       reckoningAcct = new ReckoningAcct();
       reckoningAcct.setItemId(itemId++);
       reckoningAcct.setName(RowDataUtil.getString(obj.getUserName()));
-      reckoningAcct.setAmount(RowDataUtil.getDouble(obj.getAmt01()));
+      reckoningAcct.setAmount(RowDataUtil.getBigDecimal(obj.getAmt01()));
 
       reckoningAcctList.add(reckoningAcct);
     }
@@ -302,7 +303,7 @@ public class ReckoningDaoHibernate extends GenericDaoHibernate<Reckoning, Long>
     Reckoning tblReckoning = new Reckoning();
 
     tblReckoning = (Reckoning) getHibernateTemplate().get(Reckoning.class,
-        reckoningId, LockMode.UPGRADE);
+        reckoningId, LockMode.PESSIMISTIC_WRITE);
 
     tblReckoning.setPrintDate(sysdate);
     tblReckoning.setPrintedCount(tblReckoning.getPrintedCount() + 1);
@@ -358,9 +359,9 @@ public class ReckoningDaoHibernate extends GenericDaoHibernate<Reckoning, Long>
               reckoningAcct = new ReckoningAcct();
               reckoningAcct.setReckoningId(RowDataUtil.getInt(obj[0]));
               reckoningAcct.setDescription(RowDataUtil.getString(obj[1]));
-              reckoningAcct.setUnitPrice(RowDataUtil.getDouble(obj[2]));
+              reckoningAcct.setUnitPrice(RowDataUtil.getBigDecimal(obj[2]));
               reckoningAcct.setCount(RowDataUtil.getInt(obj[3]));
-              reckoningAcct.setAmount(RowDataUtil.getDouble(obj[4]));
+              reckoningAcct.setAmount(RowDataUtil.getBigDecimal(obj[4]));
               reckoningAcct.setUnit(RowDataUtil.getString(obj[5]));
               reckoningAcct.setBookingNo(RowDataUtil.getString(obj[6]));
 

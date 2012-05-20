@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.manage.stat;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -75,11 +76,11 @@ public class DbamtForCusAction extends ManageAction {
 
   private int totalpax;
 
-  private double totalDbamt;
+  private BigDecimal totalDbamt;
 
-  private double totalCramt;
+  private BigDecimal totalCramt;
 
-  private double totalUnpay;
+  private BigDecimal totalUnpay;
 
   public String init() {
     provinceList = provinceService.getAllProvince();
@@ -98,34 +99,34 @@ public class DbamtForCusAction extends ManageAction {
       bookList.set(i, book);
       totalbatch += book.getBatch();
       totalpax += book.getSumpax();
-      totalDbamt += book.getSumDbamt();
-      totalCramt += book.getSumCramt();
-      totalUnpay = totalDbamt - totalCramt;
+      totalDbamt = totalDbamt.add(book.getSumDbamt());
+      totalCramt = totalCramt.add(book.getSumCramt());
+      totalUnpay = totalDbamt.subtract(totalCramt);
     }
     return SUCCESS;
   }
 
-  public double getTotalDbamt() {
+  public BigDecimal getTotalDbamt() {
     return totalDbamt;
   }
 
-  public void setTotalDbamt(double totalDbamt) {
+  public void setTotalDbamt(BigDecimal totalDbamt) {
     this.totalDbamt = totalDbamt;
   }
 
-  public double getTotalCramt() {
+  public BigDecimal getTotalCramt() {
     return totalCramt;
   }
 
-  public void setTotalCramt(double totalCramt) {
+  public void setTotalCramt(BigDecimal totalCramt) {
     this.totalCramt = totalCramt;
   }
 
-  public double getTotalUnpay() {
+  public BigDecimal getTotalUnpay() {
     return totalUnpay;
   }
 
-  public void setTotalUnpay(double totalUnpay) {
+  public void setTotalUnpay(BigDecimal totalUnpay) {
     this.totalUnpay = totalUnpay;
   }
 

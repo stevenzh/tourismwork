@@ -94,7 +94,7 @@ public class IdentitySessionImpl implements IdentityService {
   }
 
   private Group getGroupInfo(Team team) {
-    Group user = new GroupEntity(team.getId());
+    Group user = new GroupEntity(team.getName());
     user.setName(team.getName());
     return user;
   }

@@ -14,7 +14,7 @@ public class ContactServiceImpl implements ContactService {
   @Autowired
   private ContactDao contactDao;
 
-  public List<Contact> searchContact(long accountId, boolean active) {
+  public List<Contact> searchContact(int accountId, boolean active) {
     return contactDao.searchContact(accountId, active);
   }
 

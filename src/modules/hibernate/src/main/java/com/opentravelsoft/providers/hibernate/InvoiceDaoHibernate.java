@@ -110,27 +110,27 @@ public class InvoiceDaoHibernate extends GenericDaoHibernate<Invoice, String>
       invoice.setCrateDate(RowDataUtil.getDate(obj[1]));
       invoice.setCustomer(RowDataUtil.getString(obj[3]));
       invoice.setRemarks(RowDataUtil.getString(obj[21]));
-      invoice.setCreateUser(RowDataUtil.getLong(obj[22]));
+      invoice.setCreateUser(RowDataUtil.getInt(obj[22]));
 
       invoice.addItem(RowDataUtil.getString(obj[3]),
-          RowDataUtil.getDouble(obj[4]));
+          RowDataUtil.getBigDecimal(obj[4]));
       invoice.addItem(RowDataUtil.getString(obj[7]),
-          RowDataUtil.getDouble(obj[8]));
+          RowDataUtil.getBigDecimal(obj[8]));
       invoice.addItem(RowDataUtil.getString(obj[11]),
-          RowDataUtil.getDouble(obj[12]));
+          RowDataUtil.getBigDecimal(obj[12]));
       invoice.addItem(RowDataUtil.getString(obj[15]),
-          RowDataUtil.getDouble(obj[16]));
+          RowDataUtil.getBigDecimal(obj[16]));
 
       invoice.addPiece(RowDataUtil.getString(obj[5]),
-          RowDataUtil.getDouble(obj[6]));
+          RowDataUtil.getBigDecimal(obj[6]));
       invoice.addPiece(RowDataUtil.getString(obj[9]),
-          RowDataUtil.getDouble(obj[10]));
+          RowDataUtil.getBigDecimal(obj[10]));
       invoice.addPiece(RowDataUtil.getString(obj[13]),
-          RowDataUtil.getDouble(obj[14]));
+          RowDataUtil.getBigDecimal(obj[14]));
       invoice.addPiece(RowDataUtil.getString(obj[17]),
-          RowDataUtil.getDouble(obj[18]));
+          RowDataUtil.getBigDecimal(obj[18]));
       invoice.addPiece(RowDataUtil.getString(obj[19]),
-          RowDataUtil.getDouble(obj[20]));
+          RowDataUtil.getBigDecimal(obj[20]));
 
       // 出纳
       invoice.setCasher(RowDataUtil.getString(obj[23]));
@@ -146,7 +146,7 @@ public class InvoiceDaoHibernate extends GenericDaoHibernate<Invoice, String>
     return result;
   }
 
-  public int save(Invoice invoice, long userId) {
+  public int save(Invoice invoice, int userId) {
     Invoice invoiceInst = new Invoice();
     Date sysdate = getSysdate();
 
@@ -207,7 +207,7 @@ public class InvoiceDaoHibernate extends GenericDaoHibernate<Invoice, String>
     // 经办人
     invoiceInst.setSignature(invoice.getSignature());
 
-    invoiceInst.setDel(0);
+    invoiceInst.setDel((byte) 0);
 
     getHibernateTemplate().save(invoiceInst);
     return 0;
@@ -218,7 +218,7 @@ public class InvoiceDaoHibernate extends GenericDaoHibernate<Invoice, String>
    * @param str
    * @return
    */
-  private char getCheckFlag(String str) {
+  private Character getCheckFlag(String str) {
     if (null == str || str.length() == 0)
       return 'N';
 
@@ -229,7 +229,7 @@ public class InvoiceDaoHibernate extends GenericDaoHibernate<Invoice, String>
   }
 
   @SuppressWarnings("unchecked")
-  public List<Invoice> getInvoice(long incomeId) {
+  public List<Invoice> getInvoice(int incomeId) {
     StringBuilder sb = new StringBuilder();
     sb.append("select a.recNo,a.invNo,a.prtDate,a.customs,");
     sb.append("a.exp1,a.amount1,a.type1,a.pamount1,");
@@ -254,27 +254,27 @@ public class InvoiceDaoHibernate extends GenericDaoHibernate<Invoice, String>
       invoice.setCrateDate(RowDataUtil.getDate(obj[2]));
       invoice.setCustomer(RowDataUtil.getString(obj[3]));
       invoice.setRemarks(RowDataUtil.getString(obj[22]));
-      invoice.setCreateUser(RowDataUtil.getLong(obj[23]));
+      invoice.setCreateUser(RowDataUtil.getInt(obj[23]));
 
       invoice.addItem(RowDataUtil.getString(obj[4]),
-          RowDataUtil.getDouble(obj[5]));
+          RowDataUtil.getBigDecimal(obj[5]));
       invoice.addItem(RowDataUtil.getString(obj[8]),
-          RowDataUtil.getDouble(obj[9]));
+          RowDataUtil.getBigDecimal(obj[9]));
       invoice.addItem(RowDataUtil.getString(obj[12]),
-          RowDataUtil.getDouble(obj[13]));
+          RowDataUtil.getBigDecimal(obj[13]));
       invoice.addItem(RowDataUtil.getString(obj[16]),
-          RowDataUtil.getDouble(obj[17]));
+          RowDataUtil.getBigDecimal(obj[17]));
 
       invoice.addPiece(RowDataUtil.getString(obj[6]),
-          RowDataUtil.getDouble(obj[7]));
+          RowDataUtil.getBigDecimal(obj[7]));
       invoice.addPiece(RowDataUtil.getString(obj[10]),
-          RowDataUtil.getDouble(obj[11]));
+          RowDataUtil.getBigDecimal(obj[11]));
       invoice.addPiece(RowDataUtil.getString(obj[14]),
-          RowDataUtil.getDouble(obj[15]));
+          RowDataUtil.getBigDecimal(obj[15]));
       invoice.addPiece(RowDataUtil.getString(obj[18]),
-          RowDataUtil.getDouble(obj[19]));
+          RowDataUtil.getBigDecimal(obj[19]));
       invoice.addPiece(RowDataUtil.getString(obj[20]),
-          RowDataUtil.getDouble(obj[21]));
+          RowDataUtil.getBigDecimal(obj[21]));
       // 出纳
       invoice.setCasher(RowDataUtil.getString(obj[24]));
       // 经办人
@@ -366,17 +366,17 @@ public class InvoiceDaoHibernate extends GenericDaoHibernate<Invoice, String>
   public int deleteInvoice(String inviceId) {
     HibernateTemplate template = getHibernateTemplate();
     Invoice trj051 = (Invoice) template.get(Invoice.class, inviceId,
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     if (null == trj051)
       return -1;
 
-    trj051.setDel(1);
+    trj051.setDel((byte) 1);
     template.update(trj051);
 
     return 0;
   }
 
-  public List<Invoice> getInvoice1(long incomeId) {
+  public List<Invoice> getInvoice1(int incomeId) {
     // TODO Auto-generated method stub
     return null;
   }

@@ -1,5 +1,6 @@
 package com.opentravelsoft.providers.hibernate;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,13 +23,12 @@ import com.opentravelsoft.entity.TourOutBound;
 import com.opentravelsoft.entity.Tourist;
 import com.opentravelsoft.entity.product.Leader;
 import com.opentravelsoft.providers.PlanDao;
-import com.opentravelsoft.util.Arith;
 import com.opentravelsoft.util.RowDataUtil;
 import com.opentravelsoft.util.StringUtil;
 
 @Repository("TourDao")
-public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
-    PlanDao {
+public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
+    implements PlanDao {
 
   public PlanDaoHibernate() {
     super(Plan.class);
@@ -55,8 +55,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
       // 已收
       tour.setAlAmount(tour.getAramt());
       // 未收
-      tour.setWiAmount(RowDataUtil.getDouble(tour.getAmount())
-          - RowDataUtil.getDouble(tour.getAramt()));
+      tour.setWiAmount(tour.getAmount().subtract(tour.getAramt()));
 
       tour.setYear(SDF.format(tour.getOutDate()));
 
@@ -101,7 +100,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
       }
 
       if (cost) {
-        tour.setExtrIncome(RowDataUtil.getDouble(tour.getExtCost()));
+        tour.setExtrIncome(tour.getExtCost());
         tour.setExtrIncomeDec(RowDataUtil.getString(tour.getExtCostNote()));
         sql = new StringBuilder();
         sql.append("from TourCost where tour.planNo=? ");
@@ -142,10 +141,6 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
       List<Tourist> tfj007List = template.find(sql.toString(), param);
       for (Tourist trip : tfj007List) {
         trip.setRealName(trip.getUserName());
-        if (trip.getSex().equals("M"))
-          trip.setSex("男");
-        else if (trip.getSex().equals("F"))
-          trip.setSex("女");
         trip.setStauts(0);
       }
       tour.setCustomerList(tfj007List);
@@ -160,7 +155,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
     return tourList;
   }
 
-  public int cancelTour(String tourNo, String note, long userId) {
+  public int cancelTour(String tourNo, String note, int userId) {
     // 取消团
     StringBuilder sb = new StringBuilder();
     sb.append("update Plan set delKey='Y' where tourNo=?");
@@ -180,7 +175,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
     // 通过团号查询团并修改基本信息
     Object[] params = { tour.getPlanNo() };
     Plan plan = (Plan) template.get(Plan.class, tour.getPlanNo(),
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     if (null == plan)
       return -1;
 
@@ -228,13 +223,13 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
     StringBuilder sb4 = new StringBuilder();
     sb4.append("from Booking where plan.planNo=? ");
     // 应收款
-    double dbamt = 0;
+    BigDecimal dbamt = new BigDecimal(0);
     // 已收款
-    double cramt = 0;
+    BigDecimal cramt = new BigDecimal(0);
     List<Booking> tfj006List = template.find(sb4.toString(), params);
     for (Booking tfj006 : tfj006List) {
-      dbamt += tfj006.getDbamt().doubleValue();
-      cramt += tfj006.getCramt().doubleValue();
+      dbamt = dbamt.add(tfj006.getDbamt());
+      cramt = cramt.add(tfj006.getCramt());
     }
 
     plan.setOptime2(sysdate);
@@ -268,7 +263,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
       outBandObject.setText2(RowDataUtil.getString(obj.getText2()));
       outBandObject.setText3(RowDataUtil.getString(obj.getText3()));
       outBandObject.setType(RowDataUtil.getString(obj.getType()));
-      outBandObject.setOpuser(RowDataUtil.getString(obj.getOpuser()));
+      outBandObject.setOpuser(RowDataUtil.getInt(obj.getOpuser()));
       outBandObject.setOpdate(RowDataUtil.getDate(obj.getOpdate()));
       outBandObject.setShowStr(outBandObject.getType() + "　"
           + outBandObject.getOpuser() + "　"
@@ -312,7 +307,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
 
   @SuppressWarnings("unchecked")
   public int modifyCustomerInfo(List<Tourist> customerList, String tourNo,
-      String note, long userId) {
+      String note, int userId) {
     // 修改团中客人信息
     HibernateTemplate template = getHibernateTemplate();
     Date sysdate = getSysdate();
@@ -340,7 +335,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
       if (null == trip)
         continue;
 
-      template.lock(tfj007, LockMode.UPGRADE);
+      template.lock(tfj007, LockMode.PESSIMISTIC_WRITE);
 
       // 姓名
       tfj007.setUserName(trip.getUserName());
@@ -405,10 +400,10 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
 
     for (Booking book : bookList) {
       book.setId(i++);
-      book.setFinalExpense(RowDataUtil.getDouble(book.getFinalAmount()));
-      book.setPayCosts(RowDataUtil.getDouble(book.getCramt()));
-      book.setUnPay(book.getDbamt() + book.getFinalExpense()
-          - book.getPayCosts());
+      book.setFinalExpense(book.getFinalAmount());
+      book.setPayCosts(book.getCramt());
+      book.setUnPay(book.getDbamt().add(book.getFinalExpense())
+          .subtract(book.getPayCosts()));
       //
       if (book.getCustomer().getPayment().equals('N'))
         book.setClearingCycle("现结客户");
@@ -417,10 +412,9 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
 
       // 确认人数
       book.setPax(RowDataUtil.getInt(book.getConfirmPax()));
-      book.setAdjustExpense(RowDataUtil.getDouble(book.getFinalAmount())
-          + RowDataUtil.getDouble(book.getDbamt()));
+      book.setAdjustExpense(book.getFinalAmount().add(book.getDbamt()));
 
-      book.setLastAdjustBy(RowDataUtil.getLong(book.getFinalUser()));
+      book.setLastAdjustBy(book.getFinalUser());
       book.setLastAdjustDate(RowDataUtil.getDate(book.getFinalDate()));
       book.setAdjustReason(RowDataUtil.getString(book.getFinalNote()));
     }
@@ -433,10 +427,10 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
 
   public int makeTourAccounts(Plan plan) {
     Plan tour = getHibernateTemplate().get(Plan.class, plan.getPlanNo(),
-        LockMode.UPGRADE);
-    tour.setOpAccount("N");
-    tour.setFrChecked("N");
-    tour.setOpRefactor("N");
+        LockMode.PESSIMISTIC_WRITE);
+    tour.setOpAccount('N');
+    tour.setFrChecked('N');
+    tour.setOpRefactor('N');
     // 其它收入
     tour.setExtCost(plan.getExtrIncome());
     tour.setExtCostNote(plan.getExtrIncomeDec());
@@ -468,7 +462,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
   }
 
   @SuppressWarnings("unchecked")
-  public Plan auditTourAccounts(String tourNo, long uid) {
+  public Plan auditTourAccounts(String tourNo, int uid) {
     HibernateTemplate template = getHibernateTemplate();
     Plan tour = getTourInfo(tourNo, false, true);
     List<TourCost> costList = tour.getCostList();
@@ -478,14 +472,14 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
     template.saveOrUpdateAll(costList);
 
     // ---------------------------------------------------------------------
-    tour.setFrChecked("Y");
-    tour.setOpRefactor("N");
+    tour.setFrChecked('Y');
+    tour.setOpRefactor('N');
     tour.setFrUser(uid);
     tour.setFrDate(getSysdate());
 
     // 毛利率----------
-    double blnrate = ((tour.getTourAmount() - tour.getCost()) / tour
-        .getTourAmount()) / 100;
+    BigDecimal blnrate = tour.getTourAmount().subtract(tour.getCost())
+        .divide(tour.getTourAmount()).divide(new BigDecimal(100));
     tour.setBlnrate(blnrate);
     // ---------------- 取各订单已交款-----------------------------------------
     StringBuilder sql = new StringBuilder();
@@ -494,9 +488,9 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
     Object[] params = { tour.getTourNo() };
     List<Booking> tfj006s = template.find(sql.toString(), params);
 
-    double cramt = 0d;
+    BigDecimal cramt = new BigDecimal(0);
     for (Booking tfj006 : tfj006s) {
-      cramt += tfj006.getCramt();
+      cramt = cramt.add(tfj006.getCramt());
     }
 
     tour.setAramt(cramt);
@@ -508,12 +502,11 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * com.opentravelsoft.providers.TourDao#mustPayModify(java.util.List,
+   * @see com.opentravelsoft.providers.TourDao#mustPayModify(java.util.List,
    * long)
    */
   @SuppressWarnings("unchecked")
-  public List<Booking> mustPayModify(List<Booking> bookList, long uid) {
+  public List<Booking> mustPayModify(List<Booking> bookList, int uid) {
     StringBuilder sql = new StringBuilder();
     sql.append("from Booking where nameNo in ( ");
 
@@ -526,19 +519,18 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
     List<Booking> books = new ArrayList<Booking>();
 
     Date sysdate = getSysdate();
-    double allAmount = 0;
+    BigDecimal allAmount = new BigDecimal(0);
 
     for (int i = 0; i < bookList.size(); i++)
       for (Booking tfj006 : bookings) {
         Booking book1 = bookList.get(i);
         if (tfj006.getNameNo().equals(book1.getBookingNo())) {
-          tfj006.setFinalAmount(book1.getAdjustExpense() - book1.getDbamt());
+          tfj006.setFinalAmount(book1.getAdjustExpense().subtract(
+              book1.getDbamt()));
           tfj006.setFinalUser(uid);
           tfj006.setFinalDate(sysdate);
           tfj006.setFinalNote(book1.getAdjustReason());
-
-          allAmount += book1.getAdjustExpense();
-
+          allAmount = allAmount.add(book1.getAdjustExpense());
           book1.setLastAdjustBy(uid);
           book1.setLastAdjustDate(sysdate);
           book1.setIsSuccess(1);
@@ -552,13 +544,12 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
 
     // 修改团的总收入
     Plan plan = (Plan) getHibernateTemplate().get(Plan.class,
-        bookings.get(0).getPlan().getTourNo(), LockMode.UPGRADE);
+        bookings.get(0).getPlan().getTourNo(), LockMode.PESSIMISTIC_WRITE);
     if (null != plan) {
       // 修改总收入
       plan.setAmount(allAmount);
       // 修改未款
-      plan.setCamt03(allAmount - plan.getAramt());
-
+      plan.setCamt03(allAmount.subtract(plan.getAramt()));
       getHibernateTemplate().update(plan);
 
       // 修改核算单的金额
@@ -570,7 +561,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
           .find(sql.toString(), params1);
       if (null != tourList && !(tourList.isEmpty())) {
         Plan tour = tourList.get(0);
-        tour.setAmount((double) allAmount);
+        tour.setAmount(allAmount);
 
         getHibernateTemplate().update(tour);
       }
@@ -612,7 +603,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
   }
 
   @SuppressWarnings("unchecked")
-  public List<Plan> getTours(long teamId, long userId, String lineName,
+  public List<Plan> getTours(Integer teamId, Integer userId, String lineName,
       Date kenStartDate, Date kenEndDate) {
     StringBuilder sql = new StringBuilder();
     List<Object> params = new ArrayList<Object>();
@@ -657,17 +648,16 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
     List<Plan> list = template.find(sql.toString(), param);
 
     for (Plan singlePlan : list) {
-      double ml = 0.0;
-      if (singlePlan.getTourAmount() != 0.0) {
-        ml = Arith.sub(singlePlan.getTourAmount(), singlePlan.getCost());
+      BigDecimal ml = new BigDecimal(0);
+      if (singlePlan.getTourAmount().doubleValue() != 0.0) {
+        ml = singlePlan.getTourAmount().subtract(singlePlan.getCost());
         // 保留两位小数点
-        singlePlan.setGrossAmount(Arith.round(ml, 2));
-        double num = 0.0;
-        num = Arith
-            .div(singlePlan.getGrossAmount(), singlePlan.getTourAmount());
-        num = Arith.mul(num, 100.0);
+        singlePlan.setGrossAmount(ml);
+        BigDecimal num = new BigDecimal(0);
+        num = singlePlan.getGrossAmount().divide(singlePlan.getTourAmount())
+            .multiply(new BigDecimal(100));
         // 保留两位小数点
-        singlePlan.setGrossAmountRate(Arith.round(num, 2));
+        singlePlan.setGrossAmountRate(num);
       }
 
       singlePlan.setLeaderPax(RowDataUtil.getInt(singlePlan.getPax3()));
@@ -680,19 +670,19 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
 
       List<Double> list2 = template
           .find(sql.toString(), singlePlan.getPlanNo());
-      double cramt = RowDataUtil.getDouble(list2.get(0));
+      BigDecimal cramt = RowDataUtil.getBigDecimal(list2.get(0));
       // 已收款(保留两位小数)
-      singlePlan.setAlAmount(Arith.round(cramt, 2));
+      singlePlan.setAlAmount(cramt);
     }
 
     return list;
 
   }
 
-  public int authorizationModify(long accountId, long uid) {
+  public int authorizationModify(long accountId, int uid) {
     Plan plan = (Plan) getHibernateTemplate().get(Plan.class, accountId);
     if (null != plan) {
-      plan.setOpRefactor("Y");
+      plan.setOpRefactor('Y');
       plan.setUpdatedby(uid);
       // tblBalance.setNumber(tblBalance.getNumber() + 1);
       getHibernateTemplate().update(plan);
@@ -704,9 +694,9 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
   // --------------------------------------------------------------------------
 
   @SuppressWarnings("unchecked")
-  public int arrangeLeader(String tourNo, String[] nameKey, long operator) {
+  public int arrangeLeader(String tourNo, String[] nameKey, int operator) {
     Plan tour = (Plan) getHibernateTemplate().get(Plan.class, tourNo,
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
 
     if (null == tour)
       return -1;
@@ -749,7 +739,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
 
       lead.setUid(RowDataUtil.getString(obj[0]));
       lead.setUserName(RowDataUtil.getString(obj[1]));
-      lead.setSex(RowDataUtil.getString(obj[2]));
+      lead.setSex(RowDataUtil.getChar(obj[2]));
       lead.setBirthplace(RowDataUtil.getString(obj[3]));
       lead.setVocation(RowDataUtil.getString(4));
       lead.setPassportType(RowDataUtil.getString(obj[5]));
@@ -770,9 +760,9 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
 
   @SuppressWarnings("unchecked")
   public int arrangeFromLeader(String tourNo, String[] nameKey, String[] keys,
-      long operator) {
+      Integer operator) {
     Plan ooj = (Plan) getHibernateTemplate().get(Plan.class, tourNo,
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
 
     if (null == ooj)
       return -1;
@@ -822,10 +812,9 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
       // 证件号码
       tourist.setCard(obj.getIdCard());
       // 性别
-      String sex = "M";
-      if (obj.getAccSex().trim().equals("女")
-          || "F".equals(obj.getAccSex().trim())) {
-        sex = "F";
+      char sex = 'M';
+      if ("F".equals(obj.getAccSex().trim())) {
+        sex = 'F';
         ooj.setPax2(ooj.getPax2() + 1);
       } else
         ooj.setPax1(ooj.getPax1() + 1);
@@ -854,15 +843,15 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
       // 团号
       tourist.setTourNo(tour.getTourNo());
       // 线路报价
-      tourist.setPrice(0d);
+      tourist.setPrice(new BigDecimal(0));
       // 应收团款
-      tourist.setAmt01(0d);
+      tourist.setAmt01(new BigDecimal(0));
       // 优惠申请
-      tourist.setAmt02(0d);
+      tourist.setAmt02(new BigDecimal(0));
       // 已收团款
-      tourist.setAmt03(0d);
+      tourist.setAmt03(new BigDecimal(0));
       // 已退团款
-      tourist.setAmt04(0d);
+      tourist.setAmt04(new BigDecimal(0));
       // 重点客人否
       tourist.setVipkey('N');
       // 备注
@@ -876,11 +865,11 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
       // 是否同意与他人同住
       tourist.setRoomKey1('Y');
       // 取消标志
-      tourist.setDel("N");
+      tourist.setDel('N');
       // 操作人
       tourist.setOpuser(operator);
       // 分团标志
-      tourist.setTourKey("N");
+      tourist.setTourKey('N');
       // 领队标志
       tourist.setLeaderKey("Y");
       // 办签状态
@@ -947,10 +936,10 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, Long> implements
    * 取消领队
    */
   @SuppressWarnings("unchecked")
-  public int cancelLeader(String tourNo, String[] nameKey, long uid) {
+  public int cancelLeader(String tourNo, String[] nameKey, int uid) {
 
     Plan tour = (Plan) getHibernateTemplate().get(Plan.class, tourNo,
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
     if (null == tour)
       return -1;
 

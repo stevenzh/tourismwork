@@ -76,7 +76,7 @@ public class SightDaoImpl extends GenericDaoHibernate<Sight, String> implements
   public int editSight(Sight sight, String method) {
     HibernateTemplate template = getHibernateTemplate();
     Sight tfa023 = (Sight) template.get(Sight.class, sight.getSightNo(),
-        LockMode.UPGRADE);
+        LockMode.PESSIMISTIC_WRITE);
 
     if (null == tfa023 && method.equals("update")) {
       return -1;

@@ -77,8 +77,8 @@ public class LineReportAction extends ActionSupport {
       table.addCell(cell);
 
       for (LineSchedule schedule : sc) {
-        table.addCell(new Paragraph("第" + String.valueOf(schedule.getDay())
-            + "天", FontChinese));
+        table.addCell(new Paragraph("第"
+            + String.valueOf(schedule.getId().getDay()) + "天", FontChinese));
         table.addCell(new Paragraph(schedule.getTraffic(), FontChinese));
         table.addCell("1");
 

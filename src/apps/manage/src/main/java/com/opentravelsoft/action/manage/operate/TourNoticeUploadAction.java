@@ -51,7 +51,7 @@ public class TourNoticeUploadAction extends ManageAction {
 
   private String tourNo;
 
-  private Long fileId;
+  private int fileId;
 
   /**
    * 初始化
@@ -230,11 +230,11 @@ public class TourNoticeUploadAction extends ManageAction {
     this.tourNoticeFile = tourNoticeFile;
   }
 
-  public Long getFileId() {
+  public int getFileId() {
     return fileId;
   }
 
-  public void setFileId(Long fileId) {
+  public void setFileId(int fileId) {
     this.fileId = fileId;
   }
 

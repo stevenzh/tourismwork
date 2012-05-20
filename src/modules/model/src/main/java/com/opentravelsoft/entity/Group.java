@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_group", catalog = "tourismwork_db")
+@Table(name = "tbl_group")
 public class Group implements java.io.Serializable {
 
   private int groupId;
@@ -31,20 +31,6 @@ public class Group implements java.io.Serializable {
   public Group(int groupId, String dptCn) {
     this.groupId = groupId;
     this.dptCn = dptCn;
-  }
-
-  public Group(int groupId, Group group, String dptCn, String fullName,
-      String linkman, String tel, String fax, Set<Group> groups,
-      Set<Employee> employees) {
-    this.groupId = groupId;
-    this.parent = group;
-    this.dptCn = dptCn;
-    this.fullName = fullName;
-    this.linkman = linkman;
-    this.tel = tel;
-    this.fax = fax;
-    this.children = groups;
-    this.employees = employees;
   }
 
   @Id

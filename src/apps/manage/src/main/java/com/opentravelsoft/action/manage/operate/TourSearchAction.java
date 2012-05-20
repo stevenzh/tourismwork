@@ -34,10 +34,10 @@ public class TourSearchAction extends ManageAction {
   @Autowired
   private EmployeeService employeeSevice;
 
-  private long kenTeamId;
+  private int kenTeamId;
 
   /** 专管员 */
-  private long kenUserId;
+  private int kenUserId;
 
   /** 线路名 */
   private String kenLineName = "";

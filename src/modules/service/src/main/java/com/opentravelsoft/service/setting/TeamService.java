@@ -9,7 +9,7 @@ import com.opentravelsoft.util.PaginationSupport;
 public interface TeamService {
   PaginationSupport getTeamList(int fromRecord, int pageSize);
 
-  Team getTeamDetail(long teamId);
+  Team getTeamDetail(int teamId);
 
   void deleteTeam(Team team);
 

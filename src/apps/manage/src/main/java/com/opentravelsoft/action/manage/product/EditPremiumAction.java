@@ -15,7 +15,7 @@ import com.opentravelsoft.util.StringUtil;
  * 
  */
 public class EditPremiumAction extends ManageAction {
-  
+
   @Autowired
   private PremiumService premiumService;
 
@@ -37,7 +37,7 @@ public class EditPremiumAction extends ManageAction {
 
   public String submit() {
     Employee user = getUser();
-    tblPremium.setUpdatedBy(user.getUserId());
+    tblPremium.setUpdatedby(user.getUserId());
     premiumService.txEditPrem(tblPremium);
     return SUCCESS;
   }

@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.manage.operate;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -95,14 +96,14 @@ public class OpTourBalanceAction extends ManageAction {
           .getTeamId());
       currencyList = tourService.roGetCurrencyList();
       bookList = tourService.roGetBookList(tourNo);
-      double amount = 0;
-      double payCosts = 0;
+      BigDecimal amount = new BigDecimal(0);
+      BigDecimal payCosts = new BigDecimal(0);
       int pax = 0;
 
       String str = new String();
       for (Booking book : bookList) {
-        amount += (book.getDbamt() + book.getFinalExpense());
-        payCosts += book.getPayCosts();
+        amount = amount.add(book.getDbamt()).add(book.getFinalExpense());
+        payCosts = payCosts.add(book.getPayCosts());
         pax += book.getPax();
         if (null != book.getLeaders() && !"".equals(book.getLeaders()))
           str = str + book.getLeaders();
@@ -112,14 +113,13 @@ public class OpTourBalanceAction extends ManageAction {
       if (null != tour) {
         tour.setMuAmount(amount);
         tour.setAlAmount(payCosts);
-        tour.setWiAmount(amount - payCosts);
-        double grossAmount = tour.getTourAmount()
-            - tour.getCost().doubleValue();
-        tour.setGrossAmount(new Double(df.format(grossAmount)));
-        if (tour.getTourAmount() != 0) {
-          double grossAmountRate = tour.getGrossAmount() / tour.getTourAmount()
-              * 100;
-          tour.setGrossAmountRate(new Double(df.format(grossAmountRate)));
+        tour.setWiAmount(amount.subtract(payCosts));
+        BigDecimal grossAmount = tour.getTourAmount().subtract(tour.getCost());
+        tour.setGrossAmount(grossAmount);
+        if (tour.getTourAmount().doubleValue() != 0) {
+          BigDecimal grossAmountRate = tour.getGrossAmount()
+              .divide(tour.getTourAmount()).multiply(new BigDecimal(100));
+          tour.setGrossAmountRate(grossAmountRate);
         }
         costList = tour.getCostList();
       }
@@ -136,9 +136,9 @@ public class OpTourBalanceAction extends ManageAction {
       detail();
 
       // 是否提交财务
-      if (tour.getOpRefactor().equals("Y")) {
+      if (tour.getOpRefactor() == 'Y') {
         status = "Y";
-        if (tour.getOpAccount().equals("Y")) {
+        if (tour.getOpAccount() == 'Y') {
           opReAction = "Y";
         } else {
           addActionMessage("此团的核算表已提交到财务，只有得到授权后才能修改！");
@@ -207,7 +207,7 @@ public class OpTourBalanceAction extends ManageAction {
 
     tour = tourService.roGetTourInfo(tourNo, false, false);
     if (null != tour) {
-      if (!tour.getOpAccount().equals("Y")) {
+      if (tour.getOpAccount() != 'Y') {
         status = "N";
       } else {
         addActionError("此团的核算表已提交到财务!");
@@ -277,14 +277,14 @@ public class OpTourBalanceAction extends ManageAction {
     // ------------------------------------------------------------------
 
     bookList = tourService.roGetBookList(tourNo);
-    double amount = 0;
-    double payCosts = 0;
+    BigDecimal amount = new BigDecimal(0);
+    BigDecimal payCosts = new BigDecimal(0);
     int pax = 0;
 
     String str = new String();
     for (Booking book : bookList) {
-      amount += (book.getDbamt() + book.getFinalExpense());
-      payCosts += book.getPayCosts();
+      amount = amount.add(book.getDbamt()).add(book.getFinalExpense());
+      payCosts = payCosts.add(book.getPayCosts());
       pax += book.getPax();
       if (null != book.getLeaders() && !"".equals(book.getLeaders()))
         str = str + book.getLeaders();
@@ -295,16 +295,16 @@ public class OpTourBalanceAction extends ManageAction {
     if (null != tour) {
       tour.setMuAmount(amount);
       tour.setAlAmount(payCosts);
-      tour.setWiAmount(amount - payCosts);
+      tour.setWiAmount(amount.subtract(payCosts));
       tour.setOprateUserName(user.getUserName());
 
-      double grossAmount = Arith.sub(tour.getTourAmount(), tour.getCost());
+      BigDecimal grossAmount = tour.getTourAmount().subtract(tour.getCost());
       // 四舍五入取小数点后两位
       tour.setGrossAmount(Arith.round(grossAmount, 2));
-      if (tour.getTourAmount() != 0) {
-        double grossAmountRate = Arith.div(tour.getGrossAmount(),
+      if (tour.getTourAmount().doubleValue() != 0) {
+        BigDecimal grossAmountRate = tour.getGrossAmount().divide(
             tour.getTourAmount());
-        grossAmountRate = Arith.mul(grossAmountRate, 100);
+        grossAmountRate = grossAmountRate.multiply(new BigDecimal(100));
         tour.setGrossAmountRate(Arith.round(grossAmountRate, 2));
       }
 
@@ -312,8 +312,8 @@ public class OpTourBalanceAction extends ManageAction {
 
     }
     if (tour.getPax() != 0) {
-      double grossAmountAverage = Arith.div(tour.getGrossAmount(),
-          tour.getPax());
+      BigDecimal grossAmountAverage = tour.getGrossAmount().divide(
+          new BigDecimal(tour.getPax()));
       tour.setGrossAmountAverage(Arith.round(grossAmountAverage, 2));
     }
 
@@ -385,9 +385,9 @@ public class OpTourBalanceAction extends ManageAction {
           singleTourCostAcct.setId(i);
           costList.set(i, singleTourCostAcct);
         }
-        double amount = 0;
-        amount = tour.getCost() - obj.getAmount();
-        tour.setCost(new Double(df.format(amount)));
+        BigDecimal amount = new BigDecimal(0);
+        amount = tour.getCost().subtract(obj.getAmount());
+        tour.setCost(amount);
         costList.remove(obj);
         break;
       }

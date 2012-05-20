@@ -18,7 +18,7 @@ public class MyTaskCountAction extends ManageAction {
 
   private int count = 0;
 
-  private long userId;
+  private int userId;
 
   @Autowired
   public void setMessageService(MessageService messageService) {
@@ -38,7 +38,7 @@ public class MyTaskCountAction extends ManageAction {
     this.count = count;
   }
 
-  public void setUserId(long userId) {
+  public void setUserId(int userId) {
     this.userId = userId;
   }
 

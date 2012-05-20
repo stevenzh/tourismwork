@@ -24,7 +24,7 @@ import com.opentravelsoft.util.RowDataUtil;
 import com.opentravelsoft.util.StringUtil;
 
 @Repository("EmployeeDao")
-public class EmployeeDaoImpl extends GenericDaoHibernate<Employee, Long>
+public class EmployeeDaoImpl extends GenericDaoHibernate<Employee, Integer>
     implements EmployeeDao {
 
   public EmployeeDaoImpl() {
@@ -81,7 +81,7 @@ public class EmployeeDaoImpl extends GenericDaoHibernate<Employee, Long>
     return emp;
   }
 
-  public Employee getEmployee(long userId) {
+  public Employee getEmployee(int userId) {
     Employee employee = getHibernateTemplate().get(Employee.class, userId);
     if (null != employee) {
       Set<String> st = new HashSet<String>();
@@ -118,9 +118,9 @@ public class EmployeeDaoImpl extends GenericDaoHibernate<Employee, Long>
     return getHibernateTemplate().findByCriteria(criteria);
   }
 
-  public int deleteEmployee(long userId) {
+  public int deleteEmployee(int userId) {
     Employee employee = (Employee) getHibernateTemplate().get(Employee.class,
-        userId, LockMode.UPGRADE);
+        userId, LockMode.PESSIMISTIC_WRITE);
 
     if (employee == null) {
       return -1;
@@ -179,7 +179,7 @@ public class EmployeeDaoImpl extends GenericDaoHibernate<Employee, Long>
 
   public int update(Employee employee) {
     Employee t105 = (Employee) getHibernateTemplate().get(Employee.class,
-        employee.getUserId(), LockMode.UPGRADE);
+        employee.getUserId(), LockMode.PESSIMISTIC_WRITE);
     if (t105 == null) {
       log.error("The userId= " + employee.getUserId() + ",not found");
       return -1;
@@ -230,7 +230,7 @@ public class EmployeeDaoImpl extends GenericDaoHibernate<Employee, Long>
 
   public int updateEmployee(Employee employee) {
     Employee t105 = (Employee) getHibernateTemplate().get(Employee.class,
-        employee.getUserId(), LockMode.UPGRADE);
+        employee.getUserId(), LockMode.PESSIMISTIC_WRITE);
     if (t105 == null) {
       log.error("user not find.");
       return -1;
@@ -247,7 +247,7 @@ public class EmployeeDaoImpl extends GenericDaoHibernate<Employee, Long>
   }
 
   @SuppressWarnings("unchecked")
-  public Set<String> getAuthorities(long userId) {
+  public Set<String> getAuthorities(int userId) {
     StringBuilder sql1 = new StringBuilder();
     sql1.append("select r.roleCode ");
     sql1.append("from Employee u join u.memberships r ");
@@ -276,7 +276,7 @@ public class EmployeeDaoImpl extends GenericDaoHibernate<Employee, Long>
   }
 
   @SuppressWarnings("unchecked")
-  public List<Employee> getSalesByTeam(long teamId) {
+  public List<Employee> getSalesByTeam(int teamId) {
     DetachedCriteria criteria = DetachedCriteria.forClass(Employee.class, "u");
     criteria.createAlias("u.teamMemberships", "t");
 
@@ -290,7 +290,7 @@ public class EmployeeDaoImpl extends GenericDaoHibernate<Employee, Long>
   }
 
   @SuppressWarnings("unchecked")
-  public List<Employee> getUserByTeam(long teamId) {
+  public List<Employee> getUserByTeam(int teamId) {
     StringBuilder sql = new StringBuilder();
     sql.append("select u.userId,u.userCd,u.userName ");
     sql.append("from Employee u join u.teamMemberships t ");

@@ -1,5 +1,6 @@
 package com.opentravelsoft.action.manage.order;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -48,10 +49,10 @@ public class BookingSearchAction extends ManageAction {
   private String kenReserveNo;
 
   /** 专管员 */
-  private long kenUserId;
+  private int kenUserId;
 
   /** 部门 */
-  private long kenTeamId;
+  private int kenTeamId;
 
   /** 线路名 */
   private String kenLineName;
@@ -94,13 +95,13 @@ public class BookingSearchAction extends ManageAction {
   private int totalConfirmPax = 0;
 
   /** 应收款 */
-  private double totalExpense = 0f;
+  private BigDecimal totalExpense = new BigDecimal(0);
 
   /** 已付费用 */
-  private double totalPay = 0f;
+  private BigDecimal totalPay = new BigDecimal(0);
 
   /** 未付费用 */
-  private double totalUnPay = 0f;
+  private BigDecimal totalUnPay = new BigDecimal(0);
 
   // -------------------------------------------------------------------------
 
@@ -136,9 +137,9 @@ public class BookingSearchAction extends ManageAction {
       Booking book = bookings.get(i);
       totalPax = totalPax + book.getPax();
       totalConfirmPax = totalConfirmPax + book.getConfirmPax();
-      totalExpense = totalExpense + book.getDbamt();
-      totalPay = totalPay + book.getPayCosts();
-      totalUnPay = totalExpense - totalPay;
+      totalExpense = totalExpense.add(book.getDbamt());
+      totalPay = totalPay.add(book.getPayCosts());
+      totalUnPay = totalExpense.subtract(totalPay);
     }
 
     employeeList = employeeService.getUserByTeam(kenTeamId);
@@ -205,7 +206,7 @@ public class BookingSearchAction extends ManageAction {
     return kenTeamId;
   }
 
-  public void setKenDepartmentNo(long teamId) {
+  public void setKenDepartmentNo(int teamId) {
     this.kenTeamId = teamId;
   }
 
@@ -213,7 +214,7 @@ public class BookingSearchAction extends ManageAction {
     return kenUserId;
   }
 
-  public void setKenUserId(long kenUserId) {
+  public void setKenUserId(int kenUserId) {
     this.kenUserId = kenUserId;
   }
 
@@ -269,11 +270,11 @@ public class BookingSearchAction extends ManageAction {
     return totalConfirmPax;
   }
 
-  public double getTotalExpense() {
+  public BigDecimal getTotalExpense() {
     return totalExpense;
   }
 
-  public double getTotalPay() {
+  public BigDecimal getTotalPay() {
     return totalPay;
   }
 
@@ -285,11 +286,11 @@ public class BookingSearchAction extends ManageAction {
     this.nameNo = nameNo;
   }
 
-  public double getTotalUnPay() {
+  public BigDecimal getTotalUnPay() {
     return totalUnPay;
   }
 
-  public void setTotalUnPay(double totalUnPay) {
+  public void setTotalUnPay(BigDecimal totalUnPay) {
     this.totalUnPay = totalUnPay;
   }
 
