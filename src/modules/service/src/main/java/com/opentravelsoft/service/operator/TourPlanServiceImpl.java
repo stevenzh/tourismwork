@@ -56,7 +56,7 @@ public class TourPlanServiceImpl implements TourPlanService {
   @Autowired
   private AirwaysDao airwaysDao;
 
-  public List<Plan> roFind(String lineName, long teamId, long userId,
+  public List<Plan> roFind(String lineName, int teamId, int userId,
       Date startDate, Date endDate, double lowerPrice, double upperPrice,
       boolean openKey) {
     return planListDao.find(lineName, teamId, userId, startDate, endDate,
@@ -67,7 +67,7 @@ public class TourPlanServiceImpl implements TourPlanService {
     return teamDao.getTeamList(TeamType.Operator);
   }
 
-  public int txDeletePlan(Plan plan, long userId, String note) {
+  public int txDeletePlan(Plan plan, int userId, String note) {
     return planListDao.deletePlan(plan, userId, note);
   }
 
@@ -232,7 +232,7 @@ public class TourPlanServiceImpl implements TourPlanService {
     return ret;
   }
 
-  public List<Team> getTeamList(long userId, TeamType type) {
+  public List<Team> getTeamList(int userId, TeamType type) {
     return teamDao.getTeam(userId, type);
   }
 

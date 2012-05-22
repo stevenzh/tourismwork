@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_guide")
@@ -476,6 +477,7 @@ public class Guide implements java.io.Serializable {
 
   private Date passportExpiry;
 
+  @Transient
   public String getLeaderKey() {
     return this.leaderKey;
   }
@@ -484,6 +486,7 @@ public class Guide implements java.io.Serializable {
     this.leaderKey = leadKey;
   }
 
+  @Transient
   public String getBirthplace() {
     return this.birthplace;
   }
@@ -492,6 +495,7 @@ public class Guide implements java.io.Serializable {
     this.birthplace = birthplace;
   }
 
+  @Transient
   public String getPassportType() {
     return this.passportType;
   }
@@ -500,6 +504,7 @@ public class Guide implements java.io.Serializable {
     this.passportType = type;
   }
 
+  @Transient
   public String getPassportNo() {
     return this.passportNo;
   }
@@ -508,6 +513,7 @@ public class Guide implements java.io.Serializable {
     this.passportNo = passportNo;
   }
 
+  @Transient
   public String getPassportPlace() {
     return this.passportPlace;
   }
@@ -516,6 +522,7 @@ public class Guide implements java.io.Serializable {
     this.passportPlace = hzadd;
   }
 
+  @Transient
   public Date getPassportDate() {
     return this.passportDate;
   }
@@ -524,6 +531,7 @@ public class Guide implements java.io.Serializable {
     this.passportDate = date;
   }
 
+  @Transient
   public Date getPassportExpiry() {
     return this.passportExpiry;
   }
@@ -532,27 +540,13 @@ public class Guide implements java.io.Serializable {
     this.passportExpiry = expiry;
   }
 
+  @Transient
   public String getIdCard() {
     return idCard;
   }
 
   public void setIdCard(String idCard) {
     this.idCard = idCard;
-  }
-
-  @Override
-  public String toString() {
-    return null;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    return false;
-  }
-
-  @Override
-  public int hashCode() {
-    return 0;
   }
 
 }

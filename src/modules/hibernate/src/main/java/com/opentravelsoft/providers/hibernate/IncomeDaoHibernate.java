@@ -49,8 +49,8 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
     StringBuilder sb = new StringBuilder();
     sb.append("from Booking ");
     sb.append("where customer.customerId=? and dbamt<>cramt ");
-    sb.append("and confirmStatus='1' and delkey='N' ");
-    sb.append("order by reserveDate ");
+    sb.append("and cfmKey='1' and delkey='N' ");
+    sb.append("order by receiveDt ");
     Object[] param = { customerId };
     return getHibernateTemplate().find(sb.toString(), param);
   }
@@ -61,7 +61,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
    * @see com.opentravelsoft.providers.IncomeDao#saveIncome(com.opentravelsoft
    * .ebiz.entity.finance.Income)
    */
-  public long saveIncome(Income gathering) {
+  public int saveIncome(Income gathering) {
     // 更新订单收款
     Booking book = getHibernateTemplate().get(Booking.class,
         gathering.getBookingNo());
@@ -356,8 +356,8 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
     sb.append("from Booking a ");
     sb.append("Income c ");
     sb.append("where c.bookingNo=a.nameNo and c.incomeId=? ");
-    sb.append("and a.confirmStatus='1' and a.delkey='N' ");
-    sb.append("order by a.reserveDate ");
+    sb.append("and a.cfmKey='1' and a.delkey='N' ");
+    sb.append("order by a.receiveDt ");
     Object[] param = { incomeId };
     List<Booking> books = new ArrayList<Booking>();
     List<Object[]> list = getHibernateTemplate().find(sb.toString(), param);
@@ -533,7 +533,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
     List<Tourist> list = template.find(sql.toString(), params);
     int pax = list.size();
 
-    if (tfj006.getConfirmStatus().equals("2") && plan.getPax3() - pax > 0) {
+    if (tfj006.getCfmKey().equals("2") && plan.getPax3() - pax > 0) {
       // 已定人数
       plan.setPax2(RowDataUtil.getShort(plan.getPax2()) + pax);
       // 可订人数
@@ -546,7 +546,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
       // 确认人数
       tfj006.setConfirmPax(pax);
       // 团队确认状态 1-团确 2-团候
-      tfj006.setConfirmStatus("1");
+      tfj006.setCfmKey("1");
     } else
       throw new EbizException("名额不足(TBL_PLAN)记录错误.");
 

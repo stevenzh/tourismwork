@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_flight")
@@ -233,6 +234,7 @@ public class Flight implements java.io.Serializable {
 
   private String toCity1;
 
+  @Transient
   public String getFromCity1() {
     return this.fromCity1;
   }
@@ -241,6 +243,7 @@ public class Flight implements java.io.Serializable {
     this.fromCity1 = fromCity1;
   }
 
+  @Transient
   public String getToCity1() {
     return this.toCity1;
   }
@@ -249,6 +252,7 @@ public class Flight implements java.io.Serializable {
     this.toCity1 = toCity1;
   }
 
+  @Transient
   public String getLeavingCountry() {
     return leavingCountry;
   }
@@ -257,6 +261,7 @@ public class Flight implements java.io.Serializable {
     this.leavingCountry = leavingCountry;
   }
 
+  @Transient
   public String getGoingCountry() {
     return goingCountry;
   }
@@ -265,6 +270,7 @@ public class Flight implements java.io.Serializable {
     this.goingCountry = goingCountry;
   }
 
+  @Transient
   public Date getOpDate() {
     return opDate;
   }
@@ -273,6 +279,7 @@ public class Flight implements java.io.Serializable {
     this.opDate = opDate;
   }
 
+  @Transient
   public String getOpUser() {
     return opUser;
   }
@@ -281,6 +288,7 @@ public class Flight implements java.io.Serializable {
     this.opUser = opUser;
   }
 
+  @Transient
   public String getLeavingFrom() {
     return leavingFrom;
   }
@@ -289,6 +297,7 @@ public class Flight implements java.io.Serializable {
     this.leavingFrom = leavingFrom;
   }
 
+  @Transient
   public String getGoingTo() {
     return goingTo;
   }
@@ -297,6 +306,7 @@ public class Flight implements java.io.Serializable {
     this.goingTo = goingTo;
   }
 
+  @Transient
   public String getDepartureTime() {
     return departureTime;
   }
@@ -305,6 +315,7 @@ public class Flight implements java.io.Serializable {
     this.departureTime = departureTime;
   }
 
+  @Transient
   public String getArrivalTime() {
     return arrivalTime;
   }
@@ -313,6 +324,7 @@ public class Flight implements java.io.Serializable {
     this.arrivalTime = arrivalTime;
   }
 
+  @Transient
   public int getTotalTravelTime() {
     return totalTravelTime;
   }

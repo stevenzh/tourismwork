@@ -3,16 +3,14 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.opentravelsoft.entity.LineVisa" table="TBL_LINE_VISA">
-    <class name="com.opentravelsoft.entity.LineVisa" table="tbl_line_visa" catalog="tourismwork_db">
-      <composite-id name="id" class="com.opentravelsoft.entity.LineVisaId">
-        <key-property name="lineNo" type="string">
-          <column name="LINE_NO" length="8" />
-        </key-property>
-        <key-property name="recNo" type="string">
-          <column name="REC_NO" length="10" />
-        </key-property>
-      </composite-id>
-    </class>
+  <class name="com.opentravelsoft.entity.LineVisa" table="tbl_line_visa">
+    <composite-id name="id" class="com.opentravelsoft.entity.LineVisaId">
+      <key-property name="lineNo" type="string">
+        <column name="LINE_NO" length="8" />
+      </key-property>
+      <key-property name="recNo" type="string">
+        <column name="REC_NO" length="10" />
+      </key-property>
+    </composite-id>
   </class>
 </hibernate-mapping>

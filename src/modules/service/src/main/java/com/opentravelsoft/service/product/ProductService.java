@@ -6,17 +6,16 @@ import com.opentravelsoft.entity.Category;
 import com.opentravelsoft.entity.ProductItem;
 import com.opentravelsoft.entity.product.ProductType;
 
-public interface ProductService
-{
+public interface ProductService {
 
-    List<Category> getCategorys();
+  List<Category> getCategorys();
 
-    List<ProductItem> getProductItems();
+  List<ProductItem> getProductItems();
 
-    ProductItem getProductItem(long itemId);
+  ProductItem getProductItem(int itemId);
 
-    void saveItem(ProductItem item);
+  void saveItem(ProductItem item);
 
-    List<ProductItem> getProductItems(ProductType type);
+  List<ProductItem> getProductItems(ProductType type);
 
 }

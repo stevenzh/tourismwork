@@ -89,8 +89,7 @@ public class BookSearchAction extends PortalAction {
     this.bookService = bookService;
   }
 
-  @Action(value="/accounts/BookSearch",
-      results={@Result(location="/includes/booking/BookingList.jsp")})
+  @Action(value = "/accounts/BookSearch", results = { @Result(location = "/includes/booking/BookingList.jsp") })
   public String input() throws Exception {
     bookStateList = getCodeList("ebiz_book_state");
     cancelStateList = getCodeList("ebiz_cancel_state");
@@ -106,9 +105,9 @@ public class BookSearchAction extends PortalAction {
    * 
    * @return
    */
-  @Action(value="/accounts/BookSearchSubmit",
-      results={@Result(name="input", type="chain", location="BookSearch"),
-      @Result(location="/includes/booking/BookingList.jsp")})
+  @Action(value = "/accounts/BookSearchSubmit", results = {
+      @Result(name = "input", type = "chain", location = "BookSearch"),
+      @Result(location = "/includes/booking/BookingList.jsp") })
   public String submit() {
     bookStateList = getCodeList("ebiz_book_state");
     cancelStateList = getCodeList("ebiz_cancel_state");
@@ -120,7 +119,7 @@ public class BookSearchAction extends PortalAction {
         reserveStartDatePeriod, reserveStartDatePeriod, contractNo, invoiceNo,
         touristName, bookState, cancelState);
     for (Booking book : bookList) {
-      book.setConfirmStatus(map.get(book.getConfirmStatus()));
+      book.setCfmKey(map.get(book.getCfmKey()));
     }
 
     buildSysdate();

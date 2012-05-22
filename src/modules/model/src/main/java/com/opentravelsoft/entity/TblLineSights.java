@@ -1,6 +1,6 @@
-package com.opentravelsoft.entity.out;
+package com.opentravelsoft.entity;
 
-import com.opentravelsoft.entity.Sight;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;

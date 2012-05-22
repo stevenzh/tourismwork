@@ -64,7 +64,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       StringBuilder sql = new StringBuilder();
       sql.append("select sum(confirmPax) ");
       sql.append("from Booking ");
-      sql.append("where plan.planNo=? and confirmStatus='1' and delkey='N' ");
+      sql.append("where plan.planNo=? and cfmKey='1' and delkey='N' ");
 
       List<Object> list1 = template.find(sql.toString(), params1);
       int pax2 = RowDataUtil.getShort(list1.get(0));
@@ -117,7 +117,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
     // 团队确认状态 1-团确 2-团候
     if (place) {
-      book.setConfirmStatus("1");
+      book.setCfmKey("1");
       // 阅读时间
       book.setReadDate(sysdate);
       // 是否以阅读
@@ -125,7 +125,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 阅读人
       book.setReadUser(book.getReserve());
     } else {
-      book.setConfirmStatus(book.getConfirmStatus());
+      book.setCfmKey(book.getCfmKey());
       // 是否以阅读
       book.setReadKey("N");
     }
@@ -202,7 +202,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     // tblbook.setMemberId(userId);
     tblbook.setPax(book.getPax());
     tblbook.setPlan(book.getPlan());
-    tblbook.setConfirmStatus("R");
+    tblbook.setCfmKey("R");
     getHibernateTemplate().save(tblbook);
 
     for (Tourist customer : customerList) {
@@ -292,11 +292,11 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
     // ---------------------------------------------------------------------
 
-    if (tfj006.getConfirmStatus().equals("1")) {
+    if (tfj006.getCfmKey().equals("1")) {
       StringBuilder query = new StringBuilder();
       query.append("select sum(confirmPax) ");
       query.append("from Booking ");
-      query.append("where plan.planNo=? and confirmStatus='1' ");
+      query.append("where plan.planNo=? and cfmKey='1' ");
       query.append("and delkey='N' ");
 
       Object[] param = { book.getPlan().getPlanNo() };
@@ -358,7 +358,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     Booking tfj006 = (Booking) template.load(Booking.class,
         book.getBookingNo(), LockMode.PESSIMISTIC_WRITE);
 
-    if (tfj006.getConfirmStatus().equals("1")) {
+    if (tfj006.getCfmKey().equals("1")) {
       // 确认人数
       tfj006.setConfirmPax(confirmPax);
     }
@@ -374,11 +374,11 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
     template.update(tfj006);
     // ---------------------------------------------------------------------
-    if (tfj006.getConfirmStatus().equals("1")) {
+    if (tfj006.getCfmKey().equals("1")) {
       StringBuilder query = new StringBuilder();
       query.append("select sum(confirmPax) ");
       query.append("from Booking ");
-      query.append("where plan.planNo=? and confirmStatus='1' ");
+      query.append("where plan.planNo=? and cfmKey='1' ");
       query.append("and delkey='N' ");
 
       Object[] param = { book.getPlan().getPlanNo() };
@@ -411,7 +411,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
   public int updateBooking(Booking inbook, List<Tourist> customers, String note)
       throws EbizException {
     HibernateTemplate template = getHibernateTemplate();
-    String confirm = inbook.getConfirmStatus();
+    String confirm = inbook.getCfmKey();
     int realPax = 0;
 
     // 更新计划人数
@@ -427,7 +427,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       StringBuilder sql = new StringBuilder();
       sql.append("select sum(confirmPax) ");
       sql.append("from Booking ");
-      sql.append("where plan.planNo=? and confirmStatus ='1' ");
+      sql.append("where plan.planNo=? and cfmKey ='1' ");
       sql.append("and delkey='N' and nameNo!='" + inbook.getBookingNo() + "'");
 
       Object[] param = { inbook.getPlan().getPlanNo() };
@@ -467,7 +467,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     // 联系人
     book.setContact(inbook.getContact());
     // 联系方式
-    book.setPhone(inbook.getPhone());
+    book.setTel(inbook.getTel());
     //
     book.setTourKey(inbook.getCanSplit());
     // 人数
@@ -704,7 +704,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     Booking tfj006 = (Booking) getHibernateTemplate().get(Booking.class,
         booking.getBookingNo(), LockMode.PESSIMISTIC_WRITE);
 
-    if (tfj006.getConfirmStatus().equals("2"))
+    if (tfj006.getCfmKey().equals("2"))
       return -1;
 
     tfj006.setReadDate(sysdate);
@@ -728,7 +728,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     StringBuilder sql = new StringBuilder();
     sql.append("select sum(confirmPax) ");
     sql.append("from Booking ");
-    sql.append("where plan.planNo=? and confirmStatus='1' and delkey='N' ");
+    sql.append("where plan.planNo=? and cfmKey='1' and delkey='N' ");
     sql.append("and nameNo<>? ");
 
     Object[] param = { book.getPlan().getPlanNo(), book.getBookingNo() };
@@ -746,7 +746,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     Booking tfj006 = (Booking) getHibernateTemplate().load(Booking.class,
         book.getBookingNo(), LockMode.PESSIMISTIC_WRITE);
 
-    if (tfj006.getConfirmStatus().equals("1")) {
+    if (tfj006.getCfmKey().equals("1")) {
       log.warn("订单已经占位.booking_no=" + book.getBookingNo());
 
       // 标记已读
@@ -779,7 +779,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       }
 
       // 团确
-      tfj006.setConfirmStatus("1");
+      tfj006.setCfmKey("1");
       // 确认人数
       tfj006.setConfirmPax(book.getCustomerList().size());
       // 应收款
@@ -892,7 +892,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     Booking tfj006 = (Booking) template.load(Booking.class,
         book.getBookingNo(), LockMode.PESSIMISTIC_WRITE);
 
-    if (tfj006.getConfirmStatus().equals("1")) {
+    if (tfj006.getCfmKey().equals("1")) {
       // 确认人数
       tfj006.setConfirmPax(confirmPax);
     }
@@ -909,11 +909,11 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
     template.update(tfj006);
     // ---------------------------------------------------------------------
-    if (tfj006.getConfirmStatus().equals("1")) {
+    if (tfj006.getCfmKey().equals("1")) {
       StringBuilder query = new StringBuilder();
       query.append("select sum(confirmPax) ");
       query.append("from com.opentravelsoft.entity.Booking ");
-      query.append("where plan.planNo=? and confirmStatus='1' ");
+      query.append("where plan.planNo=? and cfmKey='1' ");
       query.append("and delkey='N' ");
 
       Object[] param = { book.getPlan().getPlanNo() };
@@ -946,7 +946,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
   public List<Booking> findUndetermined(long teamId, long uid) {
     StringBuilder sql = new StringBuilder();
 
-    sql.append("from Booking where confirmStatus='2' ");
+    sql.append("from Booking where cfmKey='2' ");
     sql.append("and delkey='N' and plan.outDate>=current_date() ");
 
     if (teamId != 0)
@@ -974,8 +974,8 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     sql.append("select ");
     if (model)
       sql.append("DISTINCT ");
-    sql.append("a.nameNo,a.reserveDate,a.plan.outDate,a.pax,a.dbamt,"); // 4
-    sql.append("a.cramt,a.dbamt-a.cramt,a.confirmStatus,a.delkey,"); // 8
+    sql.append("a.nameNo,a.receiveDt,a.plan.outDate,a.pax,a.dbamt,"); // 4
+    sql.append("a.cramt,a.dbamt-a.cramt,a.cfmKey,a.delkey,"); // 8
     sql.append("a.plan.line.lineNo,a.plan.line.lineName,a.readKey "); // 11
     sql.append("from Booking a ");
     if (model)
@@ -992,7 +992,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
     // 订单状态 1:已审核 2:未审核 %:所有
     if (!bookState.equals("%")) {
-      sql.append(" and a.confirmStatus =?");
+      sql.append(" and a.cfmKey =?");
       params.add(bookState);
     }
     // 取消标记 Y: 已取消 N:未取消 %:所有
@@ -1011,11 +1011,11 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     }
     // 预订日期
     if (null != orderStartDatePeriod) {
-      sql.append(" and a.reserveDate >= ?");
+      sql.append(" and a.receiveDt >= ?");
       params.add(orderStartDatePeriod);
     }
     if (null != orderStartDatePeriod2) {
-      sql.append(" and a.reserveDate >= ?");
+      sql.append(" and a.receiveDt >= ?");
       params.add(orderStartDatePeriod2);
     }
     // 合同号
@@ -1064,7 +1064,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 已收款
       book.setPayCosts(RowDataUtil.getBigDecimal(obj[5]));
       // 审核否
-      book.setConfirmStatus(RowDataUtil.getString(obj[7]));
+      book.setCfmKey(RowDataUtil.getString(obj[7]));
       // 取消状态
       book.setDelkey(RowDataUtil.getString(obj[8]));
       // 是否标记为已读
@@ -1087,7 +1087,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
   @SuppressWarnings("unchecked")
   public List<Booking> getConfirmBookings(int accountId) {
     StringBuilder sql = new StringBuilder();
-    sql.append("from Booking where confirmStatus='1' ");
+    sql.append("from Booking where cfmKey='1' ");
     sql.append("and plan.outDate>current_date() and delKey='N' ");
     sql.append("and customerId=?");
     Object[] params = { accountId };
@@ -1099,10 +1099,10 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
   public List<Booking> getUnconfirmBookings(int accountId) {
     StringBuilder sql = new StringBuilder();
     sql.append("from Booking ");
-    sql.append("where confirmStatus='2' and delkey='N' ");
+    sql.append("where cfmKey='2' and delkey='N' ");
     sql.append("and plan.outDate>current_date() ");
     sql.append("and customerId=?");
-    sql.append("order by reserveDate desc");
+    sql.append("order by receiveDt desc");
     Object[] params = { accountId };
 
     return getHibernateTemplate().find(sql.toString(), params);
@@ -1124,11 +1124,11 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     sql.append("select ");
     if (model)
       sql.append("DISTINCT ");
-    sql.append("a.nameNo,a.reserveDate,a.plan.outDate,a.pax,a.dbamt,"); // 4
-    sql.append("a.cramt,a.dbamt-a.cramt,a.confirmStatus,a.delkey,"); // 8
+    sql.append("a.nameNo,a.receiveDt,a.plan.outDate,a.pax,a.dbamt,"); // 4
+    sql.append("a.cramt,a.dbamt-a.cramt,a.cfmKey,a.delkey,"); // 8
     sql.append("a.plan.line.lineNo,a.plan.line.lineName,a.customer.name,"); // 11
     sql.append("a.salesman.userId,a.confirmPax,a.reserve,a.readKey,"); // 15
-    sql.append("a.salesman.userName "); // 16
+    sql.append("a.salesman.userNm "); // 16
     sql.append("from Booking as a ");
 
     if (model)
@@ -1169,11 +1169,11 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
     // 预订日期
     if (null != reserveStart) {
-      sql.append(" and a.reserveDate >= ?");
+      sql.append(" and a.receiveDt >= ?");
       params.add(reserveStart);
     }
     if (null != reserveEnd) {
-      sql.append(" and a.reserveDate >= ?");
+      sql.append(" and a.receiveDt >= ?");
       params.add(reserveEnd);
     }
 
@@ -1197,14 +1197,14 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
     // 销售员
     if (StringUtil.hasLength(salesman)) {
-      sql.append(" and a.salesman.userName like ?");
+      sql.append(" and a.salesman.userNm like ?");
       params.add("%" + salesman + "%");
     }
 
     // 是否审核
     if (StringUtil.hasLength(cfmKey)) {
       if (!cfmKey.equals("%")) {
-        sql.append(" and a.confirmStatus = ?");
+        sql.append(" and a.cfmKey = ?");
         params.add(cfmKey);
       }
     }
@@ -1218,7 +1218,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     // 是否取消
     if (StringUtil.hasLength(delKey)) {
       sql.append(" and a.delkey = ?");
-      params.add(delKey);
+      params.add(delKey.charAt(0));
     }
 
     Object[] param = null;
@@ -1229,7 +1229,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       }
     }
 
-    sql.append(" order by a.reserveDate");
+    sql.append(" order by a.receiveDt");
 
     List<Object[]> list = getHibernateTemplate().find(sql.toString(), param);
 
@@ -1250,7 +1250,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 已收款
       book.setPayCosts(RowDataUtil.getBigDecimal(obj[5]));
       // 审核否
-      book.setConfirmStatus(RowDataUtil.getString(obj[7]));
+      book.setCfmKey(RowDataUtil.getString(obj[7]));
       // 取消状态
       book.setDelkey(RowDataUtil.getString(obj[8]));
       // 线路ID
@@ -1364,7 +1364,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       params.add(kenCity);
     }
     if (StringUtil.hasLength(kenSales)) {
-      sql.append("and a.salesman.userName=? ");
+      sql.append("and a.salesman.userNm=? ");
       params.add(kenSales);
     }
     if (null != startDate) {
@@ -1421,7 +1421,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     params.add(customerId);
 
     if (StringUtil.hasLength(kenSales)) {
-      sql.append("and salesman.userName=? ");
+      sql.append("and salesman.userNm=? ");
       params.add(kenSales);
     }
     if (null != startDate) {
@@ -1457,7 +1457,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     sql.append("where a.lineNo=b.id.lineNo ");
     sql.append("and c.country=d.countryId ");
     sql.append("and b.id.districtNo=c.districtNo ");
-    sql.append("and a.confirmStatus='1' AND a.delkey<>'Y'  ");
+    sql.append("and a.cfmKey='1' AND a.delkey<>'Y'  ");
     List<Object> params = new ArrayList<Object>();
     if (null != startDate) {
       sql.append("and a.outDate >= ? ");
@@ -1506,7 +1506,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     StringBuilder sb = new StringBuilder();
     sb.append("from Booking ");
     sb.append("where plan.linelineNo=? and delkey<>'Y' ");
-    sb.append("and confirmStatus='1' ");
+    sb.append("and cfmKey='1' ");
     sb.append("and plan.outDate>=? and plan.outDate<=?");
     Object[] param = { lineNo, startDate, endDate };
     return getHibernateTemplate().find(sb.toString(), param);
@@ -1525,8 +1525,8 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     sql.append("select ");
     if (model)
       sql.append("DISTINCT ");
-    sql.append("a.nameNo,a.reserveDate,a.plan.outDate,a.pax,a.dbamt,");
-    sql.append("a.cramt,a.dbamt-a.cramt,a.confirmStatus,a.delkey,");
+    sql.append("a.nameNo,a.receiveDt,a.plan.outDate,a.pax,a.dbamt,");
+    sql.append("a.cramt,a.dbamt-a.cramt,a.cfmKey,a.delkey,");
     sql.append("a.plan.line.lineNo,a.plan.line.lineName,a.readKey ");
     sql.append("from Booking as a ");
     if (model)
@@ -1583,7 +1583,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 已收款
       book.setPayCosts(RowDataUtil.getBigDecimal(obj[5]));
       // 审核否
-      book.setConfirmStatus(RowDataUtil.getString(obj[7]));
+      book.setCfmKey(RowDataUtil.getString(obj[7]));
       // 取消状态
       book.setDelkey(RowDataUtil.getString(obj[8]));
       // 是否标记为已读

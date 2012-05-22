@@ -1,6 +1,5 @@
 package com.opentravelsoft.entity;
 
-import com.opentravelsoft.entity.out.TblLineSights;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -15,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_sight")
@@ -223,6 +223,7 @@ public class Sight implements java.io.Serializable {
 
   private String checked;
 
+  @Transient
   public String getSightTypeName() {
     return sightTypeName;
   }
@@ -231,6 +232,7 @@ public class Sight implements java.io.Serializable {
     this.sightTypeName = sightTypeName;
   }
 
+  @Transient
   public String getHeadAdd() {
     return headAdd;
   }
@@ -239,6 +241,7 @@ public class Sight implements java.io.Serializable {
     this.headAdd = headAdd;
   }
 
+  @Transient
   public String getMapAdd() {
     return mapAdd;
   }
@@ -247,6 +250,7 @@ public class Sight implements java.io.Serializable {
     this.mapAdd = mapAdd;
   }
 
+  @Transient
   public String getCityId() {
     return cityId;
   }
@@ -255,6 +259,7 @@ public class Sight implements java.io.Serializable {
     this.cityId = cityId;
   }
 
+  @Transient
   public String getChecked() {
     return checked;
   }
@@ -263,6 +268,7 @@ public class Sight implements java.io.Serializable {
     this.checked = checked;
   }
 
+  @Transient
   public String getName() {
     return this.name;
   }

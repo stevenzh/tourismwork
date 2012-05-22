@@ -40,7 +40,7 @@ public interface BookingService {
    * @param reserveNo
    * @return
    */
-  List<Booking> roFind(String routeName, long teamId, long userId,
+  List<Booking> roFind(String routeName, Integer teamId, Integer userId,
       Date startDatePeriod, Date endDatePeriod, Date reserveStart,
       Date reserveEnd, String tourist, String agentId, String salesman,
       String cfmKey, String readKey, String delKey, String reserveNo);
@@ -198,7 +198,7 @@ public interface BookingService {
    * @param userId 操作员
    * @return
    */
-  public long txGathering(Income payment, long userId);
+  public int txGathering(Income payment, int userId);
 
   public List<LinePrice> roGetPrices(String planNo);
 
@@ -222,7 +222,7 @@ public interface BookingService {
 
   int txReadBooking(Booking booking);
 
-  public List<Booking> roGetBooks(long teamId, long userId);
+  public List<Booking> roGetBooks(int teamId, int userId);
 
   public Booking roGetReserveBook(String reserveNo);
 

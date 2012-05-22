@@ -36,7 +36,7 @@ public interface MyPageService {
    * @param userId
    * @return
    */
-  public List<Plan> roGetPlanList(long teamId, long userId);
+  public List<Plan> roGetPlanList(int teamId, int userId);
 
   /**
    * 财务需要确认的核算

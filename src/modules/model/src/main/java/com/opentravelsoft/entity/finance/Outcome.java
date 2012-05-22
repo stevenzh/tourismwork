@@ -13,6 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.sax.SAXSource;
@@ -420,12 +421,7 @@ public class Outcome implements java.io.Serializable {
   }
 
   /** 成本ID */
-  private long acctId;
-
-  /** 制单人 */
-  private Integer createdBy;
-
-  private Integer updatedBy;
+  private Integer acctId;
 
   /** 币种 */
   private String currency;
@@ -484,14 +480,7 @@ public class Outcome implements java.io.Serializable {
   /** 付款方式 */
   private String payWay;
 
-  public Integer getUpdatedBy() {
-    return this.updatedBy;
-  }
-
-  public void setUpdatedBy(Integer updatedby) {
-    this.updatedBy = updatedby;
-  }
-
+  @Transient
   public int getId() {
     return id;
   }
@@ -500,14 +489,7 @@ public class Outcome implements java.io.Serializable {
     this.id = id;
   }
 
-  public Integer getCreatedBy() {
-    return createdBy;
-  }
-
-  public void setCreatedBy(Integer createdBy) {
-    this.createdBy = createdBy;
-  }
-
+  @Transient
   public String getCreatedByName() {
     return createdByName;
   }
@@ -516,6 +498,7 @@ public class Outcome implements java.io.Serializable {
     this.createdByName = createdByName;
   }
 
+  @Transient
   public String getPayModeName() {
     return payModeName;
   }
@@ -524,6 +507,7 @@ public class Outcome implements java.io.Serializable {
     this.payModeName = payModeName;
   }
 
+  @Transient
   public Character getIsAuditing() {
     return isAuditing;
   }
@@ -532,6 +516,7 @@ public class Outcome implements java.io.Serializable {
     this.isAuditing = isAuditing;
   }
 
+  @Transient
   public String getOpApprovedbyName() {
     return opApprovedbyName;
   }
@@ -540,6 +525,7 @@ public class Outcome implements java.io.Serializable {
     this.opApprovedbyName = opApprovedbyName;
   }
 
+  @Transient
   public String getOpApprovedbyDptName() {
     return opApprovedbyDptName;
   }
@@ -548,6 +534,7 @@ public class Outcome implements java.io.Serializable {
     this.opApprovedbyDptName = opApprovedbyDptName;
   }
 
+  @Transient
   public String getOpApprovedbyDptNo() {
     return opApprovedbyDptNo;
   }
@@ -556,6 +543,7 @@ public class Outcome implements java.io.Serializable {
     this.opApprovedbyDptNo = opApprovedbyDptNo;
   }
 
+  @Transient
   public String getAmountCn() {
     return amountCn;
   }
@@ -564,6 +552,7 @@ public class Outcome implements java.io.Serializable {
     this.amountCn = amountCn;
   }
 
+  @Transient
   public String getFrApprovedbyName() {
     return frApprovedbyName;
   }
@@ -572,10 +561,12 @@ public class Outcome implements java.io.Serializable {
     this.frApprovedbyName = frApprovedbyName;
   }
 
+  @Transient
   public Source getSource() {
     return new SAXSource(new OutcomeXMLReader(), new OutcomeInputSource(this));
   }
 
+  @Transient
   public String getIsRegister() {
     return isRegister;
   }
@@ -584,6 +575,7 @@ public class Outcome implements java.io.Serializable {
     this.isRegister = isRegister;
   }
 
+  @Transient
   public String getRouteNo() {
     return lineNo;
   }
@@ -592,6 +584,7 @@ public class Outcome implements java.io.Serializable {
     this.lineNo = lineNo;
   }
 
+  @Transient
   public String getRouteName() {
     return lineName;
   }
@@ -600,6 +593,7 @@ public class Outcome implements java.io.Serializable {
     this.lineName = routeName;
   }
 
+  @Transient
   public Date getCarryLastDate() {
     return carryLastDate;
   }
@@ -608,6 +602,7 @@ public class Outcome implements java.io.Serializable {
     this.carryLastDate = carryLastDate;
   }
 
+  @Transient
   public String getCarryFlightNo() {
     return carryFlightNo;
   }
@@ -616,6 +611,7 @@ public class Outcome implements java.io.Serializable {
     this.carryFlightNo = carryFlightNo;
   }
 
+  @Transient
   public String getLineNo() {
     return lineNo;
   }
@@ -624,6 +620,7 @@ public class Outcome implements java.io.Serializable {
     this.lineNo = lineNo;
   }
 
+  @Transient
   public String getLineName() {
     return lineName;
   }
@@ -632,6 +629,7 @@ public class Outcome implements java.io.Serializable {
     this.lineName = lineName;
   }
 
+  @Transient
   public String getDescription() {
     return description;
   }
@@ -640,6 +638,7 @@ public class Outcome implements java.io.Serializable {
     this.description = description;
   }
 
+  @Transient
   public double getFcNowpayPayment() {
     return fcNowpayPayment;
   }
@@ -648,6 +647,7 @@ public class Outcome implements java.io.Serializable {
     this.fcNowpayPayment = fcNowpayPayment;
   }
 
+  @Transient
   public double getNowpayPayment() {
     return nowpayPayment;
   }
@@ -656,6 +656,7 @@ public class Outcome implements java.io.Serializable {
     this.nowpayPayment = nowpayPayment;
   }
 
+  @Transient
   public String getCurrency() {
     return currency;
   }
@@ -664,6 +665,7 @@ public class Outcome implements java.io.Serializable {
     this.currency = currency;
   }
 
+  @Transient
   public double getOpRoe() {
     return opRoe;
   }
@@ -672,6 +674,7 @@ public class Outcome implements java.io.Serializable {
     this.opRoe = opRoe;
   }
 
+  @Transient
   public double getRoe() {
     return roe;
   }
@@ -680,6 +683,7 @@ public class Outcome implements java.io.Serializable {
     this.roe = roe;
   }
 
+  @Transient
   public String getPayWay() {
     return payWay;
   }
@@ -688,6 +692,7 @@ public class Outcome implements java.io.Serializable {
     this.payWay = payWay;
   }
 
+  @Transient
   public Double getFcAmount() {
     return fcAmount;
   }
@@ -696,14 +701,16 @@ public class Outcome implements java.io.Serializable {
     this.fcAmount = fcAmount;
   }
 
-  public long getAcctId() {
+  @Transient
+  public int getAcctId() {
     return acctId;
   }
 
-  public void setAcctId(long acctId) {
+  public void setAcctId(int acctId) {
     this.acctId = acctId;
   }
 
+  @Transient
   public String getDel() {
     return del;
   }

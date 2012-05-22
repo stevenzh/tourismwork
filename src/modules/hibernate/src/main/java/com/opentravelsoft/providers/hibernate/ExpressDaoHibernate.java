@@ -30,8 +30,8 @@ public class ExpressDaoHibernate extends GenericDaoHibernate<Express, String>
   public List<Booking> findBooking(String user) {
     StringBuilder sql = new StringBuilder();
     sql.append("select distinct ");
-    sql.append("a.nameNo,a.reserveDate,a.plan.outDate,a.pax,a.dbamt,");
-    sql.append("a.cramt,a.dbamt - a.cramt,a.confirmStatus,a.delkey,");
+    sql.append("a.nameNo,a.receiveDt,a.plan.outDate,a.pax,a.dbamt,");
+    sql.append("a.cramt,a.dbamt - a.cramt,a.cfmKey,a.delkey,");
     sql.append("a.plan.line.lineNo,a.plan.line.lineName,a.readKey, ");
     sql.append("t.start,t.end,a.plan.tourNo ");
     sql.append("from Booking a,");
@@ -63,7 +63,7 @@ public class ExpressDaoHibernate extends GenericDaoHibernate<Express, String>
       // 未收款
       book.setUnPay(RowDataUtil.getBigDecimal(obj[6]));
       // 审核否
-      book.setConfirmStatus(RowDataUtil.getString(obj[7]));
+      book.setCfmKey(RowDataUtil.getString(obj[7]));
       // 取消状态
       book.setDelkey(RowDataUtil.getString(obj[8]));
       // 线路编号
@@ -255,7 +255,7 @@ public class ExpressDaoHibernate extends GenericDaoHibernate<Express, String>
     tblCrmExpress.setTeamNo(express.getTeamNo());
     tblCrmExpress.setTel(express.getTel());
     tblCrmExpress.setZip(express.getZip());
-    tblCrmExpress.setUpdatedBy(express.getUpdatedBy());
+    tblCrmExpress.setUpdatedby(express.getUpdatedby());
     template.update(tblCrmExpress);
 
     all.add(tblCrmExpress);
@@ -322,7 +322,7 @@ public class ExpressDaoHibernate extends GenericDaoHibernate<Express, String>
   @SuppressWarnings("unchecked")
   public List<TourLog> getExpressLog(String expressId) {
     StringBuilder sb = new StringBuilder();
-    sb.append("select a.modifiedUser,b.userName,a.modifiedDate,");
+    sb.append("select a.modifiedUser,b.userNm,a.modifiedDate,");
     sb.append("a.expressId,a.routeNo,a.tourNo,a.note,a.info ");
     sb.append("from TblExpressLog a, Employee b ");
     sb.append("where a.modifiedUser =b.userCd and a.expressId = ? ");

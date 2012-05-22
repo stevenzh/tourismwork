@@ -104,7 +104,7 @@ function cancel(){
 							<td align="right"><s:property value="%{dbamt -payCosts}" /></td>
 							<td align="right">&nbsp;</td>
 							<td align="center">取消</td>
-							<td align="center"><s:if test='confirmStatus == "1"'>已占位</s:if>
+							<td align="center"><s:if test='cfmKey == "1"'>已占位</s:if>
 							<s:else>未占位</s:else></td>
 						</tr>
 					</s:if>
@@ -126,7 +126,7 @@ function cancel(){
 							<td class="rdata"><s:property value="%{dbamt -payCosts}" /></td>
 							<td class="rdata">&nbsp;</td>
 							<td class="rdata">&nbsp;</td>
-							<td class="cdata"><s:if test='confirmStatus == "1"'>已占位</s:if>
+							<td class="cdata"><s:if test='cfmKey == "1"'>已占位</s:if>
 							<s:else>未占位</s:else></td>
 						</tr>
 					</s:else>

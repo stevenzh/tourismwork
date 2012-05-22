@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_group")
@@ -123,6 +124,7 @@ public class Group implements java.io.Serializable {
 
   private String phone;
 
+  @Transient
   public String getName() {
     return name;
   }
@@ -131,6 +133,7 @@ public class Group implements java.io.Serializable {
     children.add(child);
   }
 
+  @Transient
   public String getContact() {
     return contact;
   }
@@ -139,6 +142,7 @@ public class Group implements java.io.Serializable {
     this.contact = contact;
   }
 
+  @Transient
   public String getPhone() {
     return phone;
   }

@@ -3,8 +3,8 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.hmodel.TblSpCase" table="tbl_sp_case" catalog="tourismwork_db">
-        <composite-id name="id" class="com.opentravelsoft.hmodel.TblSpCaseId">
+    <class name="com.opentravelsoft.entity.out.TblSpCase" table="tbl_sp_case">
+        <composite-id name="id" class="com.opentravelsoft.entity.out.TblSpCaseId">
             <key-property name="spId" type="string">
                 <column name="SP_ID" length="10" />
             </key-property>

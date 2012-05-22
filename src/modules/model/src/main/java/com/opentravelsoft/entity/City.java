@@ -19,7 +19,7 @@ public class City implements java.io.Serializable {
   private Country country;
   private String citynm;
   private String cityen;
-  private String province;
+  private Province province;
   private Character inOut;
   private Character ioCity;
   private char webKey;
@@ -35,23 +35,6 @@ public class City implements java.io.Serializable {
     this.citycd = citycd;
     this.citynm = citynm;
     this.webKey = webKey;
-  }
-
-  public City(String citycd, Country country, String citynm, String cityen,
-      String province, Character inOut, Character ioCity, char webKey,
-      Byte isDelete, Set<Line> lines, Set<Plan> plans, Set<Airport> airports) {
-    this.citycd = citycd;
-    this.country = country;
-    this.citynm = citynm;
-    this.cityen = cityen;
-    this.province = province;
-    this.inOut = inOut;
-    this.ioCity = ioCity;
-    this.webKey = webKey;
-    this.isDelete = isDelete;
-    this.lines = lines;
-    this.plans = plans;
-    this.airports = airports;
   }
 
   @Id
@@ -92,12 +75,13 @@ public class City implements java.io.Serializable {
     this.cityen = cityen;
   }
 
-  @Column(name = "PROVINCE", length = 2)
-  public String getProvince() {
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "PROVINCE")
+  public Province getProvince() {
     return this.province;
   }
 
-  public void setProvince(String province) {
+  public void setProvince(Province province) {
     this.province = province;
   }
 

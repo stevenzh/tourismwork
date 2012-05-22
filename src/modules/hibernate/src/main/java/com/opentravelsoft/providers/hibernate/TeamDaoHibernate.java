@@ -24,7 +24,7 @@ public class TeamDaoHibernate extends GenericDaoHibernate<Team, Integer>
   }
 
   @SuppressWarnings("unchecked")
-  public List<Team> getTeam(long userId, TeamType type) {
+  public List<Team> getTeam(int userId, TeamType type) {
     boolean isAdmin = false;
     HibernateTemplate template = getHibernateTemplate();
     Object obj = template.get(Employee.class, userId);
@@ -38,11 +38,11 @@ public class TeamDaoHibernate extends GenericDaoHibernate<Team, Integer>
         DetachedCriteria criteria = DetachedCriteria.forClass(Team.class);
 
         if (type == TeamType.Product)
-          criteria.add(Restrictions.eq("type", 1));
+          criteria.add(Restrictions.eq("type", (short) 1));
         else if (type == TeamType.Sales)
-          criteria.add(Restrictions.eq("type", 2));
+          criteria.add(Restrictions.eq("type", (short) 2));
         else if (type == TeamType.Operator)
-          criteria.add(Restrictions.eq("type", 3));
+          criteria.add(Restrictions.eq("type", (short) 3));
 
         criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
 
@@ -65,7 +65,6 @@ public class TeamDaoHibernate extends GenericDaoHibernate<Team, Integer>
 
   public PaginationSupport getTeamList(int fromRecord, int pageSize) {
     DetachedCriteria teamCriteria = DetachedCriteria.forClass(Team.class);
-
     PaginationSupport support = findPageByCriteria(teamCriteria, pageSize,
         fromRecord);
 
@@ -77,11 +76,11 @@ public class TeamDaoHibernate extends GenericDaoHibernate<Team, Integer>
     DetachedCriteria criteria = DetachedCriteria.forClass(Team.class);
 
     if (type == TeamType.Product)
-      criteria.add(Restrictions.eq("type", 1));
+      criteria.add(Restrictions.eq("type", (short) 1));
     else if (type == TeamType.Sales)
-      criteria.add(Restrictions.eq("type", 2));
+      criteria.add(Restrictions.eq("type", (short) 2));
     else if (type == TeamType.Operator)
-      criteria.add(Restrictions.eq("type", 3));
+      criteria.add(Restrictions.eq("type", (short) 3));
 
     criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
 

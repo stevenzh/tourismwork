@@ -67,7 +67,7 @@ public class AirportDaoImpl extends GenericDaoHibernate<Airport, String>
     DetachedCriteria criteria = DetachedCriteria.forClass(Airport.class);
 
     if (isActive)
-      criteria.add(Restrictions.eq("isActive", true));
+      criteria.add(Restrictions.eq("isActive", (byte) 1));
 
     criteria.addOrder(Order.asc("name"));
     criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);

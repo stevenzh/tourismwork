@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_reckoning_acct")
@@ -98,9 +99,6 @@ public class ReckoningAcct implements java.io.Serializable {
     this.unit = unit;
   }
 
-  /** 帐单号 */
-  private long reckoningId;
-
   /** 帐单序号 */
   private int itemId;
 
@@ -109,14 +107,7 @@ public class ReckoningAcct implements java.io.Serializable {
   /** 订单号 */
   private String bookingNo;
 
-  public long getReckoningId() {
-    return reckoningId;
-  }
-
-  public void setReckoningId(long reckoningId) {
-    this.reckoningId = reckoningId;
-  }
-
+  @Transient
   public int getItemId() {
     return itemId;
   }
@@ -125,6 +116,7 @@ public class ReckoningAcct implements java.io.Serializable {
     this.itemId = itemId;
   }
 
+  @Transient
   public String getName() {
     return name;
   }
@@ -133,6 +125,7 @@ public class ReckoningAcct implements java.io.Serializable {
     this.name = name;
   }
 
+  @Transient
   public String getBookingNo() {
     return bookingNo;
   }

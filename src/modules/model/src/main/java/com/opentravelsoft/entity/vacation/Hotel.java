@@ -24,8 +24,6 @@ import static javax.persistence.CascadeType.REFRESH;
 @Table(name = "tbl_hotel")
 public class Hotel implements java.io.Serializable {
 
-  private static final long serialVersionUID = -8170467127541155748L;
-
   /** 酒店ID */
   private String hotCd;
 

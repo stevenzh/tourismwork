@@ -4,7 +4,7 @@
 
 <hibernate-mapping>
   <class name="com.opentravelsoft.entity.TourNoticeFile" table="TBL_TOURNOTICE_FILE">
-    <id name="id" type="java.lang.Integer">
+    <id name="fileId" type="java.lang.Integer">
       <column name="ID" />
       <generator class="identity" />
     </id>
@@ -17,13 +17,13 @@
     <property name="dptCd" type="string">
       <column name="DPT_CD" length="4" />
     </property>
-    <property name="filename" type="string">
+    <property name="fileName" type="string">
       <column name="FILENAME" length="120" not-null="true" />
     </property>
-    <property name="filepath" type="string">
+    <property name="filePath" type="string">
       <column name="FILEPATH" length="120" not-null="true" />
     </property>
-    <property name="filesize" type="java.lang.Long">
+    <property name="fileSize" type="java.lang.Long">
       <column name="FILESIZE" />
     </property>
     <property name="overdue" type="timestamp">

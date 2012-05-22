@@ -65,8 +65,8 @@ public class LineServiceImpl implements LineService {
   @Autowired
   private TeamDao teamDao;
 
-  public PaginationSupport findLineList(long teamId, String lineName,
-      String isActive, long userId, String kenDestination, int fromRecord,
+  public PaginationSupport findLineList(int teamId, String lineName,
+      String isActive, int userId, String kenDestination, int fromRecord,
       int pageSize) {
     return lineDao.findLineList(teamId, lineName, isActive, userId,
         kenDestination, fromRecord, pageSize);
@@ -88,7 +88,7 @@ public class LineServiceImpl implements LineService {
     return lineDao.getWebNavigation();
   }
 
-  public List<Team> getTeamList(long userId, TeamType type) {
+  public List<Team> getTeamList(int userId, TeamType type) {
     return teamDao.getTeam(userId, type);
   }
 

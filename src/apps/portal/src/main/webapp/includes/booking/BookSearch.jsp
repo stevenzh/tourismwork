@@ -152,7 +152,7 @@
 						<td class="rdata"><s:property value="payCosts" /></td>
 						<td class="rdata"><s:property value="%{dbamt -payCosts}" /></td>
 						<td class="rdata">&nbsp;</td>
-						<td class="cdata"><s:property value="confirmStatus" />&nbsp;</td>
+						<td class="cdata"><s:property value="cfmKey" />&nbsp;</td>
 					</tr>
 				</s:else>
 			</s:iterator>

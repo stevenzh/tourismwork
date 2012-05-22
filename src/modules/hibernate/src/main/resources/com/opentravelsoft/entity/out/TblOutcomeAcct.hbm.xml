@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.hmodel.TblOutcomeAcct" table="tbl_outcome_acct" catalog="tourismwork_db">
+    <class name="com.opentravelsoft.entity.out.TblOutcomeAcct" table="tbl_outcome_acct">
         <id name="outcomeAcctId" type="java.lang.Integer">
             <column name="OUTCOME_ACCT_ID" />
             <generator class="identity" />

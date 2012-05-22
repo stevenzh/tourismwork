@@ -6,7 +6,7 @@ import com.opentravelsoft.entity.product.FileItem;
 
 public interface PriceUploadService {
 
-  List<FileItem> roGetFileList(long groupId);
+  List<FileItem> roGetFileList(int teamId);
 
   int txSaveFile(FileItem fileItem);
 

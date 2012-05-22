@@ -39,16 +39,16 @@ public class ProductTmplServiceImpl implements ProductTmplService {
     return lineTmplDao.updateProductTmpl(tmpl);
   }
 
-  public ProductTmpl getProductTmpl(long tmplId) {
+  public ProductTmpl getProductTmpl(int tmplId) {
     return lineTmplDao.getProductTmpl(tmplId);
   }
 
-  public List<ProductTmpl> getProductTmplList(long teamId, long itemId,
+  public List<ProductTmpl> getProductTmplList(int teamId, int itemId,
       String destCode) {
     return lineTmplDao.getProductTmplByType(teamId, itemId, destCode);
   }
 
-  public int deleteTmpl(long tmplId) {
+  public int deleteTmpl(int tmplId) {
     return lineTmplDao.deleteTmpl(tmplId);
   }
 
@@ -60,7 +60,7 @@ public class ProductTmplServiceImpl implements ProductTmplService {
     return lineTmplDao.getExpenseTmpl();
   }
 
-  public List<Team> getTeamList(long userId, TeamType type) {
+  public List<Team> getTeamList(int userId, TeamType type) {
     return teamDao.getTeam(userId, type);
   }
 
@@ -68,7 +68,7 @@ public class ProductTmplServiceImpl implements ProductTmplService {
     return productItemDao.getProductItems(tmpl);
   }
 
-  public List<ProductTmpl> getProductTmplList(long teamId, String itemType) {
+  public List<ProductTmpl> getProductTmplList(int teamId, String itemType) {
     return lineTmplDao.getProductTmplByType(teamId, itemType);
   }
 

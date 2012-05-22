@@ -37,7 +37,7 @@ public interface IncomeService {
    * @param gathering
    * @return income ID
    */
-  public long txSaveIncome(Income gathering);
+  public int txSaveIncome(Income gathering);
 
   /**
    * 查询收款账单

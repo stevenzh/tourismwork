@@ -8,7 +8,6 @@ import com.opentravelsoft.entity.Tourist;
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
  */
 public class Leader extends Tourist {
-  private static final long serialVersionUID = 1L;
 
   private String leadCard;
 

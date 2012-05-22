@@ -115,8 +115,8 @@ public class PayRequisitionAction extends ManageAction {
     if (hasActionErrors())
       return INPUT;
 
-    outcome.setCreatedBy(user.getUserId());
-    outcome.setUpdatedBy(user.getUserId());
+    outcome.setCreatedby(user.getUserId());
+    outcome.setUpdatedby(user.getUserId());
     outcome.getCustomer().setCustomerId(kenSupplierId);
     outcome.setTourNo(kenTourNo);
     outcome.setOpApprovedby(user.getUserId());

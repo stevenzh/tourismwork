@@ -88,7 +88,7 @@ public class BookingServiceImpl implements BookingService {
     return teamDao.getTeamList(TeamType.Operator);
   }
 
-  public List<Booking> roFind(String lineName, long teamId, long userId,
+  public List<Booking> roFind(String lineName, Integer teamId, Integer userId,
       Date startDatePeriod, Date endDatePeriod, Date reserveStart,
       Date reserveEnd, String tourist, String agentId, String salesman,
       String cfmKey, String readKey, String delKey, String reserveNo) {
@@ -348,7 +348,7 @@ public class BookingServiceImpl implements BookingService {
     return paymentDao.getPaymentTypes();
   }
 
-  public long txGathering(Income payment, long userId) {
+  public int txGathering(Income payment, int userId) {
     // TODO WorkFLow
     return paymentDao.saveIncome(payment);
   }
@@ -395,7 +395,7 @@ public class BookingServiceImpl implements BookingService {
     return bookingDao.readBooking(booking);
   }
 
-  public List<Booking> roGetBooks(long teamId, long userId) {
+  public List<Booking> roGetBooks(int teamId, int userId) {
     return bookingDao.findUndetermined(teamId, userId);
   }
 

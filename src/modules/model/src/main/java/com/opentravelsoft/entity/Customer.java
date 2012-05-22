@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_customer")
@@ -543,7 +544,7 @@ public class Customer implements java.io.Serializable {
   private String bcltname1;
 
   /** 审核人 */
-  private Long checkedBy;
+  private Integer checkedBy;
 
   /** 审核时间 */
   private Date checkDate;
@@ -566,7 +567,7 @@ public class Customer implements java.io.Serializable {
   private String reserve;
 
   /** 预订人id */
-  private long reserveId;
+  private Integer reserveId;
 
   /** 最后一次登陆时间 */
   private Date lastLogindate;
@@ -574,6 +575,7 @@ public class Customer implements java.io.Serializable {
   /** 地接地区 */
   private Character region;
 
+  @Transient
   public Integer getSupplierId() {
     return getCustomerId();
   }
@@ -582,6 +584,7 @@ public class Customer implements java.io.Serializable {
     setCustomerId(supplierId);
   }
 
+  @Transient
   public String getAgentType() {
     return agentType;
   }
@@ -590,6 +593,7 @@ public class Customer implements java.io.Serializable {
     this.agentType = agentType;
   }
 
+  @Transient
   public Date getCheckDate() {
     return checkDate;
   }
@@ -598,6 +602,7 @@ public class Customer implements java.io.Serializable {
     this.checkDate = checkDate;
   }
 
+  @Transient
   public String getContactEmail() {
     return contactEmail;
   }
@@ -606,6 +611,7 @@ public class Customer implements java.io.Serializable {
     this.contactEmail = contactEmail;
   }
 
+  @Transient
   public String getContactFax() {
     return getFax();
   }
@@ -614,6 +620,7 @@ public class Customer implements java.io.Serializable {
     setFax(contactFax);
   }
 
+  @Transient
   public String getContactTel() {
     return getPhone();
   }
@@ -622,14 +629,16 @@ public class Customer implements java.io.Serializable {
     setPhone(contactTel);
   }
 
-  public Long getCheckedBy() {
+  @Transient
+  public Integer getCheckedBy() {
     return checkedBy;
   }
 
-  public void setCheckedBy(Long checkBy) {
+  public void setCheckedBy(Integer checkBy) {
     this.checkedBy = checkBy;
   }
 
+  @Transient
   public Character getClearingCycle() {
     return clearingCycle;
   }
@@ -642,6 +651,7 @@ public class Customer implements java.io.Serializable {
     contacts.add(contact);
   }
 
+  @Transient
   public double getOwedAmount() {
     return owedAmount;
   }
@@ -650,6 +660,7 @@ public class Customer implements java.io.Serializable {
     this.owedAmount = owedAmount;
   }
 
+  @Transient
   public String getReceive() {
     return reserve;
   }
@@ -658,14 +669,16 @@ public class Customer implements java.io.Serializable {
     this.reserve = reserve;
   }
 
-  public long getReceiveId() {
+  @Transient
+  public Integer getReceiveId() {
     return reserveId;
   }
 
-  public void setReceiveId(long reserveId) {
+  public void setReceiveId(Integer reserveId) {
     this.reserveId = reserveId;
   }
 
+  @Transient
   public Date getLastLogindate() {
     return lastLogindate;
   }
@@ -674,6 +687,7 @@ public class Customer implements java.io.Serializable {
     this.lastLogindate = lastLogindate;
   }
 
+  @Transient
   public String getCountryName() {
     return countryName;
   }
@@ -682,6 +696,7 @@ public class Customer implements java.io.Serializable {
     this.countryName = countryName;
   }
 
+  @Transient
   public String getSupplierName() {
     return getName();
   }
@@ -690,6 +705,7 @@ public class Customer implements java.io.Serializable {
     this.setName(name);
   }
 
+  @Transient
   public Character getRegion() {
     return region;
   }
@@ -698,6 +714,7 @@ public class Customer implements java.io.Serializable {
     this.region = region;
   }
 
+  @Transient
   public String getClearingMode() {
     return clearingMode;
   }
@@ -706,6 +723,7 @@ public class Customer implements java.io.Serializable {
     this.clearingMode = clearingMode;
   }
 
+  @Transient
   public List<Contact> getContacts() {
     return contacts;
   }
@@ -714,6 +732,7 @@ public class Customer implements java.io.Serializable {
     this.contacts = contacts;
   }
 
+  @Transient
   public String getProvinceName() {
     return provinceName;
   }
@@ -722,6 +741,7 @@ public class Customer implements java.io.Serializable {
     this.provinceName = provinceName;
   }
 
+  @Transient
   public String getBankname1() {
     return bankname1;
   }
@@ -730,6 +750,7 @@ public class Customer implements java.io.Serializable {
     this.bankname1 = bankname1;
   }
 
+  @Transient
   public String getBankid1() {
     return bankid1;
   }
@@ -738,6 +759,7 @@ public class Customer implements java.io.Serializable {
     this.bankid1 = bankid1;
   }
 
+  @Transient
   public String getBcltname1() {
     return bcltname1;
   }

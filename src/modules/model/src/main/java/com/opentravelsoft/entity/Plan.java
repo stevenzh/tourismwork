@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.xml.transform.Source;
 import javax.xml.transform.sax.SAXSource;
 
@@ -1497,6 +1498,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.pax5 = pax5;
   }
 
+  @Transient
   public String getInfo() {
     return info;
   }
@@ -1505,6 +1507,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.info = info;
   }
 
+  @Transient
   public Integer getPax1() {
     return pax1;
   }
@@ -1518,6 +1521,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.pax1 = pax1;
   }
 
+  @Transient
   public Integer getPax4() {
     return pax4;
   }
@@ -1526,6 +1530,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.pax4 = pax4;
   }
 
+  @Transient
   public Integer getPax5() {
     return pax5;
   }
@@ -1534,6 +1539,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.pax5 = pax5;
   }
 
+  @Transient
   public String getCancelFlag() {
     return cancelFlag;
   }
@@ -1542,6 +1548,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.cancelFlag = cancelFlag;
   }
 
+  @Transient
   public Date getDeadline() {
     return deadline;
   }
@@ -1550,6 +1557,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.deadline = deadline;
   }
 
+  @Transient
   public String getDeployFlag() {
     return deployFlag;
   }
@@ -1558,6 +1566,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.deployFlag = deployFlag;
   }
 
+  @Transient
   public String getMessage() {
     return message;
   }
@@ -1566,6 +1575,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.message = message;
   }
 
+  @Transient
   public Date getOpDate() {
     return opDate;
   }
@@ -1574,6 +1584,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.opDate = opDate;
   }
 
+  @Transient
   public Integer getOpUser() {
     return opUser;
   }
@@ -1582,6 +1593,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.opUser = opUser;
   }
 
+  @Transient
   public Date getEndDate() {
     return endDate;
   }
@@ -1590,6 +1602,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.endDate = endDate;
   }
 
+  @Transient
   public Date getStartDate() {
     return startDate;
   }
@@ -1598,6 +1611,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.startDate = startDate;
   }
 
+  @Transient
   public int getDeadNum() {
     return deadNum;
   }
@@ -1614,6 +1628,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.enter = enter;
   }
 
+  @Transient
   public Date getDateCreated() {
     return dateCreated;
   }
@@ -1622,6 +1637,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.dateCreated = dateCreated;
   }
 
+  @Transient
   public String getFlightNo() {
     return flightNo;
   }
@@ -1630,6 +1646,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.flightNo = flightNo;
   }
 
+  @Transient
   public String getAirwaysCode() {
     return airwaysCode;
   }
@@ -1638,6 +1655,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.airwaysCode = airwaysCode;
   }
 
+  @Transient
   public Date getDepartureDate() {
     return departureDate;
   }
@@ -1646,6 +1664,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.departureDate = departureDate;
   }
 
+  @Transient
   public Integer getSeating() {
     return seating;
   }
@@ -1654,6 +1673,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.seating = seating;
   }
 
+  @Transient
   public Integer getHandle() {
     return handle;
   }
@@ -1662,6 +1682,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.handle = handle;
   }
 
+  @Transient
   public String getNote() {
     return note;
   }
@@ -1670,6 +1691,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.note = note;
   }
 
+  @Transient
   public String getSelectNO() {
     return selectNO;
   }
@@ -1678,6 +1700,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.selectNO = selectNO;
   }
 
+  @Transient
   public int getSumPax() {
     return sumPax;
   }
@@ -1686,6 +1709,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.sumPax = sumPax;
   }
 
+  @Transient
   public Double getSumDbamt() {
     return sumDbamt;
   }
@@ -1694,6 +1718,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.sumDbamt = sumDbamt;
   }
 
+  @Transient
   public String getSingleShow() {
     return singleShow;
   }
@@ -1702,6 +1727,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.singleShow = singleShow;
   }
 
+  @Transient
   public String getSingleFlagValue() {
     return singleFlagValue;
   }
@@ -1710,6 +1736,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.singleFlagValue = singleFlagValue;
   }
 
+  @Transient
   public int getCount() {
     return count;
   }
@@ -1718,6 +1745,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.count = count;
   }
 
+  @Transient
   public String getIsBuildup() {
     return isBuildup;
   }
@@ -1726,6 +1754,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.isBuildup = isBuildup;
   }
 
+  @Transient
   public int getTraitId() {
     return traitId;
   }
@@ -1734,6 +1763,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.traitId = traitId;
   }
 
+  @Transient
   public BigDecimal getZkProfit() {
     return zkProfit;
   }
@@ -1742,6 +1772,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.zkProfit = zkProfit;
   }
 
+  @Transient
   public BigDecimal getTyProfit() {
     return tyProfit;
   }
@@ -1750,6 +1781,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.tyProfit = tyProfit;
   }
 
+  @Transient
   public String getRecordNo() {
     return planNo;
   }
@@ -1758,6 +1790,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.planNo = recordNo;
   }
 
+  @Transient
   public Integer get_day() {
     return day;
   }
@@ -1766,10 +1799,12 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.day = day;
   }
 
+  @Transient
   public Source getSource() {
     return new SAXSource(new TourXMLReader(), new TourInputSource(this));
   }
 
+  @Transient
   public String getVenue() {
     return venue;
   }
@@ -1778,6 +1813,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.venue = venue;
   }
 
+  @Transient
   public int getSingleRoom() {
     return singleRoom;
   }
@@ -1786,6 +1822,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.singleRoom = singleRoom;
   }
 
+  @Transient
   public int getDoubleRoom() {
     return doubleRoom;
   }
@@ -1794,6 +1831,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.doubleRoom = doubleRoom;
   }
 
+  @Transient
   public int getExtraBedRoom() {
     return extraBedRoom;
   }
@@ -1802,6 +1840,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.extraBedRoom = extraBedRoom;
   }
 
+  @Transient
   public BigDecimal getAlAmount() {
     return alAmount;
   }
@@ -1810,6 +1849,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.alAmount = alAmount;
   }
 
+  @Transient
   public BigDecimal getMuAmount() {
     return muAmount;
   }
@@ -1818,6 +1858,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.muAmount = muAmount;
   }
 
+  @Transient
   public BigDecimal getWiAmount() {
     return wiAmount;
   }
@@ -1826,6 +1867,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.wiAmount = wiAmount;
   }
 
+  @Transient
   public String getDelKey() {
     return delKey;
   }
@@ -1834,6 +1876,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.delKey = delKey;
   }
 
+  @Transient
   public List<Tourist> getCustomerList() {
     return customerList;
   }
@@ -1842,6 +1885,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.customerList = customerList;
   }
 
+  @Transient
   public String getSimpleReport() {
     return simpleReport;
   }
@@ -1850,6 +1894,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.simpleReport = simpleReport;
   }
 
+  @Transient
   public String getTitle() {
     return title;
   }
@@ -1858,6 +1903,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.title = title;
   }
 
+  @Transient
   public String getSend() {
     return send;
   }
@@ -1866,6 +1912,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.send = send;
   }
 
+  @Transient
   public String getReceive() {
     return receive;
   }
@@ -1874,6 +1921,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.receive = receive;
   }
 
+  @Transient
   public String getFileTitle() {
     return fileTitle;
   }
@@ -1882,6 +1930,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.fileTitle = fileTitle;
   }
 
+  @Transient
   public String getPrintName() {
     return printName;
   }
@@ -1890,6 +1939,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printName = printName;
   }
 
+  @Transient
   public String getPrintPinyin() {
     return printPinyin;
   }
@@ -1898,6 +1948,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printPinyin = printPinyin;
   }
 
+  @Transient
   public String getPrintSex() {
     return printSex;
   }
@@ -1906,6 +1957,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printSex = printSex;
   }
 
+  @Transient
   public String getPrintAge() {
     return printAge;
   }
@@ -1914,6 +1966,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printAge = printAge;
   }
 
+  @Transient
   public String getPrintAgent() {
     return printAgent;
   }
@@ -1922,6 +1975,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printAgent = printAgent;
   }
 
+  @Transient
   public String getPrintIdcard() {
     return printIdcard;
   }
@@ -1930,6 +1984,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printIdcard = printIdcard;
   }
 
+  @Transient
   public String getPrintBirthday() {
     return printBirthday;
   }
@@ -1938,6 +1993,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printBirthday = printBirthday;
   }
 
+  @Transient
   public String getPrintBirPla() {
     return printBirPla;
   }
@@ -1946,6 +2002,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printBirPla = printBirPla;
   }
 
+  @Transient
   public String getPrintPassportType() {
     return printPassportType;
   }
@@ -1954,6 +2011,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printPassportType = printPassportType;
   }
 
+  @Transient
   public String getPrintPassportNo() {
     return printPassportNo;
   }
@@ -1962,6 +2020,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printPassportNo = printPassportNo;
   }
 
+  @Transient
   public String getPrintPassportDate() {
     return printPassportDate;
   }
@@ -1970,6 +2029,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printPassportDate = printPassportDate;
   }
 
+  @Transient
   public String getPrintPassportExpiry() {
     return printPassportExpiry;
   }
@@ -1978,6 +2038,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printPassportExpiry = printPassportExpiry;
   }
 
+  @Transient
   public String getPrintPassportPla() {
     return printPassportPla;
   }
@@ -1986,6 +2047,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printPassportPla = printPassportPla;
   }
 
+  @Transient
   public String getPrintPassportAnnotation() {
     return printPassportAnnotation;
   }
@@ -1994,6 +2056,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printPassportAnnotation = printPassportAnnotation;
   }
 
+  @Transient
   public String getPrintRemarks() {
     return printRemarks;
   }
@@ -2002,6 +2065,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printRemarks = printRemarks;
   }
 
+  @Transient
   public String getLabel1() {
     return label1;
   }
@@ -2010,6 +2074,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.label1 = label1;
   }
 
+  @Transient
   public String getLabel2() {
     return label2;
   }
@@ -2018,6 +2083,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.label2 = label2;
   }
 
+  @Transient
   public String getLabel3() {
     return label3;
   }
@@ -2026,6 +2092,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.label3 = label3;
   }
 
+  @Transient
   public String getLeadnum() {
     return leadnum;
   }
@@ -2034,6 +2101,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leadnum = leadnum;
   }
 
+  @Transient
   public String getDate1() {
     return date1;
   }
@@ -2042,6 +2110,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.date1 = date1;
   }
 
+  @Transient
   public String getPla1() {
     return pla1;
   }
@@ -2050,6 +2119,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.pla1 = pla1;
   }
 
+  @Transient
   public String getPass1() {
     return pass1;
   }
@@ -2058,6 +2128,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.pass1 = pass1;
   }
 
+  @Transient
   public String getEnd1() {
     return end1;
   }
@@ -2066,6 +2137,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.end1 = end1;
   }
 
+  @Transient
   public String getDate2() {
     return date2;
   }
@@ -2074,6 +2146,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.date2 = date2;
   }
 
+  @Transient
   public String getPla2() {
     return pla2;
   }
@@ -2082,6 +2155,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.pla2 = pla2;
   }
 
+  @Transient
   public String getPass2() {
     return pass2;
   }
@@ -2090,6 +2164,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.pass2 = pass2;
   }
 
+  @Transient
   public String getEnd2() {
     return end2;
   }
@@ -2098,6 +2173,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.end2 = end2;
   }
 
+  @Transient
   public String getDate3() {
     return date3;
   }
@@ -2106,6 +2182,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.date3 = date3;
   }
 
+  @Transient
   public String getPla3() {
     return pla3;
   }
@@ -2114,6 +2191,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.pla3 = pla3;
   }
 
+  @Transient
   public String getPass3() {
     return pass3;
   }
@@ -2122,6 +2200,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.pass3 = pass3;
   }
 
+  @Transient
   public String getEnd3() {
     return end3;
   }
@@ -2130,6 +2209,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.end3 = end3;
   }
 
+  @Transient
   public String getArrHKdate() {
     return arrHKdate;
   }
@@ -2138,6 +2218,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.arrHKdate = arrHKdate;
   }
 
+  @Transient
   public String getArrHKtime() {
     return arrHKtime;
   }
@@ -2146,6 +2227,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.arrHKtime = arrHKtime;
   }
 
+  @Transient
   public String getArrHKvehicle() {
     return arrHKvehicle;
   }
@@ -2154,6 +2236,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.arrHKvehicle = arrHKvehicle;
   }
 
+  @Transient
   public String getLeaveHKdate() {
     return leaveHKdate;
   }
@@ -2162,6 +2245,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leaveHKdate = leaveHKdate;
   }
 
+  @Transient
   public String getLeaveHKtime() {
     return leaveHKtime;
   }
@@ -2170,6 +2254,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leaveHKtime = leaveHKtime;
   }
 
+  @Transient
   public String getLeaveHKvehicle() {
     return leaveHKvehicle;
   }
@@ -2178,6 +2263,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leaveHKvehicle = leaveHKvehicle;
   }
 
+  @Transient
   public String getArrMCdate() {
     return arrMCdate;
   }
@@ -2186,6 +2272,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.arrMCdate = arrMCdate;
   }
 
+  @Transient
   public String getArrMCtime() {
     return arrMCtime;
   }
@@ -2234,6 +2321,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.gapax = gapax;
   }
 
+  @Transient
   public String getGamalePax() {
     return gamalePax;
   }
@@ -2242,6 +2330,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.gamalePax = gamalePax;
   }
 
+  @Transient
   public String getGafemalePax() {
     return gafemalePax;
   }
@@ -2250,6 +2339,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.gafemalePax = gafemalePax;
   }
 
+  @Transient
   public String getGachildPax() {
     return gachildPax;
   }
@@ -2258,6 +2348,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.gachildPax = gachildPax;
   }
 
+  @Transient
   public String getGaleadPax() {
     return galeadPax;
   }
@@ -2266,6 +2357,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.galeadPax = galeadPax;
   }
 
+  @Transient
   public String getLocalTname() {
     return localTname;
   }
@@ -2274,6 +2366,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.localTname = localTname;
   }
 
+  @Transient
   public String getHKTname() {
     return HKTname;
   }
@@ -2282,6 +2375,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     HKTname = tname;
   }
 
+  @Transient
   public String getMCTname() {
     return MCTname;
   }
@@ -2290,6 +2384,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     MCTname = tname;
   }
 
+  @Transient
   public String getLocalEcontact() {
     return localEcontact;
   }
@@ -2298,6 +2393,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.localEcontact = localEcontact;
   }
 
+  @Transient
   public String getHKEcontact() {
     return HKEcontact;
   }
@@ -2306,6 +2402,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     HKEcontact = econtact;
   }
 
+  @Transient
   public String getMCEcontact() {
     return MCEcontact;
   }
@@ -2314,6 +2411,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     MCEcontact = econtact;
   }
 
+  @Transient
   public String getTourSerialNumber() {
     return tourSerialNumber;
   }
@@ -2322,6 +2420,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.tourSerialNumber = tourSerialNumber;
   }
 
+  @Transient
   public String getReceptionTname() {
     return receptionTname;
   }
@@ -2330,6 +2429,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.receptionTname = receptionTname;
   }
 
+  @Transient
   public String getReceptionEcontact() {
     return receptionEcontact;
   }
@@ -2338,6 +2438,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.receptionEcontact = receptionEcontact;
   }
 
+  @Transient
   public String getPrintPax() {
     return printPax;
   }
@@ -2346,6 +2447,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printPax = printPax;
   }
 
+  @Transient
   public String getPrintMalePax() {
     return printMalePax;
   }
@@ -2354,6 +2456,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printMalePax = printMalePax;
   }
 
+  @Transient
   public String getPrintFemalePax() {
     return printFemalePax;
   }
@@ -2362,6 +2465,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printFemalePax = printFemalePax;
   }
 
+  @Transient
   public String getPrintOutDate() {
     return printOutDate;
   }
@@ -2370,6 +2474,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printOutDate = printOutDate;
   }
 
+  @Transient
   public String getPrintInDate() {
     return printInDate;
   }
@@ -2378,6 +2483,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.printInDate = printInDate;
   }
 
+  @Transient
   public String getYear() {
     return year;
   }
@@ -2386,6 +2492,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.year = year;
   }
 
+  @Transient
   public String getLeaderKey() {
     return leaderKey;
   }
@@ -2394,6 +2501,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leaderKey = leaderKey;
   }
 
+  @Transient
   public String getOutInKey() {
     return outInKey;
   }
@@ -2402,6 +2510,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.outInKey = outInKey;
   }
 
+  @Transient
   public String getLeaderPrintName() {
     return leaderPrintName;
   }
@@ -2410,6 +2519,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leaderPrintName = leaderPrintName;
   }
 
+  @Transient
   public String getLeaderPrintPinyin() {
     return leaderPrintPinyin;
   }
@@ -2418,6 +2528,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leaderPrintPinyin = leaderPrintPinyin;
   }
 
+  @Transient
   public String getLeaderPrintSex() {
     return leaderPrintSex;
   }
@@ -2426,6 +2537,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leaderPrintSex = leaderPrintSex;
   }
 
+  @Transient
   public String getLeaderPrintBirthday() {
     return leaderPrintBirthday;
   }
@@ -2434,6 +2546,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leaderPrintBirthday = leaderPrintBirthday;
   }
 
+  @Transient
   public String getLeaderPrintBirPla() {
     return leaderPrintBirPla;
   }
@@ -2442,6 +2555,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leaderPrintBirPla = leaderPrintBirPla;
   }
 
+  @Transient
   public String getLeaderPrintPassportNo() {
     return leaderPrintPassportNo;
   }
@@ -2450,6 +2564,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leaderPrintPassportNo = leaderPrintPassportNo;
   }
 
+  @Transient
   public String getLeaderPrintPassportPla() {
     return leaderPrintPassportPla;
   }
@@ -2458,6 +2573,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leaderPrintPassportPla = leaderPrintPassportPla;
   }
 
+  @Transient
   public String getLeaderPrintPassportDate() {
     return leaderPrintPassportDate;
   }
@@ -2466,6 +2582,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leaderPrintPassportDate = leaderPrintPassportDate;
   }
 
+  @Transient
   public String getLeader() {
     return leader;
   }
@@ -2474,6 +2591,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leader = leader;
   }
 
+  @Transient
   public String getWeekBit() {
     return weekBit;
   }
@@ -2482,6 +2600,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.weekBit = weekBit;
   }
 
+  @Transient
   public BigDecimal getGrossAmount() {
     return grossAmount;
   }
@@ -2490,6 +2609,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.grossAmount = grossAmount;
   }
 
+  @Transient
   public BigDecimal getGrossAmountRate() {
     return grossAmountRate;
   }
@@ -2498,6 +2618,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.grossAmountRate = grossAmountRate;
   }
 
+  @Transient
   public BigDecimal getGrossAmountAverage() {
     return grossAmountAverage;
   }
@@ -2506,6 +2627,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.grossAmountAverage = grossAmountAverage;
   }
 
+  @Transient
   public String getOpUserName() {
     return opUserName;
   }
@@ -2514,6 +2636,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.opUserName = opUserName;
   }
 
+  @Transient
   public String getFrUserName() {
     return frUserName;
   }
@@ -2522,6 +2645,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.frUserName = frUserName;
   }
 
+  @Transient
   public String getLineNo() {
     return lineNo;
   }
@@ -2530,6 +2654,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.lineNo = lineNo;
   }
 
+  @Transient
   public Integer getLeaderPax() {
     return leaderPax;
   }
@@ -2538,6 +2663,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leaderPax = leaderPax;
   }
 
+  @Transient
   public String getLeaderName() {
     return leaderName;
   }
@@ -2546,6 +2672,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.leaderName = leaderName;
   }
 
+  @Transient
   public String getRoomStatus() {
     return roomStatus;
   }
@@ -2554,6 +2681,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.roomStatus = roomStatus;
   }
 
+  @Transient
   public Integer getOprateUser() {
     return oprateUser;
   }
@@ -2562,6 +2690,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.oprateUser = oprateUser;
   }
 
+  @Transient
   public int getTotalPax() {
     return totalPax;
   }
@@ -2570,6 +2699,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.totalPax = totalPax;
   }
 
+  @Transient
   public BigDecimal getExtrIncome() {
     return extrIncome;
   }
@@ -2578,6 +2708,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.extrIncome = extrIncome;
   }
 
+  @Transient
   public String getExtrIncomeDec() {
     return extrIncomeDec;
   }
@@ -2626,6 +2757,7 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.price = price;
   }
 
+  @Transient
   public String getOutCity() {
     return outCity;
   }

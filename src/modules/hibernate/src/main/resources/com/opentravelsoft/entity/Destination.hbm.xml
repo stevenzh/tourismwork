@@ -8,8 +8,7 @@
       <column name="DEST_ID" />
       <generator class="native" />
     </id>
-    <many-to-one name="parent" class="com.opentravelsoft.entity.Destination"
-      fetch="select">
+    <many-to-one name="parent" class="com.opentravelsoft.entity.Destination" lazy="false" fetch="select">
       <column name="PARENT_ID" />
     </many-to-one>
     <property name="code" type="string">
@@ -42,8 +41,7 @@
     <property name="classType" type="java.lang.Character">
       <column name="CLASS_TYPE" length="1" />
     </property>
-    <set name="children" table="tbl_destination" inverse="true" lazy="true"
-      fetch="select">
+    <set name="children" table="tbl_destination" inverse="true" lazy="false" fetch="select">
       <key>
         <column name="PARENT_ID" />
       </key>

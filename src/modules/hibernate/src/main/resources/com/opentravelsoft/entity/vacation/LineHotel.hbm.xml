@@ -1,19 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.entity.vacation.LineHotel" table="tbl_line_hotel" catalog="tourismwork_db">
-        <composite-id name="id" class="com.opentravelsoft.entity.vacation.LineHotelId">
-            <key-property name="lineNo" type="string">
-                <column name="LINE_NO" length="10" />
-            </key-property>
-            <key-property name="hotCd" type="string">
-                <column name="HOT_CD" length="10" />
-            </key-property>
-        </composite-id>
-        <property name="recommend" type="string">
-            <column name="RECOMMEND" length="10" />
-        </property>
-    </class>
+  <class name="com.opentravelsoft.entity.vacation.LineHotel" table="tbl_line_hotel">
+    <composite-id name="id" class="com.opentravelsoft.entity.vacation.LineHotelId">
+      <key-property name="lineNo" type="string">
+        <column name="LINE_NO" length="10" />
+      </key-property>
+      <key-property name="hotCd" type="string">
+        <column name="HOT_CD" length="10" />
+      </key-property>
+    </composite-id>
+    <property name="recommend" type="string">
+      <column name="RECOMMEND" length="10" />
+    </property>
+  </class>
 </hibernate-mapping>

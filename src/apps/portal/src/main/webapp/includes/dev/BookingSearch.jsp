@@ -290,7 +290,7 @@ function detail(no,val)
           <td class="rdata">&nbsp;</td>
           <td class="cdata">&nbsp;</td>
            -->
-                  <td class="cdata"><s:if test='confirmStatus == "1"'>已占位</s:if> <s:else>
+                  <td class="cdata"><s:if test='cfmKey == "1"'>已占位</s:if> <s:else>
                     <A href="#" onclick="javascript:detail('<s:property value='recordNo'/>','auditing')" title="审核订单"
                       alt="审核订单">未占位</A>
                   </s:else> <s:if test='readKey == "Y"'>已读</s:if> <s:else>

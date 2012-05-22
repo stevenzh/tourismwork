@@ -34,10 +34,10 @@ public class LinePriceDaoImpl extends GenericDaoHibernate<LinePrice, String>
     DetachedCriteria criteria = DetachedCriteria.forClass(LinePrice.class);
     criteria.add(Restrictions.eq("lineNo", lineNo));
     if (null != startDate)
-      criteria.add(Restrictions.ge("endDate", startDate));
+      criteria.add(Restrictions.ge("EDate", startDate));
     if (null != endDate)
-      criteria.add(Restrictions.le("startDate", endDate));
-    criteria.addOrder(Order.desc("endDate"));
+      criteria.add(Restrictions.le("SDate", endDate));
+    criteria.addOrder(Order.desc("EDate"));
     criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
 
     List<LinePrice> list = getHibernateTemplate().findByCriteria(criteria);
@@ -77,8 +77,8 @@ public class LinePriceDaoImpl extends GenericDaoHibernate<LinePrice, String>
   public List<LinePrice> getPriceNotice(String lineNo) {
     StringBuilder sql = new StringBuilder();
     sql.append("from LinePrice ");
-    sql.append("where endDate>current_date() and lineNo=? ");
-    sql.append("order by startDate desc");
+    sql.append("where EDate>current_date() and lineNo=? ");
+    sql.append("order by SDate desc");
     Object[] ooj = { lineNo };
     return getHibernateTemplate().find(sql.toString(), ooj);
   }

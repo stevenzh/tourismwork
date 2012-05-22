@@ -1,96 +1,95 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.entity.vacation.Hotel" table="tbl_hotel" catalog="tourismwork_db">
-        <id name="hotCd" type="string">
-            <column name="HOT_CD" length="10" />
-            <generator class="assigned" />
-        </id>
-        <property name="hotJc" type="string">
-            <column name="HOT_JC" length="50" not-null="true" />
-        </property>
-        <property name="hotEn" type="string">
-            <column name="HOT_EN" length="60" not-null="true" />
-        </property>
-        <property name="citycd" type="string">
-            <column name="CITYCD" length="6" not-null="true" />
-        </property>
-        <property name="cont" type="string">
-            <column name="CONT" length="30" />
-        </property>
-        <property name="tel" type="string">
-            <column name="TEL" length="40" />
-        </property>
-        <property name="fax" type="string">
-            <column name="FAX" length="40" />
-        </property>
-        <property name="email" type="string">
-            <column name="EMAIL" length="50" />
-        </property>
-        <property name="isDelete" type="java.lang.Byte">
-            <column name="IS_DELETE" />
-        </property>
-        <property name="opUser" type="string">
-            <column name="OP_USER" length="20" />
-        </property>
-        <property name="opDate" type="timestamp">
-            <column name="OP_DATE" length="19" />
-        </property>
-        <property name="webKey" type="string">
-            <column name="WEB_KEY" length="20" />
-        </property>
-        <property name="hotName" type="string">
-            <column name="HOT_NAME" length="40" />
-        </property>
-        <property name="userName" type="string">
-            <column name="USER_NAME" length="2" />
-        </property>
-        <property name="level" type="string">
-            <column name="LEVEL" length="50" />
-        </property>
-        <property name="locCn" type="string">
-            <column name="LOC_CN" length="100" />
-        </property>
-        <property name="locEn" type="string">
-            <column name="LOC_EN" length="200" />
-        </property>
-        <property name="address" type="string">
-            <column name="ADDRESS" length="200" />
-        </property>
-        <property name="zip" type="string">
-            <column name="ZIP" length="12" />
-        </property>
-        <property name="canton" type="string">
-            <column name="CANTON" length="26" />
-        </property>
-        <property name="location" type="string">
-            <column name="LOCATION" length="100" />
-        </property>
-        <property name="mobile" type="string">
-            <column name="MOBILE" length="50" />
-        </property>
-        <property name="httpFiler" type="string">
-            <column name="HTTP_FILER" length="50" />
-        </property>
-        <property name="note1" type="string">
-            <column name="NOTE1" length="400" />
-        </property>
-        <property name="mapFiler1" type="string">
-            <column name="MAP_FILER1" length="50" />
-        </property>
-        <property name="note2" type="string">
-            <column name="NOTE2" />
-        </property>
-        <property name="mapFlier2" type="string">
-            <column name="MAP_FLIER2" length="50" />
-        </property>
-        <property name="mapFlier3" type="string">
-            <column name="MAP_FLIER3" length="50" />
-        </property>
-        <property name="region" type="string">
-            <column name="REGION" length="50" />
-        </property>
-    </class>
+  <class name="com.opentravelsoft.entity.vacation.Hotel" table="tbl_hotel">
+    <id name="hotCd" type="string">
+      <column name="HOT_CD" length="10" />
+      <generator class="assigned" />
+    </id>
+    <property name="hotJc" type="string">
+      <column name="HOT_JC" length="50" not-null="true" />
+    </property>
+    <property name="hotEn" type="string">
+      <column name="HOT_EN" length="60" not-null="true" />
+    </property>
+    <many-to-one name="city" class="com.opentravelsoft.entity.City" fetch="select">
+      <column name="CITYCD" not-null="true" />
+    </many-to-one>
+    <property name="cont" type="string">
+      <column name="CONT" length="30" />
+    </property>
+    <property name="tel" type="string">
+      <column name="TEL" length="40" />
+    </property>
+    <property name="fax" type="string">
+      <column name="FAX" length="40" />
+    </property>
+    <property name="email" type="string">
+      <column name="EMAIL" length="50" />
+    </property>
+    <property name="isDelete" type="java.lang.Byte">
+      <column name="IS_DELETE" />
+    </property>
+    <property name="opUser" type="string">
+      <column name="OP_USER" length="20" />
+    </property>
+    <property name="opDate" type="timestamp">
+      <column name="OP_DATE" length="19" />
+    </property>
+    <property name="webKey" type="string">
+      <column name="WEB_KEY" length="20" />
+    </property>
+    <property name="hotName" type="string">
+      <column name="HOT_NAME" length="40" />
+    </property>
+    <property name="userName" type="string">
+      <column name="USER_NAME" length="2" />
+    </property>
+    <property name="level" type="string">
+      <column name="LEVEL" length="50" />
+    </property>
+    <property name="locCn" type="string">
+      <column name="LOC_CN" length="100" />
+    </property>
+    <property name="locEn" type="string">
+      <column name="LOC_EN" length="200" />
+    </property>
+    <property name="address" type="string">
+      <column name="ADDRESS" length="200" />
+    </property>
+    <property name="zip" type="string">
+      <column name="ZIP" length="12" />
+    </property>
+    <property name="canton" type="string">
+      <column name="CANTON" length="26" />
+    </property>
+    <property name="location" type="string">
+      <column name="LOCATION" length="100" />
+    </property>
+    <property name="mobile" type="string">
+      <column name="MOBILE" length="50" />
+    </property>
+    <property name="httpFiler" type="string">
+      <column name="HTTP_FILER" length="50" />
+    </property>
+    <property name="note1" type="string">
+      <column name="NOTE1" length="400" />
+    </property>
+    <property name="mapFiler1" type="string">
+      <column name="MAP_FILER1" length="50" />
+    </property>
+    <property name="note2" type="string">
+      <column name="NOTE2" />
+    </property>
+    <property name="mapFlier2" type="string">
+      <column name="MAP_FLIER2" length="50" />
+    </property>
+    <property name="mapFlier3" type="string">
+      <column name="MAP_FLIER3" length="50" />
+    </property>
+    <property name="region" type="string">
+      <column name="REGION" length="50" />
+    </property>
+  </class>
 </hibernate-mapping>

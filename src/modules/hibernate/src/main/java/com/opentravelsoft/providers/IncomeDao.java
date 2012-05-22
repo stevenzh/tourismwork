@@ -41,7 +41,7 @@ public interface IncomeDao extends GenericDao<Income, Integer> {
    * @param gathering
    * @return
    */
-  public long saveIncome(Income gathering);
+  public int saveIncome(Income gathering);
 
   /**
    * 查询收款账单

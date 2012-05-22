@@ -32,7 +32,7 @@ public class MyPageServiceImpl implements MyPageService {
     return expressDao.getExpressTaskList(taskName);
   }
 
-  public List<Plan> roGetPlanList(long teamId, long userId) {
+  public List<Plan> roGetPlanList(int teamId, int userId) {
     return planListDao.getRunPlans(teamId, userId);
   }
 

@@ -59,7 +59,7 @@ public interface TourService {
    */
   public List<Team> getOperatorTeamList();
 
-  List<Team> getTeamList(long userId, TeamType type);
+  List<Team> getTeamList(int userId, TeamType type);
 
   /**
    * 查找团（团处理）

@@ -597,7 +597,7 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
     sb.append("from Booking c,");
     sb.append("LineDistrict b ");
     sb.append("where c.plan.line.lineNo=b.id.lineNo ");
-    sb.append("and c.confirmStatus='1' and c.delkey<>'Y' ");
+    sb.append("and c.cfmKey='1' and c.delkey<>'Y' ");
     sb.append("and b.id.districtNo=? ");
     params.add(districtNo);
     if (null != startDate) {

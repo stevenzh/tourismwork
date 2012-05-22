@@ -21,14 +21,14 @@ public class PlanSearchServiceImpl implements PlanSearchService {
   @Autowired
   private TeamDao teamDao;
 
-  public List<Plan> roFind(String lineName, long teamId, long userId,
+  public List<Plan> roFind(String lineName, int teamId, int userId,
       Date startDate, Date endDate, double lowerPrice, double upperPrice,
       boolean openKey) {
     return planListDao.find(lineName, teamId, userId, startDate, endDate,
         lowerPrice, upperPrice, openKey, "", "");
   }
 
-  public List<Team> getTeamList(long userId, TeamType type) {
+  public List<Team> getTeamList(int userId, TeamType type) {
     return teamDao.getTeam(userId, type);
   }
 }

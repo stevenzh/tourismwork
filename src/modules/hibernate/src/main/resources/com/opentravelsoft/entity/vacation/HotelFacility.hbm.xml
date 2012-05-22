@@ -1,39 +1,38 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.entity.vacation.HotelFacility" table="tbl_hotel_facility" catalog="tourismwork_db">
-        <id name="recNo" type="string">
-            <column name="REC_NO" length="10" />
-            <generator class="assigned" />
-        </id>
-        <property name="hotCd" type="string">
-            <column name="HOT_CD" length="10" />
-        </property>
-        <property name="estNo" type="string">
-            <column name="EST_NO" length="20" />
-        </property>
-        <property name="cnNote" type="string">
-            <column name="CN_NOTE" length="100" />
-        </property>
-        <property name="enNote" type="string">
-            <column name="EN_NOTE" length="100" />
-        </property>
-        <property name="isDelete" type="java.lang.Byte">
-            <column name="IS_DELETE" />
-        </property>
-        <property name="crUser" type="string">
-            <column name="CR_USER" length="50" />
-        </property>
-        <property name="crDate" type="timestamp">
-            <column name="CR_DATE" length="19" />
-        </property>
-        <property name="opUser" type="string">
-            <column name="OP_USER" length="50" />
-        </property>
-        <property name="opDate" type="timestamp">
-            <column name="OP_DATE" length="19" />
-        </property>
-    </class>
+  <class name="com.opentravelsoft.entity.vacation.HotelFacility" table="tbl_hotel_facility">
+    <id name="recNo" type="string">
+      <column name="REC_NO" length="10" />
+      <generator class="assigned" />
+    </id>
+    <many-to-one name="hotel" class="com.opentravelsoft.entity.vacation.Hotel" lazy="false" fetch="select">
+      <column name="HOT_CD" not-null="true" />
+    </many-to-one>
+    <property name="estNo" type="string">
+      <column name="EST_NO" length="20" />
+    </property>
+    <property name="cnNote" type="string">
+      <column name="CN_NOTE" length="100" />
+    </property>
+    <property name="enNote" type="string">
+      <column name="EN_NOTE" length="100" />
+    </property>
+    <property name="isDelete" type="java.lang.Byte">
+      <column name="IS_DELETE" />
+    </property>
+    <property name="crUser" type="string">
+      <column name="CR_USER" length="50" />
+    </property>
+    <property name="crDate" type="timestamp">
+      <column name="CR_DATE" length="19" />
+    </property>
+    <property name="opUser" type="string">
+      <column name="OP_USER" length="50" />
+    </property>
+    <property name="opDate" type="timestamp">
+      <column name="OP_DATE" length="19" />
+    </property>
+  </class>
 </hibernate-mapping>

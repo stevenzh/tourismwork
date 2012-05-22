@@ -25,7 +25,7 @@ public class SmsDaoHibernate extends GenericDaoHibernate<TblSmsSend, Integer>
     return 0;
   }
 
-  public int send(String seqno, String msg, String mob, long userId) {
+  public int send(String seqno, String msg, String mob, int userId) {
     TblSmsSend record = new TblSmsSend();
     record.setSeqno(seqno);
     record.setMessage(msg);

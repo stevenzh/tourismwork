@@ -1,83 +1,82 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.entity.vacation.BookHotel" table="tbl_booking_hotel" catalog="tourismwork_db">
-        <id name="recNo" type="java.lang.Integer">
-            <column name="REC_NO" />
-            <generator class="identity" />
-        </id>
-        <property name="bookingNo" type="string">
-            <column name="BookingNo" length="10" />
-        </property>
-        <property name="hotelId" type="string">
-            <column name="HotelID" length="10" />
-        </property>
-        <property name="roomType" type="string">
-            <column name="RoomType" length="200">
-                <comment>????</comment>
-            </column>
-        </property>
-        <property name="checkInDate" type="timestamp">
-            <column name="CheckInDate" length="19" />
-        </property>
-        <property name="checkOutDate" type="timestamp">
-            <column name="CheckOutDate" length="19" />
-        </property>
-        <property name="stayCity" type="string">
-            <column name="StayCity" length="50" />
-        </property>
-        <property name="roomNum" type="java.lang.Integer">
-            <column name="RoomNum">
-                <comment>&#161;&#164;???????</comment>
-            </column>
-        </property>
-        <property name="stay" type="java.lang.Integer">
-            <column name="Stay">
-                <comment>?????&#168;&#172;??</comment>
-            </column>
-        </property>
-        <property name="price" type="big_decimal">
-            <column name="Price" precision="9">
-                <comment>????</comment>
-            </column>
-        </property>
-        <property name="totalPrice" type="big_decimal">
-            <column name="TotalPrice" precision="9" />
-        </property>
-        <property name="state" type="java.lang.Integer">
-            <column name="State">
-                <comment>0:???&#161;&#164;?? 1: ???&#168;&#186;?&#161;&#164;?? 2?????&#161;&#164;??</comment>
-            </column>
-        </property>
-        <property name="remark" type="string">
-            <column name="Remark" length="2000" />
-        </property>
-        <property name="createdBy" type="string">
-            <column name="CreatedBy" length="20" />
-        </property>
-        <property name="createdDate" type="timestamp">
-            <column name="CreatedDate" length="19" />
-        </property>
-        <property name="modifiedBy" type="string">
-            <column name="ModifiedBy" length="20" />
-        </property>
-        <property name="modifiedDate" type="timestamp">
-            <column name="ModifiedDate" length="19" />
-        </property>
-        <property name="isDelete" type="java.lang.Byte">
-            <column name="IsDelete" />
-        </property>
-        <property name="rmNum1" type="java.lang.Integer">
-            <column name="RM_NUM1">
-                <comment>??????&#161;&#164;??&#168;&#178;??</comment>
-            </column>
-        </property>
-        <property name="rmNum2" type="java.lang.Integer">
-            <column name="RM_NUM2">
-                <comment>??????&#161;&#164;??&#168;&#178;??</comment>
-            </column>
-        </property>
-    </class>
+  <class name="com.opentravelsoft.entity.vacation.BookHotel" table="tbl_booking_hotel">
+    <id name="recNo" type="java.lang.Integer">
+      <column name="REC_NO" />
+      <generator class="identity" />
+    </id>
+    <property name="bookingNo" type="string">
+      <column name="BookingNo" length="10" />
+    </property>
+    <property name="hotelId" type="string">
+      <column name="HotelID" length="10" />
+    </property>
+    <property name="roomType" type="string">
+      <column name="RoomType" length="200">
+        <comment>????</comment>
+      </column>
+    </property>
+    <property name="checkInDate" type="timestamp">
+      <column name="CheckInDate" length="19" />
+    </property>
+    <property name="checkOutDate" type="timestamp">
+      <column name="CheckOutDate" length="19" />
+    </property>
+    <property name="stayCity" type="string">
+      <column name="StayCity" length="50" />
+    </property>
+    <property name="roomNum" type="java.lang.Integer">
+      <column name="RoomNum">
+        <comment>&#161;&#164;???????</comment>
+      </column>
+    </property>
+    <property name="stay" type="java.lang.Integer">
+      <column name="Stay">
+        <comment>?????&#168;&#172;??</comment>
+      </column>
+    </property>
+    <property name="price" type="big_decimal">
+      <column name="Price" precision="9">
+        <comment>????</comment>
+      </column>
+    </property>
+    <property name="totalPrice" type="big_decimal">
+      <column name="TotalPrice" precision="9" />
+    </property>
+    <property name="state" type="java.lang.Integer">
+      <column name="State">
+        <comment>0:???&#161;&#164;?? 1: ???&#168;&#186;?&#161;&#164;?? 2?????&#161;&#164;??</comment>
+      </column>
+    </property>
+    <property name="remark" type="string">
+      <column name="Remark" length="2000" />
+    </property>
+    <property name="createdBy" type="string">
+      <column name="CreatedBy" length="20" />
+    </property>
+    <property name="createdDate" type="timestamp">
+      <column name="CreatedDate" length="19" />
+    </property>
+    <property name="modifiedBy" type="string">
+      <column name="ModifiedBy" length="20" />
+    </property>
+    <property name="modifiedDate" type="timestamp">
+      <column name="ModifiedDate" length="19" />
+    </property>
+    <property name="isDelete" type="java.lang.Byte">
+      <column name="IsDelete" />
+    </property>
+    <property name="rmNum1" type="java.lang.Integer">
+      <column name="RM_NUM1">
+        <comment>??????&#161;&#164;??&#168;&#178;??</comment>
+      </column>
+    </property>
+    <property name="rmNum2" type="java.lang.Integer">
+      <column name="RM_NUM2">
+        <comment>??????&#161;&#164;??&#168;&#178;??</comment>
+      </column>
+    </property>
+  </class>
 </hibernate-mapping>

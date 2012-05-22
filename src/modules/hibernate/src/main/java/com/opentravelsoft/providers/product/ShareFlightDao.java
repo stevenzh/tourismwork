@@ -11,11 +11,10 @@ import com.opentravelsoft.providers.GenericDao;
  * @author zhangst
  * 
  */
-public interface ShareFlightDao extends GenericDao<ShareFlight, Long>
-{
+public interface ShareFlightDao extends GenericDao<ShareFlight, Integer> {
 
-    List<ShareFlight> findAll();
+  List<ShareFlight> findAll();
 
-    int editShareFlight(ShareFlight shareFlight);
+  int editShareFlight(ShareFlight shareFlight);
 
 }

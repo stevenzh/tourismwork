@@ -302,7 +302,7 @@ function showRouteJourney(obj)
                   <td class="cdata">&nbsp;</td>
                    -->
                   <td class="data">&nbsp;
-                    <s:if test='confirmStatus == "1"'>已占位</s:if>
+                    <s:if test='cfmKey == "1"'>已占位</s:if>
                     <s:else><a href="#" onclick="javascript:detail('<s:property value='bookingNo'/>','auditing')" title="审核订单">未占位</a></s:else>
                     <s:if test='readKey == "Y"'>已读</s:if>
                     <s:else><a href="#" onclick="javascript:detail('<s:property value='bookingNo'/>','search')" title="查看未读订单">查看</a></s:else>

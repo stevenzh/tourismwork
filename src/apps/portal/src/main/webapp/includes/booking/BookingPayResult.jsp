@@ -127,7 +127,7 @@
       </tr>
       <tr>
         <td colspan="4" align="center">状态：
-	        <STRONG><s:if test='booking.confirmStatus == "1"'>已审核</s:if>
+	        <STRONG><s:if test='booking.cfmKey == "1"'>已审核</s:if>
 	        <s:else>未确认</s:else>
 	        <s:if test='booking.delkey == "Y"'>已取消</s:if></STRONG></td>
       </tr>

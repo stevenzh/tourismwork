@@ -3,44 +3,41 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.opentravelsoft.entity.Group" table="TBL_GROUP">
-		<cache usage="nonstrict-read-write" />
-		<id name="groupId" type="int">
-			<column name="GROUP_ID" />
-			<generator class="assigned" />
-		</id>
-		<many-to-one name="parent" class="com.opentravelsoft.entity.Group"
-			fetch="select">
-			<column name="PARENT_ID" />
-		</many-to-one>
-		<property name="dptCn" type="string">
-			<column name="DPT_CN" length="20" not-null="true" />
-		</property>
-		<property name="fullName" type="string">
-			<column name="FULL_NAME" length="60" />
-		</property>
-		<property name="linkman" type="string">
-			<column name="LINKMAN" length="20" />
-		</property>
-		<property name="tel" type="string">
-			<column name="TEL" length="40" />
-		</property>
-		<property name="fax" type="string">
-			<column name="FAX" length="40" />
-		</property>
-		<set name="children" table="tbl_group" inverse="true" lazy="true"
-			fetch="select">
-			<key>
-				<column name="PARENT_ID" />
-			</key>
-			<one-to-many class="com.opentravelsoft.entity.Group" />
-		</set>
-		<set name="employees" table="tbl_employee" inverse="true" lazy="true"
-			fetch="select">
-			<key>
-				<column name="GROUP_ID" not-null="true" />
-			</key>
-			<one-to-many class="com.opentravelsoft.entity.Employee" />
-		</set>
-	</class>
+  <class name="com.opentravelsoft.entity.Group" table="TBL_GROUP">
+    <cache usage="nonstrict-read-write" />
+    <id name="groupId" type="int">
+      <column name="GROUP_ID" />
+      <generator class="assigned" />
+    </id>
+    <many-to-one name="parent" class="com.opentravelsoft.entity.Group" fetch="select">
+      <column name="PARENT_ID" />
+    </many-to-one>
+    <property name="dptCn" type="string">
+      <column name="DPT_CN" length="20" not-null="true" />
+    </property>
+    <property name="fullName" type="string">
+      <column name="FULL_NAME" length="60" />
+    </property>
+    <property name="linkman" type="string">
+      <column name="LINKMAN" length="20" />
+    </property>
+    <property name="tel" type="string">
+      <column name="TEL" length="40" />
+    </property>
+    <property name="fax" type="string">
+      <column name="FAX" length="40" />
+    </property>
+    <set name="children" table="tbl_group" inverse="true" lazy="true" fetch="select">
+      <key>
+        <column name="PARENT_ID" />
+      </key>
+      <one-to-many class="com.opentravelsoft.entity.Group" />
+    </set>
+    <set name="employees" table="tbl_employee" inverse="true" lazy="true" fetch="select">
+      <key>
+        <column name="GROUP_ID" not-null="true" />
+      </key>
+      <one-to-many class="com.opentravelsoft.entity.Employee" />
+    </set>
+  </class>
 </hibernate-mapping>

@@ -54,7 +54,7 @@
 			<key>
 				<column name="SIGHT_NO" length="10" not-null="true" />
 			</key>
-			<one-to-many class="com.opentravelsoft.hmodel.TblLineSights" />
+			<one-to-many class="com.opentravelsoft.entity.TblLineSights" />
 		</set>
 	</class>
 </hibernate-mapping>

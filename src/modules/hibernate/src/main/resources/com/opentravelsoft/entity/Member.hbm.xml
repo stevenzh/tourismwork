@@ -1,74 +1,74 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
+
 <hibernate-mapping>
-    <class name="com.opentravelsoft.entity.Member" table="tbl_member" catalog="tourismwork_db">
-        <id name="id" type="java.lang.Long">
-            <column name="id" />
-            <generator class="identity" />
-        </id>
-        <version name="version" type="java.lang.Integer">
-            <column name="version" />
-        </version>
-        <property name="accountExpired" type="boolean">
-            <column name="account_expired" not-null="true" />
-        </property>
-        <property name="accountLocked" type="boolean">
-            <column name="account_locked" not-null="true" />
-        </property>
-        <property name="address" type="string">
-            <column name="address" length="150" />
-        </property>
-        <property name="city" type="string">
-            <column name="city" length="50" />
-        </property>
-        <property name="country" type="string">
-            <column name="country" length="100" />
-        </property>
-        <property name="postalCode" type="string">
-            <column name="postal_code" length="15" />
-        </property>
-        <property name="province" type="string">
-            <column name="province" length="100" />
-        </property>
-        <property name="credentialsExpired" type="boolean">
-            <column name="credentials_expired" not-null="true" />
-        </property>
-        <property name="email" type="string">
-            <column name="email" not-null="true" unique="true" />
-        </property>
-        <property name="accountEnabled" type="java.lang.Boolean">
-            <column name="account_enabled" />
-        </property>
-        <property name="firstName" type="string">
-            <column name="first_name" length="50" not-null="true" />
-        </property>
-        <property name="lastName" type="string">
-            <column name="last_name" length="50" not-null="true" />
-        </property>
-        <property name="password" type="string">
-            <column name="password" not-null="true" />
-        </property>
-        <property name="passwordHint" type="string">
-            <column name="password_hint" />
-        </property>
-        <property name="phoneNumber" type="string">
-            <column name="phone_number" />
-        </property>
-        <property name="username" type="string">
-            <column name="username" length="50" not-null="true" unique="true" />
-        </property>
-        <property name="website" type="string">
-            <column name="website" />
-        </property>
-        <set name="portalRoles" table="tbl_member_role" inverse="false" lazy="true" fetch="select">
-            <key>
-                <column name="user_id" not-null="true" />
-            </key>
-            <many-to-many entity-name="com.opentravelsoft.entity.PortalRole">
-                <column name="role_id" not-null="true" />
-            </many-to-many>
-        </set>
-    </class>
+  <class name="com.opentravelsoft.entity.Member" table="tbl_member">
+    <id name="id" type="java.lang.Long">
+      <column name="id" />
+      <generator class="identity" />
+    </id>
+    <version name="version" type="java.lang.Integer">
+      <column name="version" />
+    </version>
+    <property name="accountExpired" type="boolean">
+      <column name="account_expired" not-null="true" />
+    </property>
+    <property name="accountLocked" type="boolean">
+      <column name="account_locked" not-null="true" />
+    </property>
+    <property name="address" type="string">
+      <column name="address" length="150" />
+    </property>
+    <property name="city" type="string">
+      <column name="city" length="50" />
+    </property>
+    <property name="country" type="string">
+      <column name="country" length="100" />
+    </property>
+    <property name="postalCode" type="string">
+      <column name="postal_code" length="15" />
+    </property>
+    <property name="province" type="string">
+      <column name="province" length="100" />
+    </property>
+    <property name="credentialsExpired" type="boolean">
+      <column name="credentials_expired" not-null="true" />
+    </property>
+    <property name="email" type="string">
+      <column name="email" not-null="true" unique="true" />
+    </property>
+    <property name="accountEnabled" type="java.lang.Boolean">
+      <column name="account_enabled" />
+    </property>
+    <property name="firstName" type="string">
+      <column name="first_name" length="50" not-null="true" />
+    </property>
+    <property name="lastName" type="string">
+      <column name="last_name" length="50" not-null="true" />
+    </property>
+    <property name="password" type="string">
+      <column name="password" not-null="true" />
+    </property>
+    <property name="passwordHint" type="string">
+      <column name="password_hint" />
+    </property>
+    <property name="phoneNumber" type="string">
+      <column name="phone_number" />
+    </property>
+    <property name="username" type="string">
+      <column name="username" length="50" not-null="true" unique="true" />
+    </property>
+    <property name="website" type="string">
+      <column name="website" />
+    </property>
+    <set name="portalRoles" table="tbl_member_role" inverse="false" lazy="true" fetch="select">
+      <key>
+        <column name="user_id" not-null="true" />
+      </key>
+      <many-to-many entity-name="com.opentravelsoft.entity.PortalRole">
+        <column name="role_id" not-null="true" />
+      </many-to-many>
+    </set>
+  </class>
 </hibernate-mapping>

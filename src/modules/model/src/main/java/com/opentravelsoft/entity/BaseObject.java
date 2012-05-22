@@ -9,8 +9,6 @@ import java.io.Serializable;
  */
 public abstract class BaseObject implements Serializable
 {
-    private static final long serialVersionUID = 5569906370975960268L;
-
     /**
      * Returns a multi-line String with key=value pairs.
      * 

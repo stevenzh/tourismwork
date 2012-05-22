@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_tournotice_file")
@@ -155,6 +156,7 @@ public class TourNoticeFile implements java.io.Serializable {
 
   private String delKey;
 
+  @Transient
   public String getDptNo() {
     return groupId;
   }
@@ -163,6 +165,7 @@ public class TourNoticeFile implements java.io.Serializable {
     this.groupId = groupId;
   }
 
+  @Transient
   public Integer getOperator() {
     return operator;
   }
@@ -171,6 +174,7 @@ public class TourNoticeFile implements java.io.Serializable {
     this.operator = operator;
   }
 
+  @Transient
   public String getDelKey() {
     return delKey;
   }

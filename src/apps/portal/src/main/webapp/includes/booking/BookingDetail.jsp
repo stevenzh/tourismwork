@@ -58,7 +58,7 @@ function submitInvoice(param)
   <tr>
     <td rowspan="2">状态:
     <STRONG>
-    <s:if test='book.confirmStatus == "1"'>已占位</s:if>
+    <s:if test='book.cfmKey == "1"'>已占位</s:if>
     <s:else>未占位</s:else>
     <s:if test='book.delkey == "Y"'>已取消</s:if></STRONG>
     </td>
@@ -209,7 +209,7 @@ function submitInvoice(param)
   <tr>
     <td colspan="4" align="center">
     <s:if test='book.delkey eq "N"'>
-    <s:if test='book.confirmStatus == "2"'>
+    <s:if test='book.cfmKey == "2"'>
     <s:submit value="订单取消" method="cancel"></s:submit>
     <s:submit value="游客取消" method="cancelCustomers"></s:submit>
     <input type="button" value="修改" onclick="javascript:change();">

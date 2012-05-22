@@ -34,13 +34,13 @@ public class LineDaoImpl extends GenericDaoHibernate<Line, String> implements
     super(Line.class);
   }
 
-  public PaginationSupport findLineList(long teamId, String lineName,
-      String isActive, long userId, String kenDestination, int fromRecord,
+  public PaginationSupport findLineList(int teamId, String lineName,
+      String isActive, int userId, String kenDestination, int fromRecord,
       int pageSize) {
     DetachedCriteria criteria = DetachedCriteria.forClass(Line.class, "l");
     criteria.createAlias("l.outCity", "c");
     criteria.createAlias("l.destination", "d");
-    criteria.add(Restrictions.eq("l.delKey", "N"));
+    criteria.add(Restrictions.eq("l.delKey", 'N'));
 
     if (StringUtil.hasLength(lineName))
       criteria.add(Restrictions
@@ -67,7 +67,8 @@ public class LineDaoImpl extends GenericDaoHibernate<Line, String> implements
   @SuppressWarnings({ "unchecked", "rawtypes" })
   public int cancelLine(String lineNo) {
     HibernateTemplate template = getHibernateTemplate();
-    Line line = (Line) template.get(Line.class, lineNo, LockMode.PESSIMISTIC_WRITE);
+    Line line = (Line) template.get(Line.class, lineNo,
+        LockMode.PESSIMISTIC_WRITE);
 
     Object[] params = { lineNo };
     StringBuilder sb = new StringBuilder();

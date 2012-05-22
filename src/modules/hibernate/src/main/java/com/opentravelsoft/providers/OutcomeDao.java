@@ -53,7 +53,7 @@ public interface OutcomeDao extends GenericDao<Outcome, Integer> {
    * @param audit
    * @return
    */
-  public long saveBill(Outcome billhead, String audit);
+  public int saveBill(Outcome billhead, String audit);
 
   /**
    * 付款单取消

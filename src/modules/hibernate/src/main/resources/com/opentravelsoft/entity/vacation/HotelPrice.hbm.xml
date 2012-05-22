@@ -1,139 +1,138 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.entity.vacation.HotelPrice" table="tbl_hotel_price" catalog="tourismwork_db">
-        <id name="recNo" type="string">
-            <column name="REC_NO" length="10" />
-            <generator class="assigned" />
-        </id>
-        <property name="hotId" type="string">
-            <column name="HOT_ID" length="10" />
-        </property>
-        <property name="roomType" type="string">
-            <column name="ROOM_TYPE" length="10" />
-        </property>
-        <property name="prcAmt01" type="big_decimal">
-            <column name="PRC_AMT01" precision="9" />
-        </property>
-        <property name="prcAmt02" type="big_decimal">
-            <column name="PRC_AMT02" precision="9" />
-        </property>
-        <property name="prcAmt03" type="big_decimal">
-            <column name="PRC_AMT03" precision="9" />
-        </property>
-        <property name="prcRem1" type="string">
-            <column name="PRC_REM1" length="1000" />
-        </property>
-        <property name="prcRem2" type="string">
-            <column name="PRC_REM2" length="1000" />
-        </property>
-        <property name="foodType" type="string">
-            <column name="FOOD_TYPE" length="2" />
-        </property>
-        <property name="apFlag" type="java.lang.Character">
-            <column name="AP_FLAG" length="1" />
-        </property>
-        <property name="recommend" type="java.lang.Integer">
-            <column name="RECOMMEND" />
-        </property>
-        <property name="apNight" type="java.lang.Integer">
-            <column name="AP_NIGHT" />
-        </property>
-        <property name="SDate" type="timestamp">
-            <column name="S_DATE" length="19" />
-        </property>
-        <property name="EDate" type="timestamp">
-            <column name="E_DATE" length="19" />
-        </property>
-        <property name="weekbit" type="string">
-            <column name="WEEKBIT" length="20" />
-        </property>
-        <property name="isDelete" type="java.lang.Byte">
-            <column name="IS_DELETE" />
-        </property>
-        <property name="crUser" type="string">
-            <column name="CR_USER" length="50" />
-        </property>
-        <property name="crDate" type="timestamp">
-            <column name="CR_DATE" length="19" />
-        </property>
-        <property name="opUser" type="string">
-            <column name="OP_USER" length="50" />
-        </property>
-        <property name="opDate" type="timestamp">
-            <column name="OP_DATE" length="19" />
-        </property>
-        <property name="airCo" type="string">
-            <column name="AIR_CO" length="10">
-                <comment>&#161;&#164;??&#168;&#178;</comment>
-            </column>
-        </property>
-        <property name="industry" type="big_decimal">
-            <column name="INDUSTRY" precision="9">
-                <comment>&#161;&#164;??&#168;&#178;</comment>
-            </column>
-        </property>
-        <property name="bnRate1" type="big_decimal">
-            <column name="BN_RATE1" precision="6">
-                <comment>&#161;&#164;??&#168;&#178;</comment>
-            </column>
-        </property>
-        <property name="bnAmount1" type="big_decimal">
-            <column name="BN_AMOUNT1" precision="9">
-                <comment>&#161;&#164;??&#168;&#178;</comment>
-            </column>
-        </property>
-        <property name="bnRate2" type="big_decimal">
-            <column name="BN_RATE2" precision="6">
-                <comment>&#161;&#164;??&#168;&#178;</comment>
-            </column>
-        </property>
-        <property name="bnAmount2" type="big_decimal">
-            <column name="BN_AMOUNT2" precision="9">
-                <comment>&#161;&#164;??&#168;&#178;</comment>
-            </column>
-        </property>
-        <property name="bnRate3" type="big_decimal">
-            <column name="BN_RATE3" precision="6">
-                <comment>&#161;&#164;??&#168;&#178;</comment>
-            </column>
-        </property>
-        <property name="bnAmount3" type="big_decimal">
-            <column name="BN_AMOUNT3" precision="9">
-                <comment>&#161;&#164;??&#168;&#178;</comment>
-            </column>
-        </property>
-        <property name="bnRate" type="big_decimal">
-            <column name="BN_RATE" precision="6">
-                <comment>&#161;&#164;??&#168;&#178;</comment>
-            </column>
-        </property>
-        <property name="bnAmount" type="big_decimal">
-            <column name="BN_AMOUNT" precision="9">
-                <comment>&#161;&#164;??&#168;&#178;</comment>
-            </column>
-        </property>
-        <property name="opKey" type="java.lang.Character">
-            <column name="OP_KEY" length="1">
-                <comment>&#161;&#164;??&#168;&#178;</comment>
-            </column>
-        </property>
-        <property name="checkKey" type="java.lang.Character">
-            <column name="CHECK_KEY" length="1">
-                <comment>&#161;&#164;??&#168;&#178;</comment>
-            </column>
-        </property>
-        <property name="checkUser" type="string">
-            <column name="CHECK_USER" length="8">
-                <comment>&#161;&#164;??&#168;&#178;</comment>
-            </column>
-        </property>
-        <property name="checkDate" type="timestamp">
-            <column name="CHECK_DATE" length="19">
-                <comment>&#161;&#164;??&#168;&#178;</comment>
-            </column>
-        </property>
-    </class>
+  <class name="com.opentravelsoft.entity.vacation.HotelPrice" table="tbl_hotel_price">
+    <id name="recNo" type="string">
+      <column name="REC_NO" length="10" />
+      <generator class="assigned" />
+    </id>
+    <property name="hotId" type="string">
+      <column name="HOT_ID" length="10" />
+    </property>
+    <property name="roomType" type="string">
+      <column name="ROOM_TYPE" length="10" />
+    </property>
+    <property name="prcAmt01" type="big_decimal">
+      <column name="PRC_AMT01" precision="9" />
+    </property>
+    <property name="prcAmt02" type="big_decimal">
+      <column name="PRC_AMT02" precision="9" />
+    </property>
+    <property name="prcAmt03" type="big_decimal">
+      <column name="PRC_AMT03" precision="9" />
+    </property>
+    <property name="prcRem1" type="string">
+      <column name="PRC_REM1" length="1000" />
+    </property>
+    <property name="prcRem2" type="string">
+      <column name="PRC_REM2" length="1000" />
+    </property>
+    <property name="foodType" type="string">
+      <column name="FOOD_TYPE" length="2" />
+    </property>
+    <property name="apFlag" type="java.lang.Character">
+      <column name="AP_FLAG" length="1" />
+    </property>
+    <property name="recommend" type="java.lang.Integer">
+      <column name="RECOMMEND" />
+    </property>
+    <property name="apNight" type="java.lang.Integer">
+      <column name="AP_NIGHT" />
+    </property>
+    <property name="SDate" type="timestamp">
+      <column name="S_DATE" length="19" />
+    </property>
+    <property name="EDate" type="timestamp">
+      <column name="E_DATE" length="19" />
+    </property>
+    <property name="weekbit" type="string">
+      <column name="WEEKBIT" length="20" />
+    </property>
+    <property name="isDelete" type="java.lang.Byte">
+      <column name="IS_DELETE" />
+    </property>
+    <property name="crUser" type="string">
+      <column name="CR_USER" length="50" />
+    </property>
+    <property name="crDate" type="timestamp">
+      <column name="CR_DATE" length="19" />
+    </property>
+    <property name="opUser" type="string">
+      <column name="OP_USER" length="50" />
+    </property>
+    <property name="opDate" type="timestamp">
+      <column name="OP_DATE" length="19" />
+    </property>
+    <property name="airCo" type="string">
+      <column name="AIR_CO" length="10">
+        <comment>&#161;&#164;??&#168;&#178;</comment>
+      </column>
+    </property>
+    <property name="industry" type="big_decimal">
+      <column name="INDUSTRY" precision="9">
+        <comment>&#161;&#164;??&#168;&#178;</comment>
+      </column>
+    </property>
+    <property name="bnRate1" type="big_decimal">
+      <column name="BN_RATE1" precision="6">
+        <comment>&#161;&#164;??&#168;&#178;</comment>
+      </column>
+    </property>
+    <property name="bnAmount1" type="big_decimal">
+      <column name="BN_AMOUNT1" precision="9">
+        <comment>&#161;&#164;??&#168;&#178;</comment>
+      </column>
+    </property>
+    <property name="bnRate2" type="big_decimal">
+      <column name="BN_RATE2" precision="6">
+        <comment>&#161;&#164;??&#168;&#178;</comment>
+      </column>
+    </property>
+    <property name="bnAmount2" type="big_decimal">
+      <column name="BN_AMOUNT2" precision="9">
+        <comment>&#161;&#164;??&#168;&#178;</comment>
+      </column>
+    </property>
+    <property name="bnRate3" type="big_decimal">
+      <column name="BN_RATE3" precision="6">
+        <comment>&#161;&#164;??&#168;&#178;</comment>
+      </column>
+    </property>
+    <property name="bnAmount3" type="big_decimal">
+      <column name="BN_AMOUNT3" precision="9">
+        <comment>&#161;&#164;??&#168;&#178;</comment>
+      </column>
+    </property>
+    <property name="bnRate" type="big_decimal">
+      <column name="BN_RATE" precision="6">
+        <comment>&#161;&#164;??&#168;&#178;</comment>
+      </column>
+    </property>
+    <property name="bnAmount" type="big_decimal">
+      <column name="BN_AMOUNT" precision="9">
+        <comment>&#161;&#164;??&#168;&#178;</comment>
+      </column>
+    </property>
+    <property name="opKey" type="java.lang.Character">
+      <column name="OP_KEY" length="1">
+        <comment>&#161;&#164;??&#168;&#178;</comment>
+      </column>
+    </property>
+    <property name="checkKey" type="java.lang.Character">
+      <column name="CHECK_KEY" length="1">
+        <comment>&#161;&#164;??&#168;&#178;</comment>
+      </column>
+    </property>
+    <property name="checkUser" type="string">
+      <column name="CHECK_USER" length="8">
+        <comment>&#161;&#164;??&#168;&#178;</comment>
+      </column>
+    </property>
+    <property name="checkDate" type="timestamp">
+      <column name="CHECK_DATE" length="19">
+        <comment>&#161;&#164;??&#168;&#178;</comment>
+      </column>
+    </property>
+  </class>
 </hibernate-mapping>

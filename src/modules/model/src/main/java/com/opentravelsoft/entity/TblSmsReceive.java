@@ -31,19 +31,6 @@ public class TblSmsReceive implements java.io.Serializable {
     this.seqno = seqno;
   }
 
-  public TblSmsReceive(String seqno, String mobile, String message,
-      Date receiveDate, Character reply, Date replyDate, Date updDate,
-      String msgSrc) {
-    this.seqno = seqno;
-    this.mobile = mobile;
-    this.message = message;
-    this.receiveDate = receiveDate;
-    this.reply = reply;
-    this.replyDate = replyDate;
-    this.updDate = updDate;
-    this.msgSrc = msgSrc;
-  }
-
   @Id
   @GeneratedValue(strategy = IDENTITY)
   @Column(name = "ID", unique = true, nullable = false)

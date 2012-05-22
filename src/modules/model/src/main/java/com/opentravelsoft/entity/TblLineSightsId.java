@@ -1,4 +1,4 @@
-package com.opentravelsoft.entity.out;
+package com.opentravelsoft.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

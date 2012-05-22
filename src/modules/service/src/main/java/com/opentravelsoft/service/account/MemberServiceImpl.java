@@ -12,15 +12,15 @@ import com.opentravelsoft.providers.MemberDao;
 
 @Service("MemberService")
 public class MemberServiceImpl implements MemberService {
-  
+
   @Autowired
   private MemberDao memberDao;
 
   @Autowired
   private ListDao listDao;
 
-  public int txRegister(Member customer) {
-    return memberDao.register(customer);
+  public int txRegister(Member member) {
+    return memberDao.register(member);
   }
 
   public List<LabelValueBean> roGetEducates() {
@@ -31,16 +31,16 @@ public class MemberServiceImpl implements MemberService {
     return listDao.getList("Occupation");
   }
 
-  public Member roGetMemberById(long userId) {
-    return memberDao.getMemberById(userId);
+  public Member roGetMemberById(long memberId) {
+    return memberDao.getMemberById(memberId);
   }
 
   public Member roGetMemberByName(String userName) {
     return memberDao.getMemberByName(userName);
   }
 
-  public int txInfoUpdate(Member customer) {
-    return memberDao.update(customer);
+  public int txInfoUpdate(Member member) {
+    return memberDao.update(member);
   }
 
   public String txGetMemberPwd(String mobileNo) {

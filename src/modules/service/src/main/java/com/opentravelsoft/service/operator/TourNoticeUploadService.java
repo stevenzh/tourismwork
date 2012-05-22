@@ -8,6 +8,6 @@ public interface TourNoticeUploadService {
 
   TourNoticeFile getTourNoticeFile(String tourNo);
 
-  int txDeleteUploadFile(long fileId);
+  int txDeleteUploadFile(int fileId);
 
 }

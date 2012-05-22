@@ -37,7 +37,7 @@ public class IncomeServiceImpl implements IncomeService {
     return incomeDao.searchIncome(proCd, cityCd, customerId, stDate, endDate);
   }
 
-  public long txSaveIncome(Income gathering) {
+  public int txSaveIncome(Income gathering) {
     // TODO WorkFLow
     return incomeDao.saveIncome(gathering);
   }

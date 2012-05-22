@@ -10,12 +10,12 @@ import com.opentravelsoft.providers.PriceUploadDao;
 
 @Service("PriceUploadService")
 public class PriceUploadServiceImpl implements PriceUploadService {
-  
+
   @Autowired
   private PriceUploadDao priceUploadDao;
 
-  public List<FileItem> roGetFileList(long groupCd) {
-    return priceUploadDao.getFileList(groupCd);
+  public List<FileItem> roGetFileList(int teamId) {
+    return priceUploadDao.getFileList(teamId);
   }
 
   public int txSaveFile(FileItem fileItem) {

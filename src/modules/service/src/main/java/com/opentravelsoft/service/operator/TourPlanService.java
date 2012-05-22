@@ -14,7 +14,7 @@ import com.opentravelsoft.entity.PlanPrice;
 import com.opentravelsoft.entity.Team;
 
 public interface TourPlanService {
-  public List<Plan> roFind(String lineName, long teamId, long userId,
+  public List<Plan> roFind(String lineName, int teamId, int userId,
       Date startDate, Date endDate, double lowerPrice, double upperPrice,
       boolean openKey);
 
@@ -25,7 +25,7 @@ public interface TourPlanService {
    * @param plan
    * @return <tt>0</tt> success, <tt>-1</tt> not exist <tt>-2</tt> can't delete
    */
-  public int txDeletePlan(Plan plan, long userId, String note);
+  public int txDeletePlan(Plan plan, int userId, String note);
 
   public Plan findLastPlan(String lineNo);
 
@@ -80,7 +80,7 @@ public interface TourPlanService {
 
   public List<Team> getOperatorTeamList();
 
-  public List<Team> getTeamList(long userId, TeamType type);
+  public List<Team> getTeamList(int userId, TeamType type);
 
   public List<Airways> roGetAirways();
 

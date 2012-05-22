@@ -14,8 +14,8 @@ import com.opentravelsoft.providers.hibernate.GenericDaoHibernate;
 import com.opentravelsoft.providers.product.ProductItemDao;
 
 @Repository("ProductItemDao")
-public class ProductItemDaoImpl extends GenericDaoHibernate<ProductItem, Long>
-    implements ProductItemDao {
+public class ProductItemDaoImpl extends
+    GenericDaoHibernate<ProductItem, Integer> implements ProductItemDao {
   public ProductItemDaoImpl() {
     super(ProductItem.class);
   }
@@ -26,7 +26,7 @@ public class ProductItemDaoImpl extends GenericDaoHibernate<ProductItem, Long>
       return getHibernateTemplate().loadAll(ProductItem.class);
 
     DetachedCriteria criteria = DetachedCriteria.forClass(ProductItem.class);
-    criteria.add(Restrictions.eq("isTmpl", true));
+    criteria.add(Restrictions.eq("isTmpl", (byte) 1));
     criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
 
     return getHibernateTemplate().findByCriteria(criteria);
@@ -38,7 +38,7 @@ public class ProductItemDaoImpl extends GenericDaoHibernate<ProductItem, Long>
         "p");
     criteria.createAlias("p.category", "c");
     criteria.add(Restrictions.eq("c.code", type.toString()));
-    criteria.add(Restrictions.eq("p.isActive", true));
+    criteria.add(Restrictions.eq("p.isActive", (byte) 1));
 
     criteria.addOrder(Order.asc("p.sortOrder"));
     criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);

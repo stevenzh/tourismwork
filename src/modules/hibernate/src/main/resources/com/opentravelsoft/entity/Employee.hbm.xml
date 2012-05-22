@@ -9,8 +9,7 @@
       <column name="USER_ID" />
       <generator class="identity" />
     </id>
-    <many-to-one name="group" class="com.opentravelsoft.entity.Group"
-      fetch="select">
+    <many-to-one name="group" class="com.opentravelsoft.entity.Group" lazy="false" fetch="select">
       <column name="GROUP_ID" not-null="true" />
     </many-to-one>
     <property name="userCd" type="string">
@@ -76,15 +75,13 @@
     <property name="opIp" type="string">
       <column name="OP_IP" length="8" />
     </property>
-    <set name="plans" table="tbl_plan" inverse="true" lazy="true"
-      fetch="select">
+    <set name="plans" table="tbl_plan" inverse="true" lazy="true" fetch="select">
       <key>
         <column name="CR_USER" />
       </key>
       <one-to-many class="com.opentravelsoft.entity.Plan" />
     </set>
-    <set name="teamMemberships" table="TBL_TEAM_MEMBERSHIPS" inverse="false"
-      lazy="false">
+    <set name="teamMemberships" table="TBL_TEAM_MEMBERSHIPS" inverse="false" lazy="false">
       <key>
         <column name="USER_ID" not-null="true" />
       </key>
@@ -92,8 +89,7 @@
         <column name="TEAM_ID" not-null="true"></column>
       </many-to-many>
     </set>
-    <set name="memberships" table="tbl_membership" inverse="false"
-      lazy="true" fetch="select">
+    <set name="memberships" table="tbl_membership" inverse="false" lazy="false" fetch="select">
       <key>
         <column name="USER_ID" not-null="true" />
       </key>

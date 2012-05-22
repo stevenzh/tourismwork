@@ -6,10 +6,7 @@ import java.util.List;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-
 public class MenuItem extends BaseObject implements java.io.Serializable {
-
-  private static final long serialVersionUID = 6129655387608594110L;
 
   private Long id;
 

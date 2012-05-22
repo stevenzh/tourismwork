@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_tour_outbound")
@@ -148,6 +149,7 @@ public class TourOutBound implements java.io.Serializable {
 
   private String opUserName;
 
+  @Transient
   public String getTourNo() {
     return tourNo;
   }
@@ -156,6 +158,7 @@ public class TourOutBound implements java.io.Serializable {
     this.tourNo = tourNo;
   }
 
+  @Transient
   public String getShowStr() {
     return showStr;
   }
@@ -164,6 +167,7 @@ public class TourOutBound implements java.io.Serializable {
     this.showStr = showStr;
   }
 
+  @Transient
   public String getShowId() {
     return showId;
   }
@@ -172,6 +176,7 @@ public class TourOutBound implements java.io.Serializable {
     this.showId = showId;
   }
 
+  @Transient
   public String getOpUserName() {
     return opUserName;
   }

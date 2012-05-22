@@ -3,8 +3,8 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.hmodel.TblTeamMemberships" table="tbl_team_memberships" catalog="tourismwork_db">
-        <composite-id name="id" class="com.opentravelsoft.hmodel.TblTeamMembershipsId">
+    <class name="com.opentravelsoft.entity.out.TblTeamMemberships" table="tbl_team_memberships">
+        <composite-id name="id" class="com.opentravelsoft.entity.out.TblTeamMembershipsId">
             <key-property name="teamId" type="int">
                 <column name="TEAM_ID" />
             </key-property>

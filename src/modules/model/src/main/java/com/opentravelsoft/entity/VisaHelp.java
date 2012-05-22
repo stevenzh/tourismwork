@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import com.opentravelsoft.entity.product.VisaItem;
 
@@ -258,6 +259,7 @@ public class VisaHelp implements java.io.Serializable {
   /** 所须附件列表 */
   private List<VisaItem> fileItems;
 
+  @Transient
   public BigDecimal getMarketPrice() {
     return marketPrice;
   }
@@ -266,6 +268,7 @@ public class VisaHelp implements java.io.Serializable {
     this.marketPrice = marketPrice;
   }
 
+  @Transient
   public BigDecimal getQuotedPrice() {
     return quotedPrice;
   }
@@ -274,6 +277,7 @@ public class VisaHelp implements java.io.Serializable {
     this.quotedPrice = quotedPrice;
   }
 
+  @Transient
   public BigDecimal getCostPrice() {
     return costPrice;
   }
@@ -282,6 +286,7 @@ public class VisaHelp implements java.io.Serializable {
     this.costPrice = costPrice;
   }
 
+  @Transient
   public Date getStartDate() {
     return startDate;
   }
@@ -290,6 +295,7 @@ public class VisaHelp implements java.io.Serializable {
     this.startDate = startDate;
   }
 
+  @Transient
   public Date getEndDate() {
     return endDate;
   }
@@ -298,6 +304,7 @@ public class VisaHelp implements java.io.Serializable {
     this.endDate = endDate;
   }
 
+  @Transient
   public String getRecordNo() {
     return recordNo;
   }
@@ -306,6 +313,7 @@ public class VisaHelp implements java.io.Serializable {
     this.recordNo = recordNo;
   }
 
+  @Transient
   public String getCnName() {
     return cnName;
   }
@@ -314,6 +322,7 @@ public class VisaHelp implements java.io.Serializable {
     this.cnName = cnName;
   }
 
+  @Transient
   public List<VisaItem> getItems() {
     return items;
   }
@@ -322,6 +331,7 @@ public class VisaHelp implements java.io.Serializable {
     this.items = items;
   }
 
+  @Transient
   public List<VisaItem> getFileItems() {
     return fileItems;
   }

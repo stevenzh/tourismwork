@@ -10,7 +10,7 @@ import com.opentravelsoft.service.SmsService;
 
 @Service("SmsService")
 public class SmsServiceImpl implements SmsService {
-  
+
   @Autowired
   private SmsDao smsDao;
 
@@ -18,7 +18,7 @@ public class SmsServiceImpl implements SmsService {
     return smsDao.receive(seqno, mob, msg, srcMsg);
   }
 
-  public int txSend(String seqno, String msg, String mob, long userId) {
+  public int txSend(String seqno, String msg, String mob, int userId) {
     return smsDao.send(seqno, msg, mob, userId);
   }
 

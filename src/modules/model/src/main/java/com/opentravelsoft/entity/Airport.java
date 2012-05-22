@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_airport")
@@ -93,6 +94,7 @@ public class Airport implements java.io.Serializable {
   /** 所在国家 */
   private String countryName;
 
+  @Transient
   public String getCityName() {
     return cityName;
   }
@@ -101,6 +103,7 @@ public class Airport implements java.io.Serializable {
     this.cityName = cityName;
   }
 
+  @Transient
   public String getCountryName() {
     return countryName;
   }
@@ -109,6 +112,7 @@ public class Airport implements java.io.Serializable {
     this.countryName = countryName;
   }
 
+  @Transient
   public String getCountryId() {
     return countryId;
   }

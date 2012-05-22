@@ -8,9 +8,9 @@ import com.opentravelsoft.entity.Team;
 import com.opentravelsoft.entity.product.Remind;
 
 public interface OperatorAlertService {
-  List<Remind> roGetOperator(long userId);
+  List<Remind> roGetOperator(int userId);
 
-  List<Booking> roGetNewBookings(long userId);
+  List<Booking> roGetNewBookings(int userId);
 
-  List<Team> roGetDepartments(long userId, TeamType type);
+  List<Team> roGetDepartments(int userId, TeamType type);
 }

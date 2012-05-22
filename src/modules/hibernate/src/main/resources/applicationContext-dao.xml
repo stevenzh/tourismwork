@@ -38,7 +38,5 @@
     <bean id="PlanListDao" class="com.opentravelsoft.providers.mixed.PlanListDaoImpl">
       <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-    <bean id="IndexDao" class="com.opentravelsoft.providers.mixed.IndexDaoHibernate">
-      <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+
 </beans>

@@ -14,7 +14,7 @@ public class TblVisaData implements java.io.Serializable {
   private Integer itemId;
   private String name;
   private String unit;
-  private String description;
+  private String desc;
 
   public TblVisaData() {
   }
@@ -22,7 +22,7 @@ public class TblVisaData implements java.io.Serializable {
   public TblVisaData(String name, String unit, String desc) {
     this.name = name;
     this.unit = unit;
-    this.description = desc;
+    this.desc = desc;
   }
 
   @Id
@@ -55,12 +55,12 @@ public class TblVisaData implements java.io.Serializable {
   }
 
   @Column(name = "DESC_", length = 50)
-  public String getDescription() {
-    return this.description;
+  public String getDesc() {
+    return this.desc;
   }
 
-  public void setDescription(String desc) {
-    this.description = desc;
+  public void setDesc(String desc) {
+    this.desc = desc;
   }
 
 }

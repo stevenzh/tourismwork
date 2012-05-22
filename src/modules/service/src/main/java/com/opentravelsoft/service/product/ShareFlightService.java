@@ -5,16 +5,15 @@ import java.util.List;
 import com.opentravelsoft.entity.Airways;
 import com.opentravelsoft.entity.ShareFlight;
 
-public interface ShareFlightService
-{
-    List<ShareFlight> roFind();
+public interface ShareFlightService {
+  List<ShareFlight> roFind();
 
-    ShareFlight roGetShareFlight(long shareFlightId);
+  ShareFlight roGetShareFlight(int shareFlightId);
 
-    int txEditShareFlight(ShareFlight shareFlight);
+  int txEditShareFlight(ShareFlight shareFlight);
 
-    void txDeleteShareFlight(long shareFlightId);
+  void txDeleteShareFlight(int shareFlightId);
 
-    List<Airways> roGetAllAirWays();
+  List<Airways> roGetAllAirWays();
 
 }

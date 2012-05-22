@@ -22,7 +22,7 @@ public class OperatorAlertServiceImpl implements OperatorAlertService {
   @Autowired
   private TeamDao teamDao;
 
-  public List<Remind> roGetOperator(long uid) {
+  public List<Remind> roGetOperator(int uid) {
     List<Remind> reminds = new ArrayList<Remind>();
     List<Booking> bookings = bookingDao.getUnreadBookings(uid);
     for (Booking booking : bookings) {
@@ -38,11 +38,11 @@ public class OperatorAlertServiceImpl implements OperatorAlertService {
     return reminds;
   }
 
-  public List<Booking> roGetNewBookings(long uid) {
+  public List<Booking> roGetNewBookings(int uid) {
     return bookingDao.getUnreadBookings(uid);
   }
 
-  public List<Team> roGetDepartments(long userId, TeamType type) {
+  public List<Team> roGetDepartments(int userId, TeamType type) {
     return teamDao.getTeam(userId, type);
   }
 

@@ -16,7 +16,6 @@
     <bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
 
     <jaxws:endpoint id="shareService" implementor="#ShareService" address="/ShareService"/>
-    <jaxws:endpoint id="cbIndexService" implementor="#CbIndexService" address="/CbIndexService"/>
     <!-- Add new enpoints for additional services you'd like to expose -->
     
     <!--jaxrs:server address="/rest">

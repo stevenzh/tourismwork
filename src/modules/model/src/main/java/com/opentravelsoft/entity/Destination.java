@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_destination")
@@ -53,7 +54,7 @@ public class Destination implements java.io.Serializable {
     this.destId = destId;
   }
 
-  public Destination(long destId, String code, String name) {
+  public Destination(Integer destId, String code, String name) {
     this.code = code;
     this.cnName = name;
   }
@@ -184,6 +185,7 @@ public class Destination implements java.io.Serializable {
 
   private String imagePath;
 
+  @Transient
   public String getImagePath() {
     return imagePath;
   }

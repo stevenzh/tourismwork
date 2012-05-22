@@ -26,7 +26,7 @@ public class AirwaysDaoImpl extends GenericDaoHibernate<Airways, String>
     DetachedCriteria criteria = DetachedCriteria.forClass(Airways.class);
 
     if (usable)
-      criteria.add(Restrictions.eq("isActive", true));
+      criteria.add(Restrictions.eq("isActive", (byte) 1));
 
     criteria.addOrder(Order.asc("name"));
     criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
@@ -59,7 +59,7 @@ public class AirwaysDaoImpl extends GenericDaoHibernate<Airways, String>
     DetachedCriteria criteria = DetachedCriteria.forClass(Airways.class);
 
     if (usable)
-      criteria.add(Restrictions.eq("isActive", true));
+      criteria.add(Restrictions.eq("isActive", (byte) 1));
 
     PaginationSupport support = findPageByCriteria(criteria, pageSize,
         fromRecord);

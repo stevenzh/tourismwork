@@ -73,8 +73,9 @@ public class RoleDaoHibernate extends GenericDaoHibernate<Role, Integer>
               RowDataUtil.getInt(objects[1])))
             mm.getRolePermissionMap().remove(RowDataUtil.getInt(objects[1]));
 
-          mm.getRolePermissionMap().put(RowDataUtil.getInt(objects[1]),
-              (Boolean) objects[2]);
+          boolean allow = RowDataUtil.getByte(objects[2]) == ((byte) 1) ? true
+              : false;
+          mm.getRolePermissionMap().put(RowDataUtil.getInt(objects[1]), allow);
 
           log.debug("ModuleId:" + mm.getModuleId() + " PermKey:"
               + RowDataUtil.getInt(objects[1]) + " PermValue:" + objects[2]);

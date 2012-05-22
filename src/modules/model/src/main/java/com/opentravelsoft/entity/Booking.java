@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import com.opentravelsoft.entity.finance.Income;
 import com.opentravelsoft.entity.finance.Invoice;
@@ -59,6 +60,7 @@ public class Booking implements java.io.Serializable {
   private Character tourKey;
   /** 备注 */
   private String remarks;
+  /** 确认状态 1:团确 2:团候 */
   private String cfmKey;
   /** 付款方式 */
   private String invKey;
@@ -125,7 +127,7 @@ public class Booking implements java.io.Serializable {
   private Byte postWay;
 
   public Booking() {
-    confirmStatus = "2";
+    cfmKey = "2";
     delkey = "N";
     readKey = "N";
     customerList = new ArrayList<Tourist>();
@@ -779,10 +781,6 @@ public class Booking implements java.io.Serializable {
     this.postWay = postWay;
   }
 
-  private String phone;
-
-  private Date opDate;
-
   /** 预订人 */
   private Integer reserve;
 
@@ -790,9 +788,6 @@ public class Booking implements java.io.Serializable {
   private Date reserveDate;
 
   private Employee salesman;
-
-  /** 确认状态 1:团确 2:团候 */
-  private String confirmStatus;
 
   /** 序号 */
   private int id;
@@ -918,14 +913,7 @@ public class Booking implements java.io.Serializable {
     return (Booking) super.clone();
   }
 
-  public Date getOpDate() {
-    return opDate;
-  }
-
-  public void setOpDate(Date opDate) {
-    this.opDate = opDate;
-  }
-
+  @Transient
   public Integer getReserve() {
     return this.reserve;
   }
@@ -938,14 +926,7 @@ public class Booking implements java.io.Serializable {
     this.pax = pax;
   }
 
-  public String getConfirmStatus() {
-    return this.confirmStatus;
-  }
-
-  public void setConfirmStatus(String cfmKey) {
-    this.confirmStatus = cfmKey;
-  }
-
+  @Transient
   public Character getCanSplit() {
     return canSplit;
   }
@@ -954,14 +935,7 @@ public class Booking implements java.io.Serializable {
     this.canSplit = canSplit;
   }
 
-  public String getPhone() {
-    return phone;
-  }
-
-  public void setPhone(String linkPhone) {
-    this.phone = linkPhone;
-  }
-
+  @Transient
   public Date getReserveDate() {
     return reserveDate;
   }
@@ -970,6 +944,7 @@ public class Booking implements java.io.Serializable {
     this.reserveDate = reserveDate;
   }
 
+  @Transient
   public List<Tourist> getCustomerList() {
     return customerList;
   }
@@ -982,6 +957,7 @@ public class Booking implements java.io.Serializable {
     customerList.add(tourist);
   }
 
+  @Transient
   public BigDecimal getPayCosts() {
     return payCosts;
   }
@@ -990,6 +966,7 @@ public class Booking implements java.io.Serializable {
     this.payCosts = payCosts;
   }
 
+  @Transient
   public String getPaymentStatus() {
     return paymentStatus;
   }
@@ -998,6 +975,7 @@ public class Booking implements java.io.Serializable {
     this.paymentStatus = paymentStatus;
   }
 
+  @Transient
   public String getPlaceStatus() {
     return placeStatus;
   }
@@ -1006,6 +984,7 @@ public class Booking implements java.io.Serializable {
     this.placeStatus = placeStatus;
   }
 
+  @Transient
   public String getPaymentType() {
     return paymentType;
   }
@@ -1014,6 +993,7 @@ public class Booking implements java.io.Serializable {
     this.paymentType = paymentType;
   }
 
+  @Transient
   public List<Invoice> getInvices() {
     return invices;
   }
@@ -1022,9 +1002,7 @@ public class Booking implements java.io.Serializable {
     this.invices = invices;
   }
 
-  /**
-   * @return
-   */
+  @Transient
   public List<Income> getPayments() {
     return payments;
   }
@@ -1036,6 +1014,7 @@ public class Booking implements java.io.Serializable {
     this.payments = payments;
   }
 
+  @Transient
   public String getNameKey() {
     return nameKey;
   }
@@ -1044,6 +1023,7 @@ public class Booking implements java.io.Serializable {
     this.nameKey = nameKey;
   }
 
+  @Transient
   public BigDecimal getPayBack() {
     return payBack;
   }
@@ -1052,6 +1032,7 @@ public class Booking implements java.io.Serializable {
     this.payBack = payBack;
   }
 
+  @Transient
   public BigDecimal getUnPay() {
     return unPay;
   }
@@ -1060,6 +1041,7 @@ public class Booking implements java.io.Serializable {
     this.unPay = unPay;
   }
 
+  @Transient
   public int getId() {
     return id;
   }
@@ -1068,6 +1050,7 @@ public class Booking implements java.io.Serializable {
     this.id = id;
   }
 
+  @Transient
   public BigDecimal getAdjustExpense() {
     return adjustExpense;
   }
@@ -1076,6 +1059,7 @@ public class Booking implements java.io.Serializable {
     this.adjustExpense = adjustExpense;
   }
 
+  @Transient
   public String getAdjustReason() {
     return adjustReason;
   }
@@ -1084,6 +1068,7 @@ public class Booking implements java.io.Serializable {
     this.adjustReason = adjustReason;
   }
 
+  @Transient
   public Integer getLastAdjustBy() {
     return lastAdjustBy;
   }
@@ -1092,6 +1077,7 @@ public class Booking implements java.io.Serializable {
     this.lastAdjustBy = lastAdjustBy;
   }
 
+  @Transient
   public Date getLastAdjustDate() {
     return lastAdjustDate;
   }
@@ -1100,6 +1086,7 @@ public class Booking implements java.io.Serializable {
     this.lastAdjustDate = lastAdjustDate;
   }
 
+  @Transient
   public int getIsSuccess() {
     return isSuccess;
   }
@@ -1108,6 +1095,7 @@ public class Booking implements java.io.Serializable {
     this.isSuccess = isSuccess;
   }
 
+  @Transient
   public String getLeaders() {
     return leaders;
   }
@@ -1116,6 +1104,7 @@ public class Booking implements java.io.Serializable {
     this.leaders = leaders;
   }
 
+  @Transient
   public BigDecimal getFinalExpense() {
     return finalExpense;
   }
@@ -1124,6 +1113,7 @@ public class Booking implements java.io.Serializable {
     this.finalExpense = finalExpense;
   }
 
+  @Transient
   public String getClearingCycle() {
     return clearingCycle;
   }
@@ -1132,6 +1122,7 @@ public class Booking implements java.io.Serializable {
     this.clearingCycle = clearingCycle;
   }
 
+  @Transient
   public int getBatch() {
     return batch;
   }
@@ -1140,6 +1131,7 @@ public class Booking implements java.io.Serializable {
     this.batch = batch;
   }
 
+  @Transient
   public int getSumpax() {
     return sumpax;
   }
@@ -1148,6 +1140,7 @@ public class Booking implements java.io.Serializable {
     this.sumpax = sumpax;
   }
 
+  @Transient
   public BigDecimal getSumDbamt() {
     return sumDbamt;
   }
@@ -1156,6 +1149,7 @@ public class Booking implements java.io.Serializable {
     this.sumDbamt = sumDbamt;
   }
 
+  @Transient
   public BigDecimal getSumCramt() {
     return sumCramt;
   }
@@ -1164,6 +1158,7 @@ public class Booking implements java.io.Serializable {
     this.sumCramt = sumCramt;
   }
 
+  @Transient
   public BigDecimal getSumUnpay() {
     return sumUnpay;
   }
@@ -1172,6 +1167,7 @@ public class Booking implements java.io.Serializable {
     this.sumUnpay = sumUnpay;
   }
 
+  @Transient
   public String getRegion() {
     return region;
   }
@@ -1180,6 +1176,7 @@ public class Booking implements java.io.Serializable {
     this.region = region;
   }
 
+  @Transient
   public String getDistrict() {
     return district;
   }
@@ -1188,6 +1185,7 @@ public class Booking implements java.io.Serializable {
     this.district = district;
   }
 
+  @Transient
   public String getDistrictNo() {
     return districtNo;
   }
@@ -1196,6 +1194,7 @@ public class Booking implements java.io.Serializable {
     this.districtNo = districtNo;
   }
 
+  @Transient
   public String getCountry() {
     return country;
   }
@@ -1204,6 +1203,7 @@ public class Booking implements java.io.Serializable {
     this.country = country;
   }
 
+  @Transient
   public String getTourNoticeFilepath() {
     return tourNoticeFilepath;
   }
@@ -1212,6 +1212,7 @@ public class Booking implements java.io.Serializable {
     this.tourNoticeFilepath = tourNoticeFilepath;
   }
 
+  @Transient
   public String getTourNoticeIsExist() {
     return tourNoticeIsExist;
   }
@@ -1220,6 +1221,7 @@ public class Booking implements java.io.Serializable {
     this.tourNoticeIsExist = tourNoticeIsExist;
   }
 
+  @Transient
   public Date getIncomeDate() {
     return incomeDate;
   }
@@ -1228,6 +1230,7 @@ public class Booking implements java.io.Serializable {
     this.incomeDate = incomeDate;
   }
 
+  @Transient
   public String getReceiver() {
     return receiver;
   }
@@ -1236,6 +1239,7 @@ public class Booking implements java.io.Serializable {
     this.receiver = receiver;
   }
 
+  @Transient
   public Date getStart() {
     return start;
   }
@@ -1244,6 +1248,7 @@ public class Booking implements java.io.Serializable {
     this.start = start;
   }
 
+  @Transient
   public Date getEnd() {
     return end;
   }
@@ -1252,6 +1257,7 @@ public class Booking implements java.io.Serializable {
     this.end = end;
   }
 
+  @Transient
   public String getInfo() {
     return info;
   }
@@ -1260,6 +1266,7 @@ public class Booking implements java.io.Serializable {
     this.info = info;
   }
 
+  @Transient
   public String getBookingNo() {
     return nameNo;
   }
@@ -1268,6 +1275,7 @@ public class Booking implements java.io.Serializable {
     this.nameNo = bookingNo;
   }
 
+  @Transient
   public String getCheckOp() {
     return checkOp;
   }
@@ -1276,6 +1284,7 @@ public class Booking implements java.io.Serializable {
     this.checkOp = checkOp;
   }
 
+  @Transient
   public Date getCheckDate() {
     return checkDate;
   }
@@ -1284,6 +1293,7 @@ public class Booking implements java.io.Serializable {
     this.checkDate = checkDate;
   }
 
+  @Transient
   public String getPlaceType() {
     return placeType;
   }
@@ -1292,6 +1302,7 @@ public class Booking implements java.io.Serializable {
     this.placeType = placeType;
   }
 
+  @Transient
   public Date getUpdDate() {
     return updDate;
   }
@@ -1300,6 +1311,7 @@ public class Booking implements java.io.Serializable {
     this.updDate = updDate;
   }
 
+  @Transient
   public Date getDelDate() {
     return delDate;
   }
@@ -1308,6 +1320,7 @@ public class Booking implements java.io.Serializable {
     this.delDate = delDate;
   }
 
+  @Transient
   public String getRemark() {
     return remark;
   }

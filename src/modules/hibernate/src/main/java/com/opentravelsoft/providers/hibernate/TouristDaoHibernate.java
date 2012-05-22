@@ -91,7 +91,7 @@ public class TouristDaoHibernate extends GenericDaoHibernate<Tourist, String>
     List<Object> params = new ArrayList<Object>();
 
     sb.append("from Tourist ");
-    sb.append("where booking.confirmStatus='1' and del='N' ");
+    sb.append("where booking.cfmKey='1' and del='N' ");
     sb.append("and leaderKey='N' and recType='A' ");
     // 预订员所属部门
     if (teamId != 0) {
@@ -183,7 +183,7 @@ public class TouristDaoHibernate extends GenericDaoHibernate<Tourist, String>
     StringBuilder sb = new StringBuilder();
     List<Object> params = new ArrayList<Object>();
     sb.append("from Tourist ");
-    sb.append("where booking.confirmStatus='1' and del='N' ");
+    sb.append("where booking.cfmKey='1' and del='N' ");
     sb.append("and leaderKey<>'Y' and recType='A' ");
 
     if (teamId != 0)

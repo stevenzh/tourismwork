@@ -92,7 +92,7 @@ public class AuditPayRequisitionAction extends ManageAction {
   public String read() {
     Employee user = getUser();
     billhead.setOutcomeId(outcomeId);
-    billhead.setUpdatedBy(user.getUserId());
+    billhead.setUpdatedby(user.getUserId());
 
     int ret = outcomeService.txFrReadBillhead(billhead, user.getUserId());
 

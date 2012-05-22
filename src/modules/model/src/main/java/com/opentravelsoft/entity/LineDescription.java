@@ -3,6 +3,8 @@ package com.opentravelsoft.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Transient;
+
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -107,6 +109,7 @@ public class LineDescription implements java.io.Serializable {
 
   private String recNo;
 
+  @Transient
   public int getItemId() {
     return itemId;
   }
@@ -115,6 +118,7 @@ public class LineDescription implements java.io.Serializable {
     this.itemId = itemId;
   }
 
+  @Transient
   public int getIdx() {
     return idx;
   }
@@ -123,6 +127,7 @@ public class LineDescription implements java.io.Serializable {
     this.idx = idx;
   }
 
+  @Transient
   public String getDestination() {
     return destination;
   }
@@ -131,6 +136,7 @@ public class LineDescription implements java.io.Serializable {
     this.destination = destination;
   }
 
+  @Transient
   public String getCanDel() {
     return canDel;
   }
@@ -139,6 +145,7 @@ public class LineDescription implements java.io.Serializable {
     this.canDel = canDel;
   }
 
+  @Transient
   public String getRecNo() {
     return recNo;
   }
@@ -171,6 +178,7 @@ public class LineDescription implements java.io.Serializable {
     this.description = traitDetail;
   }
 
+  @Transient
   public String getRouteNo() {
     return this.lineNo;
   }
@@ -179,6 +187,7 @@ public class LineDescription implements java.io.Serializable {
     this.lineNo = lineNo;
   }
 
+  @Transient
   public String getExpenseType() {
     return type;
   }

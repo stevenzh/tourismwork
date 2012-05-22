@@ -79,7 +79,7 @@ public class EditParcelAction extends ManageAction {
   public String start() {
     Employee user = getUser();
     billhead.setOutcomeId(outcomeId);
-    billhead.setUpdatedBy(user.getUserId());
+    billhead.setUpdatedby(user.getUserId());
 
     int ret = ticketService.txStartParcel(billhead);
 

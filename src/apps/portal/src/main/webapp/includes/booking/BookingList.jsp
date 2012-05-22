@@ -190,7 +190,7 @@ function actionSubmit()
         <td class="rdata"><font size="-1"><s:property value="dbamt"/></font></td>
         <td class="rdata"><font size="-1"><s:property value="payCosts"/></font></td>
         <td class="rdata"><font size="-1"><s:property value="%{dbamt -payCosts}"/></font></td>
-        <td class="cdata"><font size="-1"><s:property value="confirmStatus"/>&nbsp;</font></td>
+        <td class="cdata"><font size="-1"><s:property value="cfmKey"/>&nbsp;</font></td>
         <s:if test='tourNoticeIsExist eq "Y"'>
            <td align="center"><font size="-1"><a href="http://localhost:8080<s:property value="tourNoticeFilepath"/>">出团通知</a></font></td>
         </s:if>

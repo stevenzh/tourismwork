@@ -11,8 +11,6 @@ import javax.persistence.Table;
 @Table(name = "tbl_shortcut")
 public class Shortcut implements java.io.Serializable {
 
-  private static final long serialVersionUID = 6129655387608594110L;
-
   private Long id;
 
   private String moduleName;

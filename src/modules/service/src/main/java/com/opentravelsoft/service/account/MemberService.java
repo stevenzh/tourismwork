@@ -14,7 +14,7 @@ public interface MemberService {
 
   List<LabelValueBean> roGetEducates();
 
-  Member roGetMemberById(long userId);
+  Member roGetMemberById(long memberId);
 
   Member roGetMemberByName(String userName);
 

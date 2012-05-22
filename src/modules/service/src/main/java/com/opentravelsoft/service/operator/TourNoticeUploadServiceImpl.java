@@ -20,7 +20,7 @@ public class TourNoticeUploadServiceImpl implements TourNoticeUploadService {
     return tourNoticeUploadDao.getTourNoticeFile(tourNo);
   }
 
-  public int txDeleteUploadFile(long fileId) {
+  public int txDeleteUploadFile(int fileId) {
     return tourNoticeUploadDao.deleteUploadFile(fileId);
   }
 

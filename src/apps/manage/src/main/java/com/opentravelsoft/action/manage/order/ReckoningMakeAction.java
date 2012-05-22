@@ -107,7 +107,7 @@ public class ReckoningMakeAction extends ManageAction {
       reckoning.setRouteName(book.getPlan().getLine().getLineName());
       reckoning.setTourNo(book.getPlan().getTourNo());
       reckoning.setContact(book.getContact());
-      reckoning.setPhone(book.getPhone());
+      reckoning.setPhone(book.getTel());
       reckoning.setPax(book.getPax());
 
       if (null != reckoning.getPrintDate())

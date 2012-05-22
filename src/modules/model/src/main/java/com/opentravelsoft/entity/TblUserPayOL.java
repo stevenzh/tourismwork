@@ -32,17 +32,6 @@ public class TblUserPayOL implements java.io.Serializable {
     this.payAmount = payamount;
   }
 
-  public TblUserPayOL(long payid, String payername, String payerphone,
-      String tourroute, double payamount, String remark, Date paytime) {
-    this.payId = payid;
-    this.payerName = payername;
-    this.payerPhone = payerphone;
-    this.tourRoute = tourroute;
-    this.payAmount = payamount;
-    this.remark = remark;
-    this.payTime = paytime;
-  }
-
   @Id
   @Column(name = "PAYID", unique = true, nullable = false, precision = 12, scale = 0)
   public long getPayId() {

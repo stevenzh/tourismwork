@@ -1,36 +1,35 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.entity.vacation.HotelFile" table="tbl_hotel_file" catalog="tourismwork_db">
-        <id name="recNo" type="string">
-            <column name="REC_NO" length="10" />
-            <generator class="assigned" />
-        </id>
-        <property name="hotCd" type="string">
-            <column name="HOT_CD" length="10" />
-        </property>
-        <property name="mapAddress" type="string">
-            <column name="MAP_ADDRESS" length="50" />
-        </property>
-        <property name="note" type="string">
-            <column name="NOTE" length="200" />
-        </property>
-        <property name="isDelete" type="java.lang.Byte">
-            <column name="IS_DELETE" />
-        </property>
-        <property name="crUser" type="string">
-            <column name="CR_USER" length="50" />
-        </property>
-        <property name="crDate" type="timestamp">
-            <column name="CR_DATE" length="19" />
-        </property>
-        <property name="opUser" type="string">
-            <column name="OP_USER" length="50" />
-        </property>
-        <property name="opDate" type="timestamp">
-            <column name="OP_DATE" length="19" />
-        </property>
-    </class>
+  <class name="com.opentravelsoft.entity.vacation.HotelFile" table="tbl_hotel_file">
+    <id name="recNo" type="string">
+      <column name="REC_NO" length="10" />
+      <generator class="assigned" />
+    </id>
+    <property name="hotCd" type="string">
+      <column name="HOT_CD" length="10" />
+    </property>
+    <property name="mapAddress" type="string">
+      <column name="MAP_ADDRESS" length="50" />
+    </property>
+    <property name="note" type="string">
+      <column name="NOTE" length="200" />
+    </property>
+    <property name="isDelete" type="java.lang.Byte">
+      <column name="IS_DELETE" />
+    </property>
+    <property name="crUser" type="string">
+      <column name="CR_USER" length="50" />
+    </property>
+    <property name="crDate" type="timestamp">
+      <column name="CR_DATE" length="19" />
+    </property>
+    <property name="opUser" type="string">
+      <column name="OP_USER" length="50" />
+    </property>
+    <property name="opDate" type="timestamp">
+      <column name="OP_DATE" length="19" />
+    </property>
+  </class>
 </hibernate-mapping>

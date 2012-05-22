@@ -257,7 +257,7 @@ public class BookingOrderAction extends ManageAction {
 
     book.setReserve(user.getUserId());
     // 团队确认状态 1-团确 2-团候
-    book.setConfirmStatus("2");
+    book.setCfmKey("2");
     // 操作人
     book.setOpuser(user.getUserId());
 

@@ -57,7 +57,7 @@ public class IncomeAction extends ManageAction {
   /**
    * 部门
    */
-  private long teamId;
+  private int teamId;
 
   /**
    * 人数合计
@@ -80,7 +80,7 @@ public class IncomeAction extends ManageAction {
   private BigDecimal totalUnPay;
 
   /** 收款保存后生成的ID */
-  private long incomeId;
+  private int incomeId;
 
   // -------------------------------------------------------------------------
 
@@ -173,11 +173,11 @@ public class IncomeAction extends ManageAction {
     return bookings;
   }
 
-  public long getDepartmentNo() {
+  public int getDepartmentNo() {
     return teamId;
   }
 
-  public void setDepartmentNo(long teamId) {
+  public void setDepartmentNo(int teamId) {
     this.teamId = teamId;
   }
 
@@ -253,11 +253,11 @@ public class IncomeAction extends ManageAction {
     this.agent = agent;
   }
 
-  public long getIncomeId() {
+  public int getIncomeId() {
     return incomeId;
   }
 
-  public void setIncomeId(long incomeId) {
+  public void setIncomeId(int incomeId) {
     this.incomeId = incomeId;
   }
 }

@@ -205,7 +205,7 @@ public class EditTeamSupplierAction extends ManageAction {
     this.kenCity = kenCity;
   }
 
-  public long getGroupId() {
+  public int getGroupId() {
     return teamId;
   }
 

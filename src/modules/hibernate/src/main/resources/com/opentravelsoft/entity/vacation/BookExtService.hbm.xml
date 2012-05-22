@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.entity.vacation.BookExtService" table="tbl_booking_ext" catalog="tourismwork_db">
+    <class name="com.opentravelsoft.entity.vacation.BookExtService" table="tbl_booking_ext">
         <id name="recNo" type="java.lang.Integer">
             <column name="REC_NO" />
             <generator class="identity" />

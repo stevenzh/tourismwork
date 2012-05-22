@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import com.opentravelsoft.util.ChineseMoney;
 
@@ -332,6 +333,7 @@ public class Invoice implements java.io.Serializable {
 
   private List<InvoicePiece> pieces = new ArrayList<InvoicePiece>();
 
+  @Transient
   public double getAmount() {
     return amount;
   }
@@ -341,6 +343,7 @@ public class Invoice implements java.io.Serializable {
     this.amountChinese = ChineseMoney.getUpperMoney(amount);
   }
 
+  @Transient
   public String getCustomer() {
     return customer;
   }
@@ -349,6 +352,7 @@ public class Invoice implements java.io.Serializable {
     this.customer = customer;
   }
 
+  @Transient
   public String getInvoiceNo() {
     return invoiceNo;
   }
@@ -357,6 +361,7 @@ public class Invoice implements java.io.Serializable {
     this.invoiceNo = invoiceNo;
   }
 
+  @Transient
   public String getRecordNo() {
     return recordNo;
   }
@@ -365,6 +370,7 @@ public class Invoice implements java.io.Serializable {
     this.recordNo = recordNo;
   }
 
+  @Transient
   public Date getCrateDate() {
     return crateDate;
   }
@@ -373,6 +379,7 @@ public class Invoice implements java.io.Serializable {
     this.crateDate = crateDate;
   }
 
+  @Transient
   public Integer getCreateUser() {
     return createUser;
   }
@@ -381,6 +388,7 @@ public class Invoice implements java.io.Serializable {
     this.createUser = createUser;
   }
 
+  @Transient
   public List<InvoiceItem> getItems() {
     return items;
   }
@@ -391,9 +399,9 @@ public class Invoice implements java.io.Serializable {
 
   public void addItem(String item, BigDecimal expense) {
     items.add(new InvoiceItem(item, expense));
-
   }
 
+  @Transient
   public List<InvoicePiece> getPieces() {
     return pieces;
   }
@@ -407,6 +415,7 @@ public class Invoice implements java.io.Serializable {
 
   }
 
+  @Transient
   public String getAmountChinese() {
     return amountChinese;
   }

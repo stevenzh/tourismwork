@@ -13,7 +13,7 @@ import com.opentravelsoft.providers.product.ProductItemDao;
 
 @Service("ProductService")
 public class ProductServiceImpl implements ProductService {
-  
+
   @Autowired
   private CategoryDao categoryDao;
 
@@ -28,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
     return productItemDao.getProductItems(false);
   }
 
-  public ProductItem getProductItem(long itemId) {
+  public ProductItem getProductItem(int itemId) {
     return productItemDao.get(itemId);
   }
 

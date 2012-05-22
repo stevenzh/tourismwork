@@ -141,7 +141,7 @@ public class ListLineAction extends ManageAction {
     this.kenActive = kenClosekey;
   }
 
-  public long getKenDepartmentNo() {
+  public int getKenDepartmentNo() {
     return kenTeamId;
   }
 
@@ -157,7 +157,7 @@ public class ListLineAction extends ManageAction {
     this.kenLineName = kenRouteName;
   }
 
-  public long getKenUserId() {
+  public int getKenUserId() {
     return kenUserId;
   }
 

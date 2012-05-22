@@ -324,10 +324,10 @@ function editBook()
         <s:radio list="confirmStatusList"
                  listKey="value"
           			 listValue="label"
-                 value="%{book.confirmStatus}"
+                 value="%{book.cfmKey}"
                  disabled="true">
 			  </s:radio>
-        <s:hidden name="book.confirmStatus"></s:hidden>
+        <s:hidden name="book.cfmKey"></s:hidden>
       </td>
 		</tr>
 

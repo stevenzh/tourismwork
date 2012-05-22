@@ -15,6 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_tour_cost")
@@ -243,6 +244,7 @@ public class TourCost implements java.io.Serializable {
 
   private double nowpayPayment;
 
+  @Transient
   public int getId() {
     return id;
   }
@@ -251,6 +253,7 @@ public class TourCost implements java.io.Serializable {
     this.id = id;
   }
 
+  @Transient
   public Integer getCreatedBy() {
     return createdBy;
   }
@@ -259,6 +262,7 @@ public class TourCost implements java.io.Serializable {
     this.createdBy = createdBy;
   }
 
+  @Transient
   public Date getUpdated() {
     return updated;
   }
@@ -267,6 +271,7 @@ public class TourCost implements java.io.Serializable {
     this.updated = updated;
   }
 
+  @Transient
   public String getUpdatedBy() {
     return updatedBy;
   }
@@ -275,6 +280,7 @@ public class TourCost implements java.io.Serializable {
     this.updatedBy = updatedBy;
   }
 
+  @Transient
   public double getOpRoe() {
     return opRoe;
   }
@@ -283,6 +289,7 @@ public class TourCost implements java.io.Serializable {
     this.opRoe = opRoe;
   }
 
+  @Transient
   public String getIsMakeOutcome() {
     return isMakeOutcome;
   }
@@ -291,6 +298,7 @@ public class TourCost implements java.io.Serializable {
     this.isMakeOutcome = isMakeOutcome;
   }
 
+  @Transient
   public String getInfo() {
     return info;
   }
@@ -299,6 +307,7 @@ public class TourCost implements java.io.Serializable {
     this.info = info;
   }
 
+  @Transient
   public String getCreatedName() {
     return createdName;
   }
@@ -307,6 +316,7 @@ public class TourCost implements java.io.Serializable {
     this.createdName = createdName;
   }
 
+  @Transient
   public double getNowpayPayment() {
     return nowpayPayment;
   }

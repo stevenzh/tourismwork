@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_share_flight")
@@ -93,6 +94,7 @@ public class ShareFlight implements java.io.Serializable {
 
   private String airwaysName;
 
+  @Transient
   public String getAirwaysName() {
     return airwaysName;
   }

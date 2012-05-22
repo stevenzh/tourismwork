@@ -12,8 +12,8 @@ import com.opentravelsoft.providers.product.ShareFlightDao;
 import com.opentravelsoft.util.RowDataUtil;
 
 @Repository("ShareFlightDao")
-public class ShareFlightDaoImpl extends GenericDaoHibernate<ShareFlight, Long>
-    implements ShareFlightDao {
+public class ShareFlightDaoImpl extends
+    GenericDaoHibernate<ShareFlight, Integer> implements ShareFlightDao {
 
   public ShareFlightDaoImpl() {
     super(ShareFlight.class);

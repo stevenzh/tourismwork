@@ -27,7 +27,7 @@ public class ModuleDaoHibernate extends GenericDaoHibernate<Module, Integer>
   public List<Module> getModuleList(boolean active) {
     DetachedCriteria criteria = DetachedCriteria.forClass(Module.class);
     if (active)
-      criteria.add(Restrictions.eq("isActive", true));
+      criteria.add(Restrictions.eq("isActive", (byte) 1));
     criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
     criteria.addOrder(Order.asc("sortOrder"));
     return getHibernateTemplate().findByCriteria(criteria);

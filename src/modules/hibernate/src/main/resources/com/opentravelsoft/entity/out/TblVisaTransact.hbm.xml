@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.hmodel.TblVisaTransact" table="tbl_visa_transact" catalog="tourismwork_db">
+    <class name="com.opentravelsoft.entity.out.TblVisaTransact" table="tbl_visa_transact">
         <id name="applyId" type="java.lang.Integer">
             <column name="APPLY_ID" />
             <generator class="identity" />

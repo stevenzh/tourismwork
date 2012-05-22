@@ -235,7 +235,7 @@ function bookInfo()
     <td colspan="2"><s:property value="book.plan.line.lineName"/>&nbsp;</td>
     <td>状态:
     <STRONG>
-    <s:if test='book.confirmStatus == "1"'>已占位</s:if>
+    <s:if test='book.cfmKey == "1"'>已占位</s:if>
     <s:else>未占位</s:else>
     <s:if test='book.delkey == "Y"'>已取消</s:if></STRONG>
     </td>

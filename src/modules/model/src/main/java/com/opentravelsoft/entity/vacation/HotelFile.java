@@ -32,19 +32,6 @@ public class HotelFile implements java.io.Serializable {
     this.recNo = recNo;
   }
 
-  public HotelFile(String recNo, String hotCd, String mapAddress, String note,
-      Byte isDelete, String crUser, Date crDate, String opUser, Date opDate) {
-    this.recNo = recNo;
-    this.hotCd = hotCd;
-    this.mapAddress = mapAddress;
-    this.note = note;
-    this.isDelete = isDelete;
-    this.crUser = crUser;
-    this.crDate = crDate;
-    this.opUser = opUser;
-    this.opDate = opDate;
-  }
-
   @Id
   @Column(name = "REC_NO", unique = true, nullable = false, length = 10)
   public String getRecNo() {

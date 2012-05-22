@@ -23,11 +23,11 @@ public class ShareFlightServiceImpl implements ShareFlightService {
     return shareFlightDao.findAll();
   }
 
-  public ShareFlight roGetShareFlight(long shareFlightId) {
+  public ShareFlight roGetShareFlight(int shareFlightId) {
     return shareFlightDao.get(shareFlightId);
   }
 
-  public void txDeleteShareFlight(long shareFlightId) {
+  public void txDeleteShareFlight(int shareFlightId) {
     shareFlightDao.remove(shareFlightId);
   }
 

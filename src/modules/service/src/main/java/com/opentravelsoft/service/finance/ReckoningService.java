@@ -15,7 +15,7 @@ public interface ReckoningService {
 
   public Reckoning txWholeReckoningMake(Reckoning reckoning);
 
-  public Reckoning roGetReckoningInfo(long reckoningId);
+  public Reckoning roGetReckoningInfo(int reckoningId);
 
   public int txWholeReckoningModify(Reckoning reckoning);
 

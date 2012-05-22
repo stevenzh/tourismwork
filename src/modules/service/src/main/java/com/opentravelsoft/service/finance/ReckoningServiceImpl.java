@@ -15,7 +15,7 @@ import com.opentravelsoft.providers.product.LineDao;
 
 @Service("ReckoningMakeService")
 public class ReckoningServiceImpl implements ReckoningService {
-  
+
   @Autowired
   private LineDao lineDao;
 
@@ -37,7 +37,7 @@ public class ReckoningServiceImpl implements ReckoningService {
     return reckoningDao.wholeReckoningMake(reckoning);
   }
 
-  public Reckoning roGetReckoningInfo(long reckoningId) {
+  public Reckoning roGetReckoningInfo(int reckoningId) {
     return reckoningDao.getReckoningInfo(reckoningId);
   }
 

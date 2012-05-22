@@ -13,6 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_tourist")
@@ -583,7 +584,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   }
 
   /** 用户ID */
-  private long userId;
+  private int userId;
 
   /** 用户Code */
   private String uid;
@@ -829,14 +830,16 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   /** 预订单号 以 booking 为主 */
   private String bookingNo;
 
-  public long getUserId() {
+  @Transient
+  public int getUserId() {
     return userId;
   }
 
-  public void setUserId(long userId) {
+  public void setUserId(int userId) {
     this.userId = userId;
   }
 
+  @Transient
   public String getUserType() {
     return userType;
   }
@@ -845,6 +848,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.userType = userType;
   }
 
+  @Transient
   public String getPasswd() {
     return passwd;
   }
@@ -853,6 +857,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.passwd = passwd;
   }
 
+  @Transient
   public String getUid() {
     return uid;
   }
@@ -861,6 +866,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.uid = uid;
   }
 
+  @Transient
   public String getUserName() {
     return userName;
   }
@@ -869,6 +875,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.userName = userName;
   }
 
+  @Transient
   public boolean getIsActive() {
     return isActive;
   }
@@ -877,6 +884,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.isActive = enabled;
   }
 
+  @Transient
   public String getEmail() {
     return email;
   }
@@ -885,6 +893,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.email = email;
   }
 
+  @Transient
   public Integer getAge() {
     return age;
   }
@@ -893,6 +902,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.age = age;
   }
 
+  @Transient
   public String getLineNo() {
     return this.lineNo;
   }
@@ -901,6 +911,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.lineNo = lineNo;
   }
 
+  @Transient
   public String getCptNo() {
     return this.cptNo;
   }
@@ -909,6 +920,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.cptNo = cptNo;
   }
 
+  @Transient
   public BigDecimal getReceivables() {
     return receivables;
   }
@@ -923,6 +935,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
    * @deprecated
    * @return
    */
+  @Transient
   public BigDecimal getAmount() {
     return amount;
   }
@@ -935,6 +948,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.amount = amount;
   }
 
+  @Transient
   public String getRemarks() {
     return remarks;
   }
@@ -943,6 +957,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.remarks = remarks;
   }
 
+  @Transient
   public String getRoomType() {
     return roomType;
   }
@@ -951,6 +966,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.roomType = roomType;
   }
 
+  @Transient
   public String getRoomTypeName() {
     return roomTypeName;
   }
@@ -959,6 +975,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.roomTypeName = roomTypeName;
   }
 
+  @Transient
   public String getContractNo() {
     return contractNo;
   }
@@ -971,6 +988,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
    * @deprecated
    * @return
    */
+  @Transient
   public BigDecimal getResidual() {
     return residual;
   }
@@ -983,6 +1001,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.residual = residual;
   }
 
+  @Transient
   public String getConfirmStatus() {
     return confirmStatus;
   }
@@ -996,6 +1015,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
    * @deprecated
    * @return
    */
+  @Transient
   public String getPriceSTR() {
     return priceSTR;
   }
@@ -1004,10 +1024,12 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
    * @deprecated
    * @return
    */
+  @Transient
   public String getReceivablesSTR() {
     return receivablesSTR;
   }
 
+  @Transient
   public Date getOutDate() {
     return outDate;
   }
@@ -1016,6 +1038,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.outDate = outDate;
   }
 
+  @Transient
   public String getTourNo() {
     return tourNo;
   }
@@ -1024,6 +1047,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.tourNo = tourNo;
   }
 
+  @Transient
   public int getNumber() {
     return number;
   }
@@ -1032,6 +1056,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.number = number;
   }
 
+  @Transient
   public String getLeaderKey() {
     return leaderKey;
   }
@@ -1040,6 +1065,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.leaderKey = leaderKey;
   }
 
+  @Transient
   public String getPrintName() {
     return printName;
   }
@@ -1048,6 +1074,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printName = printName;
   }
 
+  @Transient
   public String getPrintPinyin() {
     return printPinyin;
   }
@@ -1056,6 +1083,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printPinyin = printPinyin;
   }
 
+  @Transient
   public String getPrintSex() {
     return printSex;
   }
@@ -1064,6 +1092,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printSex = printSex;
   }
 
+  @Transient
   public String getPrintAge() {
     return printAge;
   }
@@ -1072,6 +1101,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printAge = printAge;
   }
 
+  @Transient
   public String getPrintAgent() {
     return printAgent;
   }
@@ -1080,6 +1110,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printAgent = printAgent;
   }
 
+  @Transient
   public String getPrintBirPla() {
     return printBirPla;
   }
@@ -1088,6 +1119,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printBirPla = printBirPla;
   }
 
+  @Transient
   public String getPrintPassportType() {
     return printPassportType;
   }
@@ -1096,6 +1128,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printPassportType = printPassportType;
   }
 
+  @Transient
   public String getPrintPassportNo() {
     return printPassportNo;
   }
@@ -1104,6 +1137,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printPassportNo = printPassportNo;
   }
 
+  @Transient
   public String getPrintPassportDate() {
     return printPassportDate;
   }
@@ -1112,6 +1146,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printPassportDate = printPassportDate;
   }
 
+  @Transient
   public String getPrintPassportPla() {
     return printPassportPla;
   }
@@ -1120,6 +1155,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printPassportPla = printPassportPla;
   }
 
+  @Transient
   public String getPrintPassportAnnotation() {
     return printPassportAnnotation;
   }
@@ -1128,6 +1164,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printPassportAnnotation = printPassportAnnotation;
   }
 
+  @Transient
   public String getPrintRemarks() {
     return printRemarks;
   }
@@ -1136,6 +1173,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printRemarks = printRemarks;
   }
 
+  @Transient
   public int getStauts() {
     return stauts;
   }
@@ -1144,6 +1182,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.stauts = stauts;
   }
 
+  @Transient
   public Date getPrintBirthday() {
     return printBirthday;
   }
@@ -1152,6 +1191,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printBirthday = printBirthday;
   }
 
+  @Transient
   public String getPrintIdcard() {
     return printIdcard;
   }
@@ -1160,6 +1200,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printIdcard = printIdcard;
   }
 
+  @Transient
   public int getCustomerId() {
     return customerId;
   }
@@ -1168,6 +1209,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.customerId = customerId;
   }
 
+  @Transient
   public String getTourKeyName() {
     return tourKeyName;
   }
@@ -1176,6 +1218,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.tourKeyName = tourKeyName;
   }
 
+  @Transient
   public String getNewFlag() {
     return newFlag;
   }
@@ -1184,6 +1227,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.newFlag = newFlag;
   }
 
+  @Transient
   public String getChild() {
     return child;
   }
@@ -1192,6 +1236,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.child = child;
   }
 
+  @Transient
   public String getPrintPassportExpiry() {
     return printPassportExpiry;
   }
@@ -1200,6 +1245,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.printPassportExpiry = printPassportExpiry;
   }
 
+  @Transient
   public String getPlanNo() {
     return planNo;
   }
@@ -1208,6 +1254,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.planNo = planNo;
   }
 
+  @Transient
   public String getPinyinsurname() {
     return pinyinsurname;
   }
@@ -1216,6 +1263,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.pinyinsurname = pinyinsurname;
   }
 
+  @Transient
   public String getPinyinfirstname() {
     return pinyinfirstname;
   }
@@ -1224,6 +1272,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.pinyinfirstname = pinyinfirstname;
   }
 
+  @Transient
   public String getIsLeader() {
     return isLeader;
   }
@@ -1239,6 +1288,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     return -1;
   }
 
+  @Transient
   public String getLineName() {
     return lineName;
   }
@@ -1247,6 +1297,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.lineName = lineName;
   }
 
+  @Transient
   public String getBirthplace() {
     return birthplace;
   }
@@ -1255,6 +1306,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.birthplace = birthplace;
   }
 
+  @Transient
   public String getBirthplaceName() {
     return birthplaceName;
   }
@@ -1263,6 +1315,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.birthplaceName = birthplaceName;
   }
 
+  @Transient
   public String getPassportType() {
     return passportType;
   }
@@ -1271,6 +1324,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.passportType = passportType;
   }
 
+  @Transient
   public String getPassportNo() {
     return passportNo;
   }
@@ -1279,6 +1333,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.passportNo = passportNo;
   }
 
+  @Transient
   public Date getPassportDate() {
     return passportDate;
   }
@@ -1287,6 +1342,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.passportDate = passportDate;
   }
 
+  @Transient
   public Date getPassportExpiry() {
     return passportExpiry;
   }
@@ -1295,6 +1351,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.passportExpiry = passportExpiry;
   }
 
+  @Transient
   public String getPassportPlace() {
     return passportPlace;
   }
@@ -1303,6 +1360,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.passportPlace = passportPlace;
   }
 
+  @Transient
   public String getPassportPlaceName() {
     return passportPlaceName;
   }
@@ -1311,6 +1369,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.passportPlaceName = passportPlaceName;
   }
 
+  @Transient
   public String getPassportAnnotation() {
     return passportAnnotation;
   }
@@ -1319,6 +1378,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.passportAnnotation = passportAnnotation;
   }
 
+  @Transient
   public int getId() {
     return id;
   }
@@ -1327,6 +1387,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.id = id;
   }
 
+  @Transient
   public String getIdCard() {
     return idCard;
   }
@@ -1335,6 +1396,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.idCard = idCard;
   }
 
+  @Transient
   public String getPinYin() {
     return pinYin;
   }
@@ -1343,6 +1405,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.pinYin = pinYin;
   }
 
+  @Transient
   public String getCity() {
     return city;
   }
@@ -1351,6 +1414,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.city = city;
   }
 
+  @Transient
   public String getProvince() {
     return province;
   }
@@ -1359,6 +1423,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.province = province;
   }
 
+  @Transient
   public String getEducate() {
     return educate;
   }
@@ -1367,6 +1432,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.educate = educate;
   }
 
+  @Transient
   public String getVocation() {
     return vocation;
   }
@@ -1375,6 +1441,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.vocation = vocation;
   }
 
+  @Transient
   public String getReceiveMail() {
     return receiveMail;
   }
@@ -1383,6 +1450,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.receiveMail = receiveMail;
   }
 
+  @Transient
   public String getHomeplace() {
     return homeplace;
   }
@@ -1391,6 +1459,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.homeplace = homeplace;
   }
 
+  @Transient
   public String getPeople() {
     return people;
   }
@@ -1399,6 +1468,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.people = people;
   }
 
+  @Transient
   public int getScore() {
     return score;
   }
@@ -1407,6 +1477,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.score = score;
   }
 
+  @Transient
   public String getExpendOneTrip() {
     return expendOneTrip;
   }
@@ -1415,6 +1486,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.expendOneTrip = expendOneTrip;
   }
 
+  @Transient
   public String getHouseholdIncome() {
     return householdIncome;
   }
@@ -1423,6 +1495,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.householdIncome = householdIncome;
   }
 
+  @Transient
   public String getPersonalIncome() {
     return personalIncome;
   }
@@ -1431,6 +1504,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.personalIncome = personalIncome;
   }
 
+  @Transient
   public String getTripTimes() {
     return tripTimes;
   }
@@ -1439,6 +1513,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.tripTimes = tripTimes;
   }
 
+  @Transient
   public String getYearningTo() {
     return yearningTo;
   }
@@ -1447,6 +1522,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.yearningTo = yearningTo;
   }
 
+  @Transient
   public String getMemberKey() {
     return memberKey;
   }
@@ -1463,6 +1539,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.isExist = isExist;
   }
 
+  @Transient
   public String getPhone() {
     return phone;
   }
@@ -1471,6 +1548,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.phone = phone;
   }
 
+  @Transient
   public String getRealName() {
     return realName;
   }
@@ -1479,6 +1557,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.realName = realName;
   }
 
+  @Transient
   public String getCardNo() {
     return cardNo;
   }
@@ -1487,6 +1566,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     this.cardNo = cardNo;
   }
 
+  @Transient
   public String getBookingNo() {
     return bookingNo;
   }

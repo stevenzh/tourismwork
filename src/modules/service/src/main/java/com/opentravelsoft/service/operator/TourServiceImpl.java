@@ -109,7 +109,7 @@ public class TourServiceImpl implements TourService {
     return cityDao.getAllCity();
   }
 
-  public List<Team> getTeamList(long userId, TeamType type) {
+  public List<Team> getTeamList(int userId, TeamType type) {
     return teamDao.getTeam(userId, type);
   }
 

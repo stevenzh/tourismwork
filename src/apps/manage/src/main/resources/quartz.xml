@@ -74,13 +74,6 @@
 			</props>
 		</property>
 	</bean>
-	
-	<!-- 线路索引  -->
-	<bean id="CbIndexAction" class="com.opentravelsoft.action.manage.search.CbIndexAction" singleton="false">
-		<property name="cbIndexService">
-			<ref bean="CbIndexService" />
-		</property>
-	</bean>
 
    <bean id="quartzjob" class="com.opentravelsoft.util.QuartzJob"></bean>
    <bean name="jobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">

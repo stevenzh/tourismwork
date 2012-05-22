@@ -175,7 +175,7 @@ public class ListTeamSupplierAction extends ManageAction {
     this.select = select;
   }
 
-  public long getGroupId() {
+  public int getGroupId() {
     return teamId;
   }
 

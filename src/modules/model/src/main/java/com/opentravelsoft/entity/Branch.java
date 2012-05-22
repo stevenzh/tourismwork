@@ -415,6 +415,7 @@ public class Branch implements java.io.Serializable {
   /** 门店照片文件 */
   private String branchPhoneFile;
 
+  @Transient
   public String getComeAndGo() {
     return comeAndGo;
   }
@@ -423,6 +424,7 @@ public class Branch implements java.io.Serializable {
     this.comeAndGo = comeAndGo;
   }
 
+  @Transient
   public String getOfficeHours() {
     return officeHours;
   }
@@ -436,6 +438,7 @@ public class Branch implements java.io.Serializable {
    * 
    * @return
    */
+  @Transient
   public String getShopkeeper() {
     return getManager();
   }
@@ -444,6 +447,7 @@ public class Branch implements java.io.Serializable {
     setManager(keeper);
   }
 
+  @Transient
   public String getShopkeeperPhone() {
     return shopkeeperPhone;
   }
@@ -452,6 +456,7 @@ public class Branch implements java.io.Serializable {
     this.shopkeeperPhone = shopkeeperPhone;
   }
 
+  @Transient
   public String getShopkeeperSaying() {
     return shopkeeperSaying;
   }
@@ -460,6 +465,7 @@ public class Branch implements java.io.Serializable {
     this.shopkeeperSaying = shopkeeperSaying;
   }
 
+  @Transient
   public String getBranchPhoneFile() {
     return branchPhoneFile;
   }
@@ -468,6 +474,7 @@ public class Branch implements java.io.Serializable {
     this.branchPhoneFile = branchPhoneFile;
   }
 
+  @Transient
   public String getShopkeeperPhoneFile() {
     return shopkeeperPhoneFile;
   }

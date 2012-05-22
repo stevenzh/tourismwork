@@ -54,7 +54,7 @@ public class EditRoleAction extends ManageAction {
     if (roleId != 0)
       roleService.txSaveRole(role);
     if (result < 0) {
-      addActionError("陪同代码重复!");
+      addActionError("代码重复!");
     }
 
     return SUCCESS;

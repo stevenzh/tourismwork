@@ -8,8 +8,8 @@
       <column name="MID" />
       <generator class="identity" />
     </id>
-    <version name="version" type="string">
-      <column name="VERSION" length="50" />
+    <version name="version" type="java.lang.Integer">
+      <column name="VERSION" />
     </version>
     <property name="moduleName" type="string">
       <column name="NAME" length="50" not-null="true" />

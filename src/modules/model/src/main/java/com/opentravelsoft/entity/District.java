@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_district")
@@ -124,6 +125,7 @@ public class District implements java.io.Serializable {
   /** 景区地图文件地址 */
   private String mapAddress;
 
+  @Transient
   public String getMapAddress() {
     return mapAddress;
   }
@@ -132,6 +134,7 @@ public class District implements java.io.Serializable {
     this.mapAddress = mapAddress;
   }
 
+  @Transient
   public String getMapHead() {
     return mapHead;
   }

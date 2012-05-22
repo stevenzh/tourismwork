@@ -11,24 +11,24 @@ import com.opentravelsoft.entity.Team;
 
 public interface ProductTmplService {
 
-  ProductTmpl getProductTmpl(long tmplId);
+  ProductTmpl getProductTmpl(int tmplId);
 
   int insertProductTmpl(ProductTmpl tmpl);
 
   int updateProductTmpl(ProductTmpl tmpl);
 
-  int deleteTmpl(long tmplId);
+  int deleteTmpl(int tmplId);
 
-  List<ProductTmpl> getProductTmplList(long teamId, long itemId, String destCode);
+  List<ProductTmpl> getProductTmplList(int teamId, int itemId, String destCode);
 
   List<Destination> roGetDestination();
 
   public List<TblExpenseTmpl> roGetExpenseTmpl();
 
-  List<Team> getTeamList(long userId, TeamType type);
+  List<Team> getTeamList(int userId, TeamType type);
 
   List<ProductItem> getProductItems(boolean tmpl);
 
-  List<ProductTmpl> getProductTmplList(long teamId, String type);
+  List<ProductTmpl> getProductTmplList(int teamId, String type);
 
 }

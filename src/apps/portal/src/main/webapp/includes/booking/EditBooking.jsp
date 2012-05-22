@@ -95,7 +95,7 @@ function pinyin(param)
     </s:radio>
 
     <s:radio label="订单状态"
-             name="book.confirmStatus"
+             name="book.cfmKey"
              list="confirmStatusList"
              listKey="value"
              listValue="label"

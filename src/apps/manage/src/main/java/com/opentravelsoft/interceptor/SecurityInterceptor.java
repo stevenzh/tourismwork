@@ -56,14 +56,16 @@ public class SecurityInterceptor extends AbstractInterceptor {
     if (null == currentUser)
       return actionInvocation.invoke();
 
-    if (params.containsKey("moduleName"))
+    // Action 标注 moduleName
+    if (params.containsKey("moduleName")) {
       moduleName = (String) params.get("moduleName");
+      if (!isAuthorized(currentUser, moduleName)) {
+        ActionSupport action = (ActionSupport) actionInvocation.getAction();
+        action.addActionError(action
+            .getText(GlobalMessages.ERROR_NOTAUTHORIZED));
 
-    if (!isAuthorized(currentUser, moduleName)) {
-      ActionSupport action = (ActionSupport) actionInvocation.getAction();
-      action.addActionError(action.getText(GlobalMessages.ERROR_NOTAUTHORIZED));
-
-      return EbizCommon.NOT_AUTHORIZED;
+        return EbizCommon.NOT_AUTHORIZED;
+      }
     }
 
     // ---------------------------------------------------------------------
@@ -85,8 +87,7 @@ public class SecurityInterceptor extends AbstractInterceptor {
       return true;
 
     Map<String, String> priv = user.getPriv();
-    if (priv.containsKey(moduleName)
-        && priv.get(moduleName).equalsIgnoreCase("true"))
+    if (priv.containsKey(moduleName) && priv.get(moduleName).equals("1"))
       return true;
 
     logger.debug("no authorized :" + moduleName);

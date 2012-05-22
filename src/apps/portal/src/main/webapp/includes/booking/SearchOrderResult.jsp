@@ -143,7 +143,7 @@
           <td><s:date name="reserveDate" format="MM-dd HH:ss"/>&nbsp;</td>
           <td>
           <STRONG>
-          <s:if test='book.confirmStatus == "1"'>以审核</s:if>
+          <s:if test='book.cfmKey == "1"'>以审核</s:if>
           <s:else>未确认</s:else>
           <s:if test='book.delkey == "Y"'>已取消</s:if></STRONG>
           <a href="<s:url action='showBookingDetail' namespace='/accounts' includeParams='none'/>?reserveNo=<s:property value="reserveNo"/>">详细</a><br>

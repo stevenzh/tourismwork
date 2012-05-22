@@ -3,6 +3,8 @@ package com.opentravelsoft.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Transient;
+
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -60,6 +62,7 @@ public class PlanPrice implements java.io.Serializable {
 
   private boolean defaultValue;
 
+  @Transient
   public int getIdx() {
     return idx;
   }
@@ -68,6 +71,7 @@ public class PlanPrice implements java.io.Serializable {
     this.idx = idx;
   }
 
+  @Transient
   public boolean getDefaultValue() {
     return defaultValue;
   }

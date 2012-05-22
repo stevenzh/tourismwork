@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_sms_send")
@@ -109,10 +110,11 @@ public class TblSmsSend implements java.io.Serializable {
 
   private String mobile;
 
-  private Long opId;
+  private Integer opId;
 
   private String stat;
 
+  @Transient
   public String getSeqno() {
     return this.seqno;
   }
@@ -121,6 +123,7 @@ public class TblSmsSend implements java.io.Serializable {
     this.seqno = seqno;
   }
 
+  @Transient
   public String getMobile() {
     return this.mobile;
   }
@@ -129,14 +132,16 @@ public class TblSmsSend implements java.io.Serializable {
     this.mobile = mobile;
   }
 
-  public Long getOpId() {
+  @Transient
+  public Integer getOpId() {
     return this.opId;
   }
 
-  public void setOpId(Long opId) {
+  public void setOpId(Integer opId) {
     this.opId = opId;
   }
 
+  @Transient
   public String getStat() {
     return this.stat;
   }

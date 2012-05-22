@@ -93,8 +93,8 @@
     <property name="cost12" type="big_decimal">
       <column name="COST12" precision="11" />
     </property>
-    <property name="reamrks" type="string">
-      <column name="REAMRKS" length="100" />
+    <property name="remarks" type="string">
+      <column name="REMARKS" length="100" />
     </property>
     <property name="currency" type="string">
       <column name="CURRENCY" length="10" />

@@ -137,6 +137,23 @@ public class RowDataUtil {
    * @param o
    * @return
    */
+  public static byte getByte(Object o) {
+    byte sh = 0;
+    if (null == o)
+      return sh;
+
+    if (o instanceof Number) {
+      Number num = (Number) o;
+      sh = num.byteValue();
+    }
+    return sh;
+  }
+
+  /**
+   * 
+   * @param o
+   * @return
+   */
   public static long getLong(Object o) {
     long sh = 0;
     if (null == o)

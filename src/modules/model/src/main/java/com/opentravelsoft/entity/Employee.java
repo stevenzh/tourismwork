@@ -27,6 +27,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_employee")
@@ -389,6 +390,7 @@ public class Employee implements UserDetails, java.io.Serializable {
 
   private Date sendPwdDate;
 
+  @Transient
   public String getDepartmentName() {
     return departmentName;
   }
@@ -397,6 +399,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.departmentName = departmentName;
   }
 
+  @Transient
   public String getSalesCd() {
     return salesCd;
   }
@@ -405,6 +408,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.salesCd = salesCd;
   }
 
+  @Transient
   public String getPhone() {
     return phone;
   }
@@ -413,6 +417,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.phone = phone;
   }
 
+  @Transient
   public Set<String> getRoles1() {
     return roles1;
   }
@@ -434,6 +439,7 @@ public class Employee implements UserDetails, java.io.Serializable {
       roles1.add(EbizCommon.ROLE_SUPERUSER);
   }
 
+  @Transient
   public Set<Integer> getRoleids() {
     return roleids;
   }
@@ -442,6 +448,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.roleids = roleids;
   }
 
+  @Transient
   public List<String> getTeamList() {
     return teamList;
   }
@@ -450,6 +457,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.teamList = destinationList;
   }
 
+  @Transient
   public Map<String, String> getPriv() {
     return privilege;
   }
@@ -458,6 +466,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.privilege = priv;
   }
 
+  @Transient
   public Set<Line> getLines() {
     return lines;
   }
@@ -466,6 +475,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.lines = lines;
   }
 
+  @Transient
   public Set<Integer> getTeams() {
     return teams;
   }
@@ -480,6 +490,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     teamMemberships.add(membership);
   }
 
+  @Transient
   public String getConfirmPassword() {
     return confirmPassword;
   }
@@ -488,6 +499,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.confirmPassword = confirmPassword;
   }
 
+  @Transient
   public String getAddress() {
     return address;
   }
@@ -496,6 +508,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.address = address;
   }
 
+  @Transient
   public String getPostcode() {
     return postcode;
   }
@@ -504,6 +517,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.postcode = postcode;
   }
 
+  @Transient
   public String getGrade() {
     return grade;
   }
@@ -512,6 +526,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.grade = grade;
   }
 
+  @Transient
   public List<Tourist> getTrips() {
     return trips;
   }
@@ -520,6 +535,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.trips = trips;
   }
 
+  @Transient
   public String getVip() {
     return vip;
   }
@@ -528,6 +544,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.vip = vip;
   }
 
+  @Transient
   public Date getLastLogindate() {
     return lastLogindate;
   }
@@ -536,6 +553,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.lastLogindate = lastLogindate;
   }
 
+  @Transient
   public String getCardType() {
     return cardType;
   }
@@ -544,6 +562,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.cardType = cardType;
   }
 
+  @Transient
   public Date getSendPwdDate() {
     return sendPwdDate;
   }
@@ -552,6 +571,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.sendPwdDate = sendPwdDate;
   }
 
+  @Transient
   public String getUserType() {
     return userType;
   }
@@ -560,6 +580,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.userType = userType;
   }
 
+  @Transient
   public String getUid() {
     return uid;
   }
@@ -568,6 +589,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.uid = uid;
   }
 
+  @Transient
   public String getUserName() {
     return userName;
   }
@@ -576,6 +598,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.userName = userName;
   }
 
+  @Transient
   public String getEmail() {
     return email;
   }
@@ -584,6 +607,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.email = email;
   }
 
+  @Transient
   public Date getBirthday() {
     return birthday;
   }
@@ -598,6 +622,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     memberships.add(membership);
   }
 
+  @Transient
   public Collection<GrantedAuthority> getAuthorities() {
     return authorities;
   }
@@ -606,10 +631,12 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.authorities = has;
   }
 
+  @Transient
   public String getPassword() {
     return passwd;
   }
 
+  @Transient
   public String getUsername() {
     return uid;
   }
@@ -634,6 +661,7 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.roles = st;
   }
 
+  @Transient
   public Set<String> getRoles() {
     return roles;
   }

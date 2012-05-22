@@ -57,12 +57,12 @@ public class OutcomeServiceImpl implements OutcomeService {
     return outcomeDao.getOwedList(supplierId, tourNo);
   }
 
-  public long txSaveBillhead(Outcome billhead, String audit) {
+  public int txSaveBillhead(Outcome billhead, String audit) {
     // TODO WorkFLow
     return outcomeDao.saveBill(billhead, audit);
   }
 
-  public int txDeleteBillhead(long billheadId) {
+  public int txDeleteBillhead(int billheadId) {
     return outcomeDao.cancelBill(billheadId);
   }
 
@@ -125,7 +125,7 @@ public class OutcomeServiceImpl implements OutcomeService {
     return outcomeDao.opModifyPayReturn(outcomeId);
   }
 
-  public List<Team> roGetTeams(long userId, TeamType type) {
+  public List<Team> roGetTeams(int userId, TeamType type) {
     return teamDao.getTeam(userId, type);
   }
 

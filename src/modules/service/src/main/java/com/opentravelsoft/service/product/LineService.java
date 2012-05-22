@@ -20,12 +20,12 @@ import com.opentravelsoft.entity.Team;
 import com.opentravelsoft.util.PaginationSupport;
 
 public interface LineService {
-  public List<Team> getTeamList(long userId, TeamType type);
+  public List<Team> getTeamList(int userId, TeamType type);
 
   public List<Team> getOperatorTeams();
 
-  public PaginationSupport findLineList(long teamId, String lineName,
-      String isActive, long userId, String kenDestination, int fromRecord,
+  public PaginationSupport findLineList(int teamId, String lineName,
+      String isActive, int userId, String kenDestination, int fromRecord,
       int pageSize);
 
   /**

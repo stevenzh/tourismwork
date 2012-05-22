@@ -22,7 +22,7 @@
     <tr>
       <td class="idx" width="80">订单号：</td>
       <td colspan="2"><s:property value="book.bookingNo" /></td>
-      <td rowspan="2">状态:<s:property value="book.confirmStatus"/> </td>
+      <td rowspan="2">状态:<s:property value="book.cfmKey"/> </td>
     </tr>
     <tr>
       <td class="idx">线路：</td>

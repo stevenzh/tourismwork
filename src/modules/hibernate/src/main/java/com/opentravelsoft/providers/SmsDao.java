@@ -7,7 +7,7 @@ import com.opentravelsoft.entity.TblSmsSend;
 public interface SmsDao extends GenericDao<TblSmsSend, Integer> {
   int receive(String seqno, String mob, String msg, String srcMsg);
 
-  int send(String seqno, String msg, String mob, long userId);
+  int send(String seqno, String msg, String mob, int userId);
 
   int sendResult(String seqno, String mob, String stat, String status);
 

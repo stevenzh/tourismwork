@@ -94,11 +94,11 @@
     <mapping resource="com/opentravelsoft/entity/TblSmsReceive.hbm.xml" />
     <mapping resource="com/opentravelsoft/entity/TblSmsSend.hbm.xml" />
 
-    <mapping class="com.opentravelsoft.entity.Member" />
-    <mapping class="com.opentravelsoft.entity.PortalRole"/>
-    <mapping class="com.opentravelsoft.entity.Country"/>
-    <mapping class="com.opentravelsoft.entity.City"/>
-    <mapping class="com.opentravelsoft.entity.Province"/>
+    <mapping resource="com/opentravelsoft/entity/Member.hbm.xml"/>
+    <mapping resource="com/opentravelsoft/entity/PortalRole.hbm.xml"/>
+    <mapping resource="com/opentravelsoft/entity/Country.hbm.xml"/>
+    <mapping resource="com/opentravelsoft/entity/City.hbm.xml"/>
+    <mapping resource="com/opentravelsoft/entity/Province.hbm.xml"/>
   
   </session-factory>
 

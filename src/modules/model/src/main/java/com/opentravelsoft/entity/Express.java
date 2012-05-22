@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_crm_express")
@@ -288,16 +289,13 @@ public class Express implements java.io.Serializable {
   /** 客户名称 */
   private String customerName;
 
-  private Long createdBy;
-
-  private Long updatedBy;
-
   private String info;
 
   public Express clone() throws CloneNotSupportedException {
     return (Express) super.clone();
   }
 
+  @Transient
   public String getCustomerName() {
     return customerName;
   }
@@ -306,22 +304,7 @@ public class Express implements java.io.Serializable {
     this.customerName = customerName;
   }
 
-  public Long getCreatedBy() {
-    return createdBy;
-  }
-
-  public void setCreatedBy(Long createdBy) {
-    this.createdBy = createdBy;
-  }
-
-  public Long getUpdatedBy() {
-    return updatedBy;
-  }
-
-  public void setUpdatedBy(Long updatedby) {
-    this.updatedBy = updatedby;
-  }
-
+  @Transient
   public String getInfo() {
     return info;
   }
@@ -330,6 +313,7 @@ public class Express implements java.io.Serializable {
     this.info = info;
   }
 
+  @Transient
   public String getLineName() {
     return lineName;
   }

@@ -33,7 +33,7 @@ public class CountryDaoImpl extends GenericDaoHibernate<Country, String>
   @SuppressWarnings("unchecked")
   public List<Country> getCountry() {
     DetachedCriteria criteria = DetachedCriteria.forClass(Country.class);
-    criteria.add(Restrictions.eq("enabled", true));
+    criteria.add(Restrictions.eq("enabled", (byte) 1));
     criteria.addOrder(Order.asc("name"));
     criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
 
@@ -47,7 +47,7 @@ public class CountryDaoImpl extends GenericDaoHibernate<Country, String>
     sql.append("from Country where countryId in (");
     sql.append("select country from VisaHelp ");
     sql.append("where EDate>=current_date())");
-    sql.append("and enabled=true ");
+    sql.append("and enabled=1 ");
     sql.append("order by name ");
     List<Object[]> list = getHibernateTemplate().find(sql.toString());
     List<Country> ret = new ArrayList<Country>();

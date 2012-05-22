@@ -26,7 +26,6 @@ import org.springframework.security.core.GrantedAuthority;
 @NamedQueries({ @NamedQuery(name = "findRoleByName", query = "select r from PortalRole r where r.name = :name ") })
 public class PortalRole extends BaseObject implements Serializable,
     GrantedAuthority {
-  private static final long serialVersionUID = 3690197650654049848L;
   private Long id;
   private String name;
   private String description;

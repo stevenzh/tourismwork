@@ -129,7 +129,7 @@ public class PlanSearchAction extends ManageAction {
     return employeeList;
   }
 
-  public long getKenDepartmentNo() {
+  public int getKenDepartmentNo() {
     return kenTeamId;
   }
 

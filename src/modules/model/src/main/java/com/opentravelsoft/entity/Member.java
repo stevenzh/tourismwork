@@ -29,7 +29,6 @@ import java.util.Set;
     @UniqueConstraint(columnNames = "email"),
     @UniqueConstraint(columnNames = "username") })
 public class Member extends BaseObject implements Serializable, UserDetails {
-  private static final long serialVersionUID = 3832626162173359411L;
 
   private Long id;
 

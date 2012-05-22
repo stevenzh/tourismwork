@@ -202,7 +202,7 @@ public class BookingSearchAction extends ManageAction {
     return employeeList;
   }
 
-  public long getKenDepartmentNo() {
+  public int getKenDepartmentNo() {
     return kenTeamId;
   }
 
@@ -210,7 +210,7 @@ public class BookingSearchAction extends ManageAction {
     this.kenTeamId = teamId;
   }
 
-  public long getKenUserId() {
+  public int getKenUserId() {
     return kenUserId;
   }
 

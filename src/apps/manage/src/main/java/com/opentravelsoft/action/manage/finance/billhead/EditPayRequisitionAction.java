@@ -95,7 +95,7 @@ public class EditPayRequisitionAction extends ManageAction {
     Employee user = getUser();
     outcome.setOutcomeId(outcomeId);
     // outcome.setCreatedby(user.getUid());
-    outcome.setUpdatedBy(user.getUserId());
+    outcome.setUpdatedby(user.getUserId());
 
     int ret = outcomeService.txFrModifyBillhead(outcome, user.getUserId());
 

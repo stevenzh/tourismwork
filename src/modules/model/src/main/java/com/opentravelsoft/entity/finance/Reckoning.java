@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.xml.transform.Source;
 import javax.xml.transform.sax.SAXSource;
 
@@ -291,6 +292,7 @@ public class Reckoning implements java.io.Serializable {
 
   private List<ReckoningAcct> reckoningAcctList = new ArrayList<ReckoningAcct>();
 
+  @Transient
   public int getVersion() {
     return version;
   }
@@ -299,6 +301,7 @@ public class Reckoning implements java.io.Serializable {
     this.version = version;
   }
 
+  @Transient
   public int getLeaderPax() {
     return leaderPax;
   }
@@ -307,6 +310,7 @@ public class Reckoning implements java.io.Serializable {
     this.leaderPax = pax;
   }
 
+  @Transient
   public Date getCreateDate() {
     return createDate;
   }
@@ -315,6 +319,7 @@ public class Reckoning implements java.io.Serializable {
     this.createDate = createDate;
   }
 
+  @Transient
   public int getPax() {
     return pax;
   }
@@ -323,6 +328,7 @@ public class Reckoning implements java.io.Serializable {
     this.pax = pax;
   }
 
+  @Transient
   public String getTourNo() {
     return tourNo;
   }
@@ -331,6 +337,7 @@ public class Reckoning implements java.io.Serializable {
     this.tourNo = tourNo;
   }
 
+  @Transient
   public String getRouteNo() {
     return lineNo;
   }
@@ -339,6 +346,7 @@ public class Reckoning implements java.io.Serializable {
     this.lineNo = lineNo;
   }
 
+  @Transient
   public String getRouteName() {
     return lineName;
   }
@@ -347,6 +355,7 @@ public class Reckoning implements java.io.Serializable {
     this.lineName = routeName;
   }
 
+  @Transient
   public Date getOutDate() {
     return outDate;
   }
@@ -355,6 +364,7 @@ public class Reckoning implements java.io.Serializable {
     this.outDate = outDate;
   }
 
+  @Transient
   public String getClient() {
     return client;
   }
@@ -363,6 +373,7 @@ public class Reckoning implements java.io.Serializable {
     this.client = client;
   }
 
+  @Transient
   public int getItemId() {
     return itemId;
   }
@@ -371,6 +382,7 @@ public class Reckoning implements java.io.Serializable {
     this.itemId = itemId;
   }
 
+  @Transient
   public double getUnitPrice() {
     return unitPrice;
   }
@@ -379,6 +391,7 @@ public class Reckoning implements java.io.Serializable {
     this.unitPrice = unitPrice;
   }
 
+  @Transient
   public BigDecimal getAmount() {
     return amount;
   }
@@ -387,6 +400,7 @@ public class Reckoning implements java.io.Serializable {
     this.amount = amount;
   }
 
+  @Transient
   public String getUnit() {
     return unit;
   }
@@ -395,6 +409,7 @@ public class Reckoning implements java.io.Serializable {
     this.unit = unit;
   }
 
+  @Transient
   public Date getPrintDate() {
     return printDate;
   }
@@ -403,6 +418,7 @@ public class Reckoning implements java.io.Serializable {
     this.printDate = printDate;
   }
 
+  @Transient
   public List<ReckoningAcct> getReckoningAcctList() {
     return reckoningAcctList;
   }
@@ -411,6 +427,7 @@ public class Reckoning implements java.io.Serializable {
     this.reckoningAcctList = reckoningAcctList;
   }
 
+  @Transient
   public Date getUpdateDate() {
     return updateDate;
   }
@@ -419,6 +436,7 @@ public class Reckoning implements java.io.Serializable {
     this.updateDate = updateDate;
   }
 
+  @Transient
   public String getPDate() {
     return pDate;
   }
@@ -427,6 +445,7 @@ public class Reckoning implements java.io.Serializable {
     pDate = date;
   }
 
+  @Transient
   public String getCDate() {
     return cDate;
   }
@@ -435,6 +454,7 @@ public class Reckoning implements java.io.Serializable {
     cDate = date;
   }
 
+  @Transient
   public String getUpDate() {
     return upDate;
   }
@@ -443,11 +463,13 @@ public class Reckoning implements java.io.Serializable {
     this.upDate = upDate;
   }
 
+  @Transient
   public Source getSource() {
     return new SAXSource(new ReckoningXMLReader(), new ReckoningInputSource(
         this));
   }
 
+  @Transient
   public String getPayName() {
     return payName;
   }
@@ -456,6 +478,7 @@ public class Reckoning implements java.io.Serializable {
     this.payName = payName;
   }
 
+  @Transient
   public String getPayBank() {
     return payBank;
   }
@@ -464,6 +487,7 @@ public class Reckoning implements java.io.Serializable {
     this.payBank = payBank;
   }
 
+  @Transient
   public String getPayAccount() {
     return payAccount;
   }
@@ -472,6 +496,7 @@ public class Reckoning implements java.io.Serializable {
     this.payAccount = payAccount;
   }
 
+  @Transient
   public String getUserDept() {
     return userDept;
   }
@@ -480,6 +505,7 @@ public class Reckoning implements java.io.Serializable {
     this.userDept = userDept;
   }
 
+  @Transient
   public String getCreatedByName() {
     return createdByName;
   }

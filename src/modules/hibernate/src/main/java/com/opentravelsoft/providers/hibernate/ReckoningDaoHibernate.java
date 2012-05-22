@@ -188,7 +188,7 @@ public class ReckoningDaoHibernate extends GenericDaoHibernate<Reckoning, Long>
 
         List<ReckoningAcct> reckoningAcctList = new ArrayList<ReckoningAcct>();
         for (ReckoningAcct obj : tblReckoningAcctList) {
-          obj.setReckoningId(obj.getId().getReckoningId());
+          obj.getId().setReckoningId(obj.getId().getReckoningId());
           obj.setItemId(obj.getId().getItemId());
 
           reckoningAcctList.add(obj);
@@ -357,7 +357,7 @@ public class ReckoningDaoHibernate extends GenericDaoHibernate<Reckoning, Long>
             if (RowDataUtil.getString(obj[6]).equals(bookingNo)
                 && RowDataUtil.getInt(obj[7]) == number) {
               reckoningAcct = new ReckoningAcct();
-              reckoningAcct.setReckoningId(RowDataUtil.getInt(obj[0]));
+              reckoningAcct.getId().setReckoningId(RowDataUtil.getInt(obj[0]));
               reckoningAcct.setDescription(RowDataUtil.getString(obj[1]));
               reckoningAcct.setUnitPrice(RowDataUtil.getBigDecimal(obj[2]));
               reckoningAcct.setCount(RowDataUtil.getInt(obj[3]));

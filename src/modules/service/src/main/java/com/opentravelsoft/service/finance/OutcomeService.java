@@ -36,7 +36,7 @@ public interface OutcomeService {
 
   public int txPoModifyBillhead(Outcome outcome, Integer uid);
 
-  public int txDeleteBillhead(long outcomeId);
+  public int txDeleteBillhead(int outcomeId);
 
   public List<Outcome> roGetBillheadList(Integer userId, Date kenStartDate,
       Date kenEndDate, Date kenStartOutDate, Date kenEndOutDate,
@@ -45,7 +45,7 @@ public interface OutcomeService {
 
   public List<TourCost> roGetOwedList(Integer supplierId, String tourNo);
 
-  public long txSaveBillhead(Outcome outcome, String audit);
+  public int txSaveBillhead(Outcome outcome, String audit);
 
   public List<Customer> roGetSupplierByType(String resource, Integer teamId);
 
@@ -79,5 +79,5 @@ public interface OutcomeService {
 
   public List<Team> getOperatorTeamList();
 
-  public List<Team> roGetTeams(long userId, TeamType type);
+  public List<Team> roGetTeams(int userId, TeamType type);
 }

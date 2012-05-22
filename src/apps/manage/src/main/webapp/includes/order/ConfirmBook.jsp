@@ -42,7 +42,7 @@ function cancel()
     <td colspan="2"><s:property value="book.recordNo" /></td>
     <td>状态:
     <STRONG>
-    <s:if test='book.confirmStatus == "1"'>已占位</s:if>
+    <s:if test='book.cfmKey == "1"'>已占位</s:if>
     <s:else>未占位</s:else></STRONG>
     </td>
   </tr>
@@ -104,7 +104,7 @@ function cancel()
         <tr>
           <td class="cdata"><s:property value="#rowccount.count"/></td>
           <td class="cdata">
-          <s:if test="confirmStatus eq \"1\"">未审核</s:if>
+          <s:if test="cfmKey eq \"1\"">未审核</s:if>
           <s:else>已审核</s:else>
           </td>
           <td class="data"><a href="javascript:showName(form1,'0611X03618');" title="点击查看客人的详细内容！"><s:property value="userName"/></a></td>

@@ -65,7 +65,7 @@ public class ModuleAction extends ManageAction {
     return moduleService;
   }
 
-  public long getRoleId() {
+  public int getRoleId() {
     return roleId;
   }
 

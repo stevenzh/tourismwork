@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_contact")
@@ -200,6 +201,7 @@ public class Contact implements java.io.Serializable {
 
   private int idx;
 
+  @Transient
   public int getIdx() {
     return idx;
   }

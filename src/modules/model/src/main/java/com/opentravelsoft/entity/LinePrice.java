@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_line_price")
@@ -435,6 +436,7 @@ public class LinePrice implements java.io.Serializable {
 
   private boolean defaultPrice;
 
+  @Transient
   public String getAirId() {
     return this.airId;
   }
@@ -443,6 +445,7 @@ public class LinePrice implements java.io.Serializable {
     this.airId = airId;
   }
 
+  @Transient
   public String getAreaId() {
     return this.areaId;
   }
@@ -451,6 +454,7 @@ public class LinePrice implements java.io.Serializable {
     this.areaId = areaId;
   }
 
+  @Transient
   public int getCount() {
     return count;
   }
@@ -459,6 +463,7 @@ public class LinePrice implements java.io.Serializable {
     this.count = count;
   }
 
+  @Transient
   public Date getEndDate() {
     return endDate;
   }
@@ -467,6 +472,7 @@ public class LinePrice implements java.io.Serializable {
     this.endDate = endDate;
   }
 
+  @Transient
   public BigDecimal getPrice() {
     return price;
   }
@@ -475,6 +481,7 @@ public class LinePrice implements java.io.Serializable {
     this.price = price;
   }
 
+  @Transient
   public String getPriceAdd() {
     return priceAdd;
   }
@@ -483,6 +490,7 @@ public class LinePrice implements java.io.Serializable {
     this.priceAdd = priceAdd;
   }
 
+  @Transient
   public Double getPriceContrast() {
     return priceContrast;
   }
@@ -491,6 +499,7 @@ public class LinePrice implements java.io.Serializable {
     this.priceContrast = priceContrast;
   }
 
+  @Transient
   public BigDecimal getPriceCost() {
     return priceCost;
   }
@@ -499,6 +508,7 @@ public class LinePrice implements java.io.Serializable {
     this.priceCost = priceCost;
   }
 
+  @Transient
   public BigDecimal getPriceOther() {
     return priceOther;
   }
@@ -507,6 +517,7 @@ public class LinePrice implements java.io.Serializable {
     this.priceOther = priceOther;
   }
 
+  @Transient
   public Date getStartDate() {
     return startDate;
   }
@@ -515,6 +526,7 @@ public class LinePrice implements java.io.Serializable {
     this.startDate = startDate;
   }
 
+  @Transient
   public String getType() {
     return type;
   }
@@ -523,6 +535,7 @@ public class LinePrice implements java.io.Serializable {
     this.type = type;
   }
 
+  @Transient
   public Double getPriceVisa() {
     return priceVisa;
   }
@@ -531,6 +544,7 @@ public class LinePrice implements java.io.Serializable {
     this.priceVisa = priceVisa;
   }
 
+  @Transient
   public String getInfo() {
     return info;
   }
@@ -539,6 +553,7 @@ public class LinePrice implements java.io.Serializable {
     this.info = info;
   }
 
+  @Transient
   public Double getSubScription() {
     return subScription;
   }
@@ -547,6 +562,7 @@ public class LinePrice implements java.io.Serializable {
     this.subScription = subScription;
   }
 
+  @Transient
   public boolean getSelect() {
     return select;
   }

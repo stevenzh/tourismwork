@@ -7,6 +7,8 @@ import java.util.TreeMap;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Transient;
+
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -17,7 +19,7 @@ import javax.persistence.Version;
 public class Module implements java.io.Serializable {
 
   private Integer moduleId;
-  private String version;
+  private Integer version;
   private String moduleName;
   private String moduleTitle;
   private String action;
@@ -40,18 +42,6 @@ public class Module implements java.io.Serializable {
     this.isActive = isActive;
   }
 
-  public Module(String name, String title, String action, String description,
-      Integer sortOrder, String type, Integer parentId, byte isActive) {
-    this.moduleName = name;
-    this.moduleTitle = title;
-    this.action = action;
-    this.description = description;
-    this.sortOrder = sortOrder;
-    this.type = type;
-    this.parentId = parentId;
-    this.isActive = isActive;
-  }
-
   @Id
   @GeneratedValue(strategy = IDENTITY)
   @Column(name = "MID", unique = true, nullable = false)
@@ -64,12 +54,12 @@ public class Module implements java.io.Serializable {
   }
 
   @Version
-  @Column(name = "VERSION", length = 50)
-  public String getVersion() {
+  @Column(name = "VERSION")
+  public Integer getVersion() {
     return this.version;
   }
 
-  public void setVersion(String version) {
+  public void setVersion(Integer version) {
     this.version = version;
   }
 
@@ -161,6 +151,7 @@ public class Module implements java.io.Serializable {
     this.isAdmin = isAdmin;
   }
 
+  @Transient
   public Map<Integer, Boolean> getRolePermissionMap() {
     return rolePermissionMap;
   }
@@ -169,6 +160,7 @@ public class Module implements java.io.Serializable {
     this.rolePermissionMap = rolePermissionMap;
   }
 
+  @Transient
   public Set<ModulePermission> getModulePermissions() {
     return modulePermissions;
   }

@@ -17,6 +17,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import com.opentravelsoft.entity.Customer;
 
@@ -241,6 +242,7 @@ public class Income implements java.io.Serializable {
   /** 发票记录 */
   private List<Invoice> invices;
 
+  @Transient
   public BigDecimal getOffSetAmount() {
     return this.offSetAmount;
   }
@@ -249,6 +251,7 @@ public class Income implements java.io.Serializable {
     this.offSetAmount = offsetAmount;
   }
 
+  @Transient
   public Integer getCreatedBy() {
     return this.createdBy;
   }
@@ -257,6 +260,7 @@ public class Income implements java.io.Serializable {
     this.createdBy = createdBy;
   }
 
+  @Transient
   public Integer getUpdatedBy() {
     return this.updatedBy;
   }
@@ -265,6 +269,7 @@ public class Income implements java.io.Serializable {
     this.updatedBy = updatedBy;
   }
 
+  @Transient
   public int getBatch() {
     return batch;
   }
@@ -273,6 +278,7 @@ public class Income implements java.io.Serializable {
     this.batch = batch;
   }
 
+  @Transient
   public double getUnpay() {
     return unpay;
   }
@@ -281,6 +287,7 @@ public class Income implements java.io.Serializable {
     this.unpay = unpay;
   }
 
+  @Transient
   public BigDecimal getUnOffSetMon() {
     return unOffSetMon;
   }
@@ -289,6 +296,7 @@ public class Income implements java.io.Serializable {
     this.unOffSetMon = unOffSetMon;
   }
 
+  @Transient
   public String getIncomeModeShow() {
     return incomeModeShow;
   }
@@ -297,6 +305,7 @@ public class Income implements java.io.Serializable {
     this.incomeModeShow = incomeModeShow;
   }
 
+  @Transient
   public double getFinalExpense() {
     return finalExpense;
   }
@@ -305,6 +314,7 @@ public class Income implements java.io.Serializable {
     this.finalExpense = finalExpense;
   }
 
+  @Transient
   public double getPayCosts() {
     return payCosts;
   }
@@ -313,6 +323,7 @@ public class Income implements java.io.Serializable {
     this.payCosts = payCosts;
   }
 
+  @Transient
   public double getPayBack() {
     return payBack;
   }
@@ -321,6 +332,7 @@ public class Income implements java.io.Serializable {
     this.payBack = payBack;
   }
 
+  @Transient
   public double getUnPay() {
     return unPay;
   }
@@ -329,6 +341,7 @@ public class Income implements java.io.Serializable {
     this.unPay = unPay;
   }
 
+  @Transient
   public List<Invoice> getInvices() {
     return invices;
   }
@@ -345,10 +358,12 @@ public class Income implements java.io.Serializable {
     this.updatedBy = updatedBy2;
   }
 
+  @Transient
   public Integer getUpdateBy() {
     return updatedBy;
   }
 
+  @Transient
   public String getUseTypeLabel() {
     return useTypeLabel;
   }
@@ -357,6 +372,7 @@ public class Income implements java.io.Serializable {
     this.useTypeLabel = useTypeLabel;
   }
 
+  @Transient
   public String getDel() {
     return del;
   }

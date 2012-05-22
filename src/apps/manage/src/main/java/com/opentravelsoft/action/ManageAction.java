@@ -44,7 +44,7 @@ public class ManageAction extends BaseAction {
     String pswd = getConfig("ebiz_sms_pswd");
     String extno = getConfig("ebiz_sms_extno");
 
-    long userId = 0;
+    int userId = 0;
     // uid=xkh&pswd=5537&msg=+_()*^%$@!hello%20world&extno=5537&mob=13816617311
     Object user = session.get(SessionKeyParams.EBIZ_USER);
 

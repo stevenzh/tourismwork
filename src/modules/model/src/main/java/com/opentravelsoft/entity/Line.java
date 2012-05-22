@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.xml.transform.Source;
 import javax.xml.transform.sax.SAXSource;
 
@@ -800,10 +801,12 @@ public class Line implements java.io.Serializable {
 
   private String classifyRegionId;
 
+  @Transient
   public Source getSource() {
     return new SAXSource(new LineXMLReader(), new LineInputSource(this));
   }
 
+  @Transient
   public Double getPrice() {
     return price;
   }
@@ -824,6 +827,7 @@ public class Line implements java.io.Serializable {
     plan = new ArrayList<Plan>();
   }
 
+  @Transient
   public List<Plan> getPlan() {
     return plan;
   }
@@ -832,6 +836,7 @@ public class Line implements java.io.Serializable {
     this.plan = plan;
   }
 
+  @Transient
   public String getPlanView() {
     return planView;
   }
@@ -840,6 +845,7 @@ public class Line implements java.io.Serializable {
     this.planView = planView;
   }
 
+  @Transient
   public List<LineSchedule> getSchedule() {
     return schedule;
   }
@@ -848,6 +854,7 @@ public class Line implements java.io.Serializable {
     this.schedule = schedule;
   }
 
+  @Transient
   public Integer getLineDay() {
     return lineDay;
   }
@@ -856,6 +863,7 @@ public class Line implements java.io.Serializable {
     this.lineDay = lineDay;
   }
 
+  @Transient
   public Date getCreateDate() {
     return createDate;
   }
@@ -864,6 +872,7 @@ public class Line implements java.io.Serializable {
     this.createDate = createDate;
   }
 
+  @Transient
   public Date getOperateDate() {
     return operateDate;
   }
@@ -872,6 +881,7 @@ public class Line implements java.io.Serializable {
     this.operateDate = operateDate;
   }
 
+  @Transient
   public Integer getCreateUserId() {
     return createUserId;
   }
@@ -880,6 +890,7 @@ public class Line implements java.io.Serializable {
     this.createUserId = createUserId;
   }
 
+  @Transient
   public Integer getOperateUserId() {
     return operateUserId;
   }
@@ -888,6 +899,7 @@ public class Line implements java.io.Serializable {
     this.operateUserId = operateUserId;
   }
 
+  @Transient
   public String getClassKeyContent() {
     return classKeyContent;
   }
@@ -896,6 +908,7 @@ public class Line implements java.io.Serializable {
     this.classKeyContent = classKeyContent;
   }
 
+  @Transient
   public String getClassKeyVehicle() {
     return classKeyVehicle;
   }
@@ -904,6 +917,7 @@ public class Line implements java.io.Serializable {
     this.classKeyVehicle = classKeyVehicle;
   }
 
+  @Transient
   public List<LineDescription> getExpenseIn() {
     return expenseIn;
   }
@@ -912,6 +926,7 @@ public class Line implements java.io.Serializable {
     this.expenseIn = expenseIn;
   }
 
+  @Transient
   public List<LineDescription> getExpenseOut() {
     return expenseOut;
   }
@@ -920,6 +935,7 @@ public class Line implements java.io.Serializable {
     this.expenseOut = expenseOut;
   }
 
+  @Transient
   public String getTyOwnExpense() {
     return tyOwnExpense;
   }
@@ -928,6 +944,7 @@ public class Line implements java.io.Serializable {
     this.tyOwnExpense = tyOwnExpense;
   }
 
+  @Transient
   public String getZkOwnExpense() {
     return zkOwnExpense;
   }
@@ -936,6 +953,7 @@ public class Line implements java.io.Serializable {
     this.zkOwnExpense = zkOwnExpense;
   }
 
+  @Transient
   public List<LineDescription> getFeatures() {
     return features;
   }
@@ -944,6 +962,7 @@ public class Line implements java.io.Serializable {
     this.features = features;
   }
 
+  @Transient
   public List<LabelValueBean> getExpenseCovered() {
     return expenseCovered;
   }
@@ -952,6 +971,7 @@ public class Line implements java.io.Serializable {
     this.expenseCovered = expenseCovered;
   }
 
+  @Transient
   public List<LabelValueBean> getExpenseExcept() {
     return expenseExcept;
   }
@@ -960,6 +980,7 @@ public class Line implements java.io.Serializable {
     this.expenseExcept = expenseExcept;
   }
 
+  @Transient
   public List<LabelValueBean> getAlerts() {
     return alerts;
   }
@@ -968,6 +989,7 @@ public class Line implements java.io.Serializable {
     this.alerts = alerts;
   }
 
+  @Transient
   public List<LabelValueBean> getRules() {
     return rules;
   }
@@ -976,6 +998,7 @@ public class Line implements java.io.Serializable {
     this.rules = rules;
   }
 
+  @Transient
   public List<LineDescription> getRouteTipsList() {
     return tipsList;
   }
@@ -984,6 +1007,7 @@ public class Line implements java.io.Serializable {
     this.tipsList = routeTipsList;
   }
 
+  @Transient
   public List<LinePrice> getQuotations() {
     return quotations;
   }
@@ -992,6 +1016,7 @@ public class Line implements java.io.Serializable {
     this.quotations = quotations;
   }
 
+  @Transient
   public List<LineVisa> getVisaList() {
     return visaList;
   }
@@ -1000,6 +1025,7 @@ public class Line implements java.io.Serializable {
     this.visaList = visaList;
   }
 
+  @Transient
   public String getCountryName() {
     return countryName;
   }
@@ -1008,6 +1034,7 @@ public class Line implements java.io.Serializable {
     this.countryName = countryName;
   }
 
+  @Transient
   public String getJourney() {
     return journey;
   }
@@ -1016,6 +1043,7 @@ public class Line implements java.io.Serializable {
     this.journey = journey;
   }
 
+  @Transient
   public int getPax() {
     return pax;
   }
@@ -1024,6 +1052,7 @@ public class Line implements java.io.Serializable {
     this.pax = pax;
   }
 
+  @Transient
   public double getVisa() {
     return visa;
   }
@@ -1032,6 +1061,7 @@ public class Line implements java.io.Serializable {
     this.visa = visa;
   }
 
+  @Transient
   public double getRoe() {
     return roe;
   }
@@ -1040,6 +1070,7 @@ public class Line implements java.io.Serializable {
     this.roe = roe;
   }
 
+  @Transient
   public double getUnitPrice() {
     return unitPrice;
   }
@@ -1048,6 +1079,7 @@ public class Line implements java.io.Serializable {
     this.unitPrice = unitPrice;
   }
 
+  @Transient
   public double getCost4() {
     return cost4;
   }
@@ -1056,6 +1088,7 @@ public class Line implements java.io.Serializable {
     this.cost4 = cost4;
   }
 
+  @Transient
   public String getCurrency() {
     return currency;
   }
@@ -1064,6 +1097,7 @@ public class Line implements java.io.Serializable {
     this.currency = currency;
   }
 
+  @Transient
   public double getCost1() {
     return cost1;
   }
@@ -1072,6 +1106,7 @@ public class Line implements java.io.Serializable {
     this.cost1 = cost1;
   }
 
+  @Transient
   public double getCost3() {
     return cost3;
   }
@@ -1080,6 +1115,7 @@ public class Line implements java.io.Serializable {
     this.cost3 = cost3;
   }
 
+  @Transient
   public double getCost6() {
     return cost6;
   }
@@ -1088,6 +1124,7 @@ public class Line implements java.io.Serializable {
     this.cost6 = cost6;
   }
 
+  @Transient
   public double getCost7() {
     return cost7;
   }
@@ -1096,6 +1133,7 @@ public class Line implements java.io.Serializable {
     this.cost7 = cost7;
   }
 
+  @Transient
   public double getBackMoney() {
     return backMoney;
   }
@@ -1104,6 +1142,7 @@ public class Line implements java.io.Serializable {
     this.backMoney = backMoney;
   }
 
+  @Transient
   public double getAfieldDuty() {
     return afieldDuty;
   }
@@ -1112,6 +1151,7 @@ public class Line implements java.io.Serializable {
     this.afieldDuty = afieldDuty;
   }
 
+  @Transient
   public Date getEDate() {
     return EDate;
   }
@@ -1120,6 +1160,7 @@ public class Line implements java.io.Serializable {
     EDate = date;
   }
 
+  @Transient
   public Date getSDate() {
     return SDate;
   }
@@ -1128,6 +1169,7 @@ public class Line implements java.io.Serializable {
     SDate = date;
   }
 
+  @Transient
   public String getDestinationNo() {
     return destinationNo;
   }
@@ -1136,6 +1178,7 @@ public class Line implements java.io.Serializable {
     this.destinationNo = destinationNo;
   }
 
+  @Transient
   public String getRouteTrait() {
     return routeTrait;
   }
@@ -1144,6 +1187,7 @@ public class Line implements java.io.Serializable {
     this.routeTrait = routeTrait;
   }
 
+  @Transient
   public double getPrice1() {
     return price1;
   }
@@ -1152,6 +1196,7 @@ public class Line implements java.io.Serializable {
     this.price1 = price1;
   }
 
+  @Transient
   public double getPrice2() {
     return price2;
   }
@@ -1160,6 +1205,7 @@ public class Line implements java.io.Serializable {
     this.price2 = price2;
   }
 
+  @Transient
   public Date getOutDate() {
     return outDate;
   }
@@ -1168,6 +1214,7 @@ public class Line implements java.io.Serializable {
     this.outDate = outDate;
   }
 
+  @Transient
   public String getOutDateStr() {
     return outDateStr;
   }
@@ -1176,6 +1223,7 @@ public class Line implements java.io.Serializable {
     this.outDateStr = outDateStr;
   }
 
+  @Transient
   public String getPrice1Str() {
     return price1Str;
   }
@@ -1184,6 +1232,7 @@ public class Line implements java.io.Serializable {
     this.price1Str = price1Str;
   }
 
+  @Transient
   public String getPrice2Str() {
     return price2Str;
   }
@@ -1192,6 +1241,7 @@ public class Line implements java.io.Serializable {
     this.price2Str = price2Str;
   }
 
+  @Transient
   public String getDistrictNo() {
     return districtNo;
   }
@@ -1200,6 +1250,7 @@ public class Line implements java.io.Serializable {
     this.districtNo = districtNo;
   }
 
+  @Transient
   public String getDistrictName() {
     return districtName;
   }
@@ -1208,6 +1259,7 @@ public class Line implements java.io.Serializable {
     this.districtName = districtName;
   }
 
+  @Transient
   public String getDistrictCountry() {
     return districtCountry;
   }
@@ -1216,6 +1268,7 @@ public class Line implements java.io.Serializable {
     this.districtCountry = districtCountry;
   }
 
+  @Transient
   public String getDistrictProvince() {
     return districtProvince;
   }
@@ -1224,6 +1277,7 @@ public class Line implements java.io.Serializable {
     this.districtProvince = districtProvince;
   }
 
+  @Transient
   public String getPlanPax() {
     return planPax;
   }
@@ -1232,6 +1286,7 @@ public class Line implements java.io.Serializable {
     this.planPax = planPax;
   }
 
+  @Transient
   public String getIsPrefer() {
     return isPrefer;
   }
@@ -1240,6 +1295,7 @@ public class Line implements java.io.Serializable {
     this.isPrefer = isPrefer;
   }
 
+  @Transient
   public String getDistrictCountryName() {
     return districtCountryName;
   }
@@ -1248,6 +1304,7 @@ public class Line implements java.io.Serializable {
     this.districtCountryName = districtCountryName;
   }
 
+  @Transient
   public String getDistrictProvinceName() {
     return districtProvinceName;
   }
@@ -1256,6 +1313,7 @@ public class Line implements java.io.Serializable {
     this.districtProvinceName = districtProvinceName;
   }
 
+  @Transient
   public String getSightNo() {
     return sightNo;
   }
@@ -1264,6 +1322,7 @@ public class Line implements java.io.Serializable {
     this.sightNo = sightNo;
   }
 
+  @Transient
   public String getSightName() {
     return sightName;
   }
@@ -1272,6 +1331,7 @@ public class Line implements java.io.Serializable {
     this.sightName = sightName;
   }
 
+  @Transient
   public String getOutDate_price1() {
     return outDate_price1;
   }
@@ -1280,6 +1340,7 @@ public class Line implements java.io.Serializable {
     this.outDate_price1 = outDate_price1;
   }
 
+  @Transient
   public String getOutDate_price2() {
     return outDate_price2;
   }
@@ -1288,6 +1349,7 @@ public class Line implements java.io.Serializable {
     this.outDate_price2 = outDate_price2;
   }
 
+  @Transient
   public String getRegion() {
     return region;
   }
@@ -1296,6 +1358,7 @@ public class Line implements java.io.Serializable {
     this.region = region;
   }
 
+  @Transient
   public String getClassifyRegion() {
     return classifyRegion;
   }
@@ -1304,6 +1367,7 @@ public class Line implements java.io.Serializable {
     this.classifyRegion = classifyRegion;
   }
 
+  @Transient
   public String getRegionId() {
     return regionId;
   }
@@ -1312,6 +1376,7 @@ public class Line implements java.io.Serializable {
     this.regionId = regionId;
   }
 
+  @Transient
   public String getClassifyRegionId() {
     return classifyRegionId;
   }
