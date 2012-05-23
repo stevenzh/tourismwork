@@ -7,7 +7,7 @@ import com.opentravelsoft.entity.Team;
 import com.opentravelsoft.util.PaginationSupport;
 
 public interface TeamService {
-  PaginationSupport getTeamList(long fromRecord, int pageSize);
+  PaginationSupport getTeamList(int fromRecord, int pageSize);
 
   Team getTeamDetail(int teamId);
 

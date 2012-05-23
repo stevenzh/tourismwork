@@ -77,7 +77,7 @@ public class SightServiceImpl implements SightService {
   }
 
   public PaginationSupport getSightList(String country, String province,
-      String name, long fromRecord, int moveCount) {
+      String name, int fromRecord, int moveCount) {
     return sightDao
         .getSightList(country, province, name, fromRecord, moveCount);
   }

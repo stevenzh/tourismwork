@@ -196,8 +196,8 @@ public class GenericDaoHibernate<T, PK extends Serializable> implements
           public Object doInHibernate(Session session)
               throws HibernateException {
             Criteria criteria = detachedCriteria.getExecutableCriteria(session);
-            long totalCount = ((Integer) criteria.setProjection(
-                Projections.rowCount()).uniqueResult()).longValue();
+            int totalCount = ((Long) criteria.setProjection(
+                Projections.rowCount()).uniqueResult()).intValue();
             criteria.setProjection(null);
             criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
             List items = criteria.setFirstResult(startIndex)

@@ -54,7 +54,7 @@ public class FlightServiceImpl implements FlightService {
   }
 
   public PaginationSupport getFlightList(String aireways, String lvAirport,
-      String goAirport, long fromRecord, int moveCount) {
+      String goAirport, int fromRecord, int moveCount) {
     return flightDao.getFlightList(aireways, lvAirport, goAirport, fromRecord,
         moveCount);
   }

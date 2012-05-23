@@ -28,6 +28,6 @@ public interface SightService {
   public int txEditSight(Sight sight);
 
   public PaginationSupport getSightList(String country, String province,
-      String name, long fromRecord, int moveCount);
+      String name, int fromRecord, int moveCount);
 
 }

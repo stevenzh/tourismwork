@@ -10,7 +10,7 @@ public interface TeamDao extends GenericDao<Team, Integer> {
 
   public List<Team> getTeam(int userId, TeamType type);
 
-  public PaginationSupport getTeamList(long fromRecord, int pageSize);
+  public PaginationSupport getTeamList(int fromRecord, int pageSize);
 
   public List<Team> getTeamList(TeamType type);
 

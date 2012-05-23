@@ -10,27 +10,27 @@ public class PaginationSupport {
 
   private List items;
 
-  private long totalCount;
+  private int totalCount;
 
   private int[] indexes = new int[0];
 
-  private long startIndex = 0;
+  private int startIndex = 0;
 
-  public PaginationSupport(List items, long totalCount) {
+  public PaginationSupport(List items, int totalCount) {
     setPageSize(PAGESIZE);
     setTotalCount(totalCount);
     setItems(items);
     setStartIndex(0);
   }
 
-  public PaginationSupport(List items, long totalCount, int startIndex) {
+  public PaginationSupport(List items, int totalCount, int startIndex) {
     setPageSize(PAGESIZE);
     setTotalCount(totalCount);
     setItems(items);
     setStartIndex(startIndex);
   }
 
-  public PaginationSupport(List items, long totalCount, int pageSize,
+  public PaginationSupport(List items, int totalCount, int pageSize,
       int startIndex) {
     setPageSize(pageSize);
     setTotalCount(totalCount);
@@ -54,11 +54,11 @@ public class PaginationSupport {
     this.pageSize = pageSize;
   }
 
-  public long getTotalCount() {
+  public int getTotalCount() {
     return totalCount;
   }
 
-  public void setTotalCount(long totalCount) {
+  public void setTotalCount(int totalCount) {
     if (totalCount > 0) {
       this.totalCount = totalCount;
       long count = totalCount / pageSize;

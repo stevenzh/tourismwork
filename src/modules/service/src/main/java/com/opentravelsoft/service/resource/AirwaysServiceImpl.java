@@ -31,7 +31,7 @@ public class AirwaysServiceImpl implements AirwaysService {
     return airwaysDao.getAll(false);
   }
 
-  public PaginationSupport getAirwaysList(boolean isActive, long fromRecord,
+  public PaginationSupport getAirwaysList(boolean isActive, int fromRecord,
       int moveCount) {
     return airwaysDao.getAirwaysList(isActive, fromRecord, moveCount);
   }

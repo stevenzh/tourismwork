@@ -17,7 +17,7 @@ public interface AirportService extends GenericManager<Airport, String> {
   public int txDelete(Airport airways);
 
   public PaginationSupport roGetAirportList(String country, String city,
-      String delkey, long fromRecord, int pageSize);
+      String delkey, int fromRecord, int pageSize);
 
   List<Airport> getAirportList(boolean isActive);
 }

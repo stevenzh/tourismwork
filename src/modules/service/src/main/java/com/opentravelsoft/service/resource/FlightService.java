@@ -23,6 +23,6 @@ public interface FlightService {
   void txUpdate(Flight flight);
 
   PaginationSupport getFlightList(String airewaysNo, String kenLvAirport,
-      String kenGoAirport, long fromRecord, int moveCount);
+      String kenGoAirport, int fromRecord, int moveCount);
 
 }

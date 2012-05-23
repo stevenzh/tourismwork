@@ -27,7 +27,7 @@ public interface LineDao extends GenericDao<Line, String> {
    * @return
    */
   public PaginationSupport findLineList(int teamId, String lineName,
-      String isActive, int userId, String destination, long fromRecord,
+      String isActive, int userId, String destination, int fromRecord,
       int pageSize);
 
   /**
