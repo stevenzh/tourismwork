@@ -17,7 +17,7 @@
     <property name="cityen" type="string">
       <column name="CITYEN" length="20" />
     </property>
-    <many-to-one name="province" class="com.opentravelsoft.entity.Province" lazy="false" fetch="join">
+    <many-to-one name="province" class="com.opentravelsoft.entity.Province" lazy="false" fetch="join"  not-found="ignore">
       <column name="PROVINCE" length="2" />
     </many-to-one>
     <property name="inOut" type="java.lang.Character">

@@ -24,8 +24,8 @@ import com.opentravelsoft.util.RowDataUtil;
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
  */
 @Repository("ReckoningDao")
-public class ReckoningDaoHibernate extends GenericDaoHibernate<Reckoning, Long>
-    implements ReckoningDao {
+public class ReckoningDaoHibernate extends
+    GenericDaoHibernate<Reckoning, Integer> implements ReckoningDao {
 
   public ReckoningDaoHibernate() {
     super(Reckoning.class);
@@ -157,7 +157,7 @@ public class ReckoningDaoHibernate extends GenericDaoHibernate<Reckoning, Long>
   }
 
   @SuppressWarnings("unchecked")
-  public Reckoning getReckoningInfo(long reckoningId) {
+  public Reckoning getReckoningInfo(int reckoningId) {
     Reckoning reckoning = (Reckoning) getHibernateTemplate().get(
         Reckoning.class, reckoningId);
 

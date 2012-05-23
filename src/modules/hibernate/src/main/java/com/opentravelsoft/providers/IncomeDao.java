@@ -131,7 +131,7 @@ public interface IncomeDao extends GenericDao<Income, Integer> {
    * @param warrant 担保单
    * @return
    */
-  public int warrantSubmit(long customerId, String tourNo, Warrant warrant);
+  public int warrantSubmit(int customerId, String tourNo, Warrant warrant);
 
   /**
    * 取得订单的客户付款记录

@@ -134,8 +134,8 @@ public class MemberDaoHibernate extends GenericDaoHibernate<Member, Long>
   }
 
   @SuppressWarnings("unchecked")
-  public Member getMemberById(long uid) {
-    Object[] obj1 = { uid };
+  public Member getMemberById(long memberId) {
+    Object[] obj1 = { memberId };
     StringBuilder sql = new StringBuilder();
     sql.append("from Member where id = ?");
     List<Member> members = getHibernateTemplate().find(sql.toString(), obj1);

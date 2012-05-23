@@ -11,7 +11,7 @@ import com.opentravelsoft.util.PaginationSupport;
 
 @Service("AirwaysService")
 public class AirwaysServiceImpl implements AirwaysService {
-  
+
   @Autowired
   private AirwaysDao airwaysDao;
 
@@ -31,7 +31,7 @@ public class AirwaysServiceImpl implements AirwaysService {
     return airwaysDao.getAll(false);
   }
 
-  public PaginationSupport getAirwaysList(boolean isActive, int fromRecord,
+  public PaginationSupport getAirwaysList(boolean isActive, long fromRecord,
       int moveCount) {
     return airwaysDao.getAirwaysList(isActive, fromRecord, moveCount);
   }

@@ -9,26 +9,25 @@ import com.opentravelsoft.entity.Sight;
 import com.opentravelsoft.entity.product.SightTrait;
 import com.opentravelsoft.util.PaginationSupport;
 
-public interface SightService
-{
-    public void txDelete(String sightno);
+public interface SightService {
+  public void txDelete(String sightno);
 
-    public Sight roGetSightDetail(String sightno);
+  public Sight roGetSightDetail(String sightno);
 
-    public List<District> roGetDistrictList(String countryNo, String province);
+  public List<District> roGetDistrictList(String countryNo, String province);
 
-    public List<Country> roGetCountry();
+  public List<Country> roGetCountry();
 
-    public List<Province> roGetProvinceList(String country);
+  public List<Province> roGetProvinceList(String country);
 
-    public List<Sight> roGetSightList(String kenProvince, String kenCountry,
-            String kenName, String kenDestination);
+  public List<Sight> roGetSightList(String kenProvince, String kenCountry,
+      String kenName, String kenDestination);
 
-    public List<SightTrait> roGetSightPicManageList(String sightNo);
+  public List<SightTrait> roGetSightPicManageList(String sightNo);
 
-    public int txEditSight(Sight sight);
+  public int txEditSight(Sight sight);
 
-    public PaginationSupport getSightList(String country, String province,
-            String name, int fromRecord, int moveCount);
+  public PaginationSupport getSightList(String country, String province,
+      String name, long fromRecord, int moveCount);
 
 }

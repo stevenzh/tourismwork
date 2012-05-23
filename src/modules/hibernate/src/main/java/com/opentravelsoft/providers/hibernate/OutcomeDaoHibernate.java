@@ -30,12 +30,6 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     super(Outcome.class);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.OutcomeDao#getOwedList(long,
-   * java.lang.String)
-   */
   @SuppressWarnings("unchecked")
   public List<TourCost> getOwedList(Integer customerId, String tourNo) {
     HibernateTemplate template = getHibernateTemplate();
@@ -77,12 +71,6 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     return template.find(sql.toString(), param2);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.OutcomeDao#getOutcomeDetail(long,
-   * java.util.Date, java.util.Date)
-   */
   @SuppressWarnings("unchecked")
   public List<TourCost> findBill(Integer customerId, Date startDate,
       Date endDate) {
@@ -98,13 +86,6 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     return template.find(sql.toString(), param1);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * com.opentravelsoft.providers.OutcomeDao#saveBillhead(com.opentravelsoft
-   * .ebiz.entity.finance.Outcome, java.lang.String)
-   */
   public int saveBill(Outcome bill, String audit) {
     Outcome tblOutcome = new Outcome();
     if (bill.getOutcomeId() > 0) {
@@ -157,12 +138,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     return tblOutcome.getOutcomeId();
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.OutcomeDao#deleteBillhead(long)
-   */
-  public int cancelBill(long outcomeId) {
+  public int cancelBill(int outcomeId) {
     HibernateTemplate template = getHibernateTemplate();
     StringBuilder sb = new StringBuilder();
     sb.append("update Outcome set del='Y' ");
@@ -182,13 +158,6 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     return 0;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.OutcomeDao#getBillheadList(long,
-   * java.util.Date, java.util.Date, java.util.Date, java.util.Date, boolean,
-   * java.lang.String, java.lang.String, java.util.Date, java.util.Date)
-   */
   @SuppressWarnings("unchecked")
   public List<Outcome> getBillList(Integer userId, Date startDate,
       Date endDate, Date startOutDate, Date endOutDate, boolean opAudited,
@@ -298,11 +267,6 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     return billheadList;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.OutcomeDao#auditingBillhead(long, long)
-   */
   public int auditingBill(Integer outcomeId, Integer uid) {
     HibernateTemplate template = getHibernateTemplate();
     Outcome outcome = (Outcome) template.get(Outcome.class, outcomeId);
@@ -330,11 +294,6 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     return -1;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.OutcomeDao#opApproved(long, long)
-   */
   public int opApproved(Integer outcomeId, Integer uid) {
     HibernateTemplate template = getHibernateTemplate();
     Outcome tblOutcome = (Outcome) template.get(Outcome.class, outcomeId);
@@ -352,13 +311,6 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     return -1;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * com.opentravelsoft.providers.OutcomeDao#frReadBillhead(com.opentravelsoft
-   * .ebiz.entity.finance.Outcome, long)
-   */
   public int frReadBill(Outcome outcome, Integer uid) {
     HibernateTemplate template = getHibernateTemplate();
     Outcome tblOutcome = (Outcome) template.get(Outcome.class,
@@ -377,12 +329,6 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     return -1;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.OutcomeDao#frModifyBillhead(com.
-   * opentravelsoft.ebiz.entity.finance.Outcome, long)
-   */
   public int frModifyBill(Outcome outcome, Integer uid) {
     HibernateTemplate template = getHibernateTemplate();
     Outcome tblOutcome = (Outcome) template.get(Outcome.class,
@@ -410,12 +356,6 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     return -1;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.OutcomeDao#factualRegister(int[], long,
-   * java.lang.String, java.util.Date)
-   */
   @SuppressWarnings("unchecked")
   public int factualRegister(int[] outcomeIds, Integer uid, String billNo,
       Date payDate) {
@@ -475,12 +415,6 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
       return -1;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.OutcomeDao#poModifyBillhead(com.
-   * opentravelsoft.ebiz.entity.finance.Outcome, long)
-   */
   public int opModifyBill(Outcome outcome, Integer uid) {
     HibernateTemplate template = getHibernateTemplate();
     Outcome tblOutcome = (Outcome) template.get(Outcome.class,

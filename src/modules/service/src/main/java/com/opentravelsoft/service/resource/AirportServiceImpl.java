@@ -45,7 +45,7 @@ public class AirportServiceImpl extends GenericManagerImpl<Airport, String>
   }
 
   public PaginationSupport roGetAirportList(String country, String city,
-      String delkey, int fromRecord, int pageSize) {
+      String delkey, long fromRecord, int pageSize) {
     return airportDao.getAirportList(country, city, delkey, fromRecord,
         pageSize);
   }

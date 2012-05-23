@@ -499,12 +499,6 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
     return tour;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.TourDao#mustPayModify(java.util.List,
-   * long)
-   */
   @SuppressWarnings("unchecked")
   public List<Booking> mustPayModify(List<Booking> bookList, int uid) {
     StringBuilder sql = new StringBuilder();
@@ -679,8 +673,8 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
 
   }
 
-  public int authorizationModify(long accountId, int uid) {
-    Plan plan = (Plan) getHibernateTemplate().get(Plan.class, accountId);
+  public int authorizationModify(String planNo, int uid) {
+    Plan plan = (Plan) getHibernateTemplate().get(Plan.class, planNo);
     if (null != plan) {
       plan.setOpRefactor('Y');
       plan.setUpdatedby(uid);

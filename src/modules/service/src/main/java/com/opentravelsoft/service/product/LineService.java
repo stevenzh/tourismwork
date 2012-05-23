@@ -25,7 +25,7 @@ public interface LineService {
   public List<Team> getOperatorTeams();
 
   public PaginationSupport findLineList(int teamId, String lineName,
-      String isActive, int userId, String kenDestination, int fromRecord,
+      String isActive, int userId, String kenDestination, long fromRecord,
       int pageSize);
 
   /**

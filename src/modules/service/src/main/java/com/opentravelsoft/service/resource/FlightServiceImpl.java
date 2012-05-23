@@ -15,7 +15,7 @@ import com.opentravelsoft.util.PaginationSupport;
 
 @Service("FlightService")
 public class FlightServiceImpl implements FlightService {
-  
+
   @Autowired
   private CountryDao countryDao;
 
@@ -54,7 +54,7 @@ public class FlightServiceImpl implements FlightService {
   }
 
   public PaginationSupport getFlightList(String aireways, String lvAirport,
-      String goAirport, int fromRecord, int moveCount) {
+      String goAirport, long fromRecord, int moveCount) {
     return flightDao.getFlightList(aireways, lvAirport, goAirport, fromRecord,
         moveCount);
   }

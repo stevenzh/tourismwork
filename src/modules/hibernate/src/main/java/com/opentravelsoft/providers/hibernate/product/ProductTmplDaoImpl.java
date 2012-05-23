@@ -17,20 +17,20 @@ import com.opentravelsoft.providers.product.ProductTmplDao;
 import com.opentravelsoft.util.StringUtil;
 
 @Repository("LineTmplDao")
-public class ProductTmplDaoImpl extends GenericDaoHibernate<ProductTmpl, Long>
-    implements ProductTmplDao {
+public class ProductTmplDaoImpl extends
+    GenericDaoHibernate<ProductTmpl, Integer> implements ProductTmplDao {
 
   public ProductTmplDaoImpl() {
     super(ProductTmpl.class);
   }
 
-  public ProductTmpl getProductTmpl(long tmplId) {
+  public ProductTmpl getProductTmpl(int tmplId) {
     HibernateTemplate template = getHibernateTemplate();
     ProductTmpl tmpl = (ProductTmpl) template.get(ProductTmpl.class, tmplId);
     return tmpl;
   }
 
-  public int deleteTmpl(long tmplId) {
+  public int deleteTmpl(int tmplId) {
     ProductTmpl tmpl = (ProductTmpl) getHibernateTemplate().get(
         ProductTmpl.class, tmplId);
     if (null == tmpl)
@@ -41,7 +41,7 @@ public class ProductTmplDaoImpl extends GenericDaoHibernate<ProductTmpl, Long>
   }
 
   @SuppressWarnings("unchecked")
-  public List<ProductTmpl> getProductTmplByType(long teamId, long itemId,
+  public List<ProductTmpl> getProductTmplByType(int teamId, int itemId,
       String destCode) {
     DetachedCriteria criteria = DetachedCriteria.forClass(ProductTmpl.class,
         "p");
@@ -97,7 +97,7 @@ public class ProductTmplDaoImpl extends GenericDaoHibernate<ProductTmpl, Long>
   }
 
   @SuppressWarnings("unchecked")
-  public List<ProductTmpl> getProductTmplByType(long teamId, String itemType) {
+  public List<ProductTmpl> getProductTmplByType(int teamId, String itemType) {
     DetachedCriteria criteria = DetachedCriteria.forClass(ProductTmpl.class,
         "p");
     criteria.createAlias("p.team", "t");

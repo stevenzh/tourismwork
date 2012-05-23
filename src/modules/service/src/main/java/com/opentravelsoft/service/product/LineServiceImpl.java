@@ -66,7 +66,7 @@ public class LineServiceImpl implements LineService {
   private TeamDao teamDao;
 
   public PaginationSupport findLineList(int teamId, String lineName,
-      String isActive, int userId, String kenDestination, int fromRecord,
+      String isActive, int userId, String kenDestination, long fromRecord,
       int pageSize) {
     return lineDao.findLineList(teamId, lineName, isActive, userId,
         kenDestination, fromRecord, pageSize);

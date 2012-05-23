@@ -106,15 +106,15 @@ public interface BookingDao extends GenericDao<Booking, String> {
    * @param uid
    * @return
    */
-  public List<Booking> findUndetermined(long teamId, long userId);
+  public List<Booking> findUndetermined(int teamId, int userId);
 
   /**
    * 取得会员的订单
    * 
-   * @param userId
+   * @param memberId
    * @return
    */
-  public List<Booking> getBookings(long userId);
+  public List<Booking> getBookings(long memberId);
 
   /**
    * 取得已确认的订单（分销）
@@ -137,7 +137,7 @@ public interface BookingDao extends GenericDao<Booking, String> {
       Date orderStartDatePeriod2, String contractNo, String invoiceNo,
       String touristName, String bookState, String cancelFlag);
 
-  public List<Booking> find(String lineName, long teamId, long userId,
+  public List<Booking> find(String lineName, int teamId, int userId,
       Date startDatePeriod, Date endDatePeriod, Date reserveStart,
       Date reserveEnd, String tourist, String agentId, String salesman,
       String cfmKey, String readKey, String delKey, String reserveNo);
@@ -148,7 +148,7 @@ public interface BookingDao extends GenericDao<Booking, String> {
    * @param uid
    * @return
    */
-  public List<Booking> getUnreadBookings(long uid);
+  public List<Booking> getUnreadBookings(int uid);
 
   /**
    * 取得出团计划的所有订单

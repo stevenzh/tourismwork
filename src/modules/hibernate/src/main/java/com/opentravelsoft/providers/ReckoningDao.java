@@ -11,7 +11,7 @@ import com.opentravelsoft.entity.finance.ReckoningAcct;
  * @author zhangst
  * 
  */
-public interface ReckoningDao extends GenericDao<Reckoning, Long> {
+public interface ReckoningDao extends GenericDao<Reckoning, Integer> {
   /**
    * 得到订单所对应的所有帐单
    * 
@@ -34,7 +34,7 @@ public interface ReckoningDao extends GenericDao<Reckoning, Long> {
    * @param reckoningId
    * @return
    */
-  public Reckoning getReckoningInfo(long reckoningId);
+  public Reckoning getReckoningInfo(int reckoningId);
 
   /**
    * 修改帐单

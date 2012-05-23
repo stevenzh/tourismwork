@@ -138,8 +138,8 @@ public class TourServiceImpl implements TourService {
     return planDao.mustPayModify(bookList, uid);
   }
 
-  public int txAuthorizationModify(int accountId, int uid) {
-    return planDao.authorizationModify(accountId, uid);
+  public int txAuthorizationModify(String planNo, int uid) {
+    return planDao.authorizationModify(planNo, uid);
   }
 
 }

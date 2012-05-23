@@ -48,25 +48,25 @@ public class BaseAction extends ActionSupport {
 
   protected static final String ENCODEING = "GBK";
 
-  protected int totalRecord = 0;
+  protected long totalRecord = 0;
 
   /** 记录开始 */
-  private int fromRecord = 0;
+  private long fromRecord = 0;
 
   /** 记录结束 */
-  private int toRecord = 0;
+  private long toRecord = 0;
 
   /** 页面表示记录 */
-  protected int countInPage = 0;
+  protected long countInPage = 0;
 
   /** 页面跳转方式 */
   protected String movePage = "first";
 
   /** 总页 */
-  protected int totalPage = 0;
+  protected long totalPage = 0;
 
   /** 当前页码 */
-  protected int currentPage = 1;
+  protected long currentPage = 1;
 
   /** 排序ID */
   protected String sortId = "0";
@@ -225,11 +225,11 @@ public class BaseAction extends ActionSupport {
    * 根据页面请求显示的页数计算开始记录和结束记录
    */
   protected void dreamPage() {
-    int page = currentPage;
+    long page = currentPage;
     if (page < 1)
       page = 1;
-    int tp = totalRecord / getMoveCount();
-    int totalPages = totalRecord % getMoveCount() == 0 ? tp : tp + 1;
+    long tp = totalRecord / getMoveCount();
+    long totalPages = totalRecord % getMoveCount() == 0 ? tp : tp + 1;
 
     if (StringUtil.hasLength(movePage)) {
       if (movePage.equals("first")) {
@@ -259,16 +259,16 @@ public class BaseAction extends ActionSupport {
    * 
    * @param totalCount
    */
-  protected void currentPage(int totalCount) {
-    int page = currentPage;
+  protected void currentPage(long totalCount) {
+    long page = currentPage;
     if (page < 1)
       page = 1;
     totalRecord = totalCount;
-    int tp = totalRecord / getMoveCount();
+    long tp = totalRecord / getMoveCount();
     totalPage = totalRecord % getMoveCount() == 0 ? tp : tp + 1;
 
     if (StringUtil.hasLength(movePage)) {
-      int totalPages = totalPage;
+      long totalPages = totalPage;
 
       if (movePage.equals("first")) {
         page = 1;
@@ -317,27 +317,27 @@ public class BaseAction extends ActionSupport {
     return file.getName();
   }
 
-  public int getTotalRecord() {
+  public long getTotalRecord() {
     return totalRecord;
   }
 
-  public void setTotalRecord(int totalRecord) {
+  public void setTotalRecord(long totalRecord) {
     this.totalRecord = totalRecord;
   }
 
-  public int getFromRecord() {
+  public long getFromRecord() {
     return fromRecord;
   }
 
-  public int getToRecord() {
+  public long getToRecord() {
     return toRecord;
   }
 
-  public int getCountInPage() {
+  public long getCountInPage() {
     return countInPage;
   }
 
-  public void setCountInPage(int countInPage) {
+  public void setCountInPage(long countInPage) {
     this.countInPage = countInPage;
   }
 
@@ -357,15 +357,15 @@ public class BaseAction extends ActionSupport {
     this.sortId = sortId;
   }
 
-  public int getTotalPage() {
+  public long getTotalPage() {
     return totalPage;
   }
 
-  public void setTotalPage(int totalPage) {
+  public void setTotalPage(long totalPage) {
     this.totalPage = totalPage;
   }
 
-  public int getCurrentPage() {
+  public long getCurrentPage() {
     return currentPage;
   }
 

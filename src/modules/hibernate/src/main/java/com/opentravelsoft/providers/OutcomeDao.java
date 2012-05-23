@@ -61,7 +61,7 @@ public interface OutcomeDao extends GenericDao<Outcome, Integer> {
    * @param billheadId
    * @return
    */
-  public int cancelBill(long billheadId);
+  public int cancelBill(int billheadId);
 
   /**
    * 查询付款申请书（OP修改,OP审核,FR修改,FR审核）

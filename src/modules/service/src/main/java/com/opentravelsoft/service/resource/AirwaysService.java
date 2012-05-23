@@ -14,7 +14,7 @@ public interface AirwaysService {
 
   public Airways roGetAirwaysDetail(String airwaysId);
 
-  public PaginationSupport getAirwaysList(boolean isActive, int fromRecord,
+  public PaginationSupport getAirwaysList(boolean isActive, long fromRecord,
       int moveCount);
 
   List<Airways> getAirwaysList(boolean isActive);

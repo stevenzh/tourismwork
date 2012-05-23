@@ -58,8 +58,6 @@ public class OpTourBalanceAction extends ManageAction {
 
   private int id;
 
-  private int accountId;
-
   // 是否提交到财务
   private String status = "N";
 
@@ -330,7 +328,7 @@ public class OpTourBalanceAction extends ManageAction {
    */
   public String authorization() {
     Employee user = getUser();
-    int ret = tourService.txAuthorizationModify(accountId, user.getUserId());
+    int ret = tourService.txAuthorizationModify(planNo, user.getUserId());
     if (ret == -1) {
       addActionMessage("授权失败！");
       return INPUT;
@@ -439,14 +437,6 @@ public class OpTourBalanceAction extends ManageAction {
 
   public void setId(int id) {
     this.id = id;
-  }
-
-  public int getAccountId() {
-    return accountId;
-  }
-
-  public void setAccountId(int accountId) {
-    this.accountId = accountId;
   }
 
   public String getStatus() {

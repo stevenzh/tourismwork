@@ -113,12 +113,6 @@ public class BookingServiceImpl implements BookingService {
     return listDao.getList("RoomType");
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.service.order.BookingService#txAddBook(com.
-   * opentravelsoft.ebiz.entity.Booking, java.util.List, long, boolean)
-   */
   public Hashtable<String, String> txAddBook(Booking book,
       List<Tourist> customers, int userId, boolean isHold) {
     // 检查前款额度
@@ -159,12 +153,6 @@ public class BookingServiceImpl implements BookingService {
     return ht;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.service.order.BookingService#getAgentBySales(long,
-   * java.lang.String)
-   */
   public List<LabelValueBean> getAgentBySales(int userId, String area) {
     return customerDao.getCustomerBySales(userId, area);
   }

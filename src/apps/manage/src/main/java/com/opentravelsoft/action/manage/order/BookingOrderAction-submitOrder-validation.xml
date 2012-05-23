@@ -23,7 +23,7 @@
     <field-validator type="required">
       <message>代理商不能为空.</message>
     </field-validator>
-    <field-validator type="long">
+    <field-validator type="int">
       <param name="min">1</param>
       <message>代理商不能为空.</message>
     </field-validator>

@@ -30,7 +30,7 @@ public class TeamServiceImpl implements TeamService {
     return teamDao.save(team);
   }
 
-  public PaginationSupport getTeamList(int fromRecord, int pageSize) {
+  public PaginationSupport getTeamList(long fromRecord, int pageSize) {
     return teamDao.getTeamList(fromRecord, pageSize);
   }
 

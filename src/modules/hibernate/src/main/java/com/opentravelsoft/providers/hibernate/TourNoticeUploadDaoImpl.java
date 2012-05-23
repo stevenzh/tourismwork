@@ -84,7 +84,7 @@ public class TourNoticeUploadDaoImpl extends
 
   }
 
-  public int deleteUploadFile(long fileId) {
+  public int deleteUploadFile(int fileId) {
     HibernateTemplate template = getHibernateTemplate();
     TourNoticeFile tblTourNoticeFile = (TourNoticeFile) template.get(
         TourNoticeFile.class, fileId);

@@ -137,11 +137,11 @@ public interface PlanDao extends GenericDao<Plan, String> {
   /**
    * 授权修改单团核算
    * 
-   * @param accountId
+   * @param planNo
    * @param uid
    * @return
    */
-  public int authorizationModify(long accountId, int uid);
+  public int authorizationModify(String planNo, int uid);
 
   // -----------------------------------------------------------------------
   /**

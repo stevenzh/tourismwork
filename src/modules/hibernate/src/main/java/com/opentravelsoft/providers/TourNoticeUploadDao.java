@@ -31,6 +31,6 @@ public interface TourNoticeUploadDao extends
    * @param fileId
    * @return
    */
-  int deleteUploadFile(long fileId);
+  int deleteUploadFile(int fileId);
 
 }

@@ -6,20 +6,20 @@ import com.opentravelsoft.entity.ProductTmpl;
 import com.opentravelsoft.entity.TblExpenseTmpl;
 import com.opentravelsoft.providers.GenericDao;
 
-public interface ProductTmplDao extends GenericDao<ProductTmpl, Long> {
+public interface ProductTmplDao extends GenericDao<ProductTmpl, Integer> {
   /**
    * 
    * @param nameId
    * @return
    */
-  public ProductTmpl getProductTmpl(long tmplId);
+  public ProductTmpl getProductTmpl(int tmplId);
 
   /**
    * 
    * @param tmplId
    * @return
    */
-  int deleteTmpl(long tmplId);
+  int deleteTmpl(int tmplId);
 
   /**
    * 
@@ -28,7 +28,7 @@ public interface ProductTmplDao extends GenericDao<ProductTmpl, Long> {
    * @param destCode
    * @return
    */
-  public List<ProductTmpl> getProductTmplByType(long teamId, long itemId,
+  public List<ProductTmpl> getProductTmplByType(int teamId, int itemId,
       String destCode);
 
   /**
@@ -51,6 +51,6 @@ public interface ProductTmplDao extends GenericDao<ProductTmpl, Long> {
    */
   public List<TblExpenseTmpl> getExpenseTmpl();
 
-  public List<ProductTmpl> getProductTmplByType(long teamId, String itemType);
+  public List<ProductTmpl> getProductTmplByType(int teamId, String itemType);
 
 }

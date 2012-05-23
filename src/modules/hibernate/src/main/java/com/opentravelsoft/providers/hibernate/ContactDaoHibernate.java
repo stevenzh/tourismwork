@@ -14,11 +14,6 @@ public class ContactDaoHibernate extends GenericDaoHibernate<Contact, Integer>
     super(Contact.class);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.ContactDao#searchContact(long, boolean)
-   */
   @SuppressWarnings("unchecked")
   public List<Contact> searchContact(int customerId, boolean active) {
     StringBuilder sb = new StringBuilder();

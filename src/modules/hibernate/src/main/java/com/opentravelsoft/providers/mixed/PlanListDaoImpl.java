@@ -194,7 +194,7 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
   }
 
   @SuppressWarnings("unchecked")
-  public List<Plan> find(String lineName, long teamId, long userId,
+  public List<Plan> find(String lineName, int teamId, int userId,
       Date startDate, Date endDate, double lowerPrice, double upperPrice,
       boolean openFlag, String outCity, String destination) {
     StringBuilder sql = new StringBuilder();
@@ -260,7 +260,7 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
   }
 
   @SuppressWarnings("unchecked")
-  public int deletePlan(Plan plan, long userId, String note) {
+  public int deletePlan(Plan plan, int userId, String note) {
     HibernateTemplate template = getHibernateTemplate();
     Plan planInt = (Plan) template.get(Plan.class, plan.getPlanNo(),
         LockMode.PESSIMISTIC_WRITE);
@@ -546,7 +546,7 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
   }
 
   @SuppressWarnings("unchecked")
-  public List<Plan> getRunPlans(long teamId, long userId) {
+  public List<Plan> getRunPlans(int teamId, int userId) {
     StringBuilder sql = new StringBuilder();
     sql.append("from Plan ");
     sql.append("where outDate>=current_date() ");

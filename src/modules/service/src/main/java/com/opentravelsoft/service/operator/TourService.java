@@ -118,7 +118,7 @@ public interface TourService {
    */
   public List<Booking> txMustPayModify(List<Booking> bookList, int uid);
 
-  public int txAuthorizationModify(int accountId, int uid);
+  public int txAuthorizationModify(String planNo, int uid);
 
   public List<LabelValueBean> roGetCurrencyList();
 

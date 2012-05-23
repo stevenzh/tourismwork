@@ -39,11 +39,6 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
     super(Income.class);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.IncomeDao#getIncomeBookings(long)
-   */
   @SuppressWarnings("unchecked")
   public List<Booking> getIncomeBookings(int customerId) {
     StringBuilder sb = new StringBuilder();
@@ -77,12 +72,6 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
     return gathering.getIncomeId();
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.IncomeDao#searchIncome(java.lang.String,
-   * java.lang.String, long, java.util.Date, java.util.Date)
-   */
   @SuppressWarnings("unchecked")
   public List<Booking> searchIncome(String provinceCd, String cityCd,
       Integer customerId, Date stDate, Date endDate) {
@@ -180,12 +169,6 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
     return tblIncomeList;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.IncomeDao#showIncomeHis(long,
-   * java.lang.String, java.util.Date, java.util.Date, double, double)
-   */
   @SuppressWarnings("unchecked")
   public List<Income> findIncome(Integer teamId, String customerId,
       Date startDate, Date endDate, double startMon, double endMon) {
@@ -236,11 +219,6 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
     return incomeList;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.IncomeDao#cancelIncome(long)
-   */
   public int cancelIncome(int incomeId) {
     Income tblIncome = getHibernateTemplate().get(Income.class, incomeId);
     if (null == tblIncome) {
@@ -257,11 +235,6 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
     return 0;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.opentravelsoft.providers.IncomeDao#getGathering(long)
-   */
   @SuppressWarnings("unchecked")
   public Income getGathering(int incomeId) {
     HibernateTemplate template = getHibernateTemplate();
@@ -438,7 +411,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
   }
 
   @SuppressWarnings("unchecked")
-  public int warrantSubmit(long customerId, String tourNo, Warrant warrant) {
+  public int warrantSubmit(int customerId, String tourNo, Warrant warrant) {
     StringBuilder sb = new StringBuilder();
     sb.append("FROM Booking ");
     sb.append("WHERE customer.customerId=? and plan.tourNo = ? ");

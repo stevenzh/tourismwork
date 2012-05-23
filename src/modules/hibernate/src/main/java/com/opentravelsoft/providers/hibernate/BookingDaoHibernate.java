@@ -943,7 +943,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
   }
 
   @SuppressWarnings("unchecked")
-  public List<Booking> findUndetermined(long teamId, long uid) {
+  public List<Booking> findUndetermined(int teamId, int uid) {
     StringBuilder sql = new StringBuilder();
 
     sql.append("from Booking where cfmKey='2' ");
@@ -1109,7 +1109,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
   }
 
   @SuppressWarnings("unchecked")
-  public List<Booking> find(String lineName, long teamId, long userId,
+  public List<Booking> find(String lineName, int teamId, int userId,
       Date startDatePeriod, Date endDatePeriod, Date reserveStart,
       Date reserveEnd, String tourist, String agentId, String salesman,
       String cfmKey, String readKey, String delKey, String reserveNo) {
@@ -1127,7 +1127,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     sql.append("a.nameNo,a.receiveDt,a.plan.outDate,a.pax,a.dbamt,"); // 4
     sql.append("a.cramt,a.dbamt-a.cramt,a.cfmKey,a.delkey,"); // 8
     sql.append("a.plan.line.lineNo,a.plan.line.lineName,a.customer.name,"); // 11
-    sql.append("a.salesman.userId,a.confirmPax,a.reserve,a.readKey,"); // 15
+    sql.append("a.salesman.userId,a.confirmPax,a.receive,a.readKey,"); // 15
     sql.append("a.salesman.userNm "); // 16
     sql.append("from Booking as a ");
 
@@ -1318,7 +1318,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
   }
 
   @SuppressWarnings("unchecked")
-  public List<Booking> getUnreadBookings(long uid) {
+  public List<Booking> getUnreadBookings(int uid) {
     StringBuilder sql = new StringBuilder();
     sql.append("from Booking where delkey<>'Y' and readKey='N' ");
     sql.append("and plan.assigned.userId=? ");

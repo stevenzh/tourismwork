@@ -38,7 +38,7 @@ public interface PlanListDao {
    * @param openKey
    * @return
    */
-  public List<Plan> find(String lineName, long teamId, long userId,
+  public List<Plan> find(String lineName, int teamId, int userId,
       Date startDate, Date endDate, double lowerPrice, double upperPrice,
       boolean openFlag, String outCity, String destination);
 
@@ -47,7 +47,7 @@ public interface PlanListDao {
    * @param plan
    * @return <tt>0</tt> success, <tt>-1</tt> not exist <tt>-2</tt> can't delete
    */
-  public int deletePlan(Plan plan, long userId, String note);
+  public int deletePlan(Plan plan, int userId, String note);
 
   /**
    * 
@@ -104,7 +104,7 @@ public interface PlanListDao {
    * @param userId
    * @return
    */
-  public List<Plan> getRunPlans(long teamId, long userId);
+  public List<Plan> getRunPlans(int teamId, int userId);
 
   /**
    * 
