@@ -40,7 +40,7 @@ public class Employee implements UserDetails, java.io.Serializable {
   private String passwd;
   /** CTI 号码 */
   private String ctiNo;
-  private String userNm;
+  private String userName;
   private String givenName;
   private String familyName;
   private Boolean isAdmin;
@@ -136,13 +136,13 @@ public class Employee implements UserDetails, java.io.Serializable {
     this.ctiNo = ctiNo;
   }
 
-  @Column(name = "USER_NM", length = 20)
-  public String getUserNm() {
-    return this.userNm;
+  @Column(name = "USER_NAME", length = 20)
+  public String getUserName() {
+    return this.userName;
   }
 
-  public void setUserNm(String userNm) {
-    this.userNm = userNm;
+  public void setUserName(String userNm) {
+    this.userName = userNm;
   }
 
   @Column(name = "GIVEN_NAME", length = 20)
@@ -329,8 +329,6 @@ public class Employee implements UserDetails, java.io.Serializable {
 
   /** 用户Code */
   private String uid;
-  /** 用户真实名称 */
-  private String userName;
 
   private Collection<GrantedAuthority> authorities;
 
@@ -587,15 +585,6 @@ public class Employee implements UserDetails, java.io.Serializable {
 
   public void setUid(String uid) {
     this.uid = uid;
-  }
-
-  @Transient
-  public String getUserName() {
-    return userName;
-  }
-
-  public void setUserName(String userName) {
-    this.userName = userName;
   }
 
   @Transient

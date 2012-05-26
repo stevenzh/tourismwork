@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_guide")
@@ -18,12 +17,12 @@ public class Guide implements java.io.Serializable {
   private String accSex;
   private String pinyin;
   private Integer teamId;
-  private String card;
+  private String IdCard;
   private String leadCard;
   private String business;
   private String bloodType;
   private String high;
-  private String leadKey;
+  private String leaderKey;
   private Date dateStart;
   private Date dateEnd;
   private String weight;
@@ -48,12 +47,12 @@ public class Guide implements java.io.Serializable {
   private String finishSchool;
   private Date finishDate;
   private Date birthday;
-  private String bthplc;
-  private String hzzl;
-  private String hzno;
-  private String hzadd;
-  private Date hzdate1;
-  private Date hzrang;
+  private String birthplace;
+  private String passportType;
+  private String passportNo;
+  private String passportPlace;
+  private Date passportDate;
+  private Date passportExpiry;
   private String photoFile;
   private String hkPass;
 
@@ -112,13 +111,13 @@ public class Guide implements java.io.Serializable {
     this.teamId = teamId;
   }
 
-  @Column(name = "CARD", length = 20)
-  public String getCard() {
-    return this.card;
+  @Column(name = "ID_CARD", length = 20)
+  public String getIdCard() {
+    return this.IdCard;
   }
 
-  public void setCard(String card) {
-    this.card = card;
+  public void setIdCard(String card) {
+    this.IdCard = card;
   }
 
   @Column(name = "LEAD_CARD", length = 20)
@@ -157,13 +156,13 @@ public class Guide implements java.io.Serializable {
     this.high = high;
   }
 
-  @Column(name = "LEAD_KEY", length = 1)
-  public String getLeadKey() {
-    return this.leadKey;
+  @Column(name = "LEADER_KEY", length = 1)
+  public String getLeaderKey() {
+    return this.leaderKey;
   }
 
-  public void setLeadKey(String leadKey) {
-    this.leadKey = leadKey;
+  public void setLeaderKey(String leadKey) {
+    this.leaderKey = leadKey;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
@@ -387,60 +386,60 @@ public class Guide implements java.io.Serializable {
     this.birthday = birthday;
   }
 
-  @Column(name = "BTHPLC", length = 2)
-  public String getBthplc() {
-    return this.bthplc;
+  @Column(name = "BIRTH_PLACE", length = 2)
+  public String getBirthplace() {
+    return this.birthplace;
   }
 
-  public void setBthplc(String bthplc) {
-    this.bthplc = bthplc;
+  public void setBirthplace(String birthplace) {
+    this.birthplace = birthplace;
   }
 
-  @Column(name = "HZZL", length = 2)
-  public String getHzzl() {
-    return this.hzzl;
+  @Column(name = "PASSPORT_TYPE", length = 2)
+  public String getPassportType() {
+    return this.passportType;
   }
 
-  public void setHzzl(String hzzl) {
-    this.hzzl = hzzl;
+  public void setPassportType(String type) {
+    this.passportType = type;
   }
 
-  @Column(name = "HZNO", length = 12)
-  public String getHzno() {
-    return this.hzno;
+  @Column(name = "PASSPORT_NO", length = 12)
+  public String getPassportNo() {
+    return this.passportNo;
   }
 
-  public void setHzno(String hzno) {
-    this.hzno = hzno;
+  public void setPassportNo(String passportNo) {
+    this.passportNo = passportNo;
   }
 
-  @Column(name = "HZADD", length = 3)
-  public String getHzadd() {
-    return this.hzadd;
+  @Column(name = "PASSPORT_PLACE", length = 3)
+  public String getPassportPlace() {
+    return this.passportPlace;
   }
 
-  public void setHzadd(String hzadd) {
-    this.hzadd = hzadd;
+  public void setPassportPlace(String hzadd) {
+    this.passportPlace = hzadd;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
-  @Column(name = "HZDATE1", length = 19)
-  public Date getHzdate1() {
-    return this.hzdate1;
+  @Column(name = "PASSPORT_DATE", length = 19)
+  public Date getPassportDate() {
+    return this.passportDate;
   }
 
-  public void setHzdate1(Date hzdate1) {
-    this.hzdate1 = hzdate1;
+  public void setPassportDate(Date date) {
+    this.passportDate = date;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
   @Column(name = "HZRANG", length = 19)
-  public Date getHzrang() {
-    return this.hzrang;
+  public Date getPassportExpiry() {
+    return this.passportExpiry;
   }
 
-  public void setHzrang(Date hzrang) {
-    this.hzrang = hzrang;
+  public void setPassportExpiry(Date expiry) {
+    this.passportExpiry = expiry;
   }
 
   @Column(name = "PHOTO_FILE", length = 40)
@@ -459,94 +458,6 @@ public class Guide implements java.io.Serializable {
 
   public void setHkPass(String hkPass) {
     this.hkPass = hkPass;
-  }
-
-  private String idCard;
-
-  private String leaderKey;
-
-  private String birthplace;
-
-  private String passportType;
-
-  private String passportNo;
-
-  private String passportPlace;
-
-  private Date passportDate;
-
-  private Date passportExpiry;
-
-  @Transient
-  public String getLeaderKey() {
-    return this.leaderKey;
-  }
-
-  public void setLeaderKey(String leadKey) {
-    this.leaderKey = leadKey;
-  }
-
-  @Transient
-  public String getBirthplace() {
-    return this.birthplace;
-  }
-
-  public void setBirthplace(String birthplace) {
-    this.birthplace = birthplace;
-  }
-
-  @Transient
-  public String getPassportType() {
-    return this.passportType;
-  }
-
-  public void setPassportType(String type) {
-    this.passportType = type;
-  }
-
-  @Transient
-  public String getPassportNo() {
-    return this.passportNo;
-  }
-
-  public void setPassportNo(String passportNo) {
-    this.passportNo = passportNo;
-  }
-
-  @Transient
-  public String getPassportPlace() {
-    return this.passportPlace;
-  }
-
-  public void setPassportPlace(String hzadd) {
-    this.passportPlace = hzadd;
-  }
-
-  @Transient
-  public Date getPassportDate() {
-    return this.passportDate;
-  }
-
-  public void setPassportDate(Date date) {
-    this.passportDate = date;
-  }
-
-  @Transient
-  public Date getPassportExpiry() {
-    return this.passportExpiry;
-  }
-
-  public void setPassportExpiry(Date expiry) {
-    this.passportExpiry = expiry;
-  }
-
-  @Transient
-  public String getIdCard() {
-    return idCard;
-  }
-
-  public void setIdCard(String idCard) {
-    this.idCard = idCard;
   }
 
 }

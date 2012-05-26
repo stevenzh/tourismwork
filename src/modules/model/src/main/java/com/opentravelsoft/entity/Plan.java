@@ -1231,7 +1231,7 @@ public class Plan implements java.io.Serializable, Cloneable {
   private String send;
 
   /** 收件人 */
-  private String receive;
+  private String reserve;
 
   /** 文件标题 */
   private String fileTitle;
@@ -1914,11 +1914,11 @@ public class Plan implements java.io.Serializable, Cloneable {
 
   @Transient
   public String getReceive() {
-    return receive;
+    return reserve;
   }
 
-  public void setReceive(String receive) {
-    this.receive = receive;
+  public void setReceive(String reserve) {
+    this.reserve = reserve;
   }
 
   @Transient

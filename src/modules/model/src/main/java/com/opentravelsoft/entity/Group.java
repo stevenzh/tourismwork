@@ -18,10 +18,10 @@ public class Group implements java.io.Serializable {
 
   private int groupId;
   private Group parent;
-  private String dptCn;
+  private String name;
   private String fullName;
-  private String linkman;
-  private String tel;
+  private String contact;
+  private String phone;
   private String fax;
   private Set<Group> children = new HashSet<Group>(0);
   private Set<Employee> employees = new HashSet<Employee>(0);
@@ -31,7 +31,7 @@ public class Group implements java.io.Serializable {
 
   public Group(int groupId, String dptCn) {
     this.groupId = groupId;
-    this.dptCn = dptCn;
+    this.name = dptCn;
   }
 
   @Id
@@ -54,13 +54,13 @@ public class Group implements java.io.Serializable {
     this.parent = parent;
   }
 
-  @Column(name = "DPT_CN", nullable = false, length = 20)
-  public String getDptCn() {
-    return this.dptCn;
+  @Column(name = "NAME", nullable = false, length = 20)
+  public String getName() {
+    return this.name;
   }
 
-  public void setDptCn(String dptCn) {
-    this.dptCn = dptCn;
+  public void setName(String dptCn) {
+    this.name = dptCn;
   }
 
   @Column(name = "FULL_NAME", length = 60)
@@ -72,22 +72,22 @@ public class Group implements java.io.Serializable {
     this.fullName = fullName;
   }
 
-  @Column(name = "LINKMAN", length = 20)
-  public String getLinkman() {
-    return this.linkman;
+  @Column(name = "CONTACT", length = 20)
+  public String getContact() {
+    return this.contact;
   }
 
-  public void setLinkman(String linkman) {
-    this.linkman = linkman;
+  public void setContact(String linkman) {
+    this.contact = linkman;
   }
 
-  @Column(name = "TEL", length = 40)
-  public String getTel() {
-    return this.tel;
+  @Column(name = "PHONE", length = 40)
+  public String getPhone() {
+    return this.phone;
   }
 
-  public void setTel(String tel) {
-    this.tel = tel;
+  public void setPhone(String tel) {
+    this.phone = tel;
   }
 
   @Column(name = "FAX", length = 40)
@@ -117,49 +117,15 @@ public class Group implements java.io.Serializable {
     this.employees = employees;
   }
 
-  private String name;
-
-  /** 联系人 */
-  private String contact;
-
-  private String phone;
-
-  @Transient
-  public String getName() {
-    return name;
-  }
-
-  public void addChildren(Group child) {
-    children.add(child);
-  }
-
-  @Transient
-  public String getContact() {
-    return contact;
-  }
-
-  public void setContact(String contact) {
-    this.contact = contact;
-  }
-
-  @Transient
-  public String getPhone() {
-    return phone;
-  }
-
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public int compareTo(Group o) {
     if (this.groupId == o.getGroupId())
       return 0;
     else
       return 1;
+  }
+
+  public void addChildren(Group child) {
+    children.add(child);
   }
 
 }

@@ -32,7 +32,7 @@ public class Income implements java.io.Serializable {
   private Character payMode;
   private String dptNo;
   /** 收款人 */
-  private String receiver;
+  private String reserver;
   /** 备注 */
   private String note;
   /** 收款金额 */
@@ -104,11 +104,11 @@ public class Income implements java.io.Serializable {
 
   @Column(name = "RECEIVER", length = 20)
   public String getReceiver() {
-    return this.receiver;
+    return this.reserver;
   }
 
-  public void setReceiver(String receiver) {
-    this.receiver = receiver;
+  public void setReceiver(String reserver) {
+    this.reserver = reserver;
   }
 
   @Column(name = "NOTE", length = 1000)

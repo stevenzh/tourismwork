@@ -11,14 +11,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "tbl_sms_receive")
+@Table(name = "tbl_sms_reserve")
 public class TblSmsReceive implements java.io.Serializable {
 
   private Integer id;
   private String seqno;
   private String mobile;
   private String message;
-  private Date receiveDate;
+  private Date reserveDate;
   private Character reply;
   private Date replyDate;
   private Date updDate;
@@ -72,11 +72,11 @@ public class TblSmsReceive implements java.io.Serializable {
   @Temporal(TemporalType.TIMESTAMP)
   @Column(name = "RECEIVE_DATE", length = 19)
   public Date getReceiveDate() {
-    return this.receiveDate;
+    return this.reserveDate;
   }
 
-  public void setReceiveDate(Date receiveDate) {
-    this.receiveDate = receiveDate;
+  public void setReceiveDate(Date reserveDate) {
+    this.reserveDate = reserveDate;
   }
 
   @Column(name = "REPLY", length = 1)

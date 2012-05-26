@@ -18,7 +18,7 @@ public class TblSmsSend implements java.io.Serializable {
   private Integer id;
   private String message;
   private Integer sendCnt;
-  private Integer receivedCnt;
+  private Integer reservedCnt;
   private Character status;
   private Date sendDate;
   private Integer opUser;
@@ -30,11 +30,11 @@ public class TblSmsSend implements java.io.Serializable {
     this.sendDate = sendDate;
   }
 
-  public TblSmsSend(String message, Integer sendCnt, Integer receivedCnt,
+  public TblSmsSend(String message, Integer sendCnt, Integer reservedCnt,
       Character status, Date sendDate, Integer opUser) {
     this.message = message;
     this.sendCnt = sendCnt;
-    this.receivedCnt = receivedCnt;
+    this.reservedCnt = reservedCnt;
     this.status = status;
     this.sendDate = sendDate;
     this.opUser = opUser;
@@ -71,11 +71,11 @@ public class TblSmsSend implements java.io.Serializable {
 
   @Column(name = "RECEIVED_CNT")
   public Integer getReceivedCnt() {
-    return this.receivedCnt;
+    return this.reservedCnt;
   }
 
-  public void setReceivedCnt(Integer receivedCnt) {
-    this.receivedCnt = receivedCnt;
+  public void setReceivedCnt(Integer reservedCnt) {
+    this.reservedCnt = reservedCnt;
   }
 
   @Column(name = "STATUS", length = 1)

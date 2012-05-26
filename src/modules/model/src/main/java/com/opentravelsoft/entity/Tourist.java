@@ -118,7 +118,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     province = "";
     city = "";
     vocation = "";
-    receiveMail = "N";
+    reserveMail = "N";
     educate = "";
     score = 0;
     homeplace = "";
@@ -661,7 +661,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   private String yearningTo;
 
   /** 是否接收E-MAIL 社内即时的特价促销信息、新推线路等等 */
-  private String receiveMail;
+  private String reserveMail;
 
   /** 积分 */
   private int score;
@@ -1443,11 +1443,11 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
 
   @Transient
   public String getReceiveMail() {
-    return receiveMail;
+    return reserveMail;
   }
 
-  public void setReceiveMail(String receiveMail) {
-    this.receiveMail = receiveMail;
+  public void setReceiveMail(String reserveMail) {
+    this.reserveMail = reserveMail;
   }
 
   @Transient

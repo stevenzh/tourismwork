@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_airport")
@@ -28,15 +27,6 @@ public class Airport implements java.io.Serializable {
 
   public Airport(String code) {
     this.code = code;
-  }
-
-  public Airport(String code, City city, String name, String enName,
-      Byte isActive) {
-    this.code = code;
-    this.city = city;
-    this.name = name;
-    this.enName = enName;
-    this.isActive = isActive;
   }
 
   @Id
@@ -84,41 +74,6 @@ public class Airport implements java.io.Serializable {
 
   public void setIsActive(Byte isActive) {
     this.isActive = isActive;
-  }
-
-  /** 所在城市 */
-  private String cityName;
-
-  private String countryId;
-
-  /** 所在国家 */
-  private String countryName;
-
-  @Transient
-  public String getCityName() {
-    return cityName;
-  }
-
-  public void setCityName(String cityName) {
-    this.cityName = cityName;
-  }
-
-  @Transient
-  public String getCountryName() {
-    return countryName;
-  }
-
-  public void setCountryName(String countryName) {
-    this.countryName = countryName;
-  }
-
-  @Transient
-  public String getCountryId() {
-    return countryId;
-  }
-
-  public void setCountryId(String countryCode) {
-    this.countryId = countryCode;
   }
 
 }

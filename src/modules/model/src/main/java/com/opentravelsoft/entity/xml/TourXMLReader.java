@@ -120,7 +120,7 @@ public class TourXMLReader extends AbstractObjectReader {
     handler.element("file-title", tour.getFileTitle());
     handler.element("remark", tour.getRemarks());
     handler.element("send", tour.getSend());
-    handler.element("receive", tour.getReceive());
+    handler.element("reserve", tour.getReceive());
     handler.element("pax", RowDataUtil.intFormat(tour.getPax()));
     handler.element("allPax", RowDataUtil.intFormat(tour.getPax()));
     handler.element("leadpax", RowDataUtil.intFormat(tour.getLeaderPax()));

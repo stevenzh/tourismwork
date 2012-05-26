@@ -101,7 +101,7 @@ public class District implements java.io.Serializable {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "DUCHY", nullable = true)
+  @JoinColumn(name = "PROVINCE", nullable = true)
   public Province getProvince() {
     return province;
   }

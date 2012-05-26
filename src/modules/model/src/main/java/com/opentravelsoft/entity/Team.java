@@ -33,15 +33,14 @@ public class Team implements java.io.Serializable {
     this.active = true;
   }
 
-  public Team(Integer team_id) {
-    this();
-    this.teamId = team_id;
-  }
-
   public Team(String name, short type, boolean active) {
     this.name = name;
     this.type = type;
     this.active = active;
+  }
+
+  public Team(Integer team_id) {
+    // TODO Auto-generated constructor stub
   }
 
   @Id

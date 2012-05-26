@@ -230,28 +230,6 @@ public class Flight implements java.io.Serializable {
   /** 操作时间 */
   private Date opDate;
 
-  private String fromCity1;
-
-  private String toCity1;
-
-  @Transient
-  public String getFromCity1() {
-    return this.fromCity1;
-  }
-
-  public void setFromCity1(String fromCity1) {
-    this.fromCity1 = fromCity1;
-  }
-
-  @Transient
-  public String getToCity1() {
-    return this.toCity1;
-  }
-
-  public void setToCity1(String toCity1) {
-    this.toCity1 = toCity1;
-  }
-
   @Transient
   public String getLeavingCountry() {
     return leavingCountry;

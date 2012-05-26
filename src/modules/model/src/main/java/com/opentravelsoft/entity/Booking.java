@@ -35,8 +35,10 @@ public class Booking implements java.io.Serializable {
   private Customer customer;
   /** 联系人 */
   private String contact;
+  /** 销售员 */
+  private Employee salesman;
   /** 联系电话 */
-  private String tel;
+  private String phone;
   /** 预订人数 */
   private Integer pax;
   /** 确认人数 */
@@ -52,8 +54,12 @@ public class Booking implements java.io.Serializable {
   private String delkey;
   private Integer opuser;
   private Date opTime;
-  private Integer receive;
-  private Date receiveDt;
+  /** 预订人 */
+  private Integer reserve;
+
+  /** 预订日期 */
+  private Date reserveDate;
+
   /** 合同 */
   private String pactNo;
   /** 是否可拆分 */
@@ -61,7 +67,7 @@ public class Booking implements java.io.Serializable {
   /** 备注 */
   private String remarks;
   /** 确认状态 1:团确 2:团候 */
-  private String cfmKey;
+  private String confirmStatus;
   /** 付款方式 */
   private String invKey;
   private Integer invUser;
@@ -127,7 +133,7 @@ public class Booking implements java.io.Serializable {
   private Byte postWay;
 
   public Booking() {
-    cfmKey = "2";
+    confirmStatus = "2";
     delkey = "N";
     readKey = "N";
     customerList = new ArrayList<Tourist>();
@@ -204,13 +210,13 @@ public class Booking implements java.io.Serializable {
     this.contact = contact;
   }
 
-  @Column(name = "TEL", length = 60)
-  public String getTel() {
-    return this.tel;
+  @Column(name = "PHONE", length = 60)
+  public String getPhone() {
+    return this.phone;
   }
 
-  public void setTel(String tel) {
-    this.tel = tel;
+  public void setPhone(String tel) {
+    this.phone = tel;
   }
 
   @Column(name = "PAX")
@@ -295,23 +301,23 @@ public class Booking implements java.io.Serializable {
     this.opTime = opTime;
   }
 
-  @Column(name = "RECEIVE")
-  public Integer getReceive() {
-    return this.receive;
+  @Column(name = "RESERVE")
+  public Integer getReserve() {
+    return this.reserve;
   }
 
-  public void setReceive(Integer receive) {
-    this.receive = receive;
+  public void setReserve(Integer reserve) {
+    this.reserve = reserve;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
-  @Column(name = "RECEIVE_DT", length = 19)
-  public Date getReceiveDt() {
-    return this.receiveDt;
+  @Column(name = "RESERVE_DATE", length = 19)
+  public Date getReserveDate() {
+    return this.reserveDate;
   }
 
-  public void setReceiveDt(Date receiveDt) {
-    this.receiveDt = receiveDt;
+  public void setReserveDate(Date reserveDate) {
+    this.reserveDate = reserveDate;
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
@@ -353,11 +359,11 @@ public class Booking implements java.io.Serializable {
 
   @Column(name = "CFM_KEY", length = 1)
   public String getCfmKey() {
-    return this.cfmKey;
+    return this.confirmStatus;
   }
 
   public void setCfmKey(String cfmKey) {
-    this.cfmKey = cfmKey;
+    this.confirmStatus = cfmKey;
   }
 
   @Column(name = "INV_KEY", length = 1)
@@ -781,13 +787,6 @@ public class Booking implements java.io.Serializable {
     this.postWay = postWay;
   }
 
-  /** 预订人 */
-  private Integer reserve;
-
-  /** 预订日期 */
-  private Date reserveDate;
-
-  private Employee salesman;
 
   /** 序号 */
   private int id;
@@ -840,7 +839,7 @@ public class Booking implements java.io.Serializable {
   private Date incomeDate;
 
   /** 收款人 */
-  private String receiver;
+  private String reserver;
 
   /** 代理商所在省份ID */
   private String region;
@@ -913,15 +912,6 @@ public class Booking implements java.io.Serializable {
     return (Booking) super.clone();
   }
 
-  @Transient
-  public Integer getReserve() {
-    return this.reserve;
-  }
-
-  public void setReserve(Integer receive) {
-    this.reserve = receive;
-  }
-
   public void setPax(int pax) {
     this.pax = pax;
   }
@@ -933,15 +923,6 @@ public class Booking implements java.io.Serializable {
 
   public void setCanSplit(Character canSplit) {
     this.canSplit = canSplit;
-  }
-
-  @Transient
-  public Date getReserveDate() {
-    return reserveDate;
-  }
-
-  public void setReserveDate(Date reserveDate) {
-    this.reserveDate = reserveDate;
   }
 
   @Transient
@@ -1232,11 +1213,11 @@ public class Booking implements java.io.Serializable {
 
   @Transient
   public String getReceiver() {
-    return receiver;
+    return reserver;
   }
 
-  public void setReceiver(String receiver) {
-    this.receiver = receiver;
+  public void setReceiver(String reserver) {
+    this.reserver = reserver;
   }
 
   @Transient

@@ -13,7 +13,7 @@ public class Airways implements java.io.Serializable {
   private String name;
   private String fullname;
   private String contact;
-  private String phoneNumber;
+  private String phone;
   private Byte isActive;
 
   public Airways() {
@@ -23,16 +23,6 @@ public class Airways implements java.io.Serializable {
   public Airways(String code, String name) {
     this.code = code;
     this.name = name;
-  }
-
-  public Airways(String code, String name, String fullname, String contact,
-      String phoneNumber, Byte isActive) {
-    this.code = code;
-    this.name = name;
-    this.fullname = fullname;
-    this.contact = contact;
-    this.phoneNumber = phoneNumber;
-    this.isActive = isActive;
   }
 
   @Id
@@ -72,13 +62,13 @@ public class Airways implements java.io.Serializable {
     this.contact = contact;
   }
 
-  @Column(name = "PHONE_NUMBER", length = 20)
-  public String getPhoneNumber() {
-    return this.phoneNumber;
+  @Column(name = "PHONE", length = 20)
+  public String getPhone() {
+    return this.phone;
   }
 
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
+  public void setPhone(String phoneNumber) {
+    this.phone = phoneNumber;
   }
 
   @Column(name = "IS_ACTIVE")

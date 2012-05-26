@@ -29,9 +29,9 @@ public class Contact implements java.io.Serializable {
   private Character del;
   private Integer salesId;
   private Date created;
-  private Integer createdby;
+  private Integer createdBy;
   private Date updated;
-  private Integer updatedby;
+  private Integer updatedBy;
 
   public Contact() {
     this.del = 'N';
@@ -172,12 +172,12 @@ public class Contact implements java.io.Serializable {
   }
 
   @Column(name = "CREATEDBY")
-  public Integer getCreatedby() {
-    return this.createdby;
+  public Integer getCreatedBy() {
+    return this.createdBy;
   }
 
-  public void setCreatedby(Integer createdby) {
-    this.createdby = createdby;
+  public void setCreatedBy(Integer createdby) {
+    this.createdBy = createdby;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
@@ -191,12 +191,12 @@ public class Contact implements java.io.Serializable {
   }
 
   @Column(name = "UPDATEDBY")
-  public Integer getUpdatedby() {
-    return this.updatedby;
+  public Integer getUpdatedBy() {
+    return this.updatedBy;
   }
 
-  public void setUpdatedby(Integer updatedby) {
-    this.updatedby = updatedby;
+  public void setUpdatedBy(Integer updatedby) {
+    this.updatedBy = updatedby;
   }
 
   private int idx;

@@ -31,17 +31,6 @@ public class Announcement implements java.io.Serializable {
     this.opDate = opDate;
   }
 
-  public Announcement(String title, Character type, Integer chrnum,
-      String text, Date savingDate, Integer opUser, Date opDate) {
-    this.title = title;
-    this.type = type;
-    this.chrnum = chrnum;
-    this.text = text;
-    this.savingDate = savingDate;
-    this.opUser = opUser;
-    this.opDate = opDate;
-  }
-
   @Id
   @GeneratedValue(strategy = IDENTITY)
   @Column(name = "ANNOUNCE_ID", unique = true, nullable = false)

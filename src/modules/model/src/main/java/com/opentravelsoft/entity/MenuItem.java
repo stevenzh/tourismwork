@@ -3,10 +3,7 @@ package com.opentravelsoft.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
-
-public class MenuItem extends BaseObject implements java.io.Serializable {
+public class MenuItem implements java.io.Serializable {
 
   private Long id;
 
@@ -119,40 +116,6 @@ public class MenuItem extends BaseObject implements java.io.Serializable {
 
   public void setChild(List<MenuItem> child) {
     this.child = child;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof MenuItem)) {
-      return false;
-    }
-
-    final MenuItem role = (MenuItem) o;
-    return this.hashCode() == role.hashCode();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  public int hashCode() {
-    int result = 0;
-    result = (itemName != null ? itemName.hashCode() : 0);
-    result = 29 * result + (displayName != null ? displayName.hashCode() : 0);
-    return result;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  public String toString() {
-    return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
-        .append("moduleName", this.getItemName())
-        .append("displayName", this.displayName).toString();
   }
 
 }

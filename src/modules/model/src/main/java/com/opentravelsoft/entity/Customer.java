@@ -41,11 +41,11 @@ public class Customer implements java.io.Serializable {
   private String registeredAdd;
   private String address;
   private String zip;
-  private String phone;
-  private String fax;
+  private String contactTel;
+  private String contactFax;
   /** 联系人姓名 */
   private String contact;
-  private String email;
+  private String contactEmail;
   /** 公司类别 (有限公司 合伙商行 个人独资 其他) */
   private Character type;
   private String passwd;
@@ -67,9 +67,12 @@ public class Customer implements java.io.Serializable {
   /** 信用度2 */
   private BigDecimal creditAmt2;
   private Integer creditTime;
-  private Character receiveMail;
+  private Character reserveMail;
+  /** 开户银行 */
   private String bankname;
+  /** 帐号 */
   private String bankid;
+  /** 账户名称 */
   private String bcltname;
   /** 状态 */
   private String status;
@@ -83,11 +86,12 @@ public class Customer implements java.io.Serializable {
   /** 负责销售 */
   private Employee sales;
   private Date created;
-  private Integer createdby;
+  private Integer createdBy;
+  /** 审核时间 */
   private Date checked;
-  private Integer checkedby;
+  private Integer checkedBy;
   private Date updated;
-  private Integer updatedby;
+  private Integer updatedBy;
 
   public Customer() {
     city = new City();
@@ -96,7 +100,7 @@ public class Customer implements java.io.Serializable {
     this.contacts = new ArrayList<Contact>();
     this.isSupplier = false;
     this.isAgent = true;
-    this.receiveMail = 'Y';
+    this.reserveMail = 'Y';
   }
 
   public Customer(Integer id) {
@@ -223,22 +227,22 @@ public class Customer implements java.io.Serializable {
     this.zip = zip;
   }
 
-  @Column(name = "PHONE", length = 40)
-  public String getPhone() {
-    return this.phone;
+  @Column(name = "CONTACT_TEL", length = 40)
+  public String getContactTel() {
+    return this.contactTel;
   }
 
-  public void setPhone(String phone) {
-    this.phone = phone;
+  public void setContactTel(String phone) {
+    this.contactTel = phone;
   }
 
-  @Column(name = "FAX", length = 40)
-  public String getFax() {
-    return this.fax;
+  @Column(name = "CONTACT_FAX", length = 40)
+  public String getContactFax() {
+    return this.contactFax;
   }
 
-  public void setFax(String fax) {
-    this.fax = fax;
+  public void setContactFax(String fax) {
+    this.contactFax = fax;
   }
 
   @Column(name = "CONTACT", length = 20)
@@ -250,13 +254,13 @@ public class Customer implements java.io.Serializable {
     this.contact = contact;
   }
 
-  @Column(name = "EMAIL", length = 120)
-  public String getEmail() {
-    return this.email;
+  @Column(name = "CONTACT_EMAIL", length = 120)
+  public String getContactEmail() {
+    return this.contactEmail;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setContactEmail(String email) {
+    this.contactEmail = email;
   }
 
   @Column(name = "TYPE", length = 1)
@@ -370,11 +374,11 @@ public class Customer implements java.io.Serializable {
 
   @Column(name = "RECEIVE_MAIL", length = 1)
   public Character getReceiveMail() {
-    return this.receiveMail;
+    return this.reserveMail;
   }
 
-  public void setReceiveMail(Character receiveMail) {
-    this.receiveMail = receiveMail;
+  public void setReceiveMail(Character reserveMail) {
+    this.reserveMail = reserveMail;
   }
 
   @Column(name = "BANKNAME", length = 50)
@@ -479,12 +483,12 @@ public class Customer implements java.io.Serializable {
   }
 
   @Column(name = "CREATEDBY")
-  public Integer getCreatedby() {
-    return this.createdby;
+  public Integer getCreatedBy() {
+    return this.createdBy;
   }
 
-  public void setCreatedby(Integer createdby) {
-    this.createdby = createdby;
+  public void setCreatedBy(Integer createdby) {
+    this.createdBy = createdby;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
@@ -498,12 +502,12 @@ public class Customer implements java.io.Serializable {
   }
 
   @Column(name = "CHECKEDBY")
-  public Integer getCheckedby() {
-    return this.checkedby;
+  public Integer getCheckedBy() {
+    return this.checkedBy;
   }
 
-  public void setCheckedby(Integer checkedby) {
-    this.checkedby = checkedby;
+  public void setCheckedBy(Integer checkedby) {
+    this.checkedBy = checkedby;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
@@ -517,12 +521,12 @@ public class Customer implements java.io.Serializable {
   }
 
   @Column(name = "UPDATEDBY")
-  public Integer getUpdatedby() {
-    return this.updatedby;
+  public Integer getUpdatedBy() {
+    return this.updatedBy;
   }
 
-  public void setUpdatedby(Integer updatedby) {
-    this.updatedby = updatedby;
+  public void setUpdatedBy(Integer updatedby) {
+    this.updatedBy = updatedby;
   }
 
   /** 所在国家 */
@@ -530,24 +534,6 @@ public class Customer implements java.io.Serializable {
 
   /** 所在省份 */
   private String provinceName;
-
-  /** Email */
-  private String contactEmail;
-
-  /** 开户银行 */
-  private String bankname1;
-
-  /** 帐号 */
-  private String bankid1;
-
-  /** 账户名称 */
-  private String bcltname1;
-
-  /** 审核人 */
-  private Integer checkedBy;
-
-  /** 审核时间 */
-  private Date checkDate;
 
   /** 公司形式["代理商","加盟店","营业部"] */
   private String agentType;
@@ -591,51 +577,6 @@ public class Customer implements java.io.Serializable {
 
   public void setAgentType(String agentType) {
     this.agentType = agentType;
-  }
-
-  @Transient
-  public Date getCheckDate() {
-    return checkDate;
-  }
-
-  public void setCheckDate(Date checkDate) {
-    this.checkDate = checkDate;
-  }
-
-  @Transient
-  public String getContactEmail() {
-    return contactEmail;
-  }
-
-  public void setContactEmail(String contactEmail) {
-    this.contactEmail = contactEmail;
-  }
-
-  @Transient
-  public String getContactFax() {
-    return getFax();
-  }
-
-  public void setContactFax(String contactFax) {
-    setFax(contactFax);
-  }
-
-  @Transient
-  public String getContactTel() {
-    return getPhone();
-  }
-
-  public void setContactTel(String contactTel) {
-    setPhone(contactTel);
-  }
-
-  @Transient
-  public Integer getCheckedBy() {
-    return checkedBy;
-  }
-
-  public void setCheckedBy(Integer checkBy) {
-    this.checkedBy = checkBy;
   }
 
   @Transient
@@ -739,33 +680,6 @@ public class Customer implements java.io.Serializable {
 
   public void setProvinceName(String provinceName) {
     this.provinceName = provinceName;
-  }
-
-  @Transient
-  public String getBankname1() {
-    return bankname1;
-  }
-
-  public void setBankname1(String bankname1) {
-    this.bankname1 = bankname1;
-  }
-
-  @Transient
-  public String getBankid1() {
-    return bankid1;
-  }
-
-  public void setBankid1(String bankid1) {
-    this.bankid1 = bankid1;
-  }
-
-  @Transient
-  public String getBcltname1() {
-    return bcltname1;
-  }
-
-  public void setBcltname1(String bcltname1) {
-    this.bcltname1 = bcltname1;
   }
 
 }

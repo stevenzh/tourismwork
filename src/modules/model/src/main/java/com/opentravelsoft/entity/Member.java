@@ -28,7 +28,7 @@ import java.util.Set;
 @Table(name = "tbl_member", uniqueConstraints = {
     @UniqueConstraint(columnNames = "email"),
     @UniqueConstraint(columnNames = "username") })
-public class Member extends BaseObject implements Serializable, UserDetails {
+public class Member implements Serializable, UserDetails {
 
   private Long id;
 
@@ -70,7 +70,7 @@ public class Member extends BaseObject implements Serializable, UserDetails {
   private Boolean accountEnabled;
 
   public Member() {
-    receiveMail = "N";
+    reserveMail = "N";
     score = 0;
     memberKey = "N";
   }
@@ -423,7 +423,7 @@ public class Member extends BaseObject implements Serializable, UserDetails {
   private String yearningTo;
 
   /** 是否接收E-MAIL 社内即时的特价促销信息、新推线路等等 */
-  private String receiveMail;
+  private String reserveMail;
 
   /** 积分 */
   private int score;
@@ -551,7 +551,7 @@ public class Member extends BaseObject implements Serializable, UserDetails {
 
   @Transient
   public String getReceiveMail() {
-    return receiveMail;
+    return reserveMail;
   }
 
   @Transient
@@ -731,8 +731,8 @@ public class Member extends BaseObject implements Serializable, UserDetails {
     this.birthplace = birthplace;
   }
 
-  public void setReceiveMail(String receiveMail) {
-    this.receiveMail = receiveMail;
+  public void setReceiveMail(String reserveMail) {
+    this.reserveMail = reserveMail;
   }
 
   public void setCard(String card) {

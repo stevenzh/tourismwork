@@ -12,10 +12,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
 import org.springframework.security.core.GrantedAuthority;
-
 
 /**
  * This class is used to represent available roles in the database.
@@ -24,8 +21,7 @@ import org.springframework.security.core.GrantedAuthority;
 @Entity
 @Table(name = "tbl_portal_role")
 @NamedQueries({ @NamedQuery(name = "findRoleByName", query = "select r from PortalRole r where r.name = :name ") })
-public class PortalRole extends BaseObject implements Serializable,
-    GrantedAuthority {
+public class PortalRole implements Serializable, GrantedAuthority {
   private Long id;
   private String name;
   private String description;
@@ -39,8 +35,7 @@ public class PortalRole extends BaseObject implements Serializable,
   /**
    * Create a new instance and set the name.
    * 
-   * @param name
-   *          name of the role.
+   * @param name name of the role.
    */
   public PortalRole(final String name) {
     this.name = name;
@@ -84,41 +79,4 @@ public class PortalRole extends BaseObject implements Serializable,
     this.description = description;
   }
 
-  /**
-   * {@inheritDoc}
-   */
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof PortalRole)) {
-      return false;
-    }
-
-    final PortalRole role = (PortalRole) o;
-
-    return !(name != null ? !name.equals(role.name) : role.name != null);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  public int hashCode() {
-    return (name != null ? name.hashCode() : 0);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  public String toString() {
-    return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
-    .append(this.name).toString();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  public int compareTo(Object o) {
-    return (equals(o) ? 0 : -1);
-  }
 }
