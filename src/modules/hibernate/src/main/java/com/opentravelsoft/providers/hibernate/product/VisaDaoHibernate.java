@@ -81,7 +81,7 @@ public class VisaDaoHibernate extends GenericDaoHibernate<VisaHelp, String>
       visaItem.setUnit(RowDataUtil.getString(obj[7]));
       visaItem.setStartDate(RowDataUtil.getDate(obj[8]));
       visaItem.setEndDate(RowDataUtil.getDate(obj[9]));
-      visaItem.setVisaKind(RowDataUtil.getChar(obj[10]));
+      visaItem.setVisaKind(RowDataUtil.getString(obj[10]));
       visaItem.setStayDays(RowDataUtil.getString(obj[11]));
       visaItem.setTransactDays(RowDataUtil.getString(obj[12]));
       visaItem.setIsOpen(RowDataUtil.getInt(obj[13]));
@@ -125,7 +125,7 @@ public class VisaDaoHibernate extends GenericDaoHibernate<VisaHelp, String>
       visaItem.setUnit(RowDataUtil.getString(obj[6]));
       visaItem.setStartDate(RowDataUtil.getDate(obj[7]));
       visaItem.setEndDate(RowDataUtil.getDate(obj[8]));
-      visaItem.setVisaKind(RowDataUtil.getChar(obj[9]));
+      visaItem.setVisaKind(RowDataUtil.getString(obj[9]));
       visaItem.setStayDays(RowDataUtil.getString(obj[10]));
       visaItem.setTransactDays(RowDataUtil.getString(obj[11]));
       visaItem.setIsOpen(RowDataUtil.getInt(obj[12]));
@@ -159,7 +159,7 @@ public class VisaDaoHibernate extends GenericDaoHibernate<VisaHelp, String>
     item.setStartDate(RowDataUtil.getDate(visahelp.getSDate()));
     item.setEndDate(RowDataUtil.getDate(visahelp.getEDate()));
     item.setNote(RowDataUtil.getString(visahelp.getNote()));
-    item.setVisaKind(RowDataUtil.getChar(visahelp.getVisaKind()));
+    item.setVisaKind(RowDataUtil.getString(visahelp.getVisaKind()));
     item.setStayDays(RowDataUtil.getString(visahelp.getStayDays()));
     item.setTransactDays(RowDataUtil.getString(visahelp.getTransactDays()));
     item.setIsOpen(visahelp.getIsOpen());
@@ -230,7 +230,7 @@ public class VisaDaoHibernate extends GenericDaoHibernate<VisaHelp, String>
     visahelp.setSDate(visaItem.getStartDate());
     visahelp.setEDate(visaItem.getEndDate());
     visahelp.setNote(visaItem.getNote());
-    visahelp.setOpKey('M');
+    visahelp.setOpKey("M");
     visahelp.setOpUser(visaItem.getOpUser());
     visahelp.setVisaKind(visaItem.getVisaKind());
     visahelp.setStayDays(visaItem.getStayDays());
@@ -275,7 +275,7 @@ public class VisaDaoHibernate extends GenericDaoHibernate<VisaHelp, String>
         LockMode.PESSIMISTIC_WRITE);
     if (visahelp != null) {
       visahelp.setOpUser(opUser);
-      visahelp.setOpKey('D');
+      visahelp.setOpKey("D");
       template.update(visahelp);
     }
     return false;

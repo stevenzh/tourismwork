@@ -15,7 +15,7 @@ public class TblExpenseTmpl implements java.io.Serializable {
   private int number;
   private String item;
   private String content;
-  private Character include;
+  private String include;
   private Integer sortOrder;
 
   public TblExpenseTmpl() {
@@ -27,7 +27,7 @@ public class TblExpenseTmpl implements java.io.Serializable {
   }
 
   public TblExpenseTmpl(int number, String item, String content,
-      Character include, Integer sortOrder) {
+      String include, Integer sortOrder) {
     this.number = number;
     this.item = item;
     this.content = content;
@@ -74,11 +74,11 @@ public class TblExpenseTmpl implements java.io.Serializable {
   }
 
   @Column(name = "INCLUDE", length = 1)
-  public Character getInclude() {
+  public String getInclude() {
     return this.include;
   }
 
-  public void setInclude(Character include) {
+  public void setInclude(String include) {
     this.include = include;
   }
 

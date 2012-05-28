@@ -8,7 +8,7 @@
             <column name="ID" />
             <generator class="identity" />
         </id>
-        <property name="classtype" type="java.lang.Character">
+        <property name="classtype" type="string">
             <column name="CLASSTYPE" length="1" />
         </property>
         <property name="dptNo" type="string">

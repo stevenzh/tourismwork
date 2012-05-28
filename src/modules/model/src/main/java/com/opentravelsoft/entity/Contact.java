@@ -26,7 +26,7 @@ public class Contact implements java.io.Serializable {
   private String msn;
   private String skype;
   private String qq;
-  private Character del;
+  private String del;
   private Integer salesId;
   private Date created;
   private Integer createdBy;
@@ -34,7 +34,7 @@ public class Contact implements java.io.Serializable {
   private Integer updatedBy;
 
   public Contact() {
-    this.del = 'N';
+    this.del = "N";
   }
 
   public Contact(int customerId, Date updated) {
@@ -144,11 +144,11 @@ public class Contact implements java.io.Serializable {
   }
 
   @Column(name = "DEL", length = 1)
-  public Character getDel() {
+  public String getDel() {
     return this.del;
   }
 
-  public void setDel(Character del) {
+  public void setDel(String del) {
     this.del = del;
   }
 
@@ -176,8 +176,8 @@ public class Contact implements java.io.Serializable {
     return this.createdBy;
   }
 
-  public void setCreatedBy(Integer createdby) {
-    this.createdBy = createdby;
+  public void setCreatedBy(Integer createdBy) {
+    this.createdBy = createdBy;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
@@ -195,8 +195,8 @@ public class Contact implements java.io.Serializable {
     return this.updatedBy;
   }
 
-  public void setUpdatedBy(Integer updatedby) {
-    this.updatedBy = updatedby;
+  public void setUpdatedBy(Integer updatedBy) {
+    this.updatedBy = updatedBy;
   }
 
   private int idx;

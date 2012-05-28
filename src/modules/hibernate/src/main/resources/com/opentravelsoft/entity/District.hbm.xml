@@ -8,8 +8,7 @@
       <column name="DISTRICT_NO" length="10" />
       <generator class="assigned" />
     </id>
-    <many-to-one name="country" class="com.opentravelsoft.entity.Country"
-      fetch="select">
+    <many-to-one name="country" class="com.opentravelsoft.entity.Country" fetch="select">
       <column name="COUNTRY" length="2" not-null="true" />
     </many-to-one>
     <property name="cnName" type="string">
@@ -24,12 +23,10 @@
     <property name="mapAddress2" type="string">
       <column name="MAP_ADDRESS2" length="50" />
     </property>
-    <many-to-one name="province" class="com.opentravelsoft.entity.Province"
-      lazy="false" fetch="join" not-found="ignore">
-      <column name="DUCHY" unique="true"></column>
+    <many-to-one name="province" class="com.opentravelsoft.entity.Province" lazy="false" fetch="join" not-found="ignore">
+      <column name="PROVINCE" unique="true"></column>
     </many-to-one>
-    <set name="sights" table="tbl_sight" inverse="true" lazy="true"
-      fetch="select">
+    <set name="sights" table="tbl_sight" inverse="true" lazy="true" fetch="select">
       <key>
         <column name="DISTRICT_NO" length="10" />
       </key>

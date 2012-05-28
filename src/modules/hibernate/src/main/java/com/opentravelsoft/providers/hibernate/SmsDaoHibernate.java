@@ -13,12 +13,12 @@ public class SmsDaoHibernate extends GenericDaoHibernate<TblSmsSend, Integer>
     super(TblSmsSend.class);
   }
 
-  public int receive(String seqno, String mob, String msg, String msgSrc) {
+  public int reserve(String seqno, String mob, String msg, String msgSrc) {
     TblSmsReceive record = new TblSmsReceive();
     record.setSeqno(seqno);
     record.setMessage(msg);
     record.setMobile(mob);
-    record.setReply('N');
+    record.setReply("N");
     record.setMsgSrc(msgSrc);
     getHibernateTemplate().save(record);
 

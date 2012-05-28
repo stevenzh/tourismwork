@@ -24,8 +24,8 @@
     <property name="contact" type="string">
       <column name="CONTACT" length="20" />
     </property>
-    <property name="tel" type="string">
-      <column name="TEL" length="60" />
+    <property name="phone" type="string">
+      <column name="PHONE" length="60" />
     </property>
     <property name="pax" type="java.lang.Integer">
       <column name="PAX" />
@@ -54,11 +54,11 @@
     <property name="opTime" type="timestamp">
       <column name="OP_TIME" length="19" not-null="true" />
     </property>
-    <property name="receive" type="java.lang.Integer">
-      <column name="RECEIVE" />
+    <property name="reserve" type="java.lang.Integer">
+      <column name="RESERVE" />
     </property>
-    <property name="receiveDt" type="timestamp">
-      <column name="RECEIVE_DT" length="19" />
+    <property name="reserveDate" type="timestamp">
+      <column name="RESERVE_DATE" length="19" />
     </property>
     <many-to-one name="salesman" class="com.opentravelsoft.entity.Employee" lazy="false" fetch="select">
       <column name="SALESMAN" />
@@ -66,7 +66,7 @@
     <property name="pactNo" type="string">
       <column name="PACT_NO" length="16" />
     </property>
-    <property name="tourKey" type="java.lang.Character">
+    <property name="tourKey" type="string">
       <column name="TOUR_KEY" length="1" />
     </property>
     <property name="remarks" type="string">
@@ -129,13 +129,13 @@
     <property name="workflowId" type="string">
       <column name="WORKFLOW_ID" />
     </property>
-    <property name="checkKey" type="java.lang.Character">
+    <property name="checkKey" type="string">
       <column name="CHECK_KEY" length="1" />
     </property>
     <property name="expAmt" type="big_decimal">
       <column name="EXP_AMT" precision="9" />
     </property>
-    <property name="orderState" type="java.lang.Character">
+    <property name="orderState" type="string">
       <column name="ORDER_STATE" length="1" />
     </property>
     <property name="isAgreeon" type="java.lang.Integer">
@@ -159,7 +159,7 @@
     <property name="email" type="string">
       <column name="Email" length="45" />
     </property>
-    <property name="productType" type="java.lang.Character">
+    <property name="productType" type="string">
       <column name="ProductType" length="1" />
     </property>
     <property name="adult" type="java.lang.Integer">

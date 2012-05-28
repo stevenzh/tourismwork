@@ -134,9 +134,9 @@ public class OpTourBalanceAction extends ManageAction {
       detail();
 
       // 是否提交财务
-      if (tour.getOpRefactor() == 'Y') {
+      if (tour.getOpRefactor().equals("Y")) {
         status = "Y";
-        if (tour.getOpAccount() == 'Y') {
+        if (tour.getOpAccount().equals("Y")) {
           opReAction = "Y";
         } else {
           addActionMessage("此团的核算表已提交到财务，只有得到授权后才能修改！");
@@ -178,7 +178,7 @@ public class OpTourBalanceAction extends ManageAction {
       }
     }
 
-    tour.setUpdatedby(user.getUserId());
+    tour.setUpdatedBy(user.getUserId());
     tour.setCostList(costList);
     int result = tourService.txSingleTourBalanceMake(tour);
 
@@ -205,7 +205,7 @@ public class OpTourBalanceAction extends ManageAction {
 
     tour = tourService.roGetTourInfo(tourNo, false, false);
     if (null != tour) {
-      if (tour.getOpAccount() != 'Y') {
+      if (!tour.getOpAccount().equals("Y")) {
         status = "N";
       } else {
         addActionError("此团的核算表已提交到财务!");

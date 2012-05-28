@@ -17,14 +17,14 @@ public class TblVisaTransact implements java.io.Serializable {
   private Integer applyId;
   private Integer applyUser;
   private Date applyDate;
-  private Character status;
+  private String status;
   private Integer chkUser;
   private Date chkDate;
 
   public TblVisaTransact() {
   }
 
-  public TblVisaTransact(Integer applyUser, Date applyDate, Character status,
+  public TblVisaTransact(Integer applyUser, Date applyDate, String status,
       Integer chkUser, Date chkDate) {
     this.applyUser = applyUser;
     this.applyDate = applyDate;
@@ -64,11 +64,11 @@ public class TblVisaTransact implements java.io.Serializable {
   }
 
   @Column(name = "STATUS", length = 1)
-  public Character getStatus() {
+  public String getStatus() {
     return this.status;
   }
 
-  public void setStatus(Character status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 

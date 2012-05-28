@@ -22,15 +22,15 @@ public class Branch implements java.io.Serializable {
   private String email;
   private String areaId;
   private String remarks;
-  private Character opKey;
+  private String opKey;
   private Integer opUser;
   private Date opDate;
   private String webKey;
   private BigDecimal arrearage;
-  private Character warnKey;
+  private String warnKey;
   private BigDecimal payment;
-  private Character reckoning;
-  private Character agentType;
+  private String reckoning;
+  private String agentType;
   private String bussTime;
   private String comeandgo;
   private String gmTel;
@@ -42,7 +42,7 @@ public class Branch implements java.io.Serializable {
   private String phoneFile2;
   private Integer createUser;
   private Date createDate;
-  private Character checkKey;
+  private String checkKey;
 
   public Branch() {
   }
@@ -66,12 +66,12 @@ public class Branch implements java.io.Serializable {
   public Branch(int branchId, String agentnm, String agentabb, String agentadd,
       String agentzip, String agenttel, String agentfax, String citycd,
       String manager, String sales, String email, String areaId,
-      String remarks, Character opKey, Integer opUser, Date opDate,
-      String webKey, BigDecimal arrearage, Character warnKey,
-      BigDecimal payment, Character reckoning, Character agentType,
+      String remarks, String opKey, Integer opUser, Date opDate,
+      String webKey, BigDecimal arrearage, String warnKey,
+      BigDecimal payment, String reckoning, String agentType,
       String bussTime, String comeandgo, String gmTel, String gmTalk,
       String phoneFile1, String mapFile, String phoneFile2, Integer createUser,
-      Date createDate, Character checkKey) {
+      Date createDate, String checkKey) {
     this.branchId = branchId;
     this.agentnm = agentnm;
     this.agentabb = agentabb;
@@ -225,11 +225,11 @@ public class Branch implements java.io.Serializable {
   }
 
   @Column(name = "OP_KEY", length = 1)
-  public Character getOpKey() {
+  public String getOpKey() {
     return this.opKey;
   }
 
-  public void setOpKey(Character opKey) {
+  public void setOpKey(String opKey) {
     this.opKey = opKey;
   }
 
@@ -271,11 +271,11 @@ public class Branch implements java.io.Serializable {
   }
 
   @Column(name = "WARN_KEY", length = 1)
-  public Character getWarnKey() {
+  public String getWarnKey() {
     return this.warnKey;
   }
 
-  public void setWarnKey(Character warnKey) {
+  public void setWarnKey(String warnKey) {
     this.warnKey = warnKey;
   }
 
@@ -289,20 +289,20 @@ public class Branch implements java.io.Serializable {
   }
 
   @Column(name = "RECKONING", length = 1)
-  public Character getReckoning() {
+  public String getReckoning() {
     return this.reckoning;
   }
 
-  public void setReckoning(Character reckoning) {
+  public void setReckoning(String reckoning) {
     this.reckoning = reckoning;
   }
 
   @Column(name = "AGENT_TYPE", length = 1)
-  public Character getAgentType() {
+  public String getAgentType() {
     return this.agentType;
   }
 
-  public void setAgentType(Character agentType) {
+  public void setAgentType(String agentType) {
     this.agentType = agentType;
   }
 
@@ -389,11 +389,11 @@ public class Branch implements java.io.Serializable {
   }
 
   @Column(name = "CHECK_KEY", length = 1)
-  public Character getCheckKey() {
+  public String getCheckKey() {
     return this.checkKey;
   }
 
-  public void setCheckKey(Character checkKey) {
+  public void setCheckKey(String checkKey) {
     this.checkKey = checkKey;
   }
 

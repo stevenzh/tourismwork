@@ -12,29 +12,29 @@
     <property name="lineNo" type="string">
       <column name="LINE_NO" length="8" />
     </property>
-    <property name="priceKey" type="java.lang.Character">
+    <property name="priceKey" type="string">
       <column name="PRICE_KEY" length="1" />
     </property>
     <property name="subject" type="string">
       <column name="SUBJECT" length="80" />
     </property>
-    <property name="price1" type="big_decimal">
-      <column name="PRICE1" precision="9" />
+    <property name="price" type="big_decimal">
+      <column name="PRICE" precision="9" />
     </property>
-    <property name="price2" type="big_decimal">
-      <column name="PRICE2" precision="9" />
+    <property name="priceOther" type="big_decimal">
+      <column name="PRICE_OTHER" precision="9" />
     </property>
-    <property name="price3" type="big_decimal">
-      <column name="PRICE3" precision="9" />
+    <property name="priceCost" type="big_decimal">
+      <column name="PRICE_COST" precision="9" />
     </property>
-    <property name="price4" type="big_decimal">
-      <column name="PRICE4" precision="9" />
+    <property name="priceContrast" type="big_decimal">
+      <column name="PRICE_CONTRAST" precision="9" />
     </property>
-    <property name="SDate" type="timestamp">
-      <column name="S_DATE" length="19" />
+    <property name="StartDate" type="timestamp">
+      <column name="START_DATE" length="19" />
     </property>
-    <property name="EDate" type="timestamp">
-      <column name="E_DATE" length="19" />
+    <property name="EndDate" type="timestamp">
+      <column name="END_DATE" length="19" />
     </property>
     <property name="weekBit" type="string">
       <column name="WEEK_BIT" length="7" />

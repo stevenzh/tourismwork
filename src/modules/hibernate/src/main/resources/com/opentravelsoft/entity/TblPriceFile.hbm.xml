@@ -3,37 +3,37 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.opentravelsoft.entity.TblPriceFile" table="TBL_PRICE_FILE">
-		<id name="id" type="java.lang.Integer">
-			<column name="ID" />
-			<generator class="identity" />
-		</id>
-		<property name="groupId" type="int">
-			<column name="GROUP_ID" not-null="true" />
-		</property>
-		<property name="filename" type="string">
-			<column name="FILENAME" length="120" not-null="true" />
-		</property>
-		<property name="filepath" type="string">
-			<column name="FILEPATH" length="120" not-null="true" />
-		</property>
-		<property name="filesize" type="java.lang.Integer">
-			<column name="FILESIZE" />
-		</property>
-		<property name="overdue" type="timestamp">
-			<column name="OVERDUE" length="19" />
-		</property>
-		<property name="del" type="java.lang.Character">
-			<column name="DEL" length="1" />
-		</property>
-		<property name="note" type="string">
-			<column name="NOTE" length="60" />
-		</property>
-		<property name="created" type="timestamp">
-			<column name="CREATED" length="19" />
-		</property>
-		<property name="createdby" type="java.lang.Integer">
-			<column name="CREATEDBY" />
-		</property>
-	</class>
+  <class name="com.opentravelsoft.entity.TblPriceFile" table="TBL_PRICE_FILE">
+    <id name="id" type="java.lang.Integer">
+      <column name="ID" />
+      <generator class="identity" />
+    </id>
+    <property name="groupId" type="int">
+      <column name="GROUP_ID" not-null="true" />
+    </property>
+    <property name="filename" type="string">
+      <column name="FILENAME" length="120" not-null="true" />
+    </property>
+    <property name="filepath" type="string">
+      <column name="FILEPATH" length="120" not-null="true" />
+    </property>
+    <property name="filesize" type="java.lang.Integer">
+      <column name="FILESIZE" />
+    </property>
+    <property name="overdue" type="timestamp">
+      <column name="OVERDUE" length="19" />
+    </property>
+    <property name="del" type="string">
+      <column name="DEL" length="1" />
+    </property>
+    <property name="note" type="string">
+      <column name="NOTE" length="60" />
+    </property>
+    <property name="created" type="timestamp">
+      <column name="CREATED" length="19" />
+    </property>
+    <property name="createdBy" type="java.lang.Integer">
+      <column name="CREATEDBY" />
+    </property>
+  </class>
 </hibernate-mapping>

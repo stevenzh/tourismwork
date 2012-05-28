@@ -12,7 +12,7 @@
     <property name="title" type="string">
       <column name="TITLE" length="80" not-null="true" />
     </property>
-    <property name="type" type="java.lang.Character">
+    <property name="type" type="string">
       <column name="TYPE" length="1" />
     </property>
     <property name="chrnum" type="java.lang.Integer">
@@ -30,6 +30,5 @@
     <property name="opDate" type="timestamp">
       <column name="OP_DATE" length="19" not-null="true" />
     </property>
-
   </class>
 </hibernate-mapping>

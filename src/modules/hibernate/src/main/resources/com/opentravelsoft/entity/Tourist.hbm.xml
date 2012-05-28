@@ -11,7 +11,7 @@
     <many-to-one name="booking" class="com.opentravelsoft.entity.Booking" fetch="select" lazy="false">
       <column name="NAME_NO" length="10"></column>
     </many-to-one>
-    <property name="recType" type="char">
+    <property name="recType" type="string">
       <column name="REC_TYPE" length="1" not-null="true" />
     </property>
     <property name="name" type="string">
@@ -20,13 +20,13 @@
     <property name="name2" type="string">
       <column name="NAME2" length="80" />
     </property>
-    <property name="cardty" type="java.lang.Character">
+    <property name="cardty" type="string">
       <column name="CARDTY" length="1" />
     </property>
     <property name="card" type="string">
       <column name="CARD" length="18" />
     </property>
-    <property name="sex" type="java.lang.Character">
+    <property name="sex" type="string">
       <column name="SEX" length="1" />
     </property>
     <property name="birthday" type="timestamp">
@@ -38,7 +38,7 @@
     <property name="mobile" type="string">
       <column name="MOBILE" length="30" />
     </property>
-    <property name="hzKey" type="java.lang.Character">
+    <property name="hzKey" type="string">
       <column name="HZ_KEY" length="1" />
     </property>
     <property name="hzzl" type="string">
@@ -68,7 +68,7 @@
     <property name="amt04" type="big_decimal">
       <column name="AMT04" precision="8" />
     </property>
-    <property name="vipkey" type="java.lang.Character">
+    <property name="vipkey" type="string">
       <column name="VIPKEY" length="1" />
     </property>
     <property name="remark" type="string">
@@ -83,10 +83,10 @@
     <property name="roomKey" type="string">
       <column name="ROOM_KEY" length="2" />
     </property>
-    <property name="roomKey1" type="java.lang.Character">
+    <property name="roomKey1" type="string">
       <column name="ROOM_KEY1" length="1" />
     </property>
-    <property name="del" type="char">
+    <property name="del" type="string">
       <column name="DEL" length="1" not-null="true" />
     </property>
     <property name="opuser" type="java.lang.Integer">
@@ -95,10 +95,10 @@
     <property name="opdate" type="timestamp">
       <column name="OPDATE" length="19" not-null="true" />
     </property>
-    <property name="tourKey" type="java.lang.Character">
+    <property name="tourKey" type="string">
       <column name="TOUR_KEY" length="1" />
     </property>
-    <property name="leadKey" type="java.lang.Character">
+    <property name="leadKey" type="string">
       <column name="LEAD_KEY" length="1" />
     </property>
     <property name="visaKey" type="string">
@@ -119,7 +119,7 @@
     <property name="givenName" type="string">
       <column name="GIVEN_NAME" length="20" />
     </property>
-    <property name="nameKey" type="java.lang.Character">
+    <property name="nameKey" type="string">
       <column name="NAME_KEY" length="1" />
     </property>
     <property name="nation" type="string">
@@ -143,7 +143,7 @@
     <property name="premExpend" type="big_decimal">
       <column name="PREM_EXPEND" precision="5" />
     </property>
-    <property name="premPrinted" type="java.lang.Character">
+    <property name="premPrinted" type="string">
       <column name="PREM_PRINTED" length="1" />
     </property>
     <property name="passRmk" type="string">

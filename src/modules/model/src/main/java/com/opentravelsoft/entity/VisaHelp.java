@@ -39,14 +39,14 @@ public class VisaHelp implements java.io.Serializable {
   /** 是否可以办理加急 */
   private Integer canQuick;
   /** 签证种类 */
-  private Character visaKind;
+  private String visaKind;
   /** 停留天数 */
   private String stayDays;
   /** 办理时间 */
   private String transactDays;
   /** 网站开放 */
   private Integer isOpen;
-  private Character opKey;
+  private String opKey;
   private Integer opUser;
   private Date opDate;
 
@@ -57,7 +57,7 @@ public class VisaHelp implements java.io.Serializable {
     quotedPrice = new BigDecimal(0);
     costPrice = new BigDecimal(0);
     unit = "";
-    visaKind = 'S';
+    visaKind = "S";
     items = new ArrayList<VisaItem>();
     fileItems = new ArrayList<VisaItem>();
   }
@@ -170,11 +170,11 @@ public class VisaHelp implements java.io.Serializable {
   }
 
   @Column(name = "VISA_KIND", length = 1)
-  public Character getVisaKind() {
+  public String getVisaKind() {
     return this.visaKind;
   }
 
-  public void setVisaKind(Character visaKind) {
+  public void setVisaKind(String visaKind) {
     this.visaKind = visaKind;
   }
 
@@ -206,11 +206,11 @@ public class VisaHelp implements java.io.Serializable {
   }
 
   @Column(name = "OP_KEY", length = 1)
-  public Character getOpKey() {
+  public String getOpKey() {
     return this.opKey;
   }
 
-  public void setOpKey(Character opKey) {
+  public void setOpKey(String opKey) {
     this.opKey = opKey;
   }
 

@@ -11,7 +11,7 @@
         <property name="lineNo" type="string">
             <column name="LINE_NO" length="10" />
         </property>
-        <property name="planType" type="java.lang.Character">
+        <property name="planType" type="string">
             <column name="PLAN_TYPE" length="1">
                 <comment>??&#161;&#227;&#168;&#164;&#161;&#164;???</comment>
             </column>
@@ -74,7 +74,7 @@
         <property name="modifiedDate" type="timestamp">
             <column name="ModifiedDate" length="19" />
         </property>
-        <property name="isLastMinute" type="java.lang.Character">
+        <property name="isLastMinute" type="string">
             <column name="IS_LAST_MINUTE" length="1" />
         </property>
         <property name="discountRate" type="big_decimal">

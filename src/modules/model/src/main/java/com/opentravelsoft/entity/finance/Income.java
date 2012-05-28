@@ -29,7 +29,7 @@ public class Income implements java.io.Serializable {
   /** 客户ID */
   private Customer customer;
   /** 收款方式 (现金\转账\网上) */
-  private Character payMode;
+  private String payMode;
   private String dptNo;
   /** 收款人 */
   private String reserver;
@@ -42,17 +42,17 @@ public class Income implements java.io.Serializable {
   private BigDecimal offsetAmount;
   /** 创建时间 */
   private Date created;
-  private Integer createdby;
+  private Integer createdBy;
   /** 更新时间 */
   private Date updated;
-  private Integer updatedby;
+  private Integer updatedBy;
   /** 订单ID */
   private String bookingNo;
   /** 付款类别（定金、预付款、余款） */
   private String useType;
 
   public Income() {
-    this.payMode = '1';
+    this.payMode = "1";
     this.invices = new ArrayList<Invoice>();
     this.customer = new Customer();
   }
@@ -85,11 +85,11 @@ public class Income implements java.io.Serializable {
   }
 
   @Column(name = "PAY_MODE", length = 1)
-  public Character getPayMode() {
+  public String getPayMode() {
     return this.payMode;
   }
 
-  public void setPayMode(Character payMode) {
+  public void setPayMode(String payMode) {
     this.payMode = payMode;
   }
 
@@ -159,12 +159,12 @@ public class Income implements java.io.Serializable {
   }
 
   @Column(name = "CREATEDBY")
-  public Integer getCreatedby() {
-    return this.createdby;
+  public Integer getCreatedBy() {
+    return this.createdBy;
   }
 
-  public void setCreatedby(Integer createdby) {
-    this.createdby = createdby;
+  public void setCreatedBy(Integer createdBy) {
+    this.createdBy = createdBy;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
@@ -178,12 +178,12 @@ public class Income implements java.io.Serializable {
   }
 
   @Column(name = "UPDATEDBY")
-  public Integer getUpdatedby() {
-    return this.updatedby;
+  public Integer getUpdatedBy() {
+    return this.updatedBy;
   }
 
-  public void setUpdatedby(Integer updatedby) {
-    this.updatedby = updatedby;
+  public void setUpdatedBy(Integer updatedBy) {
+    this.updatedBy = updatedBy;
   }
 
   @Column(name = "BOOKING_NO", nullable = false, length = 20)
@@ -205,12 +205,6 @@ public class Income implements java.io.Serializable {
   }
 
   private BigDecimal offSetAmount;
-
-  /** 创建人 */
-  private Integer createdBy;
-
-  /** 更新人 */
-  private Integer updatedBy;
 
   private String del;
 
@@ -249,24 +243,6 @@ public class Income implements java.io.Serializable {
 
   public void setOffSetAmount(BigDecimal offsetAmount) {
     this.offSetAmount = offsetAmount;
-  }
-
-  @Transient
-  public Integer getCreatedBy() {
-    return this.createdBy;
-  }
-
-  public void setCreatedBy(Integer createdBy) {
-    this.createdBy = createdBy;
-  }
-
-  @Transient
-  public Integer getUpdatedBy() {
-    return this.updatedBy;
-  }
-
-  public void setUpdatedBy(Integer updatedBy) {
-    this.updatedBy = updatedBy;
   }
 
   @Transient

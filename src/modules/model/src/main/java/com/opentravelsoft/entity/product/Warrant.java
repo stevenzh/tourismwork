@@ -9,7 +9,7 @@ import java.util.Date;
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
  */
 public class Warrant {
-  private Character warrantFlag;
+  private String warrantFlag;
 
   private Integer warrantBy;
 
@@ -19,11 +19,11 @@ public class Warrant {
 
   private Date lastPayDate;
 
-  public Character getWarrantFlag() {
+  public String getWarrantFlag() {
     return warrantFlag;
   }
 
-  public void setWarrantFlag(Character warrantFlag) {
+  public void setWarrantFlag(String warrantFlag) {
     this.warrantFlag = warrantFlag;
   }
 

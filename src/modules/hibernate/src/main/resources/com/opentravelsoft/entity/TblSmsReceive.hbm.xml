@@ -20,7 +20,7 @@
 		<property name="receiveDate" type="timestamp">
 			<column name="RECEIVE_DATE" length="19" />
 		</property>
-		<property name="reply" type="java.lang.Character">
+		<property name="reply" type="string">
 			<column name="REPLY" length="1" />
 		</property>
 		<property name="replyDate" type="timestamp">

@@ -11,9 +11,9 @@ public class PortalCategory implements java.io.Serializable {
 
   private String code;
   private String cnName;
-  private Character level;
+  private String level;
   private String upCode;
-  private Character nextKey;
+  private String nextKey;
   private String fullName;
   private String mapFile1;
 
@@ -24,8 +24,8 @@ public class PortalCategory implements java.io.Serializable {
     this.code = code;
   }
 
-  public PortalCategory(String code, String cnName, Character level,
-      String upCode, Character nextKey, String fullName, String mapFile1) {
+  public PortalCategory(String code, String cnName, String level,
+      String upCode, String nextKey, String fullName, String mapFile1) {
     this.code = code;
     this.cnName = cnName;
     this.level = level;
@@ -55,11 +55,11 @@ public class PortalCategory implements java.io.Serializable {
   }
 
   @Column(name = "LEVEL", length = 1)
-  public Character getLevel() {
+  public String getLevel() {
     return this.level;
   }
 
-  public void setLevel(Character level) {
+  public void setLevel(String level) {
     this.level = level;
   }
 
@@ -73,11 +73,11 @@ public class PortalCategory implements java.io.Serializable {
   }
 
   @Column(name = "NEXT_KEY", length = 1)
-  public Character getNextKey() {
+  public String getNextKey() {
     return this.nextKey;
   }
 
-  public void setNextKey(Character nextKey) {
+  public void setNextKey(String nextKey) {
     this.nextKey = nextKey;
   }
 

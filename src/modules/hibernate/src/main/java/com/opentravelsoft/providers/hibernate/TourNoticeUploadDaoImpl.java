@@ -37,8 +37,8 @@ public class TourNoticeUploadDaoImpl extends
       tblTourNoticeFile.setFileName(tourNoticeFile.getFileName());
       tblTourNoticeFile.setFilePath(tourNoticeFile.getFilePath());
       tblTourNoticeFile.setFileSize(tourNoticeFile.getFileSize());
-      tblTourNoticeFile.setDel('N');
-      tblTourNoticeFile.setCreatedby(tourNoticeFile.getOperator());
+      tblTourNoticeFile.setDel("N");
+      tblTourNoticeFile.setCreatedBy(tourNoticeFile.getOperator());
       tblTourNoticeFile.setNote(tourNoticeFile.getNote());
 
       template.save(tblTourNoticeFile);
@@ -75,7 +75,7 @@ public class TourNoticeUploadDaoImpl extends
           .getDptCd()));
       tourNoticeFile
           .setDelKey(RowDataUtil.getString(tblTourNoticeFile.getDel()));
-      tourNoticeFile.setOperator(tblTourNoticeFile.getCreatedby());
+      tourNoticeFile.setOperator(tblTourNoticeFile.getCreatedBy());
 
       return tourNoticeFile;
     } else {
@@ -90,7 +90,7 @@ public class TourNoticeUploadDaoImpl extends
         TourNoticeFile.class, fileId);
     if (null != tblTourNoticeFile) {
       // template.delete(tblTourNoticeFile);
-      tblTourNoticeFile.setDel('Y');
+      tblTourNoticeFile.setDel("Y");
       template.update(tblTourNoticeFile);
       return 0;
     } else {

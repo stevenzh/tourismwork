@@ -114,7 +114,7 @@ public class AddLineAction extends ManageAction {
   public String add() {
     Employee user = getUser();
 
-    line.setCreateUserId(user.getUserId());
+    line.setCreatedBy(user.getUserId());
     lineNo = lineService.txInsertLine(line);
     if (null == lineNo) {
       addActionMessage("add success");

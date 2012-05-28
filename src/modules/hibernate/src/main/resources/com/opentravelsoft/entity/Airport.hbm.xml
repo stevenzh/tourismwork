@@ -9,7 +9,7 @@
       <column name="CODE" length="3" />
       <generator class="assigned" />
     </id>
-    <many-to-one name="city" class="com.opentravelsoft.entity.City" fetch="select">
+    <many-to-one name="city" class="com.opentravelsoft.entity.City" lazy="false" fetch="select">
       <column name="CITY_ID" length="4" />
     </many-to-one>
     <property name="name" type="string">

@@ -14,7 +14,7 @@
         <property name="applyDate" type="timestamp">
             <column name="APPLY_DATE" length="19" />
         </property>
-        <property name="status" type="java.lang.Character">
+        <property name="status" type="string">
             <column name="STATUS" length="1" />
         </property>
         <property name="chkUser" type="java.lang.Integer">

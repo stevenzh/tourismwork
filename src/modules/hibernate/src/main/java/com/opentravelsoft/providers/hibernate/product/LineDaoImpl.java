@@ -40,7 +40,7 @@ public class LineDaoImpl extends GenericDaoHibernate<Line, String> implements
     DetachedCriteria criteria = DetachedCriteria.forClass(Line.class, "l");
     criteria.createAlias("l.outCity", "c");
     criteria.createAlias("l.destination", "d");
-    criteria.add(Restrictions.eq("l.delKey", 'N'));
+    criteria.add(Restrictions.eq("l.delKey", "N"));
 
     if (StringUtil.hasLength(lineName))
       criteria.add(Restrictions
@@ -81,7 +81,7 @@ public class LineDaoImpl extends GenericDaoHibernate<Line, String> implements
     if (line == null)
       return -1;
 
-    line.setDelKey('Y');
+    line.setDelKey("Y");
     template.update(line);
 
     return 0;
@@ -106,7 +106,7 @@ public class LineDaoImpl extends GenericDaoHibernate<Line, String> implements
       line1.setIsActive(line.isIsActive());
       line1.setTitle(line.getTitle());
       line1.setDescription(line.getDescription());
-      line1.setOperateUserId(line.getOperateUserId());
+      line1.setModifiedBy(line.getModifiedBy());
 
       line1.setPortOfEntry(line.getPortOfEntry());
       line1.setPortOfDeparture(line.getPortOfDeparture());

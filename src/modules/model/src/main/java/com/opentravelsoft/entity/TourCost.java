@@ -47,7 +47,8 @@ public class TourCost implements java.io.Serializable {
   private String frChecked;
   /** 创建时间 */
   private Date created;
-  private Integer createdby;
+  /** 创建人ID */
+  private Integer createdBy;
 
   private Plan tour;
 
@@ -211,19 +212,16 @@ public class TourCost implements java.io.Serializable {
   }
 
   @Column(name = "CREATEDBY")
-  public Integer getCreatedby() {
-    return this.createdby;
+  public Integer getCreatedBy() {
+    return this.createdBy;
   }
 
-  public void setCreatedby(Integer createdby) {
-    this.createdby = createdby;
+  public void setCreatedBy(Integer createdBy) {
+    this.createdBy = createdBy;
   }
 
   /** 是否做了付款申请书,已做-Y */
   private String isMakeOutcome;
-
-  /** 创建人ID */
-  private Integer createdBy;
 
   // ------------------------------------------------------------------------
   /** 创建人姓名 */
@@ -251,15 +249,6 @@ public class TourCost implements java.io.Serializable {
 
   public void setId(int id) {
     this.id = id;
-  }
-
-  @Transient
-  public Integer getCreatedBy() {
-    return createdBy;
-  }
-
-  public void setCreatedBy(Integer createdBy) {
-    this.createdBy = createdBy;
   }
 
   @Transient

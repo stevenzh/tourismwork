@@ -326,8 +326,8 @@ public class Guide implements java.io.Serializable {
     return this.character;
   }
 
-  public void setCharacter(String character) {
-    this.character = character;
+  public void setCharacter(String String) {
+    this.character = String;
   }
 
   @Column(name = "TASTE", length = 50)
@@ -433,7 +433,7 @@ public class Guide implements java.io.Serializable {
   }
 
   @Temporal(TemporalType.TIMESTAMP)
-  @Column(name = "HZRANG", length = 19)
+  @Column(name = "PASSPORT_EXPIRY", length = 19)
   public Date getPassportExpiry() {
     return this.passportExpiry;
   }

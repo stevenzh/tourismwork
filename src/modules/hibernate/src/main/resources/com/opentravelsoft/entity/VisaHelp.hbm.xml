@@ -38,7 +38,7 @@
     <property name="canQuick" type="java.lang.Integer">
       <column name="CAN_QUICK" />
     </property>
-    <property name="visaKind" type="java.lang.Character">
+    <property name="visaKind" type="string">
       <column name="VISA_KIND" length="1" />
     </property>
     <property name="stayDays" type="string">
@@ -50,7 +50,7 @@
     <property name="isOpen" type="java.lang.Integer">
       <column name="IS_OPEN" />
     </property>
-    <property name="opKey" type="java.lang.Character">
+    <property name="opKey" type="string">
       <column name="OP_KEY" length="1" />
     </property>
     <property name="opUser" type="java.lang.Integer">

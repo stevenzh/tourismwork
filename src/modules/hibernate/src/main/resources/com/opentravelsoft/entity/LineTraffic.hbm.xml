@@ -23,7 +23,7 @@
     <property name="travelTime" type="string">
       <column name="TRAVEL_TIME" length="50" />
     </property>
-    <property name="traffic" type="java.lang.Character">
+    <property name="traffic" type="string">
       <column name="TRAFFIC" length="1" />
     </property>
     <property name="step" type="java.lang.Integer">

@@ -41,25 +41,25 @@
                 <comment>&#161;&#193;??&#168;&#174;??&#161;&#193;??&#168;&#172;??</comment>
             </column>
         </property>
-        <property name="createdby" type="string">
+        <property name="createdBy" type="string">
             <column name="CREATEDBY" length="10" />
         </property>
         <property name="created" type="timestamp">
             <column name="CREATED" length="19" />
         </property>
-        <property name="createdbyip" type="string">
+        <property name="createdByIp" type="string">
             <column name="CREATEDBYIP" length="50" />
         </property>
-        <property name="updatedby" type="string">
+        <property name="updatedBy" type="string">
             <column name="UPDATEDBY" length="10" />
         </property>
         <property name="updated" type="timestamp">
             <column name="UPDATED" length="19" />
         </property>
-        <property name="updatedbyip" type="string">
+        <property name="updatedByIp" type="string">
             <column name="UPDATEDBYIP" length="50" />
         </property>
-        <property name="trafficType" type="char">
+        <property name="trafficType" type="string">
             <column name="TRAFFIC_TYPE" length="1" not-null="true">
                 <comment>???&#161;&#167;&#161;&#164;??? 1??&#161;&#164;??&#168;&#178; 2?????? 3??&#161;&#227;??? 4?????&#161;&#227; 5?????&#168;&#185; 6????</comment>
             </column>

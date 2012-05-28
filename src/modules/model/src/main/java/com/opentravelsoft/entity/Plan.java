@@ -33,6 +33,7 @@ public class Plan implements java.io.Serializable, Cloneable {
 
   private Employee crUser;
 
+  /** 出发城市 */
   private City city;
   /** 出发日期 */
   private Date outDate;
@@ -44,15 +45,18 @@ public class Plan implements java.io.Serializable, Cloneable {
   private Employee assigned;
   /** 预订是否控制名额 */
   private String paxkey;
+  /** 计划名额 */
   private Integer planPax;
+  /** 预留名额 */
   private Integer holdPax;
+  /** 最小成团人数 */
   private Integer buildMinPax;
   /**
    * 成团状态
    * 
    * D-取消 Y-延期 T-已成团 N-未成团 H-换团 W-退团
    */
-  private char uniteStatus;
+  private String uniteStatus;
   /** 已订名额 */
   private Integer pax2;
   /** 可用名额 */
@@ -65,11 +69,13 @@ public class Plan implements java.io.Serializable, Cloneable {
   private Integer femalePax;
   /** 小孩数 */
   private Integer childPax;
-  private Integer leadPax;
+  /** 领队数 */
+  private Integer leaderPax;
   private String workflowId;
   /** 开班说明 */
   private String recRmk;
-  private Date plandate1;
+  /** 报名截至日期（出团日期-截止天数） */
+  private Date deadline;
   /** 送签日期 */
   private Date plandate2;
   /** 有护照清仓天数 */
@@ -78,12 +84,14 @@ public class Plan implements java.io.Serializable, Cloneable {
   private Integer planDate4;
   /** 出照天数 */
   private Date passDate;
-  private String otherKey1;
-  private String messagebox;
+  /** 是否网站发布 Y-发布 N-不发布 */
+  private String deployFlag;
+  /** 报名提醒 */
+  private String message;
   /** 特惠出团计划 Y-特惠 N-普通 */
-  private Character favourable;
+  private String favourable;
   /** 是否共享航班 */
-  private Character shareFlight;
+  private String shareFlight;
   /** 共享航班ID */
   private Integer shareFlightId;
   /** 价格 */
@@ -98,7 +106,8 @@ public class Plan implements java.io.Serializable, Cloneable {
   private Date inDate;
   /** 入境口岸 */
   private String inCity;
-  private String gpCity;
+  /** 集合地点 */
+  private String venue;
 
   private Integer dbrm;
   /**
@@ -142,22 +151,24 @@ public class Plan implements java.io.Serializable, Cloneable {
   private Date ghdDate;
   /** 领队列表 */
   private String tourRmk;
+  /** 团队取消否 */
+  private String delKey;
 
-  private Character tourDel;
   /** 备注 */
   private String remarks;
   /** 催款单是否全部打印 */
-  private Character invpntKey;
+  private String invpntKey;
   private String visaNcode;
   private String visaNname;
   /** 是否需要安排领队 */
   private Integer isNeedLeader;
   private BigDecimal dbamt;
   private BigDecimal cramt;
-  private Character opKey;
+  /** 是否建团（Y-成团、N-未成团） */
+  private String isBuildup;
   private Date crDate;
   /** 可开票标记 */
-  private Character chkKey;
+  private String chkKey;
   /** 已开票登记 */
   private String chkIssue;
   /** 开票人 */
@@ -165,13 +176,15 @@ public class Plan implements java.io.Serializable, Cloneable {
   /** 开票时间 */
   private Date chkDate;
   /** 可打印催款单标记 */
-  private Character invKey;
+  private String invKey;
   /** 确认催款标记人 */
   private Integer invUser;
   /** 确认标记时间 */
   private Date invDate;
-  private Integer opuser;
-  private Date optime;
+
+  private Integer opUser;
+  /** 记录更新时间 */
+  private Date opDate;
   private Integer customerId;
   /** 减免人数 */
   private Integer exemptPax;
@@ -179,11 +192,11 @@ public class Plan implements java.io.Serializable, Cloneable {
   private BigDecimal amount;
   private BigDecimal costAmount;
   /** 单团核算标记 - 授权修改 (Y-授权修改) */
-  private char opAccount;
+  private String opAccount;
   /** 单团核算标记 - OP是否提交财务(Y-提交财务) */
-  private char opRefactor;
+  private String opRefactor;
   /** 单团核算标记 - 财务审核否 (Y-财务已审核) */
-  private Character frChecked;
+  private String frChecked;
   /** 财务审核人 */
   private Integer frUser;
   /** 财务审核时间 */
@@ -201,39 +214,24 @@ public class Plan implements java.io.Serializable, Cloneable {
     assigned = new Employee();
     tourNm = "";
     pax = 0;
-    pax4 = 0;
+    holdPax = 0;
     remarks = "";
     deployFlag = "Y";
-    favourable = 'N';
+    favourable = "N";
     enter = false;
     isEnter = 0;
-    shareFlight = 'N';
+    shareFlight = "N";
     paxkey = "Y";
     singleFlag = 1;
     isBuildup = "N";
     delKey = "N";
-    uniteStatus = 'N';
-    opAccount = 'N';
-    opRefactor = 'N';
+    uniteStatus = "N";
+    opAccount = "N";
+    opRefactor = "N";
     packagePrice = new LinePrice();
   }
 
   public Plan(String string, Date outDate2, double price) {
-  }
-
-  public Plan(String planNo, Line line, Date outDate, char uniteStatus,
-      int pax, Date plandate1, Date optime, BigDecimal costAmount,
-      char opAccount, char opRefactor) {
-    this.planNo = planNo;
-    this.line = line;
-    this.outDate = outDate;
-    this.uniteStatus = uniteStatus;
-    this.pax = pax;
-    this.plandate1 = plandate1;
-    this.optime = optime;
-    this.costAmount = costAmount;
-    this.opAccount = opAccount;
-    this.opRefactor = opRefactor;
   }
 
   @Id
@@ -361,11 +359,11 @@ public class Plan implements java.io.Serializable, Cloneable {
   }
 
   @Column(name = "UNITE_STATUS", nullable = false, length = 1)
-  public char getUniteStatus() {
+  public String getUniteStatus() {
     return this.uniteStatus;
   }
 
-  public void setUniteStatus(char uniteStatus) {
+  public void setUniteStatus(String uniteStatus) {
     this.uniteStatus = uniteStatus;
   }
 
@@ -423,13 +421,13 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.childPax = childPax;
   }
 
-  @Column(name = "LEAD_PAX")
-  public Integer getLeadPax() {
-    return this.leadPax;
+  @Column(name = "LEADER_PAX")
+  public Integer getLeaderPax() {
+    return leaderPax;
   }
 
-  public void setLeadPax(Integer leadPax) {
-    this.leadPax = leadPax;
+  public void setLeaderPax(Integer leaderPax) {
+    this.leaderPax = leaderPax;
   }
 
   @Column(name = "WORKFLOW_ID")
@@ -451,13 +449,13 @@ public class Plan implements java.io.Serializable, Cloneable {
   }
 
   @Temporal(TemporalType.TIMESTAMP)
-  @Column(name = "PLANDATE1", nullable = false, length = 19)
-  public Date getPlandate1() {
-    return this.plandate1;
+  @Column(name = "DEADLINE", nullable = false, length = 19)
+  public Date getDeadline() {
+    return deadline;
   }
 
-  public void setPlandate1(Date plandate1) {
-    this.plandate1 = plandate1;
+  public void setDeadline(Date deadline) {
+    this.deadline = deadline;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
@@ -498,39 +496,39 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.passDate = passDate;
   }
 
-  @Column(name = "OTHER_KEY1", length = 1)
-  public String getOtherKey1() {
-    return this.otherKey1;
+  @Column(name = "DEPLOY_FLAG", length = 1)
+  public String getDeployFlag() {
+    return deployFlag;
   }
 
-  public void setOtherKey1(String otherKey1) {
-    this.otherKey1 = otherKey1;
+  public void setDeployFlag(String deployFlag) {
+    this.deployFlag = deployFlag;
   }
 
-  @Column(name = "MESSAGEBOX", length = 500)
-  public String getMessagebox() {
-    return this.messagebox;
+  @Column(name = "MESSAGE", length = 500)
+  public String getMessage() {
+    return message;
   }
 
-  public void setMessagebox(String messagebox) {
-    this.messagebox = messagebox;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   @Column(name = "FAVOURABLE", length = 1)
-  public Character getFavourable() {
+  public String getFavourable() {
     return this.favourable;
   }
 
-  public void setFavourable(Character favourable) {
+  public void setFavourable(String favourable) {
     this.favourable = favourable;
   }
 
   @Column(name = "SHARE_FLIGHT", length = 1)
-  public Character getShareFlight() {
+  public String getShareFlight() {
     return this.shareFlight;
   }
 
-  public void setShareFlight(Character shareFlight) {
+  public void setShareFlight(String shareFlight) {
     this.shareFlight = shareFlight;
   }
 
@@ -599,13 +597,13 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.inCity = inCity;
   }
 
-  @Column(name = "GP_CITY", length = 4)
-  public String getGpCity() {
-    return this.gpCity;
+  @Column(name = "VENUE", length = 4)
+  public String getVenue() {
+    return venue;
   }
 
-  public void setGpCity(String gpCity) {
-    this.gpCity = gpCity;
+  public void setVenue(String venue) {
+    this.venue = venue;
   }
 
   @Column(name = "DBRM")
@@ -800,13 +798,13 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.tourRmk = tourRmk;
   }
 
-  @Column(name = "TOUR_DEL", length = 1)
-  public Character getTourDel() {
-    return this.tourDel;
+  @Column(name = "DEL_KEY", length = 1)
+  public String getDelKey() {
+    return delKey;
   }
 
-  public void setTourDel(Character tourDel) {
-    this.tourDel = tourDel;
+  public void setDelKey(String delKey) {
+    this.delKey = delKey;
   }
 
   @Column(name = "REMARKS", length = 1000)
@@ -819,11 +817,11 @@ public class Plan implements java.io.Serializable, Cloneable {
   }
 
   @Column(name = "INVPNT_KEY", length = 1)
-  public Character getInvpntKey() {
+  public String getInvpntKey() {
     return this.invpntKey;
   }
 
-  public void setInvpntKey(Character invpntKey) {
+  public void setInvpntKey(String invpntKey) {
     this.invpntKey = invpntKey;
   }
 
@@ -872,13 +870,13 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.cramt = cramt;
   }
 
-  @Column(name = "OP_KEY", length = 1)
-  public Character getOpKey() {
-    return this.opKey;
+  @Column(name = "IS_BUILDUP", length = 1)
+  public String getIsBuildup() {
+    return isBuildup;
   }
 
-  public void setOpKey(Character opKey) {
-    this.opKey = opKey;
+  public void setIsBuildup(String isBuildup) {
+    this.isBuildup = isBuildup;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
@@ -892,11 +890,11 @@ public class Plan implements java.io.Serializable, Cloneable {
   }
 
   @Column(name = "CHK_KEY", length = 1)
-  public Character getChkKey() {
+  public String getChkKey() {
     return this.chkKey;
   }
 
-  public void setChkKey(Character chkKey) {
+  public void setChkKey(String chkKey) {
     this.chkKey = chkKey;
   }
 
@@ -929,11 +927,11 @@ public class Plan implements java.io.Serializable, Cloneable {
   }
 
   @Column(name = "INV_KEY", length = 1)
-  public Character getInvKey() {
+  public String getInvKey() {
     return this.invKey;
   }
 
-  public void setInvKey(Character invKey) {
+  public void setInvKey(String invKey) {
     this.invKey = invKey;
   }
 
@@ -957,22 +955,22 @@ public class Plan implements java.io.Serializable, Cloneable {
   }
 
   @Column(name = "OPUSER")
-  public Integer getOpuser() {
-    return this.opuser;
+  public Integer getOpUser() {
+    return this.opUser;
   }
 
-  public void setOpuser(Integer opuser) {
-    this.opuser = opuser;
+  public void setOpUser(Integer opuser) {
+    this.opUser = opuser;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
-  @Column(name = "OPTIME", nullable = false, length = 19)
-  public Date getOptime() {
-    return this.optime;
+  @Column(name = "OP_DATE", nullable = false, length = 19)
+  public Date getOpDate() {
+    return opDate;
   }
 
-  public void setOptime(Date optime) {
-    this.optime = optime;
+  public void setOpDate(Date opDate) {
+    this.opDate = opDate;
   }
 
   @Column(name = "CUSTOMER_ID")
@@ -1012,29 +1010,29 @@ public class Plan implements java.io.Serializable, Cloneable {
   }
 
   @Column(name = "OP_ACCOUNT", nullable = false, length = 1)
-  public char getOpAccount() {
+  public String getOpAccount() {
     return this.opAccount;
   }
 
-  public void setOpAccount(char opAccount) {
+  public void setOpAccount(String opAccount) {
     this.opAccount = opAccount;
   }
 
   @Column(name = "OP_REFACTOR", nullable = false, length = 1)
-  public char getOpRefactor() {
+  public String getOpRefactor() {
     return this.opRefactor;
   }
 
-  public void setOpRefactor(char opRefactor) {
+  public void setOpRefactor(String opRefactor) {
     this.opRefactor = opRefactor;
   }
 
   @Column(name = "FR_CHECKED", length = 1)
-  public Character getFrChecked() {
+  public String getFrChecked() {
     return this.frChecked;
   }
 
-  public void setFrChecked(Character frChecked) {
+  public void setFrChecked(String frChecked) {
     this.frChecked = frChecked;
   }
 
@@ -1083,47 +1081,6 @@ public class Plan implements java.io.Serializable, Cloneable {
   public void setTourAmount(BigDecimal tourAmount) {
     this.tourAmount = tourAmount;
   }
-
-  /** 出发城市 */
-  private String outCity;
-
-  /** 计划名额 */
-  private Integer pax1;
-
-  /** 预留名额 */
-  private Integer pax4;
-
-  /** 最小成团人数 */
-  private Integer pax5;
-
-  /** 领队数 */
-  private Integer leaderPax;
-
-  /** 报名截至日期（出团日期-截止天数） */
-  private Date deadline;
-
-  /** 是否网站发布 Y-发布 N-不发布 */
-  private String deployFlag;
-
-  /** 报名提醒 */
-  private String message;
-
-  /** 集合地点 */
-  private String venue;
-
-  /** 团队取消否 */
-  private String delKey;
-
-  /** 是否建团（Y-成团、N-未成团） */
-  private String isBuildup;
-
-  /** 记录修改人 */
-  private Integer opUser;
-
-  /** 记录更新时间 */
-  private Date opDate;
-
-  // ------------------------------------------------------------------------
 
   /** 报名截至天数 */
   private int deadNum;
@@ -1479,23 +1436,11 @@ public class Plan implements java.io.Serializable, Cloneable {
 
   private List<Booking> bookList = new ArrayList<Booking>();
 
-  private Integer updatedby;
+  private Integer updatedBy;
 
   @Override
   public Plan clone() throws CloneNotSupportedException {
     return (Plan) super.clone();
-  }
-
-  public void setPax1(Integer pax1) {
-    this.pax1 = pax1;
-  }
-
-  public void setPax4(Integer pax4) {
-    this.pax4 = pax4;
-  }
-
-  public void setPax5(Integer pax5) {
-    this.pax5 = pax5;
   }
 
   @Transient
@@ -1508,89 +1453,12 @@ public class Plan implements java.io.Serializable, Cloneable {
   }
 
   @Transient
-  public Integer getPax1() {
-    return pax1;
-  }
-
-  /**
-   * 设定计划名额
-   * 
-   * @param pax1 人数
-   */
-  public void setPax1(int pax1) {
-    this.pax1 = pax1;
-  }
-
-  @Transient
-  public Integer getPax4() {
-    return pax4;
-  }
-
-  public void setPax4(int pax4) {
-    this.pax4 = pax4;
-  }
-
-  @Transient
-  public Integer getPax5() {
-    return pax5;
-  }
-
-  public void setPax5(int pax5) {
-    this.pax5 = pax5;
-  }
-
-  @Transient
   public String getCancelFlag() {
     return cancelFlag;
   }
 
   public void setCancelFlag(String cancelFlag) {
     this.cancelFlag = cancelFlag;
-  }
-
-  @Transient
-  public Date getDeadline() {
-    return deadline;
-  }
-
-  public void setDeadline(Date deadline) {
-    this.deadline = deadline;
-  }
-
-  @Transient
-  public String getDeployFlag() {
-    return deployFlag;
-  }
-
-  public void setDeployFlag(String deployFlag) {
-    this.deployFlag = deployFlag;
-  }
-
-  @Transient
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  @Transient
-  public Date getOpDate() {
-    return opDate;
-  }
-
-  public void setOpDate(Date opDate) {
-    this.opDate = opDate;
-  }
-
-  @Transient
-  public Integer getOpUser() {
-    return opUser;
-  }
-
-  public void setOpUser(Integer opUser) {
-    this.opUser = opUser;
   }
 
   @Transient
@@ -1746,15 +1614,6 @@ public class Plan implements java.io.Serializable, Cloneable {
   }
 
   @Transient
-  public String getIsBuildup() {
-    return isBuildup;
-  }
-
-  public void setIsBuildup(String isBuildup) {
-    this.isBuildup = isBuildup;
-  }
-
-  @Transient
   public int getTraitId() {
     return traitId;
   }
@@ -1802,15 +1661,6 @@ public class Plan implements java.io.Serializable, Cloneable {
   @Transient
   public Source getSource() {
     return new SAXSource(new TourXMLReader(), new TourInputSource(this));
-  }
-
-  @Transient
-  public String getVenue() {
-    return venue;
-  }
-
-  public void setVenue(String venue) {
-    this.venue = venue;
   }
 
   @Transient
@@ -1865,15 +1715,6 @@ public class Plan implements java.io.Serializable, Cloneable {
 
   public void setWiAmount(BigDecimal wiAmount) {
     this.wiAmount = wiAmount;
-  }
-
-  @Transient
-  public String getDelKey() {
-    return delKey;
-  }
-
-  public void setDelKey(String delKey) {
-    this.delKey = delKey;
   }
 
   @Transient
@@ -2655,15 +2496,6 @@ public class Plan implements java.io.Serializable, Cloneable {
   }
 
   @Transient
-  public Integer getLeaderPax() {
-    return leaderPax;
-  }
-
-  public void setLeaderPax(Integer leaderPax) {
-    this.leaderPax = leaderPax;
-  }
-
-  @Transient
   public String getLeaderName() {
     return leaderName;
   }
@@ -2741,12 +2573,12 @@ public class Plan implements java.io.Serializable, Cloneable {
     this.oprateUserName = oprateUserName;
   }
 
-  public Integer getUpdatedby() {
-    return this.updatedby;
+  public Integer getUpdatedBy() {
+    return this.updatedBy;
   }
 
-  public void setUpdatedby(Integer updatedby) {
-    this.updatedby = updatedby;
+  public void setUpdatedBy(Integer updatedBy) {
+    this.updatedBy = updatedBy;
   }
 
   public Double getPrice() {
@@ -2755,15 +2587,6 @@ public class Plan implements java.io.Serializable, Cloneable {
 
   public void setPrice(Double price) {
     this.price = price;
-  }
-
-  @Transient
-  public String getOutCity() {
-    return outCity;
-  }
-
-  public void setOutCity(String outCity) {
-    this.outCity = outCity;
   }
 
 }

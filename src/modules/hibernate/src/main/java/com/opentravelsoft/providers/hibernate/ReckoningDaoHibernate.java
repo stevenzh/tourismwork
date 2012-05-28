@@ -77,7 +77,7 @@ public class ReckoningDaoHibernate extends
     tblReckoning.setContact(reckoning.getContact());
     tblReckoning.setPhone(reckoning.getPhone());
     tblReckoning.setFax(reckoning.getFax());
-    tblReckoning.setCreatedby(reckoning.getCreatedby());
+    tblReckoning.setCreatedBy(reckoning.getCreatedBy());
     tblReckoning.setPrintedCount(0);
 
     getHibernateTemplate().save(tblReckoning);
@@ -169,7 +169,7 @@ public class ReckoningDaoHibernate extends
 
       StringBuilder sql = new StringBuilder();
       sql.append("from Employee where userId=?");
-      Object[] params = { reckoning.getCreatedby() };
+      Object[] params = { reckoning.getCreatedBy() };
 
       List<Employee> employees = getHibernateTemplate().find(sql.toString(),
           params);
@@ -215,7 +215,7 @@ public class ReckoningDaoHibernate extends
       tblReckoning.setContact(reckoning.getContact());
       tblReckoning.setPhone(reckoning.getPhone());
       tblReckoning.setFax(reckoning.getFax());
-      tblReckoning.setUpdatedby(reckoning.getUpdatedby());
+      tblReckoning.setUpdatedBy(reckoning.getUpdatedBy());
 
       getHibernateTemplate().update(tblReckoning);
 

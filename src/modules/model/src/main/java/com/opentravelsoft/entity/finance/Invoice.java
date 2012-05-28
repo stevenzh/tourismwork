@@ -33,15 +33,15 @@ public class Invoice implements java.io.Serializable {
   private BigDecimal amount3;
   private String exp4;
   private BigDecimal amount4;
-  private Character type1;
+  private String type1;
   private BigDecimal pamount1;
-  private Character type2;
+  private String type2;
   private BigDecimal pamount2;
-  private Character type3;
+  private String type3;
   private BigDecimal pamount3;
-  private Character type4;
+  private String type4;
   private BigDecimal pamount4;
-  private Character type5;
+  private String type5;
   private BigDecimal pamount5;
   private String remarks;
   private Byte del;
@@ -179,11 +179,11 @@ public class Invoice implements java.io.Serializable {
   }
 
   @Column(name = "TYPE1", length = 1)
-  public Character getType1() {
+  public String getType1() {
     return this.type1;
   }
 
-  public void setType1(Character type1) {
+  public void setType1(String type1) {
     this.type1 = type1;
   }
 
@@ -197,11 +197,11 @@ public class Invoice implements java.io.Serializable {
   }
 
   @Column(name = "TYPE2", length = 1)
-  public Character getType2() {
+  public String getType2() {
     return this.type2;
   }
 
-  public void setType2(Character type2) {
+  public void setType2(String type2) {
     this.type2 = type2;
   }
 
@@ -215,11 +215,11 @@ public class Invoice implements java.io.Serializable {
   }
 
   @Column(name = "TYPE3", length = 1)
-  public Character getType3() {
+  public String getType3() {
     return this.type3;
   }
 
-  public void setType3(Character type3) {
+  public void setType3(String type3) {
     this.type3 = type3;
   }
 
@@ -233,11 +233,11 @@ public class Invoice implements java.io.Serializable {
   }
 
   @Column(name = "TYPE4", length = 1)
-  public Character getType4() {
+  public String getType4() {
     return this.type4;
   }
 
-  public void setType4(Character type4) {
+  public void setType4(String type4) {
     this.type4 = type4;
   }
 
@@ -251,11 +251,11 @@ public class Invoice implements java.io.Serializable {
   }
 
   @Column(name = "TYPE5", length = 1)
-  public Character getType5() {
+  public String getType5() {
     return this.type5;
   }
 
-  public void setType5(Character type5) {
+  public void setType5(String type5) {
     this.type5 = type5;
   }
 

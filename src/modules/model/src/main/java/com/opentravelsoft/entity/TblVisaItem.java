@@ -21,7 +21,7 @@ public class TblVisaItem implements java.io.Serializable {
   private String note;
   /** 排序 */
   private Integer sortOrder;
-  private Character del;
+  private String del;
 
   public TblVisaItem() {
   }
@@ -32,7 +32,7 @@ public class TblVisaItem implements java.io.Serializable {
   }
 
   public TblVisaItem(String recNo, Integer itemId, String outline, int num,
-      String note, Integer sortOrder, Character del) {
+      String note, Integer sortOrder, String del) {
     this.recNo = recNo;
     this.itemId = itemId;
     this.outline = outline;
@@ -108,11 +108,11 @@ public class TblVisaItem implements java.io.Serializable {
   }
 
   @Column(name = "DEL", length = 1)
-  public Character getDel() {
+  public String getDel() {
     return this.del;
   }
 
-  public void setDel(Character del) {
+  public void setDel(String del) {
     this.del = del;
   }
 

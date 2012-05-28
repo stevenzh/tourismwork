@@ -45,7 +45,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
     sb.append("from Booking ");
     sb.append("where customer.customerId=? and dbamt<>cramt ");
     sb.append("and cfmKey='1' and delkey='N' ");
-    sb.append("order by receiveDt ");
+    sb.append("order by reserveDate ");
     Object[] param = { customerId };
     return getHibernateTemplate().find(sb.toString(), param);
   }
@@ -254,7 +254,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
       gathering.setIncomeId(RowDataUtil.getInt(objG[0]));
       gathering.getCustomer().setCustomerId(RowDataUtil.getInt(objG[1]));
       gathering.getCustomer().setName(RowDataUtil.getString(objG[2]));
-      gathering.setPayMode(RowDataUtil.getChar(objG[3]));
+      gathering.setPayMode(RowDataUtil.getString(objG[3]));
       gathering.setNote(RowDataUtil.getString(objG[4]));
       gathering.setIncomeDate(RowDataUtil.getDate(objG[5]));
       gathering.setAmount(RowDataUtil.getBigDecimal(objG[6]));
@@ -330,7 +330,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
     sb.append("Income c ");
     sb.append("where c.bookingNo=a.nameNo and c.incomeId=? ");
     sb.append("and a.cfmKey='1' and a.delkey='N' ");
-    sb.append("order by a.receiveDt ");
+    sb.append("order by a.reserveDate ");
     Object[] param = { incomeId };
     List<Booking> books = new ArrayList<Booking>();
     List<Object[]> list = getHibernateTemplate().find(sb.toString(), param);
@@ -449,7 +449,7 @@ public class IncomeDaoHibernate extends GenericDaoHibernate<Income, Integer>
       // 付款单NO
       pay.setBookingNo(RowDataUtil.getString(obj[0]));
       // 付款方式
-      pay.setPayMode(RowDataUtil.getChar(obj[1]));
+      pay.setPayMode(RowDataUtil.getString(obj[1]));
       // 付款金额
       pay.setAmount(RowDataUtil.getBigDecimal(obj[2]));
       // 付款类别（0：定金 1：预付款...）

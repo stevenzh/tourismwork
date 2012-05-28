@@ -26,7 +26,7 @@
 		<property name="sortOrder" type="java.lang.Integer">
 			<column name="SORT_ORDER" />
 		</property>
-		<property name="del" type="java.lang.Character">
+		<property name="del" type="string">
 			<column name="DEL" length="1" />
 		</property>
 	</class>

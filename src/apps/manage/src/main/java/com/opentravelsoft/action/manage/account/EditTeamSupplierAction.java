@@ -104,7 +104,7 @@ public class EditTeamSupplierAction extends ManageAction {
 
   public String submit() {
     Employee user = getUser();
-    supplier.setUpdatedby(user.getUserId());
+    supplier.setUpdatedBy(user.getUserId());
     supplier.setContacts(contacts);
     supplierService.txEditSupplier(supplier, teamId);
 

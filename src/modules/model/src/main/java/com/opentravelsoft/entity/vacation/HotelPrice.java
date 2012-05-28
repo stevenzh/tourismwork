@@ -25,7 +25,7 @@ public class HotelPrice implements java.io.Serializable {
   private String prcRem1;
   private String prcRem2;
   private String foodType;
-  private Character apFlag;
+  private String apFlag;
   private Integer recommend;
   private Integer apNight;
   private Date SDate;
@@ -46,8 +46,8 @@ public class HotelPrice implements java.io.Serializable {
   private BigDecimal bnAmount3;
   private BigDecimal bnRate;
   private BigDecimal bnAmount;
-  private Character opKey;
-  private Character checkKey;
+  private String opKey;
+  private String checkKey;
   private String checkUser;
   private Date checkDate;
 
@@ -141,11 +141,11 @@ public class HotelPrice implements java.io.Serializable {
   }
 
   @Column(name = "AP_FLAG", length = 1)
-  public Character getApFlag() {
+  public String getApFlag() {
     return this.apFlag;
   }
 
-  public void setApFlag(Character apFlag) {
+  public void setApFlag(String apFlag) {
     this.apFlag = apFlag;
   }
 
@@ -334,20 +334,20 @@ public class HotelPrice implements java.io.Serializable {
   }
 
   @Column(name = "OP_KEY", length = 1)
-  public Character getOpKey() {
+  public String getOpKey() {
     return this.opKey;
   }
 
-  public void setOpKey(Character opKey) {
+  public void setOpKey(String opKey) {
     this.opKey = opKey;
   }
 
   @Column(name = "CHECK_KEY", length = 1)
-  public Character getCheckKey() {
+  public String getCheckKey() {
     return this.checkKey;
   }
 
-  public void setCheckKey(Character checkKey) {
+  public void setCheckKey(String checkKey) {
     this.checkKey = checkKey;
   }
 

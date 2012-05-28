@@ -11,13 +11,13 @@
 		<property name="cnName" type="string">
 			<column name="CN_NAME" length="30" />
 		</property>
-		<property name="level" type="java.lang.Character">
+		<property name="level" type="string">
 			<column name="LEVEL" length="1" />
 		</property>
 		<property name="upCode" type="string">
 			<column name="UP_CODE" length="8" />
 		</property>
-		<property name="nextKey" type="java.lang.Character">
+		<property name="nextKey" type="string">
 			<column name="NEXT_KEY" length="1" />
 		</property>
 		<property name="fullName" type="string">

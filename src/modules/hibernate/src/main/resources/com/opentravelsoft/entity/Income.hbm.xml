@@ -11,7 +11,7 @@
     <many-to-one name="customer" class="com.opentravelsoft.entity.Customer" lazy="false" fetch="select">
       <column name="CUSTOMER_ID" />
     </many-to-one>
-    <property name="payMode" type="java.lang.Character">
+    <property name="payMode" type="string">
       <column name="PAY_MODE" length="1" />
     </property>
     <property name="dptNo" type="string">
@@ -35,13 +35,13 @@
     <property name="created" type="timestamp">
       <column name="CREATED" length="19" />
     </property>
-    <property name="createdby" type="java.lang.Integer">
+    <property name="createdBy" type="java.lang.Integer">
       <column name="CREATEDBY" />
     </property>
     <property name="updated" type="timestamp">
       <column name="UPDATED" length="19" not-null="true" />
     </property>
-    <property name="updatedby" type="java.lang.Integer">
+    <property name="updatedBy" type="java.lang.Integer">
       <column name="UPDATEDBY" />
     </property>
     <property name="bookingNo" type="string">

@@ -23,7 +23,7 @@
     <property name="payDate" type="timestamp">
       <column name="PAY_DATE" length="19" />
     </property>
-    <property name="payMode" type="java.lang.Character">
+    <property name="payMode" type="string">
       <column name="PAY_MODE" length="1" />
     </property>
     <property name="billNo" type="string">
@@ -74,7 +74,7 @@
     <property name="created" type="timestamp">
       <column name="CREATED" length="19" />
     </property>
-    <property name="createdby" type="java.lang.Integer">
+    <property name="createdBy" type="java.lang.Integer">
       <column name="CREATEDBY" />
     </property>
     <property name="opApproved" type="timestamp">
@@ -83,7 +83,7 @@
     <property name="opApprovedby" type="java.lang.Integer">
       <column name="OP_APPROVEDBY" />
     </property>
-    <property name="opApprovedFlag" type="java.lang.Character">
+    <property name="opApprovedFlag" type="string">
       <column name="OP_APPROVED_FLAG" length="1" />
     </property>
     <property name="frRead" type="timestamp">
@@ -92,7 +92,7 @@
     <property name="frReadby" type="java.lang.Integer">
       <column name="FR_READBY" />
     </property>
-    <property name="frReadFlag" type="java.lang.Character">
+    <property name="frReadFlag" type="string">
       <column name="FR_READ_FLAG" length="1" />
     </property>
     <property name="frApproved" type="timestamp">
@@ -101,17 +101,14 @@
     <property name="frApprovedby" type="java.lang.Integer">
       <column name="FR_APPROVEDBY" />
     </property>
-    <property name="frApprovedFlag" type="java.lang.Character">
+    <property name="frApprovedFlag" type="string">
       <column name="FR_APPROVED_FLAG" length="1" />
     </property>
     <property name="updated" type="timestamp">
       <column name="UPDATED" length="19" not-null="true" />
     </property>
-    <property name="updatedby" type="java.lang.Integer">
+    <property name="updatedBy" type="java.lang.Integer">
       <column name="UPDATEDBY" />
     </property>
-
-
-
   </class>
 </hibernate-mapping>

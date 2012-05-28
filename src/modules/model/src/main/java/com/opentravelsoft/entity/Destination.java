@@ -28,8 +28,8 @@ public class Destination implements java.io.Serializable {
   /** 中文全称 */
   private String fullName;
   /** 级别 */
-  private Character level;
-  private Character nextKey;
+  private String level;
+  private String nextKey;
   /** 关键字 内部搜索 */
   private String keywords;
   /** 描述 */
@@ -39,7 +39,7 @@ public class Destination implements java.io.Serializable {
   /** 网页 META */
   private String metaDesc;
   /** 区域 1：国外 2：国内 */
-  private Character classType;
+  private String classType;
   private Set<Destination> children = new HashSet<Destination>(0);
 
   public Destination() {
@@ -112,20 +112,20 @@ public class Destination implements java.io.Serializable {
   }
 
   @Column(name = "LEVEL", length = 1)
-  public Character getLevel() {
+  public String getLevel() {
     return this.level;
   }
 
-  public void setLevel(Character level) {
+  public void setLevel(String level) {
     this.level = level;
   }
 
   @Column(name = "NEXT_KEY", length = 1)
-  public Character getNextKey() {
+  public String getNextKey() {
     return this.nextKey;
   }
 
-  public void setNextKey(Character nextKey) {
+  public void setNextKey(String nextKey) {
     this.nextKey = nextKey;
   }
 
@@ -166,11 +166,11 @@ public class Destination implements java.io.Serializable {
   }
 
   @Column(name = "CLASS_TYPE", length = 1)
-  public Character getClassType() {
+  public String getClassType() {
     return this.classType;
   }
 
-  public void setClassType(Character classType) {
+  public void setClassType(String classType) {
     this.classType = classType;
   }
 

@@ -40,17 +40,18 @@ public class Reckoning implements java.io.Serializable {
   private String phone;
   /** 传真 */
   private String fax;
-  private Integer leaderAmt;
+  /** 领队人数 */
+  private Integer leaderPax;
 
-  private Character isprinted;
+  private String isprinted;
   /** 打印人 */
   private Date printed;
   /** 打印次数 */
   private Integer printedCount;
   private Date created;
-  private Integer createdby;
+  private Integer createdBy;
   private Date updated;
-  private Integer updatedby;
+  private Integer updatedBy;
 
   public Reckoning() {
   }
@@ -147,21 +148,21 @@ public class Reckoning implements java.io.Serializable {
     this.fax = fax;
   }
 
-  @Column(name = "LEADER_AMT")
-  public Integer getLeaderAmt() {
-    return this.leaderAmt;
+  @Column(name = "LEADER_PAX")
+  public Integer getLeaderPax() {
+    return this.leaderPax;
   }
 
-  public void setLeaderAmt(Integer leaderAmt) {
-    this.leaderAmt = leaderAmt;
+  public void setLeaderPax(Integer leaderAmt) {
+    this.leaderPax = leaderAmt;
   }
 
   @Column(name = "ISPRINTED", length = 1)
-  public Character getIsprinted() {
+  public String getIsprinted() {
     return this.isprinted;
   }
 
-  public void setIsprinted(Character isprinted) {
+  public void setIsprinted(String isprinted) {
     this.isprinted = isprinted;
   }
 
@@ -195,12 +196,12 @@ public class Reckoning implements java.io.Serializable {
   }
 
   @Column(name = "CREATEDBY")
-  public Integer getCreatedby() {
-    return this.createdby;
+  public Integer getCreatedBy() {
+    return this.createdBy;
   }
 
-  public void setCreatedby(Integer createdby) {
-    this.createdby = createdby;
+  public void setCreatedBy(Integer createdBy) {
+    this.createdBy = createdBy;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
@@ -214,19 +215,16 @@ public class Reckoning implements java.io.Serializable {
   }
 
   @Column(name = "UPDATEDBY")
-  public Integer getUpdatedby() {
-    return this.updatedby;
+  public Integer getUpdatedBy() {
+    return this.updatedBy;
   }
 
-  public void setUpdatedby(Integer updatedby) {
-    this.updatedby = updatedby;
+  public void setUpdatedBy(Integer updatedBy) {
+    this.updatedBy = updatedBy;
   }
 
   /** 版本 */
   private int version;
-
-  /** 领队人数 */
-  private int leaderPax;
 
   /** 人数 */
   private int pax;
@@ -299,15 +297,6 @@ public class Reckoning implements java.io.Serializable {
 
   public void setVersion(int version) {
     this.version = version;
-  }
-
-  @Transient
-  public int getLeaderPax() {
-    return leaderPax;
-  }
-
-  public void setLeaderPax(int pax) {
-    this.leaderPax = pax;
   }
 
   @Transient

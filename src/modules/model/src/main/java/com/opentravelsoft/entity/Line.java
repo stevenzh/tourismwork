@@ -31,19 +31,21 @@ public class Line implements java.io.Serializable {
   private Team team;
   private City outCity;
   private String lineName;
-  private Integer day;
+  private Integer lineDay;
   private Employee assigned;
   /** 线路操作组 */
   private Team opTeam;
   /** 市场划分 */
-  private Character classKey1;
-  private Character classKey2;
-  private Character classKey3;
+  private String classKey1;
+  /** 产品内容划分的类型 1-团队旅游,2-自助游,3-奖励旅游 */
+  private String classKeyContent;
+  private String classKey3;
   private String classKey4;
   /** 目的地 */
   private Destination destination;
-  private String classKey6;
-  private Character classKey7;
+  /** 交通工具划分的类型 按交通工具分类 06表示'大巴游'或'汽车游',在国内时即为国内短线 */
+  private String classKeyVehicle;
+  private String classKey7;
   private String firstCity;
   /** 副标题 */
   private String title;
@@ -52,12 +54,8 @@ public class Line implements java.io.Serializable {
 
   private boolean isActive;
   /** 状态 */
-  private Character delKey;
-  private Character newKey;
-  private Integer crUser;
-  private Date crDate;
-  private Integer opUser;
-  private Date opDate;
+  private String delKey;
+  private String newKey;
   private String fitType;
   private Integer OPax;
   private Integer ONight1;
@@ -108,7 +106,7 @@ public class Line implements java.io.Serializable {
 
   public Line() {
     this.plan = new ArrayList<Plan>();
-    this.delKey = 'N';
+    this.delKey = "N";
     this.isActive = true;
     // *团队旅游 自由行
     this.classKeyContent = "1";
@@ -181,13 +179,13 @@ public class Line implements java.io.Serializable {
     this.lineName = lineName;
   }
 
-  @Column(name = "DAY")
-  public Integer getDay() {
-    return this.day;
+  @Column(name = "LINE_DAY")
+  public Integer getLineDay() {
+    return lineDay;
   }
 
-  public void setDay(Integer day) {
-    this.day = day;
+  public void setLineDay(Integer lineDay) {
+    this.lineDay = lineDay;
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
@@ -211,29 +209,29 @@ public class Line implements java.io.Serializable {
   }
 
   @Column(name = "CLASS_KEY1", length = 1)
-  public Character getClassKey1() {
+  public String getClassKey1() {
     return this.classKey1;
   }
 
-  public void setClassKey1(Character classKey1) {
+  public void setClassKey1(String classKey1) {
     this.classKey1 = classKey1;
   }
 
-  @Column(name = "CLASS_KEY2", length = 1)
-  public Character getClassKey2() {
-    return this.classKey2;
+  @Column(name = "CLASS_KEY_CONTENT", length = 1)
+  public String getClassKeyContent() {
+    return classKeyContent;
   }
 
-  public void setClassKey2(Character classKey2) {
-    this.classKey2 = classKey2;
+  public void setClassKeyContent(String classKeyContent) {
+    this.classKeyContent = classKeyContent;
   }
 
   @Column(name = "CLASS_KEY3", length = 1)
-  public Character getClassKey3() {
+  public String getClassKey3() {
     return this.classKey3;
   }
 
-  public void setClassKey3(Character classKey3) {
+  public void setClassKey3(String classKey3) {
     this.classKey3 = classKey3;
   }
 
@@ -256,21 +254,21 @@ public class Line implements java.io.Serializable {
     this.destination = destination;
   }
 
-  @Column(name = "CLASS_KEY6", length = 2)
-  public String getClassKey6() {
-    return this.classKey6;
+  @Column(name = "CLASS_KEY_VEHICLE", length = 2)
+  public String getClassKeyVehicle() {
+    return classKeyVehicle;
   }
 
-  public void setClassKey6(String classKey6) {
-    this.classKey6 = classKey6;
+  public void setClassKeyVehicle(String classKeyVehicle) {
+    this.classKeyVehicle = classKeyVehicle;
   }
 
   @Column(name = "CLASS_KEY7", length = 1)
-  public Character getClassKey7() {
+  public String getClassKey7() {
     return this.classKey7;
   }
 
-  public void setClassKey7(Character classKey7) {
+  public void setClassKey7(String classKey7) {
     this.classKey7 = classKey7;
   }
 
@@ -311,59 +309,21 @@ public class Line implements java.io.Serializable {
   }
 
   @Column(name = "DEL_KEY", length = 1)
-  public Character getDelKey() {
+  public String getDelKey() {
     return this.delKey;
   }
 
-  public void setDelKey(Character delKey) {
+  public void setDelKey(String delKey) {
     this.delKey = delKey;
   }
 
   @Column(name = "NEW_KEY", length = 1)
-  public Character getNewKey() {
+  public String getNewKey() {
     return this.newKey;
   }
 
-  public void setNewKey(Character newKey) {
+  public void setNewKey(String newKey) {
     this.newKey = newKey;
-  }
-
-  @Column(name = "CR_USER")
-  public Integer getCrUser() {
-    return this.crUser;
-  }
-
-  public void setCrUser(Integer crUser) {
-    this.crUser = crUser;
-  }
-
-  @Temporal(TemporalType.TIMESTAMP)
-  @Column(name = "CR_DATE", length = 19)
-  public Date getCrDate() {
-    return this.crDate;
-  }
-
-  public void setCrDate(Date crDate) {
-    this.crDate = crDate;
-  }
-
-  @Column(name = "OP_USER")
-  public Integer getOpUser() {
-    return this.opUser;
-  }
-
-  public void setOpUser(Integer opUser) {
-    this.opUser = opUser;
-  }
-
-  @Temporal(TemporalType.TIMESTAMP)
-  @Column(name = "OP_DATE", length = 19)
-  public Date getOpDate() {
-    return this.opDate;
-  }
-
-  public void setOpDate(Date opDate) {
-    this.opDate = opDate;
   }
 
   @Column(name = "FIT_TYPE", length = 2)
@@ -622,28 +582,8 @@ public class Line implements java.io.Serializable {
 
   // -------------------------------------------------------------------------
 
-  /** 天数 */
-  private Integer lineDay;
-
-  /** 产品内容划分的类型 1-团队旅游,2-自助游,3-奖励旅游 */
-  private String classKeyContent;
-
-  /** 交通工具划分的类型 按交通工具分类 06表示'大巴游'或'汽车游',在国内时即为国内短线 */
-  private String classKeyVehicle;
-
   /** 出发城市编号 */
 
-  /** 创建人 */
-  private Integer createUserId;
-
-  /** 创建时间 */
-  private Date createDate;
-
-  /** 最后操作人 */
-  private Integer operateUserId;
-
-  /** 最后操作时间 */
-  private Date operateDate;
   /** 目的地国家名称 */
   private String countryName;
 
@@ -852,69 +792,6 @@ public class Line implements java.io.Serializable {
 
   public void setSchedule(List<LineSchedule> schedule) {
     this.schedule = schedule;
-  }
-
-  @Transient
-  public Integer getLineDay() {
-    return lineDay;
-  }
-
-  public void setLineDay(Integer lineDay) {
-    this.lineDay = lineDay;
-  }
-
-  @Transient
-  public Date getCreateDate() {
-    return createDate;
-  }
-
-  public void setCreateDate(Date createDate) {
-    this.createDate = createDate;
-  }
-
-  @Transient
-  public Date getOperateDate() {
-    return operateDate;
-  }
-
-  public void setOperateDate(Date operateDate) {
-    this.operateDate = operateDate;
-  }
-
-  @Transient
-  public Integer getCreateUserId() {
-    return createUserId;
-  }
-
-  public void setCreateUserId(Integer createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  @Transient
-  public Integer getOperateUserId() {
-    return operateUserId;
-  }
-
-  public void setOperateUserId(Integer operateUserId) {
-    this.operateUserId = operateUserId;
-  }
-
-  @Transient
-  public String getClassKeyContent() {
-    return classKeyContent;
-  }
-
-  public void setClassKeyContent(String classKeyContent) {
-    this.classKeyContent = classKeyContent;
-  }
-
-  @Transient
-  public String getClassKeyVehicle() {
-    return classKeyVehicle;
-  }
-
-  public void setClassKeyVehicle(String classKeyVehicle) {
-    this.classKeyVehicle = classKeyVehicle;
   }
 
   @Transient

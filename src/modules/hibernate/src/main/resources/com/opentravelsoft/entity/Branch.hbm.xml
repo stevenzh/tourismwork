@@ -44,7 +44,7 @@
     <property name="remarks" type="string">
       <column name="REMARKS" length="256" />
     </property>
-    <property name="opKey" type="java.lang.Character">
+    <property name="opKey" type="string">
       <column name="OP_KEY" length="1" />
     </property>
     <property name="opUser" type="java.lang.Integer">
@@ -59,16 +59,16 @@
     <property name="arrearage" type="big_decimal">
       <column name="ARREARAGE" precision="10" />
     </property>
-    <property name="warnKey" type="java.lang.Character">
+    <property name="warnKey" type="string">
       <column name="WARN_KEY" length="1" />
     </property>
     <property name="payment" type="big_decimal">
       <column name="PAYMENT" precision="10" />
     </property>
-    <property name="reckoning" type="java.lang.Character">
+    <property name="reckoning" type="string">
       <column name="RECKONING" length="1" />
     </property>
-    <property name="agentType" type="java.lang.Character">
+    <property name="agentType" type="string">
       <column name="AGENT_TYPE" length="1" />
     </property>
     <property name="bussTime" type="string">
@@ -98,7 +98,7 @@
     <property name="createDate" type="timestamp">
       <column name="CREATE_DATE" length="19" />
     </property>
-    <property name="checkKey" type="java.lang.Character">
+    <property name="checkKey" type="string">
       <column name="CHECK_KEY" length="1" />
     </property>
   </class>

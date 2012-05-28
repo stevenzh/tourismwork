@@ -13,7 +13,7 @@ public class Sequence implements java.io.Serializable {
 
   private SequenceId id;
   private Integer groupId;
-  private Character regPlcd;
+  private String regPlcd;
   private Integer cptno;
 
   public Sequence() {
@@ -23,7 +23,7 @@ public class Sequence implements java.io.Serializable {
     this.id = id;
   }
 
-  public Sequence(SequenceId id, Integer groupId, Character regPlcd,
+  public Sequence(SequenceId id, Integer groupId, String regPlcd,
       Integer cptno) {
     this.id = id;
     this.groupId = groupId;
@@ -54,11 +54,11 @@ public class Sequence implements java.io.Serializable {
   }
 
   @Column(name = "REG_PLCD", length = 1)
-  public Character getRegPlcd() {
+  public String getRegPlcd() {
     return this.regPlcd;
   }
 
-  public void setRegPlcd(Character regPlcd) {
+  public void setRegPlcd(String regPlcd) {
     this.regPlcd = regPlcd;
   }
 

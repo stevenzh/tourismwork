@@ -18,7 +18,6 @@ import com.opentravelsoft.providers.product.LinePriceDao;
 /**
  * 
  * @author <a herf="mailto:zhangsitao@gmail.com">Steven Zhang</a>
- * @version $Revision: 1.2 $ $Date: 2009/03/09 15:37:04 $
  */
 @Repository("RoutePriceDao")
 public class LinePriceDaoImpl extends GenericDaoHibernate<LinePrice, String>
@@ -34,10 +33,10 @@ public class LinePriceDaoImpl extends GenericDaoHibernate<LinePrice, String>
     DetachedCriteria criteria = DetachedCriteria.forClass(LinePrice.class);
     criteria.add(Restrictions.eq("lineNo", lineNo));
     if (null != startDate)
-      criteria.add(Restrictions.ge("EDate", startDate));
+      criteria.add(Restrictions.ge("endDate", startDate));
     if (null != endDate)
-      criteria.add(Restrictions.le("SDate", endDate));
-    criteria.addOrder(Order.desc("EDate"));
+      criteria.add(Restrictions.le("startDate", endDate));
+    criteria.addOrder(Order.desc("endDate"));
     criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
 
     List<LinePrice> list = getHibernateTemplate().findByCriteria(criteria);
@@ -77,8 +76,8 @@ public class LinePriceDaoImpl extends GenericDaoHibernate<LinePrice, String>
   public List<LinePrice> getPriceNotice(String lineNo) {
     StringBuilder sql = new StringBuilder();
     sql.append("from LinePrice ");
-    sql.append("where EDate>current_date() and lineNo=? ");
-    sql.append("order by SDate desc");
+    sql.append("where endDate>current_date() and lineNo=? ");
+    sql.append("order by startDate desc");
     Object[] ooj = { lineNo };
     return getHibernateTemplate().find(sql.toString(), ooj);
   }

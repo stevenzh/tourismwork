@@ -17,10 +17,10 @@
         <property name="lineName" type="string">
             <column name="LINE_NAME" length="60" />
         </property>
-        <property name="customerSource" type="java.lang.Character">
+        <property name="customerSource" type="string">
             <column name="CUSTOMER_SOURCE" length="1" />
         </property>
-        <property name="caseType" type="java.lang.Character">
+        <property name="caseType" type="string">
             <column name="CASE_TYPE" length="1" />
         </property>
         <property name="createDt" type="timestamp">

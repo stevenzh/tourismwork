@@ -292,10 +292,10 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
     planInts.setFavourable(plan.getFavourable());
     planInts.setMessage(plan.getMessage());
     planInts.setDeployFlag(plan.getDeployFlag());
-    planInts.setPax1(RowDataUtil.getInt(plan.getPax1()));
+    planInts.setPlanPax(RowDataUtil.getInt(plan.getPlanPax()));
     planInts.setPax3(RowDataUtil.getInt(plan.getPax3()));
-    planInts.setPax4(RowDataUtil.getInt(plan.getPax4()));
-    planInts.setPax5(plan.getPax5());
+    planInts.setHoldPax(RowDataUtil.getInt(plan.getHoldPax()));
+    planInts.setBuildMinPax(plan.getBuildMinPax());
     planInts.setPaxkey(plan.getPaxkey());
     planInts.setDeadline(plan.getDeadline());
     planInts.setRecRmk(plan.getRemarks());
@@ -321,12 +321,12 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
     if (plan.getShareFlight().equals('Y') && plan.getSelectNO().equals('O')) {
       ShareFlight obj = (ShareFlight) template.get(ShareFlight.class, shareId);
       planInts.setShareFlightId(obj.getShareFlightId());
-      planInts.setPax1(obj.getSeating());
+      planInts.setPlanPax(obj.getSeating());
       planInts.setPax3(obj.getHandle());
     }
 
     if (plan.getShareFlight().equals("N")) {
-      planInts.setShareFlight('N');
+      planInts.setShareFlight("N");
       planInts.setShareFlightId(-1);
       ShareFlight tblsf = (ShareFlight) template.get(ShareFlight.class,
           planInts.getShareFlightId());
@@ -349,7 +349,7 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
 
     List<Plan> list = getHibernateTemplate().find(sql.toString(), obj);
     Plan plan = null;
-    Short zero = new Integer(0).shortValue();
+    Integer zero = new Integer(0);
 
     if (list.size() > 0) {
       plan = list.get(0);
@@ -366,11 +366,11 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
       calDate.add(Calendar.DAY_OF_MONTH, 1);
       plan.setStartDate(calDate.getTime());
       plan.setEndDate(calDate.getTime());
-      plan.setPax1(zero);
+      plan.setPlanPax(zero);
       plan.setPax2(0);
       plan.setPax3(0);
-      plan.setPax4(zero);
-      plan.setPax5(zero);
+      plan.setHoldPax(zero);
+      plan.setBuildMinPax(zero);
       plan.setTourNo("");
     }
 
@@ -389,15 +389,15 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
         planInst.setLine(plan.getLine());
         planInst.setOutDate(plan.getOutDate());
         planInst.setTourNo(plan.getTourNo());
-        planInst.setPax1(RowDataUtil.getInt(plan.getPax1()));
+        planInst.setPlanPax(RowDataUtil.getInt(plan.getPlanPax()));
         planInst.setPax2(RowDataUtil.getInt(plan.getPax2()));
         planInst.setPax3(RowDataUtil.getInt(plan.getPax3()));
-        planInst.setPax4(RowDataUtil.getInt(plan.getPax4()));
-        planInst.setPax5(RowDataUtil.getInt(plan.getPax5()));
+        planInst.setHoldPax(RowDataUtil.getInt(plan.getHoldPax()));
+        planInst.setBuildMinPax(RowDataUtil.getInt(plan.getBuildMinPax()));
         planInst.setDeployFlag(RowDataUtil.getString(plan.getDeployFlag()));
 
         if (plan.getTraitId() == 4) {
-          plan.setFavourable('Y');
+          plan.setFavourable("Y");
         }
 
         planInst.setFavourable(plan.getFavourable());
@@ -433,7 +433,7 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
           ShareFlight obj = (ShareFlight) template.get(ShareFlight.class,
               shareId);
           planInst.setShareFlightId(obj.getShareFlightId());
-          planInst.setPax1(obj.getSeating());
+          planInst.setPlanPax(obj.getSeating());
           planInst.setPax3(obj.getHandle());
         }
         template.save(planInst);
@@ -523,7 +523,7 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
       List<Object> list = getHibernateTemplate().find(sql.toString(), param);
       int pax2 = RowDataUtil.getShort(list.get(0));
       plan.setPax2(pax2);
-      plan.setPax3(plan.getPax1() - plan.getPax2() - plan.getPax4());
+      plan.setPax3(plan.getPlanPax() - plan.getPax2() - plan.getHoldPax());
       template.update(plan);
     } else {
       return -1;

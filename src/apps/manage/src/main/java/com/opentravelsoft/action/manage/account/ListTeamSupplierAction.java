@@ -77,7 +77,7 @@ public class ListTeamSupplierAction extends ManageAction {
         false);
 
     for (Customer Supplier : supplierList) {
-      Supplier.setIsActive('Y');
+      Supplier.setIsActive("Y");
     }
 
     return INPUT;
@@ -97,13 +97,13 @@ public class ListTeamSupplierAction extends ManageAction {
         kenSupplierResource);
 
     for (Customer Supplier : supplierList) {
-      Supplier.setIsActive('Y');
+      Supplier.setIsActive("Y");
     }
 
     for (Customer supplier : listSupplier) {
       for (int i = supplierList.size() - 1; i >= 0; i--) {
         if (supplier.getSupplierId() == supplierList.get(i).getSupplierId()) {
-          supplier.setIsActive('Y');
+          supplier.setIsActive("Y");
           supplierList.remove(i);
           break;
         }

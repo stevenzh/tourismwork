@@ -18,7 +18,7 @@
     <property name="groupId" type="java.lang.Integer">
       <column name="GROUP_ID" />
     </property>
-    <property name="regPlcd" type="java.lang.Character">
+    <property name="regPlcd" type="string">
       <column name="REG_PLCD" length="1" />
     </property>
     <property name="cptno" type="java.lang.Integer">

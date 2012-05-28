@@ -174,7 +174,7 @@ public class EditCustomerAction extends ManageAction {
 
   public String submit() {
     Employee user = getUser();
-    agent.setUpdatedby(user.getUserId());
+    agent.setUpdatedBy(user.getUserId());
     int result = agentService.txEditAgent(agent, contacts);
     if (result < 0) {
       addActionError("客户的名称和联系人姓名重复.");
@@ -186,7 +186,7 @@ public class EditCustomerAction extends ManageAction {
 
   public String checked() {
     Employee user = getUser();
-    agent.setCheckedby(user.getUserId());
+    agent.setCheckedBy(user.getUserId());
     agentService.txCheckedAgent(agent);
 
     return SUCCESS;

@@ -44,31 +44,31 @@
     <property name="amount4" type="big_decimal">
       <column name="AMOUNT4" precision="18" />
     </property>
-    <property name="type1" type="java.lang.Character">
+    <property name="type1" type="string">
       <column name="TYPE1" length="1" />
     </property>
     <property name="pamount1" type="big_decimal">
       <column name="PAMOUNT1" precision="18" />
     </property>
-    <property name="type2" type="java.lang.Character">
+    <property name="type2" type="string">
       <column name="TYPE2" length="1" />
     </property>
     <property name="pamount2" type="big_decimal">
       <column name="PAMOUNT2" precision="18" />
     </property>
-    <property name="type3" type="java.lang.Character">
+    <property name="type3" type="string">
       <column name="TYPE3" length="1" />
     </property>
     <property name="pamount3" type="big_decimal">
       <column name="PAMOUNT3" precision="18" />
     </property>
-    <property name="type4" type="java.lang.Character">
+    <property name="type4" type="string">
       <column name="TYPE4" length="1" />
     </property>
     <property name="pamount4" type="big_decimal">
       <column name="PAMOUNT4" precision="18" />
     </property>
-    <property name="type5" type="java.lang.Character">
+    <property name="type5" type="string">
       <column name="TYPE5" length="1" />
     </property>
     <property name="pamount5" type="big_decimal">

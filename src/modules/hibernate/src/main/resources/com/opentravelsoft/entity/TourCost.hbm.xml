@@ -44,7 +44,7 @@
     <property name="payAmount" type="big_decimal">
       <column name="PAY_AMOUNT" precision="9" />
     </property>
-    <property name="isMakePaper" type="char">
+    <property name="isMakePaper" type="string">
       <column name="IS_MAKE_PAPER" length="1" not-null="true" />
     </property>
     <property name="frChecked" type="string">
@@ -53,7 +53,7 @@
     <property name="created" type="timestamp">
       <column name="CREATED" length="19" />
     </property>
-    <property name="createdby" type="java.lang.Integer">
+    <property name="createdBy" type="java.lang.Integer">
       <column name="CREATEDBY" />
     </property>
   </class>

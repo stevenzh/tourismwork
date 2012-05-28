@@ -428,9 +428,9 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
   public int makeTourAccounts(Plan plan) {
     Plan tour = getHibernateTemplate().get(Plan.class, plan.getPlanNo(),
         LockMode.PESSIMISTIC_WRITE);
-    tour.setOpAccount('N');
-    tour.setFrChecked('N');
-    tour.setOpRefactor('N');
+    tour.setOpAccount("N");
+    tour.setFrChecked("N");
+    tour.setOpRefactor("N");
     // 其它收入
     tour.setExtCost(plan.getExtrIncome());
     tour.setExtCostNote(plan.getExtrIncomeDec());
@@ -472,8 +472,8 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
     template.saveOrUpdateAll(costList);
 
     // ---------------------------------------------------------------------
-    tour.setFrChecked('Y');
-    tour.setOpRefactor('N');
+    tour.setFrChecked("Y");
+    tour.setOpRefactor("N");
     tour.setFrUser(uid);
     tour.setFrDate(getSysdate());
 
@@ -676,8 +676,8 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
   public int authorizationModify(String planNo, int uid) {
     Plan plan = (Plan) getHibernateTemplate().get(Plan.class, planNo);
     if (null != plan) {
-      plan.setOpRefactor('Y');
-      plan.setUpdatedby(uid);
+      plan.setOpRefactor("Y");
+      plan.setUpdatedBy(uid);
       // tblBalance.setNumber(tblBalance.getNumber() + 1);
       getHibernateTemplate().update(plan);
     } else
@@ -733,7 +733,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
 
       lead.setUid(RowDataUtil.getString(obj[0]));
       lead.setUserName(RowDataUtil.getString(obj[1]));
-      lead.setSex(RowDataUtil.getChar(obj[2]));
+      lead.setSex(RowDataUtil.getString(obj[2]));
       lead.setBirthplace(RowDataUtil.getString(obj[3]));
       lead.setVocation(RowDataUtil.getString(4));
       lead.setPassportType(RowDataUtil.getString(obj[5]));
@@ -806,12 +806,12 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
       // 证件号码
       tourist.setCard(obj.getIdCard());
       // 性别
-      char sex = 'M';
+      String sex = "M";
       if ("F".equals(obj.getAccSex().trim())) {
-        sex = 'F';
+        sex = "F";
         ooj.setPax2(ooj.getPax2() + 1);
       } else
-        ooj.setPax1(ooj.getPax1() + 1);
+        ooj.setPlanPax(ooj.getPlanPax() + 1);
       tourist.setSex(sex);
       // 出生日期
       tourist.setBirthday(obj.getBirthday());
@@ -847,7 +847,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
       // 已退团款
       tourist.setAmt04(new BigDecimal(0));
       // 重点客人否
-      tourist.setVipkey('N');
+      tourist.setVipkey("N");
       // 备注
       tourist.setRemark(" ");
       // 同行人数
@@ -857,13 +857,13 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
       // 同房序号
       tourist.setRmNum(0);
       // 是否同意与他人同住
-      tourist.setRoomKey1('Y');
+      tourist.setRoomKey1("Y");
       // 取消标志
-      tourist.setDel('N');
+      tourist.setDel("N");
       // 操作人
       tourist.setOpuser(operator);
       // 分团标志
-      tourist.setTourKey('N');
+      tourist.setTourKey("N");
       // 领队标志
       tourist.setLeaderKey("Y");
       // 办签状态

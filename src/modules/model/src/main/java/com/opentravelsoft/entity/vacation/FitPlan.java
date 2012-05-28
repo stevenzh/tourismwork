@@ -18,7 +18,7 @@ public class FitPlan implements java.io.Serializable {
 
   private String recNo;
   private String lineNo;
-  private Character planType;
+  private String planType;
   private String weekbit;
   private Integer checkDays;
   private Integer leastMan;
@@ -31,7 +31,7 @@ public class FitPlan implements java.io.Serializable {
   private Integer confirmPax;
   private Byte isShare;
   private Integer shareFlightId;
-  private Character isLastMinute;
+  private String isLastMinute;
   private BigDecimal discountRate;
   
   private String createdBy;
@@ -68,11 +68,11 @@ public class FitPlan implements java.io.Serializable {
   }
 
   @Column(name = "PLAN_TYPE", length = 1)
-  public Character getPlanType() {
+  public String getPlanType() {
     return this.planType;
   }
 
-  public void setPlanType(Character planType) {
+  public void setPlanType(String planType) {
     this.planType = planType;
   }
 
@@ -225,11 +225,11 @@ public class FitPlan implements java.io.Serializable {
   }
 
   @Column(name = "IS_LAST_MINUTE", length = 1)
-  public Character getIsLastMinute() {
+  public String getIsLastMinute() {
     return this.isLastMinute;
   }
 
-  public void setIsLastMinute(Character isLastMinute) {
+  public void setIsLastMinute(String isLastMinute) {
     this.isLastMinute = isLastMinute;
   }
 

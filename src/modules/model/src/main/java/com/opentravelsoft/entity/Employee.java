@@ -48,14 +48,14 @@ public class Employee implements UserDetails, java.io.Serializable {
   /** 传真 */
   private String fax;
   private String mobile;
-  private Character sex;
+  private String sex;
   private String cardId;
   private Integer age;
   private Integer discont;
   private String webKey;
   private String workFlg;
   /** 0-普通 2-销售 */
-  private Character workKey;
+  private String workKey;
   private Boolean isActive;
   private String msn;
   private String skype;
@@ -69,7 +69,7 @@ public class Employee implements UserDetails, java.io.Serializable {
 
   public Employee() {
     isActive = true;
-    sex = 'M';
+    sex = "M";
     trips = new ArrayList<Tourist>();
     departmentName = "";
     roles1 = new TreeSet<String>();
@@ -200,11 +200,11 @@ public class Employee implements UserDetails, java.io.Serializable {
   }
 
   @Column(name = "SEX", length = 1)
-  public Character getSex() {
+  public String getSex() {
     return this.sex;
   }
 
-  public void setSex(Character sex) {
+  public void setSex(String sex) {
     this.sex = sex;
   }
 
@@ -254,11 +254,11 @@ public class Employee implements UserDetails, java.io.Serializable {
   }
 
   @Column(name = "WORK_KEY", length = 1)
-  public Character getWorkKey() {
+  public String getWorkKey() {
     return this.workKey;
   }
 
-  public void setWorkKey(Character workKey) {
+  public void setWorkKey(String workKey) {
     this.workKey = workKey;
   }
 

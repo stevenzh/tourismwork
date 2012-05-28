@@ -47,17 +47,17 @@ public class Customer implements java.io.Serializable {
   private String contact;
   private String contactEmail;
   /** 公司类别 (有限公司 合伙商行 个人独资 其他) */
-  private Character type;
+  private String type;
   private String passwd;
   /** 观光、度假 */
-  private Character feature;
-  private Character route;
+  private String feature;
+  private String route;
   /** 提供资源 */
-  private Character resource;
+  private String resource;
   /** 公司结构 总公司、分公司 */
-  private Character structure;
+  private String structure;
   /** N:现结、M:月结 */
-  private Character payment;
+  private String payment;
   /** 营业执照编号 */
   private String bussId;
   /** 登记日期 */
@@ -67,7 +67,7 @@ public class Customer implements java.io.Serializable {
   /** 信用度2 */
   private BigDecimal creditAmt2;
   private Integer creditTime;
-  private Character reserveMail;
+  private String reserveMail;
   /** 开户银行 */
   private String bankname;
   /** 帐号 */
@@ -78,10 +78,10 @@ public class Customer implements java.io.Serializable {
   private String status;
   /** 可承受超过额度百分比 */
   private BigDecimal stay;
-  private Character isActive;
+  private String isActive;
   private boolean isSupplier;
   private boolean isAgent;
-  private Character del;
+  private String del;
 
   /** 负责销售 */
   private Employee sales;
@@ -96,11 +96,11 @@ public class Customer implements java.io.Serializable {
   public Customer() {
     city = new City();
     sales = new Employee();
-    this.del = 'N';
+    this.del = "N";
     this.contacts = new ArrayList<Contact>();
     this.isSupplier = false;
     this.isAgent = true;
-    this.reserveMail = 'Y';
+    this.reserveMail = "Y";
   }
 
   public Customer(Integer id) {
@@ -264,11 +264,11 @@ public class Customer implements java.io.Serializable {
   }
 
   @Column(name = "TYPE", length = 1)
-  public Character getType() {
+  public String getType() {
     return this.type;
   }
 
-  public void setType(Character type) {
+  public void setType(String type) {
     this.type = type;
   }
 
@@ -282,47 +282,47 @@ public class Customer implements java.io.Serializable {
   }
 
   @Column(name = "FEATURE", length = 1)
-  public Character getFeature() {
+  public String getFeature() {
     return this.feature;
   }
 
-  public void setFeature(Character feature) {
+  public void setFeature(String feature) {
     this.feature = feature;
   }
 
   @Column(name = "ROUTE", length = 1)
-  public Character getRoute() {
+  public String getRoute() {
     return this.route;
   }
 
-  public void setRoute(Character route) {
+  public void setRoute(String route) {
     this.route = route;
   }
 
   @Column(name = "RESOURCE", length = 1)
-  public Character getResource() {
+  public String getResource() {
     return this.resource;
   }
 
-  public void setResource(Character resource) {
+  public void setResource(String resource) {
     this.resource = resource;
   }
 
   @Column(name = "STRUCTURE", length = 1)
-  public Character getStructure() {
+  public String getStructure() {
     return this.structure;
   }
 
-  public void setStructure(Character structure) {
+  public void setStructure(String structure) {
     this.structure = structure;
   }
 
   @Column(name = "PAYMENT", length = 1)
-  public Character getPayment() {
+  public String getPayment() {
     return this.payment;
   }
 
-  public void setPayment(Character payment) {
+  public void setPayment(String payment) {
     this.payment = payment;
   }
 
@@ -373,11 +373,11 @@ public class Customer implements java.io.Serializable {
   }
 
   @Column(name = "RECEIVE_MAIL", length = 1)
-  public Character getReceiveMail() {
+  public String getReceiveMail() {
     return this.reserveMail;
   }
 
-  public void setReceiveMail(Character reserveMail) {
+  public void setReceiveMail(String reserveMail) {
     this.reserveMail = reserveMail;
   }
 
@@ -427,11 +427,11 @@ public class Customer implements java.io.Serializable {
   }
 
   @Column(name = "IS_ACTIVE", length = 1)
-  public Character getIsActive() {
+  public String getIsActive() {
     return this.isActive;
   }
 
-  public void setIsActive(Character isActive) {
+  public void setIsActive(String isActive) {
     this.isActive = isActive;
   }
 
@@ -454,11 +454,11 @@ public class Customer implements java.io.Serializable {
   }
 
   @Column(name = "DEL", length = 1)
-  public Character getDel() {
+  public String getDel() {
     return this.del;
   }
 
-  public void setDel(Character del) {
+  public void setDel(String del) {
     this.del = del;
   }
 
@@ -487,8 +487,8 @@ public class Customer implements java.io.Serializable {
     return this.createdBy;
   }
 
-  public void setCreatedBy(Integer createdby) {
-    this.createdBy = createdby;
+  public void setCreatedBy(Integer createdBy) {
+    this.createdBy = createdBy;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
@@ -525,8 +525,8 @@ public class Customer implements java.io.Serializable {
     return this.updatedBy;
   }
 
-  public void setUpdatedBy(Integer updatedby) {
-    this.updatedBy = updatedby;
+  public void setUpdatedBy(Integer updatedBy) {
+    this.updatedBy = updatedBy;
   }
 
   /** 所在国家 */
@@ -542,7 +542,7 @@ public class Customer implements java.io.Serializable {
   private String clearingMode;
 
   /** 结算周期 月结M 现结N */
-  private Character clearingCycle;
+  private String clearingCycle;
 
   private List<Contact> contacts;
 
@@ -559,7 +559,7 @@ public class Customer implements java.io.Serializable {
   private Date lastLogindate;
 
   /** 地接地区 */
-  private Character region;
+  private String region;
 
   @Transient
   public Integer getSupplierId() {
@@ -580,11 +580,11 @@ public class Customer implements java.io.Serializable {
   }
 
   @Transient
-  public Character getClearingCycle() {
+  public String getClearingCycle() {
     return clearingCycle;
   }
 
-  public void setClearingCycle(Character clearingCycle) {
+  public void setClearingCycle(String clearingCycle) {
     this.clearingCycle = clearingCycle;
   }
 
@@ -647,11 +647,11 @@ public class Customer implements java.io.Serializable {
   }
 
   @Transient
-  public Character getRegion() {
+  public String getRegion() {
     return region;
   }
 
-  public void setRegion(Character region) {
+  public void setRegion(String region) {
     this.region = region;
   }
 

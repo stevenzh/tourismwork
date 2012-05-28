@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 public class TblLog implements java.io.Serializable {
 
   private Integer id;
-  private Character classtype;
+  private String classtype;
   private String dptNo;
   private String operator;
   private String routeNo;
@@ -29,7 +29,7 @@ public class TblLog implements java.io.Serializable {
   public TblLog() {
   }
 
-  public TblLog(Character classtype, String dptNo, String operator,
+  public TblLog(String classtype, String dptNo, String operator,
       String routeNo, String routeName, String planNo, Date outDate,
       String bookingNo, String info, Date modifiedDate) {
     this.classtype = classtype;
@@ -56,11 +56,11 @@ public class TblLog implements java.io.Serializable {
   }
 
   @Column(name = "CLASSTYPE", length = 1)
-  public Character getClasstype() {
+  public String getClasstype() {
     return this.classtype;
   }
 
-  public void setClasstype(Character classtype) {
+  public void setClasstype(String classtype) {
     this.classtype = classtype;
   }
 

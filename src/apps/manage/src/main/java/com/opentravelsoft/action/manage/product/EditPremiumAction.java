@@ -37,7 +37,7 @@ public class EditPremiumAction extends ManageAction {
 
   public String submit() {
     Employee user = getUser();
-    tblPremium.setUpdatedby(user.getUserId());
+    tblPremium.setUpdatedBy(user.getUserId());
     premiumService.txEditPrem(tblPremium);
     return SUCCESS;
   }

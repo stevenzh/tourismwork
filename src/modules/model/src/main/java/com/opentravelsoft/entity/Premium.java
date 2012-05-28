@@ -23,11 +23,11 @@ public class Premium implements java.io.Serializable {
   private BigDecimal hkpre;
   private Date dodate;
   private String note;
-  private Character del;
+  private String del;
   private Date created;
-  private Integer createdby;
+  private Integer createdBy;
   private Date updated;
-  private Integer updatedby;
+  private Integer updatedBy;
 
   public Premium() {
   }
@@ -35,27 +35,6 @@ public class Premium implements java.io.Serializable {
   public Premium(String precode, Date updated) {
     this.precode = precode;
     this.updated = updated;
-  }
-
-  public Premium(String precode, BigDecimal prem, Integer preday,
-      BigDecimal ywpre, BigDecimal ylpre, BigDecimal bcpre, BigDecimal clpre,
-      BigDecimal hkpre, Date dodate, String note, Character del, Date created,
-      Integer createdby, Date updated, Integer updatedby) {
-    this.precode = precode;
-    this.prem = prem;
-    this.preday = preday;
-    this.ywpre = ywpre;
-    this.ylpre = ylpre;
-    this.bcpre = bcpre;
-    this.clpre = clpre;
-    this.hkpre = hkpre;
-    this.dodate = dodate;
-    this.note = note;
-    this.del = del;
-    this.created = created;
-    this.createdby = createdby;
-    this.updated = updated;
-    this.updatedby = updatedby;
   }
 
   @Id
@@ -151,11 +130,11 @@ public class Premium implements java.io.Serializable {
   }
 
   @Column(name = "DEL", length = 1)
-  public Character getDel() {
+  public String getDel() {
     return this.del;
   }
 
-  public void setDel(Character del) {
+  public void setDel(String del) {
     this.del = del;
   }
 
@@ -170,12 +149,12 @@ public class Premium implements java.io.Serializable {
   }
 
   @Column(name = "CREATEDBY")
-  public Integer getCreatedby() {
-    return this.createdby;
+  public Integer getCreatedBy() {
+    return this.createdBy;
   }
 
-  public void setCreatedby(Integer createdby) {
-    this.createdby = createdby;
+  public void setCreatedBy(Integer createdBy) {
+    this.createdBy = createdBy;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
@@ -189,12 +168,12 @@ public class Premium implements java.io.Serializable {
   }
 
   @Column(name = "UPDATEDBY")
-  public Integer getUpdatedby() {
-    return this.updatedby;
+  public Integer getUpdatedBy() {
+    return this.updatedBy;
   }
 
-  public void setUpdatedby(Integer updatedby) {
-    this.updatedby = updatedby;
+  public void setUpdatedBy(Integer updatedBy) {
+    this.updatedBy = updatedBy;
   }
 
 }

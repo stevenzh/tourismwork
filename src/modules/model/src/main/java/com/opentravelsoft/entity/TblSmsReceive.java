@@ -19,7 +19,7 @@ public class TblSmsReceive implements java.io.Serializable {
   private String mobile;
   private String message;
   private Date reserveDate;
-  private Character reply;
+  private String reply;
   private Date replyDate;
   private Date updDate;
   private String msgSrc;
@@ -80,11 +80,11 @@ public class TblSmsReceive implements java.io.Serializable {
   }
 
   @Column(name = "REPLY", length = 1)
-  public Character getReply() {
+  public String getReply() {
     return this.reply;
   }
 
-  public void setReply(Character reply) {
+  public void setReply(String reply) {
     this.reply = reply;
   }
 

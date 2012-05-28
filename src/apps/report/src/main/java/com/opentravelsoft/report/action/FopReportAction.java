@@ -284,7 +284,7 @@ public class FopReportAction extends ActionSupport {
       String tourNo = null;
       String title = null;
       String remark = null;
-      String receive = null;
+      String reserve = null;
       String send = null;
       String fileTitle = null;
 
@@ -309,7 +309,7 @@ public class FopReportAction extends ActionSupport {
         if (param.getName().equals("REMARK"))
           remark = param.getData();
         if (param.getName().equals("RECEIVE"))
-          receive = param.getData();
+          reserve = param.getData();
         if (param.getName().equals("SEND"))
           send = param.getData();
         if (param.getName().equals("FILETITLE"))
@@ -360,7 +360,7 @@ public class FopReportAction extends ActionSupport {
 
       tour.setTitle(title);
       tour.setRemarks(remark);
-      tour.setReceive(receive);
+      tour.setReceive(reserve);
       tour.setSend(send);
       tour.setFileTitle(fileTitle);
 

@@ -18,8 +18,8 @@ public class TblCrmCaseB implements java.io.Serializable {
   private Integer customerId;
   private String lineNo;
   private String lineName;
-  private Character customerSource;
-  private Character caseType;
+  private String customerSource;
+  private String caseType;
   private Date createDt;
   private String createUser;
 
@@ -31,7 +31,7 @@ public class TblCrmCaseB implements java.io.Serializable {
   }
 
   public TblCrmCaseB(Integer customerId, String lineNo, String lineName,
-      Character customerSource, Character caseType, Date createDt,
+      String customerSource, String caseType, Date createDt,
       String createUser) {
     this.customerId = customerId;
     this.lineNo = lineNo;
@@ -81,20 +81,20 @@ public class TblCrmCaseB implements java.io.Serializable {
   }
 
   @Column(name = "CUSTOMER_SOURCE", length = 1)
-  public Character getCustomerSource() {
+  public String getCustomerSource() {
     return this.customerSource;
   }
 
-  public void setCustomerSource(Character customerSource) {
+  public void setCustomerSource(String customerSource) {
     this.customerSource = customerSource;
   }
 
   @Column(name = "CASE_TYPE", length = 1)
-  public Character getCaseType() {
+  public String getCaseType() {
     return this.caseType;
   }
 
-  public void setCaseType(Character caseType) {
+  public void setCaseType(String caseType) {
     this.caseType = caseType;
   }
 

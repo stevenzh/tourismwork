@@ -107,7 +107,7 @@ public class ReckoningMakeAction extends ManageAction {
       reckoning.setRouteName(book.getPlan().getLine().getLineName());
       reckoning.setTourNo(book.getPlan().getTourNo());
       reckoning.setContact(book.getContact());
-      reckoning.setPhone(book.getTel());
+      reckoning.setPhone(book.getPhone());
       reckoning.setPax(book.getPax());
 
       if (null != reckoning.getPrintDate())
@@ -334,7 +334,7 @@ public class ReckoningMakeAction extends ManageAction {
         reckoning.setTourType('1');
 
       reckoning.setBookingNo(reserveNo.trim());
-      reckoning.setCreatedby(user.getUserId());
+      reckoning.setCreatedBy(user.getUserId());
       reckoning.setUserDept("");
       reckoning.setReckoningAcctList(reckoningAcctList);
       reckoning = reckoningService.txWholeReckoningMake(reckoning);
@@ -343,7 +343,7 @@ public class ReckoningMakeAction extends ManageAction {
       reckoning.setTourType('3');
 
       reckoning.setBookingNo(reserveNo.trim());
-      reckoning.setCreatedby(user.getUserId());
+      reckoning.setCreatedBy(user.getUserId());
       reckoning.setUserDept("");
       reckoning = reckoningService.txWholeReckoningMake(reckoning);
     }
@@ -441,7 +441,7 @@ public class ReckoningMakeAction extends ManageAction {
 
     reckoning.setReckoningId(reckoningId);
     reckoning.setBookingNo(reserveNo);
-    reckoning.setUpdatedby(user.getUserId());
+    reckoning.setUpdatedBy(user.getUserId());
     reckoning.setReckoningAcctList(reckoningAcctList);
     ret = reckoningService.txWholeReckoningModify(reckoning);
     if (ret == 0)

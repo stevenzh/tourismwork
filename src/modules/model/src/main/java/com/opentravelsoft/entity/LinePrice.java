@@ -17,14 +17,22 @@ public class LinePrice implements java.io.Serializable {
   private String recNo;
   /** 线路号 */
   private String lineNo;
-  private Character priceKey;
+  private String priceKey;
+  /** 报价分类 */
   private String subject;
-  private BigDecimal price1;
-  private BigDecimal price2;
-  private BigDecimal price3;
-  private BigDecimal price4;
-  private Date SDate;
-  private Date EDate;
+  /** 直客价 */
+  private BigDecimal price;
+  /** 同行价 */
+  private BigDecimal priceOther;
+  /** 成本价 */
+  private BigDecimal priceCost;
+  /** 单人房差 */
+  private BigDecimal priceContrast;
+  /** 开始有效期 */
+  private Date startDate;
+  /** 结束有效期 */
+  private Date endDate;
+
   /** 周表 */
   private String weekBit;
   private BigDecimal subscription;
@@ -101,11 +109,11 @@ public class LinePrice implements java.io.Serializable {
   }
 
   @Column(name = "PRICE_KEY", length = 1)
-  public Character getPriceKey() {
+  public String getPriceKey() {
     return this.priceKey;
   }
 
-  public void setPriceKey(Character priceKey) {
+  public void setPriceKey(String priceKey) {
     this.priceKey = priceKey;
   }
 
@@ -118,60 +126,60 @@ public class LinePrice implements java.io.Serializable {
     this.subject = subject;
   }
 
-  @Column(name = "PRICE1", precision = 9)
-  public BigDecimal getPrice1() {
-    return this.price1;
+  @Column(name = "PRICE", precision = 9)
+  public BigDecimal getPrice() {
+    return this.price;
   }
 
-  public void setPrice1(BigDecimal price1) {
-    this.price1 = price1;
+  public void setPrice(BigDecimal price1) {
+    this.price = price1;
   }
 
-  @Column(name = "PRICE2", precision = 9)
-  public BigDecimal getPrice2() {
-    return this.price2;
+  @Column(name = "PRICE_OTHER", precision = 9)
+  public BigDecimal getPriceOther() {
+    return priceOther;
   }
 
-  public void setPrice2(BigDecimal price2) {
-    this.price2 = price2;
+  public void setPriceOther(BigDecimal priceOther) {
+    this.priceOther = priceOther;
   }
 
-  @Column(name = "PRICE3", precision = 9)
-  public BigDecimal getPrice3() {
-    return this.price3;
+  @Column(name = "PRICE_COST", precision = 9)
+  public BigDecimal getPriceCost() {
+    return priceCost;
   }
 
-  public void setPrice3(BigDecimal price3) {
-    this.price3 = price3;
+  public void setPriceCost(BigDecimal priceCost) {
+    this.priceCost = priceCost;
   }
 
-  @Column(name = "PRICE4", precision = 9)
-  public BigDecimal getPrice4() {
-    return this.price4;
+  @Column(name = "PRICE_CONTRAST", precision = 9)
+  public BigDecimal getPriceContrast() {
+    return priceContrast;
   }
 
-  public void setPrice4(BigDecimal price4) {
-    this.price4 = price4;
-  }
-
-  @Temporal(TemporalType.TIMESTAMP)
-  @Column(name = "S_DATE", length = 19)
-  public Date getSDate() {
-    return this.SDate;
-  }
-
-  public void setSDate(Date SDate) {
-    this.SDate = SDate;
+  public void setPriceContrast(BigDecimal priceContrast) {
+    this.priceContrast = priceContrast;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
-  @Column(name = "E_DATE", length = 19)
-  public Date getEDate() {
-    return this.EDate;
+  @Column(name = "START_DATE", length = 19)
+  public Date getStartDate() {
+    return startDate;
   }
 
-  public void setEDate(Date EDate) {
-    this.EDate = EDate;
+  public void setStartDate(Date startDate) {
+    this.startDate = startDate;
+  }
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "END_DATE", length = 19)
+  public Date getEndDate() {
+    return endDate;
+  }
+
+  public void setEndDate(Date endDate) {
+    this.endDate = endDate;
   }
 
   @Column(name = "WEEK_BIT", length = 7)
@@ -401,20 +409,6 @@ public class LinePrice implements java.io.Serializable {
     this.afieldDuty = afieldDuty;
   }
 
-  /** 报价分类 */
-  private String type;
-  /** 直客价 */
-  private BigDecimal price;
-  /** 同行价 */
-  private BigDecimal priceOther;
-  /** 成本价 */
-  private BigDecimal priceCost;
-  /** 单人房差 */
-  private Double priceContrast;
-  /** 开始有效期 */
-  private Date startDate;
-  /** 结束有效期 */
-  private Date endDate;
   private String priceAdd;
   /** 订金 */
   private Double subScription;
@@ -464,75 +458,12 @@ public class LinePrice implements java.io.Serializable {
   }
 
   @Transient
-  public Date getEndDate() {
-    return endDate;
-  }
-
-  public void setEndDate(Date endDate) {
-    this.endDate = endDate;
-  }
-
-  @Transient
-  public BigDecimal getPrice() {
-    return price;
-  }
-
-  public void setPrice(BigDecimal price) {
-    this.price = price;
-  }
-
-  @Transient
   public String getPriceAdd() {
     return priceAdd;
   }
 
   public void setPriceAdd(String priceAdd) {
     this.priceAdd = priceAdd;
-  }
-
-  @Transient
-  public Double getPriceContrast() {
-    return priceContrast;
-  }
-
-  public void setPriceContrast(Double priceContrast) {
-    this.priceContrast = priceContrast;
-  }
-
-  @Transient
-  public BigDecimal getPriceCost() {
-    return priceCost;
-  }
-
-  public void setPriceCost(BigDecimal priceCost) {
-    this.priceCost = priceCost;
-  }
-
-  @Transient
-  public BigDecimal getPriceOther() {
-    return priceOther;
-  }
-
-  public void setPriceOther(BigDecimal priceOther) {
-    this.priceOther = priceOther;
-  }
-
-  @Transient
-  public Date getStartDate() {
-    return startDate;
-  }
-
-  public void setStartDate(Date startDate) {
-    this.startDate = startDate;
-  }
-
-  @Transient
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
   }
 
   @Transient

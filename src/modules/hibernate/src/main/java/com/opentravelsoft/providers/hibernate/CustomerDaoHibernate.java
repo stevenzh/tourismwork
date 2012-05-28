@@ -49,7 +49,7 @@ public class CustomerDaoHibernate extends
       agent.setName(RowDataUtil.getString(obj[1]));
       agent.setContact(RowDataUtil.getString(obj[2]));
       agent.setContactTel(RowDataUtil.getString(obj[3]));
-      agent.setIsActive(RowDataUtil.getChar(obj[4]));
+      agent.setIsActive(RowDataUtil.getString(obj[4]));
       agent.setCode(RowDataUtil.getString(obj[5]));
       agent.setPasswd(RowDataUtil.getString(obj[6]));
 
@@ -80,7 +80,7 @@ public class CustomerDaoHibernate extends
       agent.setName(obj.getName());
       agent.setContact(obj.getContact());
       agent.setContactTel(obj.getContactTel());
-      agent.setIsActive(RowDataUtil.getChar(obj.getIsActive()));
+      agent.setIsActive(RowDataUtil.getString(obj.getIsActive()));
       ret.add(agent);
     }
     return ret;
@@ -90,10 +90,10 @@ public class CustomerDaoHibernate extends
     Customer customer = (Customer) getHibernateTemplate().get(Customer.class,
         customerId, LockMode.READ);
 
-    customer.setType(RowDataUtil.getChar(customer.getType()));
+    customer.setType(RowDataUtil.getString(customer.getType()));
     customer.setStay(customer.getStay().multiply(new BigDecimal(100)));
     customer.setRegion(customer.getRoute());
-    customer.setIsActive(RowDataUtil.getChar(customer.getIsActive()));
+    customer.setIsActive(RowDataUtil.getString(customer.getIsActive()));
 
     return customer;
   }
@@ -162,7 +162,7 @@ public class CustomerDaoHibernate extends
       agent.setContactFax(RowDataUtil.getString(obj[7]));
       agent.setContactEmail(RowDataUtil.getString(obj[8]));
 
-      agent.setIsActive(RowDataUtil.getChar(obj[11]));
+      agent.setIsActive(RowDataUtil.getString(obj[11]));
       agent.getSales().setUserId(RowDataUtil.getInt(obj[12]));
       agent.getSales().setUserName(RowDataUtil.getString(obj[13]));
       agent.setCode(RowDataUtil.getString(obj[14]));
@@ -194,9 +194,9 @@ public class CustomerDaoHibernate extends
           && tblCustomer.getIsActive().equals("Y"))
         return -2;
 
-      tblCustomer.setIsActive('Y');
+      tblCustomer.setIsActive("Y");
       Date sysdate = getSysdate();
-      tblCustomer.setCheckDate(sysdate);
+      tblCustomer.setChecked(sysdate);
       tblCustomer.setCheckedBy(agent.getCheckedBy());
       template.update(tblCustomer);
     } else {
@@ -247,11 +247,11 @@ public class CustomerDaoHibernate extends
     else
       customer.setStay(agent.getStay().divide(new BigDecimal(100)));
 
-    customer.setStructure(RowDataUtil.getChar(agent.getStructure()));
+    customer.setStructure(RowDataUtil.getString(agent.getStructure()));
     customer.setPayment(agent.getClearingCycle());
 
-    customer.setUpdatedby(agent.getUpdatedby());
-    customer.setDel('N');
+    customer.setUpdatedBy(agent.getUpdatedBy());
+    customer.setDel("N");
     customer.setIsAgent(agent.isIsAgent());
     customer.setIsSupplier(agent.isIsSupplier());
 
@@ -260,8 +260,8 @@ public class CustomerDaoHibernate extends
       String s = String.valueOf(rand.nextFloat());
       // Set password
       customer.setPasswd(s.substring(2, 8));
-      customer.setIsActive('N');
-      customer.setCreatedby(agent.getUpdatedby());
+      customer.setIsActive("N");
+      customer.setCreatedBy(agent.getUpdatedBy());
       customer.setCode(StringUtil.padding(customer.getCustomerId(), 10));
       template.save(customer);
     }
@@ -298,7 +298,7 @@ public class CustomerDaoHibernate extends
           cont.setMsn(contact.getMsn());
           cont.setEmail(contact.getEmail());
           cont.setQq(contact.getQq());
-          cont.setDel('N');
+          cont.setDel("N");
 
           getHibernateTemplate().save(cont);
         }
@@ -503,7 +503,7 @@ public class CustomerDaoHibernate extends
       supplier.getCity().setCitycd(RowDataUtil.getString(obj[5]));
       supplier.getCity().setCitynm(RowDataUtil.getString(obj[6]));
       supplier.setAddress(RowDataUtil.getString(obj[7]));
-      supplier.setIsActive(RowDataUtil.getChar(obj[9]));
+      supplier.setIsActive(RowDataUtil.getString(obj[9]));
       supplier.setContact(RowDataUtil.getString(obj[10]));
 
       ret.add(supplier);
@@ -541,8 +541,8 @@ public class CustomerDaoHibernate extends
       supplier.getCity().setCitycd(RowDataUtil.getString(obj[4]));
       supplier.setContact(RowDataUtil.getString(obj[5]));
       supplier.setContactTel(RowDataUtil.getString(obj[6]));
-      supplier.setIsActive(RowDataUtil.getChar(obj[7]));
-      supplier.setDel(RowDataUtil.getChar(obj[8]));
+      supplier.setIsActive(RowDataUtil.getString(obj[7]));
+      supplier.setDel(RowDataUtil.getString(obj[8]));
       ret.add(supplier);
     }
 
@@ -584,25 +584,25 @@ public class CustomerDaoHibernate extends
     tblCust.setAddress(supplier.getAddress());
     tblCust.setBussId(supplier.getBussId());
 
-    tblCust.setFax(supplier.getFax());
+    tblCust.setContactFax(supplier.getContactFax());
     tblCust.setContactTel(supplier.getContactTel());
     tblCust.setContact(supplier.getContact());
     tblCust.setContactEmail(supplier.getContactEmail());
 
-    tblCust.setFeature(RowDataUtil.getChar(supplier.getFeature()));
+    tblCust.setFeature(RowDataUtil.getString(supplier.getFeature()));
     tblCust.setRoute(supplier.getRegion());
-    tblCust.setResource(RowDataUtil.getChar(supplier.getResource()));
+    tblCust.setResource(RowDataUtil.getString(supplier.getResource()));
     tblCust.setPayment(supplier.getClearingCycle());
 
-    tblCust.setBankid1(supplier.getBankid1());
-    tblCust.setBankname1(supplier.getBankname1());
-    tblCust.setBcltname1(supplier.getBcltname1());
+    tblCust.setBankid(supplier.getBankid());
+    tblCust.setBankname(supplier.getBankname());
+    tblCust.setBcltname(supplier.getBcltname());
     // tblCust.setEnabled('N');
-    tblCust.setDel('N');
+    tblCust.setDel("N");
 
-    tblCust.setUpdatedby(supplier.getUpdatedby());
+    tblCust.setUpdatedBy(supplier.getUpdatedBy());
     if (supplier.getSupplierId() <= 0) {
-      tblCust.setCreatedby(supplier.getUpdatedby());
+      tblCust.setCreatedBy(supplier.getUpdatedBy());
     }
     template.saveOrUpdate(tblCust);
 
@@ -625,7 +625,7 @@ public class CustomerDaoHibernate extends
       tblSupplierContact.setMobile(contact.getMobile());
       tblSupplierContact.setEmail(contact.getEmail());
       tblSupplierContact.setMsn(contact.getMsn());
-      tblSupplierContact.setCreatedby(supplier.getUpdatedby());
+      tblSupplierContact.setCreatedBy(supplier.getUpdatedBy());
       template.save(tblSupplierContact);
     }
 

@@ -97,7 +97,7 @@ public class AuditPayRequisitionAction extends ManageAction {
   public String submit() {
     Employee user = getUser();
     billhead = outcomeService.roGetBillhead(outcomeId);
-    if (billhead.getFrApprovedFlag() == 'Y') {
+    if (billhead.getFrApprovedFlag().equals("Y")) {
       addActionMessage("");
       return INPUT;
     }

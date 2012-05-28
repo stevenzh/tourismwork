@@ -18,8 +18,8 @@
     <property name="contact" type="string">
       <column name="CONTACT" length="20" />
     </property>
-    <property name="phoneNumber" type="string">
-      <column name="PHONE_NUMBER" length="20" />
+    <property name="phone" type="string">
+      <column name="PHONE" length="20" />
     </property>
     <property name="isActive" type="java.lang.Byte">
       <column name="IS_ACTIVE" />

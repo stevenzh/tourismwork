@@ -20,10 +20,10 @@ public class TblPriceFile implements java.io.Serializable {
   private String filepath;
   private Integer filesize;
   private Date overdue;
-  private Character del;
+  private String del;
   private String note;
   private Date created;
-  private Integer createdby;
+  private Integer createdBy;
 
   public TblPriceFile() {
   }
@@ -92,11 +92,11 @@ public class TblPriceFile implements java.io.Serializable {
   }
 
   @Column(name = "DEL", length = 1)
-  public Character getDel() {
+  public String getDel() {
     return this.del;
   }
 
-  public void setDel(Character del) {
+  public void setDel(String del) {
     this.del = del;
   }
 
@@ -120,12 +120,12 @@ public class TblPriceFile implements java.io.Serializable {
   }
 
   @Column(name = "CREATEDBY")
-  public Integer getCreatedby() {
-    return this.createdby;
+  public Integer getCreatedBy() {
+    return this.createdBy;
   }
 
-  public void setCreatedby(Integer createdby) {
-    this.createdby = createdby;
+  public void setCreatedBy(Integer createdBy) {
+    this.createdBy = createdBy;
   }
 
 }

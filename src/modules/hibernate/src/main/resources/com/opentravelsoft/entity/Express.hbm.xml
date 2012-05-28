@@ -71,13 +71,13 @@
     <property name="created" type="timestamp">
       <column name="CREATED" length="19" />
     </property>
-    <property name="createdby" type="java.lang.Integer">
+    <property name="createdBy" type="java.lang.Integer">
       <column name="CREATEDBY" />
     </property>
     <property name="updated" type="timestamp">
       <column name="UPDATED" length="19" not-null="true" />
     </property>
-    <property name="updatedby" type="java.lang.Integer">
+    <property name="updatedBy" type="java.lang.Integer">
       <column name="UPDATEDBY" />
     </property>
   </class>

@@ -101,18 +101,18 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     tblOutcome.setNote(bill.getNote());
     Date sysdate = getSysdate();
     if (bill.getOutcomeId() <= 0) {
-      tblOutcome.setCreatedby(bill.getCreatedby());
+      tblOutcome.setCreatedBy(bill.getCreatedBy());
     }
     tblOutcome.setPayMode(bill.getPayMode());
-    tblOutcome.setUpdatedby(bill.getUpdatedby());
-    tblOutcome.setOpApprovedFlag('N');
+    tblOutcome.setUpdatedBy(bill.getUpdatedBy());
+    tblOutcome.setOpApprovedFlag("N");
     if (audit.equals("true")) {
-      tblOutcome.setOpApprovedFlag('Y');
+      tblOutcome.setOpApprovedFlag("Y");
       tblOutcome.setOpApproved(sysdate);
       tblOutcome.setOpApprovedby(bill.getOpApprovedby());
     }
-    tblOutcome.setFrReadFlag('N');
-    tblOutcome.setFrApprovedFlag('N');
+    tblOutcome.setFrReadFlag("N");
+    tblOutcome.setFrApprovedFlag("N");
     // 只对单团时
     tblOutcome.setTourNo(bill.getTourNo());
     // 是否安排配送
@@ -275,10 +275,10 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
       Date sysdate = getSysdate();
       outcome.setFrApproved(sysdate);
       outcome.setFrApprovedby(uid);
-      outcome.setFrApprovedFlag('Y');
+      outcome.setFrApprovedFlag("Y");
       outcome.setFrReadby(uid);
       outcome.setFrRead(sysdate);
-      outcome.setFrReadFlag('Y');
+      outcome.setFrReadFlag("Y");
       template.update(outcome);
 
       tblCostAcct = (TourCost) template
@@ -301,8 +301,8 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
       Date sysdate = getSysdate();
       tblOutcome.setOpApproved(sysdate);
       tblOutcome.setOpApprovedby(uid);
-      tblOutcome.setOpApprovedFlag('Y');
-      tblOutcome.setFrReadFlag('N');
+      tblOutcome.setOpApprovedFlag("Y");
+      tblOutcome.setFrReadFlag("N");
       template.update(tblOutcome);
 
       return 0;
@@ -319,7 +319,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
       Date sysdate = getSysdate();
       tblOutcome.setFrReadby(uid);
       tblOutcome.setFrRead(sysdate);
-      tblOutcome.setFrReadFlag('Y');
+      tblOutcome.setFrReadFlag("Y");
 
       template.update(tblOutcome);
 
@@ -342,7 +342,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
       if (outcome.getCarryLastDate() != null)
         tblOutcome.setCarryLastdate(outcome.getCarryLastDate());
       tblOutcome.setCarryNote(outcome.getCarryNote());
-      tblOutcome.setUpdatedby(uid);
+      tblOutcome.setUpdatedBy(uid);
 
       // tblOutcome.setRoe(billheadItem.getRoe());
       // tblOutcome.setFcAmount(billheadItem.getFcNowpayPayment());
@@ -428,7 +428,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
       if (outcome.getCarryLastDate() != null)
         tblOutcome.setCarryLastdate(outcome.getCarryLastDate());
       tblOutcome.setCarryNote(outcome.getCarryNote());
-      tblOutcome.setUpdatedby(uid);
+      tblOutcome.setUpdatedBy(uid);
       // tblOutcome.setTourNo(outcome.getTourNo());
       // tblOutcome.setAmount(billheadItem.getNowpayPayment());
       // tblOutcome.setFcAmount(billheadItem.getFcNowpayPayment());
@@ -619,9 +619,9 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     HibernateTemplate template = getHibernateTemplate();
     Outcome tblOutcome = (Outcome) template.get(Outcome.class, outcomeId);
     if (null != tblOutcome) {
-      tblOutcome.setOpApprovedFlag('N');
-      tblOutcome.setFrReadFlag('N');
-      tblOutcome.setFrApprovedFlag('N');
+      tblOutcome.setOpApprovedFlag("N");
+      tblOutcome.setFrReadFlag("N");
+      tblOutcome.setFrApprovedFlag("N");
 
       template.update(tblOutcome);
 
@@ -654,7 +654,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     sql.append("a.carryStatus,a.carryComplete,a.carryStart,");
     sql.append("d.line.lineNo,d.line.lineName,d.tourNo ");
     sql.append("from Outcome a, Employee c, Plan d ");
-    sql.append("where a.createdby=c.userCd and a.planNo=d.planNo ");
+    sql.append("where a.createdBy=c.userCd and a.planNo=d.planNo ");
     sql.append("and a.opApprovedFlag='Y' and a.carryTicket=1 ");
     // sql.append("and a.frApprovedFlag='Y' ");
     sql.append("and a.carryStatus=" + carryStatus + " ");
@@ -662,7 +662,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     if (StringUtil.hasLength(supplierId))
       sql.append("and a.customer.customerId=" + supplierId + " ");
     if (userId != 0)
-      sql.append("and a.createdby=" + userId + " ");
+      sql.append("and a.createdBy=" + userId + " ");
 
     sql.append("order by a.carryLastdate  ");
 
@@ -675,12 +675,12 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
       billhead.getCustomer().setCustomerId(RowDataUtil.getInt(obj[1]));
       billhead.getCustomer().setName(RowDataUtil.getString(obj[2]));
       billhead.setAmount(RowDataUtil.getBigDecimal(obj[3]));
-      billhead.setCreatedby(RowDataUtil.getInt(obj[4]));
+      billhead.setCreatedBy(RowDataUtil.getInt(obj[4]));
       billhead.setCreated(RowDataUtil.getDate(obj[5]));
       billhead.setCreatedByName(RowDataUtil.getString(obj[6]));
       billhead.setPayRegisterDate(RowDataUtil.getDate(obj[7]));
       billhead.setFrApproved(RowDataUtil.getDate(obj[8]));
-      billhead.setFrApprovedFlag(RowDataUtil.getChar(obj[9]));
+      billhead.setFrApprovedFlag(RowDataUtil.getString(obj[9]));
 
       billhead.setCarryStatus(RowDataUtil.getShort(obj[10]));
       billhead.setCarryComplete(RowDataUtil.getDate(obj[11]));

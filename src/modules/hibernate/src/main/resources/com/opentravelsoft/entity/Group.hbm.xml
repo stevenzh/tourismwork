@@ -12,17 +12,17 @@
     <many-to-one name="parent" class="com.opentravelsoft.entity.Group" fetch="select">
       <column name="PARENT_ID" />
     </many-to-one>
-    <property name="dptCn" type="string">
-      <column name="DPT_CN" length="20" not-null="true" />
+    <property name="name" type="string">
+      <column name="NAME" length="20" not-null="true" />
     </property>
     <property name="fullName" type="string">
       <column name="FULL_NAME" length="60" />
     </property>
-    <property name="linkman" type="string">
-      <column name="LINKMAN" length="20" />
+    <property name="contact" type="string">
+      <column name="CONTACT" length="20" />
     </property>
-    <property name="tel" type="string">
-      <column name="TEL" length="40" />
+    <property name="phone" type="string">
+      <column name="PHONE" length="40" />
     </property>
     <property name="fax" type="string">
       <column name="FAX" length="40" />

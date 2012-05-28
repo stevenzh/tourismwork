@@ -20,8 +20,8 @@
     <property name="teamId" type="java.lang.Integer">
       <column name="TEAM_ID" />
     </property>
-    <property name="card" type="string">
-      <column name="CARD" length="20" />
+    <property name="idCard" type="string">
+      <column name="ID_CARD" length="20" />
     </property>
     <property name="leadCard" type="string">
       <column name="LEAD_CARD" length="20" />
@@ -35,8 +35,8 @@
     <property name="high" type="string">
       <column name="HIGH" length="6" />
     </property>
-    <property name="leadKey" type="string">
-      <column name="LEAD_KEY" length="1" />
+    <property name="leaderKey" type="string">
+      <column name="LEADER_KEY" length="1" />
     </property>
     <property name="dateStart" type="timestamp">
       <column name="DATE_START" length="19" />
@@ -110,23 +110,23 @@
     <property name="birthday" type="timestamp">
       <column name="BIRTHDAY" length="19" />
     </property>
-    <property name="bthplc" type="string">
-      <column name="BTHPLC" length="2" />
+    <property name="birthplace" type="string">
+      <column name="BIRTH_PLACE" length="2" />
     </property>
-    <property name="hzzl" type="string">
-      <column name="HZZL" length="2" />
+    <property name="passportType" type="string">
+      <column name="PASSPORT_TYPE" length="2" />
     </property>
-    <property name="hzno" type="string">
-      <column name="HZNO" length="12" />
+    <property name="passportNo" type="string">
+      <column name="PASSPORT_NO" length="12" />
     </property>
-    <property name="hzadd" type="string">
-      <column name="HZADD" length="3" />
+    <property name="passportPlace" type="string">
+      <column name="PASSPORT_PLACE" length="3" />
     </property>
-    <property name="hzdate1" type="timestamp">
-      <column name="HZDATE1" length="19" />
+    <property name="passportDate" type="timestamp">
+      <column name="PASSPORT_DATE" length="19" />
     </property>
-    <property name="hzrang" type="timestamp">
-      <column name="HZRANG" length="19" />
+    <property name="passportExpiry" type="timestamp">
+      <column name="PASSPORT_EXPIRY" length="19" />
     </property>
     <property name="photoFile" type="string">
       <column name="PHOTO_FILE" length="40" />

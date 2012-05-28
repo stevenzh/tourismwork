@@ -23,7 +23,7 @@
 		<property name="created" type="timestamp">
 			<column name="CREATED" length="19" />
 		</property>
-		<property name="createdby" type="java.lang.Integer">
+		<property name="createdBy" type="java.lang.Integer">
 			<column name="CREATEDBY" />
 		</property>
 	</class>

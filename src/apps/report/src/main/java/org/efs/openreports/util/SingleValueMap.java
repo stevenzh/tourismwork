@@ -13,7 +13,7 @@ import java.util.*;
  * A Map that can be used to wrap a map whose values are object arrays.
  * This wrapper will then allow one to access only the first object of those arrays.
  *
- * A common usage is to use this wrap the Map received through the ParameterAware interface.
+ * A common usage is to use this wrap the Map reserved through the ParameterAware interface.
  *
  * @see ParameterAware
  * @author Rickard �berg (rickard@middleware-company.com)

@@ -17,7 +17,7 @@
 		<property name="content" type="string">
 			<column name="CONTENT" length="500" />
 		</property>
-		<property name="include" type="java.lang.Character">
+		<property name="include" type="string">
 			<column name="INCLUDE" length="1" />
 		</property>
 		<property name="sortOrder" type="java.lang.Integer">

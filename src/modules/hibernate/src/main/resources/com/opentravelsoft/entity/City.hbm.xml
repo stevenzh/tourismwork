@@ -20,13 +20,13 @@
     <many-to-one name="province" class="com.opentravelsoft.entity.Province" lazy="false" fetch="join"  not-found="ignore">
       <column name="PROVINCE" length="2" />
     </many-to-one>
-    <property name="inOut" type="java.lang.Character">
+    <property name="inOut" type="string">
       <column name="IN_OUT" length="1" />
     </property>
-    <property name="ioCity" type="java.lang.Character">
+    <property name="ioCity" type="string">
       <column name="IO_CITY" length="1" />
     </property>
-    <property name="webKey" type="char">
+    <property name="webKey" type="string">
       <column name="WEB_KEY" length="1" not-null="true" />
     </property>
     <property name="isDelete" type="java.lang.Byte">

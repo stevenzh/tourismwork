@@ -1,6 +1,5 @@
 package com.opentravelsoft.providers.hibernate;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.LockMode;
@@ -51,13 +50,6 @@ public class AirportDaoImpl extends GenericDaoHibernate<Airport, String>
 
     PaginationSupport support = findPageByCriteria(airportCriteria, pageSize,
         fromRecord);
-
-    Iterator iter = support.getItems().iterator();
-    while (iter.hasNext()) {
-      Airport airport = (Airport) iter.next();
-      airport.setCityName(airport.getCity().getCitynm());
-      airport.setCountryName(airport.getCity().getCountry().getName());
-    }
 
     return support;
   }

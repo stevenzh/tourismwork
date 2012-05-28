@@ -36,7 +36,7 @@ public class Outcome implements java.io.Serializable {
   /** 中段说明 */
   private String note;
   private Date payDate;
-  private Character payMode;
+  private String payMode;
   private String billNo;
   /** 支付登记日期 */
   private Date payRegisterDate;
@@ -66,22 +66,22 @@ public class Outcome implements java.io.Serializable {
   private String workflowId;
   /** 制单时间 */
   private Date created;
-  private Integer createdby;
+  private Integer createdBy;
 
   private Date opApproved;
   private Integer opApprovedby;
   /** 计调是否审核 */
-  private Character opApprovedFlag;
+  private String opApprovedFlag;
   private Date frRead;
   private Integer frReadby;
   /** 财务人员已读 */
-  private Character frReadFlag;
+  private String frReadFlag;
   private Date frApproved;
   private Integer frApprovedby;
   /** 财务是否审核 */
-  private Character frApprovedFlag;
+  private String frApprovedFlag;
   private Date updated;
-  private Integer updatedby;
+  private Integer updatedBy;
 
   public Outcome() {
     customer = new Customer();
@@ -140,11 +140,11 @@ public class Outcome implements java.io.Serializable {
   }
 
   @Column(name = "PAY_MODE", length = 1)
-  public Character getPayMode() {
+  public String getPayMode() {
     return this.payMode;
   }
 
-  public void setPayMode(Character payMode) {
+  public void setPayMode(String payMode) {
     this.payMode = payMode;
   }
 
@@ -309,12 +309,12 @@ public class Outcome implements java.io.Serializable {
   }
 
   @Column(name = "CREATEDBY")
-  public Integer getCreatedby() {
-    return this.createdby;
+  public Integer getCreatedBy() {
+    return this.createdBy;
   }
 
-  public void setCreatedby(Integer createdby) {
-    this.createdby = createdby;
+  public void setCreatedBy(Integer createdBy) {
+    this.createdBy = createdBy;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
@@ -337,11 +337,11 @@ public class Outcome implements java.io.Serializable {
   }
 
   @Column(name = "OP_APPROVED_FLAG", length = 1)
-  public Character getOpApprovedFlag() {
+  public String getOpApprovedFlag() {
     return this.opApprovedFlag;
   }
 
-  public void setOpApprovedFlag(Character opApprovedFlag) {
+  public void setOpApprovedFlag(String opApprovedFlag) {
     this.opApprovedFlag = opApprovedFlag;
   }
 
@@ -365,11 +365,11 @@ public class Outcome implements java.io.Serializable {
   }
 
   @Column(name = "FR_READ_FLAG", length = 1)
-  public Character getFrReadFlag() {
+  public String getFrReadFlag() {
     return this.frReadFlag;
   }
 
-  public void setFrReadFlag(Character frReadFlag) {
+  public void setFrReadFlag(String frReadFlag) {
     this.frReadFlag = frReadFlag;
   }
 
@@ -393,11 +393,11 @@ public class Outcome implements java.io.Serializable {
   }
 
   @Column(name = "FR_APPROVED_FLAG", length = 1)
-  public Character getFrApprovedFlag() {
+  public String getFrApprovedFlag() {
     return this.frApprovedFlag;
   }
 
-  public void setFrApprovedFlag(Character frApprovedFlag) {
+  public void setFrApprovedFlag(String frApprovedFlag) {
     this.frApprovedFlag = frApprovedFlag;
   }
 
@@ -412,12 +412,12 @@ public class Outcome implements java.io.Serializable {
   }
 
   @Column(name = "UPDATEDBY")
-  public Integer getUpdatedby() {
-    return this.updatedby;
+  public Integer getUpdatedBy() {
+    return this.updatedBy;
   }
 
-  public void setUpdatedby(Integer updatedby) {
-    this.updatedby = updatedby;
+  public void setUpdatedBy(Integer updatedBy) {
+    this.updatedBy = updatedBy;
   }
 
   /** 成本ID */
@@ -466,7 +466,7 @@ public class Outcome implements java.io.Serializable {
   private String isRegister;
 
   /** 是否能审核 */
-  private Character isAuditing;
+  private String isAuditing;
 
   /** 内容 */
   private String description;
@@ -508,11 +508,11 @@ public class Outcome implements java.io.Serializable {
   }
 
   @Transient
-  public Character getIsAuditing() {
+  public String getIsAuditing() {
     return isAuditing;
   }
 
-  public void setIsAuditing(Character isAuditing) {
+  public void setIsAuditing(String isAuditing) {
     this.isAuditing = isAuditing;
   }
 

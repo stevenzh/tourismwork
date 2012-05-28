@@ -20,8 +20,8 @@ public class City implements java.io.Serializable {
   private String citynm;
   private String cityen;
   private Province province;
-  private Character inOut;
-  private Character ioCity;
+  private String inOut;
+  private String ioCity;
   private char webKey;
   private Byte isDelete;
   private Set<Line> lines = new HashSet<Line>(0);
@@ -86,20 +86,20 @@ public class City implements java.io.Serializable {
   }
 
   @Column(name = "IN_OUT", length = 1)
-  public Character getInOut() {
+  public String getInOut() {
     return this.inOut;
   }
 
-  public void setInOut(Character inOut) {
+  public void setInOut(String inOut) {
     this.inOut = inOut;
   }
 
   @Column(name = "IO_CITY", length = 1)
-  public Character getIoCity() {
+  public String getIoCity() {
     return this.ioCity;
   }
 
-  public void setIoCity(Character ioCity) {
+  public void setIoCity(String ioCity) {
     this.ioCity = ioCity;
   }
 

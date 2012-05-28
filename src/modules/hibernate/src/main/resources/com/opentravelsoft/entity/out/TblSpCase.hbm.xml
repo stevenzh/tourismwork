@@ -27,13 +27,13 @@
         <property name="pax" type="string">
             <column name="PAX" length="50" />
         </property>
-        <property name="isLeader" type="java.lang.Character">
+        <property name="isLeader" type="string">
             <column name="IS_LEADER" length="1" />
         </property>
-        <property name="customerSource" type="java.lang.Character">
+        <property name="customerSource" type="string">
             <column name="CUSTOMER_SOURCE" length="1" />
         </property>
-        <property name="visaType" type="java.lang.Character">
+        <property name="visaType" type="string">
             <column name="VISA_TYPE" length="1" />
         </property>
         <property name="visaCountry" type="string">
@@ -57,7 +57,7 @@
         <property name="flightInfo" type="string">
             <column name="FLIGHT_INFO" length="50" />
         </property>
-        <property name="flightType" type="java.lang.Character">
+        <property name="flightType" type="string">
             <column name="FLIGHT_TYPE" length="1" />
         </property>
         <property name="remark" type="string">
@@ -93,7 +93,7 @@
         <property name="lineNo" type="string">
             <column name="LINE_NO" length="8" />
         </property>
-        <property name="isSuccess" type="java.lang.Character">
+        <property name="isSuccess" type="string">
             <column name="IS_SUCCESS" length="1" />
         </property>
     </class>

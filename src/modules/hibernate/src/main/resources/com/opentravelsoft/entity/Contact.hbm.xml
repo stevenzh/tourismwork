@@ -38,7 +38,7 @@
     <property name="qq" type="string">
       <column name="QQ" length="30" />
     </property>
-    <property name="del" type="java.lang.Character">
+    <property name="del" type="string">
       <column name="DEL" length="1" />
     </property>
     <property name="salesId" type="java.lang.Integer">
@@ -47,13 +47,13 @@
     <property name="created" type="timestamp">
       <column name="CREATED" length="19" />
     </property>
-    <property name="createdby" type="java.lang.Integer">
+    <property name="createdBy" type="java.lang.Integer">
       <column name="CREATEDBY" />
     </property>
     <property name="updated" type="timestamp">
       <column name="UPDATED" length="19" not-null="true" />
     </property>
-    <property name="updatedby" type="java.lang.Integer">
+    <property name="updatedBy" type="java.lang.Integer">
       <column name="UPDATEDBY" />
     </property>
 

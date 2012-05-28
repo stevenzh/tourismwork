@@ -31,7 +31,7 @@
     <property name="foodType" type="string">
       <column name="FOOD_TYPE" length="2" />
     </property>
-    <property name="apFlag" type="java.lang.Character">
+    <property name="apFlag" type="string">
       <column name="AP_FLAG" length="1" />
     </property>
     <property name="recommend" type="java.lang.Integer">
@@ -114,12 +114,12 @@
         <comment>&#161;&#164;??&#168;&#178;</comment>
       </column>
     </property>
-    <property name="opKey" type="java.lang.Character">
+    <property name="opKey" type="string">
       <column name="OP_KEY" length="1">
         <comment>&#161;&#164;??&#168;&#178;</comment>
       </column>
     </property>
-    <property name="checkKey" type="java.lang.Character">
+    <property name="checkKey" type="string">
       <column name="CHECK_KEY" length="1">
         <comment>&#161;&#164;??&#168;&#178;</comment>
       </column>

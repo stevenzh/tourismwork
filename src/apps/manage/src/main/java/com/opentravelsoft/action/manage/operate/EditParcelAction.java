@@ -60,9 +60,9 @@ public class EditParcelAction extends ManageAction {
 
     billhead = outcomeService.roGetBillhead(outcomeId);
     if (isAuditing == 0)
-      billhead.setIsAuditing('Y');
+      billhead.setIsAuditing("Y");
     else {
-      billhead.setIsAuditing('N');
+      billhead.setIsAuditing("N");
       addActionError("本团有现结客户未付清款项，此付款申请书不能审核！");
     }
 
@@ -79,7 +79,7 @@ public class EditParcelAction extends ManageAction {
   public String start() {
     Employee user = getUser();
     billhead.setOutcomeId(outcomeId);
-    billhead.setUpdatedby(user.getUserId());
+    billhead.setUpdatedBy(user.getUserId());
 
     int ret = ticketService.txStartParcel(billhead);
 

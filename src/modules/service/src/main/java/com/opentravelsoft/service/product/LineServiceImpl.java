@@ -97,7 +97,7 @@ public class LineServiceImpl implements LineService {
   }
 
   public String txInsertLine(Line line) {
-    String lineNo = sequenceDao.getComputerNo("T", line.getCreateUserId());
+    String lineNo = sequenceDao.getComputerNo("T", line.getModifiedBy());
     line.setLineNo(lineNo);
     lineDao.save(line);
     return lineNo;

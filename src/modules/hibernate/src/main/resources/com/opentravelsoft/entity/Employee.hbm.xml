@@ -21,8 +21,8 @@
     <property name="ctiNo" type="string">
       <column name="CTI_NO" length="5" />
     </property>
-    <property name="userNm" type="string">
-      <column name="USER_NM" length="20" />
+    <property name="userName" type="string">
+      <column name="USER_NAME" length="20" />
     </property>
     <property name="givenName" type="string">
       <column name="GIVEN_NAME" length="20" />
@@ -33,8 +33,8 @@
     <property name="isAdmin" type="java.lang.Boolean">
       <column name="IS_ADMIN" />
     </property>
-    <property name="tel" type="string">
-      <column name="TEL" length="30" />
+    <property name="phone" type="string">
+      <column name="PHONE" length="30" />
     </property>
     <property name="fax" type="string">
       <column name="FAX" length="30" />
@@ -42,7 +42,7 @@
     <property name="mobile" type="string">
       <column name="MOBILE" length="20" />
     </property>
-    <property name="sex" type="java.lang.Character">
+    <property name="sex" type="string">
       <column name="SEX" length="1" />
     </property>
     <property name="cardId" type="string">
@@ -60,7 +60,7 @@
     <property name="workFlg" type="string">
       <column name="WORK_FLG" length="2" />
     </property>
-    <property name="workKey" type="java.lang.Character">
+    <property name="workKey" type="string">
       <column name="WORK_KEY" length="1" />
     </property>
     <property name="isActive" type="java.lang.Boolean">

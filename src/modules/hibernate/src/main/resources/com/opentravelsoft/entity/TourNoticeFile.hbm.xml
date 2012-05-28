@@ -29,7 +29,7 @@
     <property name="overdue" type="timestamp">
       <column name="OVERDUE" length="19" />
     </property>
-    <property name="del" type="java.lang.Character">
+    <property name="del" type="string">
       <column name="DEL" length="1" />
     </property>
     <property name="note" type="string">
@@ -38,7 +38,7 @@
     <property name="created" type="timestamp">
       <column name="CREATED" length="19" />
     </property>
-    <property name="createdby" type="java.lang.Integer">
+    <property name="createdBy" type="java.lang.Integer">
       <column name="CREATEDBY" />
     </property>
   </class>

@@ -1,6 +1,5 @@
 package com.opentravelsoft.entity;
 
-
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -25,20 +24,23 @@ public class Sight implements java.io.Serializable {
   private Country country;
   /** 景区 */
   private District district;
-  private String cnName;
+  /** 景点中文名称 */
+  private String name;
   /** 景点英文名称 */
   private String enName;
   /** 景点中文概况 */
   private String cnNote;
   /** 景点英文概况 */
   private String enNote;
-  private String mapAddress1;
-  private String mapAddress2;
+  /** 景点首图文件地址 */
+  private String headAdd;
+  /** 景点地图文件地址 */
+  private String mapAdd;
   /** 景点分类 */
   private String sightType;
   private Double clickNumber;
   private Date clickDate;
-  private Character districtKey;
+  private String districtKey;
   /** 所在省 */
   private Province province;
 
@@ -88,13 +90,13 @@ public class Sight implements java.io.Serializable {
     this.district = district;
   }
 
-  @Column(name = "CN_NAME", length = 30)
-  public String getCnName() {
-    return this.cnName;
+  @Column(name = "NAME", length = 30)
+  public String getName() {
+    return this.name;
   }
 
-  public void setCnName(String cnName) {
-    this.cnName = cnName;
+  public void setName(String cnName) {
+    this.name = cnName;
   }
 
   @Column(name = "EN_NAME", length = 60)
@@ -124,22 +126,22 @@ public class Sight implements java.io.Serializable {
     this.enNote = enNote;
   }
 
-  @Column(name = "MAP_ADDRESS1", length = 50)
-  public String getMapAddress1() {
-    return this.mapAddress1;
+  @Column(name = "HEAD_ADD", length = 50)
+  public String getHeadAdd() {
+    return headAdd;
   }
 
-  public void setMapAddress1(String mapAddress1) {
-    this.mapAddress1 = mapAddress1;
+  public void setHeadAdd(String headAdd) {
+    this.headAdd = headAdd;
   }
 
-  @Column(name = "MAP_ADDRESS2", length = 50)
-  public String getMapAddress2() {
-    return this.mapAddress2;
+  @Column(name = "MAP_ADD", length = 50)
+  public String getMapAdd() {
+    return mapAdd;
   }
 
-  public void setMapAddress2(String mapAddress2) {
-    this.mapAddress2 = mapAddress2;
+  public void setMapAdd(String mapAdd) {
+    this.mapAdd = mapAdd;
   }
 
   @Column(name = "SIGHT_TYPE", length = 10)
@@ -171,11 +173,11 @@ public class Sight implements java.io.Serializable {
   }
 
   @Column(name = "DISTRICT_KEY", length = 1)
-  public Character getDistrictKey() {
+  public String getDistrictKey() {
     return this.districtKey;
   }
 
-  public void setDistrictKey(Character districtKey) {
+  public void setDistrictKey(String districtKey) {
     this.districtKey = districtKey;
   }
 
@@ -207,14 +209,6 @@ public class Sight implements java.io.Serializable {
     this.tblLineSightses = tblLineSightses;
   }
 
-  /** 景点中文名称 */
-  private String name;
-  /** 景点首图文件地址 */
-  private String headAdd;
-
-  /** 景点地图文件地址 */
-  private String mapAdd;
-
   /** 景点分类名称 */
   private String sightTypeName;
 
@@ -233,24 +227,6 @@ public class Sight implements java.io.Serializable {
   }
 
   @Transient
-  public String getHeadAdd() {
-    return headAdd;
-  }
-
-  public void setHeadAdd(String headAdd) {
-    this.headAdd = headAdd;
-  }
-
-  @Transient
-  public String getMapAdd() {
-    return mapAdd;
-  }
-
-  public void setMapAdd(String mapAdd) {
-    this.mapAdd = mapAdd;
-  }
-
-  @Transient
   public String getCityId() {
     return cityId;
   }
@@ -266,15 +242,6 @@ public class Sight implements java.io.Serializable {
 
   public void setChecked(String checked) {
     this.checked = checked;
-  }
-
-  @Transient
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String cnName) {
-    this.name = cnName;
   }
 
 }

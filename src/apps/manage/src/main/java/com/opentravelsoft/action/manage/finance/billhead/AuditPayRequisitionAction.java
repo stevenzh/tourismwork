@@ -66,7 +66,7 @@ public class AuditPayRequisitionAction extends ManageAction {
 
     billhead = outcomeService.roGetBillhead(outcomeId);
     if (isAuditing == 0)
-      billhead.setIsAuditing('Y');
+      billhead.setIsAuditing("Y");
     // else
     // {
     // billhead.setIsAuditing('N');
@@ -92,7 +92,7 @@ public class AuditPayRequisitionAction extends ManageAction {
   public String read() {
     Employee user = getUser();
     billhead.setOutcomeId(outcomeId);
-    billhead.setUpdatedby(user.getUserId());
+    billhead.setUpdatedBy(user.getUserId());
 
     int ret = outcomeService.txFrReadBillhead(billhead, user.getUserId());
 
@@ -107,7 +107,7 @@ public class AuditPayRequisitionAction extends ManageAction {
   public String submit() {
     Employee user = getUser();
     billhead = outcomeService.roGetBillhead(outcomeId);
-    if (billhead.getFrApprovedFlag() == 'Y') {
+    if (billhead.getFrApprovedFlag().equals("Y")) {
       addActionMessage("此单已经审核！");
       return INPUT;
     }

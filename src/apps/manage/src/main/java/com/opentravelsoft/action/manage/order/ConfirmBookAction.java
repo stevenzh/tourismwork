@@ -80,7 +80,7 @@ public class ConfirmBookAction extends ManageAction {
     book.setOpuser(user.getUserId());
 
     for (int i = customerList.size() - 1; i >= 0; i--) {
-      if (customerList.get(i).getDel() == 'Y')
+      if (customerList.get(i).getDel().equals("Y"))
         customerList.remove(i);
     }
     book.setCustomerList(customerList);

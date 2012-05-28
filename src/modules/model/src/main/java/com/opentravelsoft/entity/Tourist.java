@@ -24,16 +24,16 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   private char recType;
   private String name;
   private String name2;
-  private Character cardty;
+  private String cardty;
 
   /** 证件号码 */
   private String card;
-  private Character sex;
+  private String sex;
   /** 出生年月 */
   private Date birthday;
   private String bthplc;
   private String mobile;
-  private Character hzKey;
+  private String hzKey;
   private String hzzl;
   private String hzno;
   private Date hzdate1;
@@ -54,21 +54,21 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
 
   /** 已退团款 */
   private BigDecimal amt04;
-  private Character vipkey;
+  private String vipkey;
   private String remark;
   /** 同房序号 */
   private Integer roomNo;
   private Integer paxnum;
   private String roomKey;
-  private Character roomKey1;
+  private String roomKey1;
   /** 取消状态 */
-  private char del;
+  private String del;
   private Integer opuser;
   /** 更新时间 */
   private Date opdate;
   /** 参团要求 */
-  private Character tourKey;
-  private Character leadKey;
+  private String tourKey;
+  private String leadKey;
   private String visaKey;
   private Integer rmNum;
   /** 报价 */
@@ -77,7 +77,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   private String familyName;
   private String givenName;
 
-  private Character nameKey;
+  private String nameKey;
   /** 国家 */
   private String nation;
   private BigDecimal areaAmt;
@@ -86,7 +86,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   private String expNote;
   private String premCode;
   private BigDecimal premExpend;
-  private Character premPrinted;
+  private String premPrinted;
   private String passRmk;
   private String pactNo;
   /**
@@ -102,15 +102,15 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
     userName = "";
     userType = "";
     isActive = true;
-    this.sex = 'M';
-    setCardty('1');
-    del = 'N';
+    this.sex = "M";
+    setCardty("1");
+    del = "N";
     confirmStatus = "1";
     leaderKey = "N";
     newFlag = "N";
-    tourKey = 'N';
+    tourKey = "N";
     amount = new BigDecimal(0);
-    hzKey = '1';
+    hzKey = "1";
 
     memberKey = "N";
     isExist = false;
@@ -174,11 +174,11 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   }
 
   @Column(name = "CARDTY", length = 1)
-  public Character getCardty() {
+  public String getCardty() {
     return this.cardty;
   }
 
-  public void setCardty(Character cardty) {
+  public void setCardty(String cardty) {
     this.cardty = cardty;
   }
 
@@ -192,11 +192,11 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   }
 
   @Column(name = "SEX", length = 1)
-  public Character getSex() {
+  public String getSex() {
     return this.sex;
   }
 
-  public void setSex(Character sex) {
+  public void setSex(String sex) {
     this.sex = sex;
   }
 
@@ -229,11 +229,11 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   }
 
   @Column(name = "HZ_KEY", length = 1)
-  public Character getHzKey() {
+  public String getHzKey() {
     return this.hzKey;
   }
 
-  public void setHzKey(Character hzKey) {
+  public void setHzKey(String hzKey) {
     this.hzKey = hzKey;
   }
 
@@ -321,11 +321,11 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   }
 
   @Column(name = "VIPKEY", length = 1)
-  public Character getVipkey() {
+  public String getVipkey() {
     return this.vipkey;
   }
 
-  public void setVipkey(Character vipkey) {
+  public void setVipkey(String vipkey) {
     this.vipkey = vipkey;
   }
 
@@ -366,20 +366,20 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   }
 
   @Column(name = "ROOM_KEY1", length = 1)
-  public Character getRoomKey1() {
+  public String getRoomKey1() {
     return this.roomKey1;
   }
 
-  public void setRoomKey1(Character roomKey1) {
+  public void setRoomKey1(String roomKey1) {
     this.roomKey1 = roomKey1;
   }
 
   @Column(name = "DEL", nullable = false, length = 1)
-  public char getDel() {
+  public String getDel() {
     return this.del;
   }
 
-  public void setDel(char del) {
+  public void setDel(String del) {
     this.del = del;
   }
 
@@ -403,20 +403,20 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   }
 
   @Column(name = "TOUR_KEY", length = 1)
-  public Character getTourKey() {
+  public String getTourKey() {
     return this.tourKey;
   }
 
-  public void setTourKey(Character tourKey) {
+  public void setTourKey(String tourKey) {
     this.tourKey = tourKey;
   }
 
   @Column(name = "LEAD_KEY", length = 1)
-  public Character getLeadKey() {
+  public String getLeadKey() {
     return this.leadKey;
   }
 
-  public void setLeadKey(Character leadKey) {
+  public void setLeadKey(String leadKey) {
     this.leadKey = leadKey;
   }
 
@@ -476,11 +476,11 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   }
 
   @Column(name = "NAME_KEY", length = 1)
-  public Character getNameKey() {
+  public String getNameKey() {
     return this.nameKey;
   }
 
-  public void setNameKey(Character nameKey) {
+  public void setNameKey(String nameKey) {
     this.nameKey = nameKey;
   }
 
@@ -548,11 +548,11 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   }
 
   @Column(name = "PREM_PRINTED", length = 1)
-  public Character getPremPrinted() {
+  public String getPremPrinted() {
     return this.premPrinted;
   }
 
-  public void setPremPrinted(Character premPrinted) {
+  public void setPremPrinted(String premPrinted) {
     this.premPrinted = premPrinted;
   }
 

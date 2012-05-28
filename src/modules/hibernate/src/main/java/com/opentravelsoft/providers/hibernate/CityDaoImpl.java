@@ -30,7 +30,7 @@ public class CityDaoImpl extends GenericDaoHibernate<City, String> implements
   @SuppressWarnings("unchecked")
   public List<City> getLineOutCity() {
     DetachedCriteria criteria = DetachedCriteria.forClass(City.class);
-    criteria.add(Restrictions.eq("inOut", 'N'));
+    criteria.add(Restrictions.eq("inOut", "N"));
     criteria.addOrder(Order.asc("citynm"));
     criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
 

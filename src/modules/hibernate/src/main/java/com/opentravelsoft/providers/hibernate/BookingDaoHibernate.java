@@ -58,7 +58,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     if (manager) {
       template.lock(plan, LockMode.PESSIMISTIC_WRITE);
       // 计划名额
-      int _pax1 = plan.getPax1();
+      int _pax1 = plan.getPlanPax();
       Object[] params1 = { book.getBookingNo() };
 
       StringBuilder sql = new StringBuilder();
@@ -74,9 +74,9 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
         // 已订名额
         plan.setPax2(pax2);
         // 可用名额
-        plan.setPax3(plan.getPax1() - pax2 - plan.getPax4());
+        plan.setPax3(plan.getPlanPax() - pax2 - plan.getHoldPax());
 
-        if (pax2 >= plan.getPax5())
+        if (pax2 >= plan.getBuildMinPax())
           canBuild = true;
 
         // 修改共享资源里的可用名额
@@ -86,7 +86,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
           ShareFlight tsf = (ShareFlight) template.get(ShareFlight.class,
               plan.getShareFlightId());
           if (tsf != null) {
-            tsf.setHandle(tsf.getHandle() - pax2 - plan.getPax4());
+            tsf.setHandle(tsf.getHandle() - pax2 - plan.getHoldPax());
             template.update(tsf);
           }
         }
@@ -97,7 +97,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     }
 
     //
-    book.setTourKey('3');
+    book.setTourKey("3");
     if (place) {
       // 确认人数
       book.setConfirmPax(book.getPax());
@@ -153,7 +153,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 已退团款
       trip.setAmt04(new BigDecimal(0));
       // 重点客人否
-      trip.setVipkey('N');
+      trip.setVipkey("N");
       // 备注
       trip.setRemark(" ");
       // 同行人数
@@ -165,11 +165,11 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 同房序号
       trip.setRmNum(trip.getRoomNo());
       // 是否同意与他人同住
-      trip.setRoomKey1('Y');
+      trip.setRoomKey1("Y");
       // 操作人
       trip.setOpuser(book.getOpuser());
       // 分团标志
-      trip.setTourKey('N');
+      trip.setTourKey("N");
       // 领队标志
       trip.setLeaderKey("N");
       // 送签登记表号
@@ -283,7 +283,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
     for (Tourist tourist : list) {
       // 取消标志
-      tourist.setDel('Y');
+      tourist.setDel("Y");
       // 操作人
       tourist.setOpuser(book.getOpuser());
 
@@ -309,13 +309,13 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 已订名额
       plan.setPax2(pax2);
       // 可用名额
-      plan.setPax3(plan.getPax1() - pax2 - plan.getPax4());
+      plan.setPax3(plan.getPlanPax() - pax2 - plan.getHoldPax());
       // 修改共享资源
       if (plan.getShareFlightId() != null) {
         ShareFlight tsf = (ShareFlight) getHibernateTemplate().get(
             ShareFlight.class, plan.getShareFlightId());
         if (tsf != null) {
-          tsf.setHandle(tsf.getHandle() + pax2 - plan.getPax4());
+          tsf.setHandle(tsf.getHandle() + pax2 - plan.getHoldPax());
           getHibernateTemplate().update(tsf);
         }
       }
@@ -342,7 +342,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       if (customers.contains(tfj007.getNmno())) {
         customer.append(tfj007.getUserName() + ",");
         // 取消标志
-        tfj007.setDel('Y');
+        tfj007.setDel("Y");
         // 操作人
         tfj007.setOpuser(book.getOpuser());
         tfj007.setAmt01(new BigDecimal(0));
@@ -350,7 +350,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
         template.update(tfj007);
       }
 
-      if (tfj007.getDel() == 'N')
+      if (tfj007.getDel().equals("N"))
         confirmPax++;
     }
 
@@ -391,13 +391,13 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 已订名额
       plan.setPax2(pax2);
       // 可用名额
-      plan.setPax3(plan.getPax1() - pax2 - plan.getPax4());
+      plan.setPax3(plan.getPlanPax() - pax2 - plan.getHoldPax());
       // 修改共享资源
       if (plan.getShareFlightId() != null) {
         ShareFlight tsf = (ShareFlight) getHibernateTemplate().get(
             ShareFlight.class, plan.getShareFlightId());
         if (tsf != null) {
-          tsf.setHandle(tsf.getHandle() + pax2 - plan.getPax4());
+          tsf.setHandle(tsf.getHandle() + pax2 - plan.getHoldPax());
           getHibernateTemplate().update(tsf);
         }
       }
@@ -422,7 +422,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
         throw new EbizException("plan is not find.");
 
       // 计划名额
-      int _pax1 = plan.getPax1();
+      int _pax1 = plan.getPlanPax();
 
       StringBuilder sql = new StringBuilder();
       sql.append("select sum(confirmPax) ");
@@ -436,11 +436,11 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
       // customers 包含已取消客人
       for (Tourist obj : customers) {
-        if (obj.getDel() == 'N')
+        if (obj.getDel().equals("N"))
           realPax++;
       }
 
-      if (pax2 + realPax > plan.getPax1()) {
+      if (pax2 + realPax > plan.getPlanPax()) {
         log.error("计划名额已满,订单审核失败.booking_no=" + inbook.getBookingNo());
         return -1;
       }
@@ -449,12 +449,12 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 已订名额
       plan.setPax2(pax2);
       // 可用名额
-      plan.setPax3(plan.getPax1() - pax2 - plan.getPax4());
+      plan.setPax3(plan.getPlanPax() - pax2 - plan.getHoldPax());
       if (plan.getShareFlightId() != null) {
         ShareFlight tsf = (ShareFlight) template.get(ShareFlight.class,
             plan.getShareFlightId());
         if (tsf != null) {
-          tsf.setHandle(tsf.getSeating() - pax2 - plan.getPax4());
+          tsf.setHandle(tsf.getSeating() - pax2 - plan.getHoldPax());
           template.update(tsf);
         }
       }
@@ -467,7 +467,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     // 联系人
     book.setContact(inbook.getContact());
     // 联系方式
-    book.setTel(inbook.getTel());
+    book.setPhone(inbook.getPhone());
     //
     book.setTourKey(inbook.getCanSplit());
     // 人数
@@ -656,7 +656,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 已退团款
       tourist.setAmt04(new BigDecimal(0));
       // 重点客人否
-      tourist.setVipkey('N');
+      tourist.setVipkey("N");
       // 备注
       tourist.setRemark(" ");
 
@@ -669,14 +669,14 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 同房序号
       tourist.setRmNum(trip.getRoomNo());
       // 是否同意与他人同住
-      tourist.setRoomKey1('Y');
+      tourist.setRoomKey1("Y");
 
       // 取消标志
-      tourist.setDel('N');
+      tourist.setDel("N");
       // 操作人
       tourist.setOpuser(inbook.getOpuser());
       // 分团标志
-      tourist.setTourKey('N');
+      tourist.setTourKey("N");
       // 领队标志
       tourist.setLeaderKey("N");
       // 送签登记表号
@@ -735,7 +735,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     List<Object> list = getHibernateTemplate().find(sql.toString(), param);
     int pax2 = RowDataUtil.getShort(list.get(0));
 
-    if (pax2 + book.getCustomerList().size() > plan.getPax1()) {
+    if (pax2 + book.getCustomerList().size() > plan.getPlanPax()) {
       log.error("计划名额已满,订单审核失败.booking_no=" + book.getBookingNo());
       return -1;
     }
@@ -792,13 +792,13 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 已订名额
       plan.setPax2(pax2);
       // 可用名额
-      plan.setPax3(plan.getPax1() - pax2 - plan.getPax4());
+      plan.setPax3(plan.getPlanPax() - pax2 - plan.getHoldPax());
       // 修改共享资源
       if (plan.getShareFlightId() != null) {
         ShareFlight tsf = (ShareFlight) getHibernateTemplate().get(
             ShareFlight.class, plan.getShareFlightId());
         if (tsf != null) {
-          tsf.setHandle(tsf.getHandle() - pax2 - plan.getPax4());
+          tsf.setHandle(tsf.getHandle() - pax2 - plan.getHoldPax());
           getHibernateTemplate().update(tsf);
         }
       }
@@ -878,13 +878,13 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     for (Tourist tfj007 : list) {
       if (customers.contains(tfj007.getNmno())) {
         // 取消标志
-        tfj007.setDel('N');
+        tfj007.setDel("N");
         // 操作人
         tfj007.setOpuser(book.getOpuser());
         template.update(tfj007);
       }
 
-      if (tfj007.getDel() == 'N')
+      if (tfj007.getDel().equals("N"))
         confirmPax++;
     }
 
@@ -926,13 +926,13 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 已订名额
       plan.setPax2(pax2);
       // 可用名额
-      plan.setPax3(plan.getPax1() - pax2 - plan.getPax4());
+      plan.setPax3(plan.getPlanPax() - pax2 - plan.getHoldPax());
       // 修改共享资源
       if (plan.getShareFlightId() != null) {
         ShareFlight tsf = (ShareFlight) getHibernateTemplate().get(
             ShareFlight.class, plan.getShareFlightId());
         if (tsf != null) {
-          tsf.setHandle(tsf.getHandle() + pax2 - plan.getPax4());
+          tsf.setHandle(tsf.getHandle() + pax2 - plan.getHoldPax());
           getHibernateTemplate().update(tsf);
         }
       }
@@ -974,7 +974,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     sql.append("select ");
     if (model)
       sql.append("DISTINCT ");
-    sql.append("a.nameNo,a.receiveDt,a.plan.outDate,a.pax,a.dbamt,"); // 4
+    sql.append("a.nameNo,a.reserveDate,a.plan.outDate,a.pax,a.dbamt,"); // 4
     sql.append("a.cramt,a.dbamt-a.cramt,a.cfmKey,a.delkey,"); // 8
     sql.append("a.plan.line.lineNo,a.plan.line.lineName,a.readKey "); // 11
     sql.append("from Booking a ");
@@ -1011,11 +1011,11 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     }
     // 预订日期
     if (null != orderStartDatePeriod) {
-      sql.append(" and a.receiveDt >= ?");
+      sql.append(" and a.reserveDate >= ?");
       params.add(orderStartDatePeriod);
     }
     if (null != orderStartDatePeriod2) {
-      sql.append(" and a.receiveDt >= ?");
+      sql.append(" and a.reserveDate >= ?");
       params.add(orderStartDatePeriod2);
     }
     // 合同号
@@ -1102,7 +1102,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     sql.append("where cfmKey='2' and delkey='N' ");
     sql.append("and plan.outDate>current_date() ");
     sql.append("and customerId=?");
-    sql.append("order by receiveDt desc");
+    sql.append("order by reserveDate desc");
     Object[] params = { accountId };
 
     return getHibernateTemplate().find(sql.toString(), params);
@@ -1124,10 +1124,10 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     sql.append("select ");
     if (model)
       sql.append("DISTINCT ");
-    sql.append("a.nameNo,a.receiveDt,a.plan.outDate,a.pax,a.dbamt,"); // 4
+    sql.append("a.nameNo,a.reserveDate,a.plan.outDate,a.pax,a.dbamt,"); // 4
     sql.append("a.cramt,a.dbamt-a.cramt,a.cfmKey,a.delkey,"); // 8
     sql.append("a.plan.line.lineNo,a.plan.line.lineName,a.customer.name,"); // 11
-    sql.append("a.salesman.userId,a.confirmPax,a.receive,a.readKey,"); // 15
+    sql.append("a.salesman.userId,a.confirmPax,a.reserve,a.readKey,"); // 15
     sql.append("a.salesman.userNm "); // 16
     sql.append("from Booking as a ");
 
@@ -1169,11 +1169,11 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
     // 预订日期
     if (null != reserveStart) {
-      sql.append(" and a.receiveDt >= ?");
+      sql.append(" and a.reserveDate >= ?");
       params.add(reserveStart);
     }
     if (null != reserveEnd) {
-      sql.append(" and a.receiveDt >= ?");
+      sql.append(" and a.reserveDate >= ?");
       params.add(reserveEnd);
     }
 
@@ -1229,7 +1229,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       }
     }
 
-    sql.append(" order by a.receiveDt");
+    sql.append(" order by a.reserveDate");
 
     List<Object[]> list = getHibernateTemplate().find(sql.toString(), param);
 
@@ -1525,7 +1525,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     sql.append("select ");
     if (model)
       sql.append("DISTINCT ");
-    sql.append("a.nameNo,a.receiveDt,a.plan.outDate,a.pax,a.dbamt,");
+    sql.append("a.nameNo,a.reserveDate,a.plan.outDate,a.pax,a.dbamt,");
     sql.append("a.cramt,a.dbamt-a.cramt,a.cfmKey,a.delkey,");
     sql.append("a.plan.line.lineNo,a.plan.line.lineName,a.readKey ");
     sql.append("from Booking as a ");

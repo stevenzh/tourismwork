@@ -261,8 +261,8 @@ public class Express implements java.io.Serializable {
     return this.createdBy;
   }
 
-  public void setCreatedBy(Integer createdby) {
-    this.createdBy = createdby;
+  public void setCreatedBy(Integer createdBy) {
+    this.createdBy = createdBy;
   }
 
   @Temporal(TemporalType.TIMESTAMP)
@@ -280,8 +280,8 @@ public class Express implements java.io.Serializable {
     return this.updatedBy;
   }
 
-  public void setUpdatedBy(Integer updatedby) {
-    this.updatedBy = updatedby;
+  public void setUpdatedBy(Integer updatedBy) {
+    this.updatedBy = updatedBy;
   }
 
   /** 线路名称 */

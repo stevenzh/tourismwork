@@ -20,23 +20,13 @@ public class TblVisaAttached implements java.io.Serializable {
   private String filePath;
   private Integer fileSize;
   private Date created;
-  private Integer createdby;
+  private Integer createdBy;
 
   public TblVisaAttached() {
   }
 
   public TblVisaAttached(String recNo) {
     this.recNo = recNo;
-  }
-
-  public TblVisaAttached(String recNo, String note, String filePath,
-      Integer fileSize, Date created, Integer createdby) {
-    this.recNo = recNo;
-    this.note = note;
-    this.filePath = filePath;
-    this.fileSize = fileSize;
-    this.created = created;
-    this.createdby = createdby;
   }
 
   @Id
@@ -97,12 +87,12 @@ public class TblVisaAttached implements java.io.Serializable {
   }
 
   @Column(name = "CREATEDBY")
-  public Integer getCreatedby() {
-    return this.createdby;
+  public Integer getCreatedBy() {
+    return this.createdBy;
   }
 
-  public void setCreatedby(Integer createdby) {
-    this.createdby = createdby;
+  public void setCreatedBy(Integer createdBy) {
+    this.createdBy = createdBy;
   }
 
 }

@@ -61,8 +61,8 @@ public class TourFileDaoHibernate extends
     file.setGroupId(fileItem.getGroupId());
     file.setFilename(fileItem.getFileName());
     file.setFilepath(fileItem.getFilePath());
-    file.setCreatedby(fileItem.getOperator());
-    file.setDel('N');
+    file.setCreatedBy(fileItem.getOperator());
+    file.setDel("N");
 
     getHibernateTemplate().save(file);
     return 0;
@@ -73,7 +73,7 @@ public class TourFileDaoHibernate extends
         TblPriceFile.class, fileId);
 
     if (null != fileItem) {
-      fileItem.setDel('Y');
+      fileItem.setDel("Y");
       getHibernateTemplate().save(fileItem);
       return 0;
     }

@@ -21,9 +21,9 @@ public class TblSpCase implements java.io.Serializable {
   private String hotelLevel;
   private String hotelPos;
   private String pax;
-  private Character isLeader;
-  private Character customerSource;
-  private Character visaType;
+  private String isLeader;
+  private String customerSource;
+  private String visaType;
   private String visaCountry;
   private BigDecimal airPrice;
   private BigDecimal hotelPrice;
@@ -31,7 +31,7 @@ public class TblSpCase implements java.io.Serializable {
   private BigDecimal leaderPrice;
   private BigDecimal costPrice;
   private String flightInfo;
-  private Character flightType;
+  private String flightType;
   private String remark;
   private String other;
   private String route;
@@ -43,7 +43,7 @@ public class TblSpCase implements java.io.Serializable {
   private String customerId;
   private String cptNo;
   private String lineNo;
-  private Character isSuccess;
+  private String isSuccess;
 
   public TblSpCase() {
   }
@@ -57,14 +57,14 @@ public class TblSpCase implements java.io.Serializable {
   }
 
   public TblSpCase(TblSpCaseId id, Date SOutDate, Date EOutDate,
-      String hotelLevel, String hotelPos, String pax, Character isLeader,
-      Character customerSource, Character visaType, String visaCountry,
+      String hotelLevel, String hotelPos, String pax, String isLeader,
+      String customerSource, String visaType, String visaCountry,
       BigDecimal airPrice, BigDecimal hotelPrice, BigDecimal quotePrice,
       BigDecimal leaderPrice, BigDecimal costPrice, String flightInfo,
-      Character flightType, String remark, String other, String route,
+      String flightType, String remark, String other, String route,
       String travelType, Date opDate, String opUser, Date createDate,
       String createUser, String customerId, String cptNo, String lineNo,
-      Character isSuccess) {
+      String isSuccess) {
     this.id = id;
     this.SOutDate = SOutDate;
     this.EOutDate = EOutDate;
@@ -156,29 +156,29 @@ public class TblSpCase implements java.io.Serializable {
   }
 
   @Column(name = "IS_LEADER", length = 1)
-  public Character getIsLeader() {
+  public String getIsLeader() {
     return this.isLeader;
   }
 
-  public void setIsLeader(Character isLeader) {
+  public void setIsLeader(String isLeader) {
     this.isLeader = isLeader;
   }
 
   @Column(name = "CUSTOMER_SOURCE", length = 1)
-  public Character getCustomerSource() {
+  public String getCustomerSource() {
     return this.customerSource;
   }
 
-  public void setCustomerSource(Character customerSource) {
+  public void setCustomerSource(String customerSource) {
     this.customerSource = customerSource;
   }
 
   @Column(name = "VISA_TYPE", length = 1)
-  public Character getVisaType() {
+  public String getVisaType() {
     return this.visaType;
   }
 
-  public void setVisaType(Character visaType) {
+  public void setVisaType(String visaType) {
     this.visaType = visaType;
   }
 
@@ -246,11 +246,11 @@ public class TblSpCase implements java.io.Serializable {
   }
 
   @Column(name = "FLIGHT_TYPE", length = 1)
-  public Character getFlightType() {
+  public String getFlightType() {
     return this.flightType;
   }
 
-  public void setFlightType(Character flightType) {
+  public void setFlightType(String flightType) {
     this.flightType = flightType;
   }
 
@@ -356,11 +356,11 @@ public class TblSpCase implements java.io.Serializable {
   }
 
   @Column(name = "IS_SUCCESS", length = 1)
-  public Character getIsSuccess() {
+  public String getIsSuccess() {
     return this.isSuccess;
   }
 
-  public void setIsSuccess(Character isSuccess) {
+  public void setIsSuccess(String isSuccess) {
     this.isSuccess = isSuccess;
   }
 

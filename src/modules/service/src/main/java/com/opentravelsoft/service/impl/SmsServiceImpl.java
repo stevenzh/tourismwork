@@ -15,7 +15,7 @@ public class SmsServiceImpl implements SmsService {
   private SmsDao smsDao;
 
   public int txReceive(String seqno, String mob, String msg, String srcMsg) {
-    return smsDao.receive(seqno, mob, msg, srcMsg);
+    return smsDao.reserve(seqno, mob, msg, srcMsg);
   }
 
   public int txSend(String seqno, String msg, String mob, int userId) {

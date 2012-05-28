@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class TourLog
 {
-    private Character state;
+    private String state;
 
     private String creator;
 
@@ -34,12 +34,12 @@ public class TourLog
     {
     }
 
-    public Character getState()
+    public String getState()
     {
         return state;
     }
 
-    public void setState(Character state)
+    public void setState(String state)
     {
         this.state = state;
     }

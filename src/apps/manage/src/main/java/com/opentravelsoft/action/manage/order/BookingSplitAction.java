@@ -116,7 +116,7 @@ public class BookingSplitAction extends ManageAction {
     List<LinePrice> prices = bookingService.roGetPrices(plan.getPlanNo());
     for (LinePrice price : prices) {
       LabelValueBean bean = new LabelValueBean();
-      bean.setLabel(price.getType() + " 直客价:" + DF.format(price.getPrice())
+      bean.setLabel(price.getSubject() + " 直客价:" + DF.format(price.getPrice())
           + " 同行价:" + DF.format(price.getPriceOther()));
       bean.setValue(DF.format(price.getPriceOther()));
       priceList.add(bean);
@@ -126,7 +126,7 @@ public class BookingSplitAction extends ManageAction {
     }
 
     // 独立成团 1 不可分拆 2 无 3
-    book.setCanSplit('2');
+    book.setCanSplit("2");
     /** 可预订人数 */
     paxSum = plan.getPax3();
 
@@ -225,7 +225,7 @@ public class BookingSplitAction extends ManageAction {
     List<LinePrice> prices = bookingService.roGetPrices(plan.getPlanNo());
     for (LinePrice price : prices) {
       LabelValueBean bean = new LabelValueBean();
-      bean.setLabel(price.getType() + " 直客价:" + DF.format(price.getPrice())
+      bean.setLabel(price.getSubject() + " 直客价:" + DF.format(price.getPrice())
           + " 同行价:" + DF.format(price.getPriceOther()));
       bean.setValue(DF.format(price.getPriceOther()));
       priceList.add(bean);

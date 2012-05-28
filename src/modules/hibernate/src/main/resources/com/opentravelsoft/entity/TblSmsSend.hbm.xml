@@ -17,7 +17,7 @@
 		<property name="receivedCnt" type="java.lang.Integer">
 			<column name="RECEIVED_CNT" />
 		</property>
-		<property name="status" type="java.lang.Character">
+		<property name="status" type="string">
 			<column name="STATUS" length="1" />
 		</property>
 		<property name="sendDate" type="timestamp">

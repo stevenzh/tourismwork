@@ -218,14 +218,14 @@ public class InvoiceDaoHibernate extends GenericDaoHibernate<Invoice, String>
    * @param str
    * @return
    */
-  private Character getCheckFlag(String str) {
+  private String getCheckFlag(String str) {
     if (null == str || str.length() == 0)
-      return 'N';
+      return "N";
 
     if (str.equals("true"))
-      return 'Y';
+      return "Y";
     else
-      return 'N';
+      return "N";
   }
 
   @SuppressWarnings("unchecked")

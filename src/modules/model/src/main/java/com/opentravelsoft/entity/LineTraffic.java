@@ -23,14 +23,14 @@ public class LineTraffic implements java.io.Serializable {
   /** 时间 */
   private String travelTime;
   /** 交通方式 */
-  private Character traffic;
+  private String traffic;
   private Integer step;
 
   public LineTraffic() {
   }
 
   public LineTraffic(String lineNo, Integer day, String fromCity,
-      String toCity, String travelTime, Character traffic, Integer step) {
+      String toCity, String travelTime, String traffic, Integer step) {
     this.lineNo = lineNo;
     this.day = day;
     this.fromCity = fromCity;
@@ -97,11 +97,11 @@ public class LineTraffic implements java.io.Serializable {
   }
 
   @Column(name = "TRAFFIC", length = 1)
-  public Character getTraffic() {
+  public String getTraffic() {
     return this.traffic;
   }
 
-  public void setTraffic(Character traffic) {
+  public void setTraffic(String traffic) {
     this.traffic = traffic;
   }
 

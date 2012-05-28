@@ -16,7 +16,7 @@ public class Announcement implements java.io.Serializable {
 
   private Integer announceId;
   private String title;
-  private Character type;
+  private String type;
   private Integer chrnum;
   private String text;
   private Date savingDate;
@@ -52,11 +52,11 @@ public class Announcement implements java.io.Serializable {
   }
 
   @Column(name = "TYPE", length = 1)
-  public Character getType() {
+  public String getType() {
     return this.type;
   }
 
-  public void setType(Character type) {
+  public void setType(String type) {
     this.type = type;
   }
 

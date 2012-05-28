@@ -14,8 +14,8 @@
 		<many-to-one name="district" class="com.opentravelsoft.entity.District" fetch="select">
 			<column name="DISTRICT_NO" length="10" />
 		</many-to-one>
-		<property name="cnName" type="string">
-			<column name="CN_NAME" length="30" />
+		<property name="name" type="string">
+			<column name="NAME" length="30" />
 		</property>
 		<property name="enName" type="string">
 			<column name="EN_NAME" length="60" />
@@ -26,11 +26,11 @@
 		<property name="enNote" type="string">
 			<column name="EN_NOTE" length="1500" />
 		</property>
-		<property name="mapAddress1" type="string">
-			<column name="MAP_ADDRESS1" length="50" />
+		<property name="headAdd" type="string">
+			<column name="HEAD_ADD" length="50" />
 		</property>
-		<property name="mapAddress2" type="string">
-			<column name="MAP_ADDRESS2" length="50" />
+		<property name="mapAdd" type="string">
+			<column name="MAP_ADD" length="50" />
 		</property>
 		<property name="sightType" type="string">
 			<column name="SIGHT_TYPE" length="10" />
@@ -41,7 +41,7 @@
 		<property name="clickDate" type="timestamp">
 			<column name="CLICK_DATE" length="19" />
 		</property>
-		<property name="districtKey" type="java.lang.Character">
+		<property name="districtKey" type="string">
 			<column name="DISTRICT_KEY" length="1" />
 		</property>
 		<many-to-one name="province" class="com.opentravelsoft.entity.Province" lazy="false" fetch="join" not-found="ignore">

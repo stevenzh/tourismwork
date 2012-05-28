@@ -63,7 +63,7 @@ public class Booking implements java.io.Serializable {
   /** 合同 */
   private String pactNo;
   /** 是否可拆分 */
-  private Character tourKey;
+  private String tourKey;
   /** 备注 */
   private String remarks;
   /** 确认状态 1:团确 2:团候 */
@@ -101,10 +101,10 @@ public class Booking implements java.io.Serializable {
    */
   private String source;
   private String workflowId;
-  private Character checkKey;
+  private String checkKey;
   private BigDecimal expAmt;
   /** 订单状态 */
-  private Character orderState;
+  private String orderState;
   private Integer isAgreeon;
   private Integer memberId;
 
@@ -113,7 +113,7 @@ public class Booking implements java.io.Serializable {
   private String fax;
   private String mobile;
   private String email;
-  private Character productType;
+  private String productType;
   private Integer adult;
   private Integer child;
   private Integer roomNum;
@@ -340,11 +340,11 @@ public class Booking implements java.io.Serializable {
   }
 
   @Column(name = "TOUR_KEY", length = 1)
-  public Character getTourKey() {
+  public String getTourKey() {
     return this.tourKey;
   }
 
-  public void setTourKey(Character tourKey) {
+  public void setTourKey(String tourKey) {
     this.tourKey = tourKey;
   }
 
@@ -534,11 +534,11 @@ public class Booking implements java.io.Serializable {
   }
 
   @Column(name = "CHECK_KEY", length = 1)
-  public Character getCheckKey() {
+  public String getCheckKey() {
     return this.checkKey;
   }
 
-  public void setCheckKey(Character checkKey) {
+  public void setCheckKey(String checkKey) {
     this.checkKey = checkKey;
   }
 
@@ -552,11 +552,11 @@ public class Booking implements java.io.Serializable {
   }
 
   @Column(name = "ORDER_STATE", length = 1)
-  public Character getOrderState() {
+  public String getOrderState() {
     return this.orderState;
   }
 
-  public void setOrderState(Character orderState) {
+  public void setOrderState(String orderState) {
     this.orderState = orderState;
   }
 
@@ -624,11 +624,11 @@ public class Booking implements java.io.Serializable {
   }
 
   @Column(name = "ProductType", length = 1)
-  public Character getProductType() {
+  public String getProductType() {
     return this.productType;
   }
 
-  public void setProductType(Character productType) {
+  public void setProductType(String productType) {
     this.productType = productType;
   }
 
@@ -792,7 +792,7 @@ public class Booking implements java.io.Serializable {
   private int id;
 
   /** 是否可拆分 */
-  private Character canSplit;
+  private String canSplit;
 
   /** 客户月结/现结 */
   private String clearingCycle;
@@ -917,11 +917,11 @@ public class Booking implements java.io.Serializable {
   }
 
   @Transient
-  public Character getCanSplit() {
+  public String getCanSplit() {
     return canSplit;
   }
 
-  public void setCanSplit(Character canSplit) {
+  public void setCanSplit(String canSplit) {
     this.canSplit = canSplit;
   }
 

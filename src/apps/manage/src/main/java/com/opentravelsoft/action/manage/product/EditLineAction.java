@@ -135,7 +135,7 @@ public class EditLineAction extends ManageAction {
   public String submit() {
     logger.debug("Save Line" + line.getLineNo());
     Employee user = getUser();
-    line.setOperateUserId(user.getUserId());
+    line.setModifiedBy(user.getUserId());
     int ret = lineService.txModifyLine(line);
 
     if (ret == 0) {
