@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="GB2312"?>
 <!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
-<!--  START SNIPPET: quizValidators -->
+<!-- START SNIPPET: quizValidators -->
 
 <validators>
   <field name="routePrice.priceOther">
@@ -47,19 +47,20 @@
     </field-validator>
   </field>
 
-  <field name="routePrice.cost1">
+<!--
+   <field name="routePrice.cost1">
     <field-validator type="required">
       <message>机票费成本不能为空.</message>
     </field-validator>
   </field>
 
-  <!-- 
-    <field name="routePrice.cost2">
+
+  <field name="routePrice.cost2">
     <field-validator type="required">
-    <message>国内段成本不能为空.</message>
+      <message>国内段成本不能为空.</message>
     </field-validator>
-    </field>
-  -->
+  </field>
+
 
   <field name="routePrice.cost3">
     <field-validator type="required">
@@ -67,13 +68,11 @@
     </field-validator>
   </field>
 
-  <!-- 
-    <field name="routePrice.cost4">
+  <field name="routePrice.cost4">
     <field-validator type="required">
-    <message>地接费成本不能为空.</message>
+      <message>地接费成本不能为空.</message>
     </field-validator>
-    </field>
-  -->
+  </field>
 
   <field name="routePrice.cost5">
     <field-validator type="required">
@@ -81,25 +80,23 @@
     </field-validator>
   </field>
 
-  <!-- 
-    <field name="routePrice.cost6">
+  <field name="routePrice.cost6">
     <field-validator type="required">
-    <message>名单费成本不能为空.</message>
+      <message>名单费成本不能为空.</message>
     </field-validator>
-    </field>
-    
-    <field name="routePrice.cost7">
+  </field>
+
+  <field name="routePrice.cost7">
     <field-validator type="required">
-    <message>领队费成本不能为空.</message>
+      <message>领队费成本不能为空.</message>
     </field-validator>
-    </field>
-    
-    <field name="routePrice.cost8">
+  </field>
+
+  <field name="routePrice.cost8">
     <field-validator type="required">
-    <message>其他费成本(天/人)不能为空.</message>
+      <message>其他费成本(天/人)不能为空.</message>
     </field-validator>
-    </field>
-  -->
+  </field>
 
   <field name="routePrice.cost9">
     <field-validator type="required">
@@ -124,7 +121,8 @@
       <message>景点门票费不能为空.</message>
     </field-validator>
   </field>
+  -->
 
 </validators>
 
-<!--  END SNIPPET: quizValidators  -->
+<!-- END SNIPPET: quizValidators -->

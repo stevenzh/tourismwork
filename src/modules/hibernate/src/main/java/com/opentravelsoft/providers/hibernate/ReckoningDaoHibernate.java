@@ -96,7 +96,7 @@ public class ReckoningDaoHibernate extends
     reckoning.setReckoningId(tblReckonings.get(0).getReckoningId());
     reckoning.setVersion(tblReckonings.get(0).getNumber());
 
-    if (reckoning.getTourType() == '1') {
+    if (reckoning.getTourType().equals("1")) {
       if (!reckoning.getReckoningAcctList().isEmpty()) {
         if (null != tblReckonings && !(tblReckonings.isEmpty())) {
           for (int i = 0; i < reckoning.getReckoningAcctList().size(); i++) {
@@ -178,7 +178,7 @@ public class ReckoningDaoHibernate extends
         reckoning.setCreatedByName(employees.get(0).getUserName());
 
       // 如果为整团，则取出帐单明细
-      if (reckoning.getTourType() == '1') {
+      if (reckoning.getTourType().equals("1")) {
         sql = new StringBuilder();
         sql.append("from ReckoningAcct where id.reckoningId=? ");
         Object[] param = { reckoningId };
@@ -219,7 +219,7 @@ public class ReckoningDaoHibernate extends
 
       getHibernateTemplate().update(tblReckoning);
 
-      if (reckoning.getTourType() == '1') {
+      if (reckoning.getTourType().equals("1")) {
         sql = new StringBuilder();
         sql.append("from ReckoningAcct where id.reckoningId=? ");
         Object[] param2 = { reckoning.getReckoningId() };

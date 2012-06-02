@@ -324,7 +324,7 @@ function change()
       <td class="idx">可收<span class="required">*</span>：</td>
       <td class="data">
       <s:textfield id="plan_pax1"
-                   name="plan.pax1"
+                   name="plan.planPax"
                    size="4"
                    maxlength="4"
                    onchange="javascript:change();">
@@ -353,7 +353,7 @@ function change()
       <td class="idx">占位<span class="required">*</span>：</td>
       <td class="data">
       <s:textfield id="plan_pax4"
-                   name="plan.pax4"
+                   name="plan.holdPax"
                    size="5"
                    maxlength="5"
                    onchange="javascript:change();">

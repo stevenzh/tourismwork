@@ -50,7 +50,8 @@
     <mapping resource="com/opentravelsoft/entity/LineVisa.hbm.xml" />
     <mapping resource="com/opentravelsoft/entity/LinePrice.hbm.xml" />
     <mapping resource="com/opentravelsoft/entity/LineSchedule.hbm.xml" />
-
+    <mapping resource="com/opentravelsoft/entity/TblLineSights.hbm.xml"/>
+  
     <!-- CRM -->
     <mapping resource="com/opentravelsoft/entity/Customer.hbm.xml" />
     <mapping resource="com/opentravelsoft/entity/Contact.hbm.xml" />

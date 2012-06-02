@@ -93,8 +93,8 @@
     <property name="deployFlag" type="string">
       <column name="DEPLOY_FLAG" length="1" />
     </property>
-    <property name="messagebox" type="string">
-      <column name="MESSAGEBOX" length="500" />
+    <property name="message" type="string">
+      <column name="MESSAGE" length="500" />
     </property>
     <property name="favourable" type="string">
       <column name="FAVOURABLE" length="1" />
@@ -189,7 +189,7 @@
     <property name="tourRmk" type="string">
       <column name="TOUR_RMK" length="40" />
     </property>
-    <property name="delKEY" type="string">
+    <property name="delKey" type="string">
       <column name="DEL_KEY" length="1" />
     </property>
     <property name="remarks" type="string">
@@ -243,8 +243,8 @@
     <property name="opUser" type="java.lang.Integer">
       <column name="OPUSER" />
     </property>
-    <property name="optime" type="timestamp">
-      <column name="OPTIME" length="19" not-null="true" />
+    <property name="opDate" type="timestamp">
+      <column name="OP_DATE" length="19" not-null="true" />
     </property>
     <property name="customerId" type="java.lang.Integer">
       <column name="CUSTOMER_ID" />

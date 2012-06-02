@@ -61,7 +61,7 @@ function del(){
     </tr>
     <tr>
       <td class="idx">可收：</td>
-      <td class="data"><s:property value="plan.pax1"/></td>
+      <td class="data"><s:property value="plan.planPax"/></td>
     </tr>
     <tr>
       <td class="idx">已收：</td>
@@ -73,7 +73,7 @@ function del(){
     </tr>
     <tr>
       <td class="idx">占位：</td>
-      <td class="data"><s:property value="plan.pax4"/></td>
+      <td class="data"><s:property value="plan.holdPax"/></td>
     </tr>
     <tr>
       <td class="idx">报名截止日期：</td>

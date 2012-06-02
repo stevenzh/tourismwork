@@ -141,8 +141,8 @@ public class Employee implements UserDetails, java.io.Serializable {
     return this.userName;
   }
 
-  public void setUserName(String userNm) {
-    this.userName = userNm;
+  public void setUserName(String userName) {
+    this.userName = userName;
   }
 
   @Column(name = "GIVEN_NAME", length = 20)

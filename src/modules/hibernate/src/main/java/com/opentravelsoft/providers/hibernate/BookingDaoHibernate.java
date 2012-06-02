@@ -58,7 +58,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     if (manager) {
       template.lock(plan, LockMode.PESSIMISTIC_WRITE);
       // 计划名额
-      int _pax1 = plan.getPlanPax();
+      int planPax = plan.getPlanPax();
       Object[] params1 = { book.getBookingNo() };
 
       StringBuilder sql = new StringBuilder();
@@ -69,7 +69,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       List<Object> list1 = template.find(sql.toString(), params1);
       int pax2 = RowDataUtil.getShort(list1.get(0));
 
-      if (pax2 + customers.size() < _pax1) {
+      if (pax2 + customers.size() < planPax) {
         pax2 = pax2 + customers.size();
         // 已订名额
         plan.setPax2(pax2);
@@ -139,7 +139,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 订单
       trip.setBooking(book);
       // 记录类型
-      trip.setRecType('A');
+      trip.setRecType("A");
       // 证件种类
       // tourist.setCardty("");
       // 是否办护照
@@ -422,7 +422,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
         throw new EbizException("plan is not find.");
 
       // 计划名额
-      int _pax1 = plan.getPlanPax();
+      int planPax = plan.getPlanPax();
 
       StringBuilder sql = new StringBuilder();
       sql.append("select sum(confirmPax) ");
@@ -609,7 +609,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 报名单号
       tourist.setBooking(book);
       // 记录类型
-      tourist.setRecType('A');
+      tourist.setRecType("A");
 
       // -----------------------------------------------------------------
       // 姓名
@@ -1128,7 +1128,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     sql.append("a.cramt,a.dbamt-a.cramt,a.cfmKey,a.delkey,"); // 8
     sql.append("a.plan.line.lineNo,a.plan.line.lineName,a.customer.name,"); // 11
     sql.append("a.salesman.userId,a.confirmPax,a.reserve,a.readKey,"); // 15
-    sql.append("a.salesman.userNm "); // 16
+    sql.append("a.salesman.userName "); // 16
     sql.append("from Booking as a ");
 
     if (model)
@@ -1197,7 +1197,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
 
     // 销售员
     if (StringUtil.hasLength(salesman)) {
-      sql.append(" and a.salesman.userNm like ?");
+      sql.append(" and a.salesman.userName like ?");
       params.add("%" + salesman + "%");
     }
 
@@ -1364,7 +1364,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       params.add(kenCity);
     }
     if (StringUtil.hasLength(kenSales)) {
-      sql.append("and a.salesman.userNm=? ");
+      sql.append("and a.salesman.userName=? ");
       params.add(kenSales);
     }
     if (null != startDate) {
@@ -1421,7 +1421,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
     params.add(customerId);
 
     if (StringUtil.hasLength(kenSales)) {
-      sql.append("and salesman.userNm=? ");
+      sql.append("and salesman.userName=? ");
       params.add(kenSales);
     }
     if (null != startDate) {

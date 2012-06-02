@@ -21,7 +21,7 @@
     </field-validator>
   </field>
 
-  <field name="plan.pax1">
+  <field name="plan.planPax">
     <field-validator type="required">
       <message>
         <![CDATA[ 计划名额必须输入. ]]>

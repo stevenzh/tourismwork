@@ -317,7 +317,7 @@ function changeEmp()
       <td class="idx">可收<span class="required">*</span>:</td>
       <td colspan="3">
       <s:textfield id="plan_pax1"
-                   name="plan.pax1"
+                   name="plan.planPax"
                    size="5"
                    maxlength="5" 
                    onchange="javascript:change();" />&nbsp;&nbsp;
@@ -331,7 +331,7 @@ function changeEmp()
                     readonly="true" />&nbsp;&nbsp;
                   占位<span class="required">*</span>:&nbsp;
                   <s:textfield id="plan_pax4" 
-                  name="plan.pax4"
+                  name="plan.holdPax"
                   size="5" maxlength="5"
                   onchange="javascript:change();"/>&nbsp;&nbsp;
                    最小成团人数<span class="required">*</span>:&nbsp;

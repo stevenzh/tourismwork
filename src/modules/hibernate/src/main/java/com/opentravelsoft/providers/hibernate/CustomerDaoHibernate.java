@@ -32,7 +32,7 @@ public class CustomerDaoHibernate extends
   public List<LabelValueBean> getCustomerBySales(int salesId, String area) {
     StringBuilder sql = new StringBuilder();
 
-    sql.append("select customerId,name,contact,phone,isActive,code,");
+    sql.append("select customerId,name,contact,contactTel,isActive,code,");
     sql.append("passwd ");
     sql.append("from Customer ");
     sql.append("where sales.userId=? and del='N' and isActive='Y' ");
@@ -104,9 +104,9 @@ public class CustomerDaoHibernate extends
       Integer userId, String customerCode, Integer teamId, String accountType) {
     StringBuilder sb = new StringBuilder();
     sb.append("select a.customerId,a.name,a.address,b.cnName,"); // 3
-    sb.append("a.city.citynm,a.contact,a.phone,a.contactFax,"); // 7
+    sb.append("a.city.citynm,a.contact,a.contactTel,a.contactFax,"); // 7
     sb.append("a.contactEmail,a.type,a.structure,a.isActive,"); // 11
-    sb.append("a.sales.userId,a.sales.userNm,a.code,a.passwd,");// 15
+    sb.append("a.sales.userId,a.sales.userName,a.code,a.passwd,");// 15
     sb.append("a.payment ");
     sb.append("from Customer a,");
     sb.append("Province b ");
@@ -517,7 +517,7 @@ public class CustomerDaoHibernate extends
       boolean b) {
     StringBuilder sb = new StringBuilder();
     sb.append("select a.customerId,a.name,a.countryCd,a.provinceCd,");
-    sb.append("a.city.citycd,a.contact,a.phone,a.isActive,a.del ");
+    sb.append("a.city.citycd,a.contact,a.contactTel,a.isActive,a.del ");
     sb.append("from Customer a,");
     sb.append("TeamSupplier b ");
     sb.append("where a.customerId = b.id.customerId ");

@@ -180,7 +180,7 @@ function showRouteJourney(obj)
           <td><A href="#" onclick="javascript:buildTour('<s:date name="outDate" format="yyyy-MM-dd 00:00:00" />','<s:date name="outDate" format="yyyy-MM-dd 00:00:00" />')"><s:property
             value="tourNo" /> </a>&nbsp;</td>
           <td><s:property value="line.lineName" />&nbsp;</td>
-          <td><s:property value="pax1" />&nbsp;</td>
+          <td><s:property value="planPax" />&nbsp;</td>
           <td><s:property value="pax5" />&nbsp;</td>
           <td><s:property value="pax2" />&nbsp;</td>
           <td align="center"><s:date name="outDate"

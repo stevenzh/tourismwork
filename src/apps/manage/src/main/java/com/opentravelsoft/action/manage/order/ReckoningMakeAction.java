@@ -329,9 +329,9 @@ public class ReckoningMakeAction extends ManageAction {
     if ("N".equals(isShort.trim())) {
 
       if ("A".equals(nameKey.trim()))
-        reckoning.setTourType('2');
+        reckoning.setTourType("2");
       else
-        reckoning.setTourType('1');
+        reckoning.setTourType("1");
 
       reckoning.setBookingNo(reserveNo.trim());
       reckoning.setCreatedBy(user.getUserId());
@@ -340,7 +340,7 @@ public class ReckoningMakeAction extends ManageAction {
       reckoning = reckoningService.txWholeReckoningMake(reckoning);
 
     } else {
-      reckoning.setTourType('3');
+      reckoning.setTourType("3");
 
       reckoning.setBookingNo(reserveNo.trim());
       reckoning.setCreatedBy(user.getUserId());
@@ -431,11 +431,11 @@ public class ReckoningMakeAction extends ManageAction {
     Employee user = getUser();
     if ("Y".equals(isShort.trim()))
 
-      reckoning.setTourType('3');
+      reckoning.setTourType("3");
     else if ("A".equals(isShort.trim()))
-      reckoning.setTourType('2');
+      reckoning.setTourType("2");
     else
-      reckoning.setTourType('1');
+      reckoning.setTourType("1");
 
     int ret = 0;
 

@@ -22,19 +22,13 @@ public class City implements java.io.Serializable {
   private Province province;
   private String inOut;
   private String ioCity;
-  private char webKey;
+  private String webKey;
   private Byte isDelete;
   private Set<Line> lines = new HashSet<Line>(0);
   private Set<Plan> plans = new HashSet<Plan>(0);
   private Set<Airport> airports = new HashSet<Airport>(0);
 
   public City() {
-  }
-
-  public City(String citycd, String citynm, char webKey) {
-    this.citycd = citycd;
-    this.citynm = citynm;
-    this.webKey = webKey;
   }
 
   @Id
@@ -104,11 +98,11 @@ public class City implements java.io.Serializable {
   }
 
   @Column(name = "WEB_KEY", nullable = false, length = 1)
-  public char getWebKey() {
+  public String getWebKey() {
     return this.webKey;
   }
 
-  public void setWebKey(char webKey) {
+  public void setWebKey(String webKey) {
     this.webKey = webKey;
   }
 

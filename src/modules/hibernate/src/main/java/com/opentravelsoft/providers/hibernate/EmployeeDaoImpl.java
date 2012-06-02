@@ -109,7 +109,7 @@ public class EmployeeDaoImpl extends GenericDaoHibernate<Employee, Integer>
     if (groupId != 0)
       criteria.add(Restrictions.eq("group.groupId", groupId));
     if (StringUtil.hasLength(userName))
-      criteria.add(Restrictions.like("userNm", userName.trim(),
+      criteria.add(Restrictions.like("userName", userName.trim(),
           MatchMode.ANYWHERE));
 
     criteria.addOrder(Order.asc("userCd"));
@@ -283,7 +283,7 @@ public class EmployeeDaoImpl extends GenericDaoHibernate<Employee, Integer>
     criteria.add(Restrictions.eq("t.teamId", teamId));
     criteria.add(Restrictions.eq("u.isActive", true));
     criteria.add(Restrictions.eq("u.workKey", "2"));
-    criteria.addOrder(Order.asc("u.userNm"));
+    criteria.addOrder(Order.asc("u.userName"));
     criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
 
     return getHibernateTemplate().findByCriteria(criteria);
@@ -292,10 +292,10 @@ public class EmployeeDaoImpl extends GenericDaoHibernate<Employee, Integer>
   @SuppressWarnings("unchecked")
   public List<Employee> getUserByTeam(int teamId) {
     StringBuilder sql = new StringBuilder();
-    sql.append("select u.userId,u.userCd,u.userNm ");
+    sql.append("select u.userId,u.userCd,u.userName ");
     sql.append("from Employee u join u.teamMemberships t ");
     sql.append("where t.teamId=? ");
-    sql.append("and u.isActive=true order by u.userNm");
+    sql.append("and u.isActive=true order by u.userName");
 
     Object[] params = { teamId };
 

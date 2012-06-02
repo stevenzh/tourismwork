@@ -322,7 +322,7 @@ public class ExpressDaoHibernate extends GenericDaoHibernate<Express, String>
   @SuppressWarnings("unchecked")
   public List<TourLog> getExpressLog(String expressId) {
     StringBuilder sb = new StringBuilder();
-    sb.append("select a.modifiedUser,b.userNm,a.modifiedDate,");
+    sb.append("select a.modifiedUser,b.userName,a.modifiedDate,");
     sb.append("a.expressId,a.routeNo,a.tourNo,a.note,a.info ");
     sb.append("from TblExpressLog a, Employee b ");
     sb.append("where a.modifiedUser =b.userCd and a.expressId = ? ");

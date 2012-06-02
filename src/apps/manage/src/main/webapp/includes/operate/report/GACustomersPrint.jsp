@@ -115,10 +115,12 @@ function printGACustomerList(param)
 		</tr>
 		<tr>
 			<td>人数：</td>
-			<td>男：<s:textfield id="malePax1" name="tour.malePax" size="10"/>女：<s:textfield
-				id="femalePax1" name="tour.femalePax" size="10" /><br>小童：<s:textfield id="childPax1"
-				name="tour.childPax" size="10" />合计：<s:textfield id="pax1"
-				name="tour.pax" size="10" /></td>
+      <td>男：<s:textfield id="malePax1" name="tour.malePax" size="10"/>
+                           女：<s:textfield  id="femalePax1" name="tour.femalePax" size="10" />
+			  <br>
+                          小童：<s:textfield id="childPax1" name="tour.childPax" size="10" />
+                          合计：<s:textfield id="pax1" 	name="tour.pax" size="10" />
+      </td>
 		</tr>
 		<tr>
 			<td>

@@ -63,10 +63,10 @@
 					<s:param value="packagePrice.priceCost" />
 				</s:text>&nbsp;</td>
 
-				<td class="rdata"><s:property value="pax1" />&nbsp;</td>
+				<td class="rdata"><s:property value="planPax" />&nbsp;</td>
 				<td class="rdata"><s:property value="pax2" />&nbsp;</td>
 				<td class="rdata"><s:property value="pax3" />&nbsp;</td>
-				<td class="rdata"><s:property value="pax4" />&nbsp;</td>
+				<td class="rdata"><s:property value="holdPax" />&nbsp;</td>
 				<!-- 
         <td class="rdata"><s:property value="pax5"/>&nbsp;</td>
          -->

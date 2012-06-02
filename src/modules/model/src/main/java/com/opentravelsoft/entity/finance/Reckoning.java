@@ -29,7 +29,7 @@ public class Reckoning implements java.io.Serializable {
   private String bookingNo;
   private int number;
   /** 帐单分类 */
-  private char tourType;
+  private String tourType;
   private String routeNote;
   /** 说明 摘要 */
   private String description;
@@ -86,11 +86,11 @@ public class Reckoning implements java.io.Serializable {
   }
 
   @Column(name = "TOUR_TYPE", nullable = false, length = 1)
-  public char getTourType() {
+  public String getTourType() {
     return this.tourType;
   }
 
-  public void setTourType(char tourType) {
+  public void setTourType(String tourType) {
     this.tourType = tourType;
   }
 

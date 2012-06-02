@@ -796,7 +796,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
       // 名单号
       tourist.setNmno(keys[i]);
       // 记录类型
-      tourist.setRecType('A');
+      tourist.setRecType("A");
       // 姓名
       tourist.setUserName(obj.getAccNm());
       // 汉语拼音

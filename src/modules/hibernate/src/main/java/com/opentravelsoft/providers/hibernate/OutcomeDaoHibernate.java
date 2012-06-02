@@ -649,7 +649,7 @@ public class OutcomeDaoHibernate extends GenericDaoHibernate<Outcome, Integer>
     StringBuilder sql = new StringBuilder();
 
     sql.append("select a.outcomeId,a.customer.customerId,a.customer.name,");
-    sql.append("a.amount,a.createdBy,a.created,c.userNm,");
+    sql.append("a.amount,a.createdBy,a.created,c.userName,");
     sql.append("a.payRegisterDate,a.frApproved,a.frApprovedFlag,");
     sql.append("a.carryStatus,a.carryComplete,a.carryStart,");
     sql.append("d.line.lineNo,d.line.lineName,d.tourNo ");

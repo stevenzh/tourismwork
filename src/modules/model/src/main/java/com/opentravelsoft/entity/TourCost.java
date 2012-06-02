@@ -42,7 +42,7 @@ public class TourCost implements java.io.Serializable {
   /** 已付金额 */
   private BigDecimal payAmount;
 
-  private char isMakePaper;
+  private String isMakePaper;
   /** 财务审核否 */
   private String frChecked;
   /** 创建时间 */
@@ -184,11 +184,11 @@ public class TourCost implements java.io.Serializable {
   }
 
   @Column(name = "IS_MAKE_PAPER", nullable = false, length = 1)
-  public char getIsMakePaper() {
+  public String getIsMakePaper() {
     return this.isMakePaper;
   }
 
-  public void setIsMakePaper(char isMakePaper) {
+  public void setIsMakePaper(String isMakePaper) {
     this.isMakePaper = isMakePaper;
   }
 

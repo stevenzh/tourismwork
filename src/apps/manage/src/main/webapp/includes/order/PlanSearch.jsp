@@ -190,10 +190,10 @@ function showRoute(param)
       <td class="rdata"><s:property value="packagePrice.price"/>&nbsp;</td>
       <td class="rdata"><s:property value="packagePrice.priceOther"/>&nbsp;</td>
       <td class="rdata"><s:property value="packagePrice.priceCost"/>&nbsp;</td>
-      <td class="rdata"><s:property value="pax1"/>&nbsp;</td>
+      <td class="rdata"><s:property value="planPax"/>&nbsp;</td>
       <td class="rdata"><s:property value="pax2"/>&nbsp;</td>
       <td class="rdata"><s:property value="pax3"/>&nbsp;</td>
-      <td class="rdata"><s:property value="pax4"/>&nbsp;</td>
+      <td class="rdata"><s:property value="holdPax"/>&nbsp;</td>
       <td class="data"><s:property value="line.outCity.citynm"/></td>
       <td class="data">
       <s:if test="enter">

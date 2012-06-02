@@ -32,7 +32,6 @@ public class LinePrice implements java.io.Serializable {
   private Date startDate;
   /** 结束有效期 */
   private Date endDate;
-
   /** 周表 */
   private String weekBit;
   private BigDecimal subscription;
@@ -412,13 +411,10 @@ public class LinePrice implements java.io.Serializable {
   private String priceAdd;
   /** 订金 */
   private Double subScription;
-
   /** 编号 */
   private int count;
-
   /** 签证费 */
   private Double priceVisa;
-
   /** 历史操作记录 */
   private String info;
 

@@ -1,9 +1,12 @@
 package com.opentravelsoft.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +14,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 
 import org.springframework.security.core.GrantedAuthority;
 
@@ -25,6 +31,7 @@ public class PortalRole implements Serializable, GrantedAuthority {
   private Long id;
   private String name;
   private String description;
+  private Set<Member> members = new HashSet<Member>(0);
 
   /**
    * Default constructor - creates a new instance with no values set.
@@ -77,6 +84,16 @@ public class PortalRole implements Serializable, GrantedAuthority {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  @ManyToMany(fetch = FetchType.LAZY)
+  @JoinTable(name = "tbl_member_role", joinColumns = { @JoinColumn(name = "role_id", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "user_id", nullable = false, updatable = false) })
+  public Set<Member> getMembers() {
+    return this.members;
+  }
+
+  public void setMembers(Set<Member> members) {
+    this.members = members;
   }
 
 }

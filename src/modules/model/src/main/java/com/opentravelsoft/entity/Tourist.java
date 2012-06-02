@@ -21,7 +21,7 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
 
   private String nmno;
   private Booking booking;
-  private char recType;
+  private String recType;
   private String name;
   private String name2;
   private String cardty;
@@ -147,11 +147,11 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   }
 
   @Column(name = "REC_TYPE", nullable = false, length = 1)
-  public char getRecType() {
+  public String getRecType() {
     return this.recType;
   }
 
-  public void setRecType(char recType) {
+  public void setRecType(String recType) {
     this.recType = recType;
   }
 

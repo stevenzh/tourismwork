@@ -139,8 +139,8 @@ function isRecount(param)
     </tr>
     <tr>
       <td class="idx">可收<span class="required">*</span>：</td>
-      <td class="data"><s:textfield id="plan_pax1" name="plan.pax1" size="5" maxlength="5"
-        onchange="javascript:change();">
+      <td class="data">
+      <s:textfield id="plan_pax1" name="plan.planPax" size="5" maxlength="5" onchange="javascript:change();">
       </s:textfield>
       </td>
     </tr>
@@ -164,8 +164,7 @@ function isRecount(param)
     <tr>
       <td class="idx">占位<span class="required">*</span>：</td>
       <td class="data">
-      <s:textfield id="plan_pax4" name="plan.pax4" size="5" maxlength="5"
-                   onchange="javascript:change();">
+      <s:textfield id="plan_pax4" name="plan.holdPax" size="5" maxlength="5" onchange="javascript:change();">
       </s:textfield>
       </td>
     </tr>

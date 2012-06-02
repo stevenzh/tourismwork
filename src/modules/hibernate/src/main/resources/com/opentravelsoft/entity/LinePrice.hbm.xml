@@ -30,10 +30,10 @@
     <property name="priceContrast" type="big_decimal">
       <column name="PRICE_CONTRAST" precision="9" />
     </property>
-    <property name="StartDate" type="timestamp">
+    <property name="startDate" type="timestamp">
       <column name="START_DATE" length="19" />
     </property>
-    <property name="EndDate" type="timestamp">
+    <property name="endDate" type="timestamp">
       <column name="END_DATE" length="19" />
     </property>
     <property name="weekBit" type="string">
@@ -54,8 +54,8 @@
     <property name="opUser" type="java.lang.Integer">
       <column name="OP_USER" />
     </property>
-    <property name="opDate" type="timestamp">
-      <column name="OP_DATE" length="19" not-null="true" />
+    <property name="opDate" type="timestamp" generated="always">
+      <column name="OP_DATE" length="19" />
     </property>
     <property name="cost1" type="big_decimal">
       <column name="COST1" precision="11" />

@@ -41,7 +41,7 @@ function _getlist(type)
                 <th align="center">报价</th>
                 <th align="center">单人房差</th>
                 <th align="center">可订名额</th>
-                <th align="center">等候名额</th>
+                <th align="center">预留名额</th>
                 <th align="center">出发地</th>
               </tr>
               <s:iterator value="plans" status="rowcounter">
@@ -54,7 +54,7 @@ function _getlist(type)
                   <td align="center"><s:property value="packagePrice.price" /></td>
                   <td align="center"><s:property value="package.priceCost" /></td>
                   <td align="center"><s:property value="pax3" /></td>
-                  <td align="center"><s:property value="pax4" /></td>
+                  <td align="center"><s:property value="holdPax" /></td>
                   <td align="center"><s:property value="line.outCity.citynm" /></td>
                 </tr>
                 </s:if>
