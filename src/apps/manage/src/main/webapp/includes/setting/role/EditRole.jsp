@@ -91,11 +91,11 @@
           </s:iterator>
        </tr>
        
-         <s:iterator value="modulePerm" id="pe">
+         <s:iterator value="modulePerm" var="pe">
          <s:hidden name="modulePerm(%{number}).moduleId"/>
          <tr>
            <td class="cdata" nowrap="nowrap"><s:property value="%{moduleName}"/></td>
-           <s:iterator value="permission" id="st">
+           <s:iterator value="permission" var="st">
               <s:if test="rolePermissionMap.containsKey(#st.key)">
                 <s:if test="rolePermissionMap.get(#st.key) == 1 ">
                   <td class="cdata"><span ondblclick="javascript:mo(this)">√<s:hidden id="%{#pe.moduleName +'_'+ #st.value}" value="%{rolePermissionMap.get(#st.key)}"></s:hidden>

@@ -11,7 +11,17 @@
     
     <!-- Activates scanning of @Service -->
     <context:component-scan base-package="com.opentravelsoft.action"/>
-    
+
+    <!--
+    <bean name="openSessionInViewInterceptor" class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor"> 
+      <property name="sessionFactory">
+        <ref bean="sessionFactory" />
+      </property>
+      <property name="flushMode" value="1"/>
+      <property name="singleSession" value="false" />
+    </bean>
+     -->
+
   <!-- 
   <bean id="traceInterceptor" class="org.springframework.aop.interceptor.SimpleTraceInterceptor" />
    -->

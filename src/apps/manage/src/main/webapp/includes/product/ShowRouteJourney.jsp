@@ -25,7 +25,7 @@
     </tr>
 
     <s:if test="scheduleList!=null">
-      <s:iterator value="scheduleList" id="sch">
+      <s:iterator value="scheduleList" var="sch">
         <tr>
           <td valign="top" rowspan="2">
           <s:property value="%{day}"/></td>
@@ -34,7 +34,7 @@
             <tr>
               <td>城市：</td>
               <td><s:if test="lineTrafficList != null">
-                <s:iterator value="lineTrafficList" id="tra">
+                <s:iterator value="lineTrafficList" var="tra">
                   <s:if test="#sch.day == #tra.day">
                     <table>
                       <tr>

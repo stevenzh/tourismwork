@@ -36,7 +36,6 @@
     <springframework.version>3.0.6.RELEASE</springframework.version>
     <spring.security.version>3.0.6.RELEASE</spring.security.version>
     <struts.version>2.3.1.2</struts.version>
-    <struts2-jquery-plugin.version>3.2.0</struts2-jquery-plugin.version>
     <velocity.version>1.6.4</velocity.version>
     <jstl.version>1.2</jstl.version>
     <cxf.version>2.3.1</cxf.version>

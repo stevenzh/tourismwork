@@ -65,17 +65,21 @@ public class ListLineAction extends ManageAction {
   public String input() {
     Employee user = getUser();
 
+    // 初始化列表
     closekeyList = getSysList("DOM_ProductActive");
     closekeyList.add(new LabelValueBean("全部", ""));
+    destinationList = lineService.getDestination();
+
+    // 取得用户可以操作的组
     kenUserId = user.getUserId();
     teamList = lineService.getTeamList(kenUserId, TeamType.Product);
     if (teamList.size() > 0)
       kenTeamId = teamList.get(0).getTeamId();
+    // 取得组列表的第一个对应的用户列表
     employeeList = employeeService.getUserByTeam(kenTeamId);
-    destinationList = lineService.getDestination();
 
     // List all line for this user
-    PaginationSupport support = lineService.findLineList(0, kenLineName,
+    PaginationSupport support = lineService.findLineList(kenTeamId, kenLineName,
         kenActive, kenUserId, kenDestination, getFromRecord(), getMoveCount());
     lineList = support.getItems();
     if (lineList != null)

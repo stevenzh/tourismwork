@@ -30,25 +30,11 @@ public class LineSchedule implements java.io.Serializable {
   private String toCity;
 
   public LineSchedule() {
+    id = new LineScheduleId();
   }
 
   public LineSchedule(LineScheduleId id) {
     this.id = id;
-  }
-
-  public LineSchedule(LineScheduleId id, String traffic, String traffic1,
-      String breakfast, String lunch, String supper, String program,
-      String quarter, String outCity, String toCity) {
-    this.id = id;
-    this.traffic = traffic;
-    this.traffic1 = traffic1;
-    this.breakfast = breakfast;
-    this.lunch = lunch;
-    this.supper = supper;
-    this.program = program;
-    this.quarter = quarter;
-    this.outCity = outCity;
-    this.toCity = toCity;
   }
 
   @EmbeddedId

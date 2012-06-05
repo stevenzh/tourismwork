@@ -92,9 +92,9 @@ document.getElementById('all').value=Math.round((eval(price1)+eval(price2)+eval(
     <tr>
       <td class="lstidx">标准描述</td>
       <td>
-        <sj:autocompleter name="routePrice.type"
+        <sj:autocompleter name="routePrice.subject"
 				                  list="priceTypeList"
-				                  listKey="value"
+				                  listKey="label"
 				                  listValue="label"
 				                  emptyOption="true"
 				                  required="true"

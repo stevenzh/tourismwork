@@ -611,7 +611,7 @@ function bookInfo()
     
     <td class="lstidx">可用操作流程</td>
     <td class="data">
-    <s:iterator value="taskList" id="task">
+    <s:iterator value="taskList" var="task">
       <s:if test='#task.name eq "ORDER_CONFIRM"'>
       <input type="button" name="btnApprove" value="订单审核" onclick="auditing(true);">
       <br>

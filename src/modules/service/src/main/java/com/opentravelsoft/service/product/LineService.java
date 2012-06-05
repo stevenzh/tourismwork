@@ -20,6 +20,14 @@ import com.opentravelsoft.entity.Team;
 import com.opentravelsoft.util.PaginationSupport;
 
 public interface LineService {
+
+  /**
+   * 取得用户可用的‘业务分类组【Product\Operate\Visa】
+   * 
+   * @param userId
+   * @param type
+   * @return
+   */
   public List<Team> getTeamList(int userId, TeamType type);
 
   public List<Team> getOperatorTeams();

@@ -71,7 +71,7 @@ function OperateForm(param, target)
               <td class="cdata"><s:property value="airName" /></td>
               <td class="cdata"><s:property value="flightNo" /></td>
                -->
-              <td class="cdata"><s:property value="type" /></td>
+              <td class="cdata"><s:property value="subject" /></td>
               <td class="cdata"><s:property value="priceOther" /></td>
               <td class="cdata"><s:property value="price" /></td>
               <td class="cdata"><s:property value="priceCost" /></td>

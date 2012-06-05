@@ -49,6 +49,7 @@ public class EditMyInfoAction extends ManageAction {
         }
       }
 
+      employee.setGroup(user.getGroup()); // 保持不变
       ret = employeeService.txUpdateEmployee(employee);
     } else {
       addActionError(getText("ERR_PWD_INVALIDATION"));

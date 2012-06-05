@@ -215,7 +215,7 @@ function expressInfo()
     </td>
     <td class="lstidx">可用操作流程</td>
     <td class="data">
-    <s:iterator value="taskList" id="task">
+    <s:iterator value="taskList" var="task">
       <!-- 签单部审核 -->
       <s:if test='#task.name eq "renderPayments"'>
       <div>签单部审核&nbsp;

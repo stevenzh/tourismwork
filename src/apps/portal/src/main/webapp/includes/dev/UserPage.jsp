@@ -370,10 +370,10 @@ function RegionPlan(region)
         <td width="30"class="lstidx">操作</td>
       </tr>
 
-      <s:iterator value="abroadPlanList" id="kb">
+      <s:iterator value="abroadPlanList" var="kb">
         <tr>
           <td colspan="8" height="22"><strong>
-          <s:iterator value="departments" id="kl">
+          <s:iterator value="departments" var="kl">
            <s:if test="#kb.key eq #kl.key">
              <s:property value="#kl.value"/>
            </s:if>
@@ -416,10 +416,10 @@ function RegionPlan(region)
         </tr>
       </s:iterator>
 
-      <s:iterator value="insidePlanList" id="kt">
+      <s:iterator value="insidePlanList" var="kt">
         <tr>
           <td colspan="8"><strong>
-          <s:iterator value="departments" id="km">
+          <s:iterator value="departments" var="km">
            <s:if test="#kt.key eq #km.key">
              <s:property value="#km.value"/>
            </s:if>

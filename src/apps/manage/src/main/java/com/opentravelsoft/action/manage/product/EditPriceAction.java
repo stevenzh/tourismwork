@@ -37,7 +37,7 @@ public class EditPriceAction extends ManageAction {
   @Autowired
   private TourService tourService;
 
-  private LinePrice lineePrice = new LinePrice();
+  private LinePrice linePrice = new LinePrice();
 
   private Line line;
 
@@ -88,7 +88,7 @@ public class EditPriceAction extends ManageAction {
 
     if (StringUtil.hasLength(recNo)) {
       // 修改
-      lineePrice = routePriceService.findLinePrice(recNo);
+      linePrice = routePriceService.findLinePrice(recNo);
       // routeCostPrice = routePriceService.roGetRouteCostPrice(recNo);
     } else {
       // 取得系统时间
@@ -97,11 +97,11 @@ public class EditPriceAction extends ManageAction {
       calDate.setTime(systemDate);
       calDate.add(Calendar.DATE, 30);
 
-      lineePrice.setStartDate(systemDate);
-      lineePrice.setEndDate(calDate.getTime());
+      linePrice.setStartDate(systemDate);
+      linePrice.setEndDate(calDate.getTime());
     }
 
-    String weekBit = lineePrice.getWeekBit();
+    String weekBit = linePrice.getWeekBit();
 
     if ((weekBit.charAt(0) == 'Y'))
       weekKey1 = true;
@@ -163,13 +163,13 @@ public class EditPriceAction extends ManageAction {
 
     if (weekBit.toString().equals("NNNNNNN"))
       weekBit = new StringBuilder("YYYYYYY");
-    lineePrice.setWeekBit(weekBit.toString());
+    linePrice.setWeekBit(weekBit.toString());
     line = (Line) ActionContext.getContext().getSession()
         .get(SessionKeyParams.EBIZ_CURRENT_ROUTE);
-    lineePrice.setLineNo(line.getLineNo());
-    lineePrice.setOpUser(user.getUserId());
+    linePrice.setLineNo(line.getLineNo());
+    linePrice.setOpUser(user.getUserId());
 
-    routePriceService.txEditPrice(lineePrice, note, user.getUserId());
+    routePriceService.txEditPrice(linePrice, note, user.getUserId());
 
     addActionMessage("更新价格成功.");
     return SUCCESS;
@@ -220,11 +220,11 @@ public class EditPriceAction extends ManageAction {
   }
 
   public LinePrice getRoutePrice() {
-    return lineePrice;
+    return linePrice;
   }
 
   public void setRoutePrice(LinePrice routePrice) {
-    this.lineePrice = routePrice;
+    this.linePrice = routePrice;
   }
 
   public Boolean getWeekKey1() {

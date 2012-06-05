@@ -43,7 +43,7 @@
     <quartz.version>1.6.1</quartz.version>
     <struts-core.version>1.3.10</struts-core.version>
     <struts2.version>2.3.4</struts2.version>
-    <struts2-jquery-plugin.version>3.2.0</struts2-jquery-plugin.version>
+    <struts2-jquery-plugin.version>3.3.1</struts2-jquery-plugin.version>
     <xbean-spring.version>2.8</xbean-spring.version>
     <jstl.version>1.2</jstl.version>
     <bsh.version>2.0b1</bsh.version>

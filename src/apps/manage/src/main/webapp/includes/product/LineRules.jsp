@@ -65,7 +65,7 @@ function selectAll()
     </tr>
 
     <s:if test="#oTmpl">
-	  <s:iterator value="tmpl" id="tp">
+	  <s:iterator value="tmpl" var="tp">
     <tr>
       <td class="lstidx">
       <s:checkbox name="checked" fieldValue="%{#tp.id}" id="1">
@@ -83,7 +83,7 @@ function selectAll()
       <td colspan="3"><font color="#CC0000"><STRONG>以上为<s:property value="item.itemName"/>的模板，选择所需要的文字保存，成为该线路的“<s:property value="item.itemName"/>”．</STRONG></font></td>
     </tr>
     </s:if>
-    <s:iterator value="ruleList" id="ru">
+    <s:iterator value="ruleList" var="ru">
       <tr>
         <td valign="top">
           <s:hidden name="ruleList(%{#ru.refNo}).id" value="%{#ru.id}"></s:hidden>

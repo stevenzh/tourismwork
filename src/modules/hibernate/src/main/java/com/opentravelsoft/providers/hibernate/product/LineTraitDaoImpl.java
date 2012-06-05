@@ -74,7 +74,7 @@ public class LineTraitDaoImpl extends
     // add
     for (int i = 0; i < list.size(); i++) {
       LineDescription descs = list.get(i);
-      if (descs.getId() == 0)
+      if (null == descs.getId())
         template.save(descs);
     }
 

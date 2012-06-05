@@ -244,7 +244,7 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
         cal.get(Calendar.DAY_OF_MONTH));
 
     for (Plan plan : list) {
-      if (plan.getSingleFlag() == 0)
+      if (null == plan.getSingleFlag())
         plan.setSingleShow("整团");
       else
         plan.setSingleShow("散拼团");
@@ -568,7 +568,7 @@ public class PlanListDaoImpl extends SimpleHibernateDaoSupport implements
         cal.get(Calendar.DAY_OF_MONTH));
 
     for (Plan plan : list) {
-      if (plan.getSingleFlag() == 0)
+      if (null == plan.getSingleFlag())
         plan.setSingleShow("整团");
       else
         plan.setSingleShow("散拼团");
