@@ -172,7 +172,7 @@ function isRecount(param)
     <tr>
       <td class="idx">最小成团人数<span class="required">*</span>：</td>
       <td class="data">
-      <s:textfield id="plan_pax5" name="plan.pax5" size="5" maxlength="5"
+      <s:textfield id="plan_pax5" name="plan.buildMinPax" size="5" maxlength="5"
                    onchange="javascript:changePax5();">
       </s:textfield>
       </td>

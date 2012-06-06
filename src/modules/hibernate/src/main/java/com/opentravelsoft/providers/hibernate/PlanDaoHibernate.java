@@ -342,7 +342,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
       // 汉语拼音
       tfj007.setPinYin(trip.getPinYin());
       // 证件号码
-      tfj007.setCard(trip.getIdCard());
+      tfj007.setIdCard(trip.getIdCard());
       // 性别
       tfj007.setSex(trip.getSex());
       if (tfj007.getSex().equals("M"))
@@ -363,7 +363,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
       // 护照有效期
       tfj007.setPassportExpiry(trip.getPassportExpiry());
       // 备注
-      tfj007.setRemark(trip.getRemarks());
+      tfj007.setRemarks(trip.getRemarks());
 
       template.update(tfj007);
     }
@@ -745,7 +745,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
       lead.setMobile(RowDataUtil.getString(obj[9]));
       lead.setPhone(RowDataUtil.getString(obj[10]));
       lead.setLeadCard(RowDataUtil.getString(obj[11]));
-      lead.setCard(RowDataUtil.getString(obj[12]));
+      lead.setIdCard(RowDataUtil.getString(obj[12]));
       ret.add(lead);
     }
 
@@ -804,7 +804,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
       // 证件种类
       // tourist.setCardty("");
       // 证件号码
-      tourist.setCard(obj.getIdCard());
+      tourist.setIdCard(obj.getIdCard());
       // 性别
       String sex = "M";
       if ("F".equals(obj.getAccSex().trim())) {
@@ -849,7 +849,7 @@ public class PlanDaoHibernate extends GenericDaoHibernate<Plan, String>
       // 重点客人否
       tourist.setVipkey("N");
       // 备注
-      tourist.setRemark(" ");
+      tourist.setRemarks(" ");
       // 同行人数
       tourist.setPaxnum(0);
       // 住房要求

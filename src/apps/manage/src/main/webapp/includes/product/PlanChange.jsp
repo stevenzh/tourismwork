@@ -363,7 +363,7 @@ function change()
     <tr>
       <td class="idx">最小成团人数<span class="required">*</span>：</td>
       <td class="data">
-      <s:textfield name="plan.pax5"
+      <s:textfield name="plan.buildMinPax"
                    size="5"
                    maxlength="5"
                    onchange="javascript:changePax5();">

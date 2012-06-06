@@ -22,12 +22,15 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   private String nmno;
   private Booking booking;
   private String recType;
-  private String name;
+  /** 用户真实名称 */
+  private String userName;
+
   private String name2;
   private String cardty;
 
-  /** 证件号码 */
-  private String card;
+  /** 身份证号 */
+  private String idCard;
+
   private String sex;
   /** 出生年月 */
   private Date birthday;
@@ -55,7 +58,8 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   /** 已退团款 */
   private BigDecimal amt04;
   private String vipkey;
-  private String remark;
+  /** 报价说明 */
+  private String remarks;
   /** 同房序号 */
   private Integer roomNo;
   private Integer paxnum;
@@ -156,12 +160,12 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   }
 
   @Column(name = "NAME", nullable = false, length = 20)
-  public String getName() {
-    return this.name;
+  public String getUserName() {
+    return userName;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setUserName(String userName) {
+    this.userName = userName;
   }
 
   @Column(name = "NAME2", length = 80)
@@ -183,12 +187,12 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   }
 
   @Column(name = "CARD", length = 18)
-  public String getCard() {
-    return this.card;
+  public String getIdCard() {
+    return idCard;
   }
 
-  public void setCard(String card) {
-    this.card = card;
+  public void setIdCard(String idCard) {
+    this.idCard = idCard;
   }
 
   @Column(name = "SEX", length = 1)
@@ -330,12 +334,12 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   }
 
   @Column(name = "REMARK", length = 40)
-  public String getRemark() {
-    return this.remark;
+  public String getRemarks() {
+    return remarks;
   }
 
-  public void setRemark(String remark) {
-    this.remark = remark;
+  public void setRemarks(String remarks) {
+    this.remarks = remarks;
   }
 
   @Column(name = "ROOM_NO")
@@ -592,9 +596,6 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   /** 密码 */
   private String passwd;
 
-  /** 用户真实名称 */
-  private String userName;
-
   private String email;
 
   /** 用户类型 */
@@ -620,9 +621,6 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
 
   /** 网站会员 */
   private int id;
-
-  /** 身份证号 */
-  private String idCard;
 
   /** 姓名的拼音 */
   private String pinYin;
@@ -723,9 +721,6 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
    * @deprecated
    */
   private BigDecimal residual;
-
-  /** 报价说明 */
-  private String remarks;
 
   /** 确认状态 */
   private String confirmStatus;
@@ -867,15 +862,6 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
   }
 
   @Transient
-  public String getUserName() {
-    return userName;
-  }
-
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
-
-  @Transient
   public boolean getIsActive() {
     return isActive;
   }
@@ -946,15 +932,6 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
    */
   public void setAmount(BigDecimal amount) {
     this.amount = amount;
-  }
-
-  @Transient
-  public String getRemarks() {
-    return remarks;
-  }
-
-  public void setRemarks(String remarks) {
-    this.remarks = remarks;
   }
 
   @Transient
@@ -1385,15 +1362,6 @@ public class Tourist implements Comparable<Tourist>, java.io.Serializable {
 
   public void setId(int id) {
     this.id = id;
-  }
-
-  @Transient
-  public String getIdCard() {
-    return idCard;
-  }
-
-  public void setIdCard(String idCard) {
-    this.idCard = idCard;
   }
 
   @Transient

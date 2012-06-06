@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tbl_line_schedule")
@@ -128,6 +129,15 @@ public class LineSchedule implements java.io.Serializable {
 
   public void setToCity(String toCity) {
     this.toCity = toCity;
+  }
+
+  @Transient
+  public String getDay() {
+    return String.valueOf(this.getId().getDay());
+  }
+
+  public void setDay(String day) {
+    this.getId().setDay(Integer.parseInt(day));
   }
 
 }

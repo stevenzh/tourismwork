@@ -33,15 +33,6 @@ public class LineDescription implements java.io.Serializable {
     this.type = type;
   }
 
-  public LineDescription(String lineNo, String type, String item,
-      String description, Integer sortOrder) {
-    this.lineNo = lineNo;
-    this.type = type;
-    this.item = item;
-    this.description = description;
-    this.sortOrder = sortOrder;
-  }
-
   @Id
   @GeneratedValue(strategy = IDENTITY)
   @Column(name = "ID", unique = true, nullable = false)

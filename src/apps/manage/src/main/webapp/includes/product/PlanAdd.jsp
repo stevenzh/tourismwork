@@ -336,7 +336,7 @@ function changeEmp()
                   onchange="javascript:change();"/>&nbsp;&nbsp;
                    最小成团人数<span class="required">*</span>:&nbsp;
                  <s:textfield id="plan_pax5"
-                 name="plan.pax5"
+                 name="plan.buildMinPax"
                  size="5" maxlength="5"
                  onchange="javascript:changePax5();"/>
       </td>

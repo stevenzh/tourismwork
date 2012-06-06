@@ -51,7 +51,7 @@
     <property name="opuser" type="java.lang.Integer">
       <column name="OPUSER" />
     </property>
-    <property name="opTime" type="timestamp">
+    <property name="opTime" type="timestamp" insert="false" update="false" generated="always">
       <column name="OP_TIME" length="19" not-null="true" />
     </property>
     <property name="reserve" type="java.lang.Integer">
@@ -210,7 +210,7 @@
     <property name="createdBy" type="java.lang.Integer">
       <column name="CreatedBy" />
     </property>
-    <property name="createdDate" type="timestamp">
+    <property name="createdDate" type="timestamp" insert="false" update="false" generated="insert">
       <column name="CreatedDate" length="19" />
     </property>
     <property name="createdByIp" type="string">

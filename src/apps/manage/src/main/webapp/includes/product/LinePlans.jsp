@@ -92,7 +92,7 @@ function showAdd(){
       <td class="rdata"><s:property value="pax2"/>&nbsp;</td>
       <td class="rdata"><s:property value="pax3"/>&nbsp;</td>
       <td class="rdata"><s:property value="holdPax"/>&nbsp;</td>
-      <td class="rdata"><s:property value="pax5"/>&nbsp;</td>
+      <td class="rdata"><s:property value="buildMinPax"/>&nbsp;</td>
       <td class="cdata"><s:property value="line.outCity.citynm"/></td>
       <td>
       <a href="javascript:SubmitForm('change','<s:property value='recordNo'/>');">修改</a>

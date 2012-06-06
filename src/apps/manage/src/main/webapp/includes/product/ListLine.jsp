@@ -184,8 +184,8 @@ function generateXLS(param)
       <td class="lstidx" width="120">操作</td>
     </tr>
 
-    <s:iterator value="routeList" status="rowcounter">
-    <s:if test="isActive=true">
+    <s:iterator value="routeList" status="rowcounter" var="ll">
+    <s:if test="#ll.isActive == true">
       <tr>
     </s:if>
     <s:else>
@@ -198,7 +198,7 @@ function generateXLS(param)
         <td>&nbsp;<s:property value="assigned.userName" /></td>
         <td>&nbsp;<s:property value="destination.cnName" /></td>
         <td>&nbsp;<s:property value="outCity.citynm" /></td>
-        <td align="center"><s:if test="isActive==true">可用</s:if><s:else>停用</s:else></td>
+        <td align="center"><s:if test="#ll.isActive == true">可用</s:if><s:else>停用</s:else></td>
         <td align="center">
           <img title="打印" src="<s:url value='/images/manage/btnPrint.gif' />"
                width="18" height="18"

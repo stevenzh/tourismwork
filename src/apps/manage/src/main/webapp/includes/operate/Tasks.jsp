@@ -181,7 +181,7 @@ function showRouteJourney(obj)
             value="tourNo" /> </a>&nbsp;</td>
           <td><s:property value="line.lineName" />&nbsp;</td>
           <td><s:property value="planPax" />&nbsp;</td>
-          <td><s:property value="pax5" />&nbsp;</td>
+          <td><s:property value="buildMinPax" />&nbsp;</td>
           <td><s:property value="pax2" />&nbsp;</td>
           <td align="center"><s:date name="outDate"
             format="yyyy-MM-dd" />&nbsp;</td>

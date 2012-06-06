@@ -14,7 +14,7 @@
     <property name="recType" type="string">
       <column name="REC_TYPE" length="1" not-null="true" />
     </property>
-    <property name="name" type="string">
+    <property name="userName" type="string">
       <column name="NAME" length="20" not-null="true" />
     </property>
     <property name="name2" type="string">
@@ -23,7 +23,7 @@
     <property name="cardty" type="string">
       <column name="CARDTY" length="1" />
     </property>
-    <property name="card" type="string">
+    <property name="idCard" type="string">
       <column name="CARD" length="18" />
     </property>
     <property name="sex" type="string">
@@ -71,7 +71,7 @@
     <property name="vipkey" type="string">
       <column name="VIPKEY" length="1" />
     </property>
-    <property name="remark" type="string">
+    <property name="remarks" type="string">
       <column name="REMARK" length="40" />
     </property>
     <property name="roomNo" type="java.lang.Integer">
@@ -92,7 +92,7 @@
     <property name="opuser" type="java.lang.Integer">
       <column name="OPUSER" />
     </property>
-    <property name="opdate" type="timestamp">
+    <property name="opdate" type="timestamp" insert="false" update="false" generated="always">
       <column name="OPDATE" length="19" not-null="true" />
     </property>
     <property name="tourKey" type="string">

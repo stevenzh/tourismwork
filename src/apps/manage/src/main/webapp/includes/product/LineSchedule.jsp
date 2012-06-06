@@ -54,7 +54,7 @@ function addCity(obj)
     <s:iterator value="scheduleList" var="sch">
       <tr>
         <td valign="top" rowspan="2">
-          <s:textfield value="%{id.day}" size="5" maxlength="2" readonly="true"></s:textfield>
+          <s:textfield value="%{day}" size="5" maxlength="2" readonly="true"></s:textfield>
         </td>
         <td class="data" valign="top" colspan="6">
         <table>
@@ -63,7 +63,7 @@ function addCity(obj)
             <td>
             <s:if test="lineTrafficList != null">
             <s:iterator value="lineTrafficList" var="tra">
-              <s:if test="#sch.id.day == #tra.day">
+              <s:if test="#sch.day == #tra.day">
                 <s:hidden name="lineTrafficList(%{step}).day"></s:hidden>
                 <s:hidden name="lineTrafficList(%{step}).step"></s:hidden>
                 <s:hidden name="lineTrafficList(%{step}).id"></s:hidden>
@@ -101,7 +101,7 @@ function addCity(obj)
             </s:iterator>
             </s:if>
             </td>
-            <td><input type="button" onclick="javascript:addCity('<s:property value='%{id.day}'/>');" value="Add" /></td>
+            <td><input type="button" onclick="javascript:addCity('<s:property value='%{day}'/>');" value="Add" /></td>
           </tr>
           <tr>
             <td colspan="3">
@@ -110,7 +110,7 @@ function addCity(obj)
               <td>早餐：</td>
               <td>          
                 <sj:autocompleter list="%{eatList}"
-			                    name="scheduleList(%{id.day}).breakfast"
+			                    name="scheduleList(%{day}).breakfast"
 			                    listKey="label"
 			                    listValue="label">
                 </sj:autocompleter>&nbsp;&nbsp;
@@ -118,7 +118,7 @@ function addCity(obj)
               <td>午餐：</td>
               <td>
                 <sj:autocompleter list="%{eatList}"
-			                    name="scheduleList(%{id.day}).lunch"
+			                    name="scheduleList(%{day}).lunch"
 			                    listKey="label"
 			                    listValue="label">
                 </sj:autocompleter>&nbsp;&nbsp;
@@ -126,7 +126,7 @@ function addCity(obj)
               <td>晚餐：</td>
               <td>
                 <sj:autocompleter list="%{eatList}"
-			                    name="scheduleList(%{id.day}).supper"
+			                    name="scheduleList(%{day}).supper"
 			                    listKey="label"
 			                    listValue="label">
                 </sj:autocompleter>
@@ -137,12 +137,12 @@ function addCity(obj)
           </tr>
         </table>
         </td>
-        <td rowspan="2"><a href="javascript:SubmitForm('delete','<s:property value="id.day" />')">删除</a></td>
+        <td rowspan="2"><a href="javascript:SubmitForm('delete','<s:property value="day" />')">删除</a></td>
       </tr>
 
       <tr>
         <td colspan="8">
-          <s:textarea name="scheduleList(%{id.day}).program"
+          <s:textarea name="scheduleList(%{day}).program"
                       value="%{program}"
                       cols="100" rows="5">
           </s:textarea>
@@ -154,7 +154,7 @@ function addCity(obj)
           <table>
             <tr>
               <td>住宿:</td>
-			        <td><s:textfield name="scheduleList(%{id.day}).quarter" value="%{quarter}" size="95"></s:textfield></td>
+			        <td><s:textfield name="scheduleList(%{day}).quarter" value="%{quarter}" size="95"></s:textfield></td>
             </tr>
           </table>
         </td>

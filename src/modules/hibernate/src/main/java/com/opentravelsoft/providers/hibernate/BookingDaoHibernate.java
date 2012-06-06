@@ -155,7 +155,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 重点客人否
       trip.setVipkey("N");
       // 备注
-      trip.setRemark(" ");
+      trip.setRemarks(" ");
       // 同行人数
       trip.setPaxnum(0);
       // 住房要求
@@ -238,7 +238,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       //
       trip.setId(id++);
       // 身份证号
-      trip.setIdCard(RowDataUtil.getString(trip.getCard()));
+      trip.setIdCard(RowDataUtil.getString(trip.getIdCard()));
       // 住房要求
       trip.setRoomType(RowDataUtil.getString(trip.getRoomKey()));
       // 住房序号
@@ -535,7 +535,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 证件种类
       // tfj007.setCardty(' ');
       // 证件号码
-      tourist.setCard(trip.getIdCard());
+      tourist.setIdCard(trip.getIdCard());
       // 性别
       tourist.setSex(trip.getSex());
       // 出生日期
@@ -569,7 +569,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 重点客人否
       // tfj007.setVipkey('N');
       // 备注
-      tourist.setRemark(trip.getRemarks());
+      tourist.setRemarks(trip.getRemarks());
       // 参加旅行团次数
       // tfj007.setTrvnum(0);
       // 住房序号
@@ -619,7 +619,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 证件种类
       // tourist.setCardty("");
       // 证件号码
-      tourist.setCard(trip.getIdCard());
+      tourist.setIdCard(trip.getIdCard());
       // 性别
       tourist.setSex(trip.getSex());
       // 出生日期
@@ -658,7 +658,7 @@ public class BookingDaoHibernate extends GenericDaoHibernate<Booking, String>
       // 重点客人否
       tourist.setVipkey("N");
       // 备注
-      tourist.setRemark(" ");
+      tourist.setRemarks(" ");
 
       // 同行人数
       tourist.setPaxnum(0);
