@@ -14,9 +14,6 @@
     <property name="name" type="string">
       <column name="NAME" length="20" not-null="true" />
     </property>
-    <property name="type" type="short">
-      <column name="TYPE" not-null="true" />
-    </property>
     <property name="active" type="boolean">
       <column name="ACTIVE" not-null="true" />
     </property>
@@ -25,6 +22,15 @@
     </property>
     <property name="private_" type="java.lang.Boolean">
       <column name="PRIVATE" />
+    </property>
+    <property name="isProduct" type="boolean">
+      <column name="IS_PRODUCT" not-null="true" />
+    </property>
+    <property name="isOperator" type="boolean">
+      <column name="IS_OPERATOR not-null="true" />
+    </property>
+    <property name="isSales" type="boolean">
+      <column name="IS_SALES" not-null="true" />
     </property>
     <many-to-one name="parent" class="com.opentravelsoft.entity.Team" fetch="select">
       <column name="PARENT_" />

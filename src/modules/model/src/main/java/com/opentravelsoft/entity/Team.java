@@ -21,10 +21,13 @@ public class Team implements java.io.Serializable {
   private Team parent;
   private String name;
   private String code;
-  private short type;
   private boolean active;
   private String description;
   private Boolean private_;
+  private boolean isProduct;
+  private boolean isOperator;
+  private boolean isSales;
+
   private Set<Plan> plans = new HashSet<Plan>(0);
   private Set<Line> lines = new HashSet<Line>(0);
   private Set<Team> children = new HashSet<Team>(0);
@@ -33,14 +36,17 @@ public class Team implements java.io.Serializable {
     this.active = true;
   }
 
-  public Team(String name, short type, boolean active) {
-    this.name = name;
-    this.type = type;
-    this.active = active;
+  public Team(Integer teamId) {
+    this.teamId = teamId;
   }
 
-  public Team(Integer team_id) {
-    // TODO Auto-generated constructor stub
+  public Team(String name, String type, boolean active, boolean isProduct,
+      boolean isOperator, boolean isSales) {
+    this.name = name;
+    this.isProduct = isProduct;
+    this.isOperator = isOperator;
+    this.isSales = isSales;
+    this.active = active;
   }
 
   @Id
@@ -80,15 +86,6 @@ public class Team implements java.io.Serializable {
 
   public void setCode(String code) {
     this.code = code;
-  }
-
-  @Column(name = "TYPE", nullable = false)
-  public short getType() {
-    return this.type;
-  }
-
-  public void setType(short type) {
-    this.type = type;
   }
 
   @Column(name = "ACTIVE", nullable = false)
@@ -143,6 +140,33 @@ public class Team implements java.io.Serializable {
 
   public void setChildren(Set<Team> teams) {
     this.children = teams;
+  }
+
+  @Column(name = "IS_PRODUCT", nullable = false)
+  public boolean getIsProduct() {
+    return isProduct;
+  }
+
+  public void setIsProduct(boolean isProduct) {
+    this.isProduct = isProduct;
+  }
+
+  @Column(name = "IS_OPERATOR", nullable = false)
+  public boolean getIsOperator() {
+    return isOperator;
+  }
+
+  public void setIsOperator(boolean isOperator) {
+    this.isOperator = isOperator;
+  }
+
+  @Column(name = "IS_SALES", nullable = false)
+  public boolean getIsSales() {
+    return isSales;
+  }
+
+  public void setIsSales(boolean isSales) {
+    this.isSales = isSales;
   }
 
 }
