@@ -3,46 +3,37 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.entity.vacation.LineCyclePrice" table="tbl_linecycleprice">
-        <id name="id" type="string">
-            <column name="ID" length="36" />
-            <generator class="assigned" />
-        </id>
-        <property name="planNo" type="string">
-            <column name="PlanNo" length="10" not-null="true" />
-        </property>
-        <property name="lineNo" type="string">
-            <column name="LineNo" length="10" not-null="true" />
-        </property>
-        <property name="week" type="byte">
-            <column name="Week" not-null="true" />
-        </property>
-        <property name="agentPrice" type="big_decimal">
-            <column name="AgentPrice" precision="9" not-null="true">
-                <comment>&#161;&#193;????&#168;&#178;?&#168;&#170;????</comment>
-            </column>
-        </property>
-        <property name="marketPrice" type="big_decimal">
-            <column name="MarketPrice" precision="9" not-null="true">
-                <comment>&#161;&#193;???????????</comment>
-            </column>
-        </property>
-        <property name="currentDate" type="timestamp">
-            <column name="CurrentDate" length="19" not-null="true" />
-        </property>
-        <property name="isPassed" type="boolean">
-            <column name="IsPassed" not-null="true">
-                <comment>
-                ??&#161;&#164;??&#161;&#167;???&#168;&#166;?&#161;&#232;????&#161;&#193;???????&#161;&#193;????&#168;&#168;?&#161;&#167;??this=false???&#168;&#166;????isOpen???&#161;&#236;</comment>
-            </column>
-        </property>
-        <property name="isOpen" type="boolean">
-            <column name="IsOpen" not-null="true">
-                <comment>??&#161;&#164;???&#161;&#164;?</comment>
-            </column>
-        </property>
-        <property name="notes" type="string">
-            <column name="Notes" length="1000" />
-        </property>
-    </class>
+  <class name="com.opentravelsoft.entity.vacation.LineCyclePrice" table="tbl_linecycleprice">
+    <id name="id" type="string">
+      <column name="ID" length="36" />
+      <generator class="assigned" />
+    </id>
+    <property name="planNo" type="string">
+      <column name="PlanNo" length="10" not-null="true" />
+    </property>
+    <property name="lineNo" type="string">
+      <column name="LineNo" length="10" not-null="true" />
+    </property>
+    <property name="week" type="byte">
+      <column name="Week" not-null="true" />
+    </property>
+    <property name="agentPrice" type="big_decimal">
+      <column name="AgentPrice" precision="9" not-null="true" />
+    </property>
+    <property name="marketPrice" type="big_decimal">
+      <column name="MarketPrice" precision="9" not-null="true" />
+    </property>
+    <property name="currentDate" type="timestamp">
+      <column name="CurrentDate" length="19" not-null="true" />
+    </property>
+    <property name="isPassed" type="boolean">
+      <column name="IsPassed" not-null="true" />
+    </property>
+    <property name="isOpen" type="boolean">
+      <column name="IsOpen" not-null="true" />
+    </property>
+    <property name="notes" type="string">
+      <column name="Notes" length="1000" />
+    </property>
+  </class>
 </hibernate-mapping>

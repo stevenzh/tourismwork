@@ -27,7 +27,7 @@
       <column name="IS_PRODUCT" not-null="true" />
     </property>
     <property name="isOperator" type="boolean">
-      <column name="IS_OPERATOR not-null="true" />
+      <column name="IS_OPERATOR" not-null="true" />
     </property>
     <property name="isSales" type="boolean">
       <column name="IS_SALES" not-null="true" />
