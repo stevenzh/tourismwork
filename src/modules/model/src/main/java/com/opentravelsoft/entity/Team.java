@@ -21,7 +21,7 @@ public class Team implements java.io.Serializable {
   private Team parent;
   private String name;
   private String code;
-  private short type;
+  private String type;
   private boolean active;
   private String description;
   private Boolean private_;
@@ -33,7 +33,7 @@ public class Team implements java.io.Serializable {
     this.active = true;
   }
 
-  public Team(String name, short type, boolean active) {
+  public Team(String name, String type, boolean active) {
     this.name = name;
     this.type = type;
     this.active = active;
@@ -82,12 +82,12 @@ public class Team implements java.io.Serializable {
     this.code = code;
   }
 
-  @Column(name = "TYPE", nullable = false)
-  public short getType() {
+  @Column(name = "TYPE", length = 10, nullable = false)
+  public String getType() {
     return this.type;
   }
 
-  public void setType(short type) {
+  public void setType(String type) {
     this.type = type;
   }
 

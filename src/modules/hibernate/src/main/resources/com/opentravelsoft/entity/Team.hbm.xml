@@ -14,8 +14,8 @@
     <property name="name" type="string">
       <column name="NAME" length="20" not-null="true" />
     </property>
-    <property name="type" type="short">
-      <column name="TYPE" not-null="true" />
+    <property name="type" type="string">
+      <column name="TYPE" length="10" not-null="true" />
     </property>
     <property name="active" type="boolean">
       <column name="ACTIVE" not-null="true" />
