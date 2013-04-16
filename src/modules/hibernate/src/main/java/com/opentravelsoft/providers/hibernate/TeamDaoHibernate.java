@@ -38,11 +38,11 @@ public class TeamDaoHibernate extends GenericDaoHibernate<Team, Integer>
         DetachedCriteria criteria = DetachedCriteria.forClass(Team.class);
 
         if (type == TeamType.Product)
-          criteria.add(Restrictions.eq("type", (short) 1));
+          criteria.add(Restrictions.eq("isProduct", true));
         else if (type == TeamType.Sales)
-          criteria.add(Restrictions.eq("type", (short) 2));
+          criteria.add(Restrictions.eq("isSales", true));
         else if (type == TeamType.Operator)
-          criteria.add(Restrictions.eq("type", (short) 3));
+          criteria.add(Restrictions.eq("isOperator", true));
 
         criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
 
@@ -50,11 +50,11 @@ public class TeamDaoHibernate extends GenericDaoHibernate<Team, Integer>
       } else {
         Set<Team> team = employee.getTeamMemberships();
         for (Team team2 : team) {
-          if (type == TeamType.Operator && team2.getType() == 3)
+          if (type == TeamType.Operator && team2.getIsOperator())
             list.add(team2);
-          else if (type == TeamType.Sales && team2.getType() == 2)
+          else if (type == TeamType.Sales && team2.getIsSales())
             list.add(team2);
-          else if (type == TeamType.Product && team2.getType() == 1)
+          else if (type == TeamType.Product && team2.getIsProduct())
             list.add(team2);
         }
       }
@@ -76,11 +76,11 @@ public class TeamDaoHibernate extends GenericDaoHibernate<Team, Integer>
     DetachedCriteria criteria = DetachedCriteria.forClass(Team.class);
 
     if (type == TeamType.Product)
-      criteria.add(Restrictions.eq("type", (short) 1));
+      criteria.add(Restrictions.eq("isProduct", true));
     else if (type == TeamType.Sales)
-      criteria.add(Restrictions.eq("type", (short) 2));
+      criteria.add(Restrictions.eq("isSales", true));
     else if (type == TeamType.Operator)
-      criteria.add(Restrictions.eq("type", (short) 3));
+      criteria.add(Restrictions.eq("isOperator", true));
 
     criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
 

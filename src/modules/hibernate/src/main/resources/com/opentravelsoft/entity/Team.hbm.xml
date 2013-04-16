@@ -26,6 +26,15 @@
     <property name="private_" type="java.lang.Boolean">
       <column name="PRIVATE" />
     </property>
+    <property name="isProduct" type="boolean">
+      <column name="IS_PRODUCT" not-null="true" />
+    </property>
+    <property name="isOperator" type="boolean">
+      <column name="IS_OPERATOR" not-null="true" />
+    </property>
+    <property name="isSales" type="boolean">
+      <column name="IS_SALES" not-null="true" />
+    </property>
     <many-to-one name="parent" class="com.opentravelsoft.entity.Team" fetch="select">
       <column name="PARENT_" />
     </many-to-one>

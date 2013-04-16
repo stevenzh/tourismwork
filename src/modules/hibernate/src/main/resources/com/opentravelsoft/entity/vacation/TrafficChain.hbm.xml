@@ -1,21 +1,20 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.entity.vacation.TrafficChain" table="tbl_traffic_chain">
-        <id name="id" type="string">
-            <column name="ID" length="36" />
-            <generator class="assigned" />
-        </id>
-        <property name="lineNo" type="string">
-            <column name="LineNo" length="10" not-null="true" />
-        </property>
-        <property name="flightGroupId" type="string">
-            <column name="FlightGroupID" length="36" not-null="true" />
-        </property>
-        <property name="trafficType" type="int">
-            <column name="TrafficType" not-null="true" />
-        </property>
-    </class>
+  <class name="com.opentravelsoft.entity.vacation.TrafficChain" table="tbl_traffic_chain">
+    <id name="id" type="string">
+      <column name="ID" length="36" />
+      <generator class="assigned" />
+    </id>
+    <property name="lineNo" type="string">
+      <column name="LineNo" length="10" not-null="true" />
+    </property>
+    <property name="flightGroupId" type="string">
+      <column name="FlightGroupID" length="36" not-null="true" />
+    </property>
+    <property name="trafficType" type="int">
+      <column name="TrafficType" not-null="true" />
+    </property>
+  </class>
 </hibernate-mapping>

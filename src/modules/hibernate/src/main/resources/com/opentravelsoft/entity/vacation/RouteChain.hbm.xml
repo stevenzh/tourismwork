@@ -3,69 +3,61 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.entity.vacation.RouteChain" table="tbl_route_chain">
-        <id name="chainId" type="java.lang.Integer">
-            <column name="CHAIN_ID" />
-            <generator class="identity" />
-        </id>
-        <property name="lineNo" type="string">
-            <column name="LINE_NO" length="20" not-null="true" />
-        </property>
-        <property name="rank" type="int">
-            <column name="RANK" not-null="true">
-                <comment>???????&#168;&#176;</comment>
-            </column>
-        </property>
-        <property name="stay" type="int">
-            <column name="STAY" not-null="true" />
-        </property>
-        <property name="outCity" type="string">
-            <column name="OUT_CITY" length="20" />
-        </property>
-        <property name="toCity" type="string">
-            <column name="TO_CITY" length="20" />
-        </property>
-        <property name="prevChain" type="java.lang.Integer">
-            <column name="PREV_CHAIN" />
-        </property>
-        <property name="nextChain" type="java.lang.Integer">
-            <column name="NEXT_CHAIN" />
-        </property>
-        <property name="canDefer" type="boolean">
-            <column name="CAN_DEFER" not-null="true">
-                <comment>??&#161;&#164;?????&#161;&#193;?</comment>
-            </column>
-        </property>
-        <property name="maxDefer" type="int">
-            <column name="MAX_DEFER" not-null="true">
-                <comment>&#161;&#193;??&#168;&#174;??&#161;&#193;??&#168;&#172;??</comment>
-            </column>
-        </property>
-        <property name="createdBy" type="string">
-            <column name="CREATEDBY" length="10" />
-        </property>
-        <property name="created" type="timestamp">
-            <column name="CREATED" length="19" />
-        </property>
-        <property name="createdByIp" type="string">
-            <column name="CREATEDBYIP" length="50" />
-        </property>
-        <property name="updatedBy" type="string">
-            <column name="UPDATEDBY" length="10" />
-        </property>
-        <property name="updated" type="timestamp">
-            <column name="UPDATED" length="19" />
-        </property>
-        <property name="updatedByIp" type="string">
-            <column name="UPDATEDBYIP" length="50" />
-        </property>
-        <property name="trafficType" type="string">
-            <column name="TRAFFIC_TYPE" length="1" not-null="true">
-                <comment>???&#161;&#167;&#161;&#164;??? 1??&#161;&#164;??&#168;&#178; 2?????? 3??&#161;&#227;??? 4?????&#161;&#227; 5?????&#168;&#185; 6????</comment>
-            </column>
-        </property>
-        <property name="isDeleted" type="java.lang.Boolean">
-            <column name="IsDeleted" />
-        </property>
-    </class>
+  <class name="com.opentravelsoft.entity.vacation.RouteChain" table="tbl_route_chain">
+    <id name="chainId" type="java.lang.Integer">
+      <column name="CHAIN_ID" />
+      <generator class="identity" />
+    </id>
+    <property name="lineNo" type="string">
+      <column name="LINE_NO" length="20" not-null="true" />
+    </property>
+    <property name="rank" type="int">
+      <column name="RANK" not-null="true" />
+    </property>
+    <property name="stay" type="int">
+      <column name="STAY" not-null="true" />
+    </property>
+    <property name="outCity" type="string">
+      <column name="OUT_CITY" length="20" />
+    </property>
+    <property name="toCity" type="string">
+      <column name="TO_CITY" length="20" />
+    </property>
+    <property name="prevChain" type="java.lang.Integer">
+      <column name="PREV_CHAIN" />
+    </property>
+    <property name="nextChain" type="java.lang.Integer">
+      <column name="NEXT_CHAIN" />
+    </property>
+    <property name="canDefer" type="boolean">
+      <column name="CAN_DEFER" not-null="true" />
+    </property>
+    <property name="maxDefer" type="int">
+      <column name="MAX_DEFER" not-null="true" />
+    </property>
+    <property name="createdBy" type="string">
+      <column name="CREATEDBY" length="10" />
+    </property>
+    <property name="created" type="timestamp">
+      <column name="CREATED" length="19" />
+    </property>
+    <property name="createdByIp" type="string">
+      <column name="CREATEDBYIP" length="50" />
+    </property>
+    <property name="updatedBy" type="string">
+      <column name="UPDATEDBY" length="10" />
+    </property>
+    <property name="updated" type="timestamp">
+      <column name="UPDATED" length="19" />
+    </property>
+    <property name="updatedByIp" type="string">
+      <column name="UPDATEDBYIP" length="50" />
+    </property>
+    <property name="trafficType" type="string">
+      <column name="TRAFFIC_TYPE" length="1" not-null="true" />
+    </property>
+    <property name="isDeleted" type="java.lang.Boolean">
+      <column name="IsDeleted" />
+    </property>
+  </class>
 </hibernate-mapping>

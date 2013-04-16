@@ -1,73 +1,59 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-9 8:27:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.opentravelsoft.entity.vacation.FlightPlan" table="tbl_flightplan">
-        <id name="flightPlanId" type="string">
-            <column name="FlightPlanID" length="36" />
-            <generator class="assigned" />
-        </id>
-        <property name="mode" type="int">
-            <column name="Mode" not-null="true">
-                <comment>OneWay=1 ,// ???? GoToAndFro =2 , // ?&#168;&#180;&#161;&#164;? ThroughAir = 3, //???? Open = 4, // open ?????????????&#161;&#192;?????? MultiWay = 5
-                //?&#168;&#164;??</comment>
-            </column>
-        </property>
-        <property name="ticketType" type="java.lang.Integer">
-            <column name="TicketType">
-                <comment>?&#168;&#178;?&#161;&#192;?&#168;&#164;?? 1?????&#161;&#192; 2?????&#161;&#192;</comment>
-            </column>
-        </property>
-        <property name="flightAmount" type="int">
-            <column name="FlightAmount" not-null="true">
-                <comment>????????</comment>
-            </column>
-        </property>
-        <property name="adultPrice" type="string">
-            <column name="AdultPrice" length="100">
-                <comment>?&#168;&#174;?&#161;&#167;??&#161;&#227;&#168;&#164;&#161;&#193;&#168;&#166;?????&#168;&#166;????&#161;&#164;?&#161;&#192;???</comment>
-            </column>
-        </property>
-        <property name="childPrice" type="string">
-            <column name="ChildPrice" length="100">
-                <comment>?&#168;&#174;?&#161;&#167;??&#161;&#227;&#168;&#164;&#161;&#193;&#168;&#166;?????&#168;&#166;????&#161;&#164;?&#161;&#192;???</comment>
-            </column>
-        </property>
-        <property name="adultExtendPrice" type="big_decimal">
-            <column name="AdultExtendPrice" precision="7" not-null="true" />
-        </property>
-        <property name="childExtendPrice" type="big_decimal">
-            <column name="ChildExtendPrice" precision="7" not-null="true">
-                <comment>????&#161;&#164;?</comment>
-            </column>
-        </property>
-        <property name="startDate" type="timestamp">
-            <column name="StartDate" length="19" not-null="true" />
-        </property>
-        <property name="endDate" type="timestamp">
-            <column name="EndDate" length="19" not-null="true" />
-        </property>
-        <property name="isDeleted" type="boolean">
-            <column name="IsDeleted" not-null="true" />
-        </property>
-        <property name="createdBy" type="string">
-            <column name="CreatedBy" length="20" />
-        </property>
-        <property name="createdDate" type="timestamp">
-            <column name="CreatedDate" length="19" />
-        </property>
-        <property name="createdByIp" type="string">
-            <column name="CreatedByIp" length="50" />
-        </property>
-        <property name="modifiedBy" type="string">
-            <column name="ModifiedBy" length="20" />
-        </property>
-        <property name="modifiedDate" type="timestamp">
-            <column name="ModifiedDate" length="19" />
-        </property>
-        <property name="modifiedByIp" type="string">
-            <column name="ModifiedByIp" length="50" />
-        </property>
-    </class>
+  <class name="com.opentravelsoft.entity.vacation.FlightPlan" table="tbl_flightplan">
+    <id name="flightPlanId" type="string">
+      <column name="FlightPlanID" length="36" />
+      <generator class="assigned" />
+    </id>
+    <property name="mode" type="int">
+      <column name="Mode" not-null="true" />
+    </property>
+    <property name="ticketType" type="java.lang.Integer">
+      <column name="TicketType" />
+    </property>
+    <property name="flightAmount" type="int">
+      <column name="FlightAmount" not-null="true" />
+    </property>
+    <property name="adultPrice" type="string">
+      <column name="AdultPrice" length="100" />
+    </property>
+    <property name="childPrice" type="string">
+      <column name="ChildPrice" length="100" />
+    </property>
+    <property name="adultExtendPrice" type="big_decimal">
+      <column name="AdultExtendPrice" precision="7" not-null="true" />
+    </property>
+    <property name="childExtendPrice" type="big_decimal">
+      <column name="ChildExtendPrice" precision="7" not-null="true" />
+    </property>
+    <property name="startDate" type="timestamp">
+      <column name="StartDate" length="19" not-null="true" />
+    </property>
+    <property name="endDate" type="timestamp">
+      <column name="EndDate" length="19" not-null="true" />
+    </property>
+    <property name="isDeleted" type="boolean">
+      <column name="IsDeleted" not-null="true" />
+    </property>
+    <property name="createdBy" type="string">
+      <column name="CreatedBy" length="20" />
+    </property>
+    <property name="createdDate" type="timestamp">
+      <column name="CreatedDate" length="19" />
+    </property>
+    <property name="createdByIp" type="string">
+      <column name="CreatedByIp" length="50" />
+    </property>
+    <property name="modifiedBy" type="string">
+      <column name="ModifiedBy" length="20" />
+    </property>
+    <property name="modifiedDate" type="timestamp">
+      <column name="ModifiedDate" length="19" />
+    </property>
+    <property name="modifiedByIp" type="string">
+      <column name="ModifiedByIp" length="50" />
+    </property>
+  </class>
 </hibernate-mapping>
