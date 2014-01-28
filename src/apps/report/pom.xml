@@ -90,7 +90,6 @@
     <fop.version>0.95</fop.version>
     <poi.version>3.2-FINAL</poi.version>
     <xbean-spring.version>2.8</xbean-spring.version>
-    <mondrian.version>2.3.2</mondrian.version>
     <birt.version>2.3.2</birt.version>
     <com.ibm.icu.version>3.8</com.ibm.icu.version>
     <jstl.version>1.2</jstl.version>
@@ -564,9 +563,9 @@
     
 
     <dependency>
-      <groupId>mondrian</groupId>
-      <artifactId>mondrian</artifactId>
-      <version>2.3.2</version>
+	  <groupId>pentaho</groupId>
+	  <artifactId>mondrian</artifactId>
+      <version>3.0.3</version>
     </dependency>
     
     <!-- 
