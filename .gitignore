@@ -1,3 +1,9 @@
+# system
+.DS_Store
+
+# editor
+.idea
+*.iml
 
 /docs
 /data
@@ -10,7 +16,6 @@
 /src/apps/portal/target
 /src/apps/report/target
 /src/apps/report/src/main/webapp/WEB-INF/platform
-/src/apps/flexserver/target
 /src/modules/model/target
 /src/modules/mybatis/target
 /src/apps/admin/target

@@ -36,7 +36,7 @@
     <spring-security.version>3.0.6.RELEASE</spring-security.version>
     <jstl.version>1.2</jstl.version>
   </properties>
-  
+
   <dependencies>
 
     <dependency>
@@ -94,10 +94,10 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-    <groupId>commons-lang</groupId>
-    <artifactId>commons-lang</artifactId>
-    <version>${commons-lang.version}</version>
-    <scope>provided</scope>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>${commons-lang.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>commons-codec</groupId>

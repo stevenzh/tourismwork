@@ -29,10 +29,10 @@
   </properties>
 
   <repositories>
-    <repository> 
-      <id>Activiti</id> 
-      <url>http://maven.alfresco.com/nexus/content/repositories/activiti/</url> 
-     </repository> 
+    <repository>
+      <id>Activiti</id>
+      <url>http://maven.alfresco.com/nexus/content/repositories/activiti/</url>
+    </repository>
   </repositories>
 
   <dependencies>
@@ -73,11 +73,11 @@
       <artifactId>tourismwork-model</artifactId>
       <version>${project.version}</version>
     </dependency>
-<!--     <dependency> -->
-<!--       <groupId>com.opentravelsoft</groupId> -->
-<!--       <artifactId>tourismwork-struts2</artifactId> -->
-<!--       <version>${project.version}</version> -->
-<!--     </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>com.opentravelsoft</groupId> -->
+    <!-- <artifactId>tourismwork-struts2</artifactId> -->
+    <!-- <version>${project.version}</version> -->
+    <!-- </dependency> -->
   </dependencies>
 
 </project>

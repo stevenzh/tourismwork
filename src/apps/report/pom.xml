@@ -102,7 +102,7 @@
     <groovy.version>1.0</groovy.version>
     <axis.version>1.4</axis.version>
   </properties>
-  
+
   <dependencies>
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -171,7 +171,7 @@
       <artifactId>avalon-framework</artifactId>
       <version>${avalon-framework.version}</version>
     </dependency>
-    
+
     <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
@@ -330,35 +330,13 @@
       <artifactId>jfreechart</artifactId>
       <version>${jfreechart.version}</version>
     </dependency>
-    <!-- 
-    <dependency>
-      <groupId>jfree</groupId>
-      <artifactId>jfreereport</artifactId>
-      <version>${jfreereport.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>gnujaxp</groupId>
-          <artifactId>gnujaxp</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>jfree</groupId>
-          <artifactId>pixie</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>jfree</groupId>
-          <artifactId>jcommon-xml</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>bsf</groupId>
-          <artifactId>bsf</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>poi</groupId>
-          <artifactId>poi</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-     -->
+    <!-- <dependency> <groupId>jfree</groupId> <artifactId>jfreereport</artifactId> 
+      <version>${jfreereport.version}</version> <exclusions> <exclusion> <groupId>gnujaxp</groupId> 
+      <artifactId>gnujaxp</artifactId> </exclusion> <exclusion> <groupId>jfree</groupId> 
+      <artifactId>pixie</artifactId> </exclusion> <exclusion> <groupId>jfree</groupId> 
+      <artifactId>jcommon-xml</artifactId> </exclusion> <exclusion> <groupId>bsf</groupId> 
+      <artifactId>bsf</artifactId> </exclusion> <exclusion> <groupId>poi</groupId> 
+      <artifactId>poi</artifactId> </exclusion> </exclusions> </dependency> -->
 
     <dependency>
       <groupId>jfree</groupId>
@@ -469,71 +447,30 @@
       <artifactId>engineapi</artifactId>
       <version>${birt.version}</version>
     </dependency>
-    <!-- 
-    <dependency>
-      <groupId>org.eclipse.birt</groupId>
-      <artifactId>chartengineapi</artifactId>
-      <version>${birt.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.birt</groupId>
-      <artifactId>crosstabcoreapi</artifactId>
-      <version>${birt.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.birt</groupId>
-      <artifactId>dataadapterapi</artifactId>
-      <version>${birt.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.birt</groupId>
-      <artifactId>dataaggregationapi</artifactId>
-      <version>${birt.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.birt</groupId>
-      <artifactId>dteapi</artifactId>
-      <version>${birt.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.birt</groupId>
-      <artifactId>flute</artifactId>
-      <version>${birt.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.birt</groupId>
-      <artifactId>js</artifactId>
-      <version>${birt.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.birt</groupId>
-      <artifactId>modelodaapi</artifactId>
-      <version>${birt.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.birt</groupId>
-      <artifactId>odadesignapi</artifactId>
-      <version>${birt.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.birt</groupId>
-      <artifactId>scriptapi</artifactId>
-      <version>${birt.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.birt</groupId>
-      <artifactId>org.eclipse.birt.report.engine.dataextraction</artifactId>
-      <version>2.3.0</version>
-    </dependency>
-
- -->
+    <!-- <dependency> <groupId>org.eclipse.birt</groupId> <artifactId>chartengineapi</artifactId> 
+      <version>${birt.version}</version> </dependency> <dependency> <groupId>org.eclipse.birt</groupId> 
+      <artifactId>crosstabcoreapi</artifactId> <version>${birt.version}</version> 
+      </dependency> <dependency> <groupId>org.eclipse.birt</groupId> <artifactId>dataadapterapi</artifactId> 
+      <version>${birt.version}</version> </dependency> <dependency> <groupId>org.eclipse.birt</groupId> 
+      <artifactId>dataaggregationapi</artifactId> <version>${birt.version}</version> 
+      </dependency> <dependency> <groupId>org.eclipse.birt</groupId> <artifactId>dteapi</artifactId> 
+      <version>${birt.version}</version> </dependency> <dependency> <groupId>org.eclipse.birt</groupId> 
+      <artifactId>flute</artifactId> <version>${birt.version}</version> </dependency> 
+      <dependency> <groupId>org.eclipse.birt</groupId> <artifactId>js</artifactId> 
+      <version>${birt.version}</version> </dependency> <dependency> <groupId>org.eclipse.birt</groupId> 
+      <artifactId>modelodaapi</artifactId> <version>${birt.version}</version> </dependency> 
+      <dependency> <groupId>org.eclipse.birt</groupId> <artifactId>odadesignapi</artifactId> 
+      <version>${birt.version}</version> </dependency> <dependency> <groupId>org.eclipse.birt</groupId> 
+      <artifactId>scriptapi</artifactId> <version>${birt.version}</version> </dependency> 
+      <dependency> <groupId>org.eclipse.birt</groupId> <artifactId>org.eclipse.birt.report.engine.dataextraction</artifactId> 
+      <version>2.3.0</version> </dependency> -->
 
     <dependency>
       <groupId>org.apache.xmlgraphics</groupId>
       <artifactId>fop</artifactId>
       <version>${fop.version}</version>
     </dependency>
-    
+
     <dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi</artifactId>
@@ -560,49 +497,24 @@
       <artifactId>displaytag-export-poi</artifactId>
       <version>${displaytag.version}</version>
     </dependency>
-    
+
 
     <dependency>
-	  <groupId>pentaho</groupId>
-	  <artifactId>mondrian</artifactId>
+      <groupId>pentaho</groupId>
+      <artifactId>mondrian</artifactId>
       <version>3.0.3</version>
     </dependency>
-    
-    <!-- 
 
-    <dependency>
-      <groupId>myeclipse</groupId>
-      <artifactId>org.eclipse.emf.common</artifactId>
-      <version>2.4.0</version>
-    </dependency>
-    <dependency>
-      <groupId>myeclipse</groupId>
-      <artifactId>org.eclipse.emf.ecore</artifactId>
-      <version>2.4.0</version>
-    </dependency>
-    <dependency>
-      <groupId>myeclipse</groupId>
-      <artifactId>org.eclipse.emf.ecore.xmi</artifactId>
-      <version>2.4.0</version>
-    </dependency>
-
-    <dependency>
-      <groupId>batik</groupId>
-      <artifactId>batik-1.5-fop</artifactId>
-      <version>0.20-5</version>
-    </dependency>
-    <dependency>
-      <groupId>org.mozilla</groupId>
-      <artifactId>rhino</artifactId>
-      <version>1.7R1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.ldap</groupId>
-      <artifactId>spring-ldap</artifactId>
-      <version>${spring-ldap.version}</version>
-    </dependency>
- -->
+    <!-- <dependency> <groupId>myeclipse</groupId> <artifactId>org.eclipse.emf.common</artifactId> 
+      <version>2.4.0</version> </dependency> <dependency> <groupId>myeclipse</groupId> 
+      <artifactId>org.eclipse.emf.ecore</artifactId> <version>2.4.0</version> </dependency> 
+      <dependency> <groupId>myeclipse</groupId> <artifactId>org.eclipse.emf.ecore.xmi</artifactId> 
+      <version>2.4.0</version> </dependency> <dependency> <groupId>batik</groupId> 
+      <artifactId>batik-1.5-fop</artifactId> <version>0.20-5</version> </dependency> 
+      <dependency> <groupId>org.mozilla</groupId> <artifactId>rhino</artifactId> 
+      <version>1.7R1</version> </dependency> <dependency> <groupId>org.springframework.ldap</groupId> 
+      <artifactId>spring-ldap</artifactId> <version>${spring-ldap.version}</version> 
+      </dependency> -->
 
 
     <dependency>
@@ -620,29 +532,17 @@
       <artifactId>tbutils-wcf</artifactId>
       <version>1.8.0-070305</version>
     </dependency>
-    <!-- 
-    <dependency>
-      <groupId>com.tonbeller</groupId>
-      <artifactId>eigenbase-properties</artifactId>
-      <version>1.8</version>
-    </dependency>
-    <dependency>
-      <groupId>com.tonbeller</groupId>
-      <artifactId>eigenbase-resgen</artifactId>
-      <version>1.8</version>
-    </dependency>
-    <dependency>
-      <groupId>com.tonbeller</groupId>
-      <artifactId>eigenbase-xom</artifactId>
-      <version>1.8</version>
-    </dependency>
-    -->
+    <!-- <dependency> <groupId>com.tonbeller</groupId> <artifactId>eigenbase-properties</artifactId> 
+      <version>1.8</version> </dependency> <dependency> <groupId>com.tonbeller</groupId> 
+      <artifactId>eigenbase-resgen</artifactId> <version>1.8</version> </dependency> 
+      <dependency> <groupId>com.tonbeller</groupId> <artifactId>eigenbase-xom</artifactId> 
+      <version>1.8</version> </dependency> -->
     <dependency>
       <groupId>jstl</groupId>
       <artifactId>jstl</artifactId>
       <version>${jstl.version}</version>
     </dependency>
-    
+
     <dependency>
       <groupId>com.opentravelsoft</groupId>
       <artifactId>tourismwork-service</artifactId>

@@ -155,7 +155,7 @@
       <version>${jmock.version}</version>
       <scope>test</scope>
     </dependency>
-    
+
     <dependency>
       <groupId>com.opentravelsoft</groupId>
       <artifactId>tourismwork-model</artifactId>

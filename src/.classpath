@@ -13,13 +13,11 @@
 	<classpathentry kind="src" output="modules/service/target/classes" path="modules/service/src/main/resources"/>
 	<classpathentry kind="src" output="apps/manage/target/classes" path="apps/manage/src/main/java"/>
 	<classpathentry kind="src" output="apps/manage/target/classes" path="apps/manage/src/main/resources"/>
-	<classpathentry kind="src" output="apps/admin/target/classes" path="apps/admin/src/main/java"/>
-	<classpathentry kind="src" output="apps/admin/target/classes" path="apps/admin/src/main/resources"/>
 	<classpathentry kind="src" output="apps/report/target/classes" path="apps/report/src/main/java"/>
 	<classpathentry kind="src" output="apps/report/target/classes" path="apps/report/src/main/resources"/>
 	<classpathentry kind="src" output="apps/portal/target/classes" path="apps/portal/src/main/java"/>
 	<classpathentry kind="src" output="apps/portal/target/classes" path="apps/portal/src/main/resources"/>
-	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER"/>
+		<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="modules/core/target/classes"/>
 </classpath>
