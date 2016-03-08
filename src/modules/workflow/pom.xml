@@ -22,7 +22,7 @@
   </build>
 
   <properties>
-    <commons-collections.version>3.2.1</commons-collections.version>
+    <commons-collections.version>3.2.2</commons-collections.version>
     <commons-codec.version>1.3</commons-codec.version>
     <hibernate.version>3.6.10.Final</hibernate.version>
     <activiti.version>5.9</activiti.version>
