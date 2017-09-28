@@ -27,9 +27,6 @@
 
 <link rel="stylesheet" type="text/css" href="<s:url value='/scripts/jquery/autocomplete/jquery.autocomplete.css' encode='false' includeParams='none'/>" />
 <link rel="stylesheet" type="text/css" href="<s:url value='/scripts/jquery/lib/thickbox.css' encode='false' includeParams='none'/>" />
-<link rel="stylesheet" type="text/css" href="/scripts/jquery-easyui/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="/scripts/jquery-easyui/themes/icon.css">
-<script type="text/javascript" src="/scripts/jquery-easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript">
 
 var sh;
