@@ -25,7 +25,7 @@
     <commons-lang.version>2.4</commons-lang.version>
     <mybatis.version>3.0.6</mybatis.version>
     <com.ibm.icu.version>3.8</com.ibm.icu.version>
-    <spring-security.version>3.0.5.RELEASE</spring-security.version>
+    <spring-security.version>4.2.0.RELEASE</spring-security.version>
   </properties>
 
   <dependencies>
