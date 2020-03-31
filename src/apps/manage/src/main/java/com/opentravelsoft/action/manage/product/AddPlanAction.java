@@ -6,7 +6,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.lang.time.DateUtils;
 import com.opentravelsoft.util.LabelValueBean;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -243,7 +242,11 @@ public class AddPlanAction extends ManageAction {
           }
         }
 
-        date = DateUtils.addDays(date, 1);
+        Calendar calDate1 = Calendar.getInstance();
+        calDate1.setTime(date);
+        calDate1.add(Calendar.DATE, 1);
+
+        date = calDate1.getTime();
       } while (date.compareTo(plan.getEndDate()) <= 0);
 
     } else {

@@ -16,20 +16,8 @@
       <layout>default</layout>
     </repository>
     <repository>
-      <id>maven1-apache</id>
-      <url>http://people.apache.org/repository</url>
-    </repository>
-    <repository>
       <id>repository.jboss</id>
       <url>http://repository.jboss.org</url>
-    </repository>
-    <repository>
-      <id>java.net</id>
-      <url>http://download.java.net/maven/1/</url>
-    </repository>
-    <repository>
-      <id>repository.audaxis</id>
-      <url>http://support.audaxis.com/maven2/</url>
     </repository>
     <repository>
       <id>repository.eclipse</id>
@@ -37,7 +25,7 @@
     </repository>
     <repository>
       <id>repository.pentaho</id>
-      <url>http://repository.pentaho.org/artifactory/repo/</url>
+      <url>https://public.nexus.pentaho.org/content/groups/omni/</url>
     </repository>
   </repositories>
 
@@ -71,7 +59,7 @@
     <commons-dbcp.version>1.4</commons-dbcp.version>
     <commons-httpclient.version>3.0</commons-httpclient.version>
     <commons-io.version>1.4</commons-io.version>
-    <commons-fileupload.version>1.2.1</commons-fileupload.version>
+    <commons-fileupload.version>1.4</commons-fileupload.version>
     <log4j.version>1.2.15</log4j.version>
     <aopalliance.version>1.0</aopalliance.version>
     <velocity-tools.version>1.3</velocity-tools.version>
@@ -86,7 +74,7 @@
     <xstream.version>1.3.1</xstream.version>
     <displaytag.version>1.2</displaytag.version>
     <struts-core.version>1.3.10</struts-core.version>
-    <struts2.version>2.3.20</struts2.version>
+    <struts2.version>2.3.37</struts2.version>
     <fop.version>0.95</fop.version>
     <poi.version>3.2-FINAL</poi.version>
     <xbean-spring.version>2.8</xbean-spring.version>
