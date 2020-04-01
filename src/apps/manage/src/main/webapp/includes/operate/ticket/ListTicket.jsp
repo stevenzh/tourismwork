@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -104,9 +103,9 @@ function print (outcomeId)
     </tr>
     <tr>
       <td class="idx">制单日期:</td>
-      <td colspan="2"><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenStartDate">
-      </sj:datepicker>&nbsp;至 <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenEndDate">
-      </sj:datepicker></td>
+      <td colspan="2"><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenStartDate">
+      </s:textfield>&nbsp;至 <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenEndDate">
+      </s:textfield></td>
     </tr>
     <tr>
       <td class="idx">配送状态</td>

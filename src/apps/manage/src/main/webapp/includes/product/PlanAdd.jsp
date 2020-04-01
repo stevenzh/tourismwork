@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -173,14 +172,14 @@ function changeEmp()
     <tr>
       <td class="idx">出发日期<span class="required">*</span>:</td>
       <td colspan="3">
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" id="sDate"
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" id="sDate"
       					     name="plan.startDate"
                      minDate="%{startDate}">
-      </sj:datepicker> 至 
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" id="eDate"
+      </s:textfield> 至 
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" id="eDate"
       					     name="plan.endDate"
       					     minDate="%{startDate}">
-      </sj:datepicker>
+      </s:textfield>
       </td>
     </tr>
     <tr>
@@ -271,8 +270,8 @@ function changeEmp()
             <s:textfield size="6" name="plan.flightNo"></s:textfield>
           </td>
           <td>
-            <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="plan.departureDate">
-            </sj:datepicker>
+            <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="plan.departureDate">
+            </s:textfield>
           </td>
           <td>
             <s:textfield size="6" id="plan_seating" name="plan.seating">

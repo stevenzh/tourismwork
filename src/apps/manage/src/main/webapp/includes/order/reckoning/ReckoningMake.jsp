@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -548,7 +547,7 @@ function checkOutPer()
         </tr>
         <tr class="data">
           <td width="100">日期：</td>
-          <td><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="reckoning.outDate"/>&nbsp;格式：yyyy-MM-dd
+          <td><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="reckoning.outDate"/>&nbsp;格式：yyyy-MM-dd
           </td>
           <td width="100">线路：</td>
           <td><s:textfield name="reckoning.routeName"/></td>
@@ -566,7 +565,7 @@ function checkOutPer()
           <td><s:textfield name=""/></td>
           <td>上车地点/时间：</td>
           <td><s:textfield name=""/>/
-          <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="reckoning.outDate"
+          <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="reckoning.outDate"
                                    displayFormat="HH:mm"/>
           </td>
         </tr>

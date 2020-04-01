@@ -55,10 +55,10 @@ public class ReportEngineHelper
 //		{
 //			reportEngine = new BirtReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);						
 //		}
-		else if (report.isQueryReport())
-		{
-			reportEngine = new QueryReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);			
-		}
+//		else if (report.isQueryReport())
+//		{
+//			reportEngine = new QueryReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);			
+//		}
         else if (report.isVelocityReport())
         {
             reportEngine = new VelocityReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -91,7 +90,7 @@ function pinyin()
     </tr>
     <tr>
       <td class="idx">出生日期:</td>
-      <td class="data"><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="guide.birthday" /></td>
+      <td class="data"><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="guide.birthday" /></td>
       <td class="idx">出 生 地:</td>
       <td class="data"><s:select name="guide.bthplc" list="birthPlaceList" listKey="label" listValue="value"></s:select></td>
     </tr>
@@ -134,7 +133,7 @@ function pinyin()
     </tr>
     <tr>
       <td class="idx">年检时间:</td>
-      <td class="data"><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="guide.checkDate" /></td>
+      <td class="data"><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="guide.checkDate" /></td>
       <td class="idx">IC卡登记号:</td>
       <td class="data"><s:textfield name="guide.icCard" size="20" maxlength="18"></s:textfield></td>
     </tr>
@@ -146,8 +145,8 @@ function pinyin()
     </tr>
     <tr>
       <td class="idx">领队证有效期:</td>
-      <td class="data" colspan="3"><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="guide.dateStart"
-        />至 <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="guide.dateEnd" /></td>
+      <td class="data" colspan="3"><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="guide.dateStart"
+        />至 <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="guide.dateEnd" /></td>
     </tr>
     <tr>
       <td class="idx">护照种类:</td>
@@ -162,8 +161,8 @@ function pinyin()
     </tr>
     <tr>
       <td class="idx">护照有效期:</td>
-      <td class="data" colspan="3"><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="guide.hzdate1" />至
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="guide.hzrang" /></td>
+      <td class="data" colspan="3"><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="guide.hzdate1" />至
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="guide.hzrang" /></td>
     </tr>
     <!--  
         <tr>
@@ -200,7 +199,7 @@ function pinyin()
       <td class="idx">毕业学校:</td>
       <td class="data" colspan="3"><s:textfield name="guide.finishSchool" size="50" maxlength="50"></s:textfield></td>
       <td class="idx">毕业时间:</td>
-      <td class="data"><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="guide.finishDate" /></td>
+      <td class="data"><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="guide.finishDate" /></td>
     </tr>
     <tr>
       <td class="idx">工作经历(250字以内):</td>

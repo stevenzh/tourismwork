@@ -13,8 +13,8 @@
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.8</source>
+          <target>1.8</target>
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
@@ -24,9 +24,10 @@
   <properties>
     <junit.version>4.7</junit.version>
     <commons-beanutils.version>1.8.0</commons-beanutils.version>
-    <commons-collections.version>3.1</commons-collections.version>
+    <commons-collections.version>3.2.2</commons-collections.version>
     <commons-codec.version>1.3</commons-codec.version>
     <aopalliance.version>1.0</aopalliance.version>
+     <struts2.version>2.3.37</struts2.version>
     <springframework.version>3.0.6.RELEASE</springframework.version>
     <spring-security.version>3.0.6.RELEASE</spring-security.version>
     <quartz.version>1.6.1</quartz.version>
@@ -158,7 +159,7 @@
     <dependency>
       <groupId>org.apache.struts.xwork</groupId>
       <artifactId>xwork-core</artifactId>
-      <version>2.3.20</version>
+      <version>${struts2.version}</version>
     </dependency>
   </dependencies>
 

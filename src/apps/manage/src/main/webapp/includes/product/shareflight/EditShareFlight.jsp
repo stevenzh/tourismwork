@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -40,8 +39,8 @@
     <tr>
       <td class="idx">出发日期：</td>
       <td class="data">
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="tblShareFlight.departureDate">
-     </sj:datepicker>
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="tblShareFlight.departureDate">
+     </s:textfield>
      <font color="ff0000">*</font>
      </td>
     </tr>

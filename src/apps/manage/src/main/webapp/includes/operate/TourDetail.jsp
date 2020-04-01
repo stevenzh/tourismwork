@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -143,8 +142,8 @@
        <s:textfield name="tour.outDate" readonly="true"></s:textfield>
     </s:if>
     <s:else>
-       <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="tour.outDate">
-       </sj:datepicker>
+       <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="tour.outDate">
+       </s:textfield>
     </s:else>
     	<s:hidden name="oldOutDate"></s:hidden>
     </td>
@@ -161,8 +160,8 @@
   <tr>
     <td class="idx">入境日期：</td>
     <td>
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="tour.inDate">
-      </sj:datepicker>
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="tour.inDate">
+      </s:textfield>
     </td>
     <td class="idx">入境口岸：</td>
     <td>

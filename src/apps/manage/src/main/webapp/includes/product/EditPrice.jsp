@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -105,15 +104,15 @@ document.getElementById('all').value=Math.round((eval(price1)+eval(price2)+eval(
     <tr>
       <td class="lstidx">起始日期</td>
       <td>
-        <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="routePrice.startDate">
-        </sj:datepicker>&nbsp;<font color="#ff0000">*</font>
+        <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="routePrice.startDate">
+        </s:textfield>&nbsp;<font color="#ff0000">*</font>
       </td>
     </tr>
     <tr>
       <td class="lstidx">结束日期</td>
       <td>
-        <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="routePrice.endDate">
-        </sj:datepicker>&nbsp;<font color="#ff0000">*</font>
+        <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="routePrice.endDate">
+        </s:textfield>&nbsp;<font color="#ff0000">*</font>
       </td>
     </tr>
     <tr>

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 <%@ taglib prefix="authz" uri="http://www.springframework.org/security/tags"%>
 
 <html>
@@ -456,10 +455,10 @@ function editBook()
 
 				<!-- 出生日期 -->
 				<td nowrap="nowrap" valign="middle">
-        <sj:datepicker size="10" displayFormat="yy-mm-dd" name="customerList(%{id}).birthday"
+        <s:textfield size="10" displayFormat="yy-mm-dd" name="customerList(%{id}).birthday"
                        value="%{birthday}"
                        maxlength="10">
-				</sj:datepicker></td>
+				</s:textfield></td>
 
 				<!-- 出生地  -->
 				<td><s:hidden id="birthplace%{id}" name="customerList(%{id}).birthplace"></s:hidden>
@@ -488,18 +487,18 @@ function editBook()
 
         <!-- 护照签发日期 -->
         <td nowrap="nowrap" valign="middle">
-          <sj:datepicker size="10" displayFormat="yy-mm-dd" name="customerList(%{id}).passportDate"
+          <s:textfield size="10" displayFormat="yy-mm-dd" name="customerList(%{id}).passportDate"
                          value="%{passportDate}"
                          maxlength="10">
-          </sj:datepicker>
+          </s:textfield>
         </td>
         
 				<!-- 护照有效期 -->
 				<td nowrap="nowrap" valign="middle">
-        <sj:datepicker size="10" displayFormat="yy-mm-dd" name="customerList(%{id}).passportExpiry"
+        <s:textfield size="10" displayFormat="yy-mm-dd" name="customerList(%{id}).passportExpiry"
 		               value="%{passportExpiry}"
                        maxlength="10">
-				</sj:datepicker>
+				</s:textfield>
        </td>
 
 				<!-- 住房要求  -->

@@ -67,14 +67,14 @@ public class VelocityReportEngine extends ReportEngine
              * if report has a query, process it like a QueryReport and 
              * put the results in the VelocityContext for use in templates
              */
-            if (report.getQuery() != null && report.getQuery().trim().length() > 0)
-            {
-                QueryReportEngine queryReport = new QueryReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);
-                QueryEngineOutput queryOutput = (QueryEngineOutput) queryReport.generateReport(input);
-                
-                context.put("results", queryOutput.getResults());
-                context.put("properties", queryOutput.getProperties());
-            }
+//            if (report.getQuery() != null && report.getQuery().trim().length() > 0)
+//            {
+//                QueryReportEngine queryReport = new QueryReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);
+//                QueryEngineOutput queryOutput = (QueryEngineOutput) queryReport.generateReport(input);
+//                
+//                context.put("results", queryOutput.getResults());
+//                context.put("properties", queryOutput.getProperties());
+//            }
            
             StringWriter writer = new StringWriter();
             

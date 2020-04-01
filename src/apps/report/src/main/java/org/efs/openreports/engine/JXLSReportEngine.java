@@ -70,21 +70,21 @@ public class JXLSReportEngine extends ReportEngine
 			// create new HashMap to send to JXLS in order to maintain original map of parameters
 			Map<String,Object> jxlsReportMap = new HashMap<String,Object>(input.getParameters());
 			
-			if (report.getQuery() != null && report.getQuery().trim().length() > 0)
-			{
-				QueryReportEngine queryEngine = new QueryReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);				
-				
-				QueryEngineOutput output = (QueryEngineOutput) queryEngine
-						.generateReport(input);		
-				
-				jxlsReportMap.put(ORStatics.JXLS_REPORT_RESULTS, output.getResults());
-			}
-			else
-			{
+//			if (report.getQuery() != null && report.getQuery().trim().length() > 0)
+//			{
+//				QueryReportEngine queryEngine = new QueryReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);				
+//				
+//				QueryEngineOutput output = (QueryEngineOutput) queryEngine
+//						.generateReport(input);		
+//				
+//				jxlsReportMap.put(ORStatics.JXLS_REPORT_RESULTS, output.getResults());
+//			}
+//			else
+//			{
 				conn = dataSourceProvider.getConnection(report.getDataSource().getId());
 				JXLSReportManagerImpl rm = new JXLSReportManagerImpl(conn, jxlsReportMap, dataSourceProvider);
 				jxlsReportMap.put("rm", rm);
-			}
+//			}
 
 			FileInputStream template = new FileInputStream(directoryProvider
 					.getReportDirectory()

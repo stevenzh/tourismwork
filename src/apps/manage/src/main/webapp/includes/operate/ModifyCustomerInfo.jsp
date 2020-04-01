@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -216,12 +215,12 @@ function goAction()
   
       <!-- 出生日期 -->
       <td nowrap="nowrap" valign="middle">
-      <sj:datepicker name="customerList(%{number}).birthday"
+      <s:textfield name="customerList(%{number}).birthday"
                      value="%{birthday}"
                      size="10"
                      displayFormat="yy-mm-dd"
                      maxlength="10">
-      </sj:datepicker>
+      </s:textfield>
       </td>
       <!-- 出生地  -->
       <td>
@@ -266,22 +265,22 @@ function goAction()
   
       <!-- 签发日期 -->
       <td nowrap="nowrap" valign="middle">
-      <sj:datepicker name="customerList(%{number}).passportDate"
+      <s:textfield name="customerList(%{number}).passportDate"
                    value="%{passportDate}"
                    displayFormat="yy-mm-dd"
                    size="10"
                    maxlength="10">
-      </sj:datepicker>
+      </s:textfield>
       </td>
       
       <!-- 护照有效期 -->
       <td nowrap="nowrap" valign="middle">
-      <sj:datepicker name="customerList(%{number}).passportExpiry"
+      <s:textfield name="customerList(%{number}).passportExpiry"
                    value="%{passportExpiry}"
                    displayFormat="yy-mm-dd"
                    size="10"
                    maxlength="10">
-      </sj:datepicker>
+      </s:textfield>
       </td>
       
       <td>

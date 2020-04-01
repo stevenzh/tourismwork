@@ -12,7 +12,7 @@
   <modules>
     <module>portal</module>
     <module>manage</module>
-    <module>report</module>
+<!--     <module>report</module> -->
   </modules>
 
 </project>

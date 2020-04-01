@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -86,12 +85,12 @@ function ProvinceChanged()
     <tr>
       <td class="idx">出发日期：</td>
       <td>
-        <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" id="startDate"
+        <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" id="startDate"
         				       name="startDate">
-        </sj:datepicker>&nbsp;至
-        <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" id="endDate"
+        </s:textfield>&nbsp;至
+        <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" id="endDate"
         				       name="endDate">
-        </sj:datepicker>
+        </s:textfield>
       </td>
       </tr>
       <tr>

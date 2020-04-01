@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 <%@ taglib prefix="authz" uri="http://www.springframework.org/security/tags" %>
 
 <html>
@@ -150,10 +149,10 @@ function showRouteJourney(obj)
   <tr>
     <td class="idx">出发日期:</td>
     <td>
-    <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenStartDate">
-    </sj:datepicker>&nbsp;至
-    <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenEndDate">
-    </sj:datepicker>
+    <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenStartDate">
+    </s:textfield>&nbsp;至
+    <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenEndDate">
+    </s:textfield>
     </td>
     <td>
     <s:submit value="%{getText('common.forms.search')}"></s:submit>

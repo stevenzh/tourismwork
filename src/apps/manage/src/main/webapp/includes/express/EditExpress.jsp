@@ -1,6 +1,5 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -67,9 +66,9 @@
     </tr>
     <tr>
       <td class="idx">配送时间：</td>
-      <td><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="express.expressDate"></sj:datepicker></td>
+      <td><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="express.expressDate"></s:textfield></td>
       <td class="idx">最后期限：</td>
-      <td><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="express.expressLastdate"></sj:datepicker></td>
+      <td><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="express.expressLastdate"></s:textfield></td>
     </tr>
     <tr>
       <td class="idx">配送方式：</td>

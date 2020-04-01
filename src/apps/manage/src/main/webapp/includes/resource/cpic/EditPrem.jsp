@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -48,7 +47,7 @@
     </tr>
     <tr>
       <td class="idx">操作开始日期：</td>
-      <td class="data"><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="tblPremium.dodate" /></td>
+      <td class="data"><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="tblPremium.dodate" /></td>
     </tr>
     <tr>
       <td class="idx">说明：</td>

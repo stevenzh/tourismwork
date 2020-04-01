@@ -1,8 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 <%@ taglib prefix="authz" uri="http://www.springframework.org/security/tags"%>
-
 
 <script type="text/javascript">
 

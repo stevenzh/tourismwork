@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -167,20 +166,20 @@ function _getlist(type)
   <tr>
     <td class="idx">制单日期:</td>
     <td colspan="2">
-	    <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenStartDate" maxDate="%{sysdate}">
-	    </sj:datepicker>&nbsp;至
-	    <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenEndDate" maxDate="%{sysdate}">
-	    </sj:datepicker>
+	    <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenStartDate" maxDate="%{sysdate}">
+	    </s:textfield>&nbsp;至
+	    <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenEndDate" maxDate="%{sysdate}">
+	    </s:textfield>
     </td>
   </tr>
 
   <tr>
     <td class="idx">团出发日期:</td>
     <td>
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenStartOutDate">
-      </sj:datepicker>&nbsp;至
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenEndOutDate">
-      </sj:datepicker>
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenStartOutDate">
+      </s:textfield>&nbsp;至
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenEndOutDate">
+      </s:textfield>
     </td>
     <td>
       <s:submit value="%{getText('common.forms.search')}"></s:submit>

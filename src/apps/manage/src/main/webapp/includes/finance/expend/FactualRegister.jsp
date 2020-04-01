@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -148,10 +147,10 @@ function outcomeDetail(param)
   <tr>
     <td class="idx">制单日期:</td>
     <td>
-    <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenStartDate">
-    </sj:datepicker>&nbsp;至
-    <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenEndDate">
-    </sj:datepicker>
+    <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenStartDate">
+    </s:textfield>&nbsp;至
+    <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenEndDate">
+    </s:textfield>
     </td>
     <td>
       <s:submit action="FactualRegisterSearch" value="%{getText('common.forms.search')}"></s:submit>
@@ -220,8 +219,8 @@ function outcomeDetail(param)
 	  <tr>
 	    <td colspan="7" class="cdata">
 	      水单号：<s:textfield id="billNo" name="billNo"/><font color="red">*</font>&nbsp;&nbsp;
-	      支付日期：<sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" id="payDate" name="payDate">
-	             </sj:datepicker><font color="red">*</font>&nbsp;格式为：yyyy-MM-dd
+	      支付日期：<s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" id="payDate" name="payDate">
+	             </s:textfield><font color="red">*</font>&nbsp;格式为：yyyy-MM-dd
 	    </td>
 	  </tr>
 	  <tr>

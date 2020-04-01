@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -34,15 +33,15 @@
   <tr>
     <td class="idx">担保日期</td>
     <td colspan="3">
-    <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="warrantDate" maxDate="%{sysdate}">
-    </sj:datepicker>
+    <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="warrantDate" maxDate="%{sysdate}">
+    </s:textfield>
     </td>
   </tr>
   <tr>
     <td class="idx">最后付款日期</td>
     <td colspan="3">
-    <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="lastPayDate">
-    </sj:datepicker>
+    <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="lastPayDate">
+    </s:textfield>
     </td>
   </tr>
     <tr>

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 <%@ taglib prefix="sjr" uri="/struts-jquery-richtext-tags"%>
 
 <html>
@@ -148,8 +147,8 @@ function SubmitDeleteAttached(param, target)
     <tr>
       <td class="idx">有效日期：</td>
       <td class="data" colspan="5">
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="visaHelp.startDate"
-          />至<sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="visaHelp.endDate" 
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="visaHelp.startDate"
+          />至<s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="visaHelp.endDate" 
           /><font color="ff0000">**必填 [格式 YYYY-MM-DD]</font></td>
     </tr>
     <tr>

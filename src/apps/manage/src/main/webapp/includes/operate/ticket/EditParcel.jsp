@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -110,8 +109,8 @@ function goBack()
     <tr>
       <td class="data">配送时间：</td>
       <td>
-        <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="billhead.carryLastDate" >
-        </sj:datepicker>
+        <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="billhead.carryLastDate" >
+        </s:textfield>
       </td>
     </tr>
     <tr>

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -58,13 +57,13 @@ function _getlist(type)
     <tr>
       <td class="idx">登记日期开始</td>
       <td>
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="startDate">
-      </sj:datepicker>
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="startDate">
+      </s:textfield>
       </td>
       <td class="idx">登记日期截止</td>
       <td>
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="endDate">
-      </sj:datepicker>
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="endDate">
+      </s:textfield>
       </td>
     </tr>
   <tr>

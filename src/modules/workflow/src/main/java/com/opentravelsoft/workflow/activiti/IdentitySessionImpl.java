@@ -6,10 +6,11 @@ import java.util.Map;
 import org.activiti.engine.IdentityService;
 import org.activiti.engine.identity.Group;
 import org.activiti.engine.identity.GroupQuery;
+import org.activiti.engine.identity.NativeGroupQuery;
+import org.activiti.engine.identity.NativeUserQuery;
 import org.activiti.engine.identity.Picture;
 import org.activiti.engine.identity.User;
 import org.activiti.engine.identity.UserQuery;
-import org.activiti.engine.impl.identity.Account;
 import org.activiti.engine.impl.persistence.entity.GroupEntity;
 import org.activiti.engine.impl.persistence.entity.UserEntity;
 
@@ -188,32 +189,6 @@ public class IdentitySessionImpl implements IdentityService {
 
   }
 
-  @Override
-  public void setUserAccount(String userId, String userPassword,
-      String accountName, String accountUsername, String accountPassword,
-      Map<String, String> accountDetails) {
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public List<String> getUserAccountNames(String userId) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public Account getUserAccount(String userId, String userPassword,
-      String accountName) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public void deleteUserAccount(String userId, String accountName) {
-    // TODO Auto-generated method stub
-
-  }
 
   @Override
   public void createMembership(String userId, String groupId) {
@@ -225,5 +200,17 @@ public class IdentitySessionImpl implements IdentityService {
   public void deleteMembership(String userId, String groupId) {
     // TODO Auto-generated method stub
 
+  }
+
+  @Override
+  public NativeUserQuery createNativeUserQuery() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public NativeGroupQuery createNativeGroupQuery() {
+    // TODO Auto-generated method stub
+    return null;
   }
 }

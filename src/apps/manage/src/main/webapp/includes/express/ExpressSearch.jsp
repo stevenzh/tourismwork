@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="authz" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -125,9 +124,9 @@ function selectAll(param)
             <td class="idx">旅行线路：</td>
             <td><s:textfield name="kenLine" size="30"></s:textfield></td>
             <td class="idx">配送时间：</td>
-            <td><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenExpressStart">
-            </sj:datepicker>&nbsp;至 <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenExpressEnd">
-            </sj:datepicker></td>
+            <td><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenExpressStart">
+            </s:textfield>&nbsp;至 <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenExpressEnd">
+            </s:textfield></td>
           </tr>
           <tr>
             <td colspan="4"></td>

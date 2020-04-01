@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 <%@ taglib prefix="authz" uri="http://www.springframework.org/security/tags"%>
 
 <html>
@@ -206,8 +205,8 @@ function checkOut()
       <td class="data"><s:textfield name="agent.bussId" /></td>
       <td class="idx">营业执照登记日期:</td>
       <td class="data">
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="agent.bussDate">
-       </sj:datepicker>
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="agent.bussDate">
+       </s:textfield>
        </td>
     </tr>
 

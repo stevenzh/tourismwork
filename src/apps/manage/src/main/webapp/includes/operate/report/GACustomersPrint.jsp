@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -80,38 +79,38 @@ function printGACustomerList(param)
 		</tr>
 		<tr>
 			<td>行程：</td>
-			<td><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" id="date1" name="date1">
-			</sj:datepicker>由<s:textfield id="pla1x"/>经<s:textfield id="pass1x"/>至<s:textfield id="end1x"/></td>
+			<td><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" id="date1" name="date1">
+			</s:textfield>由<s:textfield id="pla1x"/>经<s:textfield id="pass1x"/>至<s:textfield id="end1x"/></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" id="date2" name="date2">
-			</sj:datepicker>由<s:textfield id="pla2x"/>经<s:textfield id="pass2x"/>至<s:textfield id="end2x"/></td>
+			<td><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" id="date2" name="date2">
+			</s:textfield>由<s:textfield id="pla2x"/>经<s:textfield id="pass2x"/>至<s:textfield id="end2x"/></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" id="date3" name="date3">
-			</sj:datepicker>由<s:textfield id="pla3x"/>经<s:textfield id="pass3x"/>至<s:textfield id="end3x"/></td>
+			<td><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" id="date3" name="date3">
+			</s:textfield>由<s:textfield id="pla3x"/>经<s:textfield id="pass3x"/>至<s:textfield id="end3x"/></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" id="arrHKdate" name="arrHKdate">
-			</sj:datepicker><s:textfield id="arrHKtime1"/>时&nbsp;抵港&nbsp;&nbsp;交通<s:textfield id="arrHKvehicle1"/></td>
+			<td><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" id="arrHKdate" name="arrHKdate">
+			</s:textfield><s:textfield id="arrHKtime1"/>时&nbsp;抵港&nbsp;&nbsp;交通<s:textfield id="arrHKvehicle1"/></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" id="leaveHKdate" name="leaveHKdate">
-			</sj:datepicker><s:textfield id="leaveHKtime1"/>时&nbsp;离港&nbsp;&nbsp;交通<s:textfield id="leaveHKvehicle1"/></td>
+			<td><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" id="leaveHKdate" name="leaveHKdate">
+			</s:textfield><s:textfield id="leaveHKtime1"/>时&nbsp;离港&nbsp;&nbsp;交通<s:textfield id="leaveHKvehicle1"/></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" id="arrMCdate" name="arrMCdate">
-			</sj:datepicker><s:textfield id="arrMCtime1"/>时&nbsp;抵澳&nbsp;&nbsp;交通<s:textfield id="arrMCvehicle1"/></td>
+			<td><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" id="arrMCdate" name="arrMCdate">
+			</s:textfield><s:textfield id="arrMCtime1"/>时&nbsp;抵澳&nbsp;&nbsp;交通<s:textfield id="arrMCvehicle1"/></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td><sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" id="leaveMCdate" name="leaveMCdate">
-			</sj:datepicker><s:textfield id="leaveMCtime1"/>时&nbsp;离澳&nbsp;&nbsp;交通<s:textfield id="leaveMCvehicle1"/></td>
+			<td><s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" id="leaveMCdate" name="leaveMCdate">
+			</s:textfield><s:textfield id="leaveMCtime1"/>时&nbsp;离澳&nbsp;&nbsp;交通<s:textfield id="leaveMCvehicle1"/></td>
 		</tr>
 		<tr>
 			<td>人数：</td>

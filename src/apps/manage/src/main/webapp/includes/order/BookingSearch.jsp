@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="authz" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -161,10 +160,10 @@ function showRouteJourney(obj)
       </s:select></td>
       <td class="idx">出发日期：</td>
       <td>
-      <sj:datepicker displayFormat="yy-mm-dd" name="kenStartDatePeriod" size="10" maxlength="10">
-      </sj:datepicker>&nbsp;
-                          至 <sj:datepicker displayFormat="yy-mm-dd" name="kenEndDatePeriod" size="10" maxlength="10">
-      </sj:datepicker></td>
+      <s:textfield displayFormat="yy-mm-dd" name="kenStartDatePeriod" size="10" maxlength="10">
+      </s:textfield>&nbsp;
+                          至 <s:textfield displayFormat="yy-mm-dd" name="kenEndDatePeriod" size="10" maxlength="10">
+      </s:textfield></td>
     </tr>
     <tr>
       <td class="idx">操作员：</td>
@@ -179,10 +178,10 @@ function showRouteJourney(obj)
       </s:select></td>
       <td class="idx">预订日期：</td>
       <td>
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenReserveStart">
-      </sj:datepicker>&nbsp;至 
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenReserveEnd">
-      </sj:datepicker>
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenReserveStart">
+      </s:textfield>&nbsp;至 
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenReserveEnd">
+      </s:textfield>
       </td>
     </tr>
     <tr>

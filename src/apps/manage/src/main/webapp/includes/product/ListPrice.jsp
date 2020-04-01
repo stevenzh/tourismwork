@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -39,8 +38,8 @@ function OperateForm(param, target)
   <s:hidden name="note"></s:hidden>
   <table>
     <tr>
-      <td class="idx">日期范围：&nbsp;<sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenStartDate"/>&nbsp;至&nbsp;
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenEndDate"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td class="idx">日期范围：&nbsp;<s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenStartDate"/>&nbsp;至&nbsp;
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="kenEndDate"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <s:submit action="RoutePrice" value="%{getText('common.forms.search')}" /></td>
     </tr>
     <tr>

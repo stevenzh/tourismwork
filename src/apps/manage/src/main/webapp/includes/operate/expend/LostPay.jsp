@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -287,8 +286,8 @@ function totalchange()
     <tr>
     	<td class="lstidx">取票时限</td>
     	<td>
-          <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="outcome.carryLastDate">
-          </sj:datepicker>
+          <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="outcome.carryLastDate">
+          </s:textfield>
      	</td>
     </tr>
     <tr>

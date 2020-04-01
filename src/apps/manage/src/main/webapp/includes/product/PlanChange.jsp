@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <html>
 <head>
@@ -278,8 +277,8 @@ function change()
   	    		<s:textfield size="6" name="plan.flightNo"></s:textfield>
   	    	</td>
   	    	<td>
-  	    		<sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="plan.departureDate">
-            </sj:datepicker>
+  	    		<s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="plan.departureDate">
+            </s:textfield>
   	    	</td>
   	    	<td>
   	    		<s:textfield  size="6" id="plan_seating" name="plan.seating">
@@ -371,8 +370,8 @@ function change()
       </td>
       <td class="idx">报名截止日期<span class="required">*</span>：</td>
       <td class="data">
-      <sj:datepicker size="10" displayFormat="yy-mm-dd" maxlength="10" name="plan.deadline">
-      </sj:datepicker>
+      <s:textfield size="10" displayFormat="yy-mm-dd" maxlength="10" name="plan.deadline">
+      </s:textfield>
       </td>
     </tr>
     <tr>
