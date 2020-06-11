@@ -29,7 +29,7 @@
     <commons.fileupload.version>1.2.1</commons.fileupload.version>
     <commons.io.version>1.4</commons.io.version>
     <commons-dbcp.version>1.4</commons-dbcp.version>
-    <commons-beanutils.version>1.8.0</commons-beanutils.version>
+    <commons-beanutils.version>1.9.2</commons-beanutils.version>
     <commons-collections.version>3.2.2</commons-collections.version>
     <log4j.version>1.2.15</log4j.version>
     <slf4j.version>1.6.1</slf4j.version>
