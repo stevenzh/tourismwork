@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
@@ -23,23 +22,22 @@
     <mail.version>1.4.1</mail.version>
     <aspectjweaver.version>1.6.10</aspectjweaver.version>
     <commons-attributes-api.version>2.1</commons-attributes-api.version>
-    <commons-logging.version>1.1.3</commons-logging.version>
-    <commons-beanutils.version>1.8.0</commons-beanutils.version>
-    <commons-digester.version>2.0</commons-digester.version>
+    <commons-logging.version>1.2</commons-logging.version>
+    <commons-beanutils.version>1.9.4</commons-beanutils.version>
+    <commons-digester.version>2.1</commons-digester.version>
     <commons-collections.version>3.2.2</commons-collections.version>
     <commons-codec.version>1.3</commons-codec.version>
     <commons-pool.version>1.4</commons-pool.version>
     <commons-dbcp.version>1.4</commons-dbcp.version>
     <commons-httpclient.version>3.0</commons-httpclient.version>
     <commons-fileupload.version>1.4</commons-fileupload.version>
-    <log4j.version>1.2.15</log4j.version>
+    <log4j.version>2.12.1</log4j.version>
     <aopalliance.version>1.0</aopalliance.version>
     <sitemesh.version>2.4.2</sitemesh.version>
     <velocity-tools.version>1.3</velocity-tools.version>
-    <velocity.version>1.6.4</velocity.version>
+    <velocity.version>1.7</velocity.version>
     <springframework.version>3.0.6.RELEASE</springframework.version>
     <spring-security.version>3.0.6.RELEASE</spring-security.version>
-    <spring-flex.version>1.0.3.RELEASE</spring-flex.version>
     <hibernate.annotations.version>3.2.0.Final</hibernate.annotations.version>
     <hibernate.version>3.6.10.Final</hibernate.version>
     <activiti.version>5.22.0</activiti.version>
@@ -52,7 +50,7 @@
     <xstream.version>1.2.1</xstream.version>
     <displaytag.version>1.2</displaytag.version>
     <struts-core.version>1.3.10</struts-core.version>
-    <struts2.version>2.3.37</struts2.version>
+    <struts2.version>2.5.28.2</struts2.version>
     <fop.version>0.95</fop.version>
     <poi.version>3.2-FINAL</poi.version>
     <jcaptcha.version>1.0-RC6</jcaptcha.version>
@@ -67,30 +65,6 @@
     <jackson.version>1.2.1</jackson.version>
     <ehcache.version>2.5.1</ehcache.version>
   </properties>
-
-  <repositories>
-    <repository>
-      <id>repository.apache</id>
-      <url>https://repo.maven.apache.org/maven2/</url>
-    </repository>
-    <repository>
-      <id>repository.jboss</id>
-      <url>http://repository.jboss.com</url>
-    </repository>
-    <repository>
-      <id>Alfresco Maven Repository</id>
-      <url>https://maven.alfresco.com/nexus/content/groups/public/</url>
-    </repository>
-    <repository>
-      <id>repository.eclipse</id>
-      <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-    </repository>
-    <repository>
-      <id>pentaho.resolve.repo</id>
-      <name>Pentaho Omni</name>
-      <url>https://public.nexus.pentaho.org/content/groups/omni/</url>
-    </repository>
-  </repositories>
 
   <dependencies>
 
@@ -234,23 +208,9 @@
     </dependency>
 
     <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
       <version>${log4j.version}</version>
-      <exclusions>
-        <exclusion>
-          <artifactId>jmxtools</artifactId>
-          <groupId>com.sun.jdmk</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jmxri</artifactId>
-          <groupId>com.sun.jmx</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jms</artifactId>
-          <groupId>javax.jms</groupId>
-        </exclusion>
-      </exclusions>
     </dependency>
 
     <dependency>
@@ -379,11 +339,6 @@
       <artifactId>spring-security-web</artifactId>
       <version>${spring-security.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.springframework.flex</groupId>
-      <artifactId>spring-flex</artifactId>
-      <version>${spring-flex.version}</version>
-    </dependency>
 
     <dependency>
       <groupId>net.sf.ehcache</groupId>
@@ -454,11 +409,6 @@
       <version>${struts2.version}</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>org.apache.struts</groupId>
-      <artifactId>struts2-dojo-plugin</artifactId>
-      <version>${struts2.version}</version>
-    </dependency>
 
     <dependency>
       <groupId>com.octo.captcha</groupId>
@@ -511,13 +461,7 @@
       <artifactId>activiti-spring</artifactId>
       <version>${activiti.version}</version>
     </dependency>
-<!--     <dependency> -->
-<!--       <groupId>pentaho</groupId> -->
-<!--       <artifactId>mondrian</artifactId> -->
-<!--       <version>3.0.3</version> -->
-<!--       <scope>provided</scope> -->
-<!--     </dependency> -->
-    <!-- CXF Dependencies -->
+
     <dependency>
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-frontend-jaxrs</artifactId>
@@ -538,8 +482,7 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <!-- Explicitly include latest version of wstx-asl to prevent downstream 
-      issues with Tapestry -->
+    <!-- Explicitly include latest version of wstx-asl to prevent downstream issues with Tapestry -->
     <dependency>
       <groupId>org.codehaus.woodstox</groupId>
       <artifactId>woodstox-core-asl</artifactId>
@@ -624,26 +567,26 @@
       <artifactId>jxls-core</artifactId>
       <version>${jxls.version}</version>
     </dependency>
-<!--     <dependency> -->
-<!--       <groupId>com.ibm.icu</groupId> -->
-<!--       <artifactId>icu4j</artifactId> -->
-<!--       <version>${com.ibm.icu.version}</version> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>org.eclipse.birt</groupId> -->
-<!--       <artifactId>coreapi</artifactId> -->
-<!--       <version>${birt.version}</version> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>org.eclipse.birt</groupId> -->
-<!--       <artifactId>modelapi</artifactId> -->
-<!--       <version>${birt.version}</version> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>org.eclipse.birt</groupId> -->
-<!--       <artifactId>engineapi</artifactId> -->
-<!--       <version>${birt.version}</version> -->
-<!--     </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>com.ibm.icu</groupId> -->
+    <!-- <artifactId>icu4j</artifactId> -->
+    <!-- <version>${com.ibm.icu.version}</version> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>org.eclipse.birt</groupId> -->
+    <!-- <artifactId>coreapi</artifactId> -->
+    <!-- <version>${birt.version}</version> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>org.eclipse.birt</groupId> -->
+    <!-- <artifactId>modelapi</artifactId> -->
+    <!-- <version>${birt.version}</version> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>org.eclipse.birt</groupId> -->
+    <!-- <artifactId>engineapi</artifactId> -->
+    <!-- <version>${birt.version}</version> -->
+    <!-- </dependency> -->
 
     <dependency>
       <groupId>jfree</groupId>
@@ -654,6 +597,12 @@
       <groupId>jfree</groupId>
       <artifactId>jfreechart</artifactId>
       <version>${jfreechart.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>jasperreports</groupId>
+        <artifactId>jasperreports</artifactId>
+        <version>3.5.3</version>
     </dependency>
 
     <dependency>
@@ -677,7 +626,42 @@
       <artifactId>struts2-rest-plugin</artifactId>
       <version>${struts2.version}</version>
     </dependency>
-
+    
+    <dependency>
+      <groupId>net.sf.jasperreports</groupId>
+      <artifactId>jasperreports-query</artifactId>
+      <version>1.1.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/jasperreports-query-1.1.0.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>net.mira</groupId>
+      <artifactId>IKAnalyzer.jar</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/IKAnalyzer.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>simple</artifactId>
+      <version>1.1.1</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/json-simple-1.1.1.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>mondian</groupId>
+      <artifactId>mondian</artifactId>
+      <version>3.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/mondrian-3.0.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>jfree</groupId>
+      <artifactId>jcommon-xml</artifactId>
+      <version>1.0.6</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/jcommon-xml-1.0.6.jar</systemPath>
+    </dependency>
   </dependencies>
 
 </project>

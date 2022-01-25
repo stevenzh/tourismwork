@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
 encoding//data/Readme.txt=GBK
-encoding/<project>=UTF-8
+encoding//modules/core/src/main/java/com/opentravelsoft/util/ChineseMoney.java=UTF-8
 encoding/readme_zh.txt=GBK
 instance/org.eclipse.core.net/org.eclipse.core.net.hasMigrated=true

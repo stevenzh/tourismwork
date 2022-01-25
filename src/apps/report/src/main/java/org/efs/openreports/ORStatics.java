@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have reserved a copy of the GNU General Public License
+ * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
@@ -41,6 +41,7 @@ public interface ORStatics
     public static final String QUERY_REPORT_TEMPLATE_ACTION = "queryReportTemplate";
 	public static final String CHART_REPORT_ACTION = "chartReport";
 	public static final String JXLSREPORT_ACTION = "jxlsReport";
+	public static final String JFREEREPORT_RESULT = "jfreeReport";	
     public static final String JPIVOT_ACTION = "jpivot";
 	public static final String SCHEDULE_REPORT_ACTION = "reportSchedule";
 	public static final String NOT_AUTHORIZED = "notauthorized";	

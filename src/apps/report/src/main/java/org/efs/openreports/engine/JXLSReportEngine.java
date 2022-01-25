@@ -11,7 +11,7 @@
  * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
  * more details.
  * 
- * You should have reserved a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  *  
@@ -70,21 +70,24 @@ public class JXLSReportEngine extends ReportEngine
 			// create new HashMap to send to JXLS in order to maintain original map of parameters
 			Map<String,Object> jxlsReportMap = new HashMap<String,Object>(input.getParameters());
 			
-//			if (report.getQuery() != null && report.getQuery().trim().length() > 0)
-//			{
-//				QueryReportEngine queryEngine = new QueryReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);				
-//				
-//				QueryEngineOutput output = (QueryEngineOutput) queryEngine
-//						.generateReport(input);		
-//				
-//				jxlsReportMap.put(ORStatics.JXLS_REPORT_RESULTS, output.getResults());
-//			}
-//			else
-//			{
+			if (report.getQuery() != null && report.getQuery().trim().length() > 0)
+			{
+				QueryReportEngine queryEngine = new QueryReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);				
+				
+				// set ExportType to null so QueryReportEngine just returns a list of results
+				input.setExportType(null);
+				
+				QueryEngineOutput output = (QueryEngineOutput) queryEngine
+						.generateReport(input);		
+				
+				jxlsReportMap.put(ORStatics.JXLS_REPORT_RESULTS, output.getResults());
+			}
+			else
+			{
 				conn = dataSourceProvider.getConnection(report.getDataSource().getId());
 				JXLSReportManagerImpl rm = new JXLSReportManagerImpl(conn, jxlsReportMap, dataSourceProvider);
 				jxlsReportMap.put("rm", rm);
-//			}
+			}
 
 			FileInputStream template = new FileInputStream(directoryProvider
 					.getReportDirectory()

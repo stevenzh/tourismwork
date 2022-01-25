@@ -11,7 +11,7 @@
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
  * details.
  * 
- * You should have reserved a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  *  
@@ -29,8 +29,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.util.JRQueryExecuter;
 
 import org.apache.log4j.Logger;
 import org.efs.openreports.engine.input.ReportEngineInput;
@@ -149,6 +153,19 @@ public class ChartReportEngine extends ReportEngine
 		{
 			ReportDataSource dataSource = reportChart.getDataSource();
 			conn = dataSourceProvider.getConnection(dataSource.getId());
+
+			// Use JasperReports Query logic to parse parameters in chart
+			// queries
+
+			JRDesignQuery query = new JRDesignQuery();
+			query.setText(reportChart.getQuery());
+
+			// convert parameters to JRDesignParameters so they can be parsed
+			Map jrParameters = ORUtil.buildJRDesignParameters(parameters);
+
+			pStmt = JRQueryExecuter.getStatement(query, jrParameters, parameters, conn);
+
+			rs = pStmt.executeQuery();
 
 			ArrayList<ChartValue> list = new ArrayList<ChartValue>();
 

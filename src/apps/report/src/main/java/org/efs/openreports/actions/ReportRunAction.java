@@ -9,7 +9,7 @@
  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See
  * the GNU General Public License for more details.
  * 
- * You should have reserved a copy of the GNU General Public License along with this program; if
+ * You should have received a copy of the GNU General Public License along with this program; if
  * not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
  * 02111-1307, USA.
  *  
@@ -26,6 +26,10 @@ import java.util.Map;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import net.sf.jasperreports.engine.JRParameter;
+import net.sf.jasperreports.engine.JRVirtualizer;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.fill.JRFileVirtualizer;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
@@ -33,6 +37,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import org.efs.openreports.ORStatics;
 import org.efs.openreports.ReportConstants.ExportType;
 import org.efs.openreports.engine.ChartReportEngine;
+import org.efs.openreports.engine.JasperReportEngine;
 import org.efs.openreports.engine.ReportEngine;
 import org.efs.openreports.engine.ReportEngineHelper;
 import org.efs.openreports.engine.input.ReportEngineInput;
@@ -47,191 +52,252 @@ import org.efs.openreports.providers.PropertiesProvider;
 import org.efs.openreports.providers.ReportLogProvider;
 import org.efs.openreports.util.LocalStrings;
 
-public class ReportRunAction extends ActionSupport implements SessionAware {
-  private static final long serialVersionUID = 7473180642590984527L;
+public class ReportRunAction extends ActionSupport implements SessionAware
+{	
+	private static final long serialVersionUID = 7473180642590984527L;
 
-  protected static Logger log = Logger.getLogger(ReportRunAction.class);
+	protected static Logger log = Logger.getLogger(ReportRunAction.class);
+	
+	private Map<Object,Object> session;
+	
+	private ReportLogProvider reportLogProvider;
+	private DirectoryProvider directoryProvider;
+	private DataSourceProvider dataSourceProvider;
+	private PropertiesProvider propertiesProvider;		
 
-  private Map<Object, Object> session;
+	public String execute()
+	{		
+		ReportUser user =
+			(ReportUser) ActionContext.getContext().getSession().get(ORStatics.REPORT_USER);
 
-  private ReportLogProvider reportLogProvider;
-  private DirectoryProvider directoryProvider;
-  private DataSourceProvider dataSourceProvider;
-  private PropertiesProvider propertiesProvider;
+		Report report = (Report) ActionContext.getContext().getSession().get(ORStatics.REPORT);
 
-  public String execute() {
-    ReportUser user = (ReportUser) ActionContext.getContext().getSession()
-        .get(ORStatics.REPORT_USER);
+		int exportTypeCode =
+			Integer.parseInt(
+				(String) ActionContext.getContext().getSession().get(ORStatics.EXPORT_TYPE));
+		
+		ExportType exportType = ExportType.findByCode(exportTypeCode);
 
-    Report report = (Report) ActionContext.getContext().getSession()
-        .get(ORStatics.REPORT);
+		Map<String, Object> reportParameters = getReportParameterMap(user, report, exportType);
+		Map imagesMap = getImagesMap();
 
-    int exportTypeCode = Integer.parseInt((String) ActionContext.getContext()
-        .getSession().get(ORStatics.EXPORT_TYPE));
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpServletResponse response = ServletActionContext.getResponse();
 
-    ExportType exportType = ExportType.findByCode(exportTypeCode);
+		// set headers to disable caching		
+		response.setHeader("Pragma", "public");
+		response.setHeader("Cache-Control", "max-age=0");
 
-    Map<String, Object> reportParameters = getReportParameterMap(user, report,
-        exportType);
-    Map imagesMap = getImagesMap();
+		ReportLog reportLog = new ReportLog(user, report, new Date());
+        reportLog.setExportType(exportType.getCode());
+		
+		JRVirtualizer virtualizer = null;
 
-    HttpServletRequest request = ServletActionContext.getRequest();
-    HttpServletResponse response = ServletActionContext.getResponse();
+		try
+		{
+			if (exportType == ExportType.PDF)				
+			{
+				// Handle "contype" request from Internet Explorer
+				if ("contype".equals(request.getHeader("User-Agent"))) 
+				{					
+	                response.setContentType("application/pdf");	            
+	                response.setContentLength(0);               
+	                
+	                ServletOutputStream outputStream = response.getOutputStream();
+	                outputStream.close();	    
+	                
+	                return NONE;
+				}
+			}			
+							
+			log.debug("Filling report: " + report.getName());
+			
+			reportLogProvider.insertReportLog(reportLog);						
 
-    // set headers to disable caching
-    response.setHeader("Pragma", "public");
-    response.setHeader("Cache-Control", "max-age=0");
+			if (report.isVirtualizationEnabled() && exportType != ExportType.IMAGE)
+			{
+				log.debug("Virtualization Enabled");
+				virtualizer = new JRFileVirtualizer(2, directoryProvider.getTempDirectory());
+				reportParameters.put(JRParameter.REPORT_VIRTUALIZER, virtualizer);
+			}
 
-    ReportLog reportLog = new ReportLog(user, report, new Date());
-    reportLog.setExportType(exportType.getCode());
+			ReportEngineInput reportInput = new ReportEngineInput(report, reportParameters);
+			reportInput.setExportType(exportType);
+			reportInput.setImagesMap(imagesMap);
 
-    try {
-      if (exportType == ExportType.PDF) {
-        // Handle "contype" request from Internet Explorer
-        if ("contype".equals(request.getHeader("User-Agent"))) {
-          response.setContentType("application/pdf");
-          response.setContentLength(0);
+			// add any charts
+			if (report.getReportChart() != null)
+			{
+				log.debug("Adding chart: " + report.getReportChart().getName());
 
-          ServletOutputStream outputStream = response.getOutputStream();
-          outputStream.close();
+				ChartReportEngine chartEngine = new ChartReportEngine(dataSourceProvider,
+						directoryProvider, propertiesProvider);
+				
+				ChartEngineOutput chartOutput = (ChartEngineOutput) chartEngine
+						.generateReport(reportInput);
 
-          return NONE;
-        }
-      }
+				reportParameters.put("ChartImage", chartOutput.getContent());
+			}
+			
+			ReportEngineOutput reportOutput = null;
+			JasperPrint jasperPrint = null;
+			
+			if (report.isJasperReport())
+			{
+				JasperReportEngine jasperEngine = new JasperReportEngine(
+						dataSourceProvider, directoryProvider, propertiesProvider);
+				
+				jasperPrint = jasperEngine.fillReport(reportInput);
 
-      log.debug("Filling report: " + report.getName());
+				log.debug("Report filled - " + report.getName() + " : size = "
+						+ jasperPrint.getPages().size());
 
-      reportLogProvider.insertReportLog(reportLog);
+				log.debug("Exporting report: " + report.getName());
 
-      ReportEngineInput reportInput = new ReportEngineInput(report,
-          reportParameters);
-      reportInput.setExportType(exportType);
-      reportInput.setImagesMap(imagesMap);
+				reportOutput = jasperEngine.exportReport(jasperPrint, exportType, report
+						.getReportExportOption(), imagesMap, false);
+			}
+			else
+			{
+				ReportEngine reportEngine = ReportEngineHelper.getReportEngine(report, dataSourceProvider, directoryProvider, propertiesProvider);
+				reportOutput = reportEngine.generateReport(reportInput);
+			}
+			
+			response.setContentType(reportOutput.getContentType());
+			
+			if (exportType != ExportType.HTML && exportType != ExportType.IMAGE)
+			{
+				response.setHeader("Content-disposition", "inline; filename="
+						+ StringUtils.deleteWhitespace(report.getName()) + reportOutput.getContentExtension());
+			}			
+			
+			if (exportType == ExportType.IMAGE)
+			{
+				if (jasperPrint != null)
+				{					
+					session.put(ORStatics.JASPERPRINT, jasperPrint);
+				}
+			}
+			else
+			{				
+				byte[] content = reportOutput.getContent();
+				
+				response.setContentLength(content.length);
+				
+				ServletOutputStream out = response.getOutputStream();
+				out.write(content, 0, content.length);
+				out.flush();
+				out.close();				
+			}
 
-      // add any charts
-      if (report.getReportChart() != null) {
-        log.debug("Adding chart: " + report.getReportChart().getName());
+			reportLog.setEndTime(new Date());
+			reportLog.setStatus(ReportLog.STATUS_SUCCESS);
+			reportLogProvider.updateReportLog(reportLog);			
 
-        ChartReportEngine chartEngine = new ChartReportEngine(
-            dataSourceProvider, directoryProvider, propertiesProvider);
+			log.debug("Finished report: " + report.getName());
+		}
+		catch (Exception e)
+		{
+			if (e.getMessage() != null && e.getMessage().equals(LocalStrings.ERROR_REPORT_EMPTY))
+			{				
+				reportLog.setStatus(ReportLog.STATUS_EMPTY);
+			}
+			else
+			{				
+				log.error(e.getMessage());
 
-        ChartEngineOutput chartOutput = (ChartEngineOutput) chartEngine
-            .generateReport(reportInput);
+				reportLog.setMessage(e.getMessage());
+				reportLog.setStatus(ReportLog.STATUS_FAILURE);
+			}
+            
+            addActionError(getText(e.getMessage()));
 
-        reportParameters.put("ChartImage", chartOutput.getContent());
-      }
+			reportLog.setEndTime(new Date());
 
-      ReportEngineOutput reportOutput = null;
+			try
+			{
+				reportLogProvider.updateReportLog(reportLog);
+			}
+			catch (Exception ex)
+			{
+				log.error("Unable to create ReportLog: " + ex.getMessage());
+			}			
+			
+			return ERROR;
+		}
+		finally
+		{
+			if (virtualizer != null)
+			{
+				reportParameters.remove(JRParameter.REPORT_VIRTUALIZER);			
+				virtualizer.cleanup();
+			}
+		}		
+		
+		if (exportType == ExportType.IMAGE) return SUCCESS;
+		
+		return NONE;
+	}
 
-      ReportEngine reportEngine = ReportEngineHelper.getReportEngine(report,
-          dataSourceProvider, directoryProvider, propertiesProvider);
-      reportOutput = reportEngine.generateReport(reportInput);
+	@SuppressWarnings("unchecked")
+	protected Map<String,Object> getReportParameterMap(ReportUser user, Report report, ExportType exportType)
+	{
+		Map<String,Object> reportParameters = new HashMap<String,Object>();
+		
+		if (ActionContext.getContext().getSession().get(ORStatics.REPORT_PARAMETERS) != null)
+		{
+			reportParameters =
+				(Map) ActionContext.getContext().getSession().get(ORStatics.REPORT_PARAMETERS);
+		}
+		
+		reportParameters.put(ORStatics.IMAGE_DIR, new File(directoryProvider.getReportImageDirectory()));		
+		reportParameters.put(ORStatics.REPORT_DIR, new File(directoryProvider.getReportDirectory()));		
+		reportParameters.put(ORStatics.EXPORT_TYPE_PARAM, new Integer(exportType.getCode()));
 
-      response.setContentType(reportOutput.getContentType());
+		return reportParameters;
+	}
 
-      if (exportType != ExportType.HTML) {
-        response.setHeader(
-            "Content-disposition",
-            "inline; filename="
-                + StringUtils.deleteWhitespace(report.getName())
-                + reportOutput.getContentExtension());
-      }
+	protected Map getImagesMap()
+	{
+		// used by JasperReports HTML export
+		// see ImageLoaderAction for more information
+		Map imagesMap = null;
+		if (ActionContext.getContext().getSession().get(ORStatics.IMAGES_MAP) != null)
+		{
+			imagesMap = (Map) ActionContext.getContext().getSession().get(ORStatics.IMAGES_MAP);
+		}
+		else
+		{
+			imagesMap = new HashMap();
+			session.put(ORStatics.IMAGES_MAP, imagesMap);
+		}
 
-      byte[] content = reportOutput.getContent();
+		return imagesMap;
+	}	
 
-      response.setContentLength(content.length);
+	@SuppressWarnings("unchecked")
+	public void setSession(Map session) 
+	{
+		this.session = session;
+	}
 
-      ServletOutputStream out = response.getOutputStream();
-      out.write(content, 0, content.length);
-      out.flush();
-      out.close();
+	public void setReportLogProvider(ReportLogProvider reportLogProvider)
+	{
+		this.reportLogProvider = reportLogProvider;
+	}
 
-      reportLog.setEndTime(new Date());
-      reportLog.setStatus(ReportLog.STATUS_SUCCESS);
-      reportLogProvider.updateReportLog(reportLog);
+	public void setDirectoryProvider(DirectoryProvider directoryProvider)
+	{
+		this.directoryProvider = directoryProvider;
+	}		
 
-      log.debug("Finished report: " + report.getName());
-    } catch (Exception e) {
-      if (e.getMessage() != null
-          && e.getMessage().equals(LocalStrings.ERROR_REPORT_EMPTY)) {
-        reportLog.setStatus(ReportLog.STATUS_EMPTY);
-      } else {
-        log.error(e.getMessage());
+	public void setDataSourceProvider(DataSourceProvider dataSourceProvider)
+	{
+		this.dataSourceProvider = dataSourceProvider;
+	}
 
-        reportLog.setMessage(e.getMessage());
-        reportLog.setStatus(ReportLog.STATUS_FAILURE);
-      }
-
-      addActionError(getText(e.getMessage()));
-
-      reportLog.setEndTime(new Date());
-
-      try {
-        reportLogProvider.updateReportLog(reportLog);
-      } catch (Exception ex) {
-        log.error("Unable to create ReportLog: " + ex.getMessage());
-      }
-
-      return ERROR;
-    }
-
-    return NONE;
-  }
-
-  @SuppressWarnings("unchecked")
-  protected Map<String, Object> getReportParameterMap(ReportUser user,
-      Report report, ExportType exportType) {
-    Map<String, Object> reportParameters = new HashMap<String, Object>();
-
-    if (ActionContext.getContext().getSession()
-        .get(ORStatics.REPORT_PARAMETERS) != null) {
-      reportParameters = (Map) ActionContext.getContext().getSession()
-          .get(ORStatics.REPORT_PARAMETERS);
-    }
-
-    reportParameters.put(ORStatics.IMAGE_DIR,
-        new File(directoryProvider.getReportImageDirectory()));
-    reportParameters.put(ORStatics.REPORT_DIR,
-        new File(directoryProvider.getReportDirectory()));
-    reportParameters.put(ORStatics.EXPORT_TYPE_PARAM,
-        new Integer(exportType.getCode()));
-
-    return reportParameters;
-  }
-
-  protected Map getImagesMap() {
-    // used by JasperReports HTML export
-    // see ImageLoaderAction for more information
-    Map imagesMap = null;
-    if (ActionContext.getContext().getSession().get(ORStatics.IMAGES_MAP) != null) {
-      imagesMap = (Map) ActionContext.getContext().getSession()
-          .get(ORStatics.IMAGES_MAP);
-    } else {
-      imagesMap = new HashMap();
-      session.put(ORStatics.IMAGES_MAP, imagesMap);
-    }
-
-    return imagesMap;
-  }
-
-  @SuppressWarnings("unchecked")
-  public void setSession(Map session) {
-    this.session = session;
-  }
-
-  public void setReportLogProvider(ReportLogProvider reportLogProvider) {
-    this.reportLogProvider = reportLogProvider;
-  }
-
-  public void setDirectoryProvider(DirectoryProvider directoryProvider) {
-    this.directoryProvider = directoryProvider;
-  }
-
-  public void setDataSourceProvider(DataSourceProvider dataSourceProvider) {
-    this.dataSourceProvider = dataSourceProvider;
-  }
-
-  public void setPropertiesProvider(PropertiesProvider propertiesProvider) {
-    this.propertiesProvider = propertiesProvider;
-  }
+	public void setPropertiesProvider(PropertiesProvider propertiesProvider)
+	{
+		this.propertiesProvider = propertiesProvider;
+	}
 }

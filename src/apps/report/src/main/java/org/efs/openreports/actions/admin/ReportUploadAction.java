@@ -11,7 +11,7 @@
  * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
  * more details.
  * 
- * You should have reserved a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  *  
@@ -25,6 +25,10 @@ import java.util.List;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.design.JRJdtCompiler;
+import net.sf.jasperreports.engine.util.JRProperties;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
@@ -82,6 +86,40 @@ public class ReportUploadAction extends ActionSupport
                         addActionError(ioe.toString());
                         return SUCCESS;
                     }
+					
+                    if ((reportFileFileName.endsWith(".xml")) || (reportFileFileName.endsWith(".jrxml")))
+					{
+						try
+						{
+							System.setProperty(JRProperties.COMPILER_CLASS, JRJdtCompiler.class.getName());
+							JRProperties.setProperty(JRProperties.COMPILER_CLASS, JRJdtCompiler.class.getName());
+								
+							JasperCompileManager.compileReportToFile(destinationFile.getAbsolutePath());
+						}
+						catch (Exception e)
+						{
+							if (e.toString().indexOf("groovy") > -1)
+							{
+							    try
+								{
+									System.setProperty(JRProperties.COMPILER_CLASS,"net.sf.jasperreports.compilers.JRGroovyCompiler" );
+									JRProperties.setProperty(JRProperties.COMPILER_CLASS,"net.sf.jasperreports.compilers.JRGroovyCompiler");
+					                   
+					                JasperCompileManager.compileReportToFile(destinationFile.getAbsolutePath());
+								}
+								catch(Exception ex)
+								{
+									log.error("Failed to compile report: " + reportFileFileName, e);
+									addActionError("Failed to compile report: " + e.toString());
+								}
+							}
+							else
+							{								
+								log.error("Failed to compile report: " + reportFileFileName, e);
+								addActionError("Failed to compile report: " + e.toString());
+							}
+						}
+					}
 				}
                 else
                 {

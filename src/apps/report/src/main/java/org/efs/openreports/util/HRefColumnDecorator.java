@@ -11,7 +11,7 @@
  * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
  * more details.
  * 
- * You should have reserved a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  *  
@@ -63,5 +63,17 @@ public class HRefColumnDecorator extends TableDecorator implements LocaleProvide
 	public Object getUsersLink()
 	{
 		return textProvider.getText(LocalStrings.LINK_USERS);	
-	}	
+	}
+
+    @Override
+    public boolean isValidLocale(Locale arg0) {
+      // TODO Auto-generated method stub
+      return false;
+    }
+  
+    @Override
+    public boolean isValidLocaleString(String arg0) {
+      // TODO Auto-generated method stub
+      return false;
+    }	
 }

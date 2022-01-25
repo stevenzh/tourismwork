@@ -11,7 +11,7 @@
  * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
  * more details.
  * 
- * You should have reserved a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  *  
@@ -67,14 +67,14 @@ public class VelocityReportEngine extends ReportEngine
              * if report has a query, process it like a QueryReport and 
              * put the results in the VelocityContext for use in templates
              */
-//            if (report.getQuery() != null && report.getQuery().trim().length() > 0)
-//            {
-//                QueryReportEngine queryReport = new QueryReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);
-//                QueryEngineOutput queryOutput = (QueryEngineOutput) queryReport.generateReport(input);
-//                
-//                context.put("results", queryOutput.getResults());
-//                context.put("properties", queryOutput.getProperties());
-//            }
+            if (report.getQuery() != null && report.getQuery().trim().length() > 0)
+            {
+                QueryReportEngine queryReport = new QueryReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);
+                QueryEngineOutput queryOutput = (QueryEngineOutput) queryReport.generateReport(input);
+                
+                context.put("results", queryOutput.getResults());
+                context.put("properties", queryOutput.getProperties());
+            }
            
             StringWriter writer = new StringWriter();
             

@@ -11,7 +11,7 @@
  * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
  * more details.
  * 
- * You should have reserved a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  *  
@@ -31,6 +31,10 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+
+import net.sf.jasperreports.engine.design.JRDesignParameter;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.util.JRQueryExecuter;
 
 public class ParameterProviderImpl implements ParameterProvider
 {
@@ -168,7 +172,24 @@ public class ParameterProviderImpl implements ParameterProvider
 				pStmt = conn.prepareStatement(param.getData());				
 			}
 			else
-			{}
+			{
+				// Use JasperReports Query logic to parse parameters in chart
+				// queries
+
+				JRDesignQuery query = new JRDesignQuery();
+				query.setText(param.getData());
+
+				// convert parameters to JRDesignParameters so they can be
+				// parsed
+				Map<String,JRDesignParameter> jrParameters = ORUtil.buildJRDesignParameters(parameters);
+
+				pStmt =
+					JRQueryExecuter.getStatement(
+						query,
+						jrParameters,
+						parameters,
+						conn);
+			}
 			
 			rs = pStmt.executeQuery();
 
@@ -509,7 +530,7 @@ public class ParameterProviderImpl implements ParameterProvider
 
 			if (j > 0)
 			{
-				sb.append(',');
+				sb.append(",");
 			}
 			
 			if (reportParameter.getClassName().equals("java.lang.String"))

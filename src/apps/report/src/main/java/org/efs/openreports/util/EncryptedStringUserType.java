@@ -11,7 +11,7 @@
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
  * details.
  * 
- * You should have reserved a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  *  
@@ -89,7 +89,7 @@ public class EncryptedStringUserType implements UserType
 		}
 		else
 		{
-			Hibernate.STRING.nullSafeSet(pStmt, String.valueOf(value), index);
+			Hibernate.STRING.nullSafeSet(pStmt, value, index);
 		}
 	}
 

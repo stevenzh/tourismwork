@@ -11,7 +11,7 @@
  * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
  * more details.
  * 
- * You should have reserved a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  *  
@@ -52,7 +52,7 @@ public class ReportConstants
 	 * Report export types. int code is used to support legacy export types persisted or serialized
 	 * as integers in ReportSchedule and ReportLog objects
 	 */
-	public enum ExportType {PDF(0), XLS(1), HTML(2), CSV(3), RTF(5), TEXT(6), EXCEL(7), HTML_EMBEDDED(8), XML(9);
+	public enum ExportType {PDF(0), XLS(1), HTML(2), CSV(3), IMAGE(4), RTF(5), TEXT(6), EXCEL(7), HTML_EMBEDDED(8), XML(9);
 
 		private final int code;
 

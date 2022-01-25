@@ -11,7 +11,7 @@
  * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
  * more details.
  * 
- * You should have reserved a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  *  
@@ -59,6 +59,7 @@ public class EditReportAction extends ActionSupport
 	private boolean rtfExportEnabled;
 	private boolean textExportEnabled;
 	private boolean excelExportEnabled;
+	private boolean imageExportEnabled;
 	private boolean virtual;
 	private boolean hidden;
 	
@@ -101,6 +102,7 @@ public class EditReportAction extends ActionSupport
 				rtfExportEnabled = report.isRtfExportEnabled();
 				textExportEnabled = report.isTextExportEnabled();
 				excelExportEnabled = report.isExcelExportEnabled();
+				imageExportEnabled = report.isImageExportEnabled();
 				virtual = report.isVirtualizationEnabled();
 				hidden = report.isHidden();
 				if (report.getDataSource() != null)
@@ -145,6 +147,7 @@ public class EditReportAction extends ActionSupport
 			report.setRtfExportEnabled(new Boolean(rtfExportEnabled));
 			report.setTextExportEnabled(new Boolean(textExportEnabled));
 			report.setExcelExportEnabled(new Boolean(excelExportEnabled));
+			report.setImageExportEnabled(new Boolean(imageExportEnabled));
 			report.setVirtualizationEnabled(new Boolean(virtual));
 			report.setHidden(new Boolean(hidden));
 			
@@ -499,6 +502,16 @@ public class EditReportAction extends ActionSupport
 	public void setRtfExportEnabled(boolean rtfExportEnabled)
 	{
 		this.rtfExportEnabled = rtfExportEnabled;
+	}
+
+	public boolean isImageExportEnabled()
+	{
+		return imageExportEnabled;
+	}
+
+	public void setImageExportEnabled(boolean imageExportEnabled)
+	{
+		this.imageExportEnabled = imageExportEnabled;
 	}
 	
 	public boolean isTextExportEnabled()

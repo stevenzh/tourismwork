@@ -11,7 +11,7 @@
  * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
  * more details.
  * 
- * You should have reserved a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  *  
@@ -24,7 +24,7 @@ import java.util.*;
 
 public class Report implements Comparable<Report>, Serializable
 {
-	private static final long serialVersionUID = 4068258161793785996L;
+	private static final long serialVersionUID = 4068258161793785996l;
 
 	private Integer id;
 
@@ -56,6 +56,8 @@ public class Report implements Comparable<Report>, Serializable
 
 	private boolean excelExportEnabled;
 	
+	private boolean imageExportEnabled;
+	
 	private boolean virtualizationEnabled;
 	
 	private boolean hidden;
@@ -75,6 +77,13 @@ public class Report implements Comparable<Report>, Serializable
 		return false;
 	}
 
+	public boolean isJasperReport()
+	{
+		if (file != null && file.endsWith("jasper")) return true;
+		
+		return false;
+	}
+	
 	public boolean isQueryReport()
 	{
 		if (query != null && query.length() > 0 && !file.endsWith("xls") && !file.endsWith("xml") && !file.endsWith("vm"))
@@ -89,6 +98,16 @@ public class Report implements Comparable<Report>, Serializable
 	{
 		if ((query == null || query.trim().length() < 1)
 				&& (file == null || file.equals("-1")) && reportChart != null)
+		{
+			return true;
+		}
+
+		return false;
+	}
+	
+	public boolean isJFreeReport()
+	{
+		if (query != null && query.length() > 0 && file != null && file.endsWith("xml") && !isJPivotReport())
 		{
 			return true;
 		}
@@ -341,6 +360,17 @@ public class Report implements Comparable<Report>, Serializable
 		this.textExportEnabled = textExportEnabled.booleanValue();
 	}
 	
+	public boolean isImageExportEnabled()
+	{
+		return imageExportEnabled;
+	}
+
+	public void setImageExportEnabled(Boolean imageExportEnabled)
+	{
+		if (imageExportEnabled == null) imageExportEnabled = new Boolean(false);
+		this.imageExportEnabled = imageExportEnabled.booleanValue();
+	}
+
 	public ReportExportOption getReportExportOption()
 	{
 		if (reportExportOption == null) reportExportOption = new ReportExportOption();

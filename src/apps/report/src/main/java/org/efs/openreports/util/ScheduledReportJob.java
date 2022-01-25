@@ -11,7 +11,7 @@
  * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
  * more details.
  * 
- * You should have reserved a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  *  
@@ -24,7 +24,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
+import net.sf.jasperreports.engine.JRParameter;
+import net.sf.jasperreports.engine.JRVirtualizer;
+import net.sf.jasperreports.engine.fill.JRFileVirtualizer;
 import org.apache.log4j.Logger;
 import org.efs.openreports.ORStatics;
 import org.efs.openreports.ReportConstants.ExportType;
@@ -91,6 +93,8 @@ public class ScheduledReportJob	implements Job
 
 		log.debug("Report: " + report.getName());
 		log.debug("User: " + user.getName());		
+
+		JRVirtualizer virtualizer = null;
        		
 		ReportLog reportLog = new ReportLog(user, report, new Date());
         reportLog.setExportType(reportSchedule.getExportType());
@@ -132,6 +136,32 @@ public class ScheduledReportJob	implements Job
 			reportInput.setExportType(ExportType.findByCode(reportSchedule.getExportType()));
             reportInput.setXmlInput(reportSchedule.getXmlInput());
             reportInput.setLocale(reportSchedule.getLocale());
+			
+			if (report.isJasperReport())
+			{
+				// add any charts
+				if (report.getReportChart() != null)
+				{
+					log.debug("Adding chart: " + report.getReportChart().getName());
+				
+					ChartReportEngine chartEngine = new ChartReportEngine(
+							dataSourceProvider, directoryProvider, propertiesProvider);
+					
+					ChartEngineOutput chartOutput = (ChartEngineOutput) chartEngine.generateReport(reportInput);
+				
+					reportParameters.put("ChartImage", chartOutput.getContent());				
+				}
+
+				if (report.isVirtualizationEnabled())
+				{
+					log.debug("Virtualization Enabled");
+					virtualizer = new JRFileVirtualizer(2, directoryProvider.getTempDirectory());
+					reportParameters.put(JRParameter.REPORT_VIRTUALIZER, virtualizer);
+				}
+				
+				reportInput.setParameters(reportParameters);
+				reportInput.setInlineImages(true);				
+			}
 			
 			ReportEngine reportEngine = ReportEngineHelper.getReportEngine(report,
 					dataSourceProvider, directoryProvider, propertiesProvider);	
@@ -213,7 +243,13 @@ public class ScheduledReportJob	implements Job
 			}			
 		}
 		finally
-		{}	
+		{
+			if (virtualizer != null)
+			{
+				reportParameters.remove(JRParameter.REPORT_VIRTUALIZER);			
+				virtualizer.cleanup();
+			}          
+		}	
 		
 		// execute all callbacks after the job is finished processing
 		executeCallbacks(reportLog);

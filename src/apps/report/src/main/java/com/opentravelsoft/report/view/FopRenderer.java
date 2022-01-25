@@ -60,15 +60,15 @@ public class FopRenderer {
 
       } catch (TransformerException e) {
         logger.error("FOP transform failed:", e);
-        throw new ORException("Unable to transform FO to PDF", e);
+        throw new ORException("Unable to transform FO to PDF");
       }
 
     } catch (TransformerConfigurationException e) {
       logger.error("FOP TransformerConfiguration Exception ", e);
-      throw new ORException("Transformer Configuration Error", e);
+      throw new ORException("Transformer Configuration Error");
     } catch (FOPException e) {
       logger.error("FOP Exception ", e);
-      throw new ORException("FOP Error", e);
+      throw new ORException("FOP Error");
     }
   }
 }

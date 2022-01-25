@@ -11,7 +11,7 @@
  * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
  * more details.
  * 
- * You should have reserved a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  *  
@@ -31,9 +31,33 @@ import org.efs.openreports.objects.ReportParameterMap;
 import org.efs.openreports.objects.ReportUser;
 import org.efs.openreports.providers.ParameterProvider;
 
+import net.sf.jasperreports.engine.design.JRDesignParameter;
 
 public class ORUtil
 {
+	public static Map<String,JRDesignParameter> buildJRDesignParameters(Map<String,Object> parameters)
+	{
+		// convert parameters to JRDesignParameters so they can be parsed
+		HashMap<String,JRDesignParameter> jrParameters = new HashMap<String,JRDesignParameter>();
+
+		Iterator<String> iterator = parameters.keySet().iterator();
+		while (iterator.hasNext())
+		{
+			String key = iterator.next();
+			Object value = parameters.get(key);
+			
+			if (value != null)
+			{
+				JRDesignParameter jrParameter = new JRDesignParameter();
+				jrParameter.setName(key);
+				jrParameter.setValueClass(value.getClass());
+				
+				jrParameters.put(jrParameter.getName(), jrParameter);
+			}			
+		}
+
+		return jrParameters;
+	}
 	
 	/*
 	 * Build map containing the parameter name and a test value in order to validate

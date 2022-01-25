@@ -11,7 +11,7 @@
  * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
  * more details.
  * 
- * You should have reserved a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  *  
@@ -51,14 +51,22 @@ public class ReportEngineHelper
 		{
 			reportEngine = new JXLSReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);						
 		}
+//		else if (report.isJFreeReport())
+//		{
+//			reportEngine = new JFreeReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);					
+//		}
 //		else if (report.isBirtReport())
 //		{
 //			reportEngine = new BirtReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);						
 //		}
-//		else if (report.isQueryReport())
-//		{
-//			reportEngine = new QueryReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);			
-//		}
+		else if (report.isJasperReport())
+		{
+			reportEngine = new JasperReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);						
+		}
+		else if (report.isQueryReport())
+		{
+			reportEngine = new QueryReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);			
+		}
         else if (report.isVelocityReport())
         {
             reportEngine = new VelocityReportEngine(dataSourceProvider, directoryProvider, propertiesProvider);
