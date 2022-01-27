@@ -59,7 +59,7 @@
     <commons-pool.version>1.4</commons-pool.version>
     <commons-dbcp.version>1.4</commons-dbcp.version>
     <commons-httpclient.version>3.0</commons-httpclient.version>
-    <commons-io.version>1.4</commons-io.version>
+    <commons-io.version>2.7</commons-io.version>
     <commons-fileupload.version>1.4</commons-fileupload.version>
     <log4j.version>1.2.15</log4j.version>
     <aopalliance.version>1.0</aopalliance.version>
