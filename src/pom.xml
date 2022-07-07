@@ -59,7 +59,7 @@
     <birt.version>2.3.2</birt.version>
     <jstl.version>1.2</jstl.version>
     <itext.version>2.1.0</itext.version>
-    <cxf.version>2.3.3</cxf.version>
+    <cxf.version>2.6.11</cxf.version>
     <jmock.version>2.5.1</jmock.version>
     <wiser.version>1.2</wiser.version>
     <jackson.version>1.2.1</jackson.version>
