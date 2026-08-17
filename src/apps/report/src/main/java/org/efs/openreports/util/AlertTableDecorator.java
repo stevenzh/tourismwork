@@ -56,16 +56,4 @@ public class AlertTableDecorator extends TableDecorator implements LocaleProvide
         if (userAlert.isTriggered()) return textProvider.getText(LocalStrings.ALERT_PASSED);
         return textProvider.getText(LocalStrings.ALERT_FAILED);
     }
-
-    @Override
-    public boolean isValidLocale(Locale arg0) {
-      // TODO Auto-generated method stub
-      return false;
-    }
-
-    @Override
-    public boolean isValidLocaleString(String arg0) {
-      // TODO Auto-generated method stub
-      return false;
-    }
 }

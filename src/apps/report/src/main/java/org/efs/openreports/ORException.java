@@ -35,7 +35,10 @@ public class ORException extends Exception
 		super(exception.getMessage());
 		this.exception = exception;
 	}
-
+    public ORException(String message, Exception exception)
+    {
+        super(message, exception);
+    }
 	public Exception getException()
 	{
 		return exception;

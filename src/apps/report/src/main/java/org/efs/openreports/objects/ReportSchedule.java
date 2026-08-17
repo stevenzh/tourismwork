@@ -24,7 +24,7 @@ import java.util.*;
 
 public class ReportSchedule implements Serializable
 {
-	private static final long serialVersionUID = -679355847466582944l;
+	private static final long serialVersionUID = -679355847466582944L;
 	
 	public static final int ONCE = 0;
 	public static final int DAILY = 1;

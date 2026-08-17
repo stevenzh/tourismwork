@@ -68,7 +68,7 @@ public class SchedulerProviderImpl implements SchedulerProvider
 			{
 				cronExpression.append("0 ");
 				cronExpression.append(reportSchedule.getStartMinute());
-				cronExpression.append(" ");
+				cronExpression.append(' ');
 				cronExpression.append(reportSchedule.getAbsoluteStartHour());
 
 				if (reportSchedule.getScheduleType() == ReportSchedule.HOURLY)

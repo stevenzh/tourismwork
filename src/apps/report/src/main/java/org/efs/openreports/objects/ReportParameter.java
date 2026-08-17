@@ -23,7 +23,7 @@ import java.io.Serializable;
 
 public class ReportParameter implements Serializable
 {
-	private static final long serialVersionUID = 667082979233371385l;
+	private static final long serialVersionUID = 667082979233371385L;
 
 	public static String[] TYPES =
 		new String[] { "Date", "List", "Query", "Text", "SubReport","Boolean" };

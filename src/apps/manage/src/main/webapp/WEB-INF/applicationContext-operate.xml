@@ -1,96 +1,99 @@
-<?xml version="1.0" ?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
-<beans default-autowire="byType">
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <beans default-autowire="byType">
 
-  <bean id="OperatorTasksAction" class="com.opentravelsoft.action.manage.operate.OperatorTaskAction" singleton="false">
-  </bean>
+    <bean id="OperatorTasksAction" class="com.opentravelsoft.action.manage.operate.OperatorTaskAction" singleton="false">
+    </bean>
 
-  <bean id="OperatorRunPlanAction" class="com.opentravelsoft.action.manage.operate.TourAlertAction" singleton="false">
-  </bean>
+    <bean id="OperatorRunPlanAction" class="com.opentravelsoft.action.manage.operate.TourAlertAction" singleton="false">
+    </bean>
 
-  <bean id="TourBalanceAction" class="com.opentravelsoft.action.manage.operate.TourBalanceAction" singleton="false">
-  </bean>
+    <bean id="TourBalanceAction" class="com.opentravelsoft.action.manage.operate.TourBalanceAction" singleton="false">
+    </bean>
 
-  <bean id="TGAPrintAction" class="com.opentravelsoft.action.manage.operate.TSearchPrintAction" singleton="false">
-  </bean>
+    <bean id="TGAPrintAction" class="com.opentravelsoft.action.manage.operate.TSearchPrintAction" singleton="false">
+    </bean>
 
-  <!-- ＯＰ预警 -->
-  <bean id="OperatorAlertAction" class="com.opentravelsoft.action.manage.order.OrderAlertAction" singleton="false">
-  </bean>
+    <!-- ＯＰ预警 -->
+    <bean id="OperatorAlertAction" class="com.opentravelsoft.action.manage.order.OrderAlertAction" singleton="false">
+    </bean>
 
 
-  <bean id="SalesPlanSearchAction" class="com.opentravelsoft.action.manage.order.PlanSearchAction" singleton="false">
-  </bean>
+    <bean id="SalesPlanSearchAction" class="com.opentravelsoft.action.manage.order.PlanSearchAction" singleton="false">
+    </bean>
 
-  <bean id="TourPlan" class="com.opentravelsoft.action.manage.operate.TourPlanAction" singleton="false">
-  </bean>
+    <bean id="TourPlan" class="com.opentravelsoft.action.manage.operate.TourPlanAction" singleton="false">
+    </bean>
 
-  <!-- Edit Plan -->
-  <bean id="EditTourPlan" class="com.opentravelsoft.action.manage.operate.EditPlanAction" singleton="false">
-  </bean>
+    <!-- Edit Plan -->
+    <bean id="EditTourPlan" class="com.opentravelsoft.action.manage.operate.EditPlanAction" singleton="false">
+    </bean>
 
-  <!-- Show Plan Booking-->
-  <bean id="PlanBooking" class="com.opentravelsoft.action.manage.operate.PlanBookingAction" singleton="false">
-  </bean>
+    <!-- Show Plan Booking -->
+    <bean id="PlanBooking" class="com.opentravelsoft.action.manage.operate.PlanBookingAction" singleton="false">
+    </bean>
 
-  <bean id="TouristInfo" class="com.opentravelsoft.action.manage.operate.TouristInfoAction" singleton="false">
-  </bean>
+    <bean id="TouristInfo" class="com.opentravelsoft.action.manage.operate.TouristInfoAction" singleton="false">
+    </bean>
 
-  <!-- TourUnite -->
-  <bean id="TourDetail" class="com.opentravelsoft.action.manage.operate.TourDetailAction" singleton="false">
-  </bean>
+    <!-- TourUnite -->
+    <bean id="TourDetail" class="com.opentravelsoft.action.manage.operate.TourDetailAction" singleton="false">
+    </bean>
 
-  <!-- TourSearch -->
-  <bean id="TourSearch" class="com.opentravelsoft.action.manage.operate.TourSearchAction" singleton="false">
-  </bean>
+    <!-- TourSearch -->
+    <bean id="TourSearch" class="com.opentravelsoft.action.manage.operate.TourSearchAction" singleton="false">
+    </bean>
 
-  <!-- TourOperate -->
-  <bean id="TourOperate" class="com.opentravelsoft.action.manage.operate.TourOperateAction" singleton="false">
-  </bean>
+    <!-- TourOperate -->
+    <bean id="TourOperate" class="com.opentravelsoft.action.manage.operate.TourOperateAction" singleton="false">
+    </bean>
 
-  <!-- Arrange Leader -->
-  <bean id="ArrangeLeaderAction" class="com.opentravelsoft.action.manage.operate.ArrangeLeaderAction" singleton="false">
-  </bean>
+    <!-- Arrange Leader -->
+    <bean id="ArrangeLeaderAction" class="com.opentravelsoft.action.manage.operate.ArrangeLeaderAction" singleton="false">
+    </bean>
 
-  <!-- 修改客人信息 -->
-  <bean id="EditCustomerInfoAction" class="com.opentravelsoft.action.manage.operate.EditTouristInfoAction" singleton="false">
-  </bean>
+    <!-- 修改客人信息 -->
+    <bean id="EditCustomerInfoAction" class="com.opentravelsoft.action.manage.operate.EditTouristInfoAction" singleton="false">
+    </bean>
 
-  <!-- ToursSearchPrint -->
-  <bean id="ToursSearchPrint" class="com.opentravelsoft.action.manage.operate.ToursSearchPrintAction" singleton="false">
-  </bean>
+    <!-- ToursSearchPrint -->
+    <bean id="ToursSearchPrint" class="com.opentravelsoft.action.manage.operate.ToursSearchPrintAction" singleton="false">
+    </bean>
 
-  <!-- 计调单团核算 -->
-  <bean id="OpTourBalanceAction" class="com.opentravelsoft.action.manage.operate.OpTourBalanceAction" singleton="false">
-  </bean>
+    <!-- 计调单团核算 -->
+    <bean id="OpTourBalanceAction" class="com.opentravelsoft.action.manage.operate.OpTourBalanceAction" singleton="false">
+    </bean>
 
-  <!-- 计调付款申请书 -->
-  <bean id="PayRequisitionAction" class="com.opentravelsoft.action.manage.operate.billhead.PayRequisitionAction" singleton="false">
-  </bean>
+    <!-- 计调付款申请书 -->
+    <bean id="PayRequisitionAction" class="com.opentravelsoft.action.manage.operate.billhead.PayRequisitionAction" singleton="false">
+    </bean>
 
-  <!-- 查找付款申请书 -->
-  <bean id="ListPayRequisitionAction" class="com.opentravelsoft.action.manage.operate.billhead.ListPayRequisitionAction" singleton="false">
-  </bean>
+    <!-- 查找付款申请书 -->
+    <bean id="ListPayRequisitionAction" class="com.opentravelsoft.action.manage.operate.billhead.ListPayRequisitionAction" singleton="false">
+    </bean>
 
-  <!-- 修改付款申请书 -->
-  <bean id="EditPayRequisitionAction" class="com.opentravelsoft.action.manage.operate.billhead.EditPayRequisitionAction" singleton="false">
-  </bean>
+    <!-- 修改付款申请书 -->
+    <bean id="EditPayRequisitionAction" class="com.opentravelsoft.action.manage.operate.billhead.EditPayRequisitionAction" singleton="false">
+    </bean>
 
-  <!-- 审核付款申请书 -->
-  <bean id="AuditPayRequisitionAction" class="com.opentravelsoft.action.manage.operate.billhead.AuditPayRequisitionAction" singleton="false">
-  </bean>
+    <!-- 审核付款申请书 -->
+    <bean id="AuditPayRequisitionAction" class="com.opentravelsoft.action.manage.operate.billhead.AuditPayRequisitionAction" singleton="false">
+    </bean>
 
-  <bean id="PriceUploadAction" class="com.opentravelsoft.action.manage.operate.PriceUploadAction" singleton="false">
-  </bean>
+    <bean id="PriceUploadAction" class="com.opentravelsoft.action.manage.operate.PriceUploadAction" singleton="false">
+    </bean>
 
-  <!-- 出团通知书 -->
-  <bean id="TourNoticeUploadAction" class="com.opentravelsoft.action.manage.operate.TourNoticeUploadAction" singleton="false">
-  </bean>
+    <!-- 出团通知书 -->
+    <bean id="TourNoticeUploadAction" class="com.opentravelsoft.action.manage.operate.TourNoticeUploadAction" singleton="false">
+    </bean>
 
-  <bean id="ListParcelAction" class="com.opentravelsoft.action.manage.operate.ListParcelAction" singleton="false">
-  </bean>
+    <bean id="ListParcelAction" class="com.opentravelsoft.action.manage.operate.ListParcelAction" singleton="false">
+    </bean>
 
-  <!-- 审核付款申请书 -->
-  <bean id="EditParcelAction" class="com.opentravelsoft.action.manage.operate.EditParcelAction" singleton="false">
-  </bean>
-</beans>
+    <!-- 审核付款申请书 -->
+    <bean id="EditParcelAction" class="com.opentravelsoft.action.manage.operate.EditParcelAction" singleton="false">
+    </bean>
+  </beans>

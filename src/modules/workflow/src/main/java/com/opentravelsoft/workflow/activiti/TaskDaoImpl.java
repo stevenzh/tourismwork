@@ -35,6 +35,7 @@ public class TaskDaoImpl extends HibernateDaoSupport implements TaskDao {
     this.processEngine = processEngine;
   }
 
+  @SuppressWarnings("unchecked")
   public void supplyJobs() {
     logger.debug("scheduling job starting...");
 

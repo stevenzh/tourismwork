@@ -99,8 +99,7 @@ public class EMailDeliveryMethod implements DeliveryMethod
         ByteArrayDataSource byteArrayDataSource = new ByteArrayDataSource(reportOutput.getContent(), reportOutput.getContentType());
         byteArrayDataSource.setName(reportName + reportOutput.getContentExtension());
         
-        if (reportSchedule.getExportType() == ExportType.HTML.getCode()
-                && reportSchedule.getReport().isJasperReport())
+        if (reportSchedule.getExportType() == ExportType.HTML.getCode())
         {
             Map imagesMap = ((JasperReportEngineOutput) reportOutput).getImagesMap();
 

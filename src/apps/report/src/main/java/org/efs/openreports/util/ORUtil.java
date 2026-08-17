@@ -31,33 +31,9 @@ import org.efs.openreports.objects.ReportParameterMap;
 import org.efs.openreports.objects.ReportUser;
 import org.efs.openreports.providers.ParameterProvider;
 
-import net.sf.jasperreports.engine.design.JRDesignParameter;
 
 public class ORUtil
 {
-	public static Map<String,JRDesignParameter> buildJRDesignParameters(Map<String,Object> parameters)
-	{
-		// convert parameters to JRDesignParameters so they can be parsed
-		HashMap<String,JRDesignParameter> jrParameters = new HashMap<String,JRDesignParameter>();
-
-		Iterator<String> iterator = parameters.keySet().iterator();
-		while (iterator.hasNext())
-		{
-			String key = iterator.next();
-			Object value = parameters.get(key);
-			
-			if (value != null)
-			{
-				JRDesignParameter jrParameter = new JRDesignParameter();
-				jrParameter.setName(key);
-				jrParameter.setValueClass(value.getClass());
-				
-				jrParameters.put(jrParameter.getName(), jrParameter);
-			}			
-		}
-
-		return jrParameters;
-	}
 	
 	/*
 	 * Build map containing the parameter name and a test value in order to validate

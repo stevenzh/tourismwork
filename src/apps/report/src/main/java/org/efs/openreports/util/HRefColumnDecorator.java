@@ -63,17 +63,5 @@ public class HRefColumnDecorator extends TableDecorator implements LocaleProvide
 	public Object getUsersLink()
 	{
 		return textProvider.getText(LocalStrings.LINK_USERS);	
-	}
-
-    @Override
-    public boolean isValidLocale(Locale arg0) {
-      // TODO Auto-generated method stub
-      return false;
-    }
-  
-    @Override
-    public boolean isValidLocaleString(String arg0) {
-      // TODO Auto-generated method stub
-      return false;
-    }	
+	}	
 }
