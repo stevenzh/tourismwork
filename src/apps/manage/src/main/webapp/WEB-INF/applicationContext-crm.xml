@@ -2,36 +2,36 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="
             http://www.springframework.org/schema/beans
-            http://www.springframework.org/schema/beans/spring-beans.xsd">
-  <beans default-autowire="byType">
+            http://www.springframework.org/schema/beans/spring-beans.xsd"
+  default-autowire="byType">
 
     <!-- 客户审核提醒 -->
-    <bean id="CustomerAlertAction" class="com.opentravelsoft.action.manage.account.CustomerAlertAction" singleton="false">
+    <bean id="CustomerAlertAction" class="com.opentravelsoft.action.manage.account.CustomerAlertAction" scope="prototype">
     </bean>
 
     <!-- AgentAction -->
-    <bean id="AgentAction" class="com.opentravelsoft.action.manage.account.ListCustomerAction" singleton="false">
+    <bean id="AgentAction" class="com.opentravelsoft.action.manage.account.ListCustomerAction" scope="prototype">
     </bean>
 
-    <bean id="EditAgentAction" class="com.opentravelsoft.action.manage.account.EditCustomerAction" singleton="false">
+    <bean id="EditAgentAction" class="com.opentravelsoft.action.manage.account.EditCustomerAction" scope="prototype">
     </bean>
 
     <!--联系人 -->
-    <bean id="ContactAction" class="com.opentravelsoft.action.manage.account.ListContactAction" singleton="false">
+    <bean id="ContactAction" class="com.opentravelsoft.action.manage.account.ListContactAction" scope="prototype">
     </bean>
-    <bean id="ContactActionEdit" class="com.opentravelsoft.action.manage.account.EditContactAction" singleton="false">
+    <bean id="ContactActionEdit" class="com.opentravelsoft.action.manage.account.EditContactAction" scope="prototype">
     </bean>
 
     <!-- 计调对应供应商 -->
-    <bean id="ListGroupSupplier" class="com.opentravelsoft.action.manage.account.ListTeamSupplierAction" singleton="false">
+    <bean id="ListGroupSupplier" class="com.opentravelsoft.action.manage.account.ListTeamSupplierAction" scope="prototype">
     </bean>
-    <bean id="EditGroupSupplier" class="com.opentravelsoft.action.manage.account.EditTeamSupplierAction" singleton="false">
-    </bean>
-
-    <bean id="AccountPopupAction" class="com.opentravelsoft.action.manage.account.AccountPopupAction" singleton="false">
+    <bean id="EditGroupSupplier" class="com.opentravelsoft.action.manage.account.EditTeamSupplierAction" scope="prototype">
     </bean>
 
-    <bean id="ListMemberAction" class="com.opentravelsoft.action.manage.account.ListMemberAction" singleton="false">
+    <bean id="AccountPopupAction" class="com.opentravelsoft.action.manage.account.AccountPopupAction" scope="prototype">
+    </bean>
+
+    <bean id="ListMemberAction" class="com.opentravelsoft.action.manage.account.ListMemberAction" scope="prototype">
     </bean>
 
   </beans>

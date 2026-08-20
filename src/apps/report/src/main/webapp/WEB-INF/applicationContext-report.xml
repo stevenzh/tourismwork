@@ -3,16 +3,16 @@
 
 <beans default-autowire="byType">
 
-  <bean id="RouteReportAction" class="com.opentravelsoft.report.action.LineReportAction" singleton="false">
+  <bean id="RouteReportAction" class="com.opentravelsoft.report.action.LineReportAction" scope="prototype">
   </bean>
 
-  <bean id="FopReportAction" class="com.opentravelsoft.report.action.FopReportAction" singleton="false">
+  <bean id="FopReportAction" class="com.opentravelsoft.report.action.FopReportAction" scope="prototype">
   </bean>
 
-  <bean id="ReportRunAction" class="com.opentravelsoft.report.action.ReportRunAction" singleton="false">
+  <bean id="ReportRunAction" class="com.opentravelsoft.report.action.ReportRunAction" scope="prototype">
   </bean>
 
-  <bean id="JxlsReportAction" class="com.opentravelsoft.report.action.JXLSReportAction" singleton="false">
+  <bean id="JxlsReportAction" class="com.opentravelsoft.report.action.JXLSReportAction" scope="prototype">
   </bean>
 
 </beans>

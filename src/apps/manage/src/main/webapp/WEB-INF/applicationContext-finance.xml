@@ -2,61 +2,61 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="
             http://www.springframework.org/schema/beans
-            http://www.springframework.org/schema/beans/spring-beans.xsd">
-  <beans default-autowire="byType">
+            http://www.springframework.org/schema/beans/spring-beans.xsd"
+  default-autowire="byType">
 
     <!-- 财务预警 -->
-    <bean id="FinanceAlertAction" class="com.opentravelsoft.action.manage.finance.FinanceAlertAction" singleton="false">
+    <bean id="FinanceAlertAction" class="com.opentravelsoft.action.manage.finance.FinanceAlertAction" scope="prototype">
     </bean>
 
     <!-- 制作收款销帐 -->
-    <bean id="IncomeAction" class="com.opentravelsoft.action.manage.finance.income.IncomeAction" singleton="false">
+    <bean id="IncomeAction" class="com.opentravelsoft.action.manage.finance.income.IncomeAction" scope="prototype">
     </bean>
 
     <!-- 查询收款销账 -->
-    <bean id="ListIncomeAction" class="com.opentravelsoft.action.manage.finance.income.ListIncomeAction" singleton="false">
+    <bean id="ListIncomeAction" class="com.opentravelsoft.action.manage.finance.income.ListIncomeAction" scope="prototype">
     </bean>
 
     <!-- 修改收款销账 -->
-    <bean id="EditIncomeAction" class="com.opentravelsoft.action.manage.finance.income.EditIncomeAction" singleton="false">
+    <bean id="EditIncomeAction" class="com.opentravelsoft.action.manage.finance.income.EditIncomeAction" scope="prototype">
     </bean>
 
     <!-- 单团核算 -->
-    <bean id="SingleTourBalanceAction" class="com.opentravelsoft.action.manage.finance.SingleTourBalanceAction" singleton="false">
+    <bean id="SingleTourBalanceAction" class="com.opentravelsoft.action.manage.finance.SingleTourBalanceAction" scope="prototype">
     </bean>
 
     <!-- 修改预定单应收款 -->
-    <bean id="MustPayModifyAction" class="com.opentravelsoft.action.manage.finance.MustPayModifyAction" singleton="false">
+    <bean id="MustPayModifyAction" class="com.opentravelsoft.action.manage.finance.MustPayModifyAction" scope="prototype">
     </bean>
 
     <!-- 财务付款申请书 -->
-    <bean id="FrListPayRequisitionAction" class="com.opentravelsoft.action.manage.finance.billhead.ListPayRequisitionAction" singleton="false">
+    <bean id="FrListPayRequisitionAction" class="com.opentravelsoft.action.manage.finance.billhead.ListPayRequisitionAction" scope="prototype">
     </bean>
 
     <!-- 财务付款申请书 -->
-    <bean id="FrEditPayRequisitionAction" class="com.opentravelsoft.action.manage.finance.billhead.EditPayRequisitionAction" singleton="false">
+    <bean id="FrEditPayRequisitionAction" class="com.opentravelsoft.action.manage.finance.billhead.EditPayRequisitionAction" scope="prototype">
     </bean>
 
     <!-- 审核付款申请书 -->
-    <bean id="FrAuditPayRequisitionAction" class="com.opentravelsoft.action.manage.finance.billhead.AuditPayRequisitionAction" singleton="false">
+    <bean id="FrAuditPayRequisitionAction" class="com.opentravelsoft.action.manage.finance.billhead.AuditPayRequisitionAction" scope="prototype">
     </bean>
 
     <!-- 实付登记 -->
-    <bean id="FactualRegisterAction" class="com.opentravelsoft.action.manage.finance.billhead.FactualRegisterAction" singleton="false">
+    <bean id="FactualRegisterAction" class="com.opentravelsoft.action.manage.finance.billhead.FactualRegisterAction" scope="prototype">
     </bean>
 
     <!-- 应收账款查询 -->
-    <bean id="SearchIncome" class="com.opentravelsoft.action.manage.finance.SearchIncomeAction" singleton="false">
+    <bean id="SearchIncome" class="com.opentravelsoft.action.manage.finance.SearchIncomeAction" scope="prototype">
     </bean>
     <!-- 应付账款查询 -->
-    <bean id="OutcomeSearchAction" class="com.opentravelsoft.action.manage.finance.OutcomeSearchAction" singleton="false">
+    <bean id="OutcomeSearchAction" class="com.opentravelsoft.action.manage.finance.OutcomeSearchAction" scope="prototype">
     </bean>
     <!-- 应收客户对帐单 -->
-    <bean id="CollateIncomeAction" class="com.opentravelsoft.action.manage.finance.CollateIncomeAction" singleton="false">
+    <bean id="CollateIncomeAction" class="com.opentravelsoft.action.manage.finance.CollateIncomeAction" scope="prototype">
     </bean>
 
     <!-- 单团收款销帐 -->
-    <bean id="SingleTourIncome" class="com.opentravelsoft.action.manage.finance.income.TourIncomeAction" singleton="false">
+    <bean id="SingleTourIncome" class="com.opentravelsoft.action.manage.finance.income.TourIncomeAction" scope="prototype">
     </bean>
 
     <!-- 担保 -->
@@ -64,9 +64,9 @@
     </bean>
 
     <!-- 按地区查询出团计划 -->
-    <bean id="ListInvoiceAction" class="com.opentravelsoft.action.manage.finance.invoice.ListInvoice" singleton="false">
+    <bean id="ListInvoiceAction" class="com.opentravelsoft.action.manage.finance.invoice.ListInvoice" scope="prototype">
     </bean>
-    <bean id="InvoiceAction" class="com.opentravelsoft.action.manage.finance.invoice.InvoiceAction" singleton="false">
+    <bean id="InvoiceAction" class="com.opentravelsoft.action.manage.finance.invoice.InvoiceAction" scope="prototype">
     </bean>
 
   </beans>

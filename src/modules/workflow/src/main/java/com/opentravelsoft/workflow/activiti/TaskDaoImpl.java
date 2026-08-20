@@ -35,14 +35,14 @@ public class TaskDaoImpl extends HibernateDaoSupport implements TaskDao {
     this.processEngine = processEngine;
   }
 
-  @SuppressWarnings("unchecked")
   public void supplyJobs() {
     logger.debug("scheduling job starting...");
 
     StringBuilder sb = new StringBuilder();
     sb.append("from com.opentravelsoft.entity.Express ");
     sb.append("where workflowId is null ");
-    List<Express> list = getHibernateTemplate().find(sb.toString());
+    @SuppressWarnings("unchecked")
+    List<Express> list = (List<Express>) getHibernateTemplate().find(sb.toString());
 
     logger.debug(list.size() + "个新配送单.");
     for (Express express : list) {
@@ -82,7 +82,8 @@ public class TaskDaoImpl extends HibernateDaoSupport implements TaskDao {
     sb = new StringBuilder();
     sb.append("from com.opentravelsoft.entity.Booking ");
     sb.append("where readKey!='Y' and workflowId is null ");
-    List<Booking> list2 = getHibernateTemplate().find(sb.toString());
+    @SuppressWarnings("unchecked")
+    List<Booking> list2 = (List<Booking>) getHibernateTemplate().find(sb.toString());
 
     logger.debug(list2.size() + "个新订单.");
 

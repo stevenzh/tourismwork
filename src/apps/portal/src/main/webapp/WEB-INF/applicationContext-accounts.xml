@@ -4,23 +4,23 @@
 <beans default-autowire="byType">
 
   <!-- Booking -->
-  <bean id="OrderBookingAction" class="com.opentravelsoft.action.booking.OrderBookingAction" singleton="false">
+  <bean id="OrderBookingAction" class="com.opentravelsoft.action.booking.OrderBookingAction" scope="prototype">
   </bean>
-  <bean id="InvoiceAction" class="com.opentravelsoft.action.branch.InvoiceAction" singleton="false">
-  </bean>
-
-  <bean id="PaymentSearchAction" class="com.opentravelsoft.action.account.PaymentSearchAction" singleton="false">
+  <bean id="InvoiceAction" class="com.opentravelsoft.action.branch.InvoiceAction" scope="prototype">
   </bean>
 
-  <bean id="FileDownloadAction" class="com.opentravelsoft.action.account.FileDownloadAction" singleton="false">
+  <bean id="PaymentSearchAction" class="com.opentravelsoft.action.account.PaymentSearchAction" scope="prototype">
   </bean>
 
-  <bean id="ManageAccountAction" class="com.opentravelsoft.action.account.ManageAccountAction" singleton="false">
+  <bean id="FileDownloadAction" class="com.opentravelsoft.action.account.FileDownloadAction" scope="prototype">
   </bean>
 
-  <bean id="MyInfoAction" class="com.opentravelsoft.action.account.MyInfoAction" singleton="false">
+  <bean id="ManageAccountAction" class="com.opentravelsoft.action.account.ManageAccountAction" scope="prototype">
   </bean>
-  <bean id="RetrieveMemberAction" class="com.opentravelsoft.action.account.RetrieveMemberAction" singleton="false">
+
+  <bean id="MyInfoAction" class="com.opentravelsoft.action.account.MyInfoAction" scope="prototype">
+  </bean>
+  <bean id="RetrieveMemberAction" class="com.opentravelsoft.action.account.RetrieveMemberAction" scope="prototype">
   </bean>
 
 </beans>

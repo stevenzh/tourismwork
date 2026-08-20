@@ -1,42 +1,45 @@
 <?xml version="1.0" ?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
-<beans default-autowire="byType">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd"
+  default-autowire="byType">
 
   <!-- EmployeeAction -->
-  <bean id="UserAction" class="com.opentravelsoft.action.manage.setting.ListEmployeeAction" singleton="false">
+  <bean id="UserAction" class="com.opentravelsoft.action.manage.setting.ListEmployeeAction" scope="prototype">
   </bean>
-  <bean id="EditUserAction" class="com.opentravelsoft.action.manage.setting.EditEmployeeAction" singleton="false">
+  <bean id="EditUserAction" class="com.opentravelsoft.action.manage.setting.EditEmployeeAction" scope="prototype">
   </bean>
 
   <!-- Group -->
-  <bean id="DepartmentAction" class="com.opentravelsoft.action.manage.setting.DepartmentAction" singleton="false">
+  <bean id="DepartmentAction" class="com.opentravelsoft.action.manage.setting.DepartmentAction" scope="prototype">
   </bean>
 
   <!-- Module -->
-  <bean id="ListModuleAction" class="com.opentravelsoft.action.manage.setting.ListModuleAction" singleton="false">
+  <bean id="ListModuleAction" class="com.opentravelsoft.action.manage.setting.ListModuleAction" scope="prototype">
   </bean>
-  <bean id="EditModuleAction" class="com.opentravelsoft.action.manage.setting.EditModuleAction" singleton="false">
+  <bean id="EditModuleAction" class="com.opentravelsoft.action.manage.setting.EditModuleAction" scope="prototype">
   </bean>
 
   <!-- Role -->
-  <bean id="ListRoleAction" class="com.opentravelsoft.action.manage.setting.ListRoleAction" singleton="false">
+  <bean id="ListRoleAction" class="com.opentravelsoft.action.manage.setting.ListRoleAction" scope="prototype">
   </bean>
-  <bean id="EditRoleAction" class="com.opentravelsoft.action.manage.setting.EditRoleAction" singleton="false">
+  <bean id="EditRoleAction" class="com.opentravelsoft.action.manage.setting.EditRoleAction" scope="prototype">
   </bean>
 
   <!-- System Config -->
-  <bean id="ListConfigAction" class="com.opentravelsoft.action.manage.setting.ListConfigAction" singleton="false">
+  <bean id="ListConfigAction" class="com.opentravelsoft.action.manage.setting.ListConfigAction" scope="prototype">
   </bean>
-  <bean id="EditConfigAction" class="com.opentravelsoft.action.manage.setting.EditConfigAction" singleton="false">
+  <bean id="EditConfigAction" class="com.opentravelsoft.action.manage.setting.EditConfigAction" scope="prototype">
   </bean>
 
   <!-- Lists -->
-  <bean id="ListAction" class="com.opentravelsoft.action.manage.setting.ListAction" singleton="false">
+  <bean id="ListAction" class="com.opentravelsoft.action.manage.setting.ListAction" scope="prototype">
   </bean>
-  <bean id="EditListAction" class="com.opentravelsoft.action.manage.setting.EditListAction" singleton="false">
+  <bean id="EditListAction" class="com.opentravelsoft.action.manage.setting.EditListAction" scope="prototype">
   </bean>
 
-  <bean id="EditTeamAction" class="com.opentravelsoft.action.manage.setting.EditTeamAction" singleton="false">
+  <bean id="EditTeamAction" class="com.opentravelsoft.action.manage.setting.EditTeamAction" scope="prototype">
   </bean>
 
 </beans>

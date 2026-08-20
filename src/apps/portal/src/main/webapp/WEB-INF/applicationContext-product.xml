@@ -2,32 +2,32 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans default-autowire="byType">
 
-  <bean id="BaseAction" class="com.opentravelsoft.BaseAction" singleton="false">
+  <bean id="BaseAction" class="com.opentravelsoft.BaseAction" scope="prototype">
   </bean>
 
-  <bean id="LineListAction" class="com.opentravelsoft.action.product.LineListAction" singleton="false">
+  <bean id="LineListAction" class="com.opentravelsoft.action.product.LineListAction" scope="prototype">
   </bean>
 
-  <bean id="LineSearchAction" class="com.opentravelsoft.action.product.LineSearchAction" singleton="false">
+  <bean id="LineSearchAction" class="com.opentravelsoft.action.product.LineSearchAction" scope="prototype">
   </bean>
 
-  <bean id="BranchAction" class="com.opentravelsoft.action.branch.BranchAction" singleton="false">
+  <bean id="BranchAction" class="com.opentravelsoft.action.branch.BranchAction" scope="prototype">
   </bean>
 
-  <bean id="VisaLineAction" class="com.opentravelsoft.action.product.VisaListAction" singleton="false">
+  <bean id="VisaLineAction" class="com.opentravelsoft.action.product.VisaListAction" scope="prototype">
   </bean>
-  <bean id="VisaListAction" class="com.opentravelsoft.action.product.VisaListAction" singleton="false">
+  <bean id="VisaListAction" class="com.opentravelsoft.action.product.VisaListAction" scope="prototype">
   </bean>
-  <bean id="VisaDetailAction" class="com.opentravelsoft.action.product.VisaHelpAction" singleton="false">
-  </bean>
-
-  <bean id="LineDetailAction" class="com.opentravelsoft.action.product.LineDetailAction" singleton="false">
+  <bean id="VisaDetailAction" class="com.opentravelsoft.action.product.VisaHelpAction" scope="prototype">
   </bean>
 
-  <bean id="PayerOLAction" class="com.opentravelsoft.action.pay.PayerOLAction" singleton="false">
+  <bean id="LineDetailAction" class="com.opentravelsoft.action.product.LineDetailAction" scope="prototype">
   </bean>
 
-  <bean id="ReceiveSmsAction" class="com.opentravelsoft.action.sms.ReceiveAction" singleton="false">
+  <bean id="PayerOLAction" class="com.opentravelsoft.action.pay.PayerOLAction" scope="prototype">
+  </bean>
+
+  <bean id="ReceiveSmsAction" class="com.opentravelsoft.action.sms.ReceiveAction" scope="prototype">
   </bean>
 
 </beans>

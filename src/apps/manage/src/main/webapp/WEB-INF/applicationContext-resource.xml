@@ -1,61 +1,64 @@
 <?xml version="1.0" ?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
-<beans default-autowire="byType">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd"
+  default-autowire="byType">
 
   <!--DistrictAction -->
-  <bean id="DistrictAction" class="com.opentravelsoft.action.manage.resource.ListDisctrictAction" singleton="false">
+  <bean id="DistrictAction" class="com.opentravelsoft.action.manage.resource.ListDisctrictAction" scope="prototype">
   </bean>
-  <bean id="EditDistrictAction" class="com.opentravelsoft.action.manage.resource.EditDistrictAction" singleton="false">
+  <bean id="EditDistrictAction" class="com.opentravelsoft.action.manage.resource.EditDistrictAction" scope="prototype">
   </bean>
 
   <!-- FIT Category -->
-  <bean id="LineThemeAction" class="com.opentravelsoft.action.manage.vacation.LineThemeAction" singleton="false">
+  <bean id="LineThemeAction" class="com.opentravelsoft.action.manage.vacation.LineThemeAction" scope="prototype">
   </bean>
 
   <!-- Category -->
-  <bean id="CategoryAction" class="com.opentravelsoft.action.manage.product.CategoryAction" singleton="false">
+  <bean id="CategoryAction" class="com.opentravelsoft.action.manage.product.CategoryAction" scope="prototype">
   </bean>
 
   <!-- VisaAction -->
-  <bean id="ListVisaAction" class="com.opentravelsoft.action.manage.product.ListVisaAction" singleton="false">
+  <bean id="ListVisaAction" class="com.opentravelsoft.action.manage.product.ListVisaAction" scope="prototype">
   </bean>
-  <bean id="EditVisaAction" class="com.opentravelsoft.action.manage.product.EditVisaAction" singleton="false">
+  <bean id="EditVisaAction" class="com.opentravelsoft.action.manage.product.EditVisaAction" scope="prototype">
   </bean>
 
   <!-- Airways -->
-  <bean id="AirwaysAction" class="com.opentravelsoft.action.manage.resource.ListAirwaysAction" singleton="false">
+  <bean id="AirwaysAction" class="com.opentravelsoft.action.manage.resource.ListAirwaysAction" scope="prototype">
   </bean>
-  <bean id="EditAirwaysAction" class="com.opentravelsoft.action.manage.resource.EditAirwaysAction" singleton="false">
+  <bean id="EditAirwaysAction" class="com.opentravelsoft.action.manage.resource.EditAirwaysAction" scope="prototype">
   </bean>
 
   <!-- Airport -->
-  <bean id="AirportAction" class="com.opentravelsoft.action.manage.resource.ListAirportAction" singleton="false">
+  <bean id="AirportAction" class="com.opentravelsoft.action.manage.resource.ListAirportAction" scope="prototype">
   </bean>
-  <bean id="EditAirportAction" class="com.opentravelsoft.action.manage.resource.EditAirportAction" singleton="false">
+  <bean id="EditAirportAction" class="com.opentravelsoft.action.manage.resource.EditAirportAction" scope="prototype">
   </bean>
 
   <!--Flight -->
-  <bean id="FlightAction" class="com.opentravelsoft.action.manage.resource.ListFlightAction" singleton="false">
+  <bean id="FlightAction" class="com.opentravelsoft.action.manage.resource.ListFlightAction" scope="prototype">
   </bean>
-  <bean id="EditFlightAction" class="com.opentravelsoft.action.manage.resource.EditFlightAction" singleton="false">
+  <bean id="EditFlightAction" class="com.opentravelsoft.action.manage.resource.EditFlightAction" scope="prototype">
   </bean>
 
   <!-- Sight -->
-  <bean id="SightAction" class="com.opentravelsoft.action.manage.resource.ListSightAction" singleton="false">
+  <bean id="SightAction" class="com.opentravelsoft.action.manage.resource.ListSightAction" scope="prototype">
   </bean>
-  <bean id="EditSightAction" class="com.opentravelsoft.action.manage.resource.EditSightAction" singleton="false">
+  <bean id="EditSightAction" class="com.opentravelsoft.action.manage.resource.EditSightAction" scope="prototype">
   </bean>
 
   <!-- 导陪档案 -->
-  <bean id="ListGuideAction" class="com.opentravelsoft.action.manage.setting.ListGuideAction" singleton="false">
+  <bean id="ListGuideAction" class="com.opentravelsoft.action.manage.setting.ListGuideAction" scope="prototype">
   </bean>
-  <bean id="EditGuideAction" class="com.opentravelsoft.action.manage.setting.EditGuideAction" singleton="false">
+  <bean id="EditGuideAction" class="com.opentravelsoft.action.manage.setting.EditGuideAction" scope="prototype">
   </bean>
 
   <!-- ShareFlightAction -->
-  <bean id="ListShareFlightAction" class="com.opentravelsoft.action.manage.product.ListShareFlightAction" singleton="false">
+  <bean id="ListShareFlightAction" class="com.opentravelsoft.action.manage.product.ListShareFlightAction" scope="prototype">
   </bean>
-  <bean id="EditShareFlightAction" class="com.opentravelsoft.action.manage.product.EditShareFlightAction" singleton="false">
+  <bean id="EditShareFlightAction" class="com.opentravelsoft.action.manage.product.EditShareFlightAction" scope="prototype">
   </bean>
 
 </beans>

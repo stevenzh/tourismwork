@@ -2,32 +2,31 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="
             http://www.springframework.org/schema/beans
-            http://www.springframework.org/schema/beans/spring-beans.xsd">
+            http://www.springframework.org/schema/beans/spring-beans.xsd"
+  default-autowire="byType">
 
-  <beans default-autowire="byType">
-
-    <bean id="ListEmployeeAction" class="com.opentravelsoft.json.ListEmployeeAction" singleton="false">
-    </bean>
-
-    <bean id="PinyinAction" class="com.opentravelsoft.json.PinyinAction" singleton="false">
+    <bean id="ListEmployeeAction" class="com.opentravelsoft.json.ListEmployeeAction" scope="prototype">
     </bean>
 
-    <bean id="AccountAction" class="com.opentravelsoft.json.AccountAction" singleton="false">
-    </bean>
-    <bean id="JsonContactAction" class="com.opentravelsoft.json.ContactAction" singleton="false">
+    <bean id="PinyinAction" class="com.opentravelsoft.json.PinyinAction" scope="prototype">
     </bean>
 
-    <bean id="MyTaskCountAction" class="com.opentravelsoft.json.MyTaskCountAction" singleton="false">
+    <bean id="AccountAction" class="com.opentravelsoft.json.AccountAction" scope="prototype">
+    </bean>
+    <bean id="JsonContactAction" class="com.opentravelsoft.json.ContactAction" scope="prototype">
     </bean>
 
-    <bean id="ModuleAction" class="com.opentravelsoft.json.ModuleAction" singleton="false">
+    <bean id="MyTaskCountAction" class="com.opentravelsoft.json.MyTaskCountAction" scope="prototype">
     </bean>
-    <bean id="DestinationAction" class="com.opentravelsoft.json.DestinationAction" singleton="false">
+
+    <bean id="ModuleAction" class="com.opentravelsoft.json.ModuleAction" scope="prototype">
     </bean>
-    <bean id="SalesAction" class="com.opentravelsoft.json.SalesAction" singleton="false">
+    <bean id="DestinationAction" class="com.opentravelsoft.json.DestinationAction" scope="prototype">
     </bean>
-    <bean id="HomePlaceAction" class="com.opentravelsoft.json.BirthPlaceAction" singleton="false">
+    <bean id="SalesAction" class="com.opentravelsoft.json.SalesAction" scope="prototype">
     </bean>
-    <bean id="CityAction" class="com.opentravelsoft.json.CityAction" singleton="false">
+    <bean id="HomePlaceAction" class="com.opentravelsoft.json.BirthPlaceAction" scope="prototype">
+    </bean>
+    <bean id="CityAction" class="com.opentravelsoft.json.CityAction" scope="prototype">
     </bean>
   </beans>
