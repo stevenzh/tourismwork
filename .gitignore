@@ -5,7 +5,7 @@
 .idea
 *.iml
 
-/docs
+/docs2
 /src/modules/core/target
 /src/modules/hibernate/target
 /src/modules/struts2/target
