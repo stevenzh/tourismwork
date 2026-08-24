@@ -21,18 +21,18 @@
 
 ### 版本及使用说明
 
-此次制作 All-Package，这个压缩包已经包括了 Tomcat6.0.20，MySQL Server 5.1，j2sdk1.5，GingkgoTravel 的发布文件（注意，仅能在 Windows 环境运行）。欢迎大家提出宝贵意见。
+此次制作 All-Package，这个压缩包已经包括了 Tomcat6.0.20，MySQL Server 5.1，j2sdk1.5，tourismwork 的发布文件（注意，仅能在 Windows 环境运行）。欢迎大家提出宝贵意见。
 
 ### 建议运行环境
 
 | 项目 | 配置要求 |
 |------|---------|
 | 硬件 | CPU主频2G，内存1G以上 |
-| 操作系统 | Windows XP pro / 2003 / Vista |
+| 操作系统 | Windows 7 / 10 / 11 |
 
 ---
 
-## GingkgoTravel-1.0-beta 启动方法
+## ToruismWork-1.0-beta 启动方法
 
 1. 解压本压缩包到你的工作目录
 2. 进入解压后的目录，用鼠标双击 `startup.bat` 运行
@@ -60,3 +60,8 @@
 ### 2. Tomcat 启动出错
 
 **答：** 如果 Tomcat 窗口显示端口 8080 被占用，那么需要查找 Windows 当前占用端口的程序，并终止它，然后再重新运行启动文件。通常占用 8080 端口的程序有 Tomcat，Oracle 的 XML 服务引擎，JBoss，或者其它服务器程序选用了 8080 作为监听端口。
+
+效果图
+![效果图](docs/ScreenShots/Login-1.png)
+![效果图](docs/ScreenShots/UserProfile.png)
+![效果图](docs/ScreenShots/DepartmentSetting.png)
