@@ -22,7 +22,7 @@
   </build>
 
   <properties>
-    <mybatis.version>3.0.6</mybatis.version>
+    <mybatis.version>3.5.6</mybatis.version>
     <com.ibm.icu.version>3.8</com.ibm.icu.version>
   </properties>
 
