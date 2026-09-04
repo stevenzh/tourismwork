@@ -33,7 +33,7 @@
     <commons-collections.version>3.2.2</commons-collections.version>
     <log4j.version>1.2.15</log4j.version>
     <slf4j.version>1.6.1</slf4j.version>
-    <springframework.version>3.0.6.RELEASE</springframework.version>
+    <springframework.version>6.0.0</springframework.version>
     <spring.security.version>3.0.6.RELEASE</spring.security.version>
     <struts.version>2.3.1.2</struts.version>
     <velocity.version>1.6.4</velocity.version>
